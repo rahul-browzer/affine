@@ -124,3 +124,36 @@ Rolling last `king_chain_size=5` **distinct** kings share emissions equally; onl
 ### Next
 
 Stage 1 offline replay of `chal-00224` (and `chal-00203`) from stored logprobs — no GPU.
+
+---
+
+## 2026-08-06T22:49Z — pass 2: Stage 1 offline replay (gate MET)
+
+### Machine reconcile
+
+`lium ps`: still only `affine-eval` + `affine-bench`. No `mine-*`. No inventory change. No spend.
+
+### What I did
+
+Downloaded `chal-00224.json.gz` (kevin954 sft vs genesis) and `chal-00203.json.gz`
+(pandora ckpt300-m4 vs genesis) into `experiments/s1-replay-chal00224/`.
+Recomputed with read-only `affine.affine.score.duel` (`replay.py`).
+
+### Numbers
+
+| duel | knobs | wins | margin | z | chall S / r |
+|---|---|---|---|---|---|
+| chal-00224 | old r_lo=1.0 | False | 0 | 0 | INVALID (r=0.716) |
+| chal-00224 | current | **True** | **+0.070000** | **6.3107** | S=0.039558 / r=0.716 |
+| chal-00203 | old r_lo=1.0 | False | 0 | 0 | INVALID (r=0.763) |
+| chal-00203 | current | **True** | **+0.060845** | **5.6472** | S=0.018731 / r=0.763 |
+
+Matches AGENTS.md retroactive claims (+0.070/z≈6.3, +0.061/z≈5.7). Published
+index margin=0 reproduced under old knobs. Clipped mean_mix bit-matches
+published summaries; kevin's mix equals live king S. Baseline ratios 1.06× /
+1.08× (inside 1.25 band).
+
+### Stage 1 gate
+
+**MET.** Next: Stage 2 — mine public duel records for ranked hypotheses
+(expected α per dollar), no GPU yet.
