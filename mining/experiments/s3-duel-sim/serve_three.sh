@@ -18,6 +18,32 @@ export VLLM_ALLREDUCE_USE_FLASHINFER=0
 export VLLM_USE_FLASHINFER_MOE_FP16=0
 export VLLM_USE_FLASHINFER_MOE_FP8=0
 export VLLM_USE_FLASHINFER_MOE_FP4=0
+# Stock `uv pip install vllm==0.22.1` does not ship a working deep_gemm on
+# these H200 images; FP8 load then hard-fails at KV-cache init. Eval pod may
+# bake deep_gemm in; until we match that, disable globally (vLLM documents
+# VLLM_USE_DEEP_GEMM=0 as the escape hatch).
+export VLLM_USE_DEEP_GEMM=0
+export VLLM_MOE_USE_DEEP_GEMM=0
+
+# Mirror evalsrv.engine._cuda_home: Lium images lack /usr/local/cuda; the
+# nvidia-cuda-nvcc wheel under site-packages/nvidia/cu13 has nvcc + headers.
+# Qwen3.6 GDN linear-attn JIT dies on first request without this.
+_SITE=$(python - <<'PY'
+import site
+print(site.getsitepackages()[0])
+PY
+)
+_CU13="${_SITE}/nvidia/cu13"
+if [[ -x "${_CU13}/bin/nvcc" && -f "${_CU13}/include/cuda_fp16.h" ]]; then
+  export CUDA_HOME=${CUDA_HOME:-$_CU13}
+  export CUDA_PATH=$CUDA_HOME
+  export PATH="${CUDA_HOME}/bin:${PATH}"
+  export LD_LIBRARY_PATH="${CUDA_HOME}/lib:${CUDA_HOME}/lib64:${LD_LIBRARY_PATH:-}"
+  export LIBRARY_PATH="${CUDA_HOME}/lib:${CUDA_HOME}/lib64:${LIBRARY_PATH:-}"
+  echo "[serve] CUDA_HOME=$CUDA_HOME"
+else
+  echo "[serve] WARN: no complete pip cu13 toolkit at $_CU13 — GDN JIT may fail"
+fi
 
 TEACHER_REPO=${TEACHER_REPO:-zai-org/GLM-4.5-Air-FP8}
 TEACHER_REV=${TEACHER_REV:-}
@@ -45,6 +71,11 @@ _launch() {
   if [[ -n "$rev" ]]; then
     rev_args=(--revision "$rev")
   fi
+  # Qwen3.6 GDN on Hopper (H200): gdn_prefill_backend=auto → FlashInfer JIT
+  # of gdn_prefill_sm90; pip cu13 nvcc/headers are incompatible and the engine
+  # dies on first request. Triton skips that path (evalsrv bench role does the
+  # same). Harmless on GLM teacher.
+  local extra_args=(--additional-config '{"gdn_prefill_backend": "triton"}')
   echo "[serve] $(date -u +%Y-%m-%dT%H:%M:%SZ) start $name repo=$repo rev=${rev:-latest} port=$port gpus=$gpus"
   CUDA_VISIBLE_DEVICES=$gpus nohup vllm serve "$repo" \
     --port "$port" \
@@ -56,6 +87,7 @@ _launch() {
     --attention-config.use_trtllm_attention 0 \
     --compilation-config.pass_config.fuse_allreduce_rms false \
     --moe-backend triton \
+    "${extra_args[@]}" \
     "${rev_args[@]}" \
     >"$log" 2>&1 &
   echo $! >"$pidf"

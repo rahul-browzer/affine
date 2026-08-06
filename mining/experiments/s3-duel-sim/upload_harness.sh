@@ -22,6 +22,7 @@ cp -a "$ROOT/affine/affine.toml" "$STAGE/affine_pkg/"
 cp -a "$ROOT/affine/affine/." "$STAGE/affine_pkg/affine/"
 cp -a "$ROOT/affine/evalsrv/." "$STAGE/affine_pkg/evalsrv/"
 cp -a "$ROOT/mining/experiments/s3-duel-sim/"*.sh "$STAGE/s3-duel-sim/"
+cp -a "$ROOT/mining/experiments/s3-duel-sim/"*.py "$STAGE/s3-duel-sim/" 2>/dev/null || true
 cp -a "$ROOT/mining/experiments/s3-duel-sim/plan.md" "$STAGE/s3-duel-sim/"
 cp -a "$ROOT/mining/experiments/s1-replay-chal00224/chal-00224.json.gz" "$STAGE/data/"
 
@@ -36,10 +37,12 @@ ls -lh "$TAR"
   tar -C /root/mining_src -xzf /tmp/mine-s3-harness.tar.gz
   mv /root/mining_src/data/chal-00224.json.gz /root/affine_data/
   rmdir /root/mining_src/data 2>/dev/null || true
-  chmod +x /root/mining_src/s3-duel-sim/*.sh
+  chmod +x /root/mining_src/s3-duel-sim/*.sh /root/mining_src/s3-duel-sim/*.py
   test -f /root/mining_src/affine_pkg/affine/score.py
   test -f /root/mining_src/affine_pkg/evalsrv/dueling.py
   test -f /root/mining_src/s3-duel-sim/serve_three.sh
+  test -f /root/mining_src/s3-duel-sim/run_gate.py
+  test -f /root/mining_src/s3-duel-sim/sync_corpus.sh
   test -f /root/affine_data/chal-00224.json.gz
   echo HARNESS_UPLOAD_OK
   ls -la /root/mining_src/affine_pkg /root/mining_src/s3-duel-sim /root/affine_data'

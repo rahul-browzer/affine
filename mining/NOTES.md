@@ -258,3 +258,40 @@ Lium $34,703.01; floor OK. No new rental. Mining spend ≈ $2.66 accruing.
 
 On `bootstrap.done`: `serve_three.sh` → `wait_ready.sh` → Stage 3 gate score.
 Do not train/submit. Extend TTL before 04:53Z if needed.
+
+---
+
+## 2026-08-06T23:32Z — pass 7: serve up + Stage 3 gate scoring in flight
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $15.29; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Bootstrap finished (teacher + kevin + genesis all on pod HF cache).
+2. Synced public corpus → `/root/affine_data/turns.jsonl` (9000 turns,
+   manifest `515df523…` matches chal-00224 slice stamp).
+3. Wrote/uploaded `run_gate.py`, `sync_corpus.sh`, `start_gate.sh`.
+4. First serve attempt failed:
+   - `DeepGEMM backend not available` → set `VLLM_USE_DEEP_GEMM=0`.
+   - Qwen3.6 GDN first request: missing `CUDA_HOME` → point at pip
+     `site-packages/nvidia/cu13` (nvcc + headers).
+   - Then FlashInfer `gdn_prefill_sm90` ninja JIT:
+     `CUDA compiler and CUDA toolkit headers are incompatible` → add
+     `--additional-config '{"gdn_prefill_backend": "triton"}'` (same as
+     evalsrv bench role on Hopper).
+5. Relaunch: all three `/v1/models` OK. Gate smoke:
+   `chall lp_per_byte=-0.160177 n_tok=15`. Rescore at ~20/80 both sides
+   when pass ended (`/root/logs/gate.log`).
+
+### Money
+
+Lium $34,648.42; floor OK. Mining spend ≈ $15.29 accruing. No new rental.
+TTL still 2026-08-07T04:53:17Z.
+
+### Next
+
+Collect `s3_gate_result.json`. Stage 3 MET if kevin wins with margin ≥0.04
+or within ~0.02 of published +0.070. Then Stage 4. Do not submit.
