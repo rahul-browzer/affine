@@ -1,80 +1,88 @@
 # HYPOTHESES — falsifiable claims
 
-One entry per hypothesis. Keep refuted entries.
-**Ranked by expected α per dollar (Stage 2 gate — 2026-08-06T22:51Z).**
+Ranked by expected α per dollar after Stage 2 public-duel mining
+(`experiments/s2-public-duel-mine/`, 2026-08-06). Keep refuted entries.
 
-Evidence: `experiments/s2-public-duel-mine/{table.txt,summary.json,result.md}`.
+## Ranked (Stage 2 gate)
+
+| rank | id | expected α/$ | predicted effect on S / margin | status |
+|---|---|---|---|---|
+| 1 | H1 | highest | sim margin vs kevin **> 0.04** after teacher-ref SFT from kevin init | open |
+| 2 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | open |
+| 3 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule) |
+| 4 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
+| 5 | H5 | medium | SFT on near-miss lineage to flip −0.0027 → >+0.04 | open |
 
 ---
 
-## Ranked open (do these in order)
+## H1 — teacher-ref SFT beats the king (prior art)
 
-### #1 — H1 teacher-ref SFT beats the king
 - **Claim:** SFT / distill on published `teacher_refs` (z_C, y_C) from duel
-  records raises S enough to clear sim margin > 0.04 vs current king.
-- **Why #1 α/$:** Both live crowns are this lineage (pandora ckpt300-m4, kevin
-  sft). Every sampled duel ships 80 teacher refs for free. No need to invent a
-  thought distribution — copy the teacher's on scored turns.
-- **Target shape (from winners):** r ∈ [0.65, 0.85], base× ≤ 1.15, bank ≫ 0.08,
-  mean clipL1 ≥ +0.03, Λ2 ≥ king Λ2 (~+0.009 on kevin's crown duel).
-- **Experiment:** Stage 4 after Stage 3 simulator gate; train on pod
-  `mine-sft-1`, score vs `kevin954/Affine-5dfqbbh8ev-sft`.
-- **Prediction (pre-register):** challenger mean S ≥ king S + 0.04 on an
-  80-turn public-D slice; all gates pass; r ∈ [0.65, 0.85].
-- **Predicted ΔS vs king:** **+0.04 to +0.08** (kevin beat genesis by +0.070;
-  next crown needs >0.02 live / >0.04 our submit gate).
-- **Verdict:** open — highest expected α/$.
+  records, starting from `kevin954/Affine-5dfqbbh8ev-sft` (or pandora-m4 /
+  hf99jack-cali), raises S enough to clear sim margin > 0.04 vs current king.
+- **Evidence (Stage 2):** all three current-knob winners are distill/SFT-shaped
+  (r 0.716 / 0.763 / 0.755; clip-L1 +0.031 / +0.026 / +0.026; base× ≈ 1.06–1.08).
+  Crown margins vs genesis +0.070 / +0.061 / +0.041.
+- **Experiment:** Stage 4 local duel sim after Stage 3 gate; train on pod
+  `mine-sft-1` using teacher_refs harvested from public gz.
+- **Prediction (pre-register before train):** challenger mean paired margin ≥
+  **+0.04** vs live king on an 80-turn public-D slice, all gates passing,
+  r∈[0.70,0.85], base×≤1.15.
+- **Verdict:** open.
 
-### #2 — H2 weight-merge of recent kings beats both
-- **Claim:** Linear / SLERP merge of `kevin954/…-sft` ×
-  `pandora-box/…ckpt300-m4` (and/or m3) yields S > max(parents) at near-zero
-  train cost.
-- **Why #2 α/$:** Merge is hours of GPU vs days of SFT; m3 already shows
-  winner-shaped r=0.81 / clipL1=+0.021 (chal-00194 recompute margin +0.029).
-  Cheap probe before committing to a long SFT.
+## H2 — weight-merge of recent kings / near-kings beats both
+
+- **Claim:** A linear / SLERP merge of `kevin954/…-sft` with
+  `pandora-box/…ckpt300-m4` and/or `hf99jack/…-cali` yields S > kevin at
+  near-zero train cost (not weight-identical).
+- **Evidence:** three independent distill-shaped winners; merges of strong
+  peers are cheap and often beat parents in this meta.
 - **Experiment:** merge on `mine-merge-1`; score in Stage 3 simulator.
-- **Prediction:** first merge clears noise floor (margin > 0.02 vs king);
-  often clears our 0.04 submit gate.
-- **Predicted ΔS vs king:** **+0.02 to +0.05**.
-- **Verdict:** open — run in parallel with H1 once simulator exists; prefer
-  this if Lium budget is tight.
+- **Prediction:** merge paired margin over kevin > **0.02** on first try;
+  often > **0.04**. If < 0.02 after two merge recipes, refute for these parents.
+- **Verdict:** open.
 
-### #3 — H3 L1lift is the cheap lever once Λ2 is near king
+## H3 — L1lift is the cheap lever once Λ2 is near king
+
 - **Claim:** After thoughts are teacher-like enough for Λ2≈king, most remaining
   crown margin comes from clipped L1lift (cap ±0.1/turn).
-- **Evidence (Stage 2):** n=15 valid duels; Spearman(Δmix, ΔclipL1)=**0.936**
-  vs Spearman(Δmix, ΔΛ2)=0.711; winners' paired margins are 57–82% ΔclipL1;
-  kevin mean clipL1=+0.031 with only 19% pairs at +clip ⇒ ~+0.069 headroom to
-  the +0.1 mean cap.
-- **Experiment (operational):** treat as selection / train objective inside H1
-  and H2 — not a third model family. Reject candidates with mean clipL1 <
-  king's unless ΔΛ2 alone clears +0.04.
-- **Prediction (already tested on public data):** ΔS correlates more with
-  ΔclipL1 than ΔΛ2 — **confirmed**.
-- **Predicted residual headroom on S if Λ2 held at king and clipL1 → +0.1:**
-  up to **~+0.069** (upper bound; r / baseline_band will bind earlier).
-- **Verdict:** **supported** (public-duel decomposition). Keep as objective
-  constraint for H1/H2, not a separate rental.
+- **Experiment:** Stage 2 decomposition — DONE.
+- **Prediction (pre-registered):** among valid duels, |ρ(d_mix, d_clip_l1)| >
+  |ρ(d_mix, d_Λ2)| and mean|d_clip_l1| ≥ mean|d_Λ2|.
+- **Result:** n=14 valid; ρ(d_mix, d_clip_l1)=**+0.921** vs ρ(d_mix, d_Λ2)=+0.644;
+  mean|d_clip_l1|=0.0177 > mean|d_Λ2|=0.0091. Kevin mean clip-L1 only +0.031
+  (frac at +0.1 cap = 0.19) → up to ~+0.069 S headroom from L1 alone if gates hold.
+- **Verdict:** **supported.**
 
----
+## H4 — stay inside the distill envelope (gate hygiene)
 
-## Supporting observations (not separate bets yet)
+- **Claim:** Optimizing raw L1 by inflating empty baseline (raising
+  mean|lpA(y_C|∅)|) is net-negative under current knobs: base× > 1.25 ⇒ INVALID
+  (margin forced 0). Winning envelope is r∈[~0.70,0.85], base×≤~1.15, positive
+  clip-L1 via *better* lpA(y_C|z_A), not worse empty.
+- **Evidence:** chal-00178 base×=1.86 and chal-00181 base×=3.06 → band fail;
+  winners all ≤1.08×.
+- **Experiment:** any Stage 4 candidate failing this envelope is rejected before
+  submit (no burned slot).
+- **Prediction:** every future crown we take will satisfy this envelope; any
+  candidate with base×>1.20 will lose or INVALID in sim.
+- **Verdict:** open (design rule; reinforced by Stage 2).
 
-### H4 — baseline sabotage is dead; do not chase free L1 via empty baseline
-- chal-00178 / 00181 killed at base× 1.86 / 3.06. Honest winners sit at
-  1.06–1.08×. Soft cap for us: base× ≤ 1.15 in sim before submit.
-- **Verdict:** supported as a negative constraint.
+## H5 — near-miss continuation (michael-chan h2 class)
 
-### H5 — r>1 is a losing signature on this sample
-- Valid losers cluster at r>1 with negative clipL1; winners at r≈0.72–0.76.
-- **Verdict:** supported as a filter (reject r>1.0 candidates early).
+- **Claim:** Live-king near-miss `michael-chan-000/affine-5EqYW8McUc-h2`
+  (chal-00254, margin **−0.0027**, cS=+0.0176, clip-L1 only +0.0148) is one
+  small teacher-ref SFT away from clearing noise — but our submit gate needs
+  **>0.04**, so treat as a warm start, not a one-shot.
+- **Experiment:** optional after H1/H2; Stage 4 sim.
+- **Prediction:** +teacher-ref SFT from that init → margin ≥ +0.02 vs kevin;
+  reaching +0.04 may still need H1-from-kevin or a merge.
+- **Verdict:** open (lower priority than H1/H2).
 
----
+## Scaffolding
 
-## Scaffolding / closed
-
-### H0 — scaffolding
-- **Status:** closed (Stages 0–2 done).
+### H0 — scaffolding / no claim yet
+- **Status:** retired (Stage 0–1 done).
 
 ## Refuted
 
