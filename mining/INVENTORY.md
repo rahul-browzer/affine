@@ -5,9 +5,9 @@ Never touch pods whose names do not start with `mine-`.
 
 ## Live inventory
 
-| name | huid | gpu | $/hr | ttl | purpose | status | notes |
-|---|---|---|---|---|---|---|---|
-| *(empty)* | | | | | | | |
+| name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
+|---|---|---|---|---|---|---|---|---|
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | 2026-08-07T04:53:17Z | Stage 3 duel simulator | RUNNING | SSH `root@69.63.236.160 -p 40301`; bootstrap downloading models |
 
 ## Reconcile log
 
@@ -16,3 +16,5 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-06T22:47:00Z | none | none — only `affine-eval` (8×B300 $64/h) and `affine-bench` (8×H200 $5.80/h) live; both validator-owned, left alone |
 | 2026-08-06T22:49:00Z | none | none — same two validator pods; no orphans |
 | 2026-08-06T22:51:06Z | none | none — same two validator pods; no orphans; Stage 2 closed this pass |
+| 2026-08-06T22:53:18Z | none → mine-sim-1 | rented `lium up 1` after `lium ls --gpu H200 --count 8 --sort price_per_hour` (cheapest = $23.60/h); `--name mine-sim-1 --ttl 6h --no-ssh -y`; validator pods untouched |
+| 2026-08-06T22:57:35Z | mine-sim-1 RUNNING | confirmed; spent ≈ $0.5–1; bootstrap in progress |

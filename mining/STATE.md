@@ -4,11 +4,10 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 2 complete → enter Stage 3.**
+**Stage 3 in progress** (gate not yet met).
 
-Stage 0–1 gates met (passes 1–2). Stage 2 gate met (passes 3–4): public duel
-mining + decomposition; H3 supported; hypotheses ranked by expected α/$ in
-`HYPOTHESES.md` (H1 > H2 > H4 > H3 > H5). No GPU spend. No `mine-*` pods.
+Stage 0–2 complete. Pass 5 rented `mine-sim-1` and started pod bootstrap
+(vLLM pin + HF downloads). No serve/score yet. No submissions.
 
 ## Live facts (verified this pass)
 
@@ -21,38 +20,41 @@ mining + decomposition; H3 supported; hypotheses ranked by expected α/$ in
 | min_submission_block | 8767079 |
 | weight_version_key | 1 |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $34,709.52 (floor $28,000; re-check before rent) |
-| miner coldkey free | τ10.000 |
-| mining spend to date | $0 / τ0 |
+| Lium balance | $34,703.01 (floor $28,000) |
+| miner coldkey free | τ10.000 (unchanged) |
+| mining spend to date | accruing on `mine-sim-1` @ $23.60/h (TTL cap ≈ $141.60) |
 | our submissions | none |
-| mine-* pods | none (lium ps: only affine-eval + affine-bench) |
 
 ## What's running
 
-Nothing mining-owned.
+| name | huid | role | check |
+|---|---|---|---|
+| `mine-sim-1` | `swift-shark-52` | Stage 3 sim pod (8×H200 $23.60/h) | SSH `root@69.63.236.160 -p 40301`; TTL remove at **2026-08-07T04:53:17Z** |
+
+Bootstrap (single process): `bash /root/bootstrap.sh` under nohup.
+- **Done:** uv venv; `torch==2.11.0` / `transformers==5.14.1` / `vllm==0.22.1` verified.
+- **In flight (2026-08-06T22:57Z):** HF download of teacher `zai-org/GLM-4.5-Air-FP8` (~51% of 55 files; `/root/hf` ≈ 60G). Then kevin + genesis.
+- **Done marker:** `/root/logs/bootstrap.done`
+- **Log:** `tail -f /root/logs/bootstrap.log`
+
+```bash
+ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsFile=/tmp/mine-sim-1.known_hosts \
+  -p 40301 root@69.63.236.160 'tail -n 40 /root/logs/bootstrap.log; ls /root/logs/bootstrap.done'
+```
+
+Plan: `experiments/s3-duel-sim/plan.md`. Bootstrap script: `experiments/s3-duel-sim/bootstrap.sh`.
+
+Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing. Stage 3 may rent **one** `mine-sim-1` pod only after re-checking
-`lium balance` ≥ $28k + rental headroom and cumulative mining spend ≤ $4k.
+Nothing hard. Soft: wait for downloads before serve (~teacher alone is large).
 
 ## Next action (single, highest value)
 
-**Stage 3 — build local duel simulator on one rented pod.**
-
-1. Re-check `lium balance`; if renting would breach $28k floor, stop and record.
-2. `lium up` a single pod named `mine-sim-1` with `--ttl` (suggest 6h), record in
-   `INVENTORY.md` + `LEDGER.md` in the same pass.
-3. On the pod: serve teacher + king + a known challenger under eval stack
-   (vllm 0.22.1 / TP=2 / max-model-len 32768), run real scoring path on a
-   public-D slice.
-4. Gate: simulator reproduces a known duel result within noise (prefer
-   replaying chal-00224 margin shape or kevin-vs-genesis on a fixed slice).
-5. Do **not** train yet (Stage 4). Do **not** submit.
-
-Evidence ready: `experiments/s2-public-duel-mine/` (index, 16 gz, analyze,
-plan/result, ranked hypotheses). Top post-sim bets: H1 teacher-ref SFT from
-kevin; H2 merge kevin×pandora-m4 / kevin×hf99jack.
-
-Work only under `/home/const/subnet120/mining/`. Read-only on `affine/`.
-Never touch non-`mine-*` pods.
+**When `/root/logs/bootstrap.done` exists:** upload scoring harness + affine source
+tar to the pod, launch three `vllm serve` slots (teacher 0,1 / king 2,3 /
+challenger=genesis 4,5; TP=2, max-model-len 32768, util 0.80), run Stage 3
+gate sim against chal-00224 shape. If bootstrap still running, only monitor —
+do not rent another pod. Extend TTL deliberately if downloads/serve will past
+04:53Z. Do **not** train or submit.

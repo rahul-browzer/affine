@@ -189,3 +189,42 @@ to the +0.1 cap. Teacher refs = 80/duel on every sample.
 
 **MET.** Next: Stage 3 — rent `mine-sim-1` and reproduce a known duel in a
 local simulator before any SFT/merge.
+
+---
+
+## 2026-08-06T22:57Z — pass 5: Stage 3 start — rented mine-sim-1 + bootstrap
+
+### Machine reconcile
+
+`lium ps` before rent: only `affine-eval` + `affine-bench`. No `mine-*` orphans.
+After rent: `mine-sim-1` (`swift-shark-52`) RUNNING; validator pods untouched.
+
+### Money check (before rent)
+
+- Lium balance $34,709.52 ≫ $28,000 floor.
+- Cheapest suitable node: 8×H200 @ **$23.60/h** (vs 8×B300 ~$64/h).
+- 6h TTL max exposure ≈ $141.60 ≪ $4,000 first-crown cap.
+- Command: `lium ls --gpu H200 --count 8 --sort price_per_hour` then
+  `lium up 1 --name mine-sim-1 --ttl 6h --no-ssh -y`.
+- `removal_scheduled_at` = **2026-08-07T04:53:17Z**.
+
+### What I did
+
+1. Created `experiments/s3-duel-sim/{plan.md,bootstrap.sh}`.
+2. Seeded `/root/mine.env` (0600) on the pod; uploaded bootstrap.
+3. Started single `nohup bash /root/bootstrap.sh` via SSH (lium exec backgrounding
+   with `&` returned exit -1 and was unreliable).
+4. Verified on pod: **torch 2.11.0 / transformers 5.14.1 / vllm 0.22.1**.
+5. Teacher download in flight (`zai-org/GLM-4.5-Air-FP8`); `/root/hf` ≈ 60G at
+   ~51% of 55 files. Kevin + genesis queued after.
+
+### Ops lesson (no secrets)
+
+`lium exec -e KEY=...` **prints the env value** in its "Environment:" line.
+Do not pass HF_TOKEN that way again — write `/root/mine.env` once and
+`source` it inside scripts. Prefer direct SSH + nohup for long jobs.
+
+### Next
+
+Wait for `/root/logs/bootstrap.done`, then serve three slots and run the
+chal-00224-shaped Stage 3 gate. Extend TTL if needed before 04:53Z.
