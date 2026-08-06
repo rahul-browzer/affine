@@ -36,19 +36,28 @@ META_COPY = (
 
 
 def resolve_snapshot(repo: str, rev: str, hf_home: Path) -> Path:
-    """Resolve HF cache snapshot dir for repo@rev (must already be downloaded)."""
-    cache = hf_home / "hub" / ("models--" + repo.replace("/", "--"))
-    refs = cache / "refs" / rev
-    if refs.is_file():
-        sha = refs.read_text().strip()
-        snap = cache / "snapshots" / sha
+    """Resolve HF cache snapshot dir for repo@rev (must already be downloaded).
+
+    huggingface_hub default layout is ``$HF_HOME/hub/models--*``. Passing
+    ``cache_dir=$HF_HOME`` to ``snapshot_download`` instead lands at
+    ``$HF_HOME/models--*``. Accept both so merge works either way.
+    """
+    model = "models--" + repo.replace("/", "--")
+    candidates = [hf_home / "hub" / model, hf_home / model]
+    tried: list[str] = []
+    for cache in candidates:
+        tried.append(str(cache))
+        refs = cache / "refs" / rev
+        if refs.is_file():
+            sha = refs.read_text().strip()
+            snap = cache / "snapshots" / sha
+            if snap.is_dir():
+                return snap
+        # rev may already be the commit sha
+        snap = cache / "snapshots" / rev
         if snap.is_dir():
             return snap
-    # rev may already be the commit sha
-    snap = cache / "snapshots" / rev
-    if snap.is_dir():
-        return snap
-    raise SystemExit(f"snapshot not found for {repo}@{rev} under {cache}")
+    raise SystemExit(f"snapshot not found for {repo}@{rev}; tried {tried}")
 
 
 def weight_map(snap: Path) -> dict[str, str]:

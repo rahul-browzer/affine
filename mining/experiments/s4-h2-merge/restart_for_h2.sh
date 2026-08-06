@@ -43,7 +43,11 @@ export TEACHER_REV=${TEACHER_REV:-}
 export KING_REPO=$KEVIN_REPO
 export KING_REV=$KEVIN_REV
 export CHALL_REPO=$MERGE
-export CHALL_REV=
+# serve_three.sh defaults empty CHALL_REV to kevin's sha; for a local path
+# that is wrong. Pass a sentinel that _launch clears when repo is a directory,
+# and also unset so we do not advertise a Hub revision in logs.
+unset CHALL_REV
+export CHALL_REV="local"
 
 # serve_three.sh skips already-running teacher via pid file
 bash /root/mining_src/s3-duel-sim/serve_three.sh

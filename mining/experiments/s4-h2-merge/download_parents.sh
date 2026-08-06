@@ -10,6 +10,9 @@ if [[ -f /root/mine.env ]]; then
 fi
 
 export HF_HOME=${HF_HOME:-/root/hf}
+# Standard hub layout is $HF_HOME/hub/models--*. Do NOT pass cache_dir=$HF_HOME
+# to snapshot_download — that lands files at $HF_HOME/models--* and breaks
+# merge_linear / vLLM paths that expect the hub/ prefix.
 export HF_HUB_ENABLE_HF_TRANSFER=${HF_HUB_ENABLE_HF_TRANSFER:-1}
 export HF_XET_HIGH_PERFORMANCE=${HF_XET_HIGH_PERFORMANCE:-1}
 
@@ -29,7 +32,7 @@ python - <<'PY'
 import os, time
 from huggingface_hub import snapshot_download
 
-hf = os.environ.get("HF_HOME", "/root/hf")
+# Rely on HF_HOME → $HF_HOME/hub/… (do not set cache_dir).
 pairs = [
     (os.environ["KEVIN_REPO"], os.environ["KEVIN_REV"], "kevin"),
     (os.environ["PANDORA_REPO"], os.environ["PANDORA_REV"], "pandora"),
@@ -40,7 +43,6 @@ for repo, rev, label in pairs:
     path = snapshot_download(
         repo_id=repo,
         revision=rev,
-        cache_dir=hf,
         local_files_only=False,
     )
     print(f"[h2-dl] {label} ready path={path} elapsed={time.time()-t0:.1f}s", flush=True)

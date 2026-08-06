@@ -67,7 +67,12 @@ _launch() {
     echo "[serve] $name already running pid=$(cat "$pidf")"
     return 0
   fi
+  # Local merge dirs must not get a Hub --revision (empty CHALL_REV still
+  # expands to the kevin default via ${CHALL_REV:-…} above).
   local rev_args=()
+  if [[ -d "$repo" ]]; then
+    rev=""
+  fi
   if [[ -n "$rev" ]]; then
     rev_args=(--revision "$rev")
   fi

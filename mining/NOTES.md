@@ -361,3 +361,39 @@ Lium $34,632.93; floor OK. Mining spend ≈ $19.17. No new rental. TTL still
 ### Next
 
 On `h2_merge.done`: restart_for_h2 → run_sim_duel → record margin. No submit.
+
+---
+
+## 2026-08-06T23:51Z — pass 10: H2 merge done (cache-path fix); re-serve loading
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $22.59; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Parents download finished (~70GB pandora in ~79s after kevin). First merge
+   attempt **failed**: `merge_linear.resolve_snapshot` looked under
+   `$HF_HOME/hub/models--*` but `download_parents.sh` had passed
+   `cache_dir=$HF_HOME`, landing files at `$HF_HOME/models--*`.
+2. Fixed `merge_linear.py` to accept both layouts; fixed download to rely on
+   `HF_HOME` (no `cache_dir`) for future runs.
+3. Re-ran merge-only. Result `/root/merges/h2-kp50` (~68G):
+   - common keys **1026**, only_A **19** (MTP copied from kevin), only_B 0
+   - `max_abs_delta_sample=0.000549`, first_1MiB sha ≠ kevin → **OK_NON_IDENTICAL**
+   - meta copied to `experiments/s4-h2-merge/merge_meta.json`
+4. First `restart_for_h2` put `--revision <kevin sha>` on the **local** merge
+   path because `CHALL_REV=${CHALL_REV:-kevin…}` treats empty as default.
+   Fixed `serve_three.sh` to clear revision when `repo` is a directory;
+   killed bad king/chall; relaunched. Chall cmdline now has **no** `--revision`.
+5. Teacher stayed healthy. Wait_ready in flight (`/root/logs/h2_restart.pid`).
+
+### Money
+
+Lium $34,617.36; floor OK. Mining spend ≈ $22.59. No new rental. TTL still
+2026-08-07T04:53:17Z.
+
+### Next
+
+On READY: `run_sim_duel.py` vs kevin; record margin. No submit until >0.04.
