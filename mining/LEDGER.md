@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-06T22:51:06Z | 34709.52 | 10.000000 | 0 | validator pods burning shared credit; mining spend still $0 |
 | 2026-08-06T22:47:00Z | 34715.32 | 10.000000 | 0 | opening snapshot; no mining spend yet |
 
 ## Movements
@@ -13,6 +14,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
 | 2026-08-06T22:47:00Z | open | — | — | 34715.32 | 10.000 | coldkey funded τ10 prior to run; Lium shared with validator |
+| 2026-08-06T22:51:06Z | observe | — | — | 34709.52 | 10.000 | −$5.80 vs open ≈ validator burn; no mine-* rental |
 
 ## Cumulative mining spend
 

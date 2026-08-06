@@ -157,3 +157,35 @@ published summaries; kevin's mix equals live king S. Baseline ratios 1.06× /
 
 **MET.** Next: Stage 2 — mine public duel records for ranked hypotheses
 (expected α per dollar), no GPU yet.
+
+---
+
+## 2026-08-06T22:51Z — pass 4: Stage 2 closed (ranked hypotheses)
+
+### Machine reconcile
+
+`lium ps`: only `affine-eval` + `affine-bench`. No `mine-*`. No orphans.
+Lium balance $34,709.52 (was $34,715.32 — validator burn, not mining spend).
+
+### What I did
+
+Pass 3 left the Stage 2 sample + `analyze.py` / `summary.json` / `table.txt`
+but did not write the gate artifacts. This pass closed the gate:
+
+- Wrote `experiments/s2-public-duel-mine/{plan.md,result.md}`.
+- Ranked H1 > H2 > H3 in `HYPOTHESES.md` with numeric predicted ΔS.
+- Marked H3 **supported** (Spearman Δmix↔ΔclipL1 = 0.936 > Δmix↔ΔΛ2 = 0.711;
+  n=15 valid).
+
+### Numbers that drive the ranking
+
+Winners (recompute current knobs): kevin +0.070 / pandora-m4 +0.061 /
+hf99jack-cali +0.041 — all r≈0.72–0.76, base×≈1.06–1.08, mean clipL1
++0.026–0.031, margins mostly from ΔclipL1 (57–82%). Baseline-band kills
+saboteurs (base× 1.86 / 3.06). King still has ~+0.069 mean clipL1 headroom
+to the +0.1 cap. Teacher refs = 80/duel on every sample.
+
+### Stage 2 gate
+
+**MET.** Next: Stage 3 — rent `mine-sim-1` and reproduce a known duel in a
+local simulator before any SFT/merge.

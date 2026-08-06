@@ -4,29 +4,28 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 1 complete → enter Stage 2.**
+**Stage 2 complete → enter Stage 3.**
 
-Stage 0 gate met (pass 1). Stage 1 gate met (pass 2): offline `score.duel`
-on stored logprobs reproduces AGENTS.md retroactive crown margins
-(kevin +0.070000 / z=6.3107; pandora +0.060845 / z=5.6472).
-No GPU spend. No `mine-*` pods.
+Stage 0–1 gates met (passes 1–2). Stage 2 gate met (pass 4): public-duel
+decomposition in `experiments/s2-public-duel-mine/`; H3 supported; H1/H2/H3
+ranked by expected α/$ in `HYPOTHESES.md`.
 
 ## Live facts (verified this pass)
 
 | item | value |
 |---|---|
 | king | `kevin954/Affine-5dfqbbh8ev-sft` @ `6a5815fad8f4e34c983b1933c1fae5762fe25220` |
-| king S | 0.03955783762471344 (= chal-00224 challenger mean_mix) |
+| king S | 0.03955783762471344 |
 | reign # | 2 |
 | teacher | `zai-org/GLM-4.5-Air-FP8` |
 | min_submission_block | 8767079 |
 | weight_version_key | 1 |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $34,715.32 (floor $28,000; unchanged, no rentals) |
+| Lium balance | $34,709.52 (floor $28,000; validator burn only — no mine rentals) |
 | miner coldkey free | τ10.000 |
 | mining spend to date | $0 / τ0 |
 | our submissions | none |
-| mine-* pods | none (lium ps: only affine-eval + affine-bench) |
+| mine-* pods | none (`lium ps`: only affine-eval + affine-bench) |
 
 ## What's running
 
@@ -34,21 +33,23 @@ Nothing mining-owned.
 
 ## Blocked
 
-Nothing.
+Nothing. Stage 3 needs a rental — check floor ($28k) and $4k pre-crown cap
+before `lium up`.
 
 ## Next action (single, highest value)
 
-**Stage 2 — cheap hypotheses from public duel data (no GPU).**
+**Stage 3 — build local duel simulator on one `mine-*` pod (first GPU spend).**
 
-1. Pull `evals/index.jsonl` + a useful sample of `evals/*.json.gz` (winners +
-   near-misses + gate failures) into `experiments/s2-public-duel-mine/`.
-2. Decompose per duel: Λ2 vs clip(L1) contribution, which gates bind, r and
-   baseline ratios, bank knife-edge.
-3. Rank open hypotheses in `HYPOTHESES.md` by expected α per dollar
-   (H1 teacher-ref SFT, H2 king merge, H3 L1lift lever — settle or refine H3
-   with the numbers).
-4. Gate for Stage 2: ranked list with predicted effect on S, written before
-   any rental.
+1. Check `lium balance` ≥ $28k + rental; cumulative mining spend still $0 / cap $4k.
+2. `lium up` **one** pod named `mine-sim-1`, with `--ttl` (suggest 6h), GPU
+   class that can hold teacher FP8 + king + challenger under eval stack
+   (vllm 0.22.1 / tf 5.14.1 / torch 2.11.0). Record in `INVENTORY.md` +
+   `LEDGER.md` in the same pass.
+3. Serve teacher + current king + a known challenger (kevin's own revision or
+   genesis) with stock `vllm serve` knobs matching eval; run scoring path on a
+   public-D slice / replay a known duel.
+4. Gate: simulator reproduces a known duel result within noise (use
+   chal-00224 margin +0.070 / z≈6.31 as anchor, or king-vs-self ~0).
+5. Do **not** start SFT (H1) or merge (H2) until Stage 3 gate MET.
 
-Evidence already local: `experiments/s1-replay-chal00224/` (artifacts + `replay.py`).
-No GPU. Work only under `/home/const/subnet120/mining/`. Read-only on `affine/`.
+No work outside `/home/const/subnet120/mining/`. Never touch validator pods.
