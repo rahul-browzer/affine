@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-06T23:37:31Z | 34640.74 | 10.000000 | 0 | mine-sim-1 spent $17.39; Stage3 MET; no new rental |
 | 2026-08-06T23:32:11Z | 34648.42 | 10.000000 | 0 | mine-sim-1 spent $15.29; shared validator burn continues |
 | 2026-08-06T23:00:03Z | 34703.01 | 10.000000 | 0 | mine-sim-1 spent $2.66; balance flat vs 22:57 (meter lag vs validator burn) |
 | 2026-08-06T22:57:35Z | 34703.01 | 10.000000 | 0 | mine-sim-1 live @ $23.60/h + validator burn |
@@ -16,6 +17,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-06T23:37:31Z | observe | mine-sim spent $17.39 | Lium → mine-sim-1 | 34640.74 | 10.000 | Stage3 gate MET (+0.0689); engines kept hot |
 | 2026-08-06T22:47:00Z | open | — | — | 34715.32 | 10.000 | coldkey funded τ10 prior to run; Lium shared with validator |
 | 2026-08-06T22:51:06Z | observe | — | — | 34709.52 | 10.000 | -$5.80 vs open ≈ validator burn; no mine-* rental |
 | 2026-08-06T22:53:18Z | rent | $23.60/h | Lium credit → mine-sim-1 (8×H200) | 34709.52 (pre) | 10.000 | `lium up` H200; name `mine-sim-1`; TTL 6h → remove 2026-08-07T04:53:17Z; max TTL ≈ $141.60; floor OK |
@@ -27,9 +29,9 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~15.29 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
+| Lium rentals (`mine-*`) | ~17.39 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~15.29+ (accruing)** | **0** |
+| **total** | **~17.39+ (accruing)** | **0** |
 
 Cap remaining to first crown: **~$3,858** (of $4,000) after full 6h TTL if unused early kill.

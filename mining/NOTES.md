@@ -295,3 +295,37 @@ TTL still 2026-08-07T04:53:17Z.
 
 Collect `s3_gate_result.json`. Stage 3 MET if kevin wins with margin ≥0.04
 or within ~0.02 of published +0.070. Then Stage 4. Do not submit.
+
+---
+
+## 2026-08-06T23:37Z — pass 8: Stage 3 gate MET (+0.0689)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $17.39; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Polled gate: engines healthy, GPUs busy; finished in ~426s.
+2. Collected `/root/affine_data/s3_gate_result.json` →
+   `experiments/s3-duel-sim/s3_gate_result.json` + `result.md`.
+3. Live force-echo chal-00224 (kevin vs genesis, current knobs):
+   - kevin valid S=0.03843 r=0.724 gate=0.884
+   - genesis valid S=-0.03108 r=1.142 gate=0.581
+   - duel: wins=True margin=+0.06890 se=0.01093 z=6.302 n=80
+   - Stage-1 offline target was +0.07000 → |Δ|≈0.001
+4. Artifact `verdict` still shows wins=False/margin=0 because the live
+   duel was scored under old knobs (kevin INVALID at r_lo=1.0);
+   `mean_mix` already 0.03956. Retro crown + our live rescore agree.
+5. **STAGE3_GATE=MET**. Advanced STATE to Stage 4; next=H2 merge on
+   same pod (kevin→king slot). No submit.
+
+### Money
+
+Lium $34,640.74; floor OK. Mining spend ≈ $17.39 accruing. No new rental.
+TTL still 2026-08-07T04:53:17Z — reuse pod for H2.
+
+### Next
+
+H2 merge on mine-sim-1; score vs kevin; do not submit until margin>0.04.

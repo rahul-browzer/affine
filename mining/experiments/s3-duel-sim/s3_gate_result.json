@@ -1,0 +1,32 @@
+{
+  "elapsed_s": 426.10632491111755,
+  "published": {
+    "challenger_wins": false,
+    "margin": 0.0,
+    "z": 0.0
+  },
+  "live_force_echo": {
+    "challenger_wins": true,
+    "margin": 0.06890122063710151,
+    "se": 0.010932856148625816,
+    "z": 6.302215971785371,
+    "n_paired": 80
+  },
+  "challenger": {
+    "valid": true,
+    "S": 0.03843240771431731,
+    "r": 0.7237497696632673,
+    "gate": 0.884375,
+    "baseline_abs": 0.1206986519925364
+  },
+  "king": {
+    "valid": true,
+    "S": -0.031084412513264957,
+    "r": 1.1420429681753614,
+    "gate": 0.5814696485623003,
+    "baseline_abs": 0.115363054044953
+  },
+  "delta_margin_vs_published": 0.06890122063710151,
+  "stage3_gate": "MET",
+  "stage3_notes": "wins=True margin=0.06890122063710151 \u0394pub=0.06890122063710151 close(|\u0394|\u22640.02)=False submit_floor(m\u22650.04&valid)=True"
+}
