@@ -228,3 +228,33 @@ Do not pass HF_TOKEN that way again — write `/root/mine.env` once and
 
 Wait for `/root/logs/bootstrap.done`, then serve three slots and run the
 chal-00224-shaped Stage 3 gate. Extend TTL if needed before 04:53Z.
+
+---
+
+## 2026-08-06T23:00Z — pass 6: harness uploaded while bootstrap downloads
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $2.66; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+Bootstrap not done yet (teacher 106G done; kevin ~46G in flight; genesis
+queued). Used the wait to land Stage 3 launch assets on the pod:
+
+1. Wrote `experiments/s3-duel-sim/{serve_three,wait_ready,upload_harness}.sh`.
+2. Ran `upload_harness.sh` → `/root/mining_src/affine_pkg` (affine + evalsrv +
+   toml), `/root/mining_src/s3-duel-sim/`, `/root/affine_data/chal-00224.json.gz`.
+3. Serve defaults intentionally **chal-00224 shape**: genesis on king:8001,
+   kevin on chall:8002 (not live-king layout). Eval knobs mirrored:
+   TP=2, max-model-len 32768, util 0.80, batched 8192, FLASH_ATTN, moe triton.
+
+### Money
+
+Lium $34,703.01; floor OK. No new rental. Mining spend ≈ $2.66 accruing.
+
+### Next
+
+On `bootstrap.done`: `serve_three.sh` → `wait_ready.sh` → Stage 3 gate score.
+Do not train/submit. Extend TTL before 04:53Z if needed.

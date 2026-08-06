@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+# Launch teacher / king / challenger under eval-pod vLLM knobs.
+# Run on mine-sim-1 after /root/logs/bootstrap.done exists.
+# Defaults match Stage 3 gate (chal-00224 shape): kevin challenger vs genesis king.
+set -euo pipefail
+
+# shellcheck disable=SC1091
+source /root/venv/bin/activate
+if [[ -f /root/mine.env ]]; then
+  # shellcheck disable=SC1091
+  source /root/mine.env
+fi
+
+export HF_HOME=${HF_HOME:-/root/hf}
+export HF_HUB_ENABLE_HF_TRANSFER=${HF_HUB_ENABLE_HF_TRANSFER:-1}
+export VLLM_USE_FLASHINFER_SAMPLER=0
+export VLLM_ALLREDUCE_USE_FLASHINFER=0
+export VLLM_USE_FLASHINFER_MOE_FP16=0
+export VLLM_USE_FLASHINFER_MOE_FP8=0
+export VLLM_USE_FLASHINFER_MOE_FP4=0
+
+TEACHER_REPO=${TEACHER_REPO:-zai-org/GLM-4.5-Air-FP8}
+TEACHER_REV=${TEACHER_REV:-}
+KING_REPO=${KING_REPO:-dendriteholdings/albedo-qwen3.6-35b-king-genesis}
+KING_REV=${KING_REV:-abe89194d6addf82e71f3f1ba9fef94b05404abf}
+CHALL_REPO=${CHALL_REPO:-kevin954/Affine-5dfqbbh8ev-sft}
+CHALL_REV=${CHALL_REV:-6a5815fad8f4e34c983b1933c1fae5762fe25220}
+
+TP=${TP:-2}
+MAXLEN=${MAXLEN:-32768}
+GPUUTIL=${GPUUTIL:-0.80}
+BATCHED=${BATCHED:-8192}
+
+mkdir -p /root/logs
+
+_launch() {
+  local name=$1 port=$2 gpus=$3 repo=$4 rev=$5
+  local log=/root/logs/vllm_${name}.log
+  local pidf=/root/logs/vllm_${name}.pid
+  if [[ -f "$pidf" ]] && kill -0 "$(cat "$pidf")" 2>/dev/null; then
+    echo "[serve] $name already running pid=$(cat "$pidf")"
+    return 0
+  fi
+  local rev_args=()
+  if [[ -n "$rev" ]]; then
+    rev_args=(--revision "$rev")
+  fi
+  echo "[serve] $(date -u +%Y-%m-%dT%H:%M:%SZ) start $name repo=$repo rev=${rev:-latest} port=$port gpus=$gpus"
+  CUDA_VISIBLE_DEVICES=$gpus nohup vllm serve "$repo" \
+    --port "$port" \
+    --tensor-parallel-size "$TP" \
+    --max-model-len "$MAXLEN" \
+    --gpu-memory-utilization "$GPUUTIL" \
+    --max-num-batched-tokens "$BATCHED" \
+    --attention-backend FLASH_ATTN \
+    --attention-config.use_trtllm_attention 0 \
+    --compilation-config.pass_config.fuse_allreduce_rms false \
+    --moe-backend triton \
+    "${rev_args[@]}" \
+    >"$log" 2>&1 &
+  echo $! >"$pidf"
+  echo "[serve] $name pid=$! log=$log"
+}
+
+_launch teacher 8000 "0,1" "$TEACHER_REPO" "$TEACHER_REV"
+_launch king    8001 "2,3" "$KING_REPO"    "$KING_REV"
+_launch chall   8002 "4,5" "$CHALL_REPO"   "$CHALL_REV"
+
+echo "[serve] launched. Wait with: bash /root/mining_src/s3-duel-sim/wait_ready.sh"
+echo "[serve] $(date -u +%Y-%m-%dT%H:%M:%SZ) DONE_LAUNCH"
