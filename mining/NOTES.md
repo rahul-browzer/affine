@@ -329,3 +329,35 @@ TTL still 2026-08-07T04:53:17Z — reuse pod for H2.
 ### Next
 
 H2 merge on mine-sim-1; score vs kevin; do not submit until margin>0.04.
+
+---
+
+## 2026-08-06T23:42Z — pass 9: Stage 4 H2 pipeline started (download→merge)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $19.17; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Confirmed Stage 3 engines still healthy (teacher/genesis/kevin).
+2. Created `experiments/s4-h2-merge/`:
+   - `plan.md` — H2 α=0.5 kevin×pandora-m4; pred margin >0.02 / target >0.04
+   - `download_parents.sh`, `merge_linear.py`, `start_h2.sh`
+   - `restart_for_h2.sh` (king←kevin, chall←merge), `run_sim_duel.py`
+3. Uploaded to pod `/root/mining_src/s4-h2-merge/`.
+4. Started `nohup bash start_h2.sh` (PID in `/root/logs/h2_pipeline.pid`).
+   At pass end: kevin snapshot refresh in flight; pandora not yet on disk;
+   wait markers `/root/logs/h2_download.done` then `/root/logs/h2_merge.done`.
+5. Config check: both parents `qwen3_5_moe` / same text_config shape — merge
+   by tensor name is viable despite 2 vs 16 shard layouts.
+
+### Money
+
+Lium $34,632.93; floor OK. Mining spend ≈ $19.17. No new rental. TTL still
+2026-08-07T04:53:17Z.
+
+### Next
+
+On `h2_merge.done`: restart_for_h2 → run_sim_duel → record margin. No submit.
