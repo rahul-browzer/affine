@@ -33,43 +33,10 @@ python /root/mining_src/s4-h2-merge/run_sim_duel.py \
   --save-artifact \
   2>&1 | tee /root/logs/h10_n80.log
 
-python3 - <<'PY'
-import json
-from pathlib import Path
-p = Path("/root/affine_data/h10_sim_result.json")
-d = json.loads(p.read_text())
-# tolerate both flat decision fields and nested verdict
-v = d.get("verdict") or d
-chal = v.get("challenger") or {}
-margin = v.get("margin", d.get("margin"))
-r = d.get("r_c")
-if r is None:
-    r = (d.get("h4") or {}).get("chall_r")
-if r is None:
-    r = chal.get("calib_ratio")
-valid = d.get("valid_c")
-if valid is None:
-    valid = chal.get("valid")
-z = v.get("z", d.get("z"))
-S_c = d.get("S_c") or chal.get("S")
-S_k = d.get("S_k") or (v.get("king") or {}).get("S")
-dec = {
-    "utc": __import__("datetime").datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-    "margin": margin,
-    "z": z,
-    "r_c": r,
-    "valid_c": valid,
-    "S_c": S_c,
-    "S_k": S_k,
-    "decision": (
-        "ADVANCE_STAGE5" if (margin is not None and margin > 0.04 and valid) else
-        "TRY_ALPHA_085" if (margin is not None and margin >= 0.02) else
-        "REFUTE_H10"
-    ),
-}
-Path("/root/affine_data/h10_decision.json").write_text(json.dumps(dec, indent=2))
-print(json.dumps(dec, indent=2))
-PY
+python3 /root/mining_src/s4-h2-merge/write_merge_decision.py \
+  --hyp h10 \
+  --sim-result /root/affine_data/h10_sim_result.json \
+  --out /root/affine_data/h10_decision.json
 
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h10_n80.done
 echo "[h10-n80] DONE"

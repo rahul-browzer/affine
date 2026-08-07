@@ -10,10 +10,10 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **open** (train~55/99; mid50 serving) |
-| 2 | H7 | high (cheap) | TalentPigs×pandora α0.75 → margin>0.04 vs TalentPigs | **open** (n80 ~52/80) |
-| 3 | H8 | high (cheap) | TalentPigs×golden-crown α0.75 → margin>0.04 vs TalentPigs | **open** (n80 ~40/80) |
-| 4 | H10 | high (cheap) | TalentPigs×kevin α0.75 (TP-dom) → margin>0.04 | **open** (mine-h10-1 boot) |
-| 5 | H9 | high (cheap) | TalentPigs×diane613 α0.75 → margin>0.04 vs TalentPigs | **open** (mine-h9-1 boot) |
+| 2 | H7 | high (cheap) | TalentPigs×pandora α0.75 → margin>0.04 vs TalentPigs | **open** (n80 ~59/80) |
+| 3 | H8 | high (cheap) | TalentPigs×golden-crown α0.75 → margin>0.04 vs TalentPigs | **open** (n80 ~49/80) |
+| 4 | H10 | high (cheap) | TalentPigs×kevin α0.75 (TP-dom) → margin>0.04 | **open** (kevin dl) |
+| 5 | H9 | high (cheap) | TalentPigs×diane613 α0.75 → margin>0.04 vs TalentPigs | **open** (merge ~9/16) |
 | — | H5c | was highest | kevin-init thought LoRA on expanded refs → margin>0.04 | **refuted** — n80 −0.01640 |
 | — | H4 | — | keep r∈[0.70,0.85] or gates kill S | **refuted** — real gate is [0.3,4.0]; we never failed it |
 | 6 | H3 | instrumental | with Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S | **supported** |
@@ -30,27 +30,27 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H6 — TalentPigs-init mild shortz-nolist
 - **Claim:** lr=5e-6 on shortz-nolist (790) from TalentPigs raises clip-L1 ≥ 0.042 at margin > 0.04.
 - **Test:** train on mine-h5c-1 GPUs 6,7 → merge → n80 vs TalentPigs.
-- **Status:** train **RUNNING** ~55/99 loss≈0.594; mid50 **SERVING** chall:8002 after MERGE_DONE; pipe waiting. Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
+- **Status:** train **RUNNING** ~60/99 loss≈0.470; mid50 MERGE_DONE, chall **loading** :8002; pipe waiting. Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
 
 ### H7 — TalentPigs × pandora-m4 merge
 - **Claim:** α=0.75 linear merge (TalentPigs-dominant) clears margin > 0.04; untried parents (H2=kevin×pandora, H5=kevin×TP).
 - **Test:** mine-h7-1 bootstrap→merge→n80; try α=0.85 if 0.02≤margin≤0.04.
-- **Status:** merge OK_NON_IDENT; n80 **RUNNING** ~52/80. Detail: `experiments/s4-h7-tp-pandora-merge/`.
+- **Status:** n80 **RUNNING** ~59/80; nested-verdict fix-watcher 12666. Detail: `experiments/s4-h7-tp-pandora-merge/`.
 
 ### H8 — TalentPigs × golden-crown merge
 - **Claim:** α=0.75 linear merge with reign-earner golden-crown clears margin > 0.04; independent of H7 (different B).
 - **Test:** mine-h8-1 bootstrap→merge→n80; try α=0.85 if 0.02≤margin≤0.04.
-- **Status:** merge OK_NON_IDENT; n80 **RUNNING** ~40/80. Detail: `experiments/s4-h8-tp-goldencrown-merge/`.
+- **Status:** n80 **RUNNING** ~49/80; nested-verdict fix-watcher 13030. Detail: `experiments/s4-h8-tp-goldencrown-merge/`.
 
 ### H10 — TalentPigs × kevin merge (TP-dominant)
 - **Claim:** α=0.75 `0.75·TP + 0.25·kevin` clears margin > 0.04; H5 only tried kevin-dominant (A=kevin).
 - **Test:** mine-h10-1 bootstrap→merge→n80; try α=0.85 if 0.02≤margin≤0.04.
-- **Status:** pod rented; pipeline **898** booting. Detail: `experiments/s4-h10-tp-kevin-merge/`.
+- **Status:** TalentPigs dl done; kevin downloading; start_h10 patched + fix-watcher. Detail: `experiments/s4-h10-tp-kevin-merge/`.
 
 ### H9 — TalentPigs × diane613 merge
 - **Claim:** α=0.75 linear merge with reign-earner diane613 clears margin > 0.04; untried B (≠pandora/golden-crown).
 - **Test:** mine-h9-1 bootstrap→merge→n80; try α=0.85 if 0.02≤margin≤0.04.
-- **Status:** pod rented; pipeline **863** booting. Detail: `experiments/s4-h9-tp-diane-merge/`.
+- **Status:** merge ~9/16 shards; start_h9 patched + fix-watcher. Detail: `experiments/s4-h9-tp-diane-merge/`.
 
 ### H4 — stay inside the distill envelope — **REFUTED** (do not revive)
 - **Claim was:** r ∈ [0.70, 0.85], base× ≤ 1.15, or gates invalidate the miner.

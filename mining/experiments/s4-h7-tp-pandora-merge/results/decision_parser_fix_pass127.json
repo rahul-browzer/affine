@@ -1,0 +1,8 @@
+{
+  "utc": "2026-08-07T12:15:55Z",
+  "pass": 127,
+  "bug": "start_h7/h8/h9 used flat d.get('margin') but run_sim_duel nests under verdict",
+  "proof": "h5b_sim_result.json nested margin=0.00322; flat d.get('margin')=null → false REFUTE",
+  "fix": "deployed write_merge_decision.py + watch_fix_decision.sh on h7/h8/h9/h10; patched start_h9/h10 before exec; h7/h8 rely on sidecar overwrite (live start_* not edited)",
+  "pids": {"h7": 12666, "h8": 13030, "h9": 4774, "h10": 2156}
+}

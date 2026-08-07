@@ -98,6 +98,10 @@ Format: `- <finding> — <the number or error that proves it>`
   scp'd `post_train_pipeline.sh` (pid 53727).
 - After a REFUTE n80, kill the idle chall vLLM on :8002 before reuse — leftover
   H5c chall held GPUs 4,5 (~143 GiB each) until H6 mid50 waiter explicitly freed them.
+- `run_sim_duel.py` nests margin/z under `verdict` and valid/S under
+  `verdict.challenger` — flat `d.get("margin")` is always None and false-REFUTEs
+  winners. Use `s4-h2-merge/write_merge_decision.py` (H5b proof: nested 0.00322
+  vs flat None). Sidecar `watch_fix_decision.sh` if start_*.sh already running.
 
 ## Money / platform
 
