@@ -330,6 +330,13 @@ if (( dead - now < 2400 )); then
 fi
 
 N80_MAX_ATTEMPTS=${N80_MAX_ATTEMPTS:-3}
+# Fresh block_hash per attempt (H32/H34/H39): default 0*64 dies teacher 400 @~40/80.
+# Prefer leaving n80 to retry_h*_n80.sh when watch_n80_retry is armed — dual launch races.
+BLOCK_HASHES=(
+  "a203000000000000000000000000000000000000000000000000000000000001"
+  "b203000000000000000000000000000000000000000000000000000000000002"
+  "c203000000000000000000000000000000000000000000000000000000000003"
+)
 n80_ok=0
 for attempt in $(seq 1 "$N80_MAX_ATTEMPTS"); do
   now=$(date -u +%s)
@@ -347,8 +354,14 @@ for attempt in $(seq 1 "$N80_MAX_ATTEMPTS"); do
       log "WARN: engine :${port} health=${code} before n80 attempt $attempt"
     fi
   done
+  if ps -eo args | awk '/[r]un_sim_duel.py/ && /local-h40/' | grep -q .; then
+    log "n80 already running under retry — skip post_train launch"
+    n80_ok=1
+    break
+  fi
   rm -f "$SIM_N80" "$PROG" /root/logs/h40_sim_n80.done
-  log "launch n80 sim attempt $attempt/$N80_MAX_ATTEMPTS → $SIM_N80"
+  bh="${BLOCK_HASHES[$(( (attempt - 1) % ${#BLOCK_HASHES[@]} ))]}"
+  log "launch n80 sim attempt $attempt/$N80_MAX_ATTEMPTS block_hash=${bh:0:16}… → $SIM_N80"
   set +e
   python /root/mining_src/s4-h2-merge/run_sim_duel.py \
     --king-repo "$KING_REPO" \
@@ -357,6 +370,7 @@ for attempt in $(seq 1 "$N80_MAX_ATTEMPTS"); do
     --chall-rev local \
     --n-turns 80 \
     --hotkey local-h40 \
+    --block-hash "$bh" \
     --out "$SIM_N80" \
     --progress-out "$PROG" \
     --save-artifact \

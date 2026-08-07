@@ -140,9 +140,10 @@ Format: `- <finding> — <the number or error that proves it>`
   new `TCACHE`, then ≥20s settle (H35/H36/H37/H41; H40 p210 teacher hung
   health=000 with workers holding VRAM after `cuda_utils.so` ImportError —
   reap by GPU index first). Concurrent prewarm still races — recover dead role.
-- Default `block_hash=0*64` n80 dies teacher **400** at ~40/80 (prompt+1792>
-  32768) — H32 + H34@40/80 pass203. Rotate `--block-hash` on every retry
-  (`a203…/b203…/c203…`); patch `retry_h*_n80.sh` + never rely on bare post_train.
+- Default `block_hash=0*64` n80 dies teacher **400** @~40/80 (H32/H34). Rotate
+  a203/b203/c203 on every retry. Bare post_train without hash also **races**
+  retry (H39 p211 dual sims) — kill bare; skip if `local-hN` sim alive
+  (patched H39–H41 post_train BLOCK_HASHES).
 - `watch_n80_retry` must **not** `exec` the retry (pass203). Retry must
   **wait** engines (not abort-spam every 30s — pass205). Sim-alive check
   needs `python` in argv — bare `pgrep -f run_sim_duel` self-matches.
