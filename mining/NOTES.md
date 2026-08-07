@@ -1708,3 +1708,41 @@ Lium $34,235.98; mining spend ≈ $119.34. Floor OK. No new rental. No submit.
 
 Poll chall health → n40 → n80 / `h1_decision.json` / merged HF salvage.
 No submit until action=`toward_submit`.
+
+## 2026-08-07T04:11:12Z — pass 48: CausalLM merge serve bugs → chall READY + n40 sim
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $125.06; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host harvest 1486917 + deadman 1405846 still alive.
+
+### What I did
+
+1. Polled pass-47 resume: teacher+king 200; chall **dead**. Log showed
+   `TypeError: Expected Qwen3_5MoeConfig, found Qwen3_5MoeTextConfig`.
+2. Root cause: `merge_lora.py` used `AutoModelForCausalLM.save_pretrained`,
+   which wrote `model_type=qwen3_5_moe_text` /
+   `Qwen3_5MoeForCausalLM` instead of the king's multimodal wrapper
+   (`qwen3_5_moe` / `Qwen3_5MoeForConditionalGeneration`) and omitted
+   preprocessor sidecars.
+3. Restored wrapper `config.json` + preprocessor configs from kevin base;
+   patched HF salvage (commit later superseded). First re-serve then failed
+   on missing vision weights:
+   `ValueError: Following weights were not initialized … visual.*`
+   — CausalLM save also dropped `model-visual-extra.safetensors`
+   (352 `model.visual.*` keys, 2.58 GB). Copied shard + merged weight_map
+   into index (1045/1045 keys).
+4. Updated `merge_lora.py` and `resume_after_config_fix.sh` to restore
+   wrapper config + visual shard after every merge. HF salvage now at
+   `unconst/Affine-5czsc2fc98-h1-merged` commit `3364892cefcc…`.
+5. Chall /health **200** at **04:10:15Z**; n40 sim pid **137799** launched.
+   kevin still king; live eval moved to **chal-00279** (load_challenger).
+
+### Money
+
+Lium $34,212.62; mining spend ≈ $125.06. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll n40 → n80 / `h1_decision.json`. No submit until `toward_submit`.

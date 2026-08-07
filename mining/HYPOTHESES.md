@@ -29,15 +29,17 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Prediction (pre-register before train):** challenger mean paired margin ≥
   **+0.04** vs live king on an 80-turn public-D slice, all gates passing,
   r∈[0.70,0.85], base×≤1.15.
-- **In flight (2026-08-07T03:56Z):** train **DONE** 03:35:57Z (110/110;
-  final loss **0.237**, min **0.175** @80; epoch1 0.251). Final adapter on
-  HF `unconst/Affine-5czsc2fc98-h1-lora` commit `4fe72892…`. Merge wrote
-  `/root/h1/merged` but **first_1MiB gate false-positived** (embed-leading
-  shard matches kevin; q/k/v/o_proj + shared_expert.gate differ; both
-  shard tails ≠). Fixed probe to head/mid/tail on `model-*-of-*`; resume
-  pid **127103** pushing merged + chall re-serve → n40→n80. Soft 06:50Z;
-  deadman 07:00Z. kevin still king (chal-00275 cleared; chal-00276
-  scoring). See `results/h1_false_identical_gate.json`.
+- **In flight (2026-08-07T04:11Z):** train **DONE** 03:35:57Z (110/110;
+  final loss **0.237**, min **0.175** @80). Adapter on HF
+  `unconst/Affine-5czsc2fc98-h1-lora` (`4fe72892…`). Merge not
+  weight-identical. Pass 47 fixed first_1MiB false-positive. Pass 48:
+  chall serve crashed twice after CausalLM merge —
+  (1) text-only `qwen3_5_moe_text` config vs wrapper `qwen3_5_moe`;
+  (2) missing `model-visual-extra.safetensors` (352 keys). Restored both
+  from kevin base; `merge_lora.py` now copies them after save. HF merged
+  salvage @ `3364892…`. Chall READY 04:10:15Z; **n40 sim RUNNING** pid
+  137799 → then n80. Soft 06:50Z; deadman 07:00Z. kevin still king
+  (chal-00279 loading). See `results/h1_config_text_only_bug.json`.
 - **Verdict:** open.
 
 

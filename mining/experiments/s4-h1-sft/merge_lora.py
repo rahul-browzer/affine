@@ -79,12 +79,66 @@ def main() -> None:
     model.save_pretrained(str(args.out), safe_serialization=True)
     tok.save_pretrained(str(args.out))
 
+    # AutoModelForCausalLM.save_pretrained writes the *text* config
+    # (qwen3_5_moe_text / Qwen3_5MoeForCausalLM). Stock vLLM on the eval
+    # stack expects the multimodal wrapper (qwen3_5_moe /
+    # Qwen3_5MoeForConditionalGeneration) that the king ships. Observed
+    # 2026-08-07: chall serve crashed with TypeError expecting
+    # Qwen3_5MoeConfig, got Qwen3_5MoeTextConfig. Restore wrapper config
+    # + vision preprocessor sidecars from the base snapshot (weights
+    # already use model.language_model.* keys; sizes match).
+    base_path = Path(args.base)
+    for name in (
+        "config.json",
+        "preprocessor_config.json",
+        "video_preprocessor_config.json",
+    ):
+        src = base_path / name
+        if src.is_file():
+            shutil.copy2(src, args.out / name)
+            print(f"[merge] restored {name} from base", flush=True)
+
+    # CausalLM save also drops the vision tower shard (model.visual.*).
+    # With the wrapper config restored, vLLM requires those weights.
+    # Copy untouched visual shard(s) + merge their weight_map entries.
+    visual_shards = sorted(base_path.glob("model-visual*.safetensors"))
+    if visual_shards:
+        out_idx_path = args.out / "model.safetensors.index.json"
+        base_idx_path = base_path / "model.safetensors.index.json"
+        out_idx = (
+            json.loads(out_idx_path.read_text())
+            if out_idx_path.is_file()
+            else {"metadata": {}, "weight_map": {}}
+        )
+        base_idx = (
+            json.loads(base_idx_path.read_text())
+            if base_idx_path.is_file()
+            else {"weight_map": {}}
+        )
+        added = 0
+        for src in visual_shards:
+            shutil.copy2(src, args.out / src.name)
+            print(f"[merge] restored visual shard {src.name}", flush=True)
+        for key, shard in (base_idx.get("weight_map") or {}).items():
+            if key not in out_idx["weight_map"]:
+                out_idx["weight_map"][key] = shard
+                added += 1
+        total = sum(p.stat().st_size for p in args.out.glob("*.safetensors"))
+        out_idx.setdefault("metadata", {})
+        out_idx["metadata"]["total_size"] = total
+        if "total_parameters" in (base_idx.get("metadata") or {}):
+            out_idx["metadata"]["total_parameters"] = base_idx["metadata"][
+                "total_parameters"
+            ]
+        out_idx_path.write_text(json.dumps(out_idx, indent=2) + "\n")
+        print(f"[merge] merged {added} visual weight_map keys into index", flush=True)
+
     # Hygiene: no *.py, strip auto_map if present.
     cfg_path = args.out / "config.json"
     cfg = json.loads(cfg_path.read_text())
     if "auto_map" in cfg:
         del cfg["auto_map"]
-        cfg_path.write_text(json.dumps(cfg, indent=2))
+        cfg_path.write_text(json.dumps(cfg, indent=2) + "\n")
     for p in args.out.rglob("*.py"):
         p.unlink()
 
@@ -96,7 +150,6 @@ def main() -> None:
     # as identical (observed 2026-08-07 H1: head equal, mid equal, tail ≠,
     # and q/k/v/o_proj tensors differ). Sample head/mid/tail on every
     # safetensors shard; refuse only if ALL sampled windows match.
-    base_path = Path(args.base)
     base_shard = _first_shard(base_path)
     out_shard = _first_shard(args.out)
     base_fp = _file_sha256(base_shard, nbytes=1 << 20)

@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-07T04:04:40Z",
+  "repo": "unconst/Affine-5czsc2fc98-h1-merged",
+  "commit_sha": "3364892cefccfb3c4d999c466c0645cd5531143e",
+  "patched_files": [
+    "config.json",
+    "preprocessor_config.json",
+    "video_preprocessor_config.json",
+    "model.safetensors.index.json",
+    "model-visual-extra.safetensors"
+  ],
+  "note": "config+visual patch after CausalLM save omitted vision tower"
+}

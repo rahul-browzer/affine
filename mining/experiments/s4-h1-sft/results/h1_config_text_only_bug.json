@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-07T04:00:00Z",
+  "pass": 48,
+  "bug": "AutoModelForCausalLM.save_pretrained wrote qwen3_5_moe_text / Qwen3_5MoeForCausalLM; vLLM 0.22.1 expects multimodal wrapper qwen3_5_moe / Qwen3_5MoeForConditionalGeneration",
+  "symptom": "TypeError: Expected Qwen3_5MoeConfig, found Qwen3_5MoeTextConfig; chall port 8002 never healthy; resume stuck in wait_ready",
+  "fix": "copy base config.json + preprocessor_config.json + video_preprocessor_config.json onto /root/h1/merged; patch HF salvage; merge_lora.py now restores sidecars after save",
+  "prior_bad_hf_commit": "da940fd917f293098679f49f6cb9c5a0ce6277d2",
+  "resume_pid_file": "/root/logs/h1_cfgfix.pid",
+  "weights_unchanged": true,
+  "weight_identical": false,
+  "utc_resolved": "2026-08-07T04:11:12Z",
+  "second_bug": "CausalLM save omitted model.visual.* (model-visual-extra.safetensors, 352 keys / 2.58GB)",
+  "second_symptom": "ValueError: weights not initialized from checkpoint: visual.*",
+  "hf_patch_commit": "3364892cefccfb3c4d999c466c0645cd5531143e",
+  "chall_ready_utc": "2026-08-07T04:10:15Z",
+  "sim_n40_pid": 137799,
+  "status": "fixed; n40 sim RUNNING"
+}

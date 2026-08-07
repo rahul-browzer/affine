@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-07T04:04:21Z",
+  "merged": "/root/h1/merged",
+  "base": "/root/hf/hub/models--kevin954--Affine-5dfqbbh8ev-sft/snapshots/6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "restored": [
+    "config.json",
+    "preprocessor_config.json",
+    "video_preprocessor_config.json",
+    "model-visual-extra.safetensors",
+    "model.safetensors.index.json"
+  ],
+  "visual_added_keys": 0,
+  "model_type": "qwen3_5_moe",
+  "architectures": [
+    "Qwen3_5MoeForConditionalGeneration"
+  ],
+  "bug": "AutoModelForCausalLM.save_pretrained wrote qwen3_5_moe_text and omitted model.visual.*; vLLM needs wrapper config + visual shard",
+  "prior_bad_hf_commit": "da940fd917f293098679f49f6cb9c5a0ce6277d2"
+}
