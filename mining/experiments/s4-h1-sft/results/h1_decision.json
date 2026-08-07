@@ -1,0 +1,79 @@
+{
+  "utc": "2026-08-07T04:29:41Z",
+  "rule": {
+    "submit_margin": 0.04,
+    "contract_margin": 0.02,
+    "h4_r": [
+      0.7,
+      0.85
+    ],
+    "h4_base_x_max": 1.15,
+    "prefer": "n80",
+    "live_king_guard": true
+  },
+  "primary": {
+    "source": "n40",
+    "n_paired_turns": 40,
+    "margin": -0.002407665842209357,
+    "se": 0.013163786319472901,
+    "z": -0.1829007083355455,
+    "challenger_wins": false,
+    "king_S": -0.032632643437645256,
+    "chall_S": -0.03547679292302844,
+    "king_valid": true,
+    "chall_valid": true,
+    "chall_r": 1.1346690555507861,
+    "base_x": 0.8170284127574313,
+    "h4_ok": false,
+    "action": "revise_recipe",
+    "reason": "margin -0.00241 < 0.02; revise recipe or try H5 warm-start; do not burn a slot",
+    "chall_repo": "/root/h1/merged",
+    "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+    "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220"
+  },
+  "n40": {
+    "source": "n40",
+    "n_paired_turns": 40,
+    "margin": -0.002407665842209357,
+    "se": 0.013163786319472901,
+    "z": -0.1829007083355455,
+    "challenger_wins": false,
+    "king_S": -0.032632643437645256,
+    "chall_S": -0.03547679292302844,
+    "king_valid": true,
+    "chall_valid": true,
+    "chall_r": 1.1346690555507861,
+    "base_x": 0.8170284127574313,
+    "h4_ok": false,
+    "action": "revise_recipe",
+    "reason": "margin -0.00241 < 0.02; revise recipe or try H5 warm-start; do not burn a slot",
+    "chall_repo": "/root/h1/merged",
+    "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+    "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220"
+  },
+  "n80": null,
+  "live_king_guard": {
+    "checked": true,
+    "match": true,
+    "live": {
+      "repo": "kevin954/Affine-5dfqbbh8ev-sft",
+      "revision": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
+      "score": 0.03955783762471344,
+      "reign_number": 2,
+      "current_eval_id": "chal-00279",
+      "current_eval_repo": "Tok331102/affine-5EqYW8McUc-af7",
+      "current_eval_stage": "scoring",
+      "current_eval_progress": {
+        "phase": "scoring",
+        "miner": "king",
+        "done": 68,
+        "total": 80
+      },
+      "snapshot_generated_at": "2026-08-07T04:29:33.783408+00:00"
+    },
+    "sim_king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+    "sim_king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
+    "note": "sim king matches live king"
+  },
+  "submit": false
+}

@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 1002.4599845409393,
+  "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+  "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "chall_repo": "/root/h1/merged",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h1-sim-n40",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.002407665842209357,
+    "se": 0.013163786319472901,
+    "z": -0.1829007083355455,
+    "k_sigma": 3.0,
+    "n_paired_turns": 40,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": -0.032632643437645256,
+      "gate_pass_rate": 0.9375,
+      "bank_frac": 0.36875,
+      "calib_ratio": 1.0325538394804978,
+      "baseline_abs": 0.14609814999458473,
+      "n_turns": 40,
+      "n_pairs": 160,
+      "mean_lambda2": -0.0380074984721409,
+      "mean_mix": -0.032632643437645256
+    },
+    "challenger": {
+      "valid": true,
+      "S": -0.03547679292302844,
+      "gate_pass_rate": 0.8670886075949367,
+      "bank_frac": 0.4020833333333333,
+      "calib_ratio": 1.1346690555507861,
+      "baseline_abs": 0.11936633959687269,
+      "n_turns": 40,
+      "n_pairs": 158,
+      "mean_lambda2": -0.03454565984370316,
+      "mean_mix": -0.03547679292302844
+    },
+    "slice": {
+      "seed": 15462432393438546639,
+      "n": 40,
+      "digest": "e918f8d070345dfb487f10d9beb0cd88b0d9268800a637df9a0a0743ed8718a4",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 1.1346690555507861,
+    "chall_baseline_abs": 0.11936633959687269,
+    "king_baseline_abs": 0.14609814999458473,
+    "base_x": 0.8170284127574313
+  }
+}

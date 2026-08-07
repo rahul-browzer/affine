@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1 | highest | sim margin vs kevin **> 0.04** after teacher-ref SFT from kevin init | open — **next** |
+| 1 | H1 | highest | sim margin vs kevin **> 0.04** after teacher-ref SFT from kevin init | open — **n40 miss** (−0.0024); n80 running |
 | 2 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 3 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule) |
 | 4 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
@@ -29,18 +29,16 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Prediction (pre-register before train):** challenger mean paired margin ≥
   **+0.04** vs live king on an 80-turn public-D slice, all gates passing,
   r∈[0.70,0.85], base×≤1.15.
-- **In flight (2026-08-07T04:11Z):** train **DONE** 03:35:57Z (110/110;
-  final loss **0.237**, min **0.175** @80). Adapter on HF
-  `unconst/Affine-5czsc2fc98-h1-lora` (`4fe72892…`). Merge not
-  weight-identical. Pass 47 fixed first_1MiB false-positive. Pass 48:
-  chall serve crashed twice after CausalLM merge —
-  (1) text-only `qwen3_5_moe_text` config vs wrapper `qwen3_5_moe`;
-  (2) missing `model-visual-extra.safetensors` (352 keys). Restored both
-  from kevin base; `merge_lora.py` now copies them after save. HF merged
-  salvage @ `3364892…`. Chall READY 04:10:15Z; **n40 sim RUNNING** pid
-  137799 → then n80. Soft 06:50Z; deadman 07:00Z. kevin still king
-  (chal-00279 loading). See `results/h1_config_text_only_bug.json`.
-- **Verdict:** open.
+- **n40 result (2026-08-07T04:27:07Z):** margin **−0.00241** (z=−0.18,
+  SE=0.0132); chall S=−0.0355 vs king S=−0.0326; both valid; **H4 FAIL**
+  (r=**1.135**∉[0.70,0.85], base×=0.817). Chall mean_Λ2 slightly better
+  than king (−0.0345 vs −0.0380) but implied clip-L1 collapsed
+  (−0.0009 vs king +0.0054). Triage `revise_recipe`. Prediction ≥+0.04
+  missed. **n80 RUNNING** for SE confirmation; do not submit this ckpt.
+  Artifacts: `experiments/s4-h1-sft/result.md`, `results/h1_sim_result_n40.json`,
+  `results/h1_decision.json`. HF merged @ `3364892…`. Soft 06:50Z /
+  deadman 07:00Z. kevin still king (chal-00279 scoring).
+- **Verdict:** open (leaning refuted for this recipe; wait n80).
 
 
 ## H2 — weight-merge of recent kings / near-kings beats both

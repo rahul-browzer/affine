@@ -1746,3 +1746,36 @@ Lium $34,212.62; mining spend ≈ $125.06. Floor OK. No new rental. No submit.
 ### Next
 
 Poll n40 → n80 / `h1_decision.json`. No submit until `toward_submit`.
+
+## 2026-08-07T04:29:15Z — pass 49: H1 n40 DONE margin −0.00241 → revise_recipe; n80 launched
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $131.54; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host harvest 1486917 + deadman 1405846 still alive.
+
+### What I did
+
+1. Polled n40 after pass-48 chall READY. Sim advanced ~2–3 turns/min
+   (teacher GPUs 0–1 hot). Finished **04:27:07Z**.
+2. **n40 result vs kevin:** margin **−0.00241** (z=−0.18, SE=0.0132);
+   chall S=−0.03548 vs king S=−0.03263; both gate-valid; **H4 FAIL**
+   (r=**1.135**∉[0.70,0.85], base×=0.817 OK).
+3. Decomposition: chall mean_Λ2 **better** than king (−0.0345 vs −0.0380)
+   but implied clip-L1 collapsed (−0.0009 vs king +0.0054). Recipe hurt
+   the L1/calib envelope that crowns under H3/H4.
+4. Triage → `revise_recipe` / `submit: false`
+   (`experiments/s4-h1-sft/results/h1_decision.json` + `result.md`).
+   Live-king guard: still kevin (chal-00279 scoring ~57/80).
+5. Pipeline already launched **n80** at 04:27:07Z (pid 143331, ~8573s to
+   soft 06:50Z). Left running for SE confirmation — do not submit this ckpt.
+
+### Money
+
+Lium $34,189.24; mining spend ≈ $131.54. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll n80 → re-triage (expect confirm revise). Then H1v2 / H5 — fix r back
+into ~0.72–0.85 and recover clip-L1. No slot burn on this merge.
