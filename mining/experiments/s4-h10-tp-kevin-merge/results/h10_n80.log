@@ -1,0 +1,52 @@
+/root/venv/lib/python3.12/site-packages/huggingface_hub/constants.py:298: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+[sim] king 5/80
+[sim] challenger 5/80
+[sim] challenger 10/80
+[sim] king 10/80
+[sim] king 15/80
+[sim] challenger 15/80
+[sim] king 20/80
+[sim] challenger 20/80
+[sim] king 25/80
+[sim] challenger 25/80
+[sim] king 30/80
+[sim] challenger 30/80
+[sim] king 35/80
+[sim] challenger 35/80
+[sim] king 40/80
+[sim] challenger 40/80
+[sim] king 45/80
+[sim] challenger 45/80
+[sim] king 50/80
+[sim] challenger 50/80
+[sim] king 55/80
+[sim] challenger 55/80
+[sim] king 60/80
+[sim] challenger 60/80
+[sim] king 65/80
+[sim] challenger 65/80
+[sim] challenger 70/80
+[sim] king 70/80
+[sim] challenger 75/80
+[sim] king 75/80
+[sim] challenger 80/80
+[sim] king 80/80
+[sim] artifact -> /root/affine_data/h10_sim_result_artifact.json
+{
+  "wins": false,
+  "margin": 0.0,
+  "z": 0.0,
+  "se": null,
+  "king_S": 0.005861359223482617,
+  "chall_S": null,
+  "chall_valid": false,
+  "king_valid": true,
+  "h4": {
+    "chall_r": 1.0278462715702852,
+    "chall_baseline_abs": 0.24435930335928538,
+    "king_baseline_abs": 0.12320050707997338,
+    "base_x": 1.9834277402824647
+  },
+  "out": "/root/affine_data/h10_sim_result.json"
+}

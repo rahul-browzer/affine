@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-07T13:32:48Z",
+  "pod": "mine-h13-1",
+  "huid": "zesty-orbit-df",
+  "ssh": "38.255.28.22:20099",
+  "ttl": "8h",
+  "remove_at_approx": "2026-08-07T21:32Z",
+  "rate_usd_hr": 31.92,
+  "hypothesis": "H13 TalentPigs×kkk-af α0.75 (chal-00262 +0.0244)",
+  "pipeline_pid": 888,
+  "a": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2",
+  "b": "bluecolor777/kkk-af@7426296b",
+  "alpha": 0.75,
+  "replaced": "mine-h10-1 after H10 REFUTE base×1.983"
+}
