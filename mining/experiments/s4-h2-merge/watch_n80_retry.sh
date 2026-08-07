@@ -16,21 +16,49 @@ log() { echo "[${HYP}-watch-retry] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "
 mkdir -p /root/logs /root/affine_data
 log "armed hyp=$HYP retry=$RETRY"
 
+_is_false_probe() {
+  local f=$1
+  [[ -f "$f" ]] || return 1
+  python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); sys.exit(0 if d.get("false_probe") else 1)' "$f" 2>/dev/null
+}
+
 while true; do
   if [[ -f "$DEC" ]]; then
-    log "decision present — exit"
-    exit 0
+    if _is_false_probe "$DEC"; then
+      # FALSE_PROBE ≠ REFUTE — quarantine and keep watching (pass205).
+      ts=$(date -u +%Y%m%dT%H%M%SZ)
+      mkdir -p /root/affine_data/false_probes
+      mv "$DEC" "/root/affine_data/false_probes/${HYP}_decision_watchQ_${ts}.json"
+      [[ -f "$SIM" ]] && mv "$SIM" "/root/affine_data/false_probes/${HYP}_sim_watchQ_${ts}.json"
+      rm -f "/root/logs/${HYP}_n80.done"
+      log "false_probe decision quarantined — continue"
+    else
+      log "decision present — exit"
+      exit 0
+    fi
   fi
-  if [[ -f "$SIM" ]]; then
-    log "sim result present without decision — write decision"
-    # shellcheck disable=SC1091
-    source /root/venv/bin/activate
-    python3 /root/mining_src/s4-h2-merge/write_merge_decision.py \
-      --hyp "$HYP" --sim-result "$SIM" --out "$DEC"
-    date -u +%Y-%m-%dT%H:%M:%SZ > "/root/logs/${HYP}_n80.done"
-    exit 0
+  if [[ -f "$SIM" ]] && ! _is_false_probe "$SIM"; then
+    # Skip writing decision from a false-probe sim (rejection_reason in result).
+    if python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); sys.exit(0 if (d.get("false_probe") or "unpromptable" in str(d.get("rejection_reason","")) or "ConnectError" in str(d.get("rejection_reason",""))) else 1)' "$SIM" 2>/dev/null; then
+      ts=$(date -u +%Y%m%dT%H%M%SZ)
+      mkdir -p /root/affine_data/false_probes
+      mv "$SIM" "/root/affine_data/false_probes/${HYP}_sim_watchQ_${ts}.json"
+      log "false_probe sim quarantined — continue"
+    else
+      log "sim result present without decision — write decision"
+      # shellcheck disable=SC1091
+      source /root/venv/bin/activate
+      python3 /root/mining_src/s4-h2-merge/write_merge_decision.py \
+        --hyp "$HYP" --sim-result "$SIM" --out "$DEC"
+      date -u +%Y-%m-%dT%H:%M:%SZ > "/root/logs/${HYP}_n80.done"
+      exit 0
+    fi
   fi
-  if pgrep -f "run_sim_duel.py .*${HOTKEY}" >/dev/null 2>&1; then
+  # Require python — pgrep -f matches its own argv / SSH (pass205).
+  if ps -eo pid,cmd | awk -v hk="$HOTKEY" '
+      /python/ && /[r]un_sim_duel\.py/ && $0 ~ hk { found=1 }
+      END { exit !found }
+    '; then
     sleep "$POLL"
     continue
   fi

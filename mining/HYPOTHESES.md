@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H34 | med | H30 cell @ **epochs=2** → m>0.04 | **open** (n80 a203 ~7/80) |
-| 2 | H36 | high | m7×(winner∪king-self) → m>0.04 | **open** (n80 a203) |
-| 3 | H37 | high | H28 cell @ **lr=1e-4** → m>0.04 | **open** (chall p204; false REFUTE Q) |
-| 4 | H38 | high | H28 cell @ **epochs=2** → m>0.04 | **open** (chall p204) |
-| 5 | H35 | med | H30 cell @ **lr=1e-4** → m>0.04 | **open** (n80 a203) |
+| 1 | H34 | med | H30 cell @ **epochs=2** → m>0.04 | **open** (n80 a203 ~56/80) |
+| 2 | H36 | high | m7×(winner∪king-self) → m>0.04 | **open** (n80 a203 ~51/80) |
+| 3 | H37 | high | H28 cell @ **lr=1e-4** → m>0.04 | **open** (chall p205) |
+| 4 | H38 | high | H28 cell @ **epochs=2** → m>0.04 | **open** (chall p205; false_probe Q) |
+| 5 | H35 | med | H30 cell @ **lr=1e-4** → m>0.04 | **open** (n80 a203 ~50/80) |
 | — | H33 | was med | H29 @ epochs=2 | **refuted** m=−0.00158 |
 | — | H32 | was med | H29 @ lr=3e-5 | **refuted** m=−0.00601 |
 | — | H31 | was high | H30 @ lr=3e-5 | **refuted** m=+0.00016 |
@@ -27,26 +27,25 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H34 — H30 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×king-self@lr1e-5 → m>0.04.
-- **Status:** first n80 died teacher 400 @~40/80 (0*64); restarted
-  block_hash=a203… ~7/80. `s4-h34-m7-king-self-ep2/`.
+- **Status:** n80 a203 ~56/80 (past teacher-400 cliff). `s4-h34-m7-king-self-ep2/`.
 
 ### H36 — m7 × UNION(winner-zA ∪ king-self)
 - **Claim:** union high-L1 z_A on m7 → m>0.04 (H28 best single-source +0.011).
-- **Status:** n80 a203 (preempted default-hash). `s4-h36-m7-union-za/`.
+- **Status:** n80 a203 ~51/80. `s4-h36-m7-union-za/`.
 
 ### H37 — H28 @ lr=1e-4 (non-α)
 - **Claim:** 10× LR on m7×winner-zA → m>0.04 after H28 +0.01095.
-- **Status:** p203 chall Triton-died on first completion → false REFUTE
-  quarantined; chall p204 + completions-gated retry. `recover_pass204.md`.
+- **Status:** p204 Triton-died mid-load; chall p205 + wait/double-probe.
+  `relaunch_chall_pass205.sh`.
 
 ### H38 — H28 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×winner-zA@lr1e-5 → m>0.04.
-- **Status:** post_train killed; chall Triton-init fail → p204 relaunch;
-  watcher armed. `recover_pass204.md`.
+- **Status:** p204 health-blip → false_probe ConnectError Q'd; chall p205.
+  `relaunch_chall_pass205.sh`.
 
 ### H35 — H30 @ lr=1e-4 (non-α)
 - **Claim:** 10× LR on m7×king-self → m>0.04 after H30/H31 near-null.
-- **Status:** n80 a203. `s4-h35-m7-king-self-lr1e4/`.
+- **Status:** n80 a203 ~50/80. `s4-h35-m7-king-self-lr1e4/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

@@ -80,12 +80,11 @@ Format: `- <finding> — <the number or error that proves it>`
   `sm_121f` via `s3-duel-sim/patch_b300_sm103_flash_attn.sh` after venv install
   (H23 pass170). H200 unaffected.
 - Triton races: per-role `TRITON_CACHE_DIR` + wipe + stagger; kill orphans by
-  GPU index never `pkill -f "vllm serve"` (kills SSH). MoE wait ≥120×15s.
-  Health=200 ≠ alive — gate n80 on `/v1/completions` 200 with real model id
-  (not `"default"`→404). First probe can EngineDead on missing
-  `__triton_launcher.so` → wipe+relaunch, settle ≥20s (H23/H30/H37@29s false
-  REFUTE pass204). `write_merge_decision` → `FALSE_PROBE_*` not REFUTE when
-  rejection_reason has unpromptable/ConnectError/EngineDead.
+  GPU index never `pkill -f "vllm serve"`. MoE wait ≥120×15s; settle ≥20s
+  after wipe. Health=200 ≠ alive — gate on `/v1/completions` 200 **twice**
+  20s apart (H38 p205: first ok → EngineDead on `__triton_launcher.so` →
+  false_probe). Watcher/retry must auto-quarantine `false_probe` decisions
+  (not exit). `FALSE_PROBE_*` ≠ REFUTE — never `lium rm`.
 - `pgrep -f` false-matches SSH/watcher argv — use
   `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
   from `watch_n80_retry` (self-deadlock H32 pass198).
@@ -144,7 +143,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - Default `block_hash=0*64` n80 dies teacher **400** at ~40/80 (prompt+1792>
   32768) — H32 + H34@40/80 pass203. Rotate `--block-hash` on every retry
   (`a203…/b203…/c203…`); patch `retry_h*_n80.sh` + never rely on bare post_train.
-- `watch_n80_retry` must **not** `exec` the retry — abort kills the sidecar
-  (H37/H38 pass203). `nohup bash "$RETRY"` + keep polling.
+- `watch_n80_retry` must **not** `exec` the retry (pass203). Retry must
+  **wait** engines (not abort-spam every 30s — pass205). Sim-alive check
+  needs `python` in argv — bare `pgrep -f run_sim_duel` self-matches.
 ## Money / platform
 - Floor $10k; burn ~τ0.68; no cryptoType.
