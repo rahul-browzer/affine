@@ -126,6 +126,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - H28 king :8001 can die mid-n80 after a burst of `/v1/completions` 500s
   (ConnectError; pipeline 3× abort). Relaunch king (not `lium rm`);
   `retry_h28_n80.sh` alone ABORTs if :8001 unhealthy — must recover king first.
+- King-self harvest (TalentPigs `king_rows` @ dbfbb + crown chall) → **686**
+  ex mean clipL1 0.0885 — larger/cleaner than mixed winner-zA 406 (H29).
 
 ## Money / platform
 
