@@ -1,0 +1,42 @@
+{
+  "utc": "2026-08-07T10:01:09Z",
+  "pass": 108,
+  "increment": "preflight mid-ckpt salvage + merge path before step50",
+  "train": {
+    "pid": 2820,
+    "step": 17,
+    "total": 99,
+    "s_per_it": 44.59,
+    "last_loss": 0.4815556526184082,
+    "last_loss_step": 15,
+    "train_eta_utc": "2026-08-07T11:02:06Z",
+    "mid50_eta_utc": "2026-08-07T10:25:41Z"
+  },
+  "hf": {
+    "lora_repo": "unconst/Affine-5czsc2fc98-h5c-lora",
+    "lora_sha": "38af0caf32e30c64baaa2d1573969ee83f0e5590",
+    "lora_private": true,
+    "merged_repo": "unconst/Affine-5czsc2fc98-h5c-merged",
+    "merged_sha": "128c6fac888595683f8399c6a23b8d1dbcaee562",
+    "merged_private": true,
+    "write_probe": "README.md commit on h5c-lora OK via /root/venv + mine.env HF_TOKEN"
+  },
+  "paths_ok": {
+    "kevin_base": true,
+    "talentpigs_king": true,
+    "salvage_adapter.py": true,
+    "merge_lora.py": true,
+    "run_sim_duel.py": true,
+    "save_steps_default": 50,
+    "mid_salvage_pid": 5194,
+    "mid_has_venv": true,
+    "mid_has_hf_token": true
+  },
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 0
+  },
+  "pipe_pid": 10642,
+  "do_not_submit": true
+}

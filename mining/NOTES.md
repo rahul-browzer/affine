@@ -3727,3 +3727,38 @@ and pipe HF pushes would have failed open.
 ### Next
 
 Poll for mid-ckpt~50 salvage + `h5c_decision.json`. Gate margin > 0.04.
+
+
+## 2026-08-07T10:01:09Z — pass 108: H5c mid-salvage + merge path preflight
+
+### Reconcile
+
+`lium ps`: `mine-h5c-1` (`golden-hawk-dc`) RUNNING spent $10.88 / 23m;
+validator `affine-eval` / `affine-bench` left alone. No orphans.
+Host harvest **2090851** + deadman **2090852** still alive.
+
+### Increment
+
+Train still early (step 15→17/99, loss 0.482@15, ~45s/it). Before
+checkpoint-50 (~10:25Z), verified the salvage/merge chain that would otherwise
+fail open:
+
+1. Pod `/root/venv` HF write-probe → `unconst/Affine-5czsc2fc98-h5c-lora`
+   README commit `38af0ca…` (private). Merged shell still `128c6fa…`.
+2. Mid watcher **5194** has `VIRTUAL_ENV=/root/venv` + `HF_TOKEN` in environ;
+   `save_steps` default **50** confirmed in `train_lora.py`.
+3. Local kevin base + TalentPigs king snapshots present; `salvage_adapter.py`,
+   `merge_lora.py`, `run_sim_duel.py` present on pod.
+4. Evidence: `experiments/s4-h5c-expand-refs/results/h5c_pass108_preflight.json`.
+
+Teacher+king READY (200/200); GPUs 4,5 free for chall; pipe **10642** waiting
+`train.done`. ETA train ~11:02Z → decision ~12:30–13:00Z. No submit.
+
+### Snapshot
+
+- King unchanged: TalentPigs reign 3 S=0.0315
+- Lium $33,676.21; mine-h5c-1 $10.88; no new rental; no submit
+
+### Next
+
+Poll for mid-ckpt~50 salvage + `h5c_decision.json`. Gate margin > 0.04.

@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5c | highest now | kevin-init thought LoRA on **expanded** teacher_refs → clip-L1≥0.042, r∈[0.70,0.85], margin **> 0.04** vs TalentPigs | **open** — train **2820** step14/99; pipe **10642**; prewarm DONE t/k 200; HF shells `…-h5c-lora`/`…-h5c-merged` pre-created (pass 107); harvest **2090851** + deadman **2090852**@19:00Z; DATA=791 shortz |
+| 1 | H5c | highest now | kevin-init thought LoRA on **expanded** teacher_refs → clip-L1≥0.042, r∈[0.70,0.85], margin **> 0.04** vs TalentPigs | **open** — train **2820** step17/99 @~45s/it (loss0.482@15); pipe **10642**; mid **5194**; t/k READY; HF write-probe OK `…-h5c-lora`@`38af0ca…` (pass108); harvest **2090851** + deadman **2090852**@19:00Z; DATA=791 shortz |
 | — | H5b | was highest | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **refuted** — n80 margin **+0.00322** z=0.55; H4 r=0.670 |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |

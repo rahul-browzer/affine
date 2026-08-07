@@ -1,22 +1,20 @@
 {
-  "utc": "2026-08-07T09:58:19Z",
-  "pass": 107,
-  "action": "precreate_h5c_hf_repos",
-  "why": "pod mid_ckpt_salvage + pipe HF push target repos were missing (401 RepositoryNotFound); create private empty shells before save_steps=50",
-  "repos": [
-    {
-      "repo": "unconst/Affine-5czsc2fc98-h5c-lora",
-      "url": "https://huggingface.co/unconst/Affine-5czsc2fc98-h5c-lora",
+  "utc": "2026-08-07T10:01:09Z",
+  "pass": 108,
+  "note": "pass107 created empty private shells; pass108 write-probed lora README via pod venv",
+  "repos": {
+    "lora": {
+      "id": "unconst/Affine-5czsc2fc98-h5c-lora",
       "private": true,
-      "sha": "bb26ad939baab6ae2860972426fc5fd87e9b40a9",
-      "nfiles": 1
+      "sha": "38af0caf32e30c64baaa2d1573969ee83f0e5590",
+      "write_probe": "README.md OK"
     },
-    {
-      "repo": "unconst/Affine-5czsc2fc98-h5c-merged",
-      "url": "https://huggingface.co/unconst/Affine-5czsc2fc98-h5c-merged",
+    "merged": {
+      "id": "unconst/Affine-5czsc2fc98-h5c-merged",
       "private": true,
       "sha": "128c6fac888595683f8399c6a23b8d1dbcaee562",
-      "nfiles": 1
+      "write_probe": "repo_info OK (no write this pass)"
     }
-  ]
+  },
+  "do_not_submit": true
 }
