@@ -2184,3 +2184,34 @@ Lium $34,080.33; mining spend ≈ $158.87. Floor OK. No new rental. No submit.
 
 Poll chall :8002 /health 200 → confirm H1v2 n80 launch → triage decision.
 Submit only if margin > 0.04 + H4 OK.
+
+## 2026-08-07T05:44:10Z — pass 62: H1v2 chall READY → prefer-n80 launched
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $161.57; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,072.51 (floor OK).
+
+### What I did
+
+1. Polled chall :8002 — loading→compile→**200 at 05:41:18Z**. Pipe
+   recorded READY **05:41:16Z** (serve elapsed ~332s). Teacher/king stayed 200.
+2. Confirmed prefer-n80 path: remain_soft=4124s ≥3200 → **skipped n40**,
+   launched `run_sim_duel.py --n-turns 80` pid **198714** →
+   `/root/affine_data/h1v2_sim_result.json` (hotkey `local-h1v2-sim-n80`).
+3. First progress @ 05:44:00Z: king **1**/80, challenger **1**/80. Merged HF
+   push pid **191137** still uploading; adapter salvage already OK.
+4. Evidence: `experiments/s4-h1v2-sft/results/h1v2_n80_launched.json` +
+   `h1v2_sim_progress.json`. kevin still king; live eval **chal-00283**
+   scoring. Do **not** submit until n80 margin > 0.04 + H4 OK.
+5. Budget: n80 ~55m from 05:41 → ~06:36 < soft 06:50 / deadman 07:00.
+
+### Money
+
+Lium $34,072.51; mining spend ≈ $161.57. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll n80 progress → harvest `h1v2_sim_result.json` → triage decision.
+Submit only if margin > 0.04 + H4 OK. Harvest merged salvage when push ends.

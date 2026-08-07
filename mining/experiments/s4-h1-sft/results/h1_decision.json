@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T05:19:15Z",
+  "utc": "2026-08-07T05:44:00Z",
   "rule": {
     "submit_margin": 0.04,
     "contract_margin": 0.02,
@@ -81,11 +81,14 @@
       "reign_number": 2,
       "current_eval_id": "chal-00283",
       "current_eval_repo": "Shatoria/Affine-5ghntktyzq-test3",
-      "current_eval_stage": "load_challenger",
+      "current_eval_stage": "scoring",
       "current_eval_progress": {
-        "phase": "load_challenger"
+        "phase": "scoring",
+        "miner": "king",
+        "done": 41,
+        "total": 80
       },
-      "snapshot_generated_at": "2026-08-07T05:19:05.102564+00:00"
+      "snapshot_generated_at": "2026-08-07T05:43:45.824922+00:00"
     },
     "sim_king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
     "sim_king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",

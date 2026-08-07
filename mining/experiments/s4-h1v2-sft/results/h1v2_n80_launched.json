@@ -1,0 +1,40 @@
+{
+  "utc": "2026-08-07T05:41:16Z",
+  "pass": 62,
+  "event": "h1v2_chall_ready_prefer_n80_launched",
+  "serve_ready_utc": "2026-08-07T05:41:16Z",
+  "chall_health_200_utc": "2026-08-07T05:41:18Z",
+  "serve_elapsed_s": 332,
+  "engines": {
+    ":8000": 200,
+    ":8001": 200,
+    ":8002": 200
+  },
+  "chall_repo": "/root/h1v2/merged",
+  "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+  "king_revision": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "pipe_pid": 171602,
+  "sim_pid": 198714,
+  "sim_cmd": "run_sim_duel.py --chall-repo /root/h1v2/merged --out /root/affine_data/h1v2_sim_result.json --hotkey local-h1v2-sim-n80 --n-turns 80 --progress-out /root/affine_data/h1v2_sim_progress.json --save-artifact",
+  "budget": {
+    "remain_soft_s": 4124,
+    "remain_deadman_s": 4724,
+    "n80_budget_s": 3200,
+    "decision": "prefer_n80_skip_n40"
+  },
+  "hf_merged_push_pid": 191137,
+  "hf_merged_push_status": "still_uploading_at_launch",
+  "live_king": "kevin954/Affine-5dfqbbh8ev-sft",
+  "live_eval": "chal-00283 scoring Shatoria/\u2026-test3",
+  "submit": false,
+  "note": "n80 is the submit-gate measurement; triage only after h1v2_sim_result.json + decision",
+  "first_progress": {
+    "utc": "2026-08-07T05:44:00Z",
+    "king": 1,
+    "challenger": 1,
+    "n_turns": 80,
+    "sim_pid": 198714
+  },
+  "mine_sim_spent_usd": 161.57,
+  "lium_balance_usd": 34072.51
+}

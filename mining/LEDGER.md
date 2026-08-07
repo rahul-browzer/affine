@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T05:44:10Z | 34072.51 | 10.000000 | 0 | mine-sim-1 spent $161.57; pass62 H1v2 chall READY→n80 sim running; no new rental |
 | 2026-08-07T05:37:11Z | 34080.33 | 10.000000 | 0 | mine-sim-1 spent $158.87; pass61 H1v2 train+merge DONE; chall loading; no new rental |
 | 2026-08-07T05:19:08Z | 34111.44 | 10.000000 | 0 | mine-sim-1 spent $151.76; pass60 H1 n80 DONE margin −0.01994 REFUTED; H1v2 step43; no new rental |
 | 2026-08-07T05:10:53Z | 34119.21 | 10.000000 | 0 | mine-sim-1 spent $148.11; pass59 H1v2 prefer-n80 pipe+harvest; no new rental |
@@ -67,6 +68,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T05:44:10Z | observe | mine-sim spent $161.57 | Lium → mine-sim-1 | 34072.51 | 10.000 | pass62 chall READY 05:41:16Z prefer-n80 pid 198714 (1/80); HF merge push still up; floor OK |
 | 2026-08-07T05:37:11Z | observe | mine-sim spent $158.87 | Lium → mine-sim-1 | 34080.33 | 10.000 | pass61 H1v2 train.done 05:28:51Z merge.done 05:35:39Z; HF adapter OK; chall loading→n80; floor OK |
 | 2026-08-07T05:19:08Z | observe | mine-sim spent $151.76 | Lium → mine-sim-1 | 34111.44 | 10.000 | pass60 H1 n80 margin −0.01994 REFUTED; H1v2 step43/55; pipe 171602 wait train.done; floor OK |
 | 2026-08-07T05:10:53Z | observe | mine-sim spent $148.11 | Lium → mine-sim-1 | 34119.21 | 10.000 | pass59 H1v2 prefer-n80 pipe+harvest; pipe 171602; harvest 1670883; step35/55; n80~59/59; floor OK |

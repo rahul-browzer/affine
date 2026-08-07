@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T05:36:52Z",
+  "utc": "2026-08-07T05:43:41Z",
   "experiment": "s4-h1v2-sft",
   "step": 55,
   "total": 55,
@@ -13,7 +13,7 @@
   "engines": {
     "teacher": 200,
     "king": 200,
-    "chall": "<urlopen error [Errno 111] Connection refused>"
+    "chall": 200
   },
   "n_loss_logs": 11,
   "first_loss": 0.49318628311157225,

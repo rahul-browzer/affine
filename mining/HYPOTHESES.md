@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **train+merge DONE**; chall loading→prefer-n80; HF adapter salvaged |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **n80 RUNNING** (pid 198714; READY 05:41:16Z; prefer-n80) |
 | 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
@@ -124,7 +124,12 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   loading `:8002`. Evidence:
   `results/h1v2_train_merge_transition.json`, `train_result.json`,
   `h1v2_merge_meta.json`. Prediction unchanged — awaits n80.
-- **Verdict:** open — merge/serve in progress; n80 not yet scored.
+- **n80 launch (05:44Z pass 62):** chall :8002 READY **05:41:16Z**
+  (serve ~332s). Pipe budget remain_soft=4124s → **prefer n80, skip n40**.
+  Sim pid **198714** → `h1v2_sim_result.json`; first progress king1/chall1
+  @ 05:44:00Z. Merged HF push **191137** still uploading. Evidence:
+  `results/h1v2_n80_launched.json`, `h1v2_sim_progress.json`.
+- **Verdict:** open — n80 sampling; prediction unchanged until result.
 
 
 ## H2 — weight-merge of recent kings / near-kings beats both
