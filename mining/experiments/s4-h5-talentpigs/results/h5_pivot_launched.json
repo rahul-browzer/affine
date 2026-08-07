@@ -1,0 +1,26 @@
+{
+  "utc": "2026-08-07T06:25:12Z",
+  "pass": 69,
+  "action": "launch_h5_pivot_pipeline",
+  "pod": "mine-sim-1",
+  "huid": "swift-shark-52",
+  "pipeline_pid": 227022,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "king_S": 0.031501971059510636,
+  "reign": 3,
+  "steps": ["download_talentpigs", "pivot_king_8001"],
+  "next_after_done": "merge kevin×TalentPigs α=0.65 → chall → n80 vs TalentPigs",
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "deadman_pid": 1783662,
+  "check": {
+    "download_done": "/root/logs/h5_download.done",
+    "king_pivot_done": "/root/logs/h5_king_pivot.done",
+    "pipeline_done": "/root/logs/h5_pivot_pipeline.done",
+    "log": "/root/logs/h5_pivot_pipeline.nohup"
+  },
+  "cache_at_poll_06_25_41Z_GiB": 19,
+  "engines_at_launch": {"teacher": 200, "king": 200, "chall": 200},
+  "lium_balance_usd": 34002.45,
+  "mine_sim_spent_usd": 177.94
+}

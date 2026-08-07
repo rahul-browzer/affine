@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T06:25:41Z | 34002.45 | 10.000000 | 0 | mine-sim-1 spent $177.94; pass69 H5 pivot pipe launched (TalentPigs dl→king); deadman→12:00Z; no new rental |
 | 2026-08-07T06:20:30Z | 34010.24 | 10.000000 | 0 | mine-sim-1 spent $175.84; pass68 H1v2 n80 REFUTED margin −0.00030; TalentPigs king; harvest killed keep-pod; no new rental |
 | 2026-08-07T06:09:00Z | 34033.60 | 10.000000 | 0 | mine-sim-1 spent $171.38; pass67 deadline extend harvest 07:45/deadman 08:00; n80~55/80; no new rental |
 | 2026-08-07T06:02:40Z | 34041.08 | 10.000000 | 0 | mine-sim-1 spent $168.86; pass66 n80 ETA~06:25 + artifact harvest fix; no new rental |
@@ -74,6 +75,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T06:25:41Z | observe | mine-sim spent $177.94 | Lium → mine-sim-1 | 34002.45 | 10.000 | H5 pivot pipe 227022; deadman→12:00Z; floor OK |
 | 2026-08-07T06:20:30Z | observe | mine-sim spent $175.84 | Lium → mine-sim-1 | 34010.24 | 10.000 | H1v2 n80 REFUTED; TalentPigs crowned; keep pod; floor OK |
 | 2026-08-07T06:09:00Z | observe | mine-sim spent $171.38 | Lium → mine-sim-1 | 34033.60 | 10.000 | pass67 n80~55/80; extended harvest→07:45/deadman→08:00 (+≤$23.60 if full hour); floor OK |
 | 2026-08-07T06:02:40Z | observe | mine-sim spent $168.86 | Lium → mine-sim-1 | 34041.08 | 10.000 | pass66 H1v2 n80~37/80 ETA~06:25@1.8tpm; harvest artifact SCP armed pid 1748334; floor OK |
@@ -145,10 +147,10 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~175.84 so far (meter running @ 23.60/h; host deadman 08:00Z) | — |
+| Lium rentals (`mine-*`) | ~177.94 so far (meter running @ 23.60/h; host deadman 12:00Z) | — |
 
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~94.80+ (accruing)** | **0** |
+| **total** | **~177.94 (accruing)** | **0** |
 
-Cap remaining to first crown: **~$3,824** (of $4,000) at $175.84 spent; deadman 08:00Z.
+Cap remaining to first crown: **~$3,822** (of $4,000) at $177.94 spent; deadman 12:00Z.

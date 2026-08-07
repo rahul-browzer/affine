@@ -2405,3 +2405,33 @@ No submit / no registration burn.
 Pivot pod: download TalentPigs → re-serve king :8001 → H5 merge or mild
 distill → n80 vs **live** king (gate > 0.04). Re-check snapshot (chal-00286
 ensure_king may change crown again).
+
+## 2026-08-07T06:25:41Z — pass 69: H5 pivot launched (TalentPigs download→king)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $177.94; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $34,002.45 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. Created `experiments/s4-h5-talentpigs/` — `plan.md` (H5 kevin×TalentPigs
+   α=0.65 pred margin ≥+0.04), `download_talentpigs.sh`, `pivot_king.sh`,
+   `start_pivot.sh`. Uploaded to pod `/root/mining_src/s4-h5-talentpigs/`.
+2. Extended host deadman **08:00Z → 12:00Z** (pid **1783662**) for
+   download+serve+later merge/n80.
+3. Launched pivot pipeline pid **227022**: download
+   `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` then re-serve king:8001.
+   Cache ~19G at +30s; engines stayed 200×3 during download. Evidence:
+   `results/h5_pivot_launched.json`.
+
+### Money
+
+Lium $34,002.45; mining spend ≈ $177.94. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Poll `/root/logs/h5_king_pivot.done` → merge kevin×TalentPigs α=0.65 →
+chall:8002 → n80 vs TalentPigs (gate >0.04). Re-check snapshot before sim.

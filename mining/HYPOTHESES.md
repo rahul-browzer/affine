@@ -226,12 +226,14 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   from TalentPigs init, clears sim margin > 0.04 vs the **live** king.
 - **Prior claim (michael-chan):** near-miss chal-00254 margin −0.0027 —
   demoted; that lineage is stale under the new crown.
-- **Experiment:** Stage 4 on `mine-sim-1` (pod kept; deadman 08:00Z):
-  download TalentPigs → re-serve :8001 as king → merge or train candidate
-  → n80 vs TalentPigs.
-- **Prediction (pre-register before next train/merge):** n80 paired
-  margin ≥ **+0.04** vs TalentPigs; H4 OK; both valid.
-- **Verdict:** open — next action after H1v2 refute.
+- **Experiment:** `experiments/s4-h5-talentpigs/` on `mine-sim-1`
+  (deadman 12:00Z). First recipe: kevin×TalentPigs linear merge α=0.65.
+- **Launch (2026-08-07T06:25:12Z pass 69):** pivot pipeline pid **227022**
+  — download TalentPigs → re-serve king:8001. Merge+n80 after
+  `h5_king_pivot.done`. Evidence: `results/h5_pivot_launched.json`.
+- **Prediction (pre-register BEFORE merge):** n80 paired margin ≥ **+0.04**
+  vs TalentPigs; H4 OK; both valid; weight_identical=false.
+- **Verdict:** open — download/pivot in flight.
 
 ## Scaffolding
 
