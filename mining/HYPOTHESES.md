@@ -12,7 +12,7 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **open** (mid50 SIGNAL_NEG −0.0057; final n80) |
 | 2 | H13 | highest (cheap) | TalentPigs×kkk-af α0.75 → margin>0.04 (chal-00262 +0.0244 exact rev) | **open** (staged; wait slot) |
 | 3 | H11 | high (cheap) | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 (chal-00274 +0.023) | **open** (n80 ~7/80) |
-| 4 | H12 | high (cheap) | TalentPigs×plmk α0.75 → margin>0.04 (chal-00310 +0.0143) | **open** (merge~15/16) |
+| 4 | H12 | high (cheap) | TalentPigs×plmk α0.75 → margin>0.04 (chal-00310 +0.0143) | **open** (serve→n80; false-refuse fixed) |
 | 5 | H9 | high (cheap) | TalentPigs×diane613 α0.75 → margin>0.04 vs TalentPigs | **open** (n80 retry 1/3 after TO@60) |
 | 6 | H10 | high (cheap) | TalentPigs×kevin α0.75 (TP-dom) → margin>0.04 | **open** (n80 ~19/80) |
 | — | H8 | was high | TalentPigs×golden-crown α0.75 → margin>0.04 | **refuted** — invalid base×1.97 |
@@ -43,7 +43,7 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H12 — TalentPigs × plmk merge (pivoted from als kdjf)
 - **Claim:** α=0.75 with plmk near-miss clears margin > 0.04.
 - **Test:** mine-h12-1; B=`bluecolor777/plmk`@b2cc7b9f (=chal-00310 +0.0143).
-- **Status:** merge ~7/16 → n80. Detail: `experiments/s4-h12-tp-dfwas-merge/`.
+- **Status:** merge OK (mid Δ0.215); first8-sample false-refuse recovered → serve→n80. Detail: `experiments/s4-h12-tp-dfwas-merge/results/h12_false_refuse.md`.
 
 ### H11 — TalentPigs × adambell ckpt450 merge
 - **Claim:** α=0.75 with chal-00274 near-miss (+0.0229 z=2.37) clears margin > 0.04.

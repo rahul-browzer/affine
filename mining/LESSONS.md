@@ -107,9 +107,9 @@ Format: `- <finding> — <the number or error that proves it>`
   tear down the train pod on a mid-ckpt n40).
 - H7/H8 TP×{pandora,golden-crown} α0.75 both **INVALID** band (base×2.21 / **1.97**); null-S
   reign earners at 25% sabotage empty-baseline — do not retry those B / no α0.85 on gate-fail.
-- Dual-side n40/n80 can `httpx.ReadTimeout` on teacher sample at default 180s×3 (H6 mid50 died @29/40); pod `vllm_client` now 480s×5; `retry_mid50_n40.sh` + post_train already retries n80×3.
-- Even 480s×5 can exhaust: H9 n80 died @60/80 ReadTimeout — every `start_*_n80.sh` needs outer 3× retry (H12/H9 now; H10/H11 verify).
+- Dual-side n40/n80 teacher `httpx.ReadTimeout`: default 180s×3 dies (H6@29/40); 480s×5 still dies (H9@60/80) — every `start_*_n80.sh` needs outer 3× retry (H12/H9 have it; H10/H11 verify).
 - Near-miss HF parents vanish or gate: origin kkk/kkkk/marsplan/adambell often 404; als kdjf/Tok*/rootti `gated=manual`→403. Before rent: `model_info` + `hf_hub_download(.gitattributes)` + **exact duel rev** via `api/v1/duels/{cid}`. Mirrors: adambell→`0pentensor/…ckpt450-H6`; plmk→`bluecolor777/plmk`@b2cc7b9f; **kkk→`bluecolor777/kkk-af`@7426296b** (chal-00262 +0.0244; `bluecolor777/kkk`@e3563a is a different SHA); kkkk→`vincentwarrior/affine-5ccebdzvsj-kkkk`@3ca1ebe6.
+- `merge_linear.py` must track `max_abs_delta` over **all** keys — sampling first 8 false-refuses when early embeds match (H12: first8 Δ=0 + first_1MiB match, but shard08 max\|A−O\|=0.215). first_1MiB match alone is never refuse.
 
 ## Money / platform
 

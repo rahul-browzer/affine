@@ -14,25 +14,25 @@ No submit. Cap **5/5**.
 |---|---|
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 #3 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
-| min_submission_block | check contract before submit |
-| Lium / spend | $33,262 · ~$545 · cap rem ~$3,455 |
+| min_submission_block | 8767079 |
+| Lium / spend | $33,243 · ~$570 · cap rem ~$3,430 |
 | miner | τ10.000 free · 0 submissions |
-| H6 | mid50 **SIGNAL_NEG** m=−0.0057; gate released; final chall loading → n80 |
-| H9 | n80 **retried** (died ReadTimeout@60/80); attempt 1/3 running |
-| H10 | n80 ~19/80 |
-| H11 | n80 ~7/80 |
-| H12 | merge ~15–16/16 → n80 |
+| H6 | mid50 SIGNAL_NEG; final chall loading (wait_ready) → n80 |
+| H9 | n80 retry 1/3 ~2/80 |
+| H10 | n80 ~27/80 |
+| H11 | n80 ~13/80 |
+| H12 | merge false-refuse fixed; serve→n80 waiting engines |
 | H13 | **staged** TP×`bluecolor777/kkk-af`@7426296b |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h5c-1 | golden-hawk-dc | 152.236.142.234:40298 | 19:37Z | H6 final n80 (post_train CONT) |
+| mine-h5c-1 | golden-hawk-dc | 152.236.142.234:40298 | 19:37Z | H6 final n80 |
 | mine-h9-1 | noble-lion-ac | 38.255.28.21:20100 | ~20:07Z | H9 n80 retry 1/3 |
 | mine-h10-1 | gentle-eagle-d5 | 38.255.28.19:20099 | ~20:10Z | H10 n80 |
 | mine-h11-1 | swift-fox-b5 | 152.236.142.232:40311 | ~20:33Z | H11 n80 |
-| mine-h12-1 | calm-hawk-89 | 152.236.142.237:40311 | 20:42Z | H12 merge→n80 |
+| mine-h12-1 | calm-hawk-89 | 152.236.142.237:40311 | 20:42Z | H12 serve→n80 |
 
 known_hosts `/tmp/mine-h{5c,9,10,11,12}-1.known_hosts`. **Slots full.**
 
@@ -54,5 +54,5 @@ ssh …40298… 'cat /root/affine_data/h6_decision.json 2>/dev/null; cat /root/a
 ssh …20100… 'cat /root/affine_data/h9_decision.json 2>/dev/null; cat /root/affine_data/h9_sim_progress.json'
 ssh …20099… 'cat /root/affine_data/h10_decision.json 2>/dev/null; cat /root/affine_data/h10_sim_progress.json'
 ssh …40311… @.232 'cat /root/affine_data/h11_decision.json 2>/dev/null; cat /root/affine_data/h11_sim_progress.json'
-ssh …40311… @.237 'cat /root/affine_data/h12_decision.json 2>/dev/null; ls /root/logs/h12_merge.done; cat /root/affine_data/h12_sim_progress.json 2>/dev/null'
+ssh …40311… @.237 'cat /root/affine_data/h12_decision.json 2>/dev/null; cat /root/affine_data/h12_sim_progress.json 2>/dev/null; tail /root/logs/h12_continue.nohup'
 ```

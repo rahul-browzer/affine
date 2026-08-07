@@ -178,11 +178,12 @@ def main() -> None:
                 out = (
                     args.alpha * ta.to(torch.float32) + (1.0 - args.alpha) * tb.to(torch.float32)
                 ).to(dtype)
-                # Track a cheap non-identity signal on first few params.
-                if n_merged < 8:
-                    max_abs_delta = max(
-                        max_abs_delta, (out.float() - ta.float()).abs().max().item()
-                    )
+                # Track non-identity across the whole merge. Sampling only the
+                # first N keys false-positives when early embeds/norms match
+                # (H12: first 8 keys Δ=0 while mid-layer max|A−O|≈0.21).
+                max_abs_delta = max(
+                    max_abs_delta, (out.float() - ta.float()).abs().max().item()
+                )
                 tensors[key] = out.contiguous()
                 n_merged += 1
             else:
@@ -218,7 +219,8 @@ def main() -> None:
     }
     (args.out / "model.safetensors.index.json").write_text(json.dumps(index, indent=2))
 
-    # Fingerprint first shard vs A's — must differ.
+    # Fingerprint first shard head (embed-leading; may match A even when
+    # later tensors differ). Refuse only on max_abs_delta≈0 across all keys.
     first_shard = sorted(by_shard)[0]
     a_fp = file_sha256(a_snap / first_shard, nbytes=1 << 20)
     o_fp = file_sha256(args.out / first_shard, nbytes=1 << 20)
@@ -237,10 +239,16 @@ def main() -> None:
     }
     (args.out / "merge_meta.json").write_text(json.dumps(meta, indent=2))
     print(json.dumps(meta, indent=2), flush=True)
-    if identical_prefix and max_abs_delta == 0.0:
-        raise SystemExit("merge looks weight-identical to A — refuse")
     if max_abs_delta < 1e-8:
-        raise SystemExit(f"max_abs_delta_sample too small ({max_abs_delta}); refuse copy")
+        raise SystemExit(
+            f"max_abs_delta_sample too small ({max_abs_delta}); refuse copy of A"
+        )
+    if identical_prefix:
+        print(
+            "[merge] NOTE: first_1MiB of first shard matches A (embed-leading; "
+            f"OK when max_abs_delta={max_abs_delta})",
+            flush=True,
+        )
     print("[merge] OK_NON_IDENTICAL", flush=True)
 
 
