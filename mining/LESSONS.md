@@ -137,9 +137,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - `start_*.sh` JSON `note` must be a closed string; unterminated → SyntaxError
   after train nohup → bootstrap `set -e` skips extra_dl/post_train (H36 pass198).
 - Engine recover: wipe `role`+`role_*` Triton caches **before** creating the
-  new `TCACHE`, then ≥5s settle (H35 king 201a failed mid-cache; 201b wipe→
-  settle→`king_p201b_*` → health 200). Same pattern for teacher/chall (H36
-  pass201; H37 chall p203). Concurrent prewarm still races — recover dead role.
+  new `TCACHE`, then ≥20s settle (H35/H36/H37/H41; H40 p210 teacher hung
+  health=000 with workers holding VRAM after `cuda_utils.so` ImportError —
+  reap by GPU index first). Concurrent prewarm still races — recover dead role.
 - Default `block_hash=0*64` n80 dies teacher **400** at ~40/80 (prompt+1792>
   32768) — H32 + H34@40/80 pass203. Rotate `--block-hash` on every retry
   (`a203…/b203…/c203…`); patch `retry_h*_n80.sh` + never rely on bare post_train.
