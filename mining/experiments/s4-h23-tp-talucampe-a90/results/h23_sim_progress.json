@@ -1,7 +1,7 @@
 {
-  "utc": "2026-08-07T19:20:05Z",
-  "hotkey": "local-h27",
-  "chall_repo": "/root/h27/merged",
+  "utc": "2026-08-07T19:22:48Z",
+  "hotkey": "local-h23",
+  "chall_repo": "/root/merges/h23-tp90",
   "n_turns": 80,
   "challenger": 80,
   "challenger_total": 80,

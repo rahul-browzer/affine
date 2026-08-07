@@ -121,6 +121,11 @@ Format: `- <finding> — <the number or error that proves it>`
 - `watch_form_decision.sh` can die mid-n80 with only the initial "waiting" log
   line left (h23/h27/h28 all dead at ~53/32/7 while sims still ran — pass182).
   Each poll: `awk '/[w]atch_form_decision\.sh/ && / hN /'` and relaunch if 0.
+- Winner-zA thought LoRA on **TalentPigs init** loses (H27 m=−0.00792, gates
+  OK) — shaping data alone ≠ crown; do not retry TP-init + same 406 ex.
+- H28 king :8001 can die mid-n80 after a burst of `/v1/completions` 500s
+  (ConnectError; pipeline 3× abort). Relaunch king (not `lium rm`);
+  `retry_h28_n80.sh` alone ABORTs if :8001 unhealthy — must recover king first.
 
 ## Money / platform
 

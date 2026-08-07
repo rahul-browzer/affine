@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 1615.6857674121857,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/merges/h23-tp90",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h23",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.007771476079585522,
+    "se": 0.007171478943386823,
+    "z": -1.0836643516539899,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.029097069377832577,
+      "gate_pass_rate": 0.7987421383647799,
+      "bank_frac": 0.515625,
+      "calib_ratio": 0.6956272853432784,
+      "baseline_abs": 0.12073481496281623,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": -0.0004278626520775415,
+      "mean_mix": 0.029097069377832577
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.021367241570371346,
+      "gate_pass_rate": 0.8291139240506329,
+      "bank_frac": 0.46875,
+      "calib_ratio": 0.7742448703400563,
+      "baseline_abs": 0.13033023469249927,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": -0.006033923784482922,
+      "mean_mix": 0.021367241570371346
+    },
+    "slice": {
+      "seed": 11991351801601192075,
+      "n": 80,
+      "digest": "f8d00f266a3173037ac43251b1fb1f72da9bb5443443b3545cf58cffea91badc",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.7742448703400563,
+    "chall_baseline_abs": 0.13033023469249927,
+    "king_baseline_abs": 0.12073481496281623,
+    "base_x": 1.0794751682241632
+  }
+}
