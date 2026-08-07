@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T09:53:54Z | 33684.34 | 10.000000 | 0 | mine-h5c-1 spent $7.51; host harvest+deadman armed; prior~$252 + accruing; floor OK |
 | 2026-08-07T09:51:30Z | 33684.34 | 10.000000 | 0 | mine-h5c-1 spent $5.92; post-train+prewarm armed; prior~$252 + accruing; floor OK |
 | 2026-08-07T09:47:37Z | 33700.59 | 10.000000 | 0 | mine-h5c-1 spent $4.57; H5c train launched pid 2820; prior~$252 + accruing; floor OK |
 | 2026-08-07T09:39:38Z | 33707.55 | 10.000000 | 0 | rented mine-h5c-1 8×H200 @$28/h ttl10h (max~$280); bootstrap pip; prior spend~$252 + accruing; floor OK |

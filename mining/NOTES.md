@@ -3623,3 +3623,37 @@ Pipe soft 18:00Z / deadman 19:00Z; pod TTL remove 19:37Z. ETA decision ~13:00Z.
 ### Next
 
 Poll for `h5c_pipeline.done` + triage n80. No submit until margin > 0.04.
+
+---
+
+## 2026-08-07T09:53:54Z — pass 105: H5c host harvest + deadman armed
+
+### Reconcile
+
+`lium ps`: `mine-h5c-1` (`golden-hawk-dc`) RUNNING spent $7.51 / 16m;
+validator `affine-eval` / `affine-bench` left alone. No orphans.
+
+### Increment
+
+Pass 104 armed pod-side mid/prewarm/pipe but left **no host harvest or
+deadman** for the new pod (old mine-sim-1 deadman was killed at teardown).
+Filled that gap without touching the running train:
+
+1. Wrote `host_harvest_h5c.sh` (poll → SCP progress/results → triage →
+   `h5c_decision.json`; stop 18:45Z; HF push grace).
+2. Wrote `host_ttl_deadman_h5c.sh` → name-checked `lium rm mine-h5c-1` at
+   **19:00Z** (before Lium TTL 19:37Z).
+3. Armed: harvest pid **2090851**, deadman pid **2090852**.
+4. First scrape: train step **8**/99, loss 0.499, stage waiting_train;
+   teacher/king still loading (health 0); GPUs 0–3 warming, 6–7 training.
+
+### Pod status at arm
+
+- train **2820** @ ~48s/it → ETA train.done ~11:25Z
+- pipe **5222** waiting; prewarm **5206** elapsed ~196s; mid **5194**
+- King unchanged TalentPigs reign 3 S=0.0315; `current_eval` empty
+- Lium $33,684.34; no new rental; no submit
+
+### Next
+
+Poll `results/h5c_train_progress.json` / `h5c_decision.json`. Gate margin > 0.04.

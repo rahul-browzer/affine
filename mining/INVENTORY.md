@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-h5c-1 | golden-hawk-dc | b14c030f-4588-4090-a704-61e1e212c86a | 8×H200 | $28.00 | remove 2026-08-07T19:37:46Z (10h) | H5c train + prewarm teacher/king + post-train→n80 | RUNNING | SSH 152.236.142.234:40298; train **2820** GPUs 6,7 step5/99; pipe **5222**; prewarm **5206** (teacher 5268 / king 5270); mid **5194**; corpus 9000; known_hosts `/tmp/mine-h5c-1.known_hosts` |
+| mine-h5c-1 | golden-hawk-dc | b14c030f-4588-4090-a704-61e1e212c86a | 8×H200 | $28.00 | remove 2026-08-07T19:37:46Z (10h) | H5c train + prewarm teacher/king + post-train→n80 | RUNNING | SSH 152.236.142.234:40298; train **2820** GPUs 6,7 step8/99; pipe **5222**; prewarm **5206** (teacher 5268 / king 5270 loading); mid **5194**; corpus 9000; host harvest **2090851** / deadman **2090852**@19:00Z; known_hosts `/tmp/mine-h5c-1.known_hosts` |
 
 ## Dead / removed
 
@@ -19,6 +19,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | UTC | lium ps mine-* | inventory action |
 |---|---|---|
+| 2026-08-07T09:53:54Z | mine-h5c-1 RUNNING | matches inventory; spent $7.51; train **2820** step8/99; prewarm loading; armed host harvest **2090851** + deadman **2090852**@19:00Z; validator pods untouched |
 | 2026-08-07T09:51:30Z | mine-h5c-1 RUNNING | matches inventory; spent $5.92; sim stack uploaded; mid/prewarm/pipe armed (5194/5206/5222); train **2820** step5/99; validator pods untouched |
 | 2026-08-07T09:47:37Z | mine-h5c-1 RUNNING | matches inventory; spent $4.57; fixed HF_TOKEN export bug; kevin.done + train **2820** started (99 steps, 791 thought); extra-dl 2826; validator pods untouched |
 | 2026-08-07T09:39:38Z | mine-h5c-1 RUNNING | rented `lium up 1` after H200×8 price sort ($28/h); `--name mine-h5c-1 --ttl 10h --no-ssh -y`; huid `golden-hawk-dc`; uploaded shortz+scripts+mine.env; bootstrap **902** pip installing; validator pods untouched |

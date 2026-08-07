@@ -1,0 +1,42 @@
+{
+  "utc": "2026-08-07T09:53:54Z",
+  "pass": 105,
+  "pod": "mine-h5c-1",
+  "huid": "golden-hawk-dc",
+  "increment": "armed host harvest + TTL deadman (gap after pass-104 post-train arm)",
+  "host": {
+    "harvest_pid": 2090851,
+    "harvest_stop_utc": "2026-08-07T18:45:00Z",
+    "harvest_log": "/home/const/subnet120/mining/.ralph/host_harvest_h5c.log",
+    "deadman_pid": 2090852,
+    "deadman_utc": "2026-08-07T19:00:00Z",
+    "deadman_log": "/home/const/subnet120/mining/.ralph/host_ttl_deadman_h5c.log",
+    "scripts": [
+      "experiments/s4-h5c-expand-refs/host_harvest_h5c.sh",
+      "experiments/s4-h5c-expand-refs/host_ttl_deadman_h5c.sh"
+    ]
+  },
+  "pod_at_arm": {
+    "train_pid": 2820,
+    "train_step": 8,
+    "train_total": 99,
+    "s_per_it_approx": 48,
+    "eta_train_done_utc": "~11:25Z",
+    "pipe_pid": 5222,
+    "prewarm_pid": 5206,
+    "mid_pid": 5194,
+    "teacher_pid": 5268,
+    "king_pid": 5270,
+    "engines_health": {"teacher": 0, "king": 0, "chall": 0},
+    "prewarm_elapsed_s": 196,
+    "spent_usd": 7.51
+  },
+  "king": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "gate": {
+    "submit_margin": 0.04,
+    "r_band": [0.70, 0.85],
+    "clip_l1_min": 0.042
+  },
+  "do_not_submit": true
+}
