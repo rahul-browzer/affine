@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-07T08:00:54Z",
+  "pass": 84,
+  "train_step": 27,
+  "total": 55,
+  "last_loss": 0.42902960777282717,
+  "last_loss_step": 25,
+  "eta_train_done_utc": "2026-08-07T08:30:58Z",
+  "eta_n80_end_approx_utc": "2026-08-07T10:35:58Z",
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "harvest_stop_utc": "2026-08-07T11:45:00Z",
+  "harvest_pid": 1917667,
+  "fix": "abort+done-marker harvest gate",
+  "note": "train/pipe/mid untouched; slack to deadman ~1.5h after n80 if on schedule"
+}

@@ -2884,3 +2884,37 @@ No submit / no registration burn.
 
 Read `results/h5b_decision.json` when harvest lands (~09:30–10:30Z). Until
 then poll train→merge→identity→HF→n80 (retries if needed). Gate >0.04 + H4.
+
+## 2026-08-07T08:00:55Z — pass 84: H5b harvest abort + done-marker gate
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent ~$215; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,854.29 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. No `h5b_decision.json` — train step **28**/55, loss@25 **0.429**, ETA
+   train.done ~08:31Z, n80 end ~10:36Z (slack to deadman 12:00Z ~1.4h).
+   Engines 200×3; pipe **253801**; mid **251832**; deadman **1783662**.
+2. Audited host harvest vs pass-83 n80 retries: retries `rm` result.json
+   between attempts, so harvesting on bare JSON could triage a doomed
+   attempt. Also any `h5b_pipeline.aborted` left harvest spinning until
+   11:45Z with no decision for the next pass to pivot on.
+3. Patched `host_harvest_h5b.sh`: triage only after `h5b_sim_n80.done` or
+   `h5b_pipeline.done`; on abort, SCP marker + write `h5b_decision.json`
+   action=`pipe_aborted` immediately (still waits HF salvage before exit).
+   Restarted harvest **1917667** (train/pipe/mid untouched).
+4. Evidence: `results/h5b_harvest_abort_done_gate_fix.json`,
+   `results/h5b_time_budget_pass84.json`.
+
+### Money
+
+Lium $33,854.29; mining spend ≈ $215. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:30–10:40Z). Until
+then poll train→merge→identity→HF→n80 (retries if needed). Gate >0.04 + H4.

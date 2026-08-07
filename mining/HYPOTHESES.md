@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** step **24**/55; pipe **253801** n80≤3 retries + prior GPU-release/identity/HF fixes |
+| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** step **28**/55; pipe **253801** n80≤3; harvest **1917667** abort+done-marker gate |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
@@ -345,6 +345,16 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   **253801** (train **245350** + mid **251832** untouched). Step
   **24**/55 loss@20 **0.521**. Evidence:
   `results/h5b_n80_retry_fix.json`, `h5b_time_budget_pass83.json`.
+- **Harvest abort+done-marker gate (2026-08-07T08:00:54Z pass 84):**
+  pass-83 retries `rm` result.json between attempts — bare-JSON harvest
+  could triage a doomed attempt. Also pipe abort left harvest spinning
+  to 11:45Z with no decision. Patched `host_harvest_h5b.sh`: triage only
+  after `h5b_sim_n80.done`/`pipeline.done`; on `pipeline.aborted` write
+  `h5b_decision.json` action=`pipe_aborted` immediately. Harvest
+  restarted **1917667** (train/pipe/mid untouched). Step **28**/55
+  loss@25 **0.429**. Evidence:
+  `results/h5b_harvest_abort_done_gate_fix.json`,
+  `h5b_time_budget_pass84.json`.
 - **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
   H4 OK; clip-L1 ≥ +0.015; not weight-identical.
 - **Verdict:** open.

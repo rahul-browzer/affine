@@ -147,8 +147,67 @@ while true; do
     "${SCP[@]}" "root@69.63.236.160:$remote" "$OUT/$base" 2>/dev/null || true
   done < <("${SSH[@]}" 'ls /root/affine_data/h5b_mid_*_salvage.json 2>/dev/null' || true)
 
-  if (( got_result == 0 )); then
+  # Pipeline abort (identity refuse / merge fail / no n80 budget / n80×3 fail).
+  # Without this, harvest spins until HARVEST_STOP and the next pass cannot
+  # pivot under the deadman.
+  if (( got_triage == 0 )) \
+    && "${SSH[@]}" 'test -f /root/logs/h5b_pipeline.aborted' 2>/dev/null; then
+    "${SCP[@]}" root@69.63.236.160:/root/logs/h5b_pipeline.aborted \
+      "$OUT/h5b_pipeline.aborted" 2>/dev/null || true
+    abort_txt=$(cat "$OUT/h5b_pipeline.aborted" 2>/dev/null || echo aborted)
+    # Prefer any partial sim result for forensics, but do not require it.
     if "${SSH[@]}" 'test -f /root/affine_data/h5b_sim_result.json' 2>/dev/null; then
+      "${SCP[@]}" root@69.63.236.160:/root/affine_data/h5b_sim_result.json \
+        "$OUT/h5b_sim_result.json" 2>/dev/null || true
+    fi
+    for f in h5b_identity.json h5b_merge_meta.json; do
+      if "${SSH[@]}" "test -f /root/affine_data/$f" 2>/dev/null; then
+        "${SCP[@]}" "root@69.63.236.160:/root/affine_data/$f" "$OUT/$f" \
+          2>/dev/null || true
+      fi
+    done
+    if "${SSH[@]}" 'test -f /root/logs/h5b_sim_retries.log' 2>/dev/null; then
+      "${SCP[@]}" root@69.63.236.160:/root/logs/h5b_sim_retries.log \
+        "$OUT/h5b_sim_retries.log" 2>/dev/null || true
+    fi
+    python3 - <<PY
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+out = Path("$OUT")
+abort = (out / "h5b_pipeline.aborted").read_text(errors="replace").strip()
+dec = {
+    "utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    "experiment": "s4-h5b-talentpigs-distill",
+    "submit": False,
+    "primary": {
+        "source": "pipeline_aborted",
+        "action": "pipe_aborted",
+        "margin": None,
+        "reason": abort or "h5b_pipeline.aborted",
+    },
+    "abort_text": abort,
+    "note": (
+        "post-train pipeline aborted before a durable n80 verdict; "
+        "do not submit; pivot or re-arm under deadman"
+    ),
+}
+(out / "h5b_decision.json").write_text(json.dumps(dec, indent=2) + "\n")
+print(json.dumps(dec, indent=2))
+PY
+    got_triage=1
+    got_result=1
+    log "pipeline ABORTED → h5b_decision.json ($abort_txt)"
+    date -u +%Y-%m-%dT%H:%M:%SZ >"$OUT/host_harvest_h5b.done"
+  fi
+
+  # Only harvest a sim result after the pipe marks n80 durable.
+  # Pass-83 n80 retries rm the result between attempts; harvesting on the
+  # bare JSON alone can triage a doomed attempt mid-retry.
+  if (( got_result == 0 )); then
+    if "${SSH[@]}" 'test -f /root/logs/h5b_sim_n80.done -o -f /root/logs/h5b_pipeline.done' \
+        2>/dev/null \
+      && "${SSH[@]}" 'test -f /root/affine_data/h5b_sim_result.json' 2>/dev/null; then
       "${SCP[@]}" root@69.63.236.160:/root/affine_data/h5b_sim_result.json \
         "$OUT/h5b_sim_result.json"
       for f in h5b_sim_result_artifact.json h5b_identity.json h5b_merge_meta.json; do
@@ -158,7 +217,7 @@ while true; do
         fi
       done
       got_result=1
-      log "got h5b_sim_result.json"
+      log "got durable h5b_sim_result.json (n80/pipeline done marker present)"
       date -u +%Y-%m-%dT%H:%M:%SZ >"$OUT/h5b_sim_n80_harvested.stamp"
     fi
   fi

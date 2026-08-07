@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T08:00:55Z | 33854.29 | 10.000000 | 0 | mine-sim-1 spent ~$215; pass84 H5b harvest abort+done-marker gate (pid 1917667); train step28/55; deadman 12:00Z; no new rental |
 | 2026-08-07T07:57:48Z | 33862.41 | 10.000000 | 0 | mine-sim-1 spent $214.22; pass83 H5b n80≤3 retries armed (pipe 253801); train step24/55; deadman 12:00Z; no new rental |
 | 2026-08-07T07:52:29Z | 33870.19 | 10.000000 | 0 | mine-sim-1 spent $212.07; pass82 H5b GPU-release-before-merge + HF serialize; train step19/55; deadman 12:00Z; no new rental |
 | 2026-08-07T07:48:10Z | 33877.92 | 10.000000 | 0 | mine-sim-1 spent $210.38; pass81 H5b identity false-positive fix + freed 136G; train step14/55; deadman 12:00Z; no new rental |

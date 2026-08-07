@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-07T08:00:54Z",
+  "pass": 84,
+  "fix": "host harvest: gate n80 on done-marker (retry-safe) + surface pipeline.aborted as h5b_decision immediately",
+  "harvest_pid_old": 1884718,
+  "harvest_pid_new": 1917667,
+  "harvest_sha256": "bc27bbe9ac3feeb6",
+  "train_pid": 245350,
+  "pipe_pid": 253801,
+  "mid_pid": 251832,
+  "train_step_at_pass": 27,
+  "rationale": [
+    "pass-83 n80 retries rm result.json between attempts; bare-JSON harvest could triage a doomed attempt",
+    "pipe abort (identity/merge/budget/n80x3) previously left harvest spinning until 11:45Z with no decision"
+  ]
+}
