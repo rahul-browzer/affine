@@ -7,9 +7,10 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H28 | high | winner-zA LoRA (**m7-init**) → m>0.04 | **open** (n80 ~15/80) |
-| 2 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (bootstrap) |
-| 3 | H29 | high | king-self LoRA (**TP-init**) → m>0.04 | **open** (train ~9/46) |
+| 1 | H28 | high | winner-zA LoRA (**m7-init**) → m>0.04 | **open** (n80 20/80) |
+| 2 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (train) |
+| 3 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (bootstrap) |
+| 4 | H29 | high | king-self LoRA (**TP-init**) → m>0.04 | **open** (train ~15/46) |
 | — | H27 | was high | winner-zA LoRA (TP-init) | **refuted** m=−0.00792 |
 | — | H23 | was low | TP×Talucampe α0.90 | **refuted** m=−0.00777 |
 | — | H26 | was med | TP×kkk-af α0.90 | **refuted** m=+0.00592 |
@@ -25,20 +26,21 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H28 — same data, m7 init (non-α)
 - **Claim:** H25 α-dilution killed m7's clip-L1; keep m7 intact as init +
   same winner-zA LoRA → m>0.04. Pin `Radiant28/…m7` @ `f766293ee878`.
-- **Status:** n80 attempt1 live ~15/80. Poll progress → decision.
-  `s4-h28-m7-clip-l1-shape/`.
+- **Status:** n80 20/80. Poll → decision. `s4-h28-m7-clip-l1-shape/`.
 
 ### H30 — king-self × m7 init (non-α)
 - **Claim:** missing 2×2 cell: m7 init + TalentPigs king-self high-L1 z_A
   → m>0.04. Independent of H28/H29.
-- **Status:** mine-h30-1 bootstrap (pip+m7 dl); 686ex uploaded; form+retry
-  armed. `s4-h30-m7-king-self/`.
+- **Status:** train launched after m7.done. `s4-h30-m7-king-self/`.
+
+### H31 — H30 @ lr=3e-5 (non-α)
+- **Claim:** 3× LR on same m7×king-self cell moves clip-L1 enough for m>0.04.
+- **Status:** mine-h31-1 bootstrap (pip→m7→train). `s4-h31-m7-king-self-lr3e5/`.
 
 ### H29 — king-self high clip-L1 z_A (non-α)
 - **Claim:** H27 failed from mixed foreign z_A; train only TalentPigs's own
   high-L1 thoughts on TP init → m>0.04.
-- **Status:** train relaunch 368ex; step~9/46 loss@5=0.666.
-  `s4-h29-king-self-clip-l1/`.
+- **Status:** train ~15/46 loss@15=0.597 (368ex). `s4-h29-king-self-clip-l1/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
