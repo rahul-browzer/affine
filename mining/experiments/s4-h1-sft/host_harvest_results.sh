@@ -90,6 +90,14 @@ while true; do
         "$OUT/adapter_salvage.json"
       log "got adapter_salvage.json"
       got_salvage=1
+    elif [[ -n "$(ls -1 "$OUT"/mid_*_salvage.json 2>/dev/null | head -1)" ]]; then
+      # Mid-ckpt already on HF (TTL insurance). Do not block early-teardown if
+      # final adapter_salvage.json never appears (HF flake / skip).
+      log "got mid-ckpt salvage on disk → counting as salvage insurance"
+      got_salvage=1
+    elif [[ -f "$OUT/h1_merged_salvage.json" ]]; then
+      log "got h1_merged_salvage.json → counting as salvage insurance"
+      got_salvage=1
     fi
   fi
 
@@ -108,14 +116,31 @@ while true; do
       "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_merged_salvage.json \
         "$OUT/h1_merged_salvage.json"
       log "got h1_merged_salvage.json"
+      # Merged push meta alone is enough salvage insurance for teardown.
+      if (( got_salvage == 0 )); then
+        got_salvage=1
+      fi
     fi
   fi
 
+  # train_result.json is only written on the happy path. Fail-closed promote
+  # writes train_fallback.json + train.done instead — without accepting those,
+  # early-teardown never fires and we burn until the 07:00Z deadman.
   if (( got_train == 0 )); then
     if "${SSH[@]}" 'test -f /root/h1/train/train_result.json' 2>/dev/null; then
       "${SCP[@]}" root@69.63.236.160:/root/h1/train/train_result.json \
         "$OUT/train_result.json"
       log "got train_result.json"
+      got_train=1
+    elif "${SSH[@]}" 'test -f /root/h1/train_fallback.json' 2>/dev/null; then
+      "${SCP[@]}" root@69.63.236.160:/root/h1/train_fallback.json \
+        "$OUT/train_fallback.json"
+      log "got train_fallback.json (fail-closed promote)"
+      got_train=1
+    elif "${SSH[@]}" 'test -f /root/h1/train/train.done' 2>/dev/null; then
+      "${SCP[@]}" root@69.63.236.160:/root/h1/train/train.done \
+        "$OUT/train.done"
+      log "got train.done (no train_result yet — counting as train harvest)"
       got_train=1
     fi
   fi

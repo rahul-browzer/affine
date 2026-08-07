@@ -1,12 +1,12 @@
 {
-  "utc": "2026-08-07T03:05:27Z",
-  "step": 76,
+  "utc": "2026-08-07T03:08:16Z",
+  "step": 79,
   "total": 110,
-  "frac": 0.6909090909090909,
+  "frac": 0.7181818181818181,
   "train_done": false,
   "ckpt_dirs": [
     "checkpoint-50"
   ],
-  "eta_train_done_utc": "2026-08-07T03:36:37Z",
-  "note": "pass42 armed background HF push of merged weights; pipeline 105148"
+  "eta_train_done_utc": "2026-08-07T03:36:41Z",
+  "note": "pass43 fixed host early-teardown to accept train_fallback/train.done + mid/merged salvage"
 }

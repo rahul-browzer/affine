@@ -1501,3 +1501,43 @@ Poll for `train_done` (~03:37Z) → adapter salvage → merge_meta
 (`first_1MiB_identical: false`) → merged_salvage → n40→n80. Read
 `results/h1_decision.json` when present. Kill mine-sim-1 only after push
 meta or grace (name-check). No submit until action=`toward_submit`.
+
+---
+
+## 2026-08-07T03:08:17Z — pass 43: fix early-teardown gate for fail-closed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $100.29; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host deadman 1405846 still armed for 07:00Z; harvest restarted **1486917**.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; min_submission_block **8767079**;
+   Lium $34,313.83 (floor OK). Train step **79/110** (epoch 2); engines
+   200×3; mid-salvage 83669; pipe 105148 waiting; ETA train.done ~**03:37Z**.
+   Disk `/root` 5.7T free; `mine.env` HF_TOKEN present. No sim artifacts yet.
+2. Live eval **chal-00274** `adambell/Affine-5dvha3y7cd-ckpt450-H6` in
+   scoring (watch for king change before any submit). reg_cost_tao ≈ **0.676**.
+3. **Bug:** host early-teardown required `train_result.json` +
+   `adapter_salvage.json`. Fail-closed promote writes `train_fallback.json` +
+   `train.done` only → teardown would never fire → burn until 07:00Z deadman.
+   Same if final adapter HF salvage flakes despite mid-ckpt already on HF.
+4. **Useful increment:** patched `host_harvest_results.sh`:
+   - `got_train` ← train_result **or** train_fallback **or** train.done
+   - `got_salvage` ← adapter_salvage **or** mid_*_salvage **or** merged_salvage
+   - Restarted harvest **1478941 → 1486917**. Train/pipeline/deadman untouched.
+5. Wrote `results/h1_epoch2_step_poll.json`. No submit. No new rental.
+
+### Money
+
+Lium $34,313.83; mining spend ≈ $100.29. Host deadman 07:00Z + early teardown
+with train_fallback path + merged-push grace.
+
+### Next
+
+Poll for `train_done` (~03:37Z) → adapter salvage → merge_meta
+(`first_1MiB_identical: false`) → merged_salvage → n40→n80. Re-check snapshot
+king (chal-00274). Read `results/h1_decision.json` when present. No submit
+until action=`toward_submit`.

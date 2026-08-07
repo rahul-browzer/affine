@@ -51,3 +51,4 @@ Pipeline `post_train_pipeline.sh` (pid **86845**) handles:
 
 Done markers: `/root/logs/h1_pipeline.done`, `/root/logs/h1_sim.done`,
 `/root/logs/h1_sim_n40.done`. Salvage meta: `/root/h1/adapter_salvage.json`.
+| 2026-08-07T03:08:17Z | step **79/110**; host harvest **1486917** early-teardown accepts train_fallback/train.done + mid/merged salvage (was blocked on train_result only); chal-00274 H6 scoring; ETA train.done ~03:37Z |
