@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H27 | high | winner-zA LoRA → clipL1≥0.042, m>0.04 | **open** (train boot) |
-| 2 | H25 | high | TP×Radiant28/m7 α0.90 → m>0.04 | **open** (n80 ~18/80) |
-| 3 | H24 | low | TP×0ronoCris α0.90 | **open** (n80 live) |
+| 1 | H27 | high | winner-zA LoRA → clipL1≥0.042, m>0.04 | **open** (train live) |
+| 2 | H25 | high | TP×Radiant28/m7 α0.90 → m>0.04 | **open** (n80 ~25/80) |
+| 3 | H24 | low | TP×0ronoCris α0.90 | **open** (chall recover→n80) |
 | 4 | H26 | med | TP×kkk-af α0.90 → m>0.04 | **open** (kkk DL) |
-| 5 | H23 | low | TP×Talucampe α0.90 | **open** (merge 15/16) |
+| 5 | H23 | low | TP×Talucampe α0.90 | **open** (merge 16/16) |
 | — | H22 | was med | TP×kevin α0.90 | **refuted** m=−0.01179 |
 | — | H21 | was low | TP×sft2 α0.75 | **refuted** m=−0.00682 |
 | — | H20/H19…H1 | — | α/LoRA/SFT | **refuted** |
@@ -24,14 +24,15 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H27 — clip-L1 shape via high-L1 winner z_A
 - **Claim:** SFT on challenger z_A with clipL1≥0.04 (n=406, mean 0.089) from
   top clip-L1 duels, TalentPigs-init thought LoRA lr=1e-5 → m>0.04.
-- **Status:** mine-h27-1 bootstrapping. `s4-h27-clip-l1-shape/`.
+- **Status:** TRAIN_LAUNCHED pid=2428 GPUs6,7. `s4-h27-clip-l1-shape/`.
 
 ### H25 — TalentPigs × Radiant28 ckpt1000-m7 α0.90
-- **Claim:** c_clipL1=+0.0435 → merge m>0.04. n80 ~18/80.
+- **Claim:** c_clipL1=+0.0435 → merge m>0.04. n80 ~25/80.
 - **Status:** `s4-h25-tp-adambell-m7-a90/`.
 
 ### H24 / H26 / H23
-- H24 n80 live post Triton recover. H26 kkk DL. H23 merge ~15/16.
+- H24: hung chall (Triton launcher + shm_broadcast); GPU4/5 killed,
+  relaunch+completion-probe wait→n80. H26 kkk~49G. H23 merge 16/16.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

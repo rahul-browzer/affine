@@ -75,6 +75,9 @@ Format: `- <finding> — <the number or error that proves it>`
   (`role_$(date +%s)_$$`), then relaunch. Health≠alive (APIServer can hang).
 - Post-relaunch wait: MoE load+compile needs **≥120×15s** (H25 50×15s would
   have failed mid-compile; extended wait then kicked n80 at i=12).
+- Health=200 can mask hung EngineCore (`shm_broadcast` 60s + Triton
+  `__triton_launcher.so` missing). After chall relaunch, require a real
+  `/v1/completions` probe before starting n80 (H24 pass168).
 - `pgrep -f "run_sim_duel.py .*local-hN"` false-matches SSH/bash cmdlines that
   contain the pattern — use `ps -eo pid,cmd | awk '/[r]un_sim_duel.py/ && /local-hN/'`.
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin REFUTE: check

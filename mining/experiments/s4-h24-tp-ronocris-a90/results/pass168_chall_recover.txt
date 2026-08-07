@@ -1,0 +1,5 @@
+2026-08-07T17:37Z pass168: n80 sim alive but no progress; vllm_chall.log showed
+ImportError __triton_launcher.so + EngineCore shm_broadcast 60s loops while /health=200.
+Killed chall APIServer tree (18263→workers 18998/18999) on GPUs 4/5 only; teacher/king kept.
+Relaunched via relaunch_chall_only.sh (fresh TRITON_CACHE_DIR); armed 120×15s wait with
+/v1/completions probe before retry_h24_n80.sh. Killed stale retry parent 17624.
