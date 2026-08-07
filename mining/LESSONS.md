@@ -77,6 +77,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - Prefer direct SSH + `nohup` for long jobs over `lium exec`.
 - On an 8× sim pod, GPUs 6,7 stay free while teacher/king/chall hold 0–5 —
   launch the next LoRA there instead of renting (H6 pid 46680 beside H5c n80).
+- Independent merge hypotheses go on a **second** `mine-*` pod while train/sim
+  occupy the first — do not serialize (H7 mine-h7-1 beside mine-h5c-1).
 
 ## Money / platform
 
