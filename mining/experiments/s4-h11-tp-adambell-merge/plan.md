@@ -1,9 +1,10 @@
 # s4-h11-tp-adambell-merge — H11
 
 **Hypothesis:** Linear merge of live king TalentPigs × public near-miss
-`adambell/Affine-5dvha3y7cd-ckpt450-H6` (chal-00274 margin +0.0229 z=2.37,
-gate-valid) beats TalentPigs on n80. Independent of H7–H10 (new B parent;
-not a reign earner, but proved positive margin on a live slice).
+chal-00274 near-miss (`adambell/Affine-5dvha3y7cd-ckpt450-H6` rev
+`af20efc1…`, +0.0229 z=2.37 gate-valid) beats TalentPigs on n80. Original
+HF repo 404'd; weights pulled from mirror `0pentensor/5dvha3y7cd-ckpt450-H6`
+@ same rev. Independent of H7–H10.
 
 ## Prediction (pre-register BEFORE merge)
 

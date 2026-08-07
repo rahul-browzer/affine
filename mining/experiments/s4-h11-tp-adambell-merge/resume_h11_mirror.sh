@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
-# mine-h11-1 bootstrap: pinned eval stack + TalentPigs/adambell/teacher → merge α0.75.
-# Secrets from /root/mine.env only (never argv).
+# Resume H11 after adambell/Affine-5dvha3y7cd-ckpt450-H6 404'd.
+# Uses public mirror 0pentensor/5dvha3y7cd-ckpt450-H6 @ same rev af20efc1…
+# TalentPigs already on disk. Do NOT edit while live.
 set -euo pipefail
 
 LOG=/root/logs/bootstrap_h11.log
-mkdir -p /root/logs /root/hf /root/affine_data /root/mining_src /root/merges
-exec > >(tee -a "$LOG") 2>&1
+mkdir -p /root/logs /root/hf /root/affine_data /root/merges
+exec >>"$LOG" 2>&1
 
-echo "[bootstrap-h11] $(date -u +%Y-%m-%dT%H:%M:%SZ) start host=$(hostname)"
+echo "[bootstrap-h11] $(date -u +%Y-%m-%dT%H:%M:%SZ) RESUME via 0pentensor mirror"
 
 if [[ -f /root/mine.env ]]; then
   set -a
@@ -20,69 +21,31 @@ export HF_HUB_ENABLE_HF_TRANSFER=${HF_HUB_ENABLE_HF_TRANSFER:-1}
 export HF_XET_HIGH_PERFORMANCE=${HF_XET_HIGH_PERFORMANCE:-1}
 export PATH="$HOME/.local/bin:$PATH"
 export HF_TOKEN
-
-if [[ -z "${HF_TOKEN:-}" ]]; then
-  echo "[bootstrap-h11] FATAL: HF_TOKEN missing in /root/mine.env"
-  exit 1
-fi
-
-nvidia-smi -L || true
-test -f /root/mining_src/s4-h2-merge/merge_linear.py
-test -f /root/mining_src/s4-h2-merge/run_sim_duel.py
-test -f /root/mining_src/s4-h2-merge/write_merge_decision.py
-test -x /root/mining_src/s3-duel-sim/serve_three.sh
-test -x /root/mining_src/s3-duel-sim/sync_corpus.sh
-
-if ! command -v uv >/dev/null 2>&1; then
-  curl -LsSf https://astral.sh/uv/install.sh | sh
-  export PATH="$HOME/.local/bin:$PATH"
-fi
-
-if [[ ! -d /root/venv ]]; then
-  uv venv /root/venv --python 3.12
-fi
 # shellcheck disable=SC1091
 source /root/venv/bin/activate
 
-uv pip install \
-  "torch==2.11.0" \
-  "transformers==5.14.1" \
-  "vllm==0.22.1" \
-  "huggingface_hub[hf_transfer]" \
-  "hf_transfer" \
-  "safetensors" \
-  "numpy" \
-  "scipy" \
-  2>&1 | tee /root/logs/pip_h11.log | tail -40
+B_REPO=0pentensor/5dvha3y7cd-ckpt450-H6
+B_REV=af20efc1f06ba8ae15f26c03d005c0836039c103
 
-python - <<'PY'
-import torch, transformers, vllm
-print("[bootstrap-h11] VERSIONS",
-      "torch", torch.__version__,
-      "transformers", transformers.__version__,
-      "vllm", vllm.__version__)
-assert vllm.__version__.startswith("0.22.1"), vllm.__version__
-assert transformers.__version__.startswith("5.14"), transformers.__version__
-PY
-
-python - <<'PY'
+python - <<PY
 import os
 from huggingface_hub import snapshot_download
-
 token = os.environ["HF_TOKEN"]
 jobs = [
     ("TalentPigs/affine-5ekxlcg3fx-abc",
      "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4", "talentpigs"),
-    # Original adambell/Affine-5dvha3y7cd-ckpt450-H6 gone (404); same rev on mirror.
-    ("0pentensor/5dvha3y7cd-ckpt450-H6",
-     "af20efc1f06ba8ae15f26c03d005c0836039c103", "adambell"),
+    ("$B_REPO", "$B_REV", "adambell"),
     ("zai-org/GLM-4.5-Air-FP8", None, "teacher"),
 ]
 for repo, rev, label in jobs:
+    done = f"/root/logs/{label}.done"
+    if label != "adambell" and os.path.isfile(done):
+        print(f"[bootstrap-h11] SKIP {label} (have {done})", flush=True)
+        continue
     print(f"[bootstrap-h11] DOWNLOAD start {label} {repo} rev={rev}", flush=True)
     path = snapshot_download(repo, revision=rev, token=token)
     print(f"[bootstrap-h11] DOWNLOAD done {label} -> {path}", flush=True)
-    open(f"/root/logs/{label}.done", "w").write(path + "\n")
+    open(done, "w").write(path + "\n")
 print("[bootstrap-h11] ALL_DOWNLOADS_OK", flush=True)
 PY
 
@@ -95,15 +58,15 @@ rm -rf "$OUT"
 python /root/mining_src/s4-h2-merge/merge_linear.py \
   --a-repo TalentPigs/affine-5ekxlcg3fx-abc \
   --a-rev dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4 \
-  --b-repo 0pentensor/5dvha3y7cd-ckpt450-H6 \
-  --b-rev af20efc1f06ba8ae15f26c03d005c0836039c103 \
+  --b-repo "$B_REPO" \
+  --b-rev "$B_REV" \
   --alpha "$ALPHA" \
   --out "$OUT" \
   --hf-home "$HF_HOME" \
   2>&1 | tee /root/logs/h11_merge.log
 
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h11_merge.done
-echo "[bootstrap-h11] MERGE_DONE alpha=$ALPHA out=$OUT"
+echo "[bootstrap-h11] MERGE_DONE alpha=$ALPHA out=$OUT b=$B_REPO@$B_REV"
 
 export TEACHER_REPO=zai-org/GLM-4.5-Air-FP8
 export TEACHER_REV=

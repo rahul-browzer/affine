@@ -108,6 +108,8 @@ Format: `- <finding> — <the number or error that proves it>`
   tear down the train pod on a mid-ckpt n40).
 - H7/H8 TP×{pandora,golden-crown} α0.75 both **INVALID** band (base×2.21 / **1.97**); null-S
   reign earners at 25% sabotage empty-baseline — do not retry those B / no α0.85 on gate-fail.
+- Dual-side n40/n80 can `httpx.ReadTimeout` on teacher sample at default 180s×3 (H6 mid50 died @29/40); pod `vllm_client` now 480s×5; `retry_mid50_n40.sh` + post_train already retries n80×3.
+- `adambell/Affine-5dvha3y7cd-ckpt450-H6` (chal-00274) is **404** on HF; same rev `af20efc1…` lives at `0pentensor/5dvha3y7cd-ckpt450-H6` — verify mirror before renting for deleted parent repos.
 
 ## Money / platform
 
