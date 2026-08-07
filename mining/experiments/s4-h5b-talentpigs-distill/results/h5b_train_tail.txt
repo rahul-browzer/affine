@@ -2,4 +2,4 @@
 [train] sample0 supervised_tokens=29/6080
 [transformers] warmup_ratio is deprecated and will be removed in v5.2. Use `warmup_steps` instead.
 [train] starting
-  0%|          | 0/55 [00:00<?, ?it/s]
+  0%|          | 0/55 [00:00<?, ?it/s]  2%|▏         | 1/55 [01:01<54:55, 61.02s/it]  4%|▎         | 2/55 [02:03<54:41, 61.92s/it]  5%|▌         | 3/55 [03:03<52:57, 61.11s/it]  7%|▋         | 4/55 [03:55<48:58, 57.62s/it]

@@ -2707,3 +2707,36 @@ No submit / no registration burn.
 
 Read `experiments/s4-h5b-talentpigs-distill/results/h5b_decision.json` when
 harvest lands (~train 55–70m + merge/serve/n80). Gate >0.04 + H4.
+
+## 2026-08-07T07:38:32Z — pass 79: H5b HF salvage armed (train step 4/55)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $205.56; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,893.52 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. No `h5b_decision.json` yet — train mid-flight. Polled: step **4**/55 @
+   ~62s/it after load; engines 8000/8001/8002 all **200**; pipe waiting
+   `train.done`.
+2. Found launch `post_train_pipeline.sh` had **no HF adapter/merged push**
+   (deadman 12:00Z would erase the only H5b candidate — same failure mode
+   as H1v2 before pass 54).
+3. Created private HF repos `unconst/Affine-5czsc2fc98-h5b-lora` +
+   `…-h5b-merged`. Patched pipe with bg `salvage_adapter.py` +
+   `push_merged.py` after merge/identity check. Added `mid_ckpt_salvage.sh`.
+4. SCP'd scripts; killed old wait-pipe **245426**; started pipe **246775** +
+   mid **246776**. Train **245350** untouched. Harvest **1871830** + deadman
+   **1783662** still alive.
+
+### Money
+
+Lium $33,893.52; mining spend ≈ $206. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:30–10:30Z). Until
+then poll train→merge→HF pids→n80. Gate >0.04 + H4 before Stage 5.

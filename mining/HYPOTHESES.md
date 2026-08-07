@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** LAUNCHED |
+| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** step **4**/55; HF salvage armed |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
@@ -304,6 +304,12 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Launch (2026-08-07T07:32:21Z pass 78):** train pid **245350**; pipe
   **245426**; harvest **1871830**; thought_mask 440/440; freed broken
   `h5-kt50/`. Evidence: `results/h5b_launched.json`.
+- **HF salvage (2026-08-07T07:38:32Z pass 79):** launch pipe lacked
+  adapter/merged HF push (same TTL-risk as pre-pass-54 H1v2). Created
+  private `unconst/Affine-5czsc2fc98-h5b-lora` + `…-h5b-merged`; patched
+  `post_train_pipeline.sh`; restarted pipe **246775** (train untouched);
+  mid-ckpt watcher **246776**. Train step **4**/55 @ ~62s/it → ETA
+  ~08:30Z. Evidence: `results/h5b_hf_salvage_armed.json`.
 - **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
   H4 OK; clip-L1 ≥ +0.015; not weight-identical.
 - **Verdict:** open.

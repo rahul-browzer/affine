@@ -106,6 +106,32 @@ if payload["identical_to_king"]:
 print("[h5b] OK_NON_IDENTICAL_VS_KING", flush=True)
 PY
 
+# Adapter + merged HF salvage in background (TTL/deadman insurance).
+# Do not submit these repos — salvage only.
+HF_LORA_REPO=${HF_LORA_REPO:-unconst/Affine-5czsc2fc98-h5b-lora}
+HF_MERGED_REPO=${HF_MERGED_REPO:-unconst/Affine-5czsc2fc98-h5b-merged}
+if [[ -n "${HF_TOKEN:-}" ]]; then
+  log "background HF push adapter → $HF_LORA_REPO"
+  nohup python3 /root/mining_src/s4-h1-sft/salvage_adapter.py \
+    --adapter "$ADAPTER" \
+    --repo "$HF_LORA_REPO" \
+    --commit-message "H5b TalentPigs-init thought LoRA salvage (TTL insurance; not a submission)" \
+    --out-meta /root/affine_data/h5b_adapter_salvage.json \
+    >>/root/logs/h5b_push_adapter.nohup 2>&1 &
+  echo $! >/root/logs/h5b_push_adapter.pid
+  log "background HF push merged → $HF_MERGED_REPO"
+  nohup python3 /root/mining_src/s4-h1-sft/push_merged.py \
+    --merged "$MERGED" \
+    --repo "$HF_MERGED_REPO" \
+    --commit-message "H5b TalentPigs-init thought merged salvage (TTL insurance; not a submission)" \
+    --out-meta /root/affine_data/h5b_merged_salvage.json \
+    >>/root/logs/h5b_push_merged.nohup 2>&1 &
+  echo $! >/root/logs/h5b_push_merged.pid
+  log "adapter push pid=$(cat /root/logs/h5b_push_adapter.pid) merged push pid=$(cat /root/logs/h5b_push_merged.pid)"
+else
+  log "WARN: HF_TOKEN unset; skipping H5b HF salvage pushes"
+fi
+
 # Health-check king before chall swap.
 code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8001/health || true)
 if [[ "$code" != "200" ]]; then

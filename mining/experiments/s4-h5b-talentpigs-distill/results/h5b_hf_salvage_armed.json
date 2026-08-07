@@ -1,0 +1,24 @@
+{
+  "utc": "2026-08-07T07:38:32Z",
+  "pass": 79,
+  "action": "arm_h5b_hf_salvage",
+  "why": "H5b post_train_pipeline had no HF push; deadman 12:00Z would erase the only TalentPigs-init candidate (same failure mode as H1v2 before pass 54)",
+  "hf_lora_repo": "unconst/Affine-5czsc2fc98-h5b-lora",
+  "hf_merged_repo": "unconst/Affine-5czsc2fc98-h5b-merged",
+  "hf_repos_private": true,
+  "train_pid": 245350,
+  "pipe_pid_old_killed": 245426,
+  "pipe_pid": 246775,
+  "mid_salvage_pid": 246776,
+  "train_progress": {
+    "utc": "2026-08-07T07:38:32Z",
+    "step": 4,
+    "total": 55,
+    "sec_per_step_approx": 62,
+    "eta_train_done_utc": "~08:30Z",
+    "loss_logged": null
+  },
+  "engines": {"teacher": 200, "king": 200, "chall": 200},
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "note": "do not submit h5b-* HF repos; salvage only until n80 margin>0.04 + H4"
+}
