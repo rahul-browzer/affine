@@ -1,0 +1,2 @@
+# Full train JSONL is regenerable from public evals + corpus; keep meta/sample only.
+results/winner_za_high_l1.jsonl

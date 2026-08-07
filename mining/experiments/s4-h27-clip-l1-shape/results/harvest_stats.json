@@ -1,0 +1,38 @@
+{
+  "n_examples": 406,
+  "n_pairs_scanned": 3194,
+  "n_pass_min_clip": 1517,
+  "n_no_yc": 0,
+  "n_no_corpus": 0,
+  "n_z_long": 318,
+  "n_listy": 1,
+  "min_clip_l1": 0.04,
+  "max_z_chars": 300,
+  "cids": [
+    "chal-00224",
+    "chal-00259",
+    "chal-00262",
+    "chal-00275",
+    "chal-00279",
+    "chal-00284",
+    "chal-00288",
+    "chal-00310",
+    "chal-00325",
+    "chal-00331"
+  ],
+  "src_hits": {
+    "chal-00224.json.gz": 72,
+    "chal-00259.json.gz": 62,
+    "chal-00262.json.gz": 51,
+    "chal-00275.json.gz": 54,
+    "chal-00279.json.gz": 49,
+    "chal-00284.json.gz": 56,
+    "chal-00288.json.gz": 62,
+    "chal-00310.json.gz": 56,
+    "chal-00325.json.gz": 55,
+    "chal-00331.json.gz": 51
+  },
+  "z_chars_p50": 182,
+  "z_chars_mean": 174.82758620689654,
+  "clip_l1_mean": 0.08865255835256552
+}

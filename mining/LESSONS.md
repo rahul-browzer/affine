@@ -21,6 +21,9 @@ Format: `- <finding> — <the number or error that proves it>`
   c_clipL1=+0.0435 (H25); plmk +0.0389 but H16 already m=+0.0097 — do not
   requeue; kkk +0.0288 is pre-TP / mid-pack; hk9/leary-tt ≤+0.020. Screen
   clip-L1 at n40 before any n80.
+- Clip-L1 shaping data ≠ teacher_refs: harvest challenger `z_A` with
+  pair clipL1≥0.04 from high-c_clipL1 duels (+ crown), y=teacher y_C,
+  z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 
 ## Recipes already tried (do not repeat)
 
