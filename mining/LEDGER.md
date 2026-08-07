@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T07:48:10Z | 33877.92 | 10.000000 | 0 | mine-sim-1 spent $210.38; pass81 H5b identity false-positive fix + freed 136G; train step14/55; deadman 12:00Z; no new rental |
 | 2026-08-07T07:43:12Z | 33885.70 | 10.000000 | 0 | mine-sim-1 spent $208.43; pass80 H5b final-adapter mid-salvage + harvest progress; train step8/55; deadman 12:00Z; no new rental |
 | 2026-08-07T07:38:32Z | 33893.52 | 10.000000 | 0 | mine-sim-1 spent $205.56; pass79 H5b HF salvage armed (pipe 246775 mid 246776); train step4/55; deadman 12:00Z; no new rental |
 | 2026-08-07T07:17:35Z | 33924.61 | 10.000000 | 0 | mine-sim-1 spent $198.35; pass77 α0.65 REJECT gates; α0.50 launched; harvest 1847826; deadman 12:00Z; no new rental |
@@ -165,10 +166,10 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~206 so far (meter running @ 23.60/h; host deadman 12:00Z) | — |
+| Lium rentals (`mine-*`) | ~210 so far (meter running @ 23.60/h; host deadman 12:00Z) | — |
 
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~$206 (accruing)** | **0** |
+| **total** | **~$210 (accruing)** | **0** |
 
-Cap remaining to first crown: **~$3,794** (of $4,000) at ~$206 spent; deadman 12:00Z.
+Cap remaining to first crown: **~$3,790** (of $4,000) at ~$210 spent; deadman 12:00Z.

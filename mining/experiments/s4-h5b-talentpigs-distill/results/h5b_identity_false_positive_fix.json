@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-07T07:46:38Z",
+  "bug": "H5b pipe identity used first_1MiB+shard-name equality; TalentPigs-init LoRA leaves embed windows \u2192 false-positive REFUSE after merge (same H1 failure mode)",
+  "fix": "trust merge_lora weight_identical + multi-window probe; first_1MiB match alone is OK note",
+  "also": "unset CUDA_VISIBLE_DEVICES before chall serve; freed /root/h1/merged+/root/h1v2/merged (~136G)",
+  "train_pid": 245350,
+  "train_untouched": true,
+  "mid_pid": 247579,
+  "old_pipe_killed": 246775,
+  "new_pipe_pid": 249279,
+  "train_step": 12,
+  "last_loss": 0.4977256774902344,
+  "last_loss_step": 10
+}

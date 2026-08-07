@@ -74,35 +74,104 @@ python /root/mining_src/s4-h1-sft/merge_lora.py \
 cp -f "$MERGED/merge_meta.json" /root/affine_data/h5b_merge_meta.json 2>/dev/null || true
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h5b_merge.done
 
-# Refuse weight-identical to king (first 1MiB of first shard).
+# Refuse weight-identical to king/base.
+# Do NOT use first-1MiB-of-shard-1 alone: LoRA leaves embed/lm_head windows
+# untouched → false-positive REFUSE (H1 2026-08-07). Trust merge_lora's
+# multi-window weight_identical; also probe numbered shards vs TalentPigs.
 python - <<PY 2>&1 | tee -a "$LOG"
 import hashlib, json, sys
 from pathlib import Path
+
 merged = Path("$MERGED")
 king = Path("$BASE")
-meta = json.loads((merged / "merge_meta.json").read_text()) if (merged / "merge_meta.json").is_file() else {}
-def sha1m(p):
+meta_path = merged / "merge_meta.json"
+meta = json.loads(meta_path.read_text()) if meta_path.is_file() else {}
+
+
+def window_sha(path: Path, offset: int, nbytes: int = 1 << 20) -> str:
     h = hashlib.sha256()
-    with open(p, "rb") as f:
-        h.update(f.read(1 << 20))
+    size = path.stat().st_size
+    off = max(0, min(offset, max(0, size - nbytes)))
+    with open(path, "rb") as f:
+        f.seek(off)
+        h.update(f.read(nbytes))
     return h.hexdigest()
-ms = sorted(merged.glob("model-*.safetensors"))
-ks = sorted(king.glob("model-*.safetensors"))
+
+
+def numbered(p: Path):
+    shards = sorted(p.glob("model-*-of-*.safetensors"))
+    if shards:
+        return shards
+    return sorted(
+        x for x in p.glob("model-*.safetensors") if "visual" not in x.name
+    )
+
+
+ms, ks = numbered(merged), numbered(king)
 if not ms or not ks:
-    sys.exit("REFUSE: missing shards")
-o, k = sha1m(ms[0]), sha1m(ks[0])
+    sys.exit("REFUSE: missing language-model shards")
+
+# Pair by basename when layouts match; else compare first N shared by index.
+by_name = {k.name: k for k in ks}
+pairs = []
+for m in ms:
+    if m.name in by_name:
+        pairs.append((m, by_name[m.name]))
+if not pairs:
+    n = min(len(ms), len(ks))
+    pairs = list(zip(ms[:n], ks[:n]))
+
+any_diff = False
+shard_windows = {}
+for m, k in pairs:
+    size = k.stat().st_size
+    windows = {
+        "head": (window_sha(k, 0), window_sha(m, 0)),
+        "mid": (window_sha(k, size // 2), window_sha(m, size // 2)),
+        "tail": (
+            window_sha(k, max(0, size - (1 << 20))),
+            window_sha(m, max(0, m.stat().st_size - (1 << 20))),
+        ),
+    }
+    eqs = {name: a == b for name, (a, b) in windows.items()}
+    if not all(eqs.values()):
+        any_diff = True
+    shard_windows[m.name] = {"king": k.name, "equal": eqs}
+
+merge_meta_identical = bool(meta.get("weight_identical"))
+# Prefer merge_lora verdict; window probe is a second line of defense when
+# shard layouts differ (TalentPigs 16-shard vs CausalLM re-shard).
+identical = merge_meta_identical or (not any_diff and len(pairs) > 0)
+first_1mib_same = window_sha(ks[0], 0) == window_sha(ms[0], 0)
 payload = {
+    "merged_n_shards": len(ms),
+    "king_n_shards": len(ks),
     "merged_first": ms[0].name,
     "king_first": ks[0].name,
-    "out_first_1MiB": o,
-    "king_first_1MiB": k,
-    "identical_to_king": (ms[0].name == ks[0].name and o == k),
-    "merge_meta_keys": list(meta.keys())[:12],
+    "first_1MiB_identical": first_1mib_same,
+    "merge_meta_weight_identical": merge_meta_identical,
+    "window_any_diff": any_diff,
+    "identical_to_king": identical,
+    "shard_windows_sample": {
+        k: shard_windows[k] for k in list(shard_windows)[:3]
+    },
+    "note": (
+        "first_1MiB match alone is NOT refuse (LoRA leaves embeds); "
+        "refuse only on merge_meta.weight_identical or all windows equal"
+    ),
 }
-Path("/root/affine_data/h5b_identity.json").write_text(json.dumps(payload, indent=2) + "\n")
+Path("/root/affine_data/h5b_identity.json").write_text(
+    json.dumps(payload, indent=2) + "\n"
+)
 print(json.dumps(payload, indent=2), flush=True)
-if payload["identical_to_king"]:
-    sys.exit("REFUSE: merged first_1MiB identical to TalentPigs king")
+if identical:
+    sys.exit("REFUSE: merged weight-identical to TalentPigs king")
+if first_1mib_same and any_diff:
+    print(
+        "[h5b] NOTE: first_1MiB matches king (expected for TalentPigs-init "
+        "LoRA); later windows differ — OK",
+        flush=True,
+    )
 print("[h5b] OK_NON_IDENTICAL_VS_KING", flush=True)
 PY
 
@@ -140,7 +209,12 @@ if [[ "$code" != "200" ]]; then
   exit 1
 fi
 
-log "stop chall; serve merged as chall:8002"
+# Merge used CUDA 6,7; clear before serve so chall lands on physical 4,5
+# (serve_three sets CUDA_VISIBLE_DEVICES per engine, but a leaked 6,7 parent
+# env has bitten us before — be explicit).
+unset CUDA_VISIBLE_DEVICES
+
+log "stop chall; serve merged as chall:8002 (keep teacher+TalentPigs king)"
 pidf=/root/logs/vllm_chall.pid
 if [[ -f "$pidf" ]]; then
   pid=$(cat "$pidf")
@@ -161,6 +235,8 @@ export TEACHER_REPO=${TEACHER_REPO:-zai-org/GLM-4.5-Air-FP8}
 export TEACHER_REV=${TEACHER_REV:-}
 export KING_REPO KING_REV
 export CHALL_REPO=$MERGED
+# Local dir: serve_three clears rev when repo is a directory; sentinel avoids
+# the kevin Hub-sha default when CHALL_REV is empty.
 export CHALL_REV=local
 bash /root/mining_src/s3-duel-sim/serve_three.sh
 bash /root/mining_src/s3-duel-sim/wait_ready.sh

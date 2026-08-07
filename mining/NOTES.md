@@ -2775,3 +2775,39 @@ No submit / no registration burn.
 
 Read `results/h5b_decision.json` when harvest lands (~09:30–10:30Z). Until
 then poll `h5b_train_progress.json` → merge → HF pids → n80. Gate >0.04 + H4.
+
+## 2026-08-07T07:48:10Z — pass 81: H5b identity false-positive refuse fixed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $210.38; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,877.92 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. No `h5b_decision.json` yet — train mid-flight step **14**/55, loss@10
+   **0.498**, ETA ~08:25Z. Engines 200×3; mid **247579** alive; deadman
+   **1783662** @12:00Z.
+2. Audited post-train pipe: identity check used `first_1MiB` + shard-name
+   equality. TalentPigs-init LoRA leaves embed/lm_head windows → same
+   false-positive REFUSE that bit H1. Would have aborted after merge and
+   wasted the train under deadman 12:00Z.
+3. Patched `post_train_pipeline.sh` to trust `merge_lora.weight_identical`
+   + multi-window probe; first_1MiB match alone is an OK note. Also
+   `unset CUDA_VISIBLE_DEVICES` before chall serve. SCP'd; restarted pipe
+   **249279** (train **245350** + mid **247579** untouched).
+4. Freed refuted `/root/h1/merged` + `/root/h1v2/merged` (~136G; HF salvage
+   already done). Evidence:
+   `results/h5b_identity_false_positive_fix.json`.
+
+### Money
+
+Lium $33,877.92; mining spend ≈ $210. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:30–10:30Z). Until
+then poll train→merge→confirm `h5b_identity.json` identical_to_king=false
+even if first_1MiB_identical=true → HF pids → n80. Gate >0.04 + H4.
