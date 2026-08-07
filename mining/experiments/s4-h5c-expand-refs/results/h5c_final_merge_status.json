@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-07T11:16:45Z",
+  "merge_done": true,
+  "merge_finished_utc": "2026-08-07T11:12:49Z",
+  "weight_identical": false,
+  "identical_to_base": false,
+  "identical_to_king": false,
+  "merged_path": "/root/h5c/merged",
+  "hf_push_repo": "unconst/Affine-5czsc2fc98-h5c-merged",
+  "hf_push_running_at_poll": true,
+  "chall_serve": "vllm /root/h5c/merged :8002 TP2 GPUs 4,5 (loading)",
+  "chall_ready": false,
+  "sim_n80_done": false,
+  "artifacts": [
+    "h5c_merge_meta.json",
+    "h5c_identity.json"
+  ]
+}

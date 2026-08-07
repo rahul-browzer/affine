@@ -25,7 +25,7 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H5c — L1-headroom distill vs TalentPigs
 - **Claim:** kevin-init thought LoRA on expanded teacher_refs clears margin > 0.04.
 - **Test:** train 99 steps on 791 thought examples (lr 2e-5, r16) → n80 sim.
-- **Status:** mid50 n40 **FAIL** margin −0.019 r=0.897 clipL1=0.015; train done (best@50); final merge→n80 running. Detail: `experiments/s4-h5c-expand-refs/results/h5c_mid50_n40_result.json`.
+- **Status:** mid50 n40 **FAIL** (−0.019); final merge DONE 11:12Z (≠base/king); chall→n80 pending. Detail: `experiments/s4-h5c-expand-refs/results/h5c_final_merge_status.json`.
 
 ### H4 — stay inside the distill envelope
 - **Claim:** r ∈ [0.70, 0.85] and base× ≤ 1.15, or gates invalidate the miner.

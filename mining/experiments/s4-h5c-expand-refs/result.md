@@ -72,3 +72,17 @@ kevin→train. See `results/h5c_pod_launched.json`.
 n80 still running for formal H5c close. Artifacts:
 `results/h5c_mid50_n40_result.json`, `h5c_mid50_sim_n40.json`.
 Merged HF push to private `…-h5c-merged` failed (storage limit).
+
+## Final merge (pass 113)
+
+| item | value |
+|---|---|
+| finished | 2026-08-07T11:12:49Z · elapsed 431s |
+| weight_identical | **false** (shard tails differ vs kevin + TalentPigs) |
+| out | `/root/h5c/merged` 68G · visual sidecars restored |
+| HF push | background → `unconst/Affine-5czsc2fc98-h5c-merged` (TTL insurance) |
+| chall | vLLM :8002 on GPUs 4,5 loading @11:16Z (not ready yet) |
+| n80 | pending chall ready |
+
+Artifacts: `results/h5c_merge_meta.json`, `h5c_identity.json`,
+`h5c_final_merge_status.json`. Next: poll chall → n80; refute if margin≤0.04.
