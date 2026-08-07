@@ -2676,3 +2676,34 @@ No submit / no registration burn.
 
 Read `results/h5_a50_decision.json` when harvest lands. If still gate-fail
 or margin < 0.02 → refute H5 merge → TalentPigs-init thought distill.
+
+## 2026-08-07T07:34:27Z — pass 78: H5 α0.50 unpromptable; H5b distill launched
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent ~$203; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,901.01 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. Polled α0.50: merge DONE 07:23:05Z (329s, non-identical); chall READY
+   07:28:44Z; sim finished 07:29:24Z in **32s** with
+   `unpromptable:probe_no_parsable_action_in_3_turns`. Manual chall sample =
+   repeated `**` — equal-weight MoE merge destroyed generation.
+2. Harvest wrote `h5_a50_decision.json` (`reject_gates`, margin 0). Per H5
+   plan: both α failed → **refute H5 merge parents**. Wrote `result.md`,
+   `h5_a50_unpromptable.json`. Freed `/root/merges/h5-kt50`.
+3. Launched **H5b** TalentPigs-init thought-only LoRA (lr=1e-5, 440 refs):
+   train **245350** GPUs 6,7; pipe **245426**; host harvest **1871830**.
+   Thought-mask verify 440/440. Deadman **1783662** @12:00Z still armed.
+
+### Money
+
+Lium $33,901.01; mining spend ≈ $203. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `experiments/s4-h5b-talentpigs-distill/results/h5b_decision.json` when
+harvest lands (~train 55–70m + merge/serve/n80). Gate >0.04 + H4.

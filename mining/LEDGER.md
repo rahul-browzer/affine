@@ -109,6 +109,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 | 2026-08-07T04:29:15Z | observe | mine-sim spent $131.54 | Lium → mine-sim-1 | 34189.24 | 10.000 | H1 n40 margin −0.00241 (H4 r=1.135 fail); n80 launched; no submit; floor OK |
 | 2026-08-07T04:54:57Z | observe | mine-sim spent $142.11 | Lium → mine-sim-1 | 34150.36 | 10.000 | H1v2 harvest push-teardown race fixed; train step17; n80~27/26; floor OK |
 | 2026-08-07T04:51:36Z | observe | mine-sim spent $140.98 | Lium → mine-sim-1 | 34150.36 | 10.000 | H1v2 adapter path fixed; pipe 158053; floor OK |
+| 2026-08-07T07:34:27Z | observe | mine-sim spent ~$203 | Lium → mine-sim-1 | 33901.01 | 10.000 | H5 merge REFUTED (α0.50 unpromptable); H5b train launched; floor OK |
 | 2026-08-07T04:11:12Z | observe | mine-sim spent $125.06 | Lium → mine-sim-1 | 34212.62 | 10.000 | CausalLM save bugs fixed (wrapper config + visual shard); chall READY; n40 sim; floor OK |
 | 2026-08-07T03:56:51Z | observe | mine-sim spent $119.34 | Lium → mine-sim-1 | 34235.98 | 10.000 | H1 train DONE + merge; first_1MiB false-positive fixed; resume push+serve→sim; floor OK |
 | 2026-08-07T03:28:31Z | observe | mine-sim spent $108.12 | Lium → mine-sim-1 | 34282.69 | 10.000 | H1 step101; ckpt-100 salvaged to HF (loss 0.207); chal-00275 scoring; floor OK |
@@ -161,10 +162,10 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~188.27 so far (meter running @ 23.60/h; host deadman 12:00Z) | — |
+| Lium rentals (`mine-*`) | ~203 so far (meter running @ 23.60/h; host deadman 12:00Z) | — |
 
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~188.27 (accruing)** | **0** |
+| **total** | **~$203 (accruing)** | **0** |
 
-Cap remaining to first crown: **~$3,812** (of $4,000) at $188.27 spent; deadman 12:00Z.
+Cap remaining to first crown: **~$3,797** (of $4,000) at ~$203 spent; deadman 12:00Z.

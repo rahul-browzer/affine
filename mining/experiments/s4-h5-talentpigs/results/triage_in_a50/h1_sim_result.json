@@ -1,0 +1,25 @@
+{
+  "elapsed_s": 31.821549654006958,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/merges/h5-kt50",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h5-kt50",
+  "verdict": {
+    "challenger_wins": false,
+    "rejection_reason": "unpromptable:probe_no_parsable_action_in_3_turns",
+    "slice": {
+      "seed": 7237174897829547456,
+      "n": 80,
+      "digest": "182a6e631ae66acaaffabd7cd98b1ca58685c075ff9b1b1bcbe53fde40c2276f",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": null,
+    "chall_baseline_abs": null,
+    "king_baseline_abs": null
+  }
+}

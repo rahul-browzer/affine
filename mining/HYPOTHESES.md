@@ -7,7 +7,8 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5 / new-king | highest now | pivot to TalentPigs king; merge or mild distill → margin **> 0.04** | **open** — α0.65 **gate-fail** base×4.43; α0.50 merge→n80 LAUNCHED |
+| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** LAUNCHED |
+| — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 4 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
@@ -281,12 +282,31 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **α0.50 launched (2026-08-07T07:17:31Z pass 77):** pipe **240001**
   `start_merge_sim_a50.sh` → `/root/merges/h5-kt50/` → chall serve →
   n80; host harvest **1847826** → `h5_a50_decision.json`. Evidence:
-  `results/h5_a50_launched.json`. Pre-registered: if α0.50 also fails
-  (gates or margin < 0.02) → refute merge parents → TalentPigs-init
-  thought distill.
+  `results/h5_a50_launched.json`.
+- **α0.50 DONE (2026-08-07T07:29:24Z pass 78):** merge OK non-identical
+  (329s); chall READY; sim rejected in 32s —
+  `unpromptable:probe_no_parsable_action_in_3_turns`. Manual
+  `/v1/chat/completions` → repeated `**` gibberish. Equal-weight MoE
+  merge destroyed generation. Artifacts: `h5_kt50_sim_result.json`,
+  `h5_a50_decision.json`, `h5_a50_unpromptable.json`, `result.md`.
 - **Prediction (pre-register BEFORE merge):** n80 paired margin ≥ **+0.04**
   vs TalentPigs; H4 OK; both valid; weight_identical=false.
-- **Verdict:** open — α0.65 gate-fail base×4.43; α0.50 merge→n80 in flight.
+- **Verdict:** **refuted** for kevin×TalentPigs linear merge at
+  α∈{0.65,0.50}. Successor: **H5b** TalentPigs-init thought distill.
+
+## H5b — TalentPigs-init thought-only distill
+
+- **Claim:** Mild thought-only LoRA (lr=**1e-5**, 1 epoch) from live king
+  TalentPigs on 440 teacher_refs raises Λ2 without wrecking the crowned
+  envelope → n80 margin > 0.04, H4 OK.
+- **Experiment:** `experiments/s4-h5b-talentpigs-distill/` on `mine-sim-1`
+  GPUs 6,7; pipe merge→chall→n80; harvest → `h5b_decision.json`.
+- **Launch (2026-08-07T07:32:21Z pass 78):** train pid **245350**; pipe
+  **245426**; harvest **1871830**; thought_mask 440/440; freed broken
+  `h5-kt50/`. Evidence: `results/h5b_launched.json`.
+- **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
+  H4 OK; clip-L1 ≥ +0.015; not weight-identical.
+- **Verdict:** open.
 
 ## Scaffolding
 

@@ -1,0 +1,25 @@
+{
+  "utc": "2026-08-07T07:34:27Z",
+  "pass": 78,
+  "h5_merge": "REFUTED",
+  "h5_a50": {
+    "rejection_reason": "unpromptable:probe_no_parsable_action_in_3_turns",
+    "manual_sample": "** loops / gibberish",
+    "identical_to_king": false,
+    "merge_elapsed_s": 329.185
+  },
+  "h5b": {
+    "base": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2\u2026",
+    "loss_on": "thought",
+    "lr": 1e-05,
+    "train_pid": 245350,
+    "pipe_pid": 245426,
+    "out": "/root/h5b/",
+    "data": "/root/h1/teacher_refs_sft.jsonl",
+    "n_examples": 440,
+    "thought_mask_ok": 440
+  },
+  "freed": "/root/merges/h5-kt50",
+  "deadman": "12:00Z",
+  "harvest_pid_file": "1871830"
+}

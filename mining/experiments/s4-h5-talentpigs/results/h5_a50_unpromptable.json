@@ -1,0 +1,10 @@
+{
+  "utc": "2026-08-07T07:34:27Z",
+  "pass": 78,
+  "rejection_reason": "unpromptable:probe_no_parsable_action_in_3_turns",
+  "elapsed_s": 31.82,
+  "manual_chall_sample": "repeated ** tokens",
+  "merge_non_identical": true,
+  "out_first_1MiB": "9d5a47d26a59bd8e01ddc3e65508470eb7582fce2fa1456376202bb3ed67ba3b",
+  "verdict": "H5 merge parents REFUTED; pivot H5b"
+}

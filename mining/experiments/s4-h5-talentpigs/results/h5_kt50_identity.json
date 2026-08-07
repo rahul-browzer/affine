@@ -1,0 +1,11 @@
+{
+  "alpha": 0.5,
+  "out_first_shard": "model-00001-of-00002.safetensors",
+  "king_first_shard": "model-00001-of-00016.safetensors",
+  "shard_layout_match": false,
+  "king_first_1MiB": "15ac0af667e7a043be06a0e670e8c0a3161f1881d5422c826b24b0aa762862f5",
+  "out_first_1MiB": "9d5a47d26a59bd8e01ddc3e65508470eb7582fce2fa1456376202bb3ed67ba3b",
+  "identical_to_king": false,
+  "first_1MiB_identical_vs_A": false,
+  "max_abs_delta_sample": 0.0009002685546875
+}

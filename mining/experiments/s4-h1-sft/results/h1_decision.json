@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T06:09:23Z",
+  "utc": "2026-08-07T06:20:29Z",
   "rule": {
     "submit_margin": 0.04,
     "contract_margin": 0.02,
@@ -73,26 +73,23 @@
   },
   "live_king_guard": {
     "checked": true,
-    "match": true,
+    "match": false,
     "live": {
-      "repo": "kevin954/Affine-5dfqbbh8ev-sft",
-      "revision": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
-      "score": 0.03955783762471344,
-      "reign_number": 2,
-      "current_eval_id": "chal-00284",
-      "current_eval_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
-      "current_eval_stage": "scoring",
+      "repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+      "revision": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+      "score": 0.031501971059510636,
+      "reign_number": 3,
+      "current_eval_id": "chal-00286",
+      "current_eval_repo": "dfwasfmdpwkjglnpwngwg/affine-5ccebdzvsj-alskdjf",
+      "current_eval_stage": "ensure_king",
       "current_eval_progress": {
-        "phase": "scoring",
-        "miner": "challenger",
-        "done": 46,
-        "total": 80
+        "phase": "ensure_king"
       },
-      "snapshot_generated_at": "2026-08-07T06:09:22.330728+00:00"
+      "snapshot_generated_at": "2026-08-07T06:20:01.751976+00:00"
     },
     "sim_king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
     "sim_king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
-    "note": "sim king matches live king"
+    "note": "sim king kevin954/Affine-5dfqbbh8ev-sft@6a5815fad8f4e34c983b1933c1fae5762fe25220 != live TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4"
   },
   "submit": false
 }

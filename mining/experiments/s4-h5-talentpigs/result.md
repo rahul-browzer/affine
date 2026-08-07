@@ -1,36 +1,25 @@
-# s4-h5-talentpigs — results
+# s4-h5-talentpigs — result
 
-## α=0.65 kevin×TalentPigs (n80) — 2026-08-07T07:15:40Z
+## Verdict: H5 merge parents **REFUTED**
 
-**Verdict: REJECT — challenger gate-invalid (baseline band).** Do not submit.
-
-| metric | king (TalentPigs) | chall (h5-kt65 α0.65) |
+| α | outcome | deciding number |
 |---|---|---|
-| valid | true | **false** |
-| S | 0.02874 | null (mean_mix −0.04785) |
-| gate_pass_rate | 0.827 | 0.721 |
-| bank_frac | 0.502 | 0.209 |
-| calib_r | 0.746 | **1.077** |
-| baseline_abs | 0.1218 | **0.5398** |
-| base× | 1.0 | **4.431** |
-| mean_Λ2 | +0.00020 | −0.0332 |
-| n_pairs | 318 | 68 |
+| 0.65 | chall INVALID (`baseline_band_exceeded`) | base×=**4.431**; r=1.077; margin forced 0 |
+| 0.50 | **unpromptable** before scoring | `probe_no_parsable_action_in_3_turns`; manual chall sample = `**` loops |
 
-- Paired margin forced **0.0** (chall INVALID); n_paired=47; z=0.
-- `baseline_band_exceeded: true` (contract 1.25×).
-- H4 FAIL: r∉[0.70,0.85], base×≫1.15.
-- Triage `reject_gates`; `submit=false`. Live-king guard match=true.
-- Identity: 2-shard merge vs 16-shard king; `identical_to_king=false`.
-- Elapsed sim ≈ 1719s. Artifacts: `results/h5_kt65_sim_result.json`,
-  `h5_kt65_sim_result_artifact.json`, `h5_decision.json`.
+## Artifacts
 
-### Interpretation
+- α0.65: `results/h5_kt65_sim_result.json`, `h5_decision.json`
+- α0.50: `results/h5_kt50_sim_result.json`, `h5_a50_decision.json`,
+  `h5_kt50_identity.json` (non-identical to king/A; still broken gen)
 
-Linear α=0.65 (kevin-heavy) destroyed empty-baseline calibration: chall
-mean|lpA(y_C|∅)| ≈ 4.4× king. Ranking never reached — band gate killed S.
-Same parents at α=0.50 (more TalentPigs) is the pre-registered next shot
-before refuting the merge family.
+## Interpretation
 
-## α=0.50 — in flight (pass 77)
+Kevin×TalentPigs linear merge at α=0.65 inflates empty baseline past the
+1.25× band (H4 / RT-3d). α=0.50 equal-weight MoE merge destroys generation
+(gibberish). Do not submit either ckpt. Freed `/root/merges/h5-kt50` on pod.
 
-See `results/h5_a50_launched.json` / STATE.md.
+## Next
+
+`experiments/s4-h5b-talentpigs-distill/` — TalentPigs-init thought-only
+LoRA (lr=1e-5).

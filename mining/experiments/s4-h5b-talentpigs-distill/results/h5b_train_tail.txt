@@ -1,0 +1,5 @@
+[train] examples=440 loss_on=thought thought_ok=440 no_fence=0
+[train] sample0 supervised_tokens=29/6080
+[transformers] warmup_ratio is deprecated and will be removed in v5.2. Use `warmup_steps` instead.
+[train] starting
+  0%|          | 0/55 [00:00<?, ?it/s]
