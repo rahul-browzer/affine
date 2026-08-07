@@ -118,6 +118,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - recover-wait `bash -c '…start_h23_n80.sh…'` + post-probe
   `awk '/[s]tart_h23_n80/'` **self-SIGKILLs** (empty nohup, no relaunch line).
   Kill only real script argv: `$0 ~ /\/start_…\.sh/ && $0 !~ /bash -c/` (pass180).
+- `watch_form_decision.sh` can die mid-n80 with only the initial "waiting" log
+  line left (h23/h27/h28 all dead at ~53/32/7 while sims still ran — pass182).
+  Each poll: `awk '/[w]atch_form_decision\.sh/ && / hN /'` and relaunch if 0.
 
 ## Money / platform
 

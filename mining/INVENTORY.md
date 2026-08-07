@@ -7,9 +7,9 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h23-1 | gentle-fox-b5 | 8×B300 | $63.60 | 2026-08-08T00:09:46Z | H23 TP×Talucampe α0.90 | n80 ~22/80 |
-| mine-h27-1 | noble-orbit-fb | 8×H200 | $31.92 | 2026-08-08T05:34:02Z | H27 winner-zA LoRA | n80 ~51/80 + retry |
-| mine-h28-1 | swift-hawk-e1 | 8×H200 | $28.00 | ~2026-08-08T06:11Z | H28 m7-init winner-zA | n80 attempt=1 live |
+| mine-h23-1 | gentle-fox-b5 | 8×B300 | $63.60 | 2026-08-08T00:09:46Z | H23 TP×Talucampe α0.90 | n80 ~32/80 |
+| mine-h27-1 | noble-orbit-fb | 8×H200 | $31.92 | 2026-08-08T05:34:02Z | H27 winner-zA LoRA | n80 ~53/80 + form/retry |
+| mine-h28-1 | swift-hawk-e1 | 8×H200 | $28.00 | ~2026-08-08T06:11Z | H28 m7-init winner-zA | n80 ~7/80 + form/retry |
 
 SSH: h23 .244:40300 · h27 .21:20099 · h28 .232:40311
 known_hosts `/tmp/mine-h{23,27,28}-1.known_hosts` · **Free slots: 2**. Cap 5.
@@ -28,6 +28,6 @@ known_hosts `/tmp/mine-h{23,27,28}-1.known_hosts` · **Free slots: 2**. Cap 5.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-07T19:07Z | h23/27/28 match | re-armed form on all 3 (were dead); n80 32/53/7 |
 | 2026-08-07T19:05Z | h23/27/28 match | H28 merge→chall probe=200→n80; H27~51; H23~22 |
 | 2026-08-07T18:56Z | h23/27/28 match | H23 n80 launched; H28 merge; H27~30/80 |
-| 2026-08-07T18:51Z | h23/27/28 match | H28 TRAIN_DONE→merge; armed h27/h28 retry |
