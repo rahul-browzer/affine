@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T05:11:00Z",
+  "utc": "2026-08-07T05:19:15Z",
   "rule": {
     "submit_margin": 0.04,
     "contract_margin": 0.02,
@@ -12,21 +12,21 @@
     "live_king_guard": true
   },
   "primary": {
-    "source": "n40",
-    "n_paired_turns": 40,
-    "margin": -0.002407665842209357,
-    "se": 0.013163786319472901,
-    "z": -0.1829007083355455,
+    "source": "n80",
+    "n_paired_turns": 80,
+    "margin": -0.019942994188597064,
+    "se": 0.008224546553650097,
+    "z": -2.4248138251155327,
     "challenger_wins": false,
-    "king_S": -0.032632643437645256,
-    "chall_S": -0.03547679292302844,
+    "king_S": 0.012807419499670696,
+    "chall_S": -0.0068735265977203286,
     "king_valid": true,
     "chall_valid": true,
-    "chall_r": 1.1346690555507861,
-    "base_x": 0.8170284127574313,
+    "chall_r": 0.992206530907843,
+    "base_x": 0.8480114051050639,
     "h4_ok": false,
     "action": "revise_recipe",
-    "reason": "margin -0.00241 < 0.02; revise recipe or try H5 warm-start; do not burn a slot",
+    "reason": "margin -0.01994 < 0.02; revise recipe or try H5 warm-start; do not burn a slot",
     "chall_repo": "/root/h1/merged",
     "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
     "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220"
@@ -51,7 +51,26 @@
     "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
     "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220"
   },
-  "n80": null,
+  "n80": {
+    "source": "n80",
+    "n_paired_turns": 80,
+    "margin": -0.019942994188597064,
+    "se": 0.008224546553650097,
+    "z": -2.4248138251155327,
+    "challenger_wins": false,
+    "king_S": 0.012807419499670696,
+    "chall_S": -0.0068735265977203286,
+    "king_valid": true,
+    "chall_valid": true,
+    "chall_r": 0.992206530907843,
+    "base_x": 0.8480114051050639,
+    "h4_ok": false,
+    "action": "revise_recipe",
+    "reason": "margin -0.01994 < 0.02; revise recipe or try H5 warm-start; do not burn a slot",
+    "chall_repo": "/root/h1/merged",
+    "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+    "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220"
+  },
   "live_king_guard": {
     "checked": true,
     "match": true,
@@ -60,13 +79,13 @@
       "revision": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
       "score": 0.03955783762471344,
       "reign_number": 2,
-      "current_eval_id": "chal-00281",
-      "current_eval_repo": "michael-chan-000/affine-5EqYW8McUc-af9",
+      "current_eval_id": "chal-00283",
+      "current_eval_repo": "Shatoria/Affine-5ghntktyzq-test3",
       "current_eval_stage": "load_challenger",
       "current_eval_progress": {
         "phase": "load_challenger"
       },
-      "snapshot_generated_at": "2026-08-07T05:10:43.563019+00:00"
+      "snapshot_generated_at": "2026-08-07T05:19:05.102564+00:00"
     },
     "sim_king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
     "sim_king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",

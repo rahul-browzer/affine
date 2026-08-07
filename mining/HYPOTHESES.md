@@ -7,8 +7,8 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** step35/55 loss0.410; pipe **171602** prefer-n80 (pass59); harvest n80-aware |
-| 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | open — **n40 miss** (−0.0024); n80 restarted after ReadTimeout; recipe dead for submit |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** step43/55 loss0.400; pipe **171602** prefer-n80; H1 n80 freed engines |
+| 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
 | 5 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
@@ -34,13 +34,17 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   SE=0.0132); chall S=−0.0355 vs king S=−0.0326; both valid; **H4 FAIL**
   (r=**1.135**∉[0.70,0.85], base×=0.817). Chall mean_Λ2 slightly better
   than king (−0.0345 vs −0.0380) but implied clip-L1 collapsed
-  (−0.0009 vs king +0.0054). Triage `revise_recipe`. Prediction ≥+0.04
-  missed. **n80 RUNNING** for SE confirmation; do not submit this ckpt.
-  Artifacts: `experiments/s4-h1-sft/result.md`, `results/h1_sim_result_n40.json`,
-  `results/h1_decision.json`. HF merged @ `3364892…`. Soft 06:50Z /
-  deadman 07:00Z. kevin still king (chal-00280 dispatching as of 04:33Z).
-- **Verdict:** open (leaning refuted for this recipe; wait n80). Successor:
-  **H1v2** thought-only distill.
+  (−0.0009 vs king +0.0054).
+- **n80 result (2026-08-07T05:18:46Z):** margin **−0.01994** (z=−2.42,
+  SE=0.00822); chall S=−0.00687 vs king S=0.01281; both valid; **H4 FAIL**
+  (r=**0.992**∉[0.70,0.85], base×=0.848). Chall worse on Λ2 (−0.0129 vs
+  −0.0065) and clip-L1 (+0.006 vs king +0.019). n80 **worse** than n40 by
+  ~0.0175 — confirms miss, not noise. Triage `revise_recipe`; submit=false.
+  Artifacts: `experiments/s4-h1-sft/result.md`, `results/h1_sim_result.json`,
+  `results/h1_decision.json`, `results/h1_n80_confirmed.json`. HF merged @
+  `3364892…` salvage only. kevin still king (chal-00283 load_challenger).
+- **Verdict:** **refuted** for this full-completion LoRA recipe (prediction
+  ≥+0.04 missed on n40 and n80). Successor: **H1v2** thought-only distill.
 
 ## H1v2 — thought-only teacher distill restores envelope
 
@@ -107,6 +111,10 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   `h1v2_sim_result.json`; got_h1v2 no longer on n40 alone. Pipe **171602**;
   harvest **1670883**. Loss step35 **0.410**. Evidence:
   `results/h1v2_prefer_n80_fix.json`.
+- **Progress (05:19Z pass 60):** H1 n80 DONE (refuted); engines 0–5 idle
+  until H1v2 chall restart. Train **147209** step **43**/55 loss **0.400**;
+  pipe **171602** still waiting on train.done; ETA train ~05:30Z. Mid-ckpt
+  still empty (save_steps=50). Prediction unchanged.
 - **Verdict:** open — training in progress (prediction unchanged).
 
 

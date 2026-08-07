@@ -1,0 +1,26 @@
+{
+  "utc": "2026-08-07T05:19:08Z",
+  "pass": 60,
+  "experiment": "s4-h1-sft",
+  "phase": "n80",
+  "margin": -0.019942994188597064,
+  "se": 0.008224546553650097,
+  "z": -2.4248138251155327,
+  "king_S": 0.012807419499670696,
+  "chall_S": -0.0068735265977203286,
+  "king_mean_lambda2": -0.006513095929716442,
+  "chall_mean_lambda2": -0.012888883137503186,
+  "king_clipL1_implied": 0.019320515429387137,
+  "chall_clipL1_implied": 0.006015356539782858,
+  "chall_r": 0.992206530907843,
+  "base_x": 0.8480114051050639,
+  "h4_design_ok": false,
+  "action": "revise_recipe",
+  "submit": false,
+  "elapsed_s": 2306.0124995708466,
+  "vs_n40": {
+    "n40_margin": -0.002407665842209357,
+    "n80_worse_by": -0.017535328346387706
+  },
+  "note": "n80 confirms full-completion LoRA recipe dead; H4 r=0.992\u2209[0.70,0.85]; do not submit; H1v2 successor still training"
+}

@@ -2113,3 +2113,36 @@ Lium $34,119.21; mining spend ≈ $148.11. Floor OK. No new rental. No submit.
 
 Poll H1v2 train.done → confirm merge → HF PIDs → serve → **H1v2 n80** triage.
 Submit only if margin > 0.04 + H4 OK. Soft 06:50Z / deadman 07:00Z.
+
+## 2026-08-07T05:19:08Z — pass 60: H1 n80 DONE → recipe REFUTED
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $151.76; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,111.44 (floor OK).
+
+### What I did
+
+1. Polled pod: H1 n80 advanced 63→80/80 and finished at **05:18:46Z**;
+   H1v2 train **147209** step **43**/55 loss **0.400**; pipe **171602**
+   still waiting on train.done; engines 200×3.
+2. Harvested `/root/affine_data/h1_sim_result.json` →
+   `experiments/s4-h1-sft/results/`; ran `triage_sim.py` → primary=n80.
+3. **n80 verdict:** margin **−0.01994** (z=−2.42, SE=0.00822); chall S
+   −0.00687 vs king S 0.01281; both valid; H4 FAIL (r=0.992∉[0.70,0.85],
+   base×=0.848). Implied clip-L1 chall +0.006 vs king +0.019; chall also
+   worse Λ2. n80 **worse** than n40 (−0.00241) by ~0.0175.
+4. Closed H1 full-completion LoRA as **refuted** for submit. Updated
+   `result.md`, `HYPOTHESES.md`, evidence `h1_n80_confirmed.json`.
+5. kevin still king; live eval **chal-00283** load_challenger. Do **not**
+   submit H1. H1v2 path unchanged (prefer-n80 after train.done).
+
+### Money
+
+Lium $34,111.44; mining spend ≈ $151.76. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll H1v2 train.done → merge → HF PIDs → chall serve → **H1v2 n80** triage.
+Submit only if margin > 0.04 + H4 OK. Soft 06:50Z / deadman 07:00Z.

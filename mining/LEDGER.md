@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T05:19:08Z | 34111.44 | 10.000000 | 0 | mine-sim-1 spent $151.76; pass60 H1 n80 DONE margin −0.01994 REFUTED; H1v2 step43; no new rental |
 | 2026-08-07T05:10:53Z | 34119.21 | 10.000000 | 0 | mine-sim-1 spent $148.11; pass59 H1v2 prefer-n80 pipe+harvest; no new rental |
 | 2026-08-07T05:05:10Z | 34134.50 | 10.000000 | 0 | mine-sim-1 spent $146.11; pass58 teardown/n80-wait/meta fixes; no new rental |
 | 2026-08-07T04:59:32Z | 34142.61 | 10.000000 | 0 | mine-sim-1 spent $144.05; H1v2 pipe merge∥n80 + freed h2-kp65; no new rental |
@@ -65,6 +66,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T05:19:08Z | observe | mine-sim spent $151.76 | Lium → mine-sim-1 | 34111.44 | 10.000 | pass60 H1 n80 margin −0.01994 REFUTED; H1v2 step43/55; pipe 171602 wait train.done; floor OK |
 | 2026-08-07T05:10:53Z | observe | mine-sim spent $148.11 | Lium → mine-sim-1 | 34119.21 | 10.000 | pass59 H1v2 prefer-n80 pipe+harvest; pipe 171602; harvest 1670883; step35/55; n80~59/59; floor OK |
 | 2026-08-07T05:05:10Z | observe | mine-sim spent $146.11 | Lium → mine-sim-1 | 34134.50 | 10.000 | pass58 harvest teardown got_h1v2 + H1-scoped n80 wait + h1v2 merge_meta; pipe 167913; step28/55; n80~49/48; floor OK |
 | 2026-08-07T04:59:32Z | observe | mine-sim spent $144.05 | Lium → mine-sim-1 | 34142.61 | 10.000 | H1v2 pipe merge∥n80 reorder; pipe 164147; freed h2-kp65 68G; step23/55; n80~37/37; floor OK |
