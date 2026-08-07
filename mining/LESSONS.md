@@ -136,6 +136,10 @@ Format: `- <finding> — <the number or error that proves it>`
   30977+1792) kills whole n80; rotate `--block-hash` across retry attempts.
 - `start_*.sh` JSON `note` must be a closed string; unterminated → SyntaxError
   after train nohup → bootstrap `set -e` skips extra_dl/post_train (H36 pass198).
+- Engine recover: wipe `role`+`role_*` Triton caches **before** creating the
+  new `TCACHE`, then ≥5s settle (H35 king 201a failed mid-cache; 201b wipe→
+  settle→`king_p201b_*` → health 200). Same pattern for teacher/chall (H36
+  pass201). Concurrent prewarm still races — recover the dead role alone.
 
 ## Money / platform
 

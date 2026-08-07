@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H34 | med | H30 cell @ **epochs=2** → m>0.04 | **open** (n80) |
-| 2 | H36 | high | m7×(winner∪king-self) → m>0.04 | **open** (merge) |
+| 1 | H34 | med | H30 cell @ **epochs=2** → m>0.04 | **open** (n80 ~31/80) |
+| 2 | H36 | high | m7×(winner∪king-self) → m>0.04 | **open** (chall load) |
 | 3 | H37 | high | H28 cell @ **lr=1e-4** → m>0.04 | **open** (train) |
 | 4 | H38 | high | H28 cell @ **epochs=2** → m>0.04 | **open** (train) |
-| 5 | H35 | med | H30 cell @ **lr=1e-4** → m>0.04 | **open** (merge) |
+| 5 | H35 | med | H30 cell @ **lr=1e-4** → m>0.04 | **open** (chall load) |
 | — | H33 | was med | H29 @ epochs=2 | **refuted** m=−0.00158 |
 | — | H32 | was med | H29 @ lr=3e-5 | **refuted** m=−0.00601 |
 | — | H31 | was high | H30 @ lr=3e-5 | **refuted** m=+0.00016 |
@@ -27,12 +27,13 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H34 — H30 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×king-self@lr1e-5 → m>0.04.
-- **Status:** merge non-id; chall completions 200; n80 attempt1 @22:03Z.
-  `s4-h34-m7-king-self-ep2/`. HF salvage `unconst/Affine-5czsc2fc98-h34-merged`.
+- **Status:** n80 ~31/80 @22:19Z. `s4-h34-m7-king-self-ep2/`.
+  HF salvage `unconst/Affine-5czsc2fc98-h34-merged`.
 
 ### H36 — m7 × UNION(winner-zA ∪ king-self)
 - **Claim:** union high-L1 z_A on m7 → m>0.04 (H28 best single-source +0.011).
-- **Status:** train.done; merge in progress. `s4-h36-m7-union-za/` (794→410 fit).
+- **Status:** merge.done non-id; teacher+chall recovered (pass201); chall
+  loading → n80. `s4-h36-m7-union-za/` + `results/recover_pass201.md`.
 
 ### H37 — H28 @ lr=1e-4 (non-α)
 - **Claim:** 10× LR on m7×winner-zA → m>0.04 after H28 +0.01095.
@@ -40,11 +41,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H38 — H28 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×winner-zA@lr1e-5 → m>0.04.
-- **Status:** training on mine-h38-1 (launched 21:56Z). `s4-h38-m7-winner-za-ep2/`.
+- **Status:** training on mine-h38-1. `s4-h38-m7-winner-za-ep2/`.
 
 ### H35 — H30 @ lr=1e-4 (non-α)
 - **Claim:** 10× LR on m7×king-self → m>0.04 after H30/H31 near-null.
-- **Status:** train.done; merge. `s4-h35-m7-king-self-lr1e4/`.
+- **Status:** merge.done; king recover 201b → t/k=200; chall loading.
+  `s4-h35-m7-king-self-lr1e4/` + `results/recover_pass201.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
