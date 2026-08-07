@@ -1,0 +1,68 @@
+{
+  "elapsed_s": 2309.0517818927765,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/merges/h8-tp75",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h8",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0,
+    "se": null,
+    "z": 0.0,
+    "k_sigma": 3.0,
+    "n_paired_turns": 79,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.018507423041063512,
+      "gate_pass_rate": 0.839622641509434,
+      "bank_frac": 0.4677083333333333,
+      "calib_ratio": 0.7727918310843476,
+      "baseline_abs": 0.126798552266556,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": -0.007753227177701359,
+      "mean_mix": 0.018507423041063512
+    },
+    "challenger": {
+      "valid": false,
+      "S": null,
+      "gate_pass_rate": 0.8571428571428571,
+      "bank_frac": 0.3227848101265823,
+      "calib_ratio": 0.9344033708298924,
+      "baseline_abs": 0.24918852772150266,
+      "n_turns": 80,
+      "n_pairs": 287,
+      "mean_lambda2": -0.01842842517063862,
+      "mean_mix": -0.004766471188309448,
+      "baseline_band_exceeded": true
+    },
+    "slice": {
+      "seed": 15268955896074637335,
+      "n": 80,
+      "digest": "d45e799f4226bf03b00899d2edb864133ababdd0ba73bdb9c7cbe0910132622b",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.9344033708298924,
+    "chall_baseline_abs": 0.24918852772150266,
+    "king_baseline_abs": 0.126798552266556,
+    "base_x": 1.9652316471063356
+  }
+}
