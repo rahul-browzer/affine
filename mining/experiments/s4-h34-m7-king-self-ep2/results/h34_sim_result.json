@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2304.8740072250366,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h34/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h34",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0059267889518333705,
+    "se": 0.007775995122540285,
+    "z": 0.762190415301751,
+    "k_sigma": 3.0,
+    "n_paired_turns": 79,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.009354568437710228,
+      "gate_pass_rate": 0.8291139240506329,
+      "bank_frac": 0.47151898734177217,
+      "calib_ratio": 0.8003230851727735,
+      "baseline_abs": 0.13666280569504974,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": -0.01149368884213512,
+      "mean_mix": 0.009354568437710228
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.01523716167066995,
+      "gate_pass_rate": 0.8296529968454258,
+      "bank_frac": 0.4625,
+      "calib_ratio": 0.7193429853347083,
+      "baseline_abs": 0.15228734431685634,
+      "n_turns": 80,
+      "n_pairs": 317,
+      "mean_lambda2": -0.013277509696036765,
+      "mean_mix": 0.01523716167066995
+    },
+    "slice": {
+      "seed": 13408512982132312089,
+      "n": 80,
+      "digest": "a7958a8e6dc9c79f6b4d8a3929b6a4b9151b2b67a9efa5f2af45bcfcd7f0447b",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.7193429853347083,
+    "chall_baseline_abs": 0.15228734431685634,
+    "king_baseline_abs": 0.13666280569504974,
+    "base_x": 1.1143291222680682
+  }
+}

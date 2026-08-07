@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2469.9724011421204,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h35/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h35",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.016020046490609393,
+    "se": 0.006527567665017782,
+    "z": 2.4542137765132996,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.03069720107647559,
+      "gate_pass_rate": 0.7830188679245284,
+      "bank_frac": 0.5479166666666667,
+      "calib_ratio": 0.7158052945723616,
+      "baseline_abs": 0.11101089973377797,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": 0.0007691665171654274,
+      "mean_mix": 0.03069720107647559
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.04721561259782147,
+      "gate_pass_rate": 0.7955974842767296,
+      "bank_frac": 0.6,
+      "calib_ratio": 0.5665910062926672,
+      "baseline_abs": 0.1374447368222762,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": 0.006474332261895013,
+      "mean_mix": 0.04721561259782147
+    },
+    "slice": {
+      "seed": 14281184002941814714,
+      "n": 80,
+      "digest": "33b8d141eddf78fa30e7510fede6ac1e0bd020fd7bcfd177183f336219dab215",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.5665910062926672,
+    "chall_baseline_abs": 0.1374447368222762,
+    "king_baseline_abs": 0.11101089973377797,
+    "base_x": 1.2381192941584191
+  }
+}
