@@ -98,6 +98,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - B300: FA sm_103 patch ≠ done. Engines can still die on flashinfer sampling JIT
   under concurrent launch — clear half-written `cached_ops/sampling`, relaunch
   with `SERVE_STAGGER_S≥45` (H23 pass171).
+- After engine relaunch, **reset `start_*_n80.sh` wait** — orphan `wait_ready`
+  keeps the old elapsed clock (H23: 18m burned on dead engines; TIMEOUT_S=2400
+  would have fired mid-compile). Kill start+wait by PID, relaunch start.
 
 ## Money / platform
 

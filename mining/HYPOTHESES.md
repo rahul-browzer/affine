@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H27 | high | winner-zA LoRA → clipL1≥0.042, m>0.04 | **open** (train live) |
-| 2 | H25 | high | TP×Radiant28/m7 α0.90 → m>0.04 | **open** (n80 ~61/80) |
-| 3 | H24 | low | TP×0ronoCris α0.90 | **open** (n80 ~18/80) |
-| 4 | H26 | med | TP×kkk-af α0.90 → m>0.04 | **open** (merge ~15/16) |
-| 5 | H23 | low | TP×Talucampe α0.90 | **open** (engines relaunching; FA ok) |
+| 1 | H27 | high | winner-zA LoRA → clipL1≥0.042, m>0.04 | **open** (train ~25/51) |
+| 2 | H25 | high | TP×Radiant28/m7 α0.90 → m>0.04 | **open** (n80 ~64/80) |
+| 3 | H24 | low | TP×0ronoCris α0.90 | **open** (n80 ~27/80) |
+| 4 | H26 | med | TP×kkk-af α0.90 → m>0.04 | **open** (wait_ready→n80) |
+| 5 | H23 | low | TP×Talucampe α0.90 | **open** (load; wait reset) |
 | — | H22 | was med | TP×kevin α0.90 | **refuted** m=−0.01179 |
 | — | H21 | was low | TP×sft2 α0.75 | **refuted** m=−0.00682 |
 | — | H20/H19…H1 | — | α/LoRA/SFT | **refuted** |
@@ -27,12 +27,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Status:** TRAIN_LAUNCHED pid=2428 GPUs6,7. `s4-h27-clip-l1-shape/`.
 
 ### H25 — TalentPigs × Radiant28 ckpt1000-m7 α0.90
-- **Claim:** c_clipL1=+0.0435 → merge m>0.04. n80 ~61/80; form+retry armed.
+- **Claim:** c_clipL1=+0.0435 → merge m>0.04. n80 ~64/80; form+retry armed.
 - **Status:** `s4-h25-tp-adambell-m7-a90/`.
 
 ### H24 / H26 / H23
-- H24: n80 ~18/80; form+retry armed (pass171). H26 merge~15/16.
-  H23: FA patched; flashinfer JIT killed engines → relaunch stagger45 (pass171).
+- H24: n80 ~27/80. H26 merge DONE, wait_ready. H23: engines loading;
+  pass172 reset wait (old wait burned 18m on dead engines before relaunch).
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

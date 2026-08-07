@@ -1,0 +1,1 @@
+2026-08-07T17:59Z pass172: killed stale start_h23_n80 (13273) + orphan wait_ready (13279) that had elapsed~1080s of TIMEOUT_S=2400 while engines were dead pre-relaunch. Relaunched start_h23_n80.sh pid=27104 with fresh wait. Engines at kill time: teacher shards~83/47, king~12/16, chall~4/16 loading; GPU mem 54/54/36/36/36/36 GiB. Watchers 1250/23632 left intact.
