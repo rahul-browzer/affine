@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-07T10:27:48Z",
+  "pass": 110,
+  "event": "mid_checkpoint_50_salvaged",
+  "train_step_at_poll": 52,
+  "total_steps": 99,
+  "loss_at_50": 0.4186392784118652,
+  "loss_peak": {"step": 25, "loss": 0.632980},
+  "loss_curve": [
+    [5, 0.498962], [10, 0.510313], [15, 0.481556], [20, 0.544754],
+    [25, 0.632980], [30, 0.519993], [35, 0.482116], [40, 0.546397],
+    [45, 0.604317], [50, 0.418639]
+  ],
+  "hf_repo": "unconst/Affine-5czsc2fc98-h5c-lora",
+  "path_in_repo": "checkpoint-50",
+  "commit": "7085a43c09624e2f0a282c38e1298d2003c74136",
+  "uploaded_utc": "2026-08-07T10:26:41Z",
+  "base_hub": "kevin954/Affine-5dfqbbh8ev-sft",
+  "note": "adapter-only TTL insurance; not a submission revision; train continues to 99"
+}

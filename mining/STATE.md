@@ -4,79 +4,57 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H5c train RUNNING; mid-salvage + merge path PREFLIGHTED; post-train pipe waiting.**
+**Stage 4 — H5c train RUNNING past mid50; post-train pipe armed.**
 
-Stage 0–3 complete. H2 / H1 / H1v2 / H5 merge / H5b **REFUTED**.
-H5c autopsy + expand-refs harvest DONE. Primary DATA = **791** shortz refs.
-No submit.
+Stage 0–3 complete. H2 / H1 / H1v2 / H5 / H5b **REFUTED**. H5c open.
+Primary DATA = **791** shortz refs. No submit.
 
-## Live facts (verified this pass)
+## Live facts
 
 | item | value |
 |---|---|
-| king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4` |
-| king S | 0.031501971059510636 |
-| reign # | **3** |
+| king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` |
+| king S / reign | 0.03150 / **#3** |
 | teacher | `zai-org/GLM-4.5-Air-FP8` |
-| min_submission_block | **8767079** (llms; snapshot/contract field null) |
-| weight_version_key | 1 |
-| min_margin | 0.02 (duel) |
-| eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $33,676.21 (floor $28,000) |
-| miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | prior ~$252 + `mine-h5c-1` **$10.88** @ $28/h |
-| our submissions | none |
-| Stage 3 gate | **MET** |
-| H2 / H1 / H1v2 / H5 merge / H5b | **all REFUTED** |
-| H5c | **open** — train pid **2820** step **17**/99 @~44.6s/it; pipe **10642**; mid **5194**; prewarm DONE t=200 k=200 |
-| host harvest | **2090851** → stop 18:45Z; scrapes → `experiments/s4-h5c-expand-refs/results/` |
-| host deadman | **2090852** → `lium rm mine-h5c-1` at **19:00Z** (name-checked) |
-| H1v2 HF merged | public `unconst/Affine-5czsc2fc98-h1v2-merged` @ `a314357…` (do not submit) |
-| H5b HF | private `…-h5b-lora` / `…-h5b-merged` @ `e1d39a1…` (salvage only; do not submit) |
-| H5c HF | private `…-h5c-lora` @ `38af0ca…` (write-probe OK) / `…-h5c-merged` @ `128c6fa…` |
-| live eval | unrelated (ignore) |
+| min_submission_block | **8767079** (llms; API null) |
+| min_margin / eval | 0.02 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
+| Lium balance | $33,635.45 (floor $28k) |
+| mining spend | ~$252 + mine-h5c-1 **$23.26** |
+| miner free / submissions | τ10.000 / none |
+| H5c mid50 | **salvaged** → `…-h5c-lora` @ `7085a43…` path `checkpoint-50` |
+| H5c train | step **52**/99; loss@50 **0.4186** (peak 0.633@25) |
+| H5c HF | private `…-h5c-lora` / `…-h5c-merged` (write-probe OK) |
+| host | harvest **2090851** stop 18:45Z; deadman **2090852** rm@19:00Z |
 
 ## What's running
 
 | name | huid | role | check |
 |---|---|---|---|
-| `mine-h5c-1` | `golden-hawk-dc` | H5c train + prewarm + post-train→n80 | SSH `152.236.142.234:40298`; train **2820** GPUs 6,7 step17/99; teacher **5268** :8000 READY; king **5270** :8001 READY; pipe **10642** waiting train.done; mid **5194**; corpus 9000; TTL remove **2026-08-07T19:37:46Z** |
+| `mine-h5c-1` | `golden-hawk-dc` | train→n80 | SSH `152.236.142.234:40298`; train **2820** GPUs6,7; teacher:8000+king:8001 READY; pipe **10642**; mid **5194** (ckpt-50 done); TTL **19:37:46Z** |
 
-Host: harvest **2090851**, deadman **2090852**. Validator pods `affine-eval` / `affine-bench` — do not touch.
+Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. **Do not submit** any H1/H1v2/H2/h5/h5b/h5c checkpoint until
-n80 margin **> 0.04**. Cap remaining ~$3,748 − mine-h5c-1 spend.
+Do **not** submit until n80 margin **> 0.04**. Cap rem ~$3,725.
 
-## Next action (single, highest value)
+## Next action
 
-**Poll for mid-ckpt~50 salvage (~10:25Z) then `h5c_pipeline.done` / `h5c_decision.json`**, triage n80.
-Pass 108 preflighted salvage/merge path — no further pipe edits needed unless abort.
+**Poll `h5c_pipeline.done` / `h5c_decision.json`**, triage n80 vs gate.
 
 ```bash
-# host progress (preferred)
 cat experiments/s4-h5c-expand-refs/results/h5c_train_progress.json
-cat experiments/s4-h5c-expand-refs/results/h5c_pass108_preflight.json
-test -f experiments/s4-h5c-expand-refs/results/h5c_decision.json && cat experiments/s4-h5c-expand-refs/results/h5c_decision.json
-grep -E "salvag|OK checkpoint|WARN" .ralph/host_harvest_h5c.log | tail -20
-
-# or live pod
+test -f experiments/s4-h5c-expand-refs/results/h5c_decision.json && cat $_
+# live:
 ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsFile=/tmp/mine-h5c-1.known_hosts \
   -o StrictHostKeyChecking=accept-new -p 40298 root@152.236.142.234 \
-  'tail -5 /root/logs/h5c_train.nohup; tail -8 /root/logs/h5c_mid_salvage.nohup; \
-   cat /root/h5c/mid_ckpt_salvaged.txt 2>/dev/null; \
-   ls /root/h5c/train/checkpoints/ 2>/dev/null; \
-   ls /root/logs/{h5c_prewarm.done,h5c_merge.done,h5c_chall_serve.done,h5c_sim_n80.done,h5c_pipeline.done,h5c_pipeline.aborted} 2>/dev/null; \
-   test -f /root/affine_data/h5c_sim_progress.json && cat /root/affine_data/h5c_sim_progress.json; \
-   nvidia-smi --query-gpu=index,memory.used,utilization.gpu --format=csv,noheader; \
-   for p in 8000 8001 8002; do echo -n ":$p "; curl -s -o /dev/null -w "%{http_code}" --max-time 2 http://127.0.0.1:$p/v1/models; echo; done'
+  'tail -5 /root/logs/h5c_train.nohup; cat /root/h5c/mid_ckpt_salvaged.txt;
+   ls /root/logs/h5c_{train,merge,chall_serve,sim_n80,pipeline}.{done,aborted} 2>/dev/null;
+   test -f /root/affine_data/h5c_decision.json && cat /root/affine_data/h5c_decision.json;
+   nvidia-smi --query-gpu=index,memory.used,utilization.gpu --format=csv,noheader'
 ```
 
-ETA: mid50 ~10:25Z; train done ~11:02Z (@~45s/it); merge+chall ~30m; n80 ~45–60m →
-decision ~12:30–13:00Z. Soft 18:00Z / host harvest stop 18:45Z / deadman 19:00Z / TTL 19:37Z.
+ETA: train done ~11:05Z; merge+chall ~30m; n80 ~45–60m → decision ~12:30–13:00Z.
+Soft 18:00Z / harvest stop 18:45Z / deadman 19:00Z / TTL 19:37Z.
 Gate: margin **> 0.04**, r∈[0.70,0.85], clip-L1≥0.042. No submit below gate.
-
-Pass 108: HF write-probe on `…-h5c-lora` OK (`38af0ca…`); kevin base + TalentPigs
-local + salvage/merge/sim scripts present; mid **5194** has venv+HF_TOKEN; save_steps=50.
-Do **not** SCP-edit the live pipe script without restarting it.
+Do **not** SCP-edit the live pipe without restarting it.

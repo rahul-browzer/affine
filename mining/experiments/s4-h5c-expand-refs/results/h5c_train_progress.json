@@ -1,19 +1,23 @@
 {
-  "utc": "2026-08-07T09:59:09Z",
+  "utc": "2026-08-07T10:28:02Z",
   "experiment": "s4-h5c-expand-refs",
   "stage": "waiting_train",
   "train_done": false,
   "prewarm_done": true,
   "adapter_present": false,
-  "ckpt_dirs": [],
+  "ckpt_dirs": [
+    "checkpoint-50"
+  ],
   "merge_done": false,
   "chall_serve_done": false,
   "sim_n80_done": false,
   "pipe_waiting": true,
   "pipe_done": false,
   "pipe_aborted": false,
-  "last_pipe_line": "[h5c-pipe] 2026-08-07T09:56:27Z waiting for /root/h5c/train/train.done (or adapter + no train proc)",
-  "mid_salvaged": [],
+  "last_pipe_line": "[h5c-pipe] 2026-08-07T10:25:58Z still waiting for train.done (poll #60)",
+  "mid_salvaged": [
+    "checkpoint-50"
+  ],
   "identical_to_king": null,
   "sim_progress": null,
   "engines": {
@@ -22,10 +26,10 @@
     "chall": 0
   },
   "total": 99,
-  "step": 15,
-  "frac": 0.15151515151515152,
-  "n_loss_logs": 3,
+  "step": 52,
+  "frac": 0.5252525252525253,
+  "n_loss_logs": 10,
   "first_loss": 0.4989624977111816,
-  "last_loss": 0.4815556526184082,
-  "last_loss_step": 15
+  "last_loss": 0.4186392784118652,
+  "last_loss_step": 50
 }
