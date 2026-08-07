@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-07T09:39:38Z",
+  "pass": 102,
+  "pod_name": "mine-h5c-1",
+  "huid": "golden-hawk-dc",
+  "pod_id": "b14c030f-4588-4090-a704-61e1e212c86a",
+  "gpu": "8xH200",
+  "price_per_hour_usd": 28.0,
+  "ttl": "10h",
+  "removal_scheduled_at": "2026-08-07T19:37:46Z",
+  "ssh": "152.236.142.234:40298",
+  "bootstrap_pid": 902,
+  "data_lines": 791,
+  "data_path_pod": "/root/h5c/teacher_refs_shortz.jsonl",
+  "init": "kevin954/Affine-5dfqbbh8ev-sft@6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "loss_on": "thought",
+  "lr": 2e-5,
+  "epochs": 1,
+  "sim_king_planned": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "gate_margin": 0.04,
+  "lium_balance_usd": 33707.55,
+  "status": "bootstrap_pip_installing"
+}

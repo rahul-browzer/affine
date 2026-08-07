@@ -3507,3 +3507,49 @@ Lium $33,708.61; mining spend still ~$252. Floor OK. Cap OK. No burn.
 
 Rent `mine-h5c-1` → upload shortz JSONL + train/merge scripts → H5c LoRA
 → n80 vs TalentPigs. Re-check snapshot (kevin re-challenge in flight).
+
+## 2026-08-07T09:39:38Z — pass 102: rented mine-h5c-1; H5c bootstrap→train launched
+
+### Machine reconcile
+
+`lium ps` before: no `mine-*`; only validator `affine-eval` / `affine-bench`.
+After: `mine-h5c-1` (`golden-hawk-dc`) RUNNING. Validator pods untouched.
+Lium $33,707.55 (floor OK). Snapshot: TalentPigs still king reign 3 @
+S=0.0315; `current_eval` chal-00301 kevin954 re-challenge
+(`load_challenger`).
+
+### Money check (before rent)
+
+- Balance $33,707.55 ≫ $28,000 floor.
+- Cheapest 8×H200: **$28.00/h** (`brave-wolf-c9` → pod `golden-hawk-dc`).
+- `--ttl 10h` max exposure ≈ $280 ≪ remaining first-crown cap (~$3,748).
+- Command: `lium ls --gpu H200 --count 8 --sort price_per_hour` then
+  `lium up 1 --name mine-h5c-1 --ttl 10h --no-ssh -y`.
+- `removal_scheduled_at` = **2026-08-07T19:37:46Z**.
+
+### What I did
+
+1. Fixed `start_h5c.sh` to match working H1v2 `train_lora.py` API
+   (`--out-dir`, local kevin snapshot, peft check, verify_thought_mask).
+2. Wrote `bootstrap_h5c.sh`: pinned torch/transformers/vllm + peft →
+   kevin download → `start_h5c.sh`; bg TalentPigs+teacher for later n80.
+3. Uploaded via SSH/SCP (not `lium exec -e`): `/root/mine.env` (0600),
+   791-line shortz JSONL, H1v2 train/mask, H1 `merge_lora.py`, scripts.
+4. Started bootstrap nohup pid **902** — confirmed ALIVE installing
+   torch/vllm (pip log downloading). Train not yet started (waiting
+   on pip→kevin).
+
+### Numbers
+
+| item | value |
+|---|---|
+| data on pod | 791 lines `/root/h5c/teacher_refs_shortz.jsonl` |
+| init | kevin @ `6a5815…` |
+| loss / lr | thought / 2e-5 |
+| SSH | `152.236.142.234:40298` |
+
+### Next
+
+Poll until `h5c_train_launched.stamp` / train log advances; then merge →
+n80 vs live TalentPigs. Extend TTL before 19:37Z if needed. No submit
+until margin > 0.04.

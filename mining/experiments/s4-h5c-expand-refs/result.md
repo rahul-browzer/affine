@@ -51,7 +51,12 @@ python3 harvest_refs.py \
 
 **Do not submit** until gate clears. Do not re-use H5b TalentPigs-init 440-ref.
 
+## Pod launch (pass 102)
+
+Rented `mine-h5c-1` / `golden-hawk-dc` 8×H200 @$28/h `--ttl 10h`
+(remove 2026-08-07T19:37:46Z). Bootstrap pid 902 installing stack then
+kevin→train. See `results/h5c_pod_launched.json`.
+
 ## Next action
 
-Rent one `mine-h5c-1` H200 (floor/cap check), upload shortz JSONL + H1v2
-train/merge scripts, train → merge → n80 vs TalentPigs.
+Poll pod for train launch → merge → n80 vs live TalentPigs (gate >0.04).
