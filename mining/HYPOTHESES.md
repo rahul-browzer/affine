@@ -9,9 +9,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 |---|---|---|---|---|
 | 1 | H27 | high | winner-zA LoRA (TP-init) → clipL1≥0.042, m>0.04 | **open** (train ~44/51) |
 | 2 | H28 | high | winner-zA LoRA (**m7-init**) → m>0.04 | **open** (bootstrap) |
-| 3 | H24 | low | TP×0ronoCris α0.90 | **open** (n80 ~52/80) |
-| 4 | H26 | med | TP×kkk-af α0.90 → m>0.04 | **open** (n80 ~20/80) |
-| 5 | H23 | low | TP×Talucampe α0.90 | **open** (n80 ~16/80) |
+| 3 | H24 | low | TP×0ronoCris α0.90 | **open** (n80 ~55/80) |
+| 4 | H26 | med | TP×kkk-af α0.90 → m>0.04 | **open** (n80 ~25/80) |
+| 5 | H23 | low | TP×Talucampe α0.90 | **open** (king recover→n80) |
 | — | H25 | was high | TP×Radiant28/m7 α0.90 | **refuted** m=+0.00662 |
 | — | H22 | was med | TP×kevin α0.90 | **refuted** m=−0.01179 |
 | — | H21 | was low | TP×sft2 α0.75 | **refuted** m=−0.00682 |
@@ -33,7 +33,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Status:** bootstrap on mine-h28-1. `s4-h28-m7-clip-l1-shape/`.
 
 ### H24 / H26 / H23
-- H24 ~52/80. H26 ~20/80. H23 ~16/80.
+- H24 ~55/80. H26 ~25/80. H23 king EngineDead@~30/80 → relaunch (pass176).
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

@@ -1,0 +1,8 @@
+2026-08-07T18:15Z pass176: H23 n80 hit ConnectError at chall~30/80; king health=000.
+Root cause in vllm_king.log: EngineDeadError — TimeoutError RPC call to sample_tokens
+timed out (EngineCore 25022), then APIServer shutdown. Teacher:8000 + chall:8002 stayed up.
+Action: killed sim pid=33264 + start_h23_n80 pid=27104; quarantined progress to
+false_probes/; reaped GPU2/3 workers 25784/25785; wiped king triton cache + flashinfer
+sampling; relaunched king pid=33747 (TalentPigs@dbfbb3e2 util0.80); recover-wait pid=33749
+polls health+king /v1/completions then relaunches start_h23_n80. Watchers 1250/23632 kept.
+Do not rm pod. Check: tail /root/logs/h23_king_recover_pass176.log

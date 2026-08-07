@@ -86,8 +86,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - `pgrep -f "run_sim_duel.py .*local-hN"` false-matches SSH/bash cmdlines that
   contain the pattern — use `ps -eo pid,cmd | awk '/[r]un_sim_duel.py/ && /local-hN/'`.
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin REFUTE: check
-  `rejection_reason` first — ConnectError/unpromptable/probe_force = **false probe**
-  (H20/H24); quarantine decision, relaunch engine, do **not** `lium rm`.
+  `rejection_reason` first — ConnectError/unpromptable/probe_force/`EngineDeadError`
+  (`sample_tokens` RPC timeout) = **false probe** (H20/H24/H23); quarantine
+  progress, relaunch dead engine by GPU-index PIDs, do **not** `lium rm`.
 - After a false-probe null-margin decision, `watch_form_decision`/`watch_n80_retry`
   exit ("decision present") and never rewrite — quarantine the decision **and**
   relaunch both sidecars before the real n80 finishes (H25 pass171 @61/80).
