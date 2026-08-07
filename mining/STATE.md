@@ -9,10 +9,10 @@ Rewritten every pass. Do not append.
 Stage 0–3 complete. H2 / H1 / H1v2 **REFUTED**. Live king
 `TalentPigs/affine-5ekxlcg3fx-abc` reign 3 @ S=0.0315. H5 merge at
 `/root/merges/h5-kt65/` (α=0.65 kevin×TalentPigs; weight_identical=false).
-Pass 75: n80 sim pid **235312** at king **34**/80 / chall **36**/80
-(120s recheck: 27→34 / 33→36 @ 3.5 king-tpm / **1.5** chall-tpm;
-chall bottleneck). ETA finish **~07:29Z**. Host harvest **1818104**
-still armed. Deadman **12:00Z**. No submit.
+Pass 76: n80 sim pid **235312** at king **48**/80 / chall **51**/80
+(120s recheck: 39→48 / 42→51 @ **3.48** tpm both; king bottleneck).
+ETA finish **~07:13Z** (earlier than pass75 ~07:29Z). Host harvest
+**1818104** still armed. Deadman **12:00Z**. No submit.
 
 ## Live facts (verified this pass)
 
@@ -26,13 +26,13 @@ still armed. Deadman **12:00Z**. No submit.
 | weight_version_key | 1 |
 | min_margin | 0.02 (duel) |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $33,955.80 (floor $28,000) |
+| Lium balance | $33,947.67 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$191.40** @ $23.60/h |
+| mining spend to date | `mine-sim-1` spent **$192.92** @ $23.60/h |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 / H1 / H1v2 | **all REFUTED** |
-| H5 | **open** — n80 ADVANCING (~king34/chall36); ETA ~07:29Z; harvest armed |
+| H5 | **open** — n80 ADVANCING (~king48/chall51); ETA ~07:13Z; harvest armed |
 | H1v2 HF merged | public `unconst/Affine-5czsc2fc98-h1v2-merged` @ `a314357…` (do not submit) |
 | Disk | host: text only; pod merge at `/root/merges/h5-kt65/` (~67G) |
 
@@ -46,9 +46,9 @@ On pod:
 - Engines: teacher:8000 + king TalentPigs:8001 + chall h5-kt65:8002 — **all 200**
 - Resume pipe pid **231961** `resume_after_merge.sh` (parent of sim)
 - Sim pid **235312** `run_sim_duel.py` n=80 vs TalentPigs
-- Progress @ 06:59:28Z: king **34**/80, chall **36**/80
-- Rate (120s sample): king **3.5**/min, chall **1.5**/min (chall bottleneck)
-  → ETA **~07:29Z**
+- Progress @ 07:03:44Z: king **48**/80, chall **51**/80
+- Rate (155s sample): king **3.48**/min, chall **3.48**/min (king bottleneck)
+  → ETA **~07:13Z**
 - Done markers: `h5_merge.done` → `h5_chall_serve.done` → next
   `h5_sim_n80.done` → `h5_merge_sim.done`
 - Identity: out 2-shard vs king 16-shard; `identical_to_king=false`
@@ -60,14 +60,14 @@ Host (no GPU):
 - TTL deadman pid **1783662** @ **12:00Z**
 - H5 harvest pid **1818104** (`host_harvest_h5.sh`) stop **11:45Z**
   → SCP result + `triage_sim.py` → `results/h5_decision.json`
-- Evidence: `results/h5_n80_midflight_rate.json`
+- Evidence: `results/h5_n80_midflight_rate.json` (pass 76)
 - Plan: `experiments/s4-h5-talentpigs/plan.md`
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. **Do not submit** H1/H1v2/H2. Cap remaining ~$3,809.
+Nothing hard. **Do not submit** H1/H1v2/H2. Cap remaining ~$3,807.
 
 ## Next action (single, highest value)
 
@@ -76,5 +76,5 @@ Nothing hard. **Do not submit** H1/H1v2/H2. Cap remaining ~$3,809.
 decision (margin > 0.04 + H4 + live-king → Stage 5 path; 0.02–0.04 →
 α=0.50 merge; <0.02 → refute merge → TalentPigs-init thought distill).
 If absent: poll pod progress / `h5_sim_n80.done`; confirm harvest
-**1818104** still alive. Expected finish ~07:29Z. Re-check snapshot
+**1818104** still alive. Expected finish ~07:13Z. Re-check snapshot
 before any submit. Do not rent another pod.
