@@ -47,26 +47,83 @@ EOS
 _scrape_train_progress() {
   "${SSH[@]}" 'bash -s' <<'EOS' 2>/dev/null >"$OUT/h5b_train_progress.json" || true
 python3 - <<'PY'
-import json, re, pathlib, datetime
+import json, re, datetime
 from pathlib import Path
+
+def _is(p: str) -> bool:
+    return Path(p).is_file()
+
 logp = Path("/root/logs/h5b_train.nohup")
+pipe_log = Path("/root/logs/h5b_pipeline.stdout")
+train_done = _is("/root/h5b/train/train.done")
+merge_done = _is("/root/logs/h5b_merge.done")
+chall_serve_done = _is("/root/logs/h5b_chall_serve.done")
+sim_n80_done = _is("/root/logs/h5b_sim_n80.done")
+pipe_done = _is("/root/logs/h5b_pipeline.done")
+pipe_aborted = _is("/root/logs/h5b_pipeline.aborted")
+
+# Derive stage from durable markers + latest pipe log line.
+# Do NOT use `"waiting for" in full log` — that substring stays forever after
+# the initial wait (pass 87), so pipe_waiting stayed true through merge/n80.
+last_pipe = ""
+if pipe_log.is_file():
+    lines = [
+        ln for ln in pipe_log.read_text(errors="replace").splitlines() if ln.strip()
+    ]
+    last_pipe = lines[-1] if lines else ""
+
+if pipe_aborted:
+    stage = "aborted"
+elif pipe_done or sim_n80_done:
+    stage = "n80_done"
+elif chall_serve_done or "launch n80" in last_pipe or "n80 attempt" in last_pipe:
+    stage = "n80"
+elif "CHALL_SERVE_DONE" in last_pipe or "chall-only re-serve" in last_pipe:
+    stage = "serve"
+elif merge_done or "OK_NON_IDENTICAL" in last_pipe or "merge LoRA" in last_pipe:
+    stage = "merge_identity"
+elif train_done or "train.done present" in last_pipe or "GPU settle" in last_pipe:
+    stage = "post_train"
+elif "waiting for" in last_pipe:
+    stage = "waiting_train"
+else:
+    stage = "unknown"
+
 out = {
     "utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     "experiment": "s4-h5b-talentpigs-distill",
-    "train_done": Path("/root/h5b/train/train.done").is_file(),
-    "adapter_present": Path("/root/h5b/train/adapter/adapter_config.json").is_file(),
+    "stage": stage,
+    "train_done": train_done,
+    "adapter_present": _is("/root/h5b/train/adapter/adapter_config.json"),
     "ckpt_dirs": sorted(
         p.name for p in Path("/root/h5b/train/checkpoints").glob("checkpoint-*")
     ) if Path("/root/h5b/train/checkpoints").is_dir() else [],
-    "pipe_waiting": False,
-    "pipe_done": Path("/root/logs/h5b_pipeline.done").is_file(),
-    "pipe_aborted": Path("/root/logs/h5b_pipeline.aborted").is_file(),
+    "merge_done": merge_done,
+    "chall_serve_done": chall_serve_done,
+    "sim_n80_done": sim_n80_done,
+    "pipe_waiting": stage == "waiting_train",
+    "pipe_done": pipe_done,
+    "pipe_aborted": pipe_aborted,
+    "last_pipe_line": last_pipe[-240:] if last_pipe else "",
     "mid_salvaged": [],
+    "identical_to_king": None,
+    "sim_progress": None,
 }
 seen = Path("/root/h5b/mid_ckpt_salvaged.txt")
 if seen.is_file():
     out["mid_salvaged"] = [ln.strip() for ln in seen.read_text().splitlines() if ln.strip()]
-# engines
+ident = Path("/root/affine_data/h5b_identity.json")
+if ident.is_file():
+    try:
+        out["identical_to_king"] = json.loads(ident.read_text()).get("identical_to_king")
+    except Exception:
+        pass
+prog = Path("/root/affine_data/h5b_sim_progress.json")
+if prog.is_file():
+    try:
+        out["sim_progress"] = json.loads(prog.read_text())
+    except Exception:
+        pass
 engines = {}
 for name, port in (("teacher", 8000), ("king", 8001), ("chall", 8002)):
     try:
@@ -78,10 +135,7 @@ for name, port in (("teacher", 8000), ("king", 8001), ("chall", 8002)):
 out["engines"] = engines
 text = logp.read_text(errors="replace") if logp.is_file() else ""
 bars = re.findall(r"\|\s*(\d+)/55\s*", text)
-steps = re.findall(
-    r'step=(\d+)\s+(\{[^}]+\})',
-    text,
-)
+steps = re.findall(r'step=(\d+)\s+(\{[^}]+\})', text)
 out["total"] = 55
 if bars:
     out["step"] = int(bars[-1])
@@ -101,9 +155,6 @@ if losses:
     out["first_loss"] = losses[0]["loss"]
     out["last_loss"] = losses[-1]["loss"]
     out["last_loss_step"] = losses[-1]["step"]
-if Path("/root/logs/h5b_pipeline.stdout").is_file():
-    pt = Path("/root/logs/h5b_pipeline.stdout").read_text(errors="replace")
-    out["pipe_waiting"] = "waiting for" in pt and not out["pipe_done"]
 print(json.dumps(out, indent=2))
 PY
 EOS

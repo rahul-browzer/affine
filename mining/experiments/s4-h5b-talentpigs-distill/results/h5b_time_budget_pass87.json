@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-07T08:11:12Z",
+  "pass": 87,
+  "train_step": 38,
+  "train_total": 55,
+  "last_loss_step35": 0.46762237548828123,
+  "eta_train_done_utc": "~08:27Z",
+  "eta_n80_end_utc": "~09:20-10:30Z",
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "harvest_stop_utc": "2026-08-07T11:45:00Z",
+  "lium_spent_usd": 219.44,
+  "lium_balance_usd": 33838.95,
+  "floor_ok": true,
+  "cap_remaining_usd": 3780.56,
+  "note": "no decision yet; stage-aware harvest scrape armed for post-train window"
+}

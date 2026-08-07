@@ -50,7 +50,8 @@ trap _abort_on_exit EXIT
 
 mkdir -p /root/logs /root/affine_data /root/h5b
 rm -f /root/logs/h5b_pipeline.aborted /root/logs/h5b_pipeline.done \
-  /root/logs/h5b_merge.done /root/logs/h5b_sim_n80.done
+  /root/logs/h5b_merge.done /root/logs/h5b_chall_serve.done \
+  /root/logs/h5b_sim_n80.done
 
 log "waiting for $TRAIN_DIR/train.done (or adapter + no train proc)"
 while true; do

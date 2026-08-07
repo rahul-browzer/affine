@@ -2991,3 +2991,41 @@ No submit / no registration burn.
 
 Read `results/h5b_decision.json` when harvest lands (~09:20–10:30Z). Until
 then poll train→merge→identity→chall-only→n80 (retries if needed). Gate >0.04 + H4.
+
+
+## 2026-08-07T08:11:12Z — pass 87: H5b stage-aware harvest progress scrape
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $219.44; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,838.95 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. No `h5b_decision.json` — train step **38**/55, loss@35 **0.468**, ETA
+   train.done ~08:27Z. Engines 200×3; pipe **258082** waiting; mid **251832**;
+   deadman **1783662**.
+2. Found host-harvest bug: `_scrape_train_progress` set `pipe_waiting=true` if
+   `"waiting for"` appeared *anywhere* in `h5b_pipeline.stdout`. That line
+   remains after train.done, so merge/serve/n80 would look like still waiting
+   for the rest of the critical path — next passes could mis-read state.
+3. Patched scrape to derive `stage` from durable markers + **last** pipe log
+   line (`waiting_train`→`post_train`→`merge_identity`→`serve`/`n80`→
+   `n80_done`/`aborted`); also expose merge/serve/n80 markers, identity, and
+   sim_progress. Restarted harvest **1935669** (verified `stage=waiting_train`,
+   step 38). Train/pipe/mid untouched. Also SCP'd pipe start cleanup of
+   `h5b_chall_serve.done` (live pipe not restarted).
+4. Evidence: `results/h5b_stage_aware_progress_fix.json`,
+   `results/h5b_time_budget_pass87.json`.
+
+### Money
+
+Lium $33,838.95; mining spend ≈ $219. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:20–10:30Z). Until
+then poll `h5b_train_progress.json` `stage` through train→merge→n80.
+Gate >0.04 + H4.

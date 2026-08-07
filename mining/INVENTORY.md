@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z**; H5b harvest **1917667** →11:45Z | Stage 4 H5b train step35/55; n80≤3 + HF wait off critical path | RUNNING | SSH `root@69.63.236.160 -p 40301`; train **245350** pipe **258082** mid **251832**; deadman **1783662**; spent ~$217 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z**; H5b harvest **1935669** →11:45Z | Stage 4 H5b train step38/55; n80≤3; stage-aware harvest scrape | RUNNING | SSH `root@69.63.236.160 -p 40301`; train **245350** pipe **258082** mid **251832**; deadman **1783662**; spent ~$219 |
 
 ## Reconcile log
 
@@ -99,3 +99,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T08:00:55Z | mine-sim-1 RUNNING | matches inventory; spent ~$215; H5b harvest abort+done-marker **1917667** (train 245350 pipe 253801 mid 251832); step28/55; deadman 1783662; validator pods untouched |
 | 2026-08-07T08:04:21Z | mine-sim-1 RUNNING | matches inventory; spent $216.20; H5b pipe EXIT abort-trap **256662** (train 245350 mid 251832); step31/55; deadman 1783662; validator pods untouched |
 | 2026-08-07T08:08:03Z | mine-sim-1 RUNNING | matches inventory; spent $217.21; H5b HF-wait-off-critical-path pipe **258082** (train 245350 mid 251832); step35/55; deadman 1783662; validator pods untouched |
+| 2026-08-07T08:11:12Z | mine-sim-1 RUNNING | matches inventory; spent $219.44; H5b stage-aware harvest scrape **1935669** (train 245350 pipe 258082 mid 251832); step38/55; deadman 1783662; validator pods untouched |

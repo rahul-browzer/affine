@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-07T08:11:12Z",
+  "pass": 87,
+  "bug": "host_harvest _scrape_train_progress set pipe_waiting=true if 'waiting for' appeared anywhere in h5b_pipeline.stdout; that substring remains after train.done so merge/serve/n80 looked like still waiting",
+  "fix": "derive stage from durable markers + last pipe log line; expose stage/merge_done/chall_serve_done/sim_n80_done/identical_to_king/sim_progress; pipe_waiting iff stage==waiting_train",
+  "also": "post_train_pipeline.sh now rm h5b_chall_serve.done at start (SCP'd; live pipe 258082 not restarted)",
+  "harvest_old_pid": 1917667,
+  "harvest_new_pid": 1935669,
+  "train_pid_untouched": 245350,
+  "pipe_pid_untouched": 258082,
+  "mid_pid_untouched": 251832,
+  "verified_scrape": {
+    "stage": "waiting_train",
+    "step": 38,
+    "pipe_waiting": true,
+    "engines": {"teacher": 200, "king": 200, "chall": 200}
+  }
+}
