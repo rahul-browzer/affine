@@ -13,8 +13,10 @@ mkdir -p "$OUT" "$OUT_H1V2"
 log() { echo "[host-harvest] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*"; }
 
 log "polling mine-sim-1 for H1 + H1v2 artifacts → $OUT | $OUT_H1V2"
-# Aligned with pass-33 host deadman (pod kill 07:00Z); was 04:50Z under Lium TTL.
-deadline=$(date -u -d '2026-08-07T06:55:00Z' +%s 2>/dev/null || date -u -d '2026-08-07 06:55:00' +%s)
+# Pass 67: n80 slowed (~0.67–2.0 t/min); extend past prior 06:55/07:00 so a
+# late finish still SCPs before deadman. Was 06:55Z (pass-33 deadman 07:00Z).
+HARVEST_STOP_UTC=${HARVEST_STOP_UTC:-2026-08-07T07:45:00Z}
+deadline=$(date -u -d "$HARVEST_STOP_UTC" +%s 2>/dev/null || date -u -d '2026-08-07 07:45:00' +%s)
 got_sim=0
 got_salvage=0
 got_train=0
@@ -72,7 +74,7 @@ EOS
 while true; do
   now=$(date -u +%s)
   if (( now >= deadline )); then
-    log "deadline reached (host harvest stop 06:55Z; deadman 07:00Z); stop"
+    log "deadline reached (host harvest stop ${HARVEST_STOP_UTC}; deadman covers pod); stop"
     exit 0
   fi
 

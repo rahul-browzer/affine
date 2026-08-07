@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T06:09:00Z | 34033.60 | 10.000000 | 0 | mine-sim-1 spent $171.38; pass67 deadline extend harvest 07:45/deadman 08:00; n80~55/80; no new rental |
 | 2026-08-07T06:02:40Z | 34041.08 | 10.000000 | 0 | mine-sim-1 spent $168.86; pass66 n80 ETA~06:25 + artifact harvest fix; no new rental |
 | 2026-08-07T05:54:31Z | 34056.97 | 10.000000 | 0 | mine-sim-1 spent $165.68; pass65 n80 ETA~06:15 + chal-00283 REJECTED; no new rental |
 | 2026-08-07T05:50:34Z | 34056.97 | 10.000000 | 0 | mine-sim-1 spent $164.13; pass64 H1v2 merged HF public salvage DONE a314357…; n80~16/80; no new rental |
@@ -72,6 +73,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T06:09:00Z | observe | mine-sim spent $171.38 | Lium → mine-sim-1 | 34033.60 | 10.000 | pass67 n80~55/80; extended harvest→07:45/deadman→08:00 (+≤$23.60 if full hour); floor OK |
 | 2026-08-07T06:02:40Z | observe | mine-sim spent $168.86 | Lium → mine-sim-1 | 34041.08 | 10.000 | pass66 H1v2 n80~37/80 ETA~06:25@1.8tpm; harvest artifact SCP armed pid 1748334; floor OK |
 | 2026-08-07T05:50:34Z | observe | mine-sim spent $164.13 | Lium → mine-sim-1 | 34056.97 | 10.000 | pass64 H1v2 merged HF salvage DONE public a314357… (67GiB); loras publicized; n80~16/80 ETA~06:30; floor OK |
 | 2026-08-07T05:47:50Z | observe | mine-sim spent $162.94 | Lium → mine-sim-1 | 34064.74 | 10.000 | pass63 H1v2 merged push failed private quota → publicized h1-merged + retry public push 202393; n80~10/80; floor OK |

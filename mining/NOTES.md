@@ -2338,3 +2338,35 @@ Lium $34,041.08; mining spend ≈ $168.86. Floor OK. No new rental. No submit.
 
 Poll n80 → confirm harvest of `h1v2_sim_result.json` + artifact → triage
 `h1v2_decision.json`. Submit only if margin > 0.04 + H4 OK.
+
+## 2026-08-07T06:09:00Z — pass 67: extend harvest/deadman for slow n80
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $171.38; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $34,033.60 (floor OK).
+
+### What I did
+
+1. Polled n80: engines 200×3; sim **198714** alive at **55/80** (06:08:47Z).
+   90s rate sample 53/52 → 54/53 = **0.67 t/min** (worst ETA **~06:48Z**);
+   overall since 05:41 launch ≈ **2.0 t/min** (ETA **~06:22Z**). Teacher
+   GPUs 0–1 @100%; king/chall 2–5 idle (teacher bottleneck, not engine death).
+2. Old harvest stop 06:55 / deadman 07:00 was too tight for the slow sample.
+   Killed harvest **1748334** + deadman **1405846**; restarted harvest
+   **1757430** stop **07:45Z** and deadman **1757428** kill **08:00Z**.
+   Patched `host_harvest_results.sh` to take `HARVEST_STOP_UTC`.
+3. kevin still king @ `6a5815…`; live eval **chal-00284** scoring (king 17/80).
+   Evidence: `h1v2_deadline_extend.json`, `h1v2_n80_eta_poll.json`.
+   Do **not** submit until n80 margin > 0.04 + H4 OK.
+
+### Money
+
+Lium $34,033.60; mining spend ≈ $171.38. Extra pod-hour if used ≤ $23.60.
+Floor OK. Cap OK. No new rental. No submit.
+
+### Next
+
+Poll n80 → confirm harvest of `h1v2_sim_result.json` + artifact → triage
+`h1v2_decision.json`. Submit only if margin > 0.04 + H4 OK.

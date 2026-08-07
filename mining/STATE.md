@@ -9,11 +9,12 @@ Rewritten every pass. Do not append.
 Stage 0–3 complete. H2 kevin×pandora REFUTED. H1 full-completion LoRA
 **refuted** (n40 −0.00241; n80 −0.01994). **H1v2** thought-only train+merge
 DONE → chall :8002 READY → prefer-n80 sim pid **198714** RUNNING
-(~37/80 @ 06:01; ETA **~06:25Z** @ 1.8 t/min). Soft 06:50Z / deadman 07:00Z.
+(~55/80 @ 06:09; ETA **~06:22Z** @ overall 2.0 t/min, worst-case ~06:48
+@ sample 0.67 t/min). Harvest stop **07:45Z** / deadman **08:00Z** (pass-67
+extend; was 06:55/07:00).
 
-**Pass 66:** rate poll (slower than pass-65) + **fixed host harvest** to SCP
-`h1v2_sim_result_artifact.json` before deadman; harvest restarted **1748334**.
-kevin still king; chal-00284 load_challenger.
+**Pass 67:** rate poll showed slowdown risk → extended host harvest+deadman;
+sim untouched; kevin still king; chal-00284 scoring.
 
 ## Live facts (verified this pass)
 
@@ -27,9 +28,9 @@ kevin still king; chal-00284 load_challenger.
 | weight_version_key | 1 |
 | min_margin | 0.02 (duel) |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $34,041.08 (floor $28,000) |
+| Lium balance | $34,033.60 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$168.86** @ $23.60/h |
+| mining spend to date | `mine-sim-1` spent **$171.38** @ $23.60/h |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 verdict | **REFUTED** |
@@ -40,43 +41,43 @@ kevin still king; chal-00284 load_challenger.
 | H1v2 HF merged | **DONE** public @ `a31435754de2974e63779f53e953ee1433eaf295` |
 | H1 HF merged | **public** (quota fix; recipe refuted) |
 | H1v2 serve | :8000/:8001/:8002 all **200** |
-| H1v2 n80 | **RUNNING** pid **198714** → `h1v2_sim_result.json` (~37/80; ETA ~06:25) |
+| H1v2 n80 | **RUNNING** pid **198714** → `h1v2_sim_result.json` (~55/80) |
 | H1v2 pipe | **171602** |
-| Host harvest | **RUNNING** — pid **1748334** (artifact SCP armed; stop 06:55Z) |
-| Host deadman | **ARMED** — pid **1405846** → rm at **07:00Z** |
-| Live challenger | **chal-00284** TalentPigs/…-abc **load_challenger**; chal-00283 REJECTED |
+| Host harvest | **RUNNING** — pid **1757430** stop **07:45Z** (artifact SCP) |
+| Host deadman | **ARMED** — pid **1757428** → rm at **08:00Z** |
+| Live challenger | **chal-00284** TalentPigs/…-abc **scoring** (king 17/80) |
 | Disk | `/root` plenty (pod); host not used for weights |
 
 ## What's running
 
 | name | huid | role | check |
 |---|---|---|---|
-| `mine-sim-1` | `swift-shark-52` | H1v2 n80 sim (merged HF salvage DONE) | SSH `root@69.63.236.160 -p 40301`; host deadman 07:00Z |
+| `mine-sim-1` | `swift-shark-52` | H1v2 n80 sim (merged HF salvage DONE) | SSH `root@69.63.236.160 -p 40301`; host deadman **08:00Z** |
 
 On pod:
 - Teacher:8000 + King:8001 + Chall:8002 **200** (chall=`/root/h1v2/merged`)
 - H1v2 n80 sim **198714** → `/root/affine_data/h1v2_sim_result.json`
-- Progress: `/root/affine_data/h1v2_sim_progress.json` (king38/chall37 @ 06:01)
+- Progress: `/root/affine_data/h1v2_sim_progress.json` (king55/chall55 @ 06:09)
 - HF merged push **DONE** → `unconst/Affine-5czsc2fc98-h1v2-merged` @ `a314357…`
-- Evidence: `experiments/s4-h1v2-sft/results/h1v2_n80_eta_poll.json`,
-  `h1v2_harvest_artifact_fix.json`
+- Evidence: `experiments/s4-h1v2-sft/results/h1v2_deadline_extend.json`,
+  `h1v2_n80_eta_poll.json`
 
 Host (no GPU):
-- Artifact harvester pid **1748334** (includes `*_artifact.json`)
-- TTL deadman pid **1405846** @ 07:00Z
+- Artifact harvester pid **1757430** (stop 07:45Z; includes `*_artifact.json`)
+- TTL deadman pid **1757428** @ **08:00Z**
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
 Nothing hard. **Do not submit** until H1v2 n80 margin > 0.04 + H4 OK.
-Time budget: ETA ~06:25 ≪ soft 06:50 / deadman 07:00 — no TTL extend needed.
+Time budget: ETA ~06:22 (avg) / ~06:48 (slow sample) ≪ harvest 07:45 /
+deadman 08:00 — no further extend needed unless rate collapses.
 Merged HF salvage complete — deadman no longer erases the only copy.
-Artifact harvest fixed — pair decomp survives deadman.
 
 ## Next action (single, highest value)
 
-**Poll `/root/affine_data/h1v2_sim_progress.json` → when n80 DONE (~06:25Z),
+**Poll `/root/affine_data/h1v2_sim_progress.json` → when n80 DONE (~06:22–06:48Z),
 confirm harvest got `h1v2_sim_result.json` + `_artifact.json` and
 `h1v2_decision.json` (live-king guard).** Submit only if margin > 0.04 +
-H4 OK. Re-check snapshot (chal-00284+ in queue — king may change).
+H4 OK. Re-check snapshot (chal-00284 scoring — king may change).

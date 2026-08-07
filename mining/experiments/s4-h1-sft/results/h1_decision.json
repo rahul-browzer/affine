@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T06:02:51Z",
+  "utc": "2026-08-07T06:09:23Z",
   "rule": {
     "submit_margin": 0.04,
     "contract_margin": 0.02,
@@ -84,11 +84,11 @@
       "current_eval_stage": "scoring",
       "current_eval_progress": {
         "phase": "scoring",
-        "miner": "king",
-        "done": 5,
+        "miner": "challenger",
+        "done": 46,
         "total": 80
       },
-      "snapshot_generated_at": "2026-08-07T06:02:15.731058+00:00"
+      "snapshot_generated_at": "2026-08-07T06:09:22.330728+00:00"
     },
     "sim_king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
     "sim_king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",

@@ -1,0 +1,32 @@
+{
+  "utc": "2026-08-07T06:08:59Z",
+  "pass": 67,
+  "action": "extend_harvest_and_deadman",
+  "reason": "n80 rate sample slowed to ~0.67 t/min; 90s poll 53/52\u219254/53; risk finishing after old harvest 06:55 / deadman 07:00",
+  "progress": {
+    "king": 54,
+    "challenger": 54,
+    "n_turns": 80
+  },
+  "rate_sample_tpm": 0.667,
+  "rate_overall_since_launch_tpm": 2.0,
+  "eta_if_sample_rate": "2026-08-07T06:47:59Z",
+  "eta_if_overall_rate": "2026-08-07T06:21:59Z",
+  "old": {
+    "harvest_stop": "2026-08-07T06:55:00Z",
+    "deadman": "2026-08-07T07:00:00Z",
+    "harvest_pid": 1748334,
+    "deadman_pid": 1405846
+  },
+  "new": {
+    "harvest_stop": "2026-08-07T07:45:00Z",
+    "deadman": "2026-08-07T08:00:00Z",
+    "harvest_pid": 1757430,
+    "deadman_pid": 1757428
+  },
+  "king_unchanged": "kevin954/Affine-5dfqbbh8ev-sft@6a5815fad8f4",
+  "engines": "8000/8001/8002 all 200; teacher GPUs 0-1 @100%, king/chall 2-5 idle (teacher bottleneck)",
+  "extra_cost_usd_max": 23.6,
+  "spend_cap_ok": true,
+  "floor_ok": true
+}
