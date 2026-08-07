@@ -49,10 +49,12 @@ salvage_one() {
   fi
   log "salvaging $tag → $REPO ($path_in_repo)"
   local meta=/root/affine_data/h5b_mid_${tag}_salvage.json
+  local base_hub=${H5B_BASE_HUB:-TalentPigs/affine-5ekxlcg3fx-abc}
   if python3 /root/mining_src/s4-h1-sft/salvage_adapter.py \
     --adapter "$src" \
     --repo "$REPO" \
     --path-in-repo "$path_in_repo" \
+    --base-hub "$base_hub" \
     --commit-message "H5b mid-ckpt salvage $tag (TTL insurance)" \
     --out-meta "$meta"; then
     echo "$tag" >>"$SEEN"

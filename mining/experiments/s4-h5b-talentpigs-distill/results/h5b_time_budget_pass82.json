@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-07T07:52:28Z",
+  "pass": 82,
+  "train_step": 19,
+  "total": 55,
+  "last_loss_step15": 0.5084942817687989,
+  "eta_train_done_utc": "2026-08-07T08:23:40Z",
+  "eta_n80_end_approx_utc": "2026-08-07T09:53:40Z",
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "harvest_stop_utc": "2026-08-07T11:45:00Z",
+  "fix": {
+    "utc": "2026-08-07T07:52:17Z",
+    "fix": "wait for train_lora.py exit + 15s settle before merge on GPUs 6,7; serialize adapter HF push vs mid adapter-final; pass --base-hub TalentPigs",
+    "train_pid": 245350,
+    "mid_pid": 251832,
+    "pipe_pid": 251842,
+    "pipe_sha256": "f597241bc8d40507"
+  },
+  "king": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "note": "pipe waits for train proc exit before merge; mid/pipe HF adapter push serialized"
+}

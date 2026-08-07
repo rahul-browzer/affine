@@ -2811,3 +2811,40 @@ No submit / no registration burn.
 Read `results/h5b_decision.json` when harvest lands (~09:30–10:30Z). Until
 then poll train→merge→confirm `h5b_identity.json` identical_to_king=false
 even if first_1MiB_identical=true → HF pids → n80. Gate >0.04 + H4.
+
+## 2026-08-07T07:52:29Z — pass 82: H5b GPU-release-before-merge race fixed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $212.07; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,870.19 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+Live eval chal-00291 scoring (unrelated).
+
+### What I did
+
+1. No `h5b_decision.json` — train step **19**/55, loss@15 **0.508**, ETA
+   train.done ~08:24Z, n80 end ~09:54Z (slack to deadman 12:00Z ~2h).
+2. Audited post-train path: `train.done` is written while the 35B train
+   process still holds GPUs 6,7 during Python teardown. Pipe would start
+   `merge_lora --device-map auto` on the same GPUs → OOM/thrash risk under
+   deadman. H1v2 had the same pattern but got lucky on poll timing.
+3. Patched `post_train_pipeline.sh`: after `train.done`, wait up to 15m for
+   `train_lora.py` exit + 15s CUDA settle before merge. Also serialize
+   adapter HF push vs mid `adapter-final` (skip root push if mid done) and
+   pass `--base-hub TalentPigs/affine-5ekxlcg3fx-abc`. Mid script same
+   base-hub. SCP'd; restarted pipe **251842** + mid **251832** (train
+   **245350** untouched).
+4. Evidence: `results/h5b_gpu_release_race_fix.json`,
+   `results/h5b_time_budget_pass82.json`.
+
+### Money
+
+Lium $33,870.19; mining spend ≈ $212. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:30–10:30Z). Until
+then poll train→confirm pipe log `train proc gone` / `GPU settle done` →
+merge → identity → HF → n80. Gate >0.04 + H4.

@@ -52,6 +52,25 @@ while true; do
   sleep 30
 done
 
+# train.done is written BEFORE Python tears down the 35B resident on GPUs
+# 6,7. Merging immediately OOMs / thrashes those GPUs. Wait for the train
+# proc to exit, then a short CUDA settle.
+log "waiting for train_lora.py to exit and release GPUs 6,7"
+for _ in $(seq 1 180); do
+  if ! pgrep -f "s4-h1v2-sft/train_lora.py" >/dev/null 2>&1; then
+    log "train proc gone"
+    break
+  fi
+  sleep 5
+done
+if pgrep -f "s4-h1v2-sft/train_lora.py" >/dev/null 2>&1; then
+  log "ERROR: train still alive >15m after train.done; abort"
+  echo "aborted_train_stuck $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h5b_pipeline.aborted
+  exit 1
+fi
+sleep 15
+log "GPU settle done; proceeding to merge"
+
 if [[ ! -f "$ADAPTER/adapter_config.json" ]]; then
   latest=$(ls -d "$CKPT_ROOT"/checkpoint-* 2>/dev/null | sort -V | tail -1 || true)
   if [[ -n "${latest:-}" && -f "$latest/adapter_config.json" ]]; then
@@ -177,17 +196,42 @@ PY
 
 # Adapter + merged HF salvage in background (TTL/deadman insurance).
 # Do not submit these repos — salvage only.
+# Mid-ckpt watcher already pushes adapter-final under path-in-repo=adapter/;
+# wait for that (or mid exit) so we do not race two commits on the same
+# private repo, then only push adapter root if mid missed it.
 HF_LORA_REPO=${HF_LORA_REPO:-unconst/Affine-5czsc2fc98-h5b-lora}
 HF_MERGED_REPO=${HF_MERGED_REPO:-unconst/Affine-5czsc2fc98-h5b-merged}
+HF_BASE_HUB=${HF_BASE_HUB:-TalentPigs/affine-5ekxlcg3fx-abc}
+SEEN_MID=${SEEN_MID:-/root/h5b/mid_ckpt_salvaged.txt}
 if [[ -n "${HF_TOKEN:-}" ]]; then
-  log "background HF push adapter → $HF_LORA_REPO"
-  nohup python3 /root/mining_src/s4-h1-sft/salvage_adapter.py \
-    --adapter "$ADAPTER" \
-    --repo "$HF_LORA_REPO" \
-    --commit-message "H5b TalentPigs-init thought LoRA salvage (TTL insurance; not a submission)" \
-    --out-meta /root/affine_data/h5b_adapter_salvage.json \
-    >>/root/logs/h5b_push_adapter.nohup 2>&1 &
-  echo $! >/root/logs/h5b_push_adapter.pid
+  log "wait briefly for mid-salvage adapter-final (avoid HF commit race)"
+  for _ in $(seq 1 60); do
+    if [[ -f "$SEEN_MID" ]] && grep -qx "adapter-final" "$SEEN_MID"; then
+      log "mid already salvaged adapter-final — skip root adapter push"
+      break
+    fi
+    if ! pgrep -f "s4-h5b-talentpigs-distill/mid_ckpt_salvage.sh" >/dev/null 2>&1 \
+      && [[ -f "$TRAIN_DIR/train.done" ]]; then
+      log "mid watcher gone; will push adapter root if needed"
+      break
+    fi
+    sleep 10
+  done
+  if [[ -f "$SEEN_MID" ]] && grep -qx "adapter-final" "$SEEN_MID"; then
+    echo "{\"skipped\":true,\"reason\":\"mid adapter-final present\"}" \
+      >/root/affine_data/h5b_adapter_salvage.json
+    rm -f /root/logs/h5b_push_adapter.pid
+  else
+    log "background HF push adapter → $HF_LORA_REPO (base_hub=$HF_BASE_HUB)"
+    nohup python3 /root/mining_src/s4-h1-sft/salvage_adapter.py \
+      --adapter "$ADAPTER" \
+      --repo "$HF_LORA_REPO" \
+      --base-hub "$HF_BASE_HUB" \
+      --commit-message "H5b TalentPigs-init thought LoRA salvage (TTL insurance; not a submission)" \
+      --out-meta /root/affine_data/h5b_adapter_salvage.json \
+      >>/root/logs/h5b_push_adapter.nohup 2>&1 &
+    echo $! >/root/logs/h5b_push_adapter.pid
+  fi
   log "background HF push merged → $HF_MERGED_REPO"
   nohup python3 /root/mining_src/s4-h1-sft/push_merged.py \
     --merged "$MERGED" \
@@ -196,7 +240,7 @@ if [[ -n "${HF_TOKEN:-}" ]]; then
     --out-meta /root/affine_data/h5b_merged_salvage.json \
     >>/root/logs/h5b_push_merged.nohup 2>&1 &
   echo $! >/root/logs/h5b_push_merged.pid
-  log "adapter push pid=$(cat /root/logs/h5b_push_adapter.pid) merged push pid=$(cat /root/logs/h5b_push_merged.pid)"
+  log "adapter push pid=$(cat /root/logs/h5b_push_adapter.pid 2>/dev/null || echo skipped) merged push pid=$(cat /root/logs/h5b_push_merged.pid)"
 else
   log "WARN: HF_TOKEN unset; skipping H5b HF salvage pushes"
 fi

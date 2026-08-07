@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** step **14**/55; identity false-positive refuse fixed |
+| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** step **19**/55; identity + GPU-release-before-merge fixes deployed |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
@@ -329,6 +329,14 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   untouched). Freed `/root/h1/merged`+`/root/h1v2/merged` (~136G). Step
   **14**/55 loss@10 **0.498**. Evidence:
   `results/h5b_identity_false_positive_fix.json`.
+- **GPU-release race fix (2026-08-07T07:52:29Z pass 82):** `train.done`
+  is written while train still holds GPUs 6,7 during teardown; immediate
+  merge would OOM. Pipe now waits for `train_lora.py` exit + 15s settle;
+  adapter HF push serialized vs mid `adapter-final`; `--base-hub
+  TalentPigs/...` on salvage. Restarted pipe **251842** + mid **251832**
+  (train **245350** untouched). Step **19**/55 loss@15 **0.508**.
+  Evidence: `results/h5b_gpu_release_race_fix.json`,
+  `h5b_time_budget_pass82.json`.
 - **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
   H4 OK; clip-L1 ≥ +0.015; not weight-identical.
 - **Verdict:** open.
