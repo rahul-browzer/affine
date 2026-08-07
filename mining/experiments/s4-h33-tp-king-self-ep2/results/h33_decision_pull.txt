@@ -1,0 +1,31 @@
+{
+  "utc": "2026-08-07T21:49:13Z",
+  "margin": -0.0015835081154804904,
+  "z": -0.18993494260304986,
+  "r_c": 0.7678576120014655,
+  "valid_c": true,
+  "S_c": 0.029513438494792717,
+  "S_k": 0.03101247472313721,
+  "se": 0.008337107926422505,
+  "base_x": 0.9401933004755193,
+  "decision": "REFUTE_H33",
+  "parser": "write_merge_decision.py#nested_verdict",
+  "signal_only": false,
+  "submit": false
+}
+---RESULT---
+top_keys ['elapsed_s', 'king_repo', 'king_rev', 'chall_repo', 'block_hash', 'hotkey', 'verdict', 'h4']
+verdict {'challenger_wins': False, 'margin': -0.0015835081154804904, 'se': 0.008337107926422505, 'z': -0.18993494260304986, 'k_sigma': 3.0, 'n_paired_turns': 80, 'ranking_formula': 'Λ2 + 1.0·L1lift', 'gates': {'tau': 0.02, 'gamma': 0.3, 'gamma_bank': 0.08, 'l1_weight': 1.0, 'l1_clip': 0.1, 'r_lo': 0.3, 'r_hi': 4.0, 'baseline_band': 1.25, 'min_se': 0.005, 'min_margin': 0.02}, 'king': {'valid': True, 'S': 0.03101247472313721, 'gate_pass_rate': 0.8427672955974843, 'bank_frac': 0.4822916666666667, 'calib_ratio': 0.7202533424327254, 'baseline_abs': 0.13819876488050592, 'n_turns': 80, 'n_pairs': 318, 'mean_lambda2': -0.0016078557223624852, 'mean_mix': 0.03101247472313721}, 'challenger': {'valid': True, 'S': 0.029513438494792717, 'gate_pass_rate': 0.8553459119496856, 'bank_frac': 0.528125, 'calib_ratio': 0.7678576120014655, 'baseline_abs': 0.12993355287464314, 'n_turns': 80, 'n_pairs': 318, 'mean_lambda2': 0.0013260107837561352, 'mean_mix': 0.029513438494792717}, 'slice': {'seed': 3884112663037754003, 'n': 80, 'digest': '001d2bea637ae7c87a64992a27dc8255f2a8f3c0849d40930400a472b6f10821', 'block_hash': '0000000000000000000000000000000000000000000000000000000000000000', 'corpus_epoch': 0, 'manifest_sha256': ''}}
+verdict_keys ['challenger_wins', 'margin', 'se', 'z', 'k_sigma', 'n_paired_turns', 'ranking_formula', 'gates', 'king', 'challenger', 'slice']
+v.margin -0.0015835081154804904
+v.z -0.18993494260304986
+v.se 0.008337107926422505
+challenger <class 'dict'> {'valid': True, 'S': 0.029513438494792717, 'gate_pass_rate': 0.8553459119496856, 'bank_frac': 0.528125, 'calib_ratio': 0.7678576120014655, 'baseline_abs': 0.12993355287464314, 'n_turns': 80, 'n_pairs'
+king <class 'dict'> {'valid': True, 'S': 0.03101247472313721, 'gate_pass_rate': 0.8427672955974843, 'bank_frac': 0.4822916666666667, 'calib_ratio': 0.7202533424327254, 'baseline_abs': 0.13819876488050592, 'n_turns': 80, 
+gates <class 'dict'> {'tau': 0.02, 'gamma': 0.3, 'gamma_bank': 0.08, 'l1_weight': 1.0, 'l1_clip': 0.1, 'r_lo': 0.3, 'r_hi': 4.0, 'baseline_band': 1.25, 'min_se': 0.005, 'min_margin': 0.02}
+verdict.margin -0.0015835081154804904
+verdict.se 0.008337107926422505
+verdict.z -0.18993494260304986
+verdict.king.valid True
+verdict.challenger.valid True
+h4.base_x 0.9401933004755193

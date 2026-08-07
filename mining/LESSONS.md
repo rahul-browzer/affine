@@ -121,9 +121,12 @@ Format: `- <finding> — <the number or error that proves it>`
   `turns.jsonl.tmp→turns.jsonl` rename → ENOENT → prewarm `set -e` dies
   before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
   never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
-- Winner-zA LoRA m7-init m=+0.01095 (H28); **TP×king-self@1ep REFUTED**
-  (H29) m=−0.01527; **m7×king-self@1ep** H30 m=−0.00316 / H31 m=+0.00016
-  (near-null, gates OK) — do not requeue H28/H29/H30@1e-5/H31@3e-5.
+- Winner-zA LoRA m7-init m=+0.01095 (H28); **TP×king-self family dead** —
+  H29@1ep m=−0.01527 / H32@lr3e-5 m=−0.00601 / H33@ep2 m=−0.00158; never
+  requeue any TP×ks. **m7×king-self@1ep** H30 m=−0.00316 / H31 m=+0.00016
+  (near-null) — do not requeue H30@1e-5/H31@3e-5 (H34/H35 still open axes).
+- Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always
+  `nvidia-smi -L|wc -l`=8 after rent; reject <$20/h (was 2-GPU@$5.66; now 4 too).
 - `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up
   SSH shell with `y: command not found`).
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200

@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $190,358.63 | 2026-08-07T21:26Z |
-| cumulative mining spend | ~$3,420 (h32–h36 accruing) | 2026-08-07T21:26Z |
-| **available for mining** | **~$180,359** (balance − $10,000 floor) | 2026-08-07T21:26Z |
-| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-07T21:26Z |
-| miner burn (5 pods) | ~$164/h (h32 $40 + h33 $28 + h34/35/36 $31.92×3) | 2026-08-07T21:26Z |
+| Lium balance | $190,259.48 | 2026-08-07T21:54Z |
+| cumulative mining spend | ~$3,620 (h34–h38 accruing) | 2026-08-07T21:54Z |
+| **available for mining** | **~$180,259** (balance − $10,000 floor) | 2026-08-07T21:54Z |
+| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-07T21:54Z |
+| miner burn (5 pods) | ~$152/h (h34/35/36 $31.92×3 + h37/38 $28×2) | 2026-08-07T21:54Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -20,13 +20,13 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-07T21:53Z | 190259.48 | rented mine-h37-1 swift-matrix-54 8×H200 @$28/h ttl12h (H37; prior @$11.6 rejected 4GPU) |
+| 2026-08-07T21:52Z | 190259.67 | rented mine-h38-1 golden-matrix-b9 8×H200 @$28/h ttl12h (H38) |
+| 2026-08-07T21:53Z | 190259.67 | rm mine-h37-1 eager-lion-11 (~$0.2) REJECT 4 GPU @$11.6 |
+| 2026-08-07T21:51Z | 190259.67 | rm mine-h33-1 gentle-comet-aa (~$42) H33 REFUTE m=−0.00158 |
+| 2026-08-07T21:51Z | 190259.67 | rm mine-h32-1 noble-raven-24 (~$80) H32 REFUTE m=−0.00601 |
 | 2026-08-07T21:21Z | 190377.59 | rented mine-h36-1 calm-orbit-65 8×H200 @$31.92/h ttl12h (H36 union) |
 | 2026-08-07T21:20Z | 190377.59 | rm mine-h31-1 golden-raven-d8 (~$40) after H31 REFUTE m=+0.00016 |
 | 2026-08-07T21:18Z | 190395.14 | rented mine-h35-1 calm-fox-12 8×H200 @$31.92/h ttl12h (H35 lr1e4) |
 | 2026-08-07T21:17Z | 190395.14 | rm mine-h30-1 golden-hawk-9f (~$47) after H30 REFUTE m=−0.00316 |
-| 2026-08-07T20:59Z | 190470.97 | rm mine-h29-1 golden-wolf-bc (~$48) after H29 REFUTE m=−0.01527 |
-| 2026-08-07T20:59Z | 190470.97 | rented mine-h34-1 calm-wolf-a8 8×H200 @$31.92/h ttl12h (H34 ep2) |
-| 2026-08-07T20:15Z | 190626.09 | rented mine-h33-1 gentle-comet-aa 8×H200 @$28/h ttl12h (H33 ep2) |
-| 2026-08-07T20:13Z | 190643.02 | rm mine-h28-1 swift-hawk-e1 (~$57) after H28 REFUTE m=+0.01095 |
-| 2026-08-07T19:48Z | 190738.49 | rented mine-h32-1 noble-raven-24 8×B200 @$40/h ttl12h (H32) |
-| 2026-08-07T19:42Z | 190753.34 | rented mine-h31-1 golden-raven-d8 @$28/h ttl12h (H31) |
+| 2026-08-07T20:59Z | 190470.97 | rm mine-h29-1 + rented mine-h34-1 |
