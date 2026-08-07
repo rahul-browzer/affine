@@ -1,0 +1,45 @@
+{
+  "utc": "2026-08-07T04:48:37Z",
+  "action": "arm_h1v2_hf_salvage",
+  "hf_lora_repo": "unconst/Affine-5czsc2fc98-h1v2-lora",
+  "hf_merged_repo": "unconst/Affine-5czsc2fc98-h1v2-merged",
+  "pipe_pid": 154579,
+  "mid_salvage_pid": 154590,
+  "train_progress": {
+    "utc": "2026-08-07T04:48:37Z",
+    "experiment": "s4-h1v2-sft",
+    "step": 10,
+    "total": 55,
+    "frac": 0.18181818181818182,
+    "train_done": false,
+    "adapter_present": false,
+    "ckpt_dirs": [],
+    "engines": {
+      "teacher": 200,
+      "king": 200,
+      "chall": 200
+    },
+    "n_loss_logs": 2,
+    "first_loss": 0.49318628311157225,
+    "last_loss": 0.43830599784851076,
+    "pipe_waiting": true,
+    "pipe_done": false,
+    "pipe_aborted": false,
+    "n40_present": false
+  },
+  "n80_progress": {
+    "utc": "2026-08-07T04:47:39Z",
+    "hotkey": "local-h1-sim",
+    "chall_repo": "/root/h1/merged",
+    "n_turns": 80,
+    "king": 15,
+    "king_total": 80,
+    "challenger": 15,
+    "challenger_total": 80
+  },
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 200
+  }
+}

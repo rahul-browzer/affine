@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** step6/55 loss0.493; harvest H1v2-gated |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** step10/55 loss0.438; HF salvage+pipe armed |
 | 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | open — **n40 miss** (−0.0024); n80 restarted after ReadTimeout; recipe dead for submit |
 | 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
@@ -67,6 +67,12 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Progress (04:45Z):** train step **6**/55; first loss **0.493**; ETA ~05:35Z.
   Host harvest patched (pass 53) so H1 n80 completion cannot early-teardown
   while H1v2 runs; progress scraped to `experiments/s4-h1v2-sft/results/`.
+- **HF salvage (04:48Z pass 54):** private repos pre-created
+  `unconst/Affine-5czsc2fc98-h1v2-lora` + `…-h1v2-merged`. Pipe restarted
+  **154579** with post-merge background adapter+merged push; mid-ckpt
+  watcher **154590** armed (save_steps=50). Loss step10 **0.438**.
+  Evidence: `results/h1v2_hf_repos.json`, `h1v2_hf_salvage_armed.json`,
+  `h1v2_time_budget.json`.
 - **Verdict:** open — training in progress (prediction unchanged).
 
 

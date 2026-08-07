@@ -1,0 +1,27 @@
+{
+  "utc": "2026-08-07T04:48:37Z",
+  "soft_deadline": "2026-08-07T06:50:00Z",
+  "deadman": "2026-08-07T07:00:00Z",
+  "h1v2_train": {
+    "step": 10,
+    "total": 55,
+    "last_loss": 0.4383,
+    "eta_approx": "2026-08-07T05:35Z",
+    "pipe_abort_if_no_train_by": "2026-08-07T06:10:00Z"
+  },
+  "h1_n80": {
+    "king": 15,
+    "challenger": 15,
+    "n": 80,
+    "eta_approx": "2026-08-07T05:20Z",
+    "note": "rate ~3.6 samples/min since 04:39 restart; finishes before train.done"
+  },
+  "h1v2_n40_path": {
+    "merge_serve_budget_min": 25,
+    "n40_budget_min": 25,
+    "expected_ready": "~06:25Z",
+    "slack_to_soft_min": 25,
+    "hf_push": "background during serve+n40 (adapter+merged)"
+  },
+  "verdict": "budget OK if train finishes by ~05:40Z; HF salvage armed so deadman cannot erase candidate"
+}

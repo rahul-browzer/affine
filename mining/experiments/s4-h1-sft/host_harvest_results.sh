@@ -97,13 +97,20 @@ while true; do
     "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_progress.json \
       "$OUT_H1V2/h1_n80_progress_mirror.json" 2>/dev/null || true
   fi
-  for f in h1v2_sim_result_n40.json h1v2_decision_n40.json h1v2_merge_meta.json; do
+  for f in h1v2_sim_result_n40.json h1v2_decision_n40.json h1v2_merge_meta.json \
+           h1v2_adapter_salvage.json h1v2_merged_salvage.json \
+           h1v2_hf_salvage_armed.json; do
     if [[ ! -f "$OUT_H1V2/$f" ]] \
       && "${SSH[@]}" "test -f /root/affine_data/$f" 2>/dev/null; then
       "${SCP[@]}" "root@69.63.236.160:/root/affine_data/$f" "$OUT_H1V2/$f" \
         2>/dev/null || true
       log "got $f → $OUT_H1V2/"
     fi
+  done
+  # Mid-ckpt salvage metas (overwrite OK — small JSON).
+  for f in $("${SSH[@]}" 'ls /root/affine_data/h1v2_mid_checkpoint-*_salvage.json 2>/dev/null' || true); do
+    bn=$(basename "$f")
+    "${SCP[@]}" "root@69.63.236.160:$f" "$OUT_H1V2/$bn" 2>/dev/null || true
   done
   for f in h1v2_pipeline.done h1v2_pipeline.aborted h1v2_pipeline.partial \
            h1v2_merge.done h1v2_sim_n40.done; do

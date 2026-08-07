@@ -1905,3 +1905,36 @@ Lium $34,158.15; mining spend ≈ $138.57. Floor OK. No new rental. No submit.
 
 Poll H1v2 train.done / pipe n40 + H1 n80 result. Prefer H1v2 path for submit
 gate. Soft 06:50Z / deadman 07:00Z.
+
+## 2026-08-07T04:48:47Z — pass 54: H1v2 HF salvage armed (deadman insurance)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $139.88; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,158.15 (floor OK).
+
+### What I did
+
+1. Polled pod: H1v2 train **147209** step **10**/55 loss **0.438** (↓ from
+   0.493); n80 **149213** king/chall **15/15**/80; engines 200×3.
+2. Found H1v2 `post_train_pipeline.sh` had **no HF push** after merge — a
+   07:00Z deadman would erase the only vLLM-ready H1v2 candidate.
+3. Pre-created private HF repos:
+   `unconst/Affine-5czsc2fc98-h1v2-lora` +
+   `unconst/Affine-5czsc2fc98-h1v2-merged`.
+4. Patched pipe to background-push adapter + merged after merge (reuse H1
+   `salvage_adapter.py` / `push_merged.py`). Restarted pipe **154579**.
+5. Armed mid-ckpt salvage watcher **154590** (save_steps=50 → ckpt-50).
+6. Host harvest **1634085** now scrapes H1v2 salvage metas. Time budget OK
+   (n80 ~05:20Z, train ~05:35Z, n40 ~06:25Z vs soft 06:50Z).
+7. kevin still king; chal-00280 still `load_challenger`. Do **not** submit H1.
+
+### Money
+
+Lium $34,158.15; mining spend ≈ $139.88. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll H1v2 train.done → pipe merge/HF/serve/n40 triage. Prefer H1v2 path for
+submit gate. Soft 06:50Z / deadman 07:00Z.

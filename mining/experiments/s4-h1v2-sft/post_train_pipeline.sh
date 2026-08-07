@@ -87,6 +87,32 @@ fi
 cp -f "$MERGED/merge_meta.json" /root/affine_data/h1v2_merge_meta.json 2>/dev/null || true
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h1v2_merge.done
 
+# Adapter + merged HF salvage WHILE we re-serve + n40. Soft 06:50Z / deadman
+# 07:00Z would otherwise erase the only vLLM-ready H1v2 candidate.
+HF_LORA_REPO=${HF_LORA_REPO:-unconst/Affine-5czsc2fc98-h1v2-lora}
+HF_MERGED_REPO=${HF_MERGED_REPO:-unconst/Affine-5czsc2fc98-h1v2-merged}
+if [[ -n "${HF_TOKEN:-}" ]]; then
+  log "background HF push adapter → $HF_LORA_REPO"
+  nohup python3 /root/mining_src/s4-h1-sft/salvage_adapter.py \
+    --adapter "$ADAPTER" \
+    --repo "$HF_LORA_REPO" \
+    --commit-message "H1v2 thought-only LoRA salvage (TTL insurance; not a submission)" \
+    --out-meta /root/affine_data/h1v2_adapter_salvage.json \
+    >>/root/logs/h1v2_push_adapter.nohup 2>&1 &
+  echo $! >/root/logs/h1v2_push_adapter.pid
+  log "background HF push merged → $HF_MERGED_REPO"
+  nohup python3 /root/mining_src/s4-h1-sft/push_merged.py \
+    --merged "$MERGED" \
+    --repo "$HF_MERGED_REPO" \
+    --commit-message "H1v2 thought-only merged salvage (TTL insurance; not a submission)" \
+    --out-meta /root/affine_data/h1v2_merged_salvage.json \
+    >>/root/logs/h1v2_push_merged.nohup 2>&1 &
+  echo $! >/root/logs/h1v2_push_merged.pid
+  log "adapter push pid=$(cat /root/logs/h1v2_push_adapter.pid) merged push pid=$(cat /root/logs/h1v2_push_merged.pid)"
+else
+  log "WARN: HF_TOKEN unset; skipping H1v2 HF salvage pushes"
+fi
+
 log "chall-only re-serve $MERGED"
 RESTART_KING=0 MERGE="$MERGED" bash /root/mining_src/s4-h2-merge/restart_for_h2.sh
 log "serve READY"
