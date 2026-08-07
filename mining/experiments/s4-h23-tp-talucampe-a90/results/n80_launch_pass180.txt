@@ -1,0 +1,12 @@
+2026-08-07T18:54:50Z pass180
+recover178 king_completions_probe=ok at i=31 (18:51:52Z) but recover-wait pid=44493
+died before relaunching start_h23_n80 — no h23_n80_relaunch_pass178.{pid,nohup}.
+
+Root cause: nested bash -c in relaunch_king_pass178.sh embeds the string
+start_h23_n80.sh in its own argv. Post-probe kill loop
+  awk '/[s]tart_h23_n80\.sh/'
+matched itself → SIGKILL (empty recover_wait178.nohup, no "relaunched" line).
+
+Manual: chall_completions_probe=ok; launched start_h23_n80 pid=48842;
+run_sim_duel local-h23 pid=48921 attempt=1 from 18:55:21Z.
+Script fix landed in relaunch_king_pass178.sh (exclude bash -c / relaunch_king).

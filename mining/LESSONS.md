@@ -115,6 +115,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - `pgrep -f "watch_n80_retry.sh hN"` false-matches the SSH remote cmdline that
   embeds the same string → reports ALREADY_ARMED when n=0. Count with
   `ps -eo pid,cmd | awk '/[w]atch_n80_retry\.sh hN /'` (pass179).
+- recover-wait `bash -c '…start_h23_n80.sh…'` + post-probe
+  `awk '/[s]tart_h23_n80/'` **self-SIGKILLs** (empty nohup, no relaunch line).
+  Kill only real script argv: `$0 ~ /\/start_…\.sh/ && $0 !~ /bash -c/` (pass180).
 
 ## Money / platform
 

@@ -7,9 +7,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H27 | high | winner-zA LoRA (TP-init) → clipL1≥0.042, m>0.04 | **open** (n80 ~23/80) |
-| 2 | H28 | high | winner-zA LoRA (**m7-init**) → m>0.04 | **open** (merge after train.done) |
-| 3 | H23 | low | TP×Talucampe α0.90 | **open** (king recover178) |
+| 1 | H27 | high | winner-zA LoRA (TP-init) → clipL1≥0.042, m>0.04 | **open** (n80 ~30/80) |
+| 2 | H28 | high | winner-zA LoRA (**m7-init**) → m>0.04 | **open** (merge shard1/2) |
+| 3 | H23 | low | TP×Talucampe α0.90 | **open** (n80 attempt=1) |
 | — | H26 | was med | TP×kkk-af α0.90 | **refuted** m=+0.00592 |
 | — | H24 | was low | TP×0ronoCris α0.90 | **refuted** m=−0.00466 |
 | — | H25 | was high | TP×Radiant28/m7 α0.90 | **refuted** m=+0.00662 |
@@ -25,16 +25,16 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H27 — clip-L1 shape via high-L1 winner z_A (TalentPigs init)
 - **Claim:** SFT on challenger z_A with clipL1≥0.04 (n=406) from top
   clip-L1 duels, TalentPigs-init thought LoRA lr=1e-5 → m>0.04.
-- **Status:** n80 ~23/80; form+retry armed. `s4-h27-clip-l1-shape/`.
+- **Status:** n80 ~30/80; form+retry armed. `s4-h27-clip-l1-shape/`.
 
 ### H28 — same data, m7 init (non-α)
 - **Claim:** H25 α-dilution killed m7's clip-L1; keep m7 intact as init +
   same winner-zA LoRA → m>0.04. Pin `Radiant28/…m7` @ `f766293ee878`.
-- **Status:** TRAIN_DONE 18:49Z (51/51 loss≈0.43); merge_lora live;
-  retry armed. `s4-h28-m7-clip-l1-shape/results/train_result.json`.
+- **Status:** merge writing shard1/2; form+retry armed.
+  `s4-h28-m7-clip-l1-shape/results/train_result.json`.
 
 ### H23
-- King recover178: shards loaded; compile/CUDA-graph; probe pending.
+- n80 attempt=1 live from 18:55Z (pass180; recover-wait self-kill fixed).
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

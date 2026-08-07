@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $190,895.84 | 2026-08-07T18:50Z |
-| cumulative mining spend | ~$2,450 (h23/27/28 accruing) | 2026-08-07T18:50Z |
-| **available for mining** | **~$180,896** (balance − $10,000 floor) | 2026-08-07T18:50Z |
-| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 + datagen $0.35 | 2026-08-07T18:50Z |
-| miner burn (3 pods) | ~$123.5/h (h23 $63.60 + h27 $31.92 + h28 $28) | 2026-08-07T18:50Z |
+| Lium balance | $190,879.73 | 2026-08-07T18:56Z |
+| cumulative mining spend | ~$2,470 (h23/27/28 accruing) | 2026-08-07T18:56Z |
+| **available for mining** | **~$180,880** (balance − $10,000 floor) | 2026-08-07T18:56Z |
+| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 + datagen $0.35 | 2026-08-07T18:56Z |
+| miner burn (3 pods) | ~$123.5/h (h23 $63.60 + h27 $31.92 + h28 $28) | 2026-08-07T18:56Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -20,7 +20,6 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | UTC | Lium USD | event |
 |---|---|---|
-| 2026-08-07T18:50Z | 190895.84 | burn-only check (no rent/rm); h23/27/28 accruing |
 | 2026-08-07T18:43Z | 190928.15 | rm mine-h26-1 swift-matrix-98 (~$44) after H26 REFUTE m=+0.00592 |
 | 2026-08-07T18:29Z | 190986.36 | rm mine-h24-1 brave-orbit-31 (~$62) after H24 REFUTE m=−0.00466 |
 | 2026-08-07T18:11Z | 191051.54 | rented mine-h28-1 swift-hawk-e1 8×H200 @$28/h ttl12h COUNT=8; H28 launched |

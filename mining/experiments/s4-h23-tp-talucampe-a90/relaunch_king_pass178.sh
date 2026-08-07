@@ -62,7 +62,9 @@ for p in $(ps -eo pid,cmd | awk '/bash -c .*waiting king health\+probe/ {print $
   kill -9 "$p" 2>/dev/null || true
   log "killed recover-wait pid=$p"
 done
-for p in $(ps -eo pid,cmd | awk '/[s]tart_h23_n80\.sh/ {print $1}'); do
+# Match real script argv only — NOT bash -c bodies that embed this path
+# (pass180: recover-wait self-SIGKILL'd via awk '/start_h23_n80/' on its own cmdline).
+for p in $(ps -eo pid,cmd | awk '$0 ~ /\/start_h23_n80\.sh/ && $0 !~ /bash -c/ && $0 !~ /relaunch_king/ {print $1}'); do
   kill -9 "$p" 2>/dev/null || true
   log "killed start_h23_n80 pid=$p"
 done
@@ -224,7 +226,8 @@ if [[ "$ok" != "1" ]]; then
   echo "[recover-wait178] ERROR king never became promptable" >>"$LOG"
   exit 1
 fi
-for p in $(ps -eo pid,cmd | awk "/[s]tart_h23_n80\\.sh/ {print \$1}"); do
+# Same self-match hazard: this bash -c embeds start_h23_n80.sh in argv.
+for p in $(ps -eo pid,cmd | awk "\$0 ~ /\\/start_h23_n80\\.sh/ && \$0 !~ /bash -c/ && \$0 !~ /relaunch_king/ {print \$1}"); do
   kill -9 "$p" 2>/dev/null || true
 done
 source /root/venv/bin/activate
