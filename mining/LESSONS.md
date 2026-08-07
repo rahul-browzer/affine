@@ -106,6 +106,8 @@ Format: `- <finding> — <the number or error that proves it>`
   lacked `write_merge_decision.py`/`watch_fix_decision.sh` until pass128 scp'd them
   for H6 mid50/final. Mid50 decisions use `SIGNAL_*` + `signal_only:true` (never
   tear down the train pod on a mid-ckpt n40).
+- H7 TP×pandora α0.75 **INVALID** base×2.21 (band); Λ2 −0.023 — pandora at 25% still
+  sabotages empty-baseline vs TalentPigs; do not retry pandora merges / no α0.85 on gate-fail.
 
 ## Money / platform
 
