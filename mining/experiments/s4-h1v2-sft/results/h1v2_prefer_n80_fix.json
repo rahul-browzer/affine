@@ -1,0 +1,29 @@
+{
+  "utc": "2026-08-07T05:10:53Z",
+  "pass": 59,
+  "bug": "post_train_pipeline only ran n40 then PIPELINE_DONE; plan.md requires n80 for submit gate / prediction, and soft 06:50Z cannot fit n40(~30m)+n80(~55m) after serve (~05:49) \u2014 n80 would be starved; harvest also ignored h1v2_sim_result.json and treated n40 as terminal got_h1v2",
+  "fix": {
+    "pipe": "prefer n80 when remain_soft or remain_deadman >= 3200s (skip n40); else n40 with promote\u2192n80 if margin>=0.01 + H4 OK and deadman slack; write h1v2_sim_result.json + h1v2_decision_n80.json",
+    "harvest": "SCP n80 result/progress/decision; got_h1v2 on n80 or pipeline terminal (not n40 alone); re-triage when n80 upgrades n40-only decision"
+  },
+  "deploy": {
+    "pipe_pid": 171602,
+    "pipe_md5": "bb877901ec6b6a7e2e1e65ab0513228f",
+    "harvest_pid": 1670883,
+    "train_untouched": 147209,
+    "h1_n80_untouched": 149213,
+    "at_deploy": {
+      "train_step": 35,
+      "h1_n80": "59/59",
+      "loss_step35": 0.4098
+    }
+  },
+  "live": {
+    "king": "kevin954/Affine-5dfqbbh8ev-sft",
+    "chal_00280": {
+      "margin": -0.00501,
+      "wins": false
+    },
+    "current_eval": "chal-00281"
+  }
+}

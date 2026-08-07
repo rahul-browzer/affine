@@ -107,13 +107,21 @@ while true; do
     "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1v2_sim_progress_n40.json \
       "$OUT_H1V2/h1v2_sim_progress_n40.json" 2>/dev/null || true
   fi
+  # H1v2 n80 progress (pipe prefers n80 when soft budget ≥ ~53m — pass 59).
+  if "${SSH[@]}" 'test -f /root/affine_data/h1v2_sim_progress.json' 2>/dev/null; then
+    "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1v2_sim_progress.json \
+      "$OUT_H1V2/h1v2_sim_progress.json" 2>/dev/null || true
+  fi
   if "${SSH[@]}" 'test -f /root/affine_data/h1_sim_progress.json' 2>/dev/null; then
     "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_progress.json \
       "$OUT_H1V2/h1_n80_progress_mirror.json" 2>/dev/null || true
   fi
-  for f in h1v2_sim_result_n40.json h1v2_decision_n40.json h1v2_merge_meta.json \
+  for f in h1v2_sim_result.json h1v2_sim_result_n40.json \
+           h1v2_decision_n80.json h1v2_decision_n40.json h1v2_merge_meta.json \
            h1v2_adapter_salvage.json h1v2_merged_salvage.json \
            h1v2_hf_salvage_armed.json; do
+    # Overwrite OK for progress-sized decision/result files once; prefer
+    # fetching when missing OR when n80 lands after an earlier n40.
     if [[ ! -f "$OUT_H1V2/$f" ]] \
       && "${SSH[@]}" "test -f /root/affine_data/$f" 2>/dev/null; then
       "${SCP[@]}" "root@69.63.236.160:/root/affine_data/$f" "$OUT_H1V2/$f" \
@@ -127,7 +135,7 @@ while true; do
     "${SCP[@]}" "root@69.63.236.160:$f" "$OUT_H1V2/$bn" 2>/dev/null || true
   done
   for f in h1v2_pipeline.done h1v2_pipeline.aborted h1v2_pipeline.partial \
-           h1v2_merge.done h1v2_sim_n40.done; do
+           h1v2_merge.done h1v2_sim_n40.done h1v2_sim_n80.done; do
     if [[ ! -f "$OUT_H1V2/$f" ]] \
       && "${SSH[@]}" "test -f /root/logs/$f" 2>/dev/null; then
       "${SCP[@]}" "root@69.63.236.160:/root/logs/$f" "$OUT_H1V2/$f" \
@@ -135,7 +143,10 @@ while true; do
     fi
   done
   if (( got_h1v2 == 0 )); then
-    if [[ -f "$OUT_H1V2/h1v2_sim_result_n40.json" ]] \
+    # Terminal = pipe finished OR n80 result. n40 alone is NOT terminal while
+    # the pipe may still chain n80 (pass 59); _h1v2_still_running also gates
+    # teardown, but avoid marking got_h1v2 early on n40-only.
+    if [[ -f "$OUT_H1V2/h1v2_sim_result.json" ]] \
       || [[ -f "$OUT_H1V2/h1v2_pipeline.done" ]] \
       || [[ -f "$OUT_H1V2/h1v2_pipeline.aborted" ]] \
       || [[ -f "$OUT_H1V2/h1v2_pipeline.partial" ]]; then
@@ -143,16 +154,36 @@ while true; do
       log "H1v2 terminal artifact present (got_h1v2=1)"
     fi
   fi
-  # Authoritative H1v2 triage with live-king guard (pipe's inline JSON lacks it).
-  if [[ -f "$OUT_H1V2/h1v2_sim_result_n40.json" ]] \
-    && [[ ! -f "$OUT_H1V2/h1v2_decision.json" ]]; then
-    mkdir -p "$OUT_H1V2/triage_in"
-    cp -f "$OUT_H1V2/h1v2_sim_result_n40.json" \
-      "$OUT_H1V2/triage_in/h1_sim_result_n40.json"
-    if python3 /home/const/subnet120/mining/experiments/s4-h1-sft/triage_sim.py \
-      --results-dir "$OUT_H1V2/triage_in" \
-      --out "$OUT_H1V2/h1v2_decision.json" >/dev/null 2>&1; then
-      log "H1v2 triage → $OUT_H1V2/h1v2_decision.json action=$(python3 -c "import json;print(json.load(open('$OUT_H1V2/h1v2_decision.json'))['primary']['action'])" 2>/dev/null || echo '?')"
+  # Authoritative H1v2 triage with live-king guard. Prefer n80 when present;
+  # re-run when n80 lands after an n40-only decision (pass 59).
+  if [[ -f "$OUT_H1V2/h1v2_sim_result.json" || -f "$OUT_H1V2/h1v2_sim_result_n40.json" ]]; then
+    need_triage=0
+    if [[ ! -f "$OUT_H1V2/h1v2_decision.json" ]]; then
+      need_triage=1
+    elif [[ -f "$OUT_H1V2/h1v2_sim_result.json" ]]; then
+      # Upgrade n40-only decision once n80 arrives.
+      src=$(python3 -c "import json;print(json.load(open('$OUT_H1V2/h1v2_decision.json')).get('primary',{}).get('source',''))" 2>/dev/null || echo "")
+      if [[ "$src" != "n80" ]]; then
+        need_triage=1
+      fi
+    fi
+    if (( need_triage == 1 )); then
+      mkdir -p "$OUT_H1V2/triage_in"
+      rm -f "$OUT_H1V2/triage_in/h1_sim_result.json" \
+        "$OUT_H1V2/triage_in/h1_sim_result_n40.json"
+      if [[ -f "$OUT_H1V2/h1v2_sim_result_n40.json" ]]; then
+        cp -f "$OUT_H1V2/h1v2_sim_result_n40.json" \
+          "$OUT_H1V2/triage_in/h1_sim_result_n40.json"
+      fi
+      if [[ -f "$OUT_H1V2/h1v2_sim_result.json" ]]; then
+        cp -f "$OUT_H1V2/h1v2_sim_result.json" \
+          "$OUT_H1V2/triage_in/h1_sim_result.json"
+      fi
+      if python3 /home/const/subnet120/mining/experiments/s4-h1-sft/triage_sim.py \
+        --results-dir "$OUT_H1V2/triage_in" \
+        --out "$OUT_H1V2/h1v2_decision.json" >/dev/null 2>&1; then
+        log "H1v2 triage → $OUT_H1V2/h1v2_decision.json action=$(python3 -c "import json;print(json.load(open('$OUT_H1V2/h1v2_decision.json'))['primary']['action'])" 2>/dev/null || echo '?') source=$(python3 -c "import json;print(json.load(open('$OUT_H1V2/h1v2_decision.json'))['primary']['source'])" 2>/dev/null || echo '?')"
+      fi
     fi
   fi
   "${SCP[@]}" 'root@69.63.236.160:/root/h1/mid_*_salvage.json' \

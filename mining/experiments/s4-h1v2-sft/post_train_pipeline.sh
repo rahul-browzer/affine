@@ -23,8 +23,17 @@ ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
 CKPT_ROOT=${CKPT_ROOT:-$TRAIN_DIR/checkpoints}
 MERGED=${MERGED:-/root/h1v2/merged}
 SIM_N40=/root/affine_data/h1v2_sim_result_n40.json
+SIM_N80=/root/affine_data/h1v2_sim_result.json
 LOG=/root/logs/h1v2_pipeline.nohup
 SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-07T06:50:00Z}
+# Host deadman kills the pod; use for n80 chain when soft is too tight for
+# n40+n80 but n80-alone (or post-n40 n80) still fits.
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-07T07:00:00Z}
+# ~53 min: observed H1 n80 ≈55–60 min on this pod. Prefer n80 over n40 when
+# soft budget clears this — plan.md submit gate needs n80, not n40.
+N80_BUDGET_S=${N80_BUDGET_S:-3200}
+# plan.md: n40 triage then n80 if margin ≥ 0.01 and H4 OK.
+N40_PROMOTE_MARGIN=${N40_PROMOTE_MARGIN:-0.01}
 
 log() { echo "[h1v2-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
@@ -125,29 +134,8 @@ log "chall-only re-serve $MERGED"
 RESTART_KING=0 MERGE="$MERGED" bash /root/mining_src/s4-h2-merge/restart_for_h2.sh
 log "serve READY"
 
-now=$(date -u +%s)
-soft=$(date -u -d "$SOFT_DEADLINE_UTC" +%s)
-remain=$(( soft - now ))
-if (( remain < 1200 )); then
-  log "WARN: only ${remain}s to soft; skip n40 (merge+serve done)"
-  echo "serve_only remain_s=$remain $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h1v2_pipeline.partial
-  exit 0
-fi
-
-log "launch H1v2 n40 sim → $SIM_N40 (${remain}s to soft)"
-python /root/mining_src/s4-h2-merge/run_sim_duel.py \
-  --chall-repo "$MERGED" \
-  --out "$SIM_N40" \
-  --hotkey local-h1v2-sim-n40 \
-  --n-turns 40 \
-  --progress-out /root/affine_data/h1v2_sim_progress_n40.json \
-  --save-artifact \
-  >>"$LOG" 2>&1
-
-date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h1v2_sim_n40.done
-log "SIM_N40_DONE → $SIM_N40"
-# Compact triage echo for harvest
-python3 - <<'PY' | tee -a /root/logs/h1v2_pipeline.nohup
+_write_n40_decision() {
+  python3 - <<'PY' | tee -a /root/logs/h1v2_pipeline.nohup
 import json
 from pathlib import Path
 p = Path("/root/affine_data/h1v2_sim_result_n40.json")
@@ -172,6 +160,129 @@ out = {
 Path("/root/affine_data/h1v2_decision_n40.json").write_text(json.dumps(out, indent=2) + "\n")
 print(json.dumps(out, indent=2))
 PY
+}
+
+_n40_should_promote_n80() {
+  # plan.md: n80 if n40 margin ≥ 0.01 and H4 OK.
+  python3 - <<PY
+import json
+from pathlib import Path
+p = Path("/root/affine_data/h1v2_decision_n40.json")
+if not p.is_file():
+    raise SystemExit(1)
+d = json.loads(p.read_text())
+m = float(d.get("margin") or -1)
+h4 = d.get("h4") or {}
+r = h4.get("chall_r")
+if r is None:
+    r = h4.get("r")
+base_x = h4.get("base_x")
+ok = (
+    m >= float("${N40_PROMOTE_MARGIN}")
+    and d.get("chall_valid") is True
+    and d.get("king_valid") is True
+    and r is not None
+    and 0.70 <= float(r) <= 0.85
+    and (base_x is None or float(base_x) <= 1.15)
+)
+raise SystemExit(0 if ok else 1)
+PY
+}
+
+_run_n80() {
+  local remain_note=$1
+  log "launch H1v2 n80 sim → $SIM_N80 (${remain_note})"
+  python /root/mining_src/s4-h2-merge/run_sim_duel.py \
+    --chall-repo "$MERGED" \
+    --out "$SIM_N80" \
+    --hotkey local-h1v2-sim-n80 \
+    --n-turns 80 \
+    --progress-out /root/affine_data/h1v2_sim_progress.json \
+    --save-artifact \
+    >>"$LOG" 2>&1
+  date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h1v2_sim_n80.done
+  log "SIM_N80_DONE → $SIM_N80"
+  python3 - <<'PY' | tee -a /root/logs/h1v2_pipeline.nohup
+import json
+from pathlib import Path
+p = Path("/root/affine_data/h1v2_sim_result.json")
+d = json.loads(p.read_text())
+v = d.get("verdict") or {}
+c = v.get("challenger") or {}
+k = v.get("king") or {}
+h4 = d.get("h4") or {}
+out = {
+    "utc": __import__("time").strftime("%Y-%m-%dT%H:%M:%SZ", __import__("time").gmtime()),
+    "source": "n80",
+    "margin": v.get("margin"),
+    "z": v.get("z"),
+    "se": v.get("se"),
+    "wins": v.get("challenger_wins"),
+    "chall_S": c.get("S"),
+    "king_S": k.get("S"),
+    "chall_valid": c.get("valid"),
+    "king_valid": k.get("valid"),
+    "h4": h4,
+    "submit_gate": (v.get("margin") or -1) > 0.04,
+}
+Path("/root/affine_data/h1v2_decision_n80.json").write_text(json.dumps(out, indent=2) + "\n")
+print(json.dumps(out, indent=2))
+PY
+}
+
+now=$(date -u +%s)
+soft=$(date -u -d "$SOFT_DEADLINE_UTC" +%s)
+dead=$(date -u -d "$DEADMAN_UTC" +%s)
+remain=$(( soft - now ))
+remain_dead=$(( dead - now ))
+log "sim budget remain_soft=${remain}s remain_deadman=${remain_dead}s n80_budget=${N80_BUDGET_S}s"
+
+if (( remain < 1200 && remain_dead < N80_BUDGET_S )); then
+  log "WARN: only ${remain}s soft / ${remain_dead}s deadman; skip sim (merge+serve done)"
+  echo "serve_only remain_soft_s=$remain remain_dead_s=$remain_dead $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+    > /root/logs/h1v2_pipeline.partial
+  exit 0
+fi
+
+# Prefer n80 when soft budget fits — submit gate / plan prediction is n80.
+# n40→n80 serializes ~30+55 min and usually misses soft 06:50Z.
+if (( remain >= N80_BUDGET_S )); then
+  _run_n80 "remain_soft=${remain}s — skip n40, prefer n80 for submit gate"
+elif (( remain_dead >= N80_BUDGET_S )); then
+  log "soft ${remain}s < n80 budget; using deadman slack ${remain_dead}s for n80"
+  _run_n80 "remain_deadman=${remain_dead}s — skip n40"
+else
+  log "launch H1v2 n40 sim → $SIM_N40 (soft=${remain}s; n80 may chain if promote)"
+  python /root/mining_src/s4-h2-merge/run_sim_duel.py \
+    --chall-repo "$MERGED" \
+    --out "$SIM_N40" \
+    --hotkey local-h1v2-sim-n40 \
+    --n-turns 40 \
+    --progress-out /root/affine_data/h1v2_sim_progress_n40.json \
+    --save-artifact \
+    >>"$LOG" 2>&1
+  date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h1v2_sim_n40.done
+  log "SIM_N40_DONE → $SIM_N40"
+  _write_n40_decision
+
+  now=$(date -u +%s)
+  dead=$(date -u -d "$DEADMAN_UTC" +%s)
+  remain_dead=$(( dead - now ))
+  if _n40_should_promote_n80 && (( remain_dead >= N80_BUDGET_S )); then
+    log "n40 promote → n80 (margin/H4 OK; remain_deadman=${remain_dead}s)"
+    _run_n80 "chained after n40; remain_deadman=${remain_dead}s"
+  elif _n40_should_promote_n80; then
+    log "WARN: n40 promote criteria met but remain_deadman=${remain_dead}s < ${N80_BUDGET_S}s; skip n80"
+    echo "n40_only_promote_starved remain_dead_s=$remain_dead $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+      > /root/logs/h1v2_pipeline.partial
+    # Still mark done so harvest triages n40; next pass may re-rent for n80.
+    date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h1v2_pipeline.done
+    log "PIPELINE_DONE (n40 only; n80 starved)"
+    exit 0
+  else
+    log "n40 did not promote (margin<${N40_PROMOTE_MARGIN} or H4 fail); no n80"
+  fi
+fi
 
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h1v2_pipeline.done
 log "PIPELINE_DONE"

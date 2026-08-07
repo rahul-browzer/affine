@@ -2075,3 +2075,41 @@ Lium $34,134.50; mining spend ≈ $146.11. Floor OK. No new rental. No submit.
 
 Poll H1v2 train.done → confirm merge∥n80 → HF PIDs → serve → n40 triage.
 Prefer H1v2 path for submit gate. Soft 06:50Z / deadman 07:00Z.
+
+## 2026-08-07T05:10:53Z — pass 59: H1v2 prefer-n80 + harvest n80 triage
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $148.11; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,119.21 (floor OK).
+
+### What I did
+
+1. Polled pod: H1v2 train **147209** step **~35**/55 loss **0.410** (step35);
+   H1 n80 **149213** king/chall **~59/59**/80; engines 200×3; pipe/mid armed.
+2. chal-00280 **REJECTED** (Tok331102 af8 margin −0.00501); kevin still king;
+   chal-00281 dispatching.
+3. Found latent submit-path bug: `post_train_pipeline.sh` only ran n40 then
+   `PIPELINE_DONE`. plan.md prediction/submit gate needs **n80**, and soft
+   06:50Z cannot fit n40(~30m)+n80(~55m) after serve (~05:45) — n80 would be
+   starved every time. Harvest also ignored `h1v2_sim_result.json` and treated
+   n40 alone as `got_h1v2`.
+4. Fixed pipe: prefer n80 when remain_soft or remain_deadman ≥ 3200s (skip
+   n40); else n40 with promote→n80 if margin≥0.01 + H4 OK. Writes
+   `h1v2_sim_result.json` + `h1v2_decision_n80.json`.
+5. Fixed harvest: SCP n80 artifacts; `got_h1v2` on n80/pipeline terminal (not
+   n40 alone); re-triage when n80 upgrades an n40-only decision.
+6. SCP'd + restarted pipe only → **171602** (train/mid/H1-n80 untouched).
+   Host harvest **1670883**. Evidence:
+   `experiments/s4-h1v2-sft/results/h1v2_prefer_n80_fix.json`.
+7. Do **not** submit H1.
+
+### Money
+
+Lium $34,119.21; mining spend ≈ $148.11. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll H1v2 train.done → confirm merge → HF PIDs → serve → **H1v2 n80** triage.
+Submit only if margin > 0.04 + H4 OK. Soft 06:50Z / deadman 07:00Z.
