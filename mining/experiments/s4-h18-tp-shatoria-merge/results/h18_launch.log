@@ -1,0 +1,17 @@
+-rw-rw-r-- 1 const const 342K Aug  7 14:36 /tmp/mine-h18-stack.tar.gz
+STACK_UPLOAD_OK
+PIPELINE_PID=895
+[bootstrap-h18] 2026-08-07T14:36:13Z start host=4174aa9441db
+GPU 0: NVIDIA H200 (UUID: GPU-dfc389f2-d4c8-0ed1-ea6d-4ff871988634)
+GPU 1: NVIDIA H200 (UUID: GPU-51da3449-d10d-f933-38a1-7dbf36d2755d)
+downloading uv 0.12.2 x86_64-unknown-linux-gnu
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: venv
+Activate with: source venv/bin/activate
+    PID     ELAPSED CMD
+    895 441077230-02:51:12 bash -lc      set -euo pipefail     bash /root/mining_src/s4-h18-tp-shatoria-merge/bootstrap_h18.sh     bash /root/mining_src/s4-h18-tp-shatoria-merge/start_h18_n80.sh   
+UPLOAD_AND_LAUNCH_OK 2026-08-07T14:36:15Z

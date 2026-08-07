@@ -9,11 +9,12 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H13 | highest (cheap) | TalentPigs×kkk-af α0.75 → margin>0.04 (chal-00262 +0.0244 exact rev) | **open** (n80 ~72/80) |
-| 2 | H17 | high (cheap) | TalentPigs×kkk-af α0.90 → base×≤1.25 and margin>0.04 (H13 band hedge) | **open** (merge ~12/16) |
-| 3 | H16 | high (cheap) | TalentPigs×plmk α0.90 → base×≤1.25 and margin>0.04 (H12 α0.75 band×2.02) | **open** (n80 retry) |
-| 4 | H14 | med (cheap) | TalentPigs×kkkk α0.75 → margin>0.04 (chal-00268 +0.0132) | **open** (n80 ~40/80) |
-| 5 | H15 | med (cheap) | TalentPigs×leary α0.75 → margin>0.04 (chal-00315 +0.0059 base×≈1.017) | **open** (n80 ~30/80) |
+| 1 | H17 | high (cheap) | TalentPigs×kkk-af α0.90 → base×≤1.25 and margin>0.04 (H13 band hedge) | **open** (serve→n80) |
+| 2 | H16 | high (cheap) | TalentPigs×plmk α0.90 → base×≤1.25 and margin>0.04 (H12 α0.75 band×2.02) | **open** (n80 ~14/80) |
+| 3 | H14 | med (cheap) | TalentPigs×kkkk α0.75 → margin>0.04 (chal-00268 +0.0132) | **open** (n80 ~55/80) |
+| 4 | H15 | med (cheap) | TalentPigs×leary α0.75 → margin>0.04 (chal-00315 +0.0059 base×≈1.017) | **open** (n80 ~43/80) |
+| 5 | H18 | low (cheap) | TalentPigs×Shatoria α0.75 → margin>0.04 (chal-00283 +0.0017) | **open** (bootstrap) |
+| — | H13 | was highest | TalentPigs×kkk-af α0.75 → margin>0.04 | **refuted** — INVALID base×2.047 |
 | — | H12 | was high | TalentPigs×plmk α0.75 → margin>0.04 | **refuted** — INVALID base×2.017 |
 | — | H6 | was highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **refuted** — n80 +0.00330 |
 | — | H11 | was high | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 | **refuted** — invalid base×1.866 |
@@ -34,31 +35,30 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Open
 
-### H13 — TalentPigs × kkk-af (chal-00262) — n80 live
-- **Claim:** α=0.75 with strongest non-crown near-miss (+0.0244 z=2.58) clears margin > 0.04.
-- **Test:** `mine-h13-1` (zesty-orbit-df); B=`bluecolor777/kkk-af`@7426296b.
-- **Status:** n80 ~72/80 @14:30Z. Detail: `experiments/s4-h13-tp-kkk-merge/`.
-
-### H17 — TalentPigs × kkk-af α0.90 — merging
-- **Claim:** α=0.90 (10% kkk-af) keeps base×≤1.25 if H13 α0.75 bands; margin>0.04.
-- **Test:** `mine-h17-1` (cosmic-orbit-9b); same B as H13. Tear if H13 ADVANCEs.
-- **Status:** merge ~12/16 shards. Detail: `experiments/s4-h17-tp-kkk-a90/`.
+### H17 — TalentPigs × kkk-af α0.90 — serve→n80
+- **Claim:** α=0.90 (10% kkk-af) keeps base×≤1.25 after H13 α0.75 band×2.047; margin>0.04.
+- **Test:** `mine-h17-1` (cosmic-orbit-9b); B=`bluecolor777/kkk-af`@7426296b. Kept after H13 band.
+- **Status:** merge OK_NON_IDENTICAL Δ0.083; teacher:8000 up; wait_ready king/chall. Detail: `experiments/s4-h17-tp-kkk-a90/`.
 
 ### H16 — TalentPigs × plmk α0.90 — n80 retry
 - **Claim:** α=0.90 (10% plmk) keeps base×≤1.25 after H12 α0.75 hit ×2.02; margin>0.04.
 - **Test:** `mine-h16-1` (cosmic-eagle-2d); B=`bluecolor777/plmk`@b2cc7b9f.
-- **Status:** teacher Triton crash mid-n80 → recovered 14:29Z; retry 1/3.
-  Detail: `experiments/s4-h16-tp-plmk-a90/results/h16_teacher_triton_recover.md`.
+- **Status:** n80 retry ~14/80. Detail: `experiments/s4-h16-tp-plmk-a90/`.
 
 ### H14 — TalentPigs × kkkk (chal-00268) — n80 live
 - **Claim:** α=0.75 with chal-00268 near-miss (+0.0132 z=1.24) clears margin > 0.04.
 - **Test:** `mine-h14-1` (swift-orbit-cd); B=`vincentwarrior/affine-5ccebdzvsj-kkkk`@3ca1ebe6.
-- **Status:** n80 ~40/80. Detail: `experiments/s4-h14-tp-kkkk-merge/`.
+- **Status:** n80 ~55/80. Detail: `experiments/s4-h14-tp-kkkk-merge/`.
 
 ### H15 — TalentPigs × leary (chal-00315) — n80 live
 - **Claim:** α=0.75 with accessible healthy-baseline +0.0059 clears margin > 0.04.
 - **Test:** `mine-h15-1` (cosmic-shark-43); B=`leary-criste/affine-5g4yy75zuz-test`@1e6d6d02.
-- **Status:** n80 ~30/80. Detail: `experiments/s4-h15-tp-leary-merge/`.
+- **Status:** n80 ~43/80. Detail: `experiments/s4-h15-tp-leary-merge/`.
+
+### H18 — TalentPigs × Shatoria test3 (chal-00283) — bootstrap
+- **Claim:** α=0.75 with weak +0.0017 ungated B clears margin > 0.04 (last accessible B).
+- **Test:** `mine-h18-1` (zesty-hawk-bc @$5.66/h); B=`Shatoria/Affine-5ghntktyzq-test3`@a751418a.
+- **Status:** bootstrap live @14:36Z. Detail: `experiments/s4-h18-tp-shatoria-merge/`.
 
 ### H4 — stay inside the distill envelope — **REFUTED** (do not revive)
 - **Claim was:** r ∈ [0.70, 0.85], base× ≤ 1.15, or gates invalidate the miner.
@@ -74,6 +74,11 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Evidence:** Spearman with outcome 0.936 (clip-L1) vs 0.711 (Λ2), n=14 duels.
 
 ## Refuted
+
+### H13 — TalentPigs × kkk-af α0.75
+- n80 **INVALID**: base×**2.047** (0.2613/0.1277); r=0.955; S_c null. Parent chal-00262 base×≈0.92.
+- Strongest near-miss B (+0.0244) still bands at α0.75 — same mode as H7–H12. H17 α0.90 continues.
+- Detail: `experiments/s4-h13-tp-kkk-merge/result.md`, `results/h13_decision.json`.
 
 ### H12 — TalentPigs × plmk α0.75
 - n80 **INVALID**: base×**2.017** (0.2525/0.1252); r=0.990; S_c null. Parent duel was base×≈1.000.

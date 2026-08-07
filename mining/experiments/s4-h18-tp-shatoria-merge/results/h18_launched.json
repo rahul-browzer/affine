@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-07T14:36:15Z",
+  "pod": "mine-h18-1",
+  "huid": "zesty-hawk-bc",
+  "ssh": "18.116.62.104:20119",
+  "price_per_hour": 5.66,
+  "ttl_until": "2026-08-07T22:35:39Z",
+  "hyp": "H18",
+  "A": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2",
+  "B": "Shatoria/Affine-5ghntktyzq-test3@a751418a",
+  "alpha": 0.75
+}
