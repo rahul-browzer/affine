@@ -13,7 +13,7 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 2 | H16 | high (cheap) | TalentPigs×plmk α0.90 → base×≤1.25 and margin>0.04 (H12 α0.75 band×2.02) | **open** (n80 ~42/80) |
 | 3 | H19 | high (cheap) | TalentPigs×kkkk α0.90 → base×≤1.25 and margin>0.04 (H14 band hedge) | **open** (bootstrap) |
 | 4 | H20 | high (cheap) | TalentPigs×leary α0.90 → base×≤1.25 and margin>0.04 (H15 band hedge) | **open** (bootstrap) |
-| 5 | H18 | low (cheap) | TalentPigs×Shatoria α0.75 → margin>0.04 (chal-00283 +0.0017) | **open** (serve→n80) |
+| 5 | H18 | low (cheap) | TalentPigs×Shatoria α0.75 → margin>0.04 (chal-00283 +0.0017) | **open** (re-bootstrap on 8GPU) |
 | — | H15 | was med | TalentPigs×leary α0.75 → margin>0.04 | **refuted** — INVALID base×2.107 |
 | — | H14 | was med | TalentPigs×kkkk α0.75 → margin>0.04 | **refuted** — INVALID base×2.044 |
 | — | H13 | was highest | TalentPigs×kkk-af α0.75 → margin>0.04 | **refuted** — INVALID base×2.047 |
@@ -57,10 +57,10 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Test:** `mine-h20-1` (swift-lion-ac); B=`leary-criste/affine-5g4yy75zuz-test`@1e6d6d02.
 - **Status:** bootstrap @14:53Z. Detail: `experiments/s4-h20-tp-leary-a90/`.
 
-### H18 — TalentPigs × Shatoria test3 (chal-00283) — serve→n80
+### H18 — TalentPigs × Shatoria test3 (chal-00283) — re-bootstrap
 - **Claim:** α=0.75 with weak +0.0017 ungated B clears margin > 0.04 (last accessible α0.75).
-- **Test:** `mine-h18-1` (zesty-hawk-bc @$5.66/h); B=`Shatoria/Affine-5ghntktyzq-test3`@a751418a.
-- **Status:** serve launched @14:54Z. Detail: `experiments/s4-h18-tp-shatoria-merge/`.
+- **Test:** `mine-h18-1` (golden-comet-e1 @$28/h, COUNT=8); B=`Shatoria/…-test3`@a751418a.
+- **Status:** dud zesty-hawk-bc (2 GPU) rm; pipeline relaunch @14:58Z. See `results/h18_dud_pod.md`.
 
 ### H4 — stay inside the distill envelope — **REFUTED** (do not revive)
 - **Claim was:** r ∈ [0.70, 0.85], base× ≤ 1.15, or gates invalidate the miner.
