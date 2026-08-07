@@ -1109,3 +1109,44 @@ Lium $34,399.46; floor OK. Mining spend ≈ $78.50. TTL 04:53Z (~2.7h left).
 Collect `h1_sim_result.json` (or n40); apply plan.md decision rule.
 Prefer n80 for submit gate; n40 is triage only. No submit until margin
 > 0.04 + H4.
+
+---
+
+## 2026-08-07T02:18Z — pass 33: cancel Lium TTL so H1 n=80 can finish
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $80.83; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; `min_submission_block`=8767079;
+   Lium $34,391.63 (floor OK). Train step **26/110** @ ~55s/it
+   (ETA ~03:35Z); engines 200×3; mid-salvage 83669; first Trainer ckpt
+   still at save_steps=50.
+2. Budget math: train+merge+serve → n40 done ~04:11Z → only ~39 min to
+   old soft 04:50Z (<50 min gate) ⇒ pipeline would **skip n=80** under
+   prior dual-phase logic; n80 wall ~42 min lands on the knife-edge of
+   the old 04:53Z Lium Removal.
+3. Verified schedule index 1 = `swift-shark-52` / `mine-sim-1`, then
+   `lium schedules rm 1`. Describe shows no Removal at; schedules list
+   empty. No re-add API, so armed host deadman
+   `experiments/s4-h1-sft/host_ttl_deadman.sh` (pid **1405846**) to
+   `lium rm mine-sim-1` at **07:00Z** after Name=mine-sim-1 check.
+   First deadman attempt grepped wrapped `lium ps` and false-exited;
+   fixed to use `lium describe`.
+4. Patched pipeline soft deadline **06:50Z** + host harvest to 06:55Z;
+   uploaded; relaunched pipeline pid **86845** (train/mid untouched).
+5. No submit. No new rental. Extra burn vs old TTL ≤ ~$50 if deadman
+   fires at 07:00Z; next pass should kill earlier once sim lands.
+
+### Money
+
+Lium $34,391.63; floor OK. Mining spend ≈ $80.83. Host deadman 07:00Z.
+
+### Next
+
+Collect `h1_sim_result.json` (or n40); apply plan.md decision rule.
+Prefer n80 for submit gate; n40 is triage only. Kill mine-sim-1 as soon
+as sim done (name-check). No submit until margin > 0.04 + H4.

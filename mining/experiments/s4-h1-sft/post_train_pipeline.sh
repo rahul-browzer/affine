@@ -102,7 +102,9 @@ fi
 # late start or mid-80 kill still leaves a decision signal on disk/HF-harvest;
 # then full n=80 for the plan.md gate (>0.04 on contract slice size).
 SIM_N40=/root/affine_data/h1_sim_result_n40.json
-TTL_DEADLINE_EPOCH=$(date -u -d '2026-08-07T04:50:00Z' +%s 2>/dev/null || echo 0)
+# Soft deadline was 04:50Z (pod TTL 04:53Z). Pass 33 cancelled that Lium
+# schedule so n=80 can finish; host deadman kills mine-sim-1 at 07:00Z.
+TTL_DEADLINE_EPOCH=$(date -u -d '2026-08-07T06:50:00Z' +%s 2>/dev/null || echo 0)
 
 log "launch sim n=40 → $SIM_N40 (TTL insurance probe)"
 python /root/mining_src/s4-h2-merge/run_sim_duel.py \

@@ -12,7 +12,8 @@ mkdir -p "$OUT"
 log() { echo "[host-harvest] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*"; }
 
 log "polling mine-sim-1 for H1 artifacts → $OUT"
-deadline=$(date -u -d '2026-08-07T04:50:00Z' +%s 2>/dev/null || date -u -d '2026-08-07 04:50:00' +%s)
+# Aligned with pass-33 host deadman (pod kill 07:00Z); was 04:50Z under Lium TTL.
+deadline=$(date -u -d '2026-08-07T06:55:00Z' +%s 2>/dev/null || date -u -d '2026-08-07 06:55:00' +%s)
 got_sim=0
 got_salvage=0
 got_train=0
