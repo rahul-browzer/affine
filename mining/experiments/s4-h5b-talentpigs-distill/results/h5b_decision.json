@@ -1,6 +1,3 @@
-[h5b-harvest] 2026-08-07T08:28:47Z polling mine-sim-1 for H5b n80 → /home/const/subnet120/mining/experiments/s4-h5b-talentpigs-distill/results (stop 2026-08-07T11:45:00Z)
-[h5b-harvest] 2026-08-07T08:44:10Z progress file appeared
-[h5b-harvest] 2026-08-07T09:25:47Z got durable h5b_sim_result.json (n80/pipeline done marker present)
 {
   "utc": "2026-08-07T09:25:48Z",
   "rule": {
@@ -77,5 +74,3 @@
   },
   "submit": false
 }
-[h5b-harvest] 2026-08-07T09:25:48Z triage → h5b_decision.json action=revise_recipe margin=0.0032230502924332576
-[h5b-harvest] 2026-08-07T09:25:48Z done (triage + HF salvage idle); exiting

@@ -7,12 +7,13 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — n80 **RUNNING** pid **276121** (king58/chall58 @09:13Z; ETA~09:25Z @~1.79tpm); pipe **266631**; harvest **1964910** |
+| 1 | H5c | highest now | (next) larger lever vs TalentPigs — more refs / kevin-init / public crown-duel mine; **not** another mild king-init LoRA on 440 | **open** — plan next pass |
+| — | H5b | was highest | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **refuted** — n80 margin **+0.00322** z=0.55; H4 r=0.670 |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 4 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
-| 5 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1/H1v2 breached) |
+| 5 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1/H1v2/H5b breached) |
 | 6 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
 
 ---
@@ -420,7 +421,18 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   `h5b_time_budget_pass96.json`.
 - **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
   H4 OK; clip-L1 ≥ +0.015; not weight-identical.
-- **Verdict:** open.
+- **n80 result (2026-08-07T09:25:18Z pass 99):** margin **+0.00322**
+  (z=**0.547**, SE=0.00589); chall S=0.04699 vs king S=0.04405; both
+  valid; **H4 FAIL** (r=**0.670**∉[0.70,0.85], base×=0.949 OK). Chall
+  mean_Λ2 better (0.0134 vs 0.0094) but clip-L1 flat (+0.0336 vs
+  +0.0347). Triage `revise_recipe`; submit=false; live-king match=true.
+  Artifacts: `experiments/s4-h5b-talentpigs-distill/result.md`,
+  `results/h5b_sim_result.json`, `results/h5b_decision.json`. HF
+  salvage only (`e1d39a1…`). chal-00300 was `load_challenger` at triage.
+- **Verdict:** **refuted** for this TalentPigs-init mild thought LoRA
+  (prediction ≥+0.04 missed; margin even < contract 0.02). Successor:
+  **H5c** — do not repeat 440-ref king-init mild LoRA; need a larger
+  lever (expanded refs / recipe change / public TalentPigs autopsy).
 
 ## Scaffolding
 
@@ -428,6 +440,13 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Status:** retired (Stage 0–1 done).
 
 ## Refuted
+
+### H5b — TalentPigs-init mild thought LoRA
+- Prediction missed: n80 margin ≥ +0.04; H4 r∈[0.70,0.85].
+- Deciding numbers: margin **+0.00322** (z=0.547); r=**0.670**;
+  clip-L1 +0.0336 (pred met) but Λ2 gain only ~+0.004 vs king.
+- Kept: mild king-init distill stays gate-valid and slightly ahead on S;
+  nowhere near crown. Do not submit `…-h5b-merged` @ `e1d39a1…`.
 
 ### H1v2 — thought-only teacher distill (kevin init)
 - Prediction missed: n80 margin ≥ +0.04; H4 r∈[0.70,0.85].

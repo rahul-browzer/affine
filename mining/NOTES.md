@@ -3386,3 +3386,45 @@ No submit / no registration burn.
 
 Wait for n80 → `h5b_decision.json`. Gate >0.04 + H4 + live-king.
 Do **not** edit the live pipe script on the pod.
+
+## 2026-08-07T09:26:27Z — pass 99: H5b n80 DONE — REFUTED (+0.00322)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $248.91; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,722.29 (floor OK). Snapshot at triage: TalentPigs still king reign 3
+@ S=0.0315; chal-00300 `Talucampe037/…-ck10` was `load_challenger`.
+`min_submission_block`=8767079. Deadman **1783662** still armed → 12:00Z.
+Harvest exited after writing decision.
+
+### What I did
+
+1. Polled n80 from 60/60 @ 09:14Z → result @ **09:25:18Z** (attempt 1/3).
+2. Harvest already triaged → `results/h5b_decision.json`:
+   action **`revise_recipe`**, margin **+0.00322**, z=0.547, H4
+   r=**0.670** / base×=0.949, submit=false, live-king match=true.
+3. Wrote `experiments/s4-h5b-talentpigs-distill/result.md`. Marked H5b
+   **REFUTED** in HYPOTHESES; opened H5c as next (not another mild
+   440-ref king-init LoRA — Λ2 only +0.004, clip-L1 flat).
+4. Engines left **200×3** for pivot; no new rental; no submit.
+
+### Numbers (n80)
+
+| | king | chall H5b |
+|---|---|---|
+| S | 0.04405 | 0.04699 |
+| Λ2 | 0.00936 | 0.01336 |
+| clip-L1≈ | +0.0347 | +0.0336 |
+| r | 0.650 | 0.670 |
+
+### Money
+
+Lium $33,722.29; mining spend ≈ $249. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+H5c plan (public TalentPigs crown autopsy / expanded refs). Re-check
+snapshot (chal-00300). Keep pod only if GPU job launches; else tear down
+`mine-sim-1` before deadman.
