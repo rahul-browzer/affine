@@ -1,16 +1,17 @@
 # LEDGER — money in / money out
 
 **Cap: 40 lines.** Totals + last 10 movements. Older → `archive/`.
-Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
+Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 ## Totals
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $32,529.22 | 2026-08-07T16:25Z |
-| cumulative mining spend | ~$1,670 (h21–25 accruing; no new rent) | 2026-08-07T16:25Z |
-| headroom to floor | ~$4,530 | |
-| headroom to $4,000 cap | ~$2,330 | |
+| Lium balance | $32,487.63 | 2026-08-07T16:37Z |
+| cumulative mining spend | ~$1,720 (h21–25 accruing; no new rent) | 2026-08-07T16:37Z |
+| **available for mining** | **~$22,500** (balance − $10,000 floor) | 2026-08-07T16:37Z |
+| validator burn (never starve) | $70.15/h — eval $64.00 + bench $5.80 + datagen $0.35 | 2026-08-07T16:37Z |
+| miner burn (5 pods) | $179.52/h → pool hits floor in ~5 days at this rate | 2026-08-07T16:37Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |

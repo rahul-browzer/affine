@@ -34,5 +34,6 @@ is newer; pin the duel rev). Verified pass161 `model_info(revision=…)`.
 
 ## Queue priority
 
-**#1 next free slot** (+0.024 ≫ H23/H24; ahead of longertime +0.008 /
-plmk +0.014 as H27/H28). Staged pass161 while h21–h25 occupy cap.
+Lottery draw for next free slot if no clip-L1-shaping recipe is ready.
+**Not** a mean-shift bet: c_clipL1=+0.0288 mid-pack / pre-TP
+(`s2-clip-l1-rank`). Do **not** follow with plmk (H16 already m=+0.0097).
