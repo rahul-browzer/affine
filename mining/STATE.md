@@ -4,13 +4,13 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H1 teacher-ref LoRA SFT RUNNING; post-train pipeline ARMED
-(with HF adapter salvage).**
+**Stage 4 — H1 teacher-ref LoRA SFT RUNNING; salvage paths HARDENED.**
 
 Stage 0–3 complete. H2 kevin×pandora REFUTED. H1 harvest DONE (440
 examples); LoRA train pid **82057** on GPUs 6,7 (engines 0–5 still hot).
-Post-train watchdog pid **83414** waits for `train.done` → **HF adapter
-salvage** → merge → re-serve chall → sim. No submissions.
+Post-train pipeline pid **83414** waits for `train.done` → HF adapter
+salvage → merge → re-serve chall → sim. Mid-ckpt salvage pid **83669**
+and host artifact harvester pid **1375476** armed. No submissions.
 
 ## Live facts (verified this pass)
 
@@ -24,15 +24,18 @@ salvage** → merge → re-serve chall → sim. No submissions.
 | weight_version_key | 1 |
 | min_margin | 0.02 (duel) |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $34,422.81 (floor $28,000) |
+| Lium balance | $34,414.67 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$72.77** @ $23.60/h (TTL cap ≈ $141.60) |
+| mining spend to date | `mine-sim-1` spent **$74.05** @ $23.60/h (TTL cap ≈ $141.60) |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 verdict | **REFUTED** (`experiments/s4-h2-merge/result.md`) |
 | H1 harvest | **DONE** — 440 examples, 0 missing |
-| H1 train | **RUNNING** — step 5/110 @ ~55s/it, ETA ~03:40Z |
+| H1 train | **RUNNING** — step 8/110 @ ~63s/it, ETA ~03:48Z |
 | H1 pipeline | **ARMED** — pid 83414 (salvage→merge→serve→sim) |
+| H1 mid-ckpt salvage | **ARMED** — pid 83669 → HF `checkpoint-N/` |
+| H1 HF salvage repo | **CREATED** — private `unconst/Affine-5czsc2fc98-h1-lora` |
+| Host harvest | **ARMED** — pid 1375476 → `experiments/s4-h1-sft/results/` |
 
 ## What's running
 
@@ -49,22 +52,31 @@ On pod:
   - salvage meta: `/root/h1/adapter_salvage.json`
   - sim out: `/root/affine_data/h1_sim_result.json`
   - done markers: `/root/logs/h1_pipeline.done`, `/root/logs/h1_sim.done`
+- H1 mid-ckpt salvage: pid **83669**, log `/root/logs/h1_mid_salvage.nohup`
+  (uploads `checkpoint-50` etc under HF path `checkpoint-N/`)
 - Harvest: `/root/h1/teacher_refs_sft.jsonl` (440 lines)
+
+Host (no GPU):
+- Artifact harvester pid **1375476**, log `.ralph/host_harvest.log`
+  → SCPs sim/salvage/train JSON into `experiments/s4-h1-sft/results/` before TTL
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. Soft: TTL ends 04:53Z. Train ETA ~03:40Z; salvage+merge+serve
-~10–15m; sim ~40m → finish ~04:35Z if on schedule. Adapter salvage lands
-before merge so a TTL kill cannot erase train. **Do not** cancel the
-schedule (no Lium extend API). No submit until sim margin > 0.04 + H4.
+Nothing hard. Soft: TTL ends 04:53Z. Train ETA ~03:48Z; salvage+merge+serve
+~10–15m; sim ~40m → finish ~04:40Z if on schedule (tight). Mid-ckpt + final
+adapter salvage + host SCP cover TTL kill. **Do not** cancel the schedule
+(`lium schedules rm` removes deadman with no re-add API). No submit until
+sim margin > 0.04 + H4.
 
 ## Next action (single, highest value)
 
-**Poll for `/root/affine_data/h1_sim_result.json` (or `/root/logs/h1_sim.done`).**
-Also confirm `/root/h1/adapter_salvage.json` after `train.done`.
-If sim present: SCP result, apply `experiments/s4-h1-sft/plan.md` decision
-rule (margin > 0.04 + H4 → Stage 5 path; 0.02–0.04 iterate; <0.02 revise).
+**Poll for `/root/affine_data/h1_sim_result.json` (or local
+`experiments/s4-h1-sft/results/h1_sim_result.json` from host harvest).**
+Also confirm mid-ckpt salvage after step 50 (`/root/h1/mid_checkpoint-50_salvage.json`)
+and final `/root/h1/adapter_salvage.json` after `train.done`.
+If sim present: apply `experiments/s4-h1-sft/plan.md` decision rule
+(margin > 0.04 + H4 → Stage 5 path; 0.02–0.04 iterate; <0.02 revise).
 If pipeline stuck after `train.done`: check `/root/logs/h1_pipeline.nohup`.
 Do **not** submit until margin > 0.04 + H4.

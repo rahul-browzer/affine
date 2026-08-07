@@ -962,3 +962,41 @@ Lium $34,422.81; floor OK. Mining spend ≈ $72.77. TTL 04:53Z (~2.9h left).
 
 Collect `h1_sim_result.json` (+ confirm `adapter_salvage.json`); apply
 plan.md decision rule. No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T02:01Z — pass 29: H1 TTL insurance hardened
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $74.05; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; `min_submission_block`=8767079;
+   Lium $34,414.67 (floor OK). TTL still 04:53Z (~2.9h). Note: `lium
+   schedules rm` can cancel termination but there is **no re-add API** —
+   do not cancel (would drop the deadman).
+2. Polled H1: train pid 82057 alive at step **8/110** @ ~63s/it
+   (ETA ~03:48Z); engines 200×3; pipeline 83414 waiting; HF_TOKEN present
+   via `/root/mine.env` + venv `huggingface_hub` 1.26.1.
+3. Pre-created private HF salvage repo `unconst/Affine-5czsc2fc98-h1-lora`
+   (CREATE_OK) so final upload cannot fail on create.
+4. Armed mid-checkpoint salvage watcher pid **83669** (uploads
+   `checkpoint-50` etc under HF path `checkpoint-N/` via patched
+   `salvage_adapter.py --path-in-repo`).
+5. Armed host-side JSON harvester pid **1375476**
+   (`experiments/s4-h1-sft/host_harvest_results.sh`) to SCP
+   sim/salvage/train results into `experiments/s4-h1-sft/results/` before
+   TTL — no weights on host.
+6. No submit. No new rental.
+
+### Money
+
+Lium $34,414.67; floor OK. Mining spend ≈ $74.05. TTL 04:53Z (~2.9h left).
+
+### Next
+
+Collect `h1_sim_result.json` (pod or local results/); apply plan.md
+decision rule. No submit until margin > 0.04 + H4.

@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | 2026-08-07T04:53:17Z | Stage 4 H1 train + salvage→merge→sim | RUNNING | SSH `root@69.63.236.160 -p 40301`; train 82057; pipe 83414; harvest 440; spent $72.77 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | 2026-08-07T04:53:17Z | Stage 4 H1 train + salvage→merge→sim | RUNNING | SSH `root@69.63.236.160 -p 40301`; train 82057; pipe 83414; mid-salvage 83669; harvest 440; spent $74.05 |
 
 ## Reconcile log
 
@@ -41,3 +41,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T01:54:36Z | mine-sim-1 RUNNING | matches inventory; spent $71.31; H1 harvest 440 + LoRA train pid 82057 on GPUs 6,7; engines 200×3; validator pods untouched |
 | 2026-08-07T01:56:34Z | mine-sim-1 RUNNING | matches inventory; spent $72.08; H1 train step 3/110; post-train pipeline pid 83194 armed; validator pods untouched |
 | 2026-08-07T01:58:18Z | mine-sim-1 RUNNING | matches inventory; spent $72.77; H1 train step 5/110; pipeline restarted 83414 with HF adapter salvage; validator pods untouched |
+| 2026-08-07T02:01:34Z | mine-sim-1 RUNNING | matches inventory; spent $74.05; H1 step8; HF repo pre-created; mid-ckpt salvage 83669 + host harvest 1375476; validator pods untouched |

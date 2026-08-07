@@ -29,11 +29,13 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Prediction (pre-register before train):** challenger mean paired margin ≥
   **+0.04** vs live king on an 80-turn public-D slice, all gates passing,
   r∈[0.70,0.85], base×≤1.15.
-- **In flight (2026-08-07T01:58Z):** harvest 440/440; LoRA r=16 2ep from
-  kevin init, 110 steps, pid 82057 (~step 5 @ 55s/it, ETA ~03:40Z).
+- **In flight (2026-08-07T02:01Z):** harvest 440/440; LoRA r=16 2ep from
+  kevin init, 110 steps, pid 82057 (~step 8 @ 63s/it, ETA ~03:48Z).
   Post-train pipeline pid 83414 armed: HF adapter salvage
-  (`unconst/Affine-5czsc2fc98-h1-lora`, private) → merge→re-serve→sim →
-  `/root/affine_data/h1_sim_result.json` (covers TTL handoff + off-pod copy).
+  (`unconst/Affine-5czsc2fc98-h1-lora`, private, **repo pre-created**) →
+  merge→re-serve→sim → `/root/affine_data/h1_sim_result.json`.
+  Mid-ckpt salvage pid 83669 (checkpoint-N/ on HF); host harvester
+  1375476 SCPs JSON into `experiments/s4-h1-sft/results/` before TTL.
 - **Verdict:** open.
 
 ## H2 — weight-merge of recent kings / near-kings beats both

@@ -10,6 +10,9 @@
 | 2026-08-07T01:56:34Z | train at step 3/110 @ ~60s/it; ETA ~03:45Z |
 | 2026-08-07T01:58:13Z | pipeline restarted pid **83414** with HF adapter salvage before merge |
 | 2026-08-07T01:58:18Z | train at step 5/110 @ ~55s/it; ETA ~03:40Z; engines 200×3 |
+| 2026-08-07T02:01:00Z | HF private repo `unconst/Affine-5czsc2fc98-h1-lora` pre-created |
+| 2026-08-07T02:01:32Z | mid-ckpt salvage pid **83669** + host harvest pid **1375476** armed |
+| 2026-08-07T02:01:34Z | train at step 8/110 @ ~63s/it; ETA ~03:48Z; engines 200×3 |
 
 ## How to check
 

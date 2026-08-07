@@ -25,6 +25,16 @@ def main() -> int:
     ap.add_argument("--private", action="store_true", default=True)
     ap.add_argument("--public", action="store_true", help="create/update as public")
     ap.add_argument("--out-meta", type=Path, default=Path("/root/h1/adapter_salvage.json"))
+    ap.add_argument(
+        "--path-in-repo",
+        default=None,
+        help="optional HF path prefix (e.g. checkpoint-50/) so mid-ckpts "
+        "do not overwrite the final adapter root",
+    )
+    ap.add_argument(
+        "--commit-message",
+        default="H1 LoRA adapter salvage (TTL insurance)",
+    )
     args = ap.parse_args()
 
     token = os.environ.get("HF_TOKEN")
@@ -40,16 +50,20 @@ def main() -> int:
     api = HfApi(token=token)
     private = not args.public
     api.create_repo(args.repo, private=private, exist_ok=True, repo_type="model")
-    info = api.upload_folder(
+    upload_kwargs = dict(
         folder_path=str(args.adapter),
         repo_id=args.repo,
         repo_type="model",
-        commit_message="H1 LoRA adapter salvage (TTL insurance)",
+        commit_message=args.commit_message,
     )
+    if args.path_in_repo:
+        upload_kwargs["path_in_repo"] = args.path_in_repo.rstrip("/")
+    info = api.upload_folder(**upload_kwargs)
     meta = {
         "repo": args.repo,
         "private": private,
         "adapter": str(args.adapter),
+        "path_in_repo": args.path_in_repo,
         "commit_sha": getattr(info, "commit_id", None) or str(info),
         "uploaded_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "note": "adapter-only salvage; not a submission revision",
