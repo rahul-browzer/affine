@@ -4,14 +4,13 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H5 merge REFUTED; H5b TalentPigs-init thought distill POST-MERGE
-(packed-visual OK; chall:8002 loading → n80≤3).**
+**Stage 4 — H5 merge REFUTED; H5b TalentPigs-init thought distill OPEN
+(n80 sim RUNNING attempt 1/3).**
 
 Stage 0–3 complete. H2 / H1 / H1v2 / **H5 merge** **REFUTED**. Live king
 `TalentPigs/affine-5ekxlcg3fx-abc` reign 3 @ S=0.0315. Train **DONE**
-55/55 loss@55 **0.425**. Pass 90 recovered false `rc=127` abort (bash
-file-offset landmine) → merge **DONE** with visual restore (333 keys) →
-`identical_to_king=false` → chall loading. No submit.
+55/55 loss@55 **0.425**. Merge+visual OK → chall:8002 **200** @ 08:40:51Z
+→ n80 launched 08:40:52Z (pid **276121**). Advancing. No submit.
 
 ## Live facts (verified this pass)
 
@@ -21,47 +20,40 @@ file-offset landmine) → merge **DONE** with visual restore (333 keys) →
 | king S | 0.031501971059510636 |
 | reign # | **3** (kevin reign 2 earning; pandora reign 1) |
 | teacher | `zai-org/GLM-4.5-Air-FP8` |
-| min_submission_block | **8767079** (`api/v1/contract`) |
+| min_submission_block | **8767079** (`api/v1/contract` → `subnet`) |
 | weight_version_key | 1 |
 | min_margin | 0.02 (duel) |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $33,800.14 (floor $28,000) |
+| Lium balance | $33,791.33 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **~$229** @ $23.60/h |
+| mining spend to date | `mine-sim-1` spent **~$230** @ $23.60/h |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 / H1 / H1v2 / H5 merge | **all REFUTED** |
-| H5b | **open** — train done → merge+visual OK → chall loading → n80 |
+| H5b | **open** — n80 running (king6/chall2 @ 08:45Z) |
 | H1v2 HF merged | public `unconst/Affine-5czsc2fc98-h1v2-merged` @ `a314357…` (do not submit) |
-| H5b HF | private `unconst/Affine-5czsc2fc98-h5b-lora` (adapter-final @ `ad537ed…`) + `…-h5b-merged` push in flight (salvage; do not submit) |
+| H5b HF | private `…-h5b-lora` adapter-final @ `ad537ed…`; `…-h5b-merged` @ `e1d39a1…` (salvage only; do not submit) |
 | Disk | host: text only; pod `/root` ok; merged at `/root/h5b/merged` |
 
 ## What's running
 
 | name | huid | role | check |
 |---|---|---|---|
-| `mine-sim-1` | `swift-shark-52` | H5b merge→chall→n80 + HF salvage | SSH `root@69.63.236.160 -p 40301`; deadman **12:00Z** |
+| `mine-sim-1` | `swift-shark-52` | H5b n80 sim + harvest | SSH `root@69.63.236.160 -p 40301`; deadman **12:00Z** |
 
 On pod:
-- Engines: teacher:8000 + king TalentPigs:8001 — **200**; chall:8002 —
-  **loading** (pid **270081**, GPUs 4,5 warming; visual-restored present)
-- Train **DONE** (was 245350); adapter `/root/h5b/train/adapter`; mid
-  salvage exited after adapter-final
-- H5b pipe pid **266631** (relaunched pass 90) — past merge+identity;
-  waiting chall ready → **n80 ≤3**; EXIT abort-trap armed
-- Markers: `train.done` ✓ → `h5b_merge.done` ✓ → `h5b_chall_serve.done`
-  (pending) → `h5b_sim_n80.done` → `h5b_pipeline.done`
-  (or `h5b_pipeline.aborted`)
-- Merge: `model-visual-restored.safetensors` ✓; log
-  `extracted 333 missing keys from model-00016-of-00016.safetensors`;
-  `identical_to_king=false`
-- Sim out: `/root/affine_data/h5b_sim_result.json`
-- Progress: `/root/affine_data/h5b_sim_progress.json`
+- Engines: teacher:8000 + king TalentPigs:8001 + chall:8002 — **all 200**
+- H5b pipe pid **266631** — past merge/identity/serve; waiting n80
+- n80 sim pid **276121** (`run_sim_duel.py` attempt **1/3**); out
+  `/root/affine_data/h5b_sim_result.json`; progress
+  `/root/affine_data/h5b_sim_progress.json` (king **6**/chall **2** @ 08:45Z)
+- Markers: `train.done` ✓ → `h5b_merge.done` ✓ → `h5b_chall_serve.done` ✓
+  → `h5b_sim_n80.done` (pending) → `h5b_pipeline.done`
+- HF merged salvage **DONE** `e1d39a1…` (private; not a submission)
 - Pipe log: `/root/logs/h5b_pipeline.stdout`
-- Chall log: `/root/logs/vllm_chall.log`
-- Evidence: `results/h5b_pipe_file_offset_abort_fix.json`,
-  `h5b_identity.json`, `h5b_merge_meta.json`,
-  `h5b_time_budget_pass90.json`
+- Sim log: `/root/logs/h5b_sim.nohup`
+- Evidence: `results/h5b_n80_launched.json`, `h5b_sim_progress.json`,
+  `h5b_merged_salvage.json`, `h5b_time_budget_pass91.json`
 - **LANDMINE:** never SCP/edit `post_train_pipeline.sh` while a live pipe
   sleeps in its wait loop (bash file offset → `ted: command not found`)
 
@@ -71,25 +63,23 @@ Host (no GPU):
   → stage-aware scrape → `results/h5b_train_progress.json` (`stage` field)
   → SCP only after n80/pipeline **done** → `triage_sim.py` →
   `results/h5b_decision.json`; OR abort → decision `pipe_aborted`
-- False abort archived: `h5b_decision_pass90_false_abort.json`
+- Ignore archived `h5b_decision_pass90_false_abort.json` (rc=127 landmine)
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. **Do not submit** H1/H1v2/H2/h5-kt*/h5b HF salvage. Cap remaining ~$3,771.
-Expect `engines.chall=0` until chall finishes loading — intentional.
-Ignore archived `h5b_decision_pass90_false_abort.json` (rc=127 landmine).
+Nothing hard. **Do not submit** H1/H1v2/H2/h5-kt*/h5b HF salvage. Cap remaining ~$3,770.
+Ignore archived false abort. ETA n80 done ~09:15–09:40Z (early ~3 k-tpm; slack to deadman OK).
 
 ## Next action (single, highest value)
 
 **Check `experiments/s4-h5b-talentpigs-distill/results/h5b_decision.json`
 (or `host_harvest_h5b.done` / `h5b_sim_result.json`).** If present: apply
 decision (margin > 0.04 + H4 + live-king → Stage 5; `pipe_aborted` → read
-abort text + pivot; else refute H5b / iterate). If absent: confirm
-chall:8002 **200** on GPUs 4,5 → `h5b_chall_serve.done` → n80 progress
-via `h5b_sim_progress.json` / `stage` field; if n80 fails once, check
-`h5b_sim_retries.log`. Pipe **266631**; harvest **1964910**; deadman
-**1783662**. ETA chall ready ~08:45–09:00Z then n80 → decision
-~09:30–10:30Z. Re-check snapshot before any submit. Do not rent another
-pod. Do not edit the live pipe script on the pod.
+abort text + pivot; else refute H5b / iterate). If absent: confirm n80
+advancing via `h5b_sim_progress.json` / harvest `stage=n80_running`; if
+sim dies once, check `h5b_sim_retries.log` (≤3). Pipe **266631**; sim
+**276121**; harvest **1964910**; deadman **1783662**. Re-check snapshot
+before any submit. Do not rent another pod. Do not edit the live pipe
+script on the pod.

@@ -1,0 +1,38 @@
+{
+  "utc": "2026-08-07T08:45:32Z",
+  "pass": 91,
+  "event": "h5b_chall_ready_n80_launched",
+  "chall_ready_at": "2026-08-07T08:40:51Z",
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 200
+  },
+  "n80": {
+    "attempt": "1/3",
+    "pid": 276121,
+    "launched_at": "2026-08-07T08:40:52Z",
+    "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+    "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "chall": "/root/h5b/merged",
+    "progress_at_check": {
+      "utc": "2026-08-07T08:43:14Z",
+      "king": 1,
+      "king_total": 80
+    }
+  },
+  "pipe_pid": 266631,
+  "hf_push_pid": 269981,
+  "do_not_submit": true,
+  "progress_confirmed": {
+    "utc": "2026-08-07T08:45:23Z",
+    "hotkey": "local-h5b",
+    "chall_repo": "/root/h5b/merged",
+    "n_turns": 80,
+    "king": 6,
+    "king_total": 80,
+    "challenger": 2,
+    "challenger_total": 80
+  },
+  "merged_hf_salvage": "e1d39a1ab0ce825fcee6ab0a0ea6615afb9d1c1a"
+}

@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **DONE** 55/55 loss0.425; merge+visual OK; pipe **266631** chall loading→n80≤3; harvest **1964910** |
+| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — chall **200** + n80 **RUNNING** pid **276121** (king6/chall2 @08:45Z); pipe **266631**; harvest **1964910** |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
@@ -387,6 +387,14 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   `results/h5b_pipe_file_offset_abort_fix.json`, `h5b_identity.json`,
   `h5b_merge_meta.json`, `h5b_time_budget_pass90.json`,
   `h5b_decision_pass90_false_abort.json`.
+- **Chall ready + n80 launched (2026-08-07T08:40:52Z pass 91):**
+  chall:8002 **200** @ 08:40:51Z (`CHALL_SERVE_DONE`); n80 attempt
+  **1/3** pid **276121** vs TalentPigs `dbfbb3e2…`; progress king
+  **6**/chall **2** @ 08:45:23Z (advancing). HF merged salvage done
+  `unconst/Affine-5czsc2fc98-h5b-merged` @ `e1d39a1…` (private; do not
+  submit). Evidence: `results/h5b_n80_launched.json`,
+  `h5b_sim_progress.json`, `h5b_merged_salvage.json`,
+  `h5b_time_budget_pass91.json`.
 - **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
   H4 OK; clip-L1 ≥ +0.015; not weight-identical.
 - **Verdict:** open.

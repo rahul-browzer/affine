@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z**; H5b harvest **1964910** →11:45Z | Stage 4 H5b merge+visual OK; chall loading→n80≤3 | RUNNING | SSH `root@69.63.236.160 -p 40301`; pipe **266631**; deadman **1783662**; spent ~$229 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z**; H5b harvest **1964910** →11:45Z | Stage 4 H5b n80 RUNNING (pid 276121) | RUNNING | SSH `root@69.63.236.160 -p 40301`; pipe **266631**; sim **276121**; deadman **1783662**; spent ~$230 |
 
 ## Reconcile log
 
@@ -103,3 +103,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T08:14:54Z | mine-sim-1 RUNNING | matches inventory; spent $219.88; H5b pre-freed chall VRAM GPUs 4,5 (train 245350 pipe 258082 mid 251832); step42/55; deadman 1783662; validator pods untouched |
 | 2026-08-07T08:18:46Z | mine-sim-1 RUNNING | matches inventory; spent $222.42; H5b packed-visual merge_lora fix deployed (train 245350 pipe 258082 mid 251832); step46/55; deadman 1783662; validator pods untouched |
 | 2026-08-07T08:36:04Z | mine-sim-1 RUNNING | matches inventory; spent $229.22; H5b train DONE; recovered rc=127 file-offset abort; pipe **266631** merge+visual OK chall loading; harvest **1964910**; deadman 1783662; validator pods untouched |
+| 2026-08-07T08:45:33Z | mine-sim-1 RUNNING | matches inventory; spent $229.76; H5b chall READY + n80 sim **276121** advancing (king6/chall2); harvest **1964910**; deadman 1783662; validator pods untouched |

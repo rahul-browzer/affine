@@ -1,7 +1,7 @@
 {
-  "utc": "2026-08-07T08:36:44Z",
+  "utc": "2026-08-07T08:46:13Z",
   "experiment": "s4-h5b-talentpigs-distill",
-  "stage": "merge_identity",
+  "stage": "n80_running",
   "train_done": true,
   "adapter_present": true,
   "ckpt_dirs": [
@@ -9,23 +9,32 @@
     "checkpoint-55"
   ],
   "merge_done": true,
-  "chall_serve_done": false,
+  "chall_serve_done": true,
   "sim_n80_done": false,
   "pipe_waiting": false,
   "pipe_done": false,
   "pipe_aborted": false,
-  "last_pipe_line": "[wait] t=1 k=1 c=0 elapsed=76s",
+  "last_pipe_line": "[h5b-pipe] n80 attempt 1/3 pid 276121 advancing",
   "mid_salvaged": [
     "checkpoint-50",
     "checkpoint-55",
     "adapter-final"
   ],
   "identical_to_king": false,
-  "sim_progress": null,
+  "sim_progress": {
+    "utc": "2026-08-07T08:45:59Z",
+    "hotkey": "local-h5b",
+    "chall_repo": "/root/h5b/merged",
+    "n_turns": 80,
+    "king": 6,
+    "king_total": 80,
+    "challenger": 8,
+    "challenger_total": 80
+  },
   "engines": {
     "teacher": 200,
     "king": 200,
-    "chall": 0
+    "chall": 200
   },
   "total": 55,
   "step": 55,

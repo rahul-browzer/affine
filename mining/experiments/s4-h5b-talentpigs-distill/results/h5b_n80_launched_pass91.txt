@@ -1,0 +1,36 @@
+{
+  "utc": "2026-08-07T08:43:14Z",
+  "hotkey": "local-h5b",
+  "chall_repo": "/root/h5b/merged",
+  "n_turns": 80,
+  "king": 1,
+  "king_total": 80
+}
+/root/venv/lib/python3.12/site-packages/huggingface_hub/constants.py:298: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+
+-rw-r--r-- 1 root root 432 Aug  7 08:38 /root/affine_data/h5b_merged_salvage.json
+{
+  "repo": "unconst/Affine-5czsc2fc98-h5b-merged",
+  "private": true,
+  "merged": "/root/h5b/merged",
+  "bytes": 70214494528,
+  "n_shards": 3,
+  "base_hub": "kevin954/Affine-5dfqbbh8ev-sft",
+  "commit_sha": "https://huggingface.co/unconst/Affine-5czsc2fc98-h5b-merged/commit/e1d39a1ab0ce825fcee6ab0a0ea6615afb9d1c1a",
+  "uploaded_utc": "2026-08-07T08:38:01Z",
+  "note": "full merged salvage; NOT a submission until Stage-5 gate"
+}
+
+0, 95 %, 132945 MiB
+1, 96 %, 132945 MiB
+2, 0 %, 142929 MiB
+3, 0 %, 142929 MiB
+4, 0 %, 142925 MiB
+5, 0 %, 142925 MiB
+6, 0 %, 0 MiB
+7, 0 %, 0 MiB
+HF_PUSH_DONE_OR_DEAD
+    PID     ELAPSED CMD
+ 266631 441077229-03:03:28 bash /root/mining_src/s4-h5b-talentpigs-distill/post_train_pipeline.sh
+ 276121 441077229-02:51:12 python /root/mining_src/s4-h2-merge/run_sim_duel.py --king-repo TalentPigs/affine-5ekxlcg3fx-abc --king-rev dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4 --chall-repo /root/h5b/merged --chall-rev local --n-turns 80 --hotkey local-h5b --out /root/affine_data/h5b_sim_result.json --progress-out /root/affine_data/h5b_sim_progress.json --save-artifact

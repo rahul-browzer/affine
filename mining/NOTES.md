@@ -3145,3 +3145,38 @@ No submit / no registration burn.
 
 Wait for chall:8002 **200** → n80 → `h5b_decision.json`. Gate >0.04 + H4.
 Do **not** edit the live pipe script on the pod.
+
+## 2026-08-07T08:45:33Z — pass 91: H5b chall READY; n80 sim launched + advancing
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $229.76; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,791.33 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+`min_submission_block`=8767079.
+
+### What I did
+
+1. Confirmed chall:8002 still loading at pass start (CUDA graphs / compile).
+2. Polled to readiness: **200** @ **08:40:51Z** → pipe logged
+   `CHALL_SERVE_DONE` / `ALL_READY` (teacher+king+chall).
+3. n80 launched attempt **1/3** @ 08:40:52Z pid **276121**
+   (`run_sim_duel.py` vs TalentPigs `dbfbb3e2…`, chall `/root/h5b/merged`).
+4. Confirmed advancing: progress king **1**→**6** / chall **2** by 08:45:23Z
+   (~3 k-tpm early). ETA ~09:15–09:40Z; deadman 12:00Z slack OK.
+5. HF merged salvage already finished: private
+   `unconst/Affine-5czsc2fc98-h5b-merged` @ `e1d39a1…` (not a submission;
+   `push_merged` meta lists `base_hub=kevin954` — cosmetic; live merge was
+   TalentPigs-init).
+6. Evidence: `results/h5b_n80_launched.json`, `h5b_sim_progress.json`,
+   `h5b_merged_salvage.json`, `h5b_time_budget_pass91.json`.
+
+### Money
+
+Lium $33,791.33; mining spend ≈ $230. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Wait for n80 → `h5b_decision.json`. Gate >0.04 + H4 + live-king.
+Do **not** edit the live pipe script on the pod.

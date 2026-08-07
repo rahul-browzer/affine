@@ -1,0 +1,10 @@
+{
+  "utc": "2026-08-07T08:45:59Z",
+  "hotkey": "local-h5b",
+  "chall_repo": "/root/h5b/merged",
+  "n_turns": 80,
+  "king": 6,
+  "king_total": 80,
+  "challenger": 8,
+  "challenger_total": 80
+}

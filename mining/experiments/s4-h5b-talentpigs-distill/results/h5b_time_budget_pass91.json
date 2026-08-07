@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-07T08:45:32Z",
+  "pass": 91,
+  "chall_ready": "2026-08-07T08:40:51Z",
+  "n80_launched": "2026-08-07T08:40:52Z",
+  "progress": {
+    "utc": "2026-08-07T08:45:23Z",
+    "hotkey": "local-h5b",
+    "chall_repo": "/root/h5b/merged",
+    "n_turns": 80,
+    "king": 6,
+    "king_total": 80,
+    "challenger": 2,
+    "challenger_total": 80
+  },
+  "rate_note": "king 1\u21926 in ~90s (~3.3 k-tpm early); prior H5 n80 ~30-45m \u2192 ETA ~09:15-09:40Z",
+  "deadman": "12:00Z",
+  "harvest_stop": "11:45Z",
+  "slack_ok": true
+}
