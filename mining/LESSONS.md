@@ -1,6 +1,6 @@
 # LESSONS — durable findings
 
-Hard-won knowledge, one line each. **Cap 120 lines.** Detail → `experiments/`.
+Hard-won knowledge, one line each. **Cap 150 lines** (per GOAL). Detail → `experiments/`.
 
 Format: `- <finding> — <the number or error that proves it>`
 
@@ -14,11 +14,19 @@ Format: `- <finding> — <the number or error that proves it>`
 - Clip-L1 is the lever (H3): Spearman 0.936 vs outcome; Λ2 only 0.711.
 - r ∈ [0.3, 4.0] (not our invented [0.70,0.85]); baseline band chall ≤1.25× king.
   Low r is a faithful-distill symptom, never a training target.
-- **α-merge is a ~1-in-260 lottery** (11 n80; H26 m=+0.00592 / H25 +0.00662
-  still ≪0.02). α0.90 clears band but margin≈0. Stop α search / do not requeue.
-- **Select B by TP-era clip-L1, not parent margin** (`s2-clip-l1-rank`): m7
-  c_clipL1=+0.0435 → H25 m=+0.00662 (REFUTE); plmk +0.0389 but H16 m=+0.0097 —
-  do not requeue; kkk +0.0288 pre-TP mid-pack. Clip-L1 rank ≠ duel margin.
+- **α-merge is refuted as a class: ~1 in 1,200** — n=9 merges mean **−0.00143**
+  sd 0.00809 best +0.00970, never half the bar; +0.024 is 3.1σ out. Odds got
+  *worse* with data (was 1-in-260 at n=4). More partners B cannot help: the mean
+  is the problem, not the draw count. Never spend a slot on an α sweep.
+- **The band was never the blocker.** H21 ran α0.75 and *cleared* it at
+  base×**1.001** (vs ×1.85–2.21 for H7–H15/H18) and still lost −0.00682. So
+  "α squeezed between band-fail and king-similarity" is wrong — merges miss on
+  margin wherever α sits.
+- **Selecting B by clip-L1 fails too — only shaping works.** Best available
+  clip-L1 parent m7 (+0.0435) → H25 m=+0.00662; plmk +0.0389 → H16 +0.0097;
+  kkk +0.0288 mid-pack. Clip-L1 rank ≠ duel margin, exactly as parent margin
+  ≠ duel margin (H20). **Selection has never moved the mean; train for clip-L1
+  instead of shopping for it.** Do not requeue plmk/m7/kkk.
 - Clip-L1 shaping data ≠ teacher_refs: harvest challenger `z_A` with
   pair clipL1≥0.04 from high-c_clipL1 duels (+ crown), y=teacher y_C,
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
@@ -97,30 +105,16 @@ Format: `- <finding> — <the number or error that proves it>`
 - After a false-probe null-margin decision, `watch_form_decision`/`watch_n80_retry`
   exit ("decision present") and never rewrite — quarantine the decision **and**
   relaunch both sidecars before the real n80 finishes (H25 pass171 @61/80).
-- Keep `experiments/s4-h2-merge/watch_form_decision.sh` in git; pods have shown
-  ghost dentries (`ls` lists file, `open`→ENOENT) — re-scp from local if missing.
-- After launch, `test -x` **both** form+retry sidecars and `pgrep` them — H26 had
-  retry running but form script absent (upload listed it; runtime missing; pass173).
-- B300: FA sm_103 patch ≠ done. Engines can still die on flashinfer sampling JIT
-  under concurrent launch — clear half-written `cached_ops/sampling`, relaunch
-  with `SERVE_STAGGER_S≥45` (H23 pass171).
-- After engine relaunch, **reset `start_*_n80.sh` wait** — orphan `wait_ready`
-  keeps the old elapsed clock (H23: 18m burned on dead engines; TIMEOUT_S=2400
-  would have fired mid-compile). Kill start+wait by PID, relaunch start.
-- recover-wait must **exit if king APIServer pid dies** — else polls health for
-  ~40m on empty GPUs (H23 pass177→178: died mid CUDA-graph on Triton `.so`,
-  wait spun until killed). Bake pid-alive check into wait loop.
-- H27 ghost dentry again: `ls` listed `watch_form_decision.sh`, `open`→ENOENT;
-  form watcher silently gone mid-n80. `rm` + re-scp from local before relaunch.
-- `pgrep -f "watch_n80_retry.sh hN"` false-matches the SSH remote cmdline that
-  embeds the same string → reports ALREADY_ARMED when n=0. Count with
-  `ps -eo pid,cmd | awk '/[w]atch_n80_retry\.sh hN /'` (pass179).
-- recover-wait `bash -c '…start_h23_n80.sh…'` + post-probe
-  `awk '/[s]tart_h23_n80/'` **self-SIGKILLs** (empty nohup, no relaunch line).
-  Kill only real script argv: `$0 ~ /\/start_…\.sh/ && $0 !~ /bash -c/` (pass180).
-- `watch_form_decision.sh` can die mid-n80 with only the initial "waiting" log
-  line left (h23/h27/h28 all dead at ~53/32/7 while sims still ran — pass182).
-  Each poll: `awk '/[w]atch_form_decision\.sh/ && / hN /'` and relaunch if 0.
+- Ghost dentry: `ls` lists `watch_form_decision.sh` but `open`→ENOENT (H26/H27) —
+  `rm` + re-scp from git; after launch `test -x` both form+retry sidecars.
+- B300 flashinfer sampling JIT can still die under concurrent launch — clear
+  `cached_ops/sampling`, relaunch with `SERVE_STAGGER_S≥45` (H23).
+- After engine relaunch: reset `start_*_n80` wait (orphan clock); recover-wait
+  must exit if king APIServer pid dies; never embed start path in `bash -c`
+  (self-SIGKILL via awk match — kill only `$0 ~ /\/start_…\.sh/`).
+- Form/retry watchers die mid-n80 or false-match SSH cmdlines — poll with
+  `awk '/[w]atch_form_decision\.sh/ && / hN /'` / `watch_n80_retry\.sh hN `;
+  relaunch if 0 (pass179/182).
 - Winner-zA thought LoRA on **TalentPigs init** loses (H27 m=−0.00792, gates
   OK) — shaping data alone ≠ crown; do not retry TP-init + same 406 ex.
 - H28 king :8001 can die mid-n80 after a burst of `/v1/completions` 500s
@@ -132,6 +126,9 @@ Format: `- <finding> — <the number or error that proves it>`
   (H29 raw row0 msg_chars=41524 → `supervised_tokens=0/8192` SystemExit).
   Fit-filter msg_chars≤max_len×2.5 + sort short-first (368/686 kept;
   sample0 59/1513) before train — `train_lora.py` now does this.
+- Do not idle free `mine-*` slots waiting on another hyp's verdict (GOAL
+  2026-08-07). Fill with non-α variants of the live direction; H30 =
+  m7×king-self launched while H28 n80 + H29 train still open (pass186).
 
 ## Money / platform
 
