@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h29-1 | golden-wolf-bc | 8×H200 | $31.92 | ~2026-08-08T07:28Z | H29 TP×king-self | n80 ~36/80 |
-| mine-h30-1 | golden-hawk-9f | 8×H200 | $31.92 | ~2026-08-08T07:39Z | H30 m7×king-self | n80 live |
-| mine-h31-1 | golden-raven-d8 | 8×H200 | $28.00 | ~2026-08-08T07:42Z | H31 m7×ks lr3e5 | chall recover193 |
-| mine-h32-1 | noble-raven-24 | 8×B200 | $40.00 | ~2026-08-08T07:48Z | H32 TP×ks lr3e5 | king recover192 |
-| mine-h33-1 | gentle-comet-aa | 8×H200 | $28.00 | ~2026-08-08T08:15Z | H33 TP×ks ep2 | train ~42/92 |
+| mine-h29-1 | golden-wolf-bc | 8×H200 | $31.92 | ~2026-08-08T07:28Z | H29 TP×king-self | n80 ~49/80 |
+| mine-h30-1 | golden-hawk-9f | 8×H200 | $31.92 | ~2026-08-08T07:39Z | H30 m7×king-self | n80 ~11/80 |
+| mine-h31-1 | golden-raven-d8 | 8×H200 | $28.00 | ~2026-08-08T07:42Z | H31 m7×ks lr3e5 | n80 live post-recover193 |
+| mine-h32-1 | noble-raven-24 | 8×B200 | $40.00 | ~2026-08-08T07:48Z | H32 TP×ks lr3e5 | n80 ~15/80 |
+| mine-h33-1 | gentle-comet-aa | 8×H200 | $28.00 | ~2026-08-08T08:15Z | H33 TP×ks ep2 | train ~60/92 |
 
 SSH: h29 .21:20100 · h30 .22:20100 · h31 .236:40301 ·
 h32 150.136.71.147:20300 · h33 .232:40309 ·
@@ -33,6 +33,6 @@ known_hosts `/tmp/mine-h2{9,0,1,2}-1.known_hosts` + `/tmp/mine-h33-1.known_hosts
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-07T20:42Z | h29–h33 match | H31 chall probe ok→n80; H32 n80~15; H29~49 H30~11 |
 | 2026-08-07T20:36Z | h29–h33 match | H31 false REFUTE quarantine+chall recover193; H30 n80 live |
 | 2026-08-07T20:32Z | h29–h33 match | H30 chall Triton recover192; H32 king recover192 |
-| 2026-08-07T20:20Z | h29–h33 match | H31/H32 king Triton recover191; H29 n80 live |
