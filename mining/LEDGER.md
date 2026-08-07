@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $191,070.43 | 2026-08-07T18:06Z |
-| cumulative mining spend | ~$2,245 (h23/24/26/27 accruing; h25 torn ~$55) | 2026-08-07T18:06Z |
-| **available for mining** | **~$181,070** (balance − $10,000 floor) | 2026-08-07T18:06Z |
-| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 + datagen $0.35 | 2026-08-07T18:06Z |
-| miner burn (4 pods) | ~$155.4/h (h23 $63.60 + h24 $28 + h26/27 $31.92) | 2026-08-07T18:06Z |
+| Lium balance | $191,051.54 | 2026-08-07T18:12Z |
+| cumulative mining spend | ~$2,270 (h23/24/26/27/28 accruing) | 2026-08-07T18:12Z |
+| **available for mining** | **~$181,052** (balance − $10,000 floor) | 2026-08-07T18:12Z |
+| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 + datagen $0.35 | 2026-08-07T18:12Z |
+| miner burn (5 pods) | ~$183.4/h (h23 $63.60 + h24/28 $28 + h26/27 $31.92) | 2026-08-07T18:12Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -20,6 +20,7 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-07T18:11Z | 191051.54 | rented mine-h28-1 swift-hawk-e1 8×H200 @$28/h ttl12h COUNT=8; H28 launched |
 | 2026-08-07T18:06Z | 191070.43 | rm mine-h25-1 (~$55) after H25 REFUTE m=+0.00662 |
 | 2026-08-07T17:34Z | 191216.44 | rented mine-h27-1 noble-orbit-fb 8×H200 @$31.92/h ttl12h COUNT=8; H27 launched |
 | 2026-08-07T17:21Z | 191253.33 | rented mine-h26-1 swift-matrix-98 8×H200 @$31.92/h ttl8h COUNT=8; H26 launched |
@@ -29,4 +30,3 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 | 2026-08-07T16:10Z | 32592.24 | rented mine-h23-1 @$63.60/h |
 | 2026-08-07T16:08Z | 32608.64 | rented mine-h25-1 @$28/h; rm dud golden-fox-c0 |
 | 2026-08-07T16:06Z | 32608.69 | rm mine-h18-1 after band REFUTE |
-| 2026-08-07T15:42Z | 32698.32 | rented mine-h21-1 @$28 + mine-h22-1 @$31.92 |
