@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T03:02:02Z | 34321.27 | 10.000000 | 0 | mine-sim-1 spent $97.83; H1 step73; merge identity gate armed; no new rental |
 | 2026-08-07T02:58:34Z | 34329.39 | 10.000000 | 0 | mine-sim-1 spent $96.48; H1 step69; fail-closed promote + pipe 102073; no new rental |
 | 2026-08-07T02:54:19Z | 34337.16 | 10.000000 | 0 | mine-sim-1 spent $94.80; H1 step65; triage_sim + harvest 1459477; no new rental |
 | 2026-08-07T02:51:41Z | 34337.16 | 10.000000 | 0 | mine-sim-1 spent $93.77; H1 step62; harvest early-teardown armed; no new rental |
@@ -48,6 +49,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T03:02:02Z | observe | mine-sim spent $97.83 | Lium → mine-sim-1 | 34321.27 | 10.000 | H1 step73; merge_lora first_1MiB≠kevin refuse armed; kevin sha c551c752… verified; floor OK |
 | 2026-08-07T02:58:34Z | observe | mine-sim spent $96.48 | Lium → mine-sim-1 | 34329.39 | 10.000 | H1 step69; fail-closed mid-ckpt promote armed; pipe 102073; n80 budget OK; floor OK |
 | 2026-08-07T02:54:19Z | observe | mine-sim spent $94.80 | Lium → mine-sim-1 | 34337.16 | 10.000 | H1 step65; triage_sim wired into harvest; pipe soft 06:50Z OK; floor OK |
 | 2026-08-07T02:51:41Z | observe | mine-sim spent $93.77 | Lium → mine-sim-1 | 34337.16 | 10.000 | H1 step62; host harvest early-rm armed (save $/h after sim); floor OK |

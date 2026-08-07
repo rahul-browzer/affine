@@ -93,6 +93,15 @@ while true; do
     fi
   fi
 
+  # Merge hygiene meta (first_1MiB ≠ king). Optional — do not block teardown.
+  if [[ ! -f "$OUT/h1_merge_meta.json" ]]; then
+    if "${SSH[@]}" 'test -f /root/affine_data/h1_merge_meta.json' 2>/dev/null; then
+      "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_merge_meta.json \
+        "$OUT/h1_merge_meta.json"
+      log "got h1_merge_meta.json"
+    fi
+  fi
+
   if (( got_train == 0 )); then
     if "${SSH[@]}" 'test -f /root/h1/train/train_result.json' 2>/dev/null; then
       "${SCP[@]}" root@69.63.236.160:/root/h1/train/train_result.json \

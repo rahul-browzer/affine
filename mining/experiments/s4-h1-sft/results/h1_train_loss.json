@@ -1,6 +1,6 @@
 {
-  "utc": "2026-08-07T02:58:52Z",
-  "step": 70,
+  "utc": "2026-08-07T03:02:38Z",
+  "step": 74,
   "trainer_state": "/root/h1/train/checkpoints/checkpoint-50/trainer_state.json",
   "first_loss": 0.2827,
   "last_loss": 0.32915439605712893,

@@ -1418,3 +1418,44 @@ Poll for `train_done` (~03:36Z) → adapter salvage → n40→n80. Read
 `results/h1_decision.json` when present. If train died, check
 `train_fallback.json`. Kill mine-sim-1 as soon as sim done (name-check).
 No submit until action=`toward_submit`.
+
+
+---
+
+## 2026-08-07T03:02:02Z — pass 41: merge first_1MiB≠kevin refuse gate
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $97.83; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host deadman 1405846 still armed for 07:00Z; harvest restarted **1471795**.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; min_submission_block **8767079**;
+   Lium $34,321.27 (floor OK). Train step **73/110** (epoch 2); engines
+   200×3; mid-salvage 83669; pipe 102073 waiting; ETA train.done ~**03:35Z**.
+2. Observed this run has **0** `[train-log]` lines despite PrintLossCallback
+   (likely non-float log values → json.dumps throw swallowed by Trainer).
+   Staged float coercion in `train_lora.py` for future runs (train process
+   already in memory — not restarted). Epoch-2 losses still arrive at
+   checkpoint-100 via trainer_state.
+3. **Useful increment:** `merge_lora.py` now computes first_1MiB sha of
+   merged vs kevin base and **refuses** (SystemExit) if identical — same
+   hygiene H2 merge had — so we never burn ~66 min n40+n80 on a no-op.
+   Writes `/root/affine_data/h1_merge_meta.json`. Smoke on pod: kevin shard
+   sha **c551c752…** matches H2 meta. Host harvest SCPs merge meta.
+4. Wrote `results/h1_epoch2_step_poll.json`. No submit. No new rental.
+   Train/pipeline/mid-salvage/deadman untouched (only SCP'd merge+train
+   scripts; merge runs after train.done).
+
+### Money
+
+Lium $34,321.27; mining spend ≈ $97.83. Host deadman 07:00Z + early teardown.
+
+### Next
+
+Poll for `train_done` (~03:35Z) → adapter salvage → merge_meta
+(`first_1MiB_identical: false`) → n40→n80. Read `results/h1_decision.json`
+when present. Kill mine-sim-1 as soon as sim done (name-check). No submit
+until action=`toward_submit`.

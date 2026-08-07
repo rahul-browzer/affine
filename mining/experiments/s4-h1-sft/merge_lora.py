@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -12,6 +13,32 @@ from pathlib import Path
 import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
+
+
+def _file_sha256(path: Path, nbytes: int = 0) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        if nbytes:
+            h.update(f.read(nbytes))
+        else:
+            for chunk in iter(lambda: f.read(1 << 20), b""):
+                h.update(chunk)
+    return h.hexdigest()
+
+
+def _first_shard(model_dir: Path) -> Path:
+    idx = model_dir / "model.safetensors.index.json"
+    if idx.is_file():
+        weight_map = json.loads(idx.read_text()).get("weight_map") or {}
+        shard = weight_map.get("model.embed_tokens.weight") or next(
+            iter(weight_map.values()), None
+        )
+        if shard:
+            return model_dir / shard
+    single = model_dir / "model.safetensors"
+    if single.is_file():
+        return single
+    raise FileNotFoundError(f"no safetensors shard under {model_dir}")
 
 
 def main() -> None:
@@ -61,17 +88,40 @@ def main() -> None:
     for p in args.out.rglob("*.py"):
         p.unlink()
 
+    # Hard rule: weight-identical to king/base is rejected at submit. Refuse
+    # here so we never burn ~66 min of n40+n80 sim on a no-op merge.
+    base_path = Path(args.base)
+    base_shard = _first_shard(base_path)
+    out_shard = _first_shard(args.out)
+    base_fp = _file_sha256(base_shard, nbytes=1 << 20)
+    out_fp = _file_sha256(out_shard, nbytes=1 << 20)
+    identical = base_fp == out_fp
+
     meta = {
         "base": args.base,
         "adapter": str(args.adapter),
         "out": str(args.out),
         "device_map": args.device_map,
         "cuda_visible": os.environ.get("CUDA_VISIBLE_DEVICES"),
+        "base_first_shard": str(base_shard),
+        "out_first_shard": str(out_shard),
+        "base_first_1MiB_sha256": base_fp,
+        "out_first_1MiB_sha256": out_fp,
+        "first_1MiB_identical": identical,
         "elapsed_s": time.time() - t0,
         "finished_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
-    (args.out / "merge_meta.json").write_text(json.dumps(meta, indent=2))
+    (args.out / "merge_meta.json").write_text(json.dumps(meta, indent=2) + "\n")
+    # Also stage where host harvest looks.
+    Path("/root/affine_data").mkdir(parents=True, exist_ok=True)
+    Path("/root/affine_data/h1_merge_meta.json").write_text(
+        json.dumps(meta, indent=2) + "\n"
+    )
     print(json.dumps(meta, indent=2), flush=True)
+    if identical:
+        raise SystemExit(
+            "merge looks weight-identical to base (first_1MiB sha match) — refuse sim"
+        )
     print("[merge] DONE", flush=True)
 
 

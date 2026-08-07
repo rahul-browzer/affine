@@ -31,7 +31,21 @@ class PrintLossCallback(TrainerCallback):
     def on_log(self, args, state, control, logs=None, **kwargs):  # noqa: ANN001
         if not logs or not state.is_world_process_zero:
             return
-        payload = {k: logs[k] for k in ("loss", "grad_norm", "learning_rate", "epoch") if k in logs}
+        payload = {}
+        for k in ("loss", "grad_norm", "learning_rate", "epoch"):
+            if k not in logs:
+                continue
+            v = logs[k]
+            # Coerce tensors / numpy — bare json.dumps used to throw and
+            # Trainer swallowed the callback (0 [train-log] lines this run).
+            try:
+                if hasattr(v, "item"):
+                    v = v.item()
+                payload[k] = float(v)
+            except (TypeError, ValueError):
+                payload[k] = str(v)
+        if "loss" not in payload:
+            return
         print(
             f"[train-log] step={state.global_step} {json.dumps(payload)}",
             flush=True,
