@@ -102,6 +102,15 @@ while true; do
     fi
   fi
 
+  # Full merged HF salvage meta (background push during sim).
+  if [[ ! -f "$OUT/h1_merged_salvage.json" ]]; then
+    if "${SSH[@]}" 'test -f /root/affine_data/h1_merged_salvage.json' 2>/dev/null; then
+      "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_merged_salvage.json \
+        "$OUT/h1_merged_salvage.json"
+      log "got h1_merged_salvage.json"
+    fi
+  fi
+
   if (( got_train == 0 )); then
     if "${SSH[@]}" 'test -f /root/h1/train/train_result.json' 2>/dev/null; then
       "${SCP[@]}" root@69.63.236.160:/root/h1/train/train_result.json \
@@ -120,6 +129,35 @@ while true; do
   fi
 
   if (( got_sim == 1 && got_salvage == 1 && got_train == 1 )); then
+    # Do not kill the pod while ~68G merged HF upload is still in flight —
+    # that erase is exactly what the push was meant to prevent. Wait up to
+    # 20 min; adapter salvage alone still allows a re-merge if push fails.
+    push_alive=0
+    if "${SSH[@]}" 'test -f /root/logs/h1_push_merged.pid && kill -0 "$(cat /root/logs/h1_push_merged.pid)"' \
+      2>/dev/null; then
+      push_alive=1
+    fi
+    if (( push_alive == 1 )) && [[ ! -f "$OUT/h1_merged_salvage.json" ]]; then
+      log "sim harvested but merged HF push still running; defer early-teardown (recheck 60s)"
+      sleep 60
+      continue
+    fi
+    # Soft cap: if push has been running >20 min after sim harvest, proceed.
+    if (( push_alive == 1 )); then
+      if [[ ! -f "$OUT/.push_wait_started" ]]; then
+        date -u +%s >"$OUT/.push_wait_started"
+        log "merged push still alive; start 20min teardown grace"
+        sleep 60
+        continue
+      fi
+      started=$(cat "$OUT/.push_wait_started")
+      if (( now - started < 1200 )); then
+        log "merged push grace $((now - started))s/1200s; defer teardown"
+        sleep 60
+        continue
+      fi
+      log "WARN: merged push grace exhausted; tearing down (adapter salvage remains)"
+    fi
     date -u +%Y-%m-%dT%H:%M:%SZ >"$OUT/host_harvest.done"
     log "all artifacts harvested; early-teardown mine-sim-1 (stop $/h burn)"
     # HARD RULE: verify name immediately before every rm. Never touch non-mine-*.

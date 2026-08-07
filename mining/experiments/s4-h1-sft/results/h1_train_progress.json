@@ -1,8 +1,8 @@
 {
-  "utc": "2026-08-07T03:02:38Z",
-  "step": 74,
+  "utc": "2026-08-07T03:05:26Z",
+  "step": 76,
   "total": 110,
-  "frac": 0.6727272727272727,
+  "frac": 0.6909090909090909,
   "train_done": false,
   "ckpt_dirs": [
     "checkpoint-50"

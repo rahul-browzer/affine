@@ -149,6 +149,24 @@ CUDA_VISIBLE_DEVICES=6,7 python3 /root/mining_src/s4-h1-sft/merge_lora.py \
   --device-map auto
 log "merge DONE"
 
+# Full-merged HF salvage in background WHILE we re-serve + sim. Adapter-only
+# salvage is already on HF; without this a 07:00Z deadman would erase the
+# only vLLM-ready candidate and force another rental to re-merge for submit.
+MERGED_PUSH_META=/root/affine_data/h1_merged_salvage.json
+MERGED_PUSH_PID=""
+if [[ -n "${HF_TOKEN:-}" ]]; then
+  log "background HF push merged → unconst/Affine-5czsc2fc98-h1-merged"
+  nohup python3 /root/mining_src/s4-h1-sft/push_merged.py \
+    --merged "$MERGED" \
+    --out-meta "$MERGED_PUSH_META" \
+    >>/root/logs/h1_push_merged.nohup 2>&1 &
+  MERGED_PUSH_PID=$!
+  echo "$MERGED_PUSH_PID" >/root/logs/h1_push_merged.pid
+  log "merged push pid=$MERGED_PUSH_PID"
+else
+  log "WARN: HF_TOKEN unset; skipping merged HF push"
+fi
+
 log "re-serve chall=$MERGED (king=kevin kept hot; teacher kept)"
 RESTART_KING=0 MERGE="$MERGED" bash /root/mining_src/s4-h2-merge/restart_for_h2.sh
 log "serve READY"
@@ -185,9 +203,29 @@ if [[ "$TTL_DEADLINE_EPOCH" =~ ^[0-9]+$ ]] && (( TTL_DEADLINE_EPOCH > 0 )); then
 else
   remain=99999
 fi
+wait_merged_push() {
+  # Keep the pod alive until HF has the vLLM-ready weights (or 45 min).
+  if [[ -z "${MERGED_PUSH_PID}" ]]; then
+    return 0
+  fi
+  log "waiting for merged HF push pid=$MERGED_PUSH_PID (max 2700s)"
+  for _ in $(seq 1 540); do
+    kill -0 "$MERGED_PUSH_PID" 2>/dev/null || break
+    sleep 5
+  done
+  if kill -0 "$MERGED_PUSH_PID" 2>/dev/null; then
+    log "WARN: merged HF push still running after wait; leaving it"
+  elif [[ -f "$MERGED_PUSH_META" ]]; then
+    log "merged HF push DONE → $MERGED_PUSH_META"
+  else
+    log "WARN: merged HF push exited without meta at $MERGED_PUSH_META"
+  fi
+}
+
 # Full 80-turn needs ~45 min wall; require 50 min buffer before soft deadline.
 if (( remain < 3000 )); then
   log "WARN: only ${remain}s to soft TTL deadline; skipping full n=80 (n40 is the signal)"
+  wait_merged_push
   {
     date -u +%Y-%m-%dT%H:%M:%SZ
     echo "n40_only remain_s=$remain"
@@ -208,3 +246,4 @@ python /root/mining_src/s4-h2-merge/run_sim_duel.py \
 date -u +%Y-%m-%dT%H:%M:%SZ >"$MARKER"
 log "SIM_DONE → $SIM_OUT"
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h1_sim.done
+wait_merged_push

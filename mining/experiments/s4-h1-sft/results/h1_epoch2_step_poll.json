@@ -1,21 +1,12 @@
 {
-  "utc": "2026-08-07T03:02:02Z",
-  "pass": 41,
-  "step": 73,
+  "utc": "2026-08-07T03:05:27Z",
+  "step": 76,
   "total": 110,
+  "frac": 0.6909090909090909,
   "train_done": false,
   "ckpt_dirs": [
     "checkpoint-50"
   ],
-  "engines": {
-    "teacher": 200,
-    "king": 200,
-    "chall": 200
-  },
-  "pipeline_alive": true,
-  "last_loss_visible": 0.32915439605712893,
-  "note": "epoch2 losses not yet in stdout/trainer_state (await ckpt-100); PrintLossCallback produced 0 [train-log] lines this run (coercion fix staged for future)",
-  "eta_train_done_approx": "2026-08-07T03:34:43Z",
-  "merge_identity_gate": "ARMED \u2014 merge_lora.py refuses first_1MiB==kevin; kevin sha verified c551c752\u2026",
-  "host_harvest_pid": 1471795
+  "eta_train_done_utc": "2026-08-07T03:36:37Z",
+  "note": "pass42 armed background HF push of merged weights; pipeline 105148"
 }

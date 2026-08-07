@@ -1459,3 +1459,45 @@ Poll for `train_done` (~03:35Z) → adapter salvage → merge_meta
 (`first_1MiB_identical: false`) → n40→n80. Read `results/h1_decision.json`
 when present. Kill mine-sim-1 as soon as sim done (name-check). No submit
 until action=`toward_submit`.
+
+---
+
+## 2026-08-07T03:05:27Z — pass 42: arm background HF push of merged weights
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $99.00; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host deadman 1405846 still armed for 07:00Z; harvest restarted **1478941**.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; min_submission_block **8767079**;
+   Lium $34,313.83 (floor OK). Train step **76/110** (epoch 2); engines
+   200×3; mid-salvage 83669; ETA train.done ~**03:37Z**. No sim artifacts.
+2. Gap: only the LoRA adapter was HF-salvaged. A sim win + 07:00Z deadman
+   would erase the only vLLM-ready merged tree and force another rental to
+   re-merge before Stage-5 submit.
+3. **Useful increment:**
+   - Pre-created private HF repo `unconst/Affine-5czsc2fc98-h1-merged`.
+   - Added `push_merged.py` (size/hygiene gates; pod-only upload).
+   - Patched `post_train_pipeline.sh` to **nohup** the push right after
+     merge (parallel with chall re-serve + n40/n80) and wait for it before
+     pipeline exit (n40-only and n80 paths).
+   - Host harvest SCPs `h1_merged_salvage.json` and **defers early-teardown**
+     while push pid is alive (≤20 min grace).
+   - SCP'd scripts; restarted waiting pipeline **102073 → 105148**. Train
+     82057 untouched.
+4. Wrote `results/h1_epoch2_step_poll.json`. No submit. No new rental.
+
+### Money
+
+Lium $34,313.83; mining spend ≈ $99.00. Host deadman 07:00Z + early teardown
+with merged-push grace.
+
+### Next
+
+Poll for `train_done` (~03:37Z) → adapter salvage → merge_meta
+(`first_1MiB_identical: false`) → merged_salvage → n40→n80. Read
+`results/h1_decision.json` when present. Kill mine-sim-1 only after push
+meta or grace (name-check). No submit until action=`toward_submit`.
