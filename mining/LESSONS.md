@@ -93,9 +93,7 @@ Format: `- <finding> — <the number or error that proves it>`
   occupy others — do not serialize (H7+H8 beside mine-h5c-1; 3 live mine-*).
 - Reign earners with null published S (e.g. golden-crown, diane613) are still
   valid merge parents — they hold weight_bps; H8/H9 cover those two vs TalentPigs.
-- Launching train without uploading its post_train waiter leaves a dead-end when
-  train.done lands — H6 train ran with only `start_h6.sh` on pod until pass121
-  scp'd `post_train_pipeline.sh` (pid 53727).
+- Launch train with its post_train waiter uploaded (H6 lacked it until pass121).
 - After REFUTE, kill idle chall on :8002 before reuse (H5c held GPUs 4–5); also
   H6 post_train `restart_for_h2` kills `vllm_chall.pid` at merge-end — SIGSTOP the
   pipe until mid50 lands (`gate_mid50_before_final.sh`); never edit the live pipe.
