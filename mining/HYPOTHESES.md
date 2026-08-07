@@ -31,8 +31,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Status:** `s4-h25-tp-adambell-m7-a90/`.
 
 ### H24 / H26 / H23
-- H24: hung chall (Triton launcher + shm_broadcast); GPU4/5 killed,
-  relaunch+completion-probe wait→n80. H26 kkk~49G. H23 merge 16/16.
+- H24: chall reloading GPU4/5; fix-wait→completions-probe→n80.
+  H26 kkk~55G (10/11). H23 merge done; probe-gated start relaunched.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

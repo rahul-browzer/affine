@@ -77,7 +77,9 @@ Format: `- <finding> — <the number or error that proves it>`
   have failed mid-compile; extended wait then kicked n80 at i=12).
 - Health=200 can mask hung EngineCore (`shm_broadcast` 60s + Triton
   `__triton_launcher.so` missing). After chall relaunch, require a real
-  `/v1/completions` probe before starting n80 (H24 pass168).
+  `/v1/completions` probe before starting n80 (H24 pass168). Bake the
+  probe into `start_*_n80.sh` before first n80 too (H23 pass169) — not
+  only into recover sidecars.
 - `pgrep -f "run_sim_duel.py .*local-hN"` false-matches SSH/bash cmdlines that
   contain the pattern — use `ps -eo pid,cmd | awk '/[r]un_sim_duel.py/ && /local-hN/'`.
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin REFUTE: check
