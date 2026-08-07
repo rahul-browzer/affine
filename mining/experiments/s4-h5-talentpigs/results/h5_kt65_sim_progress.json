@@ -1,10 +1,10 @@
 {
-  "utc": "2026-08-07T06:55:26Z",
+  "utc": "2026-08-07T07:00:21Z",
   "hotkey": "local-h5-kt65",
   "chall_repo": "/root/merges/h5-kt65",
   "n_turns": 80,
-  "challenger": 24,
+  "challenger": 38,
   "challenger_total": 80,
-  "king": 19,
+  "king": 37,
   "king_total": 80
 }

@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5 / new-king | highest now | pivot to TalentPigs king; merge or mild distill → margin **> 0.04** | **open** — α0.65 n80 ADVANCING (~19/24) ETA~07:28Z; harvest armed |
+| 1 | H5 / new-king | highest now | pivot to TalentPigs king; merge or mild distill → margin **> 0.04** | **open** — α0.65 n80 ADVANCING (~34/36) ETA~07:29Z; harvest armed |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 4 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
@@ -263,6 +263,11 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   engines 200×3; sim **235312** alive; result absent; harvest **1818104**
   + deadman **1783662** alive. ETA finish **~07:28Z**. Evidence:
   `results/h5_n80_rate_confirmed.json`.
+- **Mid-flight rate (2026-08-07T06:59:55Z pass 75):** 120s sample
+  king 27→**34** / chall 33→**36** @ **3.5** king-tpm / **1.5** chall-tpm
+  (chall now bottleneck); engines 200×3; sim **235312** alive; result
+  absent; harvest **1818104** + deadman **1783662** alive. ETA finish
+  **~07:29Z**. Evidence: `results/h5_n80_midflight_rate.json`.
 - **Prediction (pre-register BEFORE merge):** n80 paired margin ≥ **+0.04**
   vs TalentPigs; H4 OK; both valid; weight_identical=false.
 - **Verdict:** open — n80 ADVANCING; awaiting margin / harvest triage.

@@ -2587,3 +2587,32 @@ No submit / no registration burn.
 Read `results/h5_decision.json` when harvest lands (~07:28Z); else poll
 `h5_sim_n80.done`. Triage gate >0.04; weak → α=0.50 or TalentPigs-init
 thought distill.
+
+## 2026-08-07T06:59:55Z — pass 75: H5 n80 mid-flight (~34/36, ETA~07:29Z)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $191.40; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,955.80 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. Polled sim **235312**: at 06:57:28Z king 27 / chall 33; 120s recheck →
+   king **34** / chall **36** at 06:59:28Z. Engines 8000/8001/8002 all **200**.
+   Rate ≈ **3.5** king-tpm / **1.5** chall-tpm (chall now bottleneck) → ETA
+   finish **~07:29Z**.
+2. Confirmed host harvest **1818104** + deadman **1783662** still alive;
+   no `h5_decision.json` / result yet (correct — sim mid-flight).
+3. SCPed progress; wrote `results/h5_n80_midflight_rate.json`.
+
+### Money
+
+Lium $33,955.80; mining spend ≈ $191.40. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5_decision.json` when harvest lands (~07:29Z); else poll
+`h5_sim_n80.done`. Triage gate >0.04; weak → α=0.50 or TalentPigs-init
+thought distill.

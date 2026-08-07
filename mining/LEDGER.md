@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T06:59:55Z | 33955.80 | 10.000000 | 0 | mine-sim-1 spent $191.40; pass75 H5 n80 ~34/36 ETA~07:29Z; harvest 1818104; deadman 12:00Z; no new rental |
 | 2026-08-07T06:55:51Z | 33955.80 | 10.000000 | 0 | mine-sim-1 spent $189.79; pass74 H5 n80 ~19/24 ETA~07:28Z; harvest 1818104; deadman 12:00Z; no new rental |
 | 2026-08-07T06:51:58Z | 33963.56 | 10.000000 | 0 | mine-sim-1 spent $188.27; pass73 H5 n80 ~12/16 + harvest 1818104; deadman 12:00Z; no new rental |
 | 2026-08-07T06:47:11Z | 33971.35 | 10.000000 | 0 | mine-sim-1 spent $185.40; pass72 H5 chall READY + n80 sim launched; deadman 12:00Z; no new rental |
@@ -80,6 +81,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T06:59:55Z | observe | mine-sim spent $191.40 | Lium → mine-sim-1 | 33955.80 | 10.000 | H5 n80 ~king34/chall36 ETA~07:29Z; harvest 1818104; floor OK |
 | 2026-08-07T06:51:58Z | observe | mine-sim spent $188.27 | Lium → mine-sim-1 | 33963.56 | 10.000 | H5 n80 ~king12/chall16; harvest 1818104 armed; floor OK |
 | 2026-08-07T06:47:11Z | observe | mine-sim spent $185.40 | Lium → mine-sim-1 | 33971.35 | 10.000 | H5 chall READY + n80 sim 235312; floor OK |
 | 2026-08-07T06:43:38Z | observe | mine-sim spent $185.00 | Lium → mine-sim-1 | 33979.14 | 10.000 | H5 merge DONE + resume 231961 serve→n80; floor OK |
