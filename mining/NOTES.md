@@ -1225,3 +1225,43 @@ Lium $34,376.09; floor OK. Mining spend ≈ $83.67. Host deadman 07:00Z.
 Poll progress/loss JSON; at step 50 confirm ckpt + non-null loss +
 mid-salvage HF push. Then train.done → n40/n80. Kill mine-sim-1 as soon
 as sim done (name-check). No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T02:43Z — pass 36: ckpt-50 loss + HF salvage fix
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $90.47; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host deadman 1405846 + harvest 1421187 still alive. King unchanged kevin
+S≈0.03956. Lium $34,352.70 (floor OK).
+
+### What I did
+
+1. Polled H1 train to **checkpoint-50** (step 51–53/110). Engines 200×3;
+   pipeline 86845 waiting; GPU7 train live.
+2. First loss numbers from `trainer_state.json` (stdout still tqdm-swallowed):
+   step5 **0.283** → step50 **0.329**; min **0.215** @ step35. Flat/noisy
+   on already-SFT kevin base — not a kill signal by itself; sim decides.
+3. Mid-salvage **failed** first: PEFT README `base_model` was the local
+   hub snapshot path; HF YAML validation rejected upload. Same bug would
+   have broken final `post_train_pipeline` salvage.
+4. Fixed `salvage_adapter.py`: stage adapter-only files, rewrite
+   `base_model` / `base_model_name_or_path` to Hub id
+   `kevin954/Affine-5dfqbbh8ev-sft`, skip optimizer/rng bulk. Uploaded to
+   pod; salvage OK → private
+   `unconst/Affine-5czsc2fc98-h1-lora/checkpoint-50` commit `6b2b7315…`
+   (also watcher OK at 02:42:46Z). Local copies:
+   `results/mid_checkpoint-50_salvage.json`,
+   `results/h1_trainer_state_ckpt50.json`.
+5. No submit. No new rental. Train/pipeline/deadman untouched.
+
+### Money
+
+Lium $34,352.70; mining spend ≈ $90.47. Host deadman 07:00Z.
+
+### Next
+
+Poll for `train_done` (~03:33Z) → adapter salvage → n40→n80. Kill
+mine-sim-1 as soon as sim done (name-check). No submit until margin > 0.04 + H4.

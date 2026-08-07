@@ -1,0 +1,15 @@
+{
+  "repo": "unconst/Affine-5czsc2fc98-h1-lora",
+  "private": true,
+  "adapter": "/root/h1/train/checkpoints/checkpoint-50",
+  "staged_files": [
+    "README.md",
+    "adapter_config.json",
+    "adapter_model.safetensors"
+  ],
+  "base_hub": "kevin954/Affine-5dfqbbh8ev-sft",
+  "path_in_repo": "checkpoint-50",
+  "commit_sha": "https://huggingface.co/unconst/Affine-5czsc2fc98-h1-lora/commit/6b2b73157e341a0dd722ebd218ee5863dd0b1b60",
+  "uploaded_utc": "2026-08-07T02:42:46Z",
+  "note": "adapter-only salvage; not a submission revision"
+}
