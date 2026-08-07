@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h37-1 | swift-matrix-54 | 8×H200 | $28.00 | ~2026-08-08T09:53Z | H37 m7×wZA lr1e4 | chall p207 |
-| mine-h38-1 | golden-matrix-b9 | 8×H200 | $28.00 | ~2026-08-08T09:52Z | H38 m7×wZA ep2 | chall p207 |
-| mine-h39-1 | swift-wolf-6e | 8×H200 | $33.81 | ~2026-08-08T11:11Z | H39 m7×wZA lr3e5 | bootstrap |
-| mine-h40-1 | gentle-eagle-c9 | 8×B200 | $40.00 | ~2026-08-08T11:12Z | H40 m7×wZA ep3 | bootstrap |
-| mine-h41-1 | zesty-lion-26 | 8×H200 | $31.92 | ~2026-08-08T11:14Z | H41 m7×wZA r32 | bootstrap |
+| mine-h37-1 | swift-matrix-54 | 8×H200 | $28.00 | ~2026-08-08T09:53Z | H37 m7×wZA lr1e4 | n80 a203 |
+| mine-h38-1 | golden-matrix-b9 | 8×H200 | $28.00 | ~2026-08-08T09:52Z | H38 m7×wZA ep2 | n80 @5/80 |
+| mine-h39-1 | swift-wolf-6e | 8×H200 | $33.81 | ~2026-08-08T11:11Z | H39 m7×wZA lr3e5 | train |
+| mine-h40-1 | gentle-eagle-c9 | 8×B200 | $40.00 | ~2026-08-08T11:12Z | H40 m7×wZA ep3 | train |
+| mine-h41-1 | zesty-lion-26 | 8×H200 | $31.92 | ~2026-08-08T11:14Z | H41 m7×wZA r32 | train |
 
 SSH: h37 .232:40311 · h38 .236:40298 · h39 .54:40301 · h40 .147:20300 ·
 h41 .19:20099 · known_hosts `/tmp/mine-h{37,38,39,40,41}-1.known_hosts` ·
@@ -32,6 +32,6 @@ h41 .19:20099 · known_hosts `/tmp/mine-h{37,38,39,40,41}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
-| 2026-08-07T23:14Z | h37–h41 match | H34/35/36 REFUTE+rm; H39/40/41 rented; H37/38 p207 |
-| 2026-08-07T23:05Z | h34–h38 match | H38 n80 a203; H37 p205→p206; H34–36 n80 |
-| 2026-08-07T22:56Z | h34–h38 match | H37/H38 chall p205; H38 false_probe Q |
+| 2026-08-07T23:21Z | h37–h41 match | H37/H38 n80 a203 started; H39–41 train |
+| 2026-08-07T23:14Z | h37–h41 match | H34/35/36 REFUTE+rm; H39/40/41 rented |
+| 2026-08-07T23:05Z | h34–h38 match | H38 n80 a203; H37 p205→p206 |
