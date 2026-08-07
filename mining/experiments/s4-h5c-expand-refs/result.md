@@ -57,6 +57,18 @@ Rented `mine-h5c-1` / `golden-hawk-dc` 8×H200 @$28/h `--ttl 10h`
 (remove 2026-08-07T19:37:46Z). Bootstrap pid 902 installing stack then
 kevin→train. See `results/h5c_pod_launched.json`.
 
-## Next action
+## Mid50 early n40 (pass 112)
 
-Poll pod for train launch → merge → n80 vs live TalentPigs (gate >0.04).
+| metric | value |
+|---|---|
+| ckpt | checkpoint-50 (best train loss 0.4186) |
+| margin / z | **−0.01924** / −1.48 |
+| S_c / S_k | 0.00420 / 0.02319 |
+| r_c / base× | **0.897** (H4 fail) / 1.065 OK |
+| mean clip-L1 c/k | 0.015 / 0.028 (target ≥0.042) |
+| weight-identical | false (shard tails differ) |
+
+**FAIL — do not submit.** Same distill-envelope miss as H1v2. Final ckpt-99
+n80 still running for formal H5c close. Artifacts:
+`results/h5c_mid50_n40_result.json`, `h5c_mid50_sim_n40.json`.
+Merged HF push to private `…-h5c-merged` failed (storage limit).

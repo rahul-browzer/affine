@@ -9,7 +9,7 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H5c | highest | kevin-init thought LoRA on expanded teacher_refs → clip-L1 ≥ 0.042, r ∈ [0.70,0.85], margin > 0.04 | **open** |
+| 1 | H5c | highest | kevin-init thought LoRA on expanded teacher_refs → clip-L1 ≥ 0.042, r ∈ [0.70,0.85], margin > 0.04 | **open** (mid50 FAIL) |
 | 2 | H4 | high (rule, not a run) | keep r ∈ [0.70,0.85] and base× ≤ 1.15 or the gates kill S | **open** (design rule) |
 | 3 | H3 | instrumental | with Λ2 ≈ king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
 | — | H5b | was highest | TalentPigs-init thought-only LoRA (lr 1e-5) → margin > 0.04 | **refuted** |
@@ -25,7 +25,7 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H5c — L1-headroom distill vs TalentPigs
 - **Claim:** kevin-init thought LoRA on expanded teacher_refs clears margin > 0.04.
 - **Test:** train 99 steps on 791 thought examples (lr 2e-5, r16) → n80 sim.
-- **Status:** train ~55/99 on `mine-h5c-1`; mid50 salvaged (`7085a43…`); mid50 early n40 on GPUs 4,5 (loss rose 0.419→0.568@55). Detail: `experiments/s4-h5c-*/`.
+- **Status:** mid50 n40 **FAIL** margin −0.019 r=0.897 clipL1=0.015; train done (best@50); final merge→n80 running. Detail: `experiments/s4-h5c-expand-refs/results/h5c_mid50_n40_result.json`.
 
 ### H4 — stay inside the distill envelope
 - **Claim:** r ∈ [0.70, 0.85] and base× ≤ 1.15, or gates invalidate the miner.

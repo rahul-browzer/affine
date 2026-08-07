@@ -7,10 +7,10 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $33,627.29 | 2026-08-07T10:29Z |
-| cumulative mining spend | ~$276 (`mine-sim-1` ~$252 + `mine-h5c-1` $23.78) | 2026-08-07T10:29Z |
-| headroom to floor | ~$5,627 | |
-| headroom to $4,000 cap | ~$3,724 | |
+| Lium balance | $33,562.10 | 2026-08-07T11:06Z |
+| cumulative mining spend | ~$294 (`mine-sim-1` ~$252 + `mine-h5c-1` $41.52) | 2026-08-07T11:06Z |
+| headroom to floor | ~$5,562 | |
+| headroom to $4,000 cap | ~$3,706 | |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -19,6 +19,7 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-07T11:06Z | 33562.10 | mine-h5c-1 at $41.52; mid50 n40 FAIL recorded (no new rental); floor OK |
 | 2026-08-07T10:29Z | 33627.29 | mine-h5c-1 at $23.78; mid50 early sim launched (no new rental); floor OK |
 | 2026-08-07T10:27Z | 33635.45 | mine-h5c-1 at $23.26 accrued; mid50 HF salvage OK; floor OK |
 | 2026-08-07T10:01Z | 33676.21 | mine-h5c-1 at $10.88 accrued; floor OK |

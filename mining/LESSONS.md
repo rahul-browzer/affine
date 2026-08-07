@@ -55,6 +55,11 @@ Format: `- <finding> — <the number or error that proves it>`
 - LoRA r=16 / alpha=32 on 2 GPUs takes ~1h45m for 110 steps at 440 examples.
 - Free GPUs 4,5 can merge+n40 a mid-ckpt while train holds 6,7; yield chall
   when final `h5c_merge.done` appears so the post-train pipe is not blocked.
+- H5c mid50 (kevin-init thought LoRA, best loss 0.419@50) n40 margin **−0.019**
+  vs TalentPigs; r=0.897 (H4 fail) + clip-L1 0.015≪king 0.028 — same envelope
+  miss as H1v2, not a near-miss.
+- HF **private** repo storage can hard-fail uploads (`Private repository storage
+  limit reached`); keep candidate merges public or prune old private repos.
 
 ## Shell / pod ops
 
