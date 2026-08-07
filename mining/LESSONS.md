@@ -17,8 +17,17 @@ Format: `- <finding> — <the number or error that proves it>`
   Recent winners clear it narrowly (TalentPigs: +0.0280, z=3.22, SE=0.0087).
 - Clip-L1 is the cheap lever once Λ2 is near the king (H3, supported):
   Spearman 0.936 with outcome vs 0.711 for Λ2.
-- Stay inside the distill envelope (H4): r ∈ [0.70, 0.85], base× ≤ 1.15.
-  Every recipe that breached it lost — H1 r-fail, H1v2 r=0.904, H5b r=0.670.
+- **The r gate is [0.3, 4.0], not [0.70, 0.85].** The tight band was our own
+  invention (old H4) and is refuted. r=0.670/0.897/0.904 were all gate-valid
+  (`h1v2_decision_n80.json`: `chall_valid: true` at r=0.904) — those runs lost
+  on **margin**, never on calibration. Our only positive margin (H5b +0.00322)
+  had r=0.670, outside the invented band. Treat r as a diagnostic, never a
+  training target; low r is a symptom of a faithful distill, not its cause.
+- The calibration limits that actually exist: r ∈ [0.3, 4.0], and challenger
+  empty-baseline ≤ 1.25× the king's on the same slice (gate 3b).
+- What actually binds us is the crowning rule: margin > max(3·SE, 0.02). With
+  SE ≈ 0.008 the real bar is ≈0.024, and the whole field sits within ±0.014 of
+  the king. We lose on margin, not on gates.
 - The field is bunched at the king's level: last six challengers ranged
   −0.0028 to +0.0139. Wins are rare excursions, not large edges.
 
@@ -56,8 +65,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - Free GPUs 4,5 can merge+n40 a mid-ckpt while train holds 6,7; yield chall
   when final `h5c_merge.done` appears so the post-train pipe is not blocked.
 - H5c mid50 (kevin-init thought LoRA, best loss 0.419@50) n40 margin **−0.019**
-  vs TalentPigs; r=0.897 (H4 fail) + clip-L1 0.015≪king 0.028 — same envelope
-  miss as H1v2, not a near-miss.
+  vs TalentPigs; gate-valid at r=0.897, lost because clip-L1 0.015 ≪ king 0.028.
+  A clip-L1 miss, not a calibration miss.
 - HF **private** repo storage can hard-fail uploads (`Private repository storage
   limit reached`); keep candidate merges public or prune old private repos.
 
@@ -81,6 +90,9 @@ Format: `- <finding> — <the number or error that proves it>`
   occupy others — do not serialize (H7+H8 beside mine-h5c-1; 3 live mine-*).
 - Reign earners with null published S (e.g. golden-crown) are still valid merge
   parents — they hold weight_bps and are untried vs TalentPigs.
+- Launching train without uploading its post_train waiter leaves a dead-end when
+  train.done lands — H6 train ran with only `start_h6.sh` on pod until pass121
+  scp'd `post_train_pipeline.sh` (pid 53727).
 
 ## Money / platform
 

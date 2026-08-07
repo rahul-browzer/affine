@@ -15,14 +15,15 @@ Rewritten every pass. Do not append.
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 #3 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
 | min_submission_block | **8767079** · min_margin 0.02 |
-| Lium / spend | $33,520 · ~$410 · cap rem ~$3,590 |
+| Lium / spend | $33,509 · ~$317 · cap rem ~$3,683 |
 | miner | τ10.000 free · 0 submissions |
 | H5c mid50 | margin **−0.019** · r=0.897 · clipL1 0.015 |
 | H5c HF | public `unconst/Affine-5czsc2fc98-h5c-merged` @ 0cda099e |
-| H5c n80 | **RUNNING** pid 43690 · ~24/80 @11:33Z |
-| H6 train | **RUNNING** pid 46680 · ~7/99 loss≈0.75@5 |
-| H7 | **BOOTSTRAP** pid 829 · pandora DL ~done |
-| H8 | **BOOTSTRAP** pid 820 · TP×golden-crown α0.75 |
+| H5c n80 | **RUNNING** pid 43690 · ~37/80 @11:39Z |
+| H6 train | **RUNNING** pid 46680 · ~15/99 loss≈0.688@15 |
+| H6 pipe | **WAITING** pid 53727 (uploaded pass121; was missing on pod) |
+| H7 | **MERGE** ~13–14/16 shards → then n80 |
+| H8 | **BOOTSTRAP** teacher DL after TP+golden-crown done |
 
 ## What's running
 
@@ -45,7 +46,9 @@ No submit until some n80 margin > 0.04.
 ```bash
 ssh … -p 40298 … 'cat /root/affine_data/h5c_sim_progress.json; \
   test -f /root/affine_data/h5c_decision.json && cat $_; \
-  grep train-log /root/logs/h6_train.nohup | tail -3'
+  test -f /root/affine_data/h6_decision.json && cat $_; \
+  tail -n 3 /root/logs/h6_pipeline.nohup; \
+  grep train-log /root/logs/h6_train.nohup | tail -2'
 ssh … -p 40299 … 'test -f /root/affine_data/h7_decision.json && cat $_; \
   cat /root/affine_data/h7_sim_progress.json 2>/dev/null; \
   tail -n 8 /root/logs/bootstrap_h7.log'
