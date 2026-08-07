@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2437.6091887950897,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/merges/h21-tp75",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h21",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.00681590520859273,
+    "se": 0.009707997803865588,
+    "z": -0.7020917542728257,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.024750495130493922,
+      "gate_pass_rate": 0.8270440251572327,
+      "bank_frac": 0.521875,
+      "calib_ratio": 0.7693916085061347,
+      "baseline_abs": 0.12774524650455352,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": 0.0013141383302786244,
+      "mean_mix": 0.024750495130493922
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.01778769827657819,
+      "gate_pass_rate": 0.8391167192429022,
+      "bank_frac": 0.471875,
+      "calib_ratio": 0.7900437333588889,
+      "baseline_abs": 0.12787217314181498,
+      "n_turns": 80,
+      "n_pairs": 317,
+      "mean_lambda2": -0.003923311775616788,
+      "mean_mix": 0.01778769827657819
+    },
+    "slice": {
+      "seed": 7603720975315549095,
+      "n": 80,
+      "digest": "3706d078c97a34914683db99583c63bb71a0a5ce6fcbc7729e9b8a5f3f30485f",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.7900437333588889,
+    "chall_baseline_abs": 0.12787217314181498,
+    "king_baseline_abs": 0.12774524650455352,
+    "base_x": 1.0009935918614157
+  }
+}

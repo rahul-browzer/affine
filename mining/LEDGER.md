@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $32,487.63 | 2026-08-07T16:37Z |
-| cumulative mining spend | ~$1,720 (h21–25 accruing; no new rent) | 2026-08-07T16:37Z |
-| **available for mining** | **~$22,500** (balance − $10,000 floor) | 2026-08-07T16:37Z |
-| validator burn (never starve) | $70.15/h — eval $64.00 + bench $5.80 + datagen $0.35 | 2026-08-07T16:37Z |
-| miner burn (5 pods) | $179.52/h → pool hits floor in ~5 days at this rate | 2026-08-07T16:37Z |
+| Lium balance | $191,253.33 | 2026-08-07T17:21Z |
+| cumulative mining spend | ~$1,870 (h21+h22 torn; h23–26 accruing) | 2026-08-07T17:21Z |
+| **available for mining** | **~$181,250** (balance − $10,000 floor) | 2026-08-07T17:21Z |
+| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 + datagen $0.35 | 2026-08-07T17:21Z |
+| miner burn (4 pods) | ~$151.5/h (h23 $63.60 + h24/25 $28 + h26 $31.92) | 2026-08-07T17:21Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -20,13 +20,13 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | UTC | Lium USD | event |
 |---|---|---|
-| 2026-08-07T16:17Z | 32569.72 | rented mine-h24-1 brave-orbit-31 8×H200 @$28/h ttl8h COUNT=8; H24 launched |
-| 2026-08-07T16:17Z | 32569.72 | rm mine-h20-1(~$45) after REFUTE m=−0.01168; ~$1630 cum |
-| 2026-08-07T16:10Z | 32592.24 | rented mine-h23-1 gentle-fox-b5 8×B300 @$63.60/h ttl8h COUNT=8; H23 launched |
-| 2026-08-07T16:09Z | 32606.64 | rm mine-h19-1(~$37) after REFUTE m=+0.00348; ~$1540 cum |
-| 2026-08-07T16:08Z | 32608.64 | rented mine-h25-1 golden-shark-c8 @$28/h ttl8h COUNT=8; H25 launched |
-| 2026-08-07T16:07Z | 32608.64 | rm dud mine-h25-1 golden-fox-c0(~$0.05; COUNT=2 @$5.66) |
-| 2026-08-07T16:06Z | 32608.69 | rm mine-h18-1(~$28) after REFUTE band×1.997 |
-| 2026-08-07T15:42Z | 32698.32 | rented mine-h21-1 @$28/h + mine-h22-1 @$31.92/h ttl8h |
-| 2026-08-07T15:19Z | 32764.21 | rm mine-h16-1(~$41) + mine-h17-1(~$45) after n80 REFUTE |
-| 2026-08-07T14:58Z | 32839.81 | rm dud h18(~$2); rented mine-h18-1 golden-comet-e1 @$28/h |
+| 2026-08-07T17:21Z | 191253.33 | rented mine-h26-1 swift-matrix-98 8×H200 @$31.92/h ttl8h COUNT=8; H26 launched |
+| 2026-08-07T17:20Z | 191269.09 | rm mine-h21-1(~$46) + mine-h22-1(~$52) after REFUTE |
+| 2026-08-07T17:19Z | 191274.02 | balance jump ~$32.5k→~$191k (operator top-up / credit; not miner fund) |
+| 2026-08-07T16:17Z | 32569.72 | rented mine-h24-1 @$28/h; rm h20 after REFUTE |
+| 2026-08-07T16:10Z | 32592.24 | rented mine-h23-1 @$63.60/h |
+| 2026-08-07T16:08Z | 32608.64 | rented mine-h25-1 @$28/h; rm dud golden-fox-c0 |
+| 2026-08-07T16:06Z | 32608.69 | rm mine-h18-1 after band REFUTE |
+| 2026-08-07T15:42Z | 32698.32 | rented mine-h21-1 @$28 + mine-h22-1 @$31.92 |
+| 2026-08-07T15:19Z | 32764.21 | rm h16+h17 after n80 REFUTE |
+| 2026-08-07T14:58Z | 32839.81 | rented mine-h18-1 @$28/h |
