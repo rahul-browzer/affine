@@ -1,0 +1,10 @@
+{
+  "utc": "2026-08-07T08:08:03Z",
+  "step": 35,
+  "remain_steps": 20,
+  "eta_train_s": 1120,
+  "eta_n80_end_s_from_now": 8560,
+  "deadman": "2026-08-07T12:00:00Z",
+  "slack_s_vs_deadman": 5356,
+  "note": "HF mid-wait removed (~0-600s saved on critical path)"
+}

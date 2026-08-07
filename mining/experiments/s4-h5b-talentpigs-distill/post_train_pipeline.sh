@@ -218,33 +218,29 @@ PY
 
 # Adapter + merged HF salvage in background (TTL/deadman insurance).
 # Do not submit these repos — salvage only.
-# Mid-ckpt watcher already pushes adapter-final under path-in-repo=adapter/;
-# wait for that (or mid exit) so we do not race two commits on the same
-# private repo, then only push adapter root if mid missed it.
+#
+# CRITICAL: do NOT wait on mid HF uploads here. A 60×10s poll (pass 79–85)
+# sat on the critical path after merge and could burn ≤10m of chall-serve/n80
+# budget under deadman 12:00Z. Mid owns adapter-final; pipe only pushes
+# adapter root if mid is already gone without that tag. Merged push always
+# fires async. Chall serve starts immediately after this non-blocking fork.
 HF_LORA_REPO=${HF_LORA_REPO:-unconst/Affine-5czsc2fc98-h5b-lora}
 HF_MERGED_REPO=${HF_MERGED_REPO:-unconst/Affine-5czsc2fc98-h5b-merged}
 HF_BASE_HUB=${HF_BASE_HUB:-TalentPigs/affine-5ekxlcg3fx-abc}
 SEEN_MID=${SEEN_MID:-/root/h5b/mid_ckpt_salvaged.txt}
 if [[ -n "${HF_TOKEN:-}" ]]; then
-  log "wait briefly for mid-salvage adapter-final (avoid HF commit race)"
-  for _ in $(seq 1 60); do
-    if [[ -f "$SEEN_MID" ]] && grep -qx "adapter-final" "$SEEN_MID"; then
-      log "mid already salvaged adapter-final — skip root adapter push"
-      break
-    fi
-    if ! pgrep -f "s4-h5b-talentpigs-distill/mid_ckpt_salvage.sh" >/dev/null 2>&1 \
-      && [[ -f "$TRAIN_DIR/train.done" ]]; then
-      log "mid watcher gone; will push adapter root if needed"
-      break
-    fi
-    sleep 10
-  done
   if [[ -f "$SEEN_MID" ]] && grep -qx "adapter-final" "$SEEN_MID"; then
+    log "mid already salvaged adapter-final — skip root adapter push"
     echo "{\"skipped\":true,\"reason\":\"mid adapter-final present\"}" \
       >/root/affine_data/h5b_adapter_salvage.json
     rm -f /root/logs/h5b_push_adapter.pid
+  elif pgrep -f "s4-h5b-talentpigs-distill/mid_ckpt_salvage.sh" >/dev/null 2>&1; then
+    log "mid still running — skip root adapter push (mid owns adapter-final; no wait)"
+    echo "{\"skipped\":true,\"reason\":\"mid still running; owns adapter-final\"}" \
+      >/root/affine_data/h5b_adapter_salvage.json
+    rm -f /root/logs/h5b_push_adapter.pid
   else
-    log "background HF push adapter → $HF_LORA_REPO (base_hub=$HF_BASE_HUB)"
+    log "mid gone without adapter-final; background HF push adapter → $HF_LORA_REPO"
     nohup python3 /root/mining_src/s4-h1-sft/salvage_adapter.py \
       --adapter "$ADAPTER" \
       --repo "$HF_LORA_REPO" \
@@ -254,7 +250,7 @@ if [[ -n "${HF_TOKEN:-}" ]]; then
       >>/root/logs/h5b_push_adapter.nohup 2>&1 &
     echo $! >/root/logs/h5b_push_adapter.pid
   fi
-  log "background HF push merged → $HF_MERGED_REPO"
+  log "background HF push merged → $HF_MERGED_REPO (non-blocking)"
   nohup python3 /root/mining_src/s4-h1-sft/push_merged.py \
     --merged "$MERGED" \
     --repo "$HF_MERGED_REPO" \
@@ -275,37 +271,19 @@ if [[ "$code" != "200" ]]; then
   exit 1
 fi
 
-# Merge used CUDA 6,7; clear before serve so chall lands on physical 4,5
-# (serve_three sets CUDA_VISIBLE_DEVICES per engine, but a leaked 6,7 parent
-# env has bitten us before — be explicit).
+# Merge used CUDA 6,7; clear before serve so chall lands on physical 4,5.
 unset CUDA_VISIBLE_DEVICES
 
-log "stop chall; serve merged as chall:8002 (keep teacher+TalentPigs king)"
-pidf=/root/logs/vllm_chall.pid
-if [[ -f "$pidf" ]]; then
-  pid=$(cat "$pidf")
-  if kill -0 "$pid" 2>/dev/null; then
-    kill "$pid" || true
-    for _ in $(seq 1 40); do
-      kill -0 "$pid" 2>/dev/null || break
-      sleep 2
-    done
-    kill -9 "$pid" 2>/dev/null || true
-  fi
-  rm -f "$pidf"
-fi
-pkill -f "vllm serve .*--port 8002" 2>/dev/null || true
-sleep 5
-
-export TEACHER_REPO=${TEACHER_REPO:-zai-org/GLM-4.5-Air-FP8}
-export TEACHER_REV=${TEACHER_REV:-}
-export KING_REPO KING_REV
-export CHALL_REPO=$MERGED
-# Local dir: serve_three clears rev when repo is a directory; sentinel avoids
-# the kevin Hub-sha default when CHALL_REV is empty.
-export CHALL_REV=local
-bash /root/mining_src/s3-duel-sim/serve_three.sh
-bash /root/mining_src/s3-duel-sim/wait_ready.sh
+# Chall-only restart (same proven path as H1v2). Keep TalentPigs king hot —
+# restart_for_h2's KEVIN_* vars are the king slot name, not "must be kevin".
+log "chall-only re-serve $MERGED (keep teacher+TalentPigs king)"
+RESTART_KING=0 \
+  MERGE="$MERGED" \
+  KEVIN_REPO="$KING_REPO" \
+  KEVIN_REV="$KING_REV" \
+  TEACHER_REPO=${TEACHER_REPO:-zai-org/GLM-4.5-Air-FP8} \
+  TEACHER_REV=${TEACHER_REV:-} \
+  bash /root/mining_src/s4-h2-merge/restart_for_h2.sh
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h5b_chall_serve.done
 log "CHALL_SERVE_DONE"
 

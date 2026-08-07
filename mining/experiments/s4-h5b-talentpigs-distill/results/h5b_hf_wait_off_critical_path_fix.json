@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-07T08:08:03Z",
+  "pass": 86,
+  "fix": "Removed post-merge mid-HF wait (\u226410m) from H5b critical path; chall-only via restart_for_h2; HF salvage non-blocking",
+  "old_risk": "60x10s poll for mid adapter-final blocked chall serve/n80 after merge",
+  "new_behavior": "if mid running skip adapter root push; merged push bg; restart_for_h2 RESTART_KING=0 with TalentPigs KEVIN_*",
+  "pipe_old_pid": 256662,
+  "pipe_new_pid": 258082,
+  "train_untouched": 245350,
+  "mid_untouched": 251832,
+  "train_step_at_fix": 35
+}

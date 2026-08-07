@@ -2953,3 +2953,41 @@ No submit / no registration burn.
 
 Read `results/h5b_decision.json` when harvest lands (~09:30–10:40Z). Until
 then poll train→merge→identity→HF→n80 (retries if needed). Gate >0.04 + H4.
+
+
+## 2026-08-07T08:08:03Z — pass 86: H5b HF wait off critical path
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $217.21; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,846.85 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+`min_submission_block`=8767079.
+
+### What I did
+
+1. No `h5b_decision.json` — train step **35**/55, loss@35 **0.468**, ETA
+   train.done ~08:27Z. Engines 200×3; mid **251832**; harvest **1917667**;
+   deadman **1783662**. Slack to deadman vs ETA n80 end ~1.5h.
+2. Audited post-merge path: pipe still had a **60×10s** poll waiting on mid
+   `adapter-final` HF salvage **before** chall serve — up to **10m** on the
+   n80 critical path under deadman 12:00Z. Also used inline kill+`serve_three`
+   instead of the proven H1v2 chall-only `restart_for_h2`.
+3. Patched `post_train_pipeline.sh`: mid HF wait removed (if mid running →
+   skip adapter root push; mid owns adapter-final); merged push stays async;
+   chall-only via `RESTART_KING=0` + `restart_for_h2` with TalentPigs in
+   `KEVIN_*` king slot. SCP'd; restarted pipe **258082** (train **245350** +
+   mid **251832** untouched). Cleared any kill-induced abort marker; harvest
+   still clean (no false decision).
+4. Evidence: `results/h5b_hf_wait_off_critical_path_fix.json`,
+   `results/h5b_time_budget_pass86.json`.
+
+### Money
+
+Lium $33,846.85; mining spend ≈ $217. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:20–10:30Z). Until
+then poll train→merge→identity→chall-only→n80 (retries if needed). Gate >0.04 + H4.
