@@ -1,0 +1,11 @@
+{
+  "repo": "unconst/Affine-5czsc2fc98-h5c-merged",
+  "private": false,
+  "merged": "/root/h5c/merged",
+  "bytes": 71903778184,
+  "n_shards": 3,
+  "base_hub": "kevin954/Affine-5dfqbbh8ev-sft",
+  "commit_sha": "https://huggingface.co/unconst/Affine-5czsc2fc98-h5c-merged/commit/0cda099ef72fb9a1057aa33f3d7a586fd84deefe",
+  "uploaded_utc": "2026-08-07T11:22:04Z",
+  "note": "full merged salvage; NOT a submission until Stage-5 gate"
+}

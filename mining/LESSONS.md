@@ -75,6 +75,8 @@ Format: `- <finding> — <the number or error that proves it>`
   `train_result OR train_fallback OR train.done`, or a fail-closed promote
   leaves the pod burning until the deadman.
 - Prefer direct SSH + `nohup` for long jobs over `lium exec`.
+- On an 8× sim pod, GPUs 6,7 stay free while teacher/king/chall hold 0–5 —
+  launch the next LoRA there instead of renting (H6 pid 46680 beside H5c n80).
 
 ## Money / platform
 

@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-07T11:24:46Z",
+  "hypo": "H6",
+  "pid": 46680,
+  "pod": "mine-h5c-1",
+  "base": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2…",
+  "data": "/root/h6/teacher_refs_shortz_nolist.jsonl",
+  "examples": 790,
+  "lr": 5e-06,
+  "loss_on": "thought",
+  "gpus": "6,7",
+  "out": "/root/h6/train",
+  "log": "/root/logs/h6_train.nohup",
+  "parallel_with": "H5c n80 pid 43690 on engines 0-5",
+  "note": "do not tear mine-h5c-1 until H6 train+sim resolve"
+}
