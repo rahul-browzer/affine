@@ -750,3 +750,33 @@ Lium $34,539.54; floor OK. Mining spend ≈ $43.18. TTL 04:53Z (~4.1h left).
 
 When `h2_kp65_merge.done`: re-serve chall=h2-kp65, run 80-turn sim. If margin
 still < 0.02 → refute H2 for kevin×pandora; pivot H1 SFT.
+
+---
+
+## 2026-08-07T00:50Z — pass 22: α=0.65 merge DONE; re-serve→sim launched
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $45.83; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Polled α=0.65 merge — completed @ 00:48:53Z (333s):
+   - 1026 keys merged, 19 copied from kevin (MTP); first_1MiB ≠ kevin
+   - meta → `experiments/s4-h2-merge/results/h2_kp65_merge_meta.json`
+2. Launched nohup pipeline pid **71925** (`/root/logs/h2_kp65_pipeline.sh`):
+   - `MERGE=/root/merges/h2-kp65 restart_for_h2.sh` (teacher kept)
+   - king+chall started @ 00:49:47Z; wait_ready in progress at poll
+   - then auto `run_sim_duel.py --chall-repo /root/merges/h2-kp65`
+     → `/root/affine_data/h2_kp65_sim_result.json`
+3. Live king unchanged kevin S≈0.03956. No submit. No new rental.
+
+### Money
+
+Lium $34,531.75; floor OK. Mining spend ≈ $45.83. TTL 04:53Z (~4.0h left).
+
+### Next
+
+Collect `h2_kp65_sim_result.json`; apply plan.md decision rule. Margin <0.02
+→ refute H2 kevin×pandora → pivot H1 SFT. No submit until >0.04 + H4.
