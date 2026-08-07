@@ -80,9 +80,18 @@ Merged HF push to private `…-h5c-merged` failed (storage limit).
 | finished | 2026-08-07T11:12:49Z · elapsed 431s |
 | weight_identical | **false** (shard tails differ vs kevin + TalentPigs) |
 | out | `/root/h5c/merged` 68G · visual sidecars restored |
-| HF push | background → `unconst/Affine-5czsc2fc98-h5c-merged` (TTL insurance) |
-| chall | vLLM :8002 on GPUs 4,5 loading @11:16Z (not ready yet) |
-| n80 | pending chall ready |
+| HF push | private attempt FAILED (storage limit) |
 
 Artifacts: `results/h5c_merge_meta.json`, `h5c_identity.json`,
-`h5c_final_merge_status.json`. Next: poll chall → n80; refute if margin≤0.04.
+`h5c_final_merge_status.json`.
+
+## Final n80 launch (pass 114)
+
+| item | value |
+|---|---|
+| chall READY | 2026-08-07T11:19:28Z · `/root/h5c/merged` :8002 |
+| n80 | **RUNNING** pid 43690 → `/root/affine_data/h5c_sim_result.json` |
+| HF merged | repo flipped **public**; push `--public` pid 43981 (67 GiB) |
+| gate | margin > 0.04 else refute + teardown |
+
+Artifact: `results/h5c_n80_launched.json`. Next: poll decision.

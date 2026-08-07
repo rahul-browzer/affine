@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-07T11:19:28Z",
+  "pass": 114,
+  "event": "final_chall_ready_n80_launched",
+  "chall_ready_utc": "2026-08-07T11:19:28Z",
+  "chall_id": "/root/h5c/merged",
+  "king": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "sim_cmd": "run_sim_duel.py --n-turns 80 --out /root/affine_data/h5c_sim_result.json",
+  "sim_pid": 43690,
+  "hf_merged_repo": "unconst/Affine-5czsc2fc98-h5c-merged",
+  "hf_merged_visibility": "public (flipped pass114; prior private push failed storage limit)",
+  "hf_push_pid": 43981,
+  "hf_push_flags": "--public",
+  "decision_rule": "margin > 0.04 and H4 else refute H5c + tear down mine-h5c-1",
+  "eta_n80_done_utc": "2026-08-07T12:30Z–13:30Z"
+}

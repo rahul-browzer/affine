@@ -248,9 +248,11 @@ if [[ -n "${HF_TOKEN:-}" ]]; then
     echo $! >/root/logs/h5c_push_adapter.pid
   fi
   log "background HF push merged → $HF_MERGED_REPO (non-blocking)"
+  # Always --public: private HF storage quota hard-fails full merges (LESSONS).
   nohup python3 /root/mining_src/s4-h1-sft/push_merged.py \
     --merged "$MERGED" \
     --repo "$HF_MERGED_REPO" \
+    --public \
     --commit-message "H5c kevin-init thought merged salvage (TTL insurance; not a submission)" \
     --out-meta /root/affine_data/h5c_merged_salvage.json \
     >>/root/logs/h5c_push_merged.nohup 2>&1 &
