@@ -36,7 +36,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Status:** merge OK; engines loading. `experiments/s4-h25-tp-adambell-m7-a90/`.
 
 ### H21 / H22 / H23 / H24
-- H21 n80 ~2/80; H22/H25 engines; H23/H24 DL parents.
+- H21 n80 ~15/80; H22/H25 chall@0.72 loading; H23 DL Talucampe; H24 DL teacher.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman with outcome 0.936 (clip-L1) vs 0.711 (Λ2), n=14.

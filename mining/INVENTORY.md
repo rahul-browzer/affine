@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h21-1 | golden-wolf-62 | 8×H200 | $28.00 | 2026-08-07T23:41:29Z | H21 TP×sft2 α0.75 | n80 ~2/80 |
-| mine-h22-1 | lunar-shark-f2 | 8×H200 | $31.92 | 2026-08-07T23:41:57Z | H22 TP×kevin α0.90 | engines loading |
-| mine-h23-1 | gentle-fox-b5 | 8×B300 | $63.60 | 2026-08-08T00:09:46Z | H23 TP×Talucampe α0.90 | DL TalentPigs |
-| mine-h24-1 | brave-orbit-31 | 8×H200 | $28.00 | 2026-08-08T00:17:17Z | H24 TP×0ronoCris α0.90 | DL TalentPigs |
-| mine-h25-1 | golden-shark-c8 | 8×H200 | $28.00 | 2026-08-08T00:08:24Z | H25 TP×Radiant28 α0.90 | engines loading |
+| mine-h21-1 | golden-wolf-62 | 8×H200 | $28.00 | 2026-08-07T23:41:29Z | H21 TP×sft2 α0.75 | n80 ~15/80 |
+| mine-h22-1 | lunar-shark-f2 | 8×H200 | $31.92 | 2026-08-07T23:41:57Z | H22 TP×kevin α0.90 | chall@0.72 loading |
+| mine-h23-1 | gentle-fox-b5 | 8×B300 | $63.60 | 2026-08-08T00:09:46Z | H23 TP×Talucampe α0.90 | DL Talucampe |
+| mine-h24-1 | brave-orbit-31 | 8×H200 | $28.00 | 2026-08-08T00:17:17Z | H24 TP×0ronoCris α0.90 | DL teacher |
+| mine-h25-1 | golden-shark-c8 | 8×H200 | $28.00 | 2026-08-08T00:08:24Z | H25 TP×Radiant28 α0.90 | chall@0.72 loading |
 
 SSH: h21 .237:40310 · h22 .21:20100 · h23 .244:40300 · h24 .234:40311 · h25 .232:40305
 known_hosts `/tmp/mine-h{21,22,23,24,25}-1.known_hosts` · **Free slots: 0**. Cap 5.
@@ -31,6 +31,6 @@ known_hosts `/tmp/mine-h{21,22,23,24,25}-1.known_hosts` · **Free slots: 0**. Ca
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-07T16:25Z | h21–25 match | chall H22/H25→0.72; serve_three patched all |
 | 2026-08-07T16:22Z | h21–25 match | poll OK; H22/H25 merge done; H26 staged |
 | 2026-08-07T16:18Z | h21–25 match; h20 gone | H20 REFUTE→rm; H24 up COUNT=8 |
-| 2026-08-07T16:15Z | h20–22+h25+h23 match | H21 Triton recover; H20@72/80 |

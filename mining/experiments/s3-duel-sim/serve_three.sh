@@ -55,12 +55,18 @@ CHALL_REV=${CHALL_REV:-6a5815fad8f4e34c983b1933c1fae5762fe25220}
 TP=${TP:-2}
 MAXLEN=${MAXLEN:-32768}
 GPUUTIL=${GPUUTIL:-0.80}
+# Chall at 0.80 OOMs on first prompt-logprobs (H20: log_softmax needs ~7.2GiB free).
+CHALL_GPUUTIL=${CHALL_GPUUTIL:-0.72}
 BATCHED=${BATCHED:-8192}
 
 mkdir -p /root/logs
 
 _launch() {
   local name=$1 port=$2 gpus=$3 repo=$4 rev=$5
+  local util=$GPUUTIL
+  if [[ "$name" == "chall" ]]; then
+    util=$CHALL_GPUUTIL
+  fi
   local log=/root/logs/vllm_${name}.log
   local pidf=/root/logs/vllm_${name}.pid
   if [[ -f "$pidf" ]] && kill -0 "$(cat "$pidf")" 2>/dev/null; then
@@ -85,12 +91,12 @@ _launch() {
   # (H14/H15: FileNotFoundError / missing __triton_launcher.so). Isolate.
   local tcache=/root/.triton/cache/${name}
   mkdir -p "$tcache"
-  echo "[serve] $(date -u +%Y-%m-%dT%H:%M:%SZ) start $name repo=$repo rev=${rev:-latest} port=$port gpus=$gpus TRITON_CACHE_DIR=$tcache"
+  echo "[serve] $(date -u +%Y-%m-%dT%H:%M:%SZ) start $name repo=$repo rev=${rev:-latest} port=$port gpus=$gpus util=$util TRITON_CACHE_DIR=$tcache"
   CUDA_VISIBLE_DEVICES=$gpus TRITON_CACHE_DIR=$tcache nohup vllm serve "$repo" \
     --port "$port" \
     --tensor-parallel-size "$TP" \
     --max-model-len "$MAXLEN" \
-    --gpu-memory-utilization "$GPUUTIL" \
+    --gpu-memory-utilization "$util" \
     --max-num-batched-tokens "$BATCHED" \
     --attention-backend FLASH_ATTN \
     --attention-config.use_trtllm_attention 0 \
