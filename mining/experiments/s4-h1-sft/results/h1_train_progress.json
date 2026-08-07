@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-07T02:22:55Z",
+  "step": 31,
+  "total": 110,
+  "frac": 0.2818181818181818,
+  "train_done": false,
+  "ckpt_dirs": [],
+  "pipeline_alive": true,
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 200
+  }
+}

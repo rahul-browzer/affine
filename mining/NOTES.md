@@ -1150,3 +1150,40 @@ Lium $34,391.63; floor OK. Mining spend ≈ $80.83. Host deadman 07:00Z.
 Collect `h1_sim_result.json` (or n40); apply plan.md decision rule.
 Prefer n80 for submit gate; n40 is triage only. Kill mine-sim-1 as soon
 as sim done (name-check). No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T02:21Z — pass 34: H1 poll + HF salvage verify + train_progress harvest
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $82.07; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host deadman 1405846 still armed for 07:00Z.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; Lium $34,383.87 (floor OK).
+   Train step **30/110** @ ~59s/it (ETA ~03:41Z); engines 200×3;
+   pipeline 86845 waiting; mid-salvage 83669; no sim artifacts yet;
+   no Trainer checkpoint-* yet (first at save_steps=50 ~02:42Z).
+2. Verified HF salvage path end-to-end on pod: repo
+   `unconst/Affine-5czsc2fc98-h1-lora` private; upload+delete probe OK.
+   `lium bk show mine-sim-1` = `/root/h1/train` every 1h keep 1d (no
+   logs yet — empty until mid-ckpt).
+3. Patched `host_harvest_results.sh` to emit/SCP
+   `h1_train_progress.json` each poll (step/engines/ckpts) so next passes
+   can triage without SSH. Relaunched harvest pid **1414858** (was
+   1405460). Local file now at
+   `experiments/s4-h1-sft/results/h1_train_progress.json`.
+4. No submit. No new rental. Train/pipeline/mid-salvage/deadman untouched.
+
+### Money
+
+Lium $34,383.87; floor OK. Mining spend ≈ $82.07. Host deadman 07:00Z.
+
+### Next
+
+Poll `results/h1_train_progress.json` / sim artifacts; apply plan.md
+decision rule when n40/n80 land. Kill mine-sim-1 as soon as sim done
+(name-check). No submit until margin > 0.04 + H4.

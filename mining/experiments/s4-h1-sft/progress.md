@@ -20,10 +20,15 @@
 | 2026-08-07T02:12:15Z | pipeline restarted pid **85424** — dual-phase sim n40→n80 + soft TTL cutoff |
 | 2026-08-07T02:12:20Z | `lium bk set` `/root/h1/train` every 1h keep 1d (adapter TTL insurance) |
 | 2026-08-07T02:12:52Z | train at step 20/110 @ ~51s/it; ETA ~03:30Z; engines 200×3; host harvest 1393267 |
+| 2026-08-07T02:18:50Z | Lium TTL cancelled; host deadman 07:00Z; pipe **86845** soft 06:50Z; step 26 |
+| 2026-08-07T02:21:57Z | step **30/110** @ ~59s/it; ETA ~**03:41Z**; HF write probe OK; host harvest **1414858** scrapes `results/h1_train_progress.json` |
 
 ## How to check
 
 ```bash
+# Local (no SSH) — updated every ~60s by host harvest:
+cat experiments/s4-h1-sft/results/h1_train_progress.json
+
 ssh -i ~/.ssh/id_ed25519 -p 40301 root@69.63.236.160
 kill -0 $(cat /root/logs/h1_train.pid) && tail -20 /root/logs/h1_train.nohup
 kill -0 $(cat /root/logs/h1_pipeline.pid) && tail -20 /root/logs/h1_pipeline.nohup
@@ -32,15 +37,16 @@ test -f /root/affine_data/h1_sim_result.json && cat /root/affine_data/h1_sim_res
 
 ## After train.done (automatic)
 
-Pipeline `post_train_pipeline.sh` (pid 84834) handles:
+Pipeline `post_train_pipeline.sh` (pid **86845**) handles:
 1. HF salvage adapter → `unconst/Affine-5czsc2fc98-h1-lora` (private)
 2. GPU merge on CUDA 6,7 → `/root/h1/merged`
 3. `restart_for_h2.sh` with `MERGE=/root/h1/merged` **`RESTART_KING=0`**
    (chall-only; teacher+king stay hot)
 4. Reclaim `/root/merges/h2-kp65` after H1 chall up
 5. `run_sim_duel.py` **n=40** → `/root/affine_data/h1_sim_result_n40.json`
-6. If ≥50 min to soft deadline 04:50Z: **n=80** →
+6. If ≥50 min to soft deadline **06:50Z**: **n=80** →
    `/root/affine_data/h1_sim_result.json` (else n40-only marker)
+   Host deadman kills pod at **07:00Z**.
 
 Done markers: `/root/logs/h1_pipeline.done`, `/root/logs/h1_sim.done`,
 `/root/logs/h1_sim_n40.done`. Salvage meta: `/root/h1/adapter_salvage.json`.

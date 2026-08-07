@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z** | Stage 4 H1 train + salvage→GPU-merge→n40→n80 | RUNNING | SSH `root@69.63.236.160 -p 40301`; train 82057; pipe 86845; mid-salvage 83669; bk /root/h1/train 1h; host harvest 1405460; deadman 1405846; spent $80.83 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z** | Stage 4 H1 train + salvage→GPU-merge→n40→n80 | RUNNING | SSH `root@69.63.236.160 -p 40301`; train 82057 step30/110; pipe 86845; mid-salvage 83669; bk /root/h1/train 1h; host harvest **1414858** (train_progress JSON); deadman 1405846; spent $82.07 |
 
 ## Reconcile log
 
@@ -46,3 +46,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T02:09:20Z | mine-sim-1 RUNNING | matches inventory; spent $77.11; H1 step16; pipeline 84834 chall-only+progress; freed h2-kp50+genesis; validator pods untouched |
 | 2026-08-07T02:12:52Z | mine-sim-1 RUNNING | matches inventory; spent $78.50; H1 step20; pipeline 85424 n40→n80; lium bk /root/h1/train; validator pods untouched |
 | 2026-08-07T02:18:50Z | mine-sim-1 RUNNING | matches inventory; spent $80.83; **cancelled Lium schedule 04:53Z** (index 1=swift-shark-52); host deadman 07:00Z; pipe 86845 soft 06:50Z; train step26; validator pods untouched |
+| 2026-08-07T02:21:57Z | mine-sim-1 RUNNING | matches inventory; spent $82.07; H1 step30; HF write probe OK; host harvest→train_progress JSON; validator pods untouched |

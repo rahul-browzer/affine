@@ -18,14 +18,52 @@ got_sim=0
 got_salvage=0
 got_train=0
 
+# Emit / refresh train step JSON on the pod (tqdm uses \r; parse on pod).
+_emit_train_progress() {
+  "${SSH[@]}" 'python3 - <<"PY"
+from pathlib import Path
+import json, re, time, urllib.request
+raw = Path("/root/logs/h1_train.nohup").read_bytes().decode("utf-8", "replace").replace("\r", "\n")
+steps = [int(m.group(1)) for m in re.finditer(r"(\d+)/110\s*\[", raw)]
+last = steps[-1] if steps else None
+ckpt_root = Path("/root/h1/train/checkpoints")
+ckpts = sorted(d.name for d in ckpt_root.glob("checkpoint-*") if d.is_dir()) if ckpt_root.is_dir() else []
+engines = {}
+for port, name in [(8000, "teacher"), (8001, "king"), (8002, "chall")]:
+    try:
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/health", timeout=3) as r:
+            engines[name] = r.status
+    except Exception as e:
+        engines[name] = str(e)
+out = {
+    "utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    "step": last,
+    "total": 110,
+    "frac": (last / 110 if last is not None else None),
+    "train_done": Path("/root/h1/train/train.done").exists(),
+    "ckpt_dirs": ckpts,
+    "pipeline_alive": Path("/root/logs/h1_pipeline.pid").exists(),
+    "engines": engines,
+}
+Path("/root/affine_data").mkdir(parents=True, exist_ok=True)
+Path("/root/affine_data/h1_train_progress.json").write_text(json.dumps(out, indent=2) + "\n")
+print(json.dumps(out))
+PY' 2>/dev/null || true
+}
+
 while true; do
   now=$(date -u +%s)
   if (( now >= deadline )); then
-    log "deadline reached (TTL ~04:53Z); stop"
+    log "deadline reached (host harvest stop 06:55Z; deadman 07:00Z); stop"
     exit 0
   fi
 
-  # Best-effort progress (overwrites); survives TTL kill mid-sim.
+  # Best-effort train + sim progress (overwrites); survives pod kill.
+  _emit_train_progress
+  if "${SSH[@]}" 'test -f /root/affine_data/h1_train_progress.json' 2>/dev/null; then
+    "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_train_progress.json \
+      "$OUT/h1_train_progress.json" 2>/dev/null || true
+  fi
   if "${SSH[@]}" 'test -f /root/affine_data/h1_sim_progress.json' 2>/dev/null; then
     "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_progress.json \
       "$OUT/h1_sim_progress.json" 2>/dev/null || true
