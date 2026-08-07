@@ -1,35 +1,36 @@
 {
-  "utc": "2026-08-07T10:28:02Z",
+  "utc": "2026-08-07T10:31:40Z",
   "experiment": "s4-h5c-expand-refs",
-  "stage": "waiting_train",
+  "stage": "waiting_train_plus_mid50_early",
   "train_done": false,
   "prewarm_done": true,
   "adapter_present": false,
-  "ckpt_dirs": [
-    "checkpoint-50"
-  ],
+  "ckpt_dirs": ["checkpoint-50"],
   "merge_done": false,
   "chall_serve_done": false,
   "sim_n80_done": false,
   "pipe_waiting": true,
   "pipe_done": false,
   "pipe_aborted": false,
-  "last_pipe_line": "[h5c-pipe] 2026-08-07T10:25:58Z still waiting for train.done (poll #60)",
-  "mid_salvaged": [
-    "checkpoint-50"
-  ],
+  "last_pipe_line": "[h5c-pipe] still waiting for train.done",
+  "mid_salvaged": ["checkpoint-50"],
+  "mid50_early": {
+    "pid": 21557,
+    "merge_running": true,
+    "gpus": "4,5",
+    "merged_path": "/root/h5c/merged_mid50",
+    "sim_n40": "/root/affine_data/h5c_mid50_sim_n40.json"
+  },
   "identical_to_king": null,
   "sim_progress": null,
-  "engines": {
-    "teacher": 200,
-    "king": 200,
-    "chall": 0
-  },
+  "engines": {"teacher": 200, "king": 200, "chall": 0},
   "total": 99,
-  "step": 52,
-  "frac": 0.5252525252525253,
-  "n_loss_logs": 10,
+  "step": 55,
+  "frac": 0.5555555555555556,
+  "n_loss_logs": 11,
   "first_loss": 0.4989624977111816,
-  "last_loss": 0.4186392784118652,
-  "last_loss_step": 50
+  "last_loss": 0.5678861618041993,
+  "last_loss_step": 55,
+  "loss_at_50": 0.4186392784118652,
+  "eta_train_min": 31.6
 }

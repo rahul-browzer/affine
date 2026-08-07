@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-07T10:30:57Z",
+  "pass": 111,
+  "event": "mid50_early_sim_launched",
+  "reason": "loss@50=0.4186 then loss@55=0.5679; mid50 may beat final; GPUs 4,5 free",
+  "pod": "mine-h5c-1",
+  "pid": 21557,
+  "script": "/root/mining_src/s4-h5c-expand-refs/mid50_early_sim.sh",
+  "adapter": "/root/h5c/train/checkpoints/checkpoint-50",
+  "merged_out": "/root/h5c/merged_mid50",
+  "sim_out": "/root/affine_data/h5c_mid50_sim_n40.json",
+  "gpus": "4,5",
+  "does_not_touch": ["h5c_pipeline.*", "/root/h5c/merged"],
+  "yields_when": "/root/logs/h5c_merge.done (final pipe)",
+  "train_at_launch": {"step": 55, "total": 99, "last_loss": 0.567886, "loss_at_50": 0.418639},
+  "engines": {"teacher": 200, "king": 200, "chall": "starting_after_merge"},
+  "note": "n40 triage only; submit still needs final n80 margin > 0.04"
+}
