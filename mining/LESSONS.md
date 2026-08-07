@@ -109,6 +109,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - `merge_linear.py` must track `max_abs_delta` over **all** keys — sampling first 8 false-refuses when early embeds match (H12: first8 Δ=0 + first_1MiB match, but shard08 max\|A−O\|=0.215). first_1MiB match alone is never refuse.
 - Concurrent vLLM races `~/.triton/cache` (H14/H15/H16/H21) — per-role dirs+stagger still race on first compile (`__triton_launcher.so` missing); wipe that role's cache/pid, relaunch staggered, arm engines→n80 watchdog if wait_ready may timeout.
 - Chall at `gpu_memory_utilization=0.80` can OOM on first prompt-logprobs (`log_softmax` needs ~7.2 GiB free; H20 twice). Relaunch chall at **0.72** (leave teacher/king at 0.80).
+- H20 TP×leary α0.90 band-clear (×1.118) but m=**−0.01168** — stop leary α-sweeps; +margin parent duel ≠ merge win.
 
 ## Money / platform
 

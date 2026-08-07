@@ -7,29 +7,29 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h20-1 | swift-lion-ac | 8×H200 | $31.92 | 2026-08-07T22:52:59Z | H20 TP×leary α0.90 | n80 72/80 |
-| mine-h21-1 | golden-wolf-62 | 8×H200 | $28.00 | 2026-08-07T23:41:29Z | H21 TP×sft2 α0.75 | engines→n80 |
-| mine-h22-1 | lunar-shark-f2 | 8×H200 | $31.92 | 2026-08-07T23:41:57Z | H22 TP×kevin α0.90 | merging |
-| mine-h25-1 | golden-shark-c8 | 8×H200 | $28.00 | 2026-08-08T00:08:24Z | H25 TP×Radiant28 α0.90 | DL B |
-| mine-h23-1 | gentle-fox-b5 | 8×B300 | $63.60 | 2026-08-08T00:09:46Z | H23 TP×Talucampe α0.90 | pip |
+| mine-h21-1 | golden-wolf-62 | 8×H200 | $28.00 | 2026-08-07T23:41:29Z | H21 TP×sft2 α0.75 | n80 started |
+| mine-h22-1 | lunar-shark-f2 | 8×H200 | $31.92 | 2026-08-07T23:41:57Z | H22 TP×kevin α0.90 | merge ~11/16 |
+| mine-h23-1 | gentle-fox-b5 | 8×B300 | $63.60 | 2026-08-08T00:09:46Z | H23 TP×Talucampe α0.90 | DL parents |
+| mine-h24-1 | brave-orbit-31 | 8×H200 | $28.00 | 2026-08-08T00:17:17Z | H24 TP×0ronoCris α0.90 | bootstrap |
+| mine-h25-1 | golden-shark-c8 | 8×H200 | $28.00 | 2026-08-08T00:08:24Z | H25 TP×Radiant28 α0.90 | merge ~9/16 |
 
-SSH: h20 .22:20100 · h21 .237:40310 · h22 .21:20100 · h25 .232:40305 · h23 .244:40300
-known_hosts `/tmp/mine-h{20,21,22,23,25}-1.known_hosts` · **Free slots: 0**. Cap 5.
-H24 staged next free (0ronoCris).
+SSH: h21 .237:40310 · h22 .21:20100 · h23 .244:40300 · h24 .234:40311 · h25 .232:40305
+known_hosts `/tmp/mine-h{21,22,23,24,25}-1.known_hosts` · **Free slots: 0**. Cap 5.
 
 ## Dead
 
 | name | final spent | removed UTC | reason |
 |---|---|---|---|
+| mine-h20-1 | ~$45 | 2026-08-07T16:17Z | H20 REFUTE m=−0.01168 base×1.118 |
 | mine-h19-1 | ~$37 | 2026-08-07T16:09Z | H19 REFUTE m=+0.00348 base×1.121 |
 | mine-h18-1 | ~$28 | 2026-08-07T16:06Z | H18 REFUTE band×1.997 |
-| mine-h25-1 (golden-fox-c0) | ~$0.05 | 2026-08-07T16:07Z | dud: ls$22.64→rent$5.66 COUNT=2 |
+| mine-h25-1 (golden-fox-c0) | ~$0.05 | 2026-08-07T16:07Z | dud: COUNT=2 @$5.66 |
 | mine-h17/16… | ~$600 | earlier | REFUTE/idle teardowns |
 
 ## Recent reconciles (last 3)
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
-| 2026-08-07T16:15Z | h20–22+h25+h23 match | H21 Triton recover; H20@72/80; H22 merging |
-| 2026-08-07T16:10Z | h20–22+h25+h23 | H18/H19 REFUTE→rm; H25+H23 up; dud fox-c0 rm |
-| 2026-08-07T15:49Z | h18–h22 match | polled; staged H25; bal~$32682 |
+| 2026-08-07T16:18Z | h21–25 match; h20 gone | H20 REFUTE→rm; H24 up COUNT=8 |
+| 2026-08-07T16:15Z | h20–22+h25+h23 match | H21 Triton recover; H20@72/80 |
+| 2026-08-07T16:10Z | h20–22+h25+h23 | H18/H19 REFUTE→rm; H25+H23 up |
