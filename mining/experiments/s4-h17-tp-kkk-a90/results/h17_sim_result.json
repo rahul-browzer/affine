@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2463.1352348327637,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/merges/h17-tp90",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h17",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.0036704541144103836,
+    "se": 0.006860081996949961,
+    "z": -0.5350452248300083,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.028430357097575295,
+      "gate_pass_rate": 0.8181818181818182,
+      "bank_frac": 0.5291666666666667,
+      "calib_ratio": 0.7334165186641969,
+      "baseline_abs": 0.11753284704892628,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": 0.003241741020698723,
+      "mean_mix": 0.028430357097575295
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.02471994280774064,
+      "gate_pass_rate": 0.8301886792452831,
+      "bank_frac": 0.5479166666666667,
+      "calib_ratio": 0.7735375147672195,
+      "baseline_abs": 0.1332084984016045,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": -0.001970616807227816,
+      "mean_mix": 0.02471994280774064
+    },
+    "slice": {
+      "seed": 16553667812164805436,
+      "n": 80,
+      "digest": "b5dee8ee20c1fc1bc25450bf04c56e267aa98d413cc65a55716deb8f95b95b4d",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.7735375147672195,
+    "chall_baseline_abs": 0.1332084984016045,
+    "king_baseline_abs": 0.11753284704892628,
+    "base_x": 1.1333725145461064
+  }
+}

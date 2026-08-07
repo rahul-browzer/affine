@@ -1,0 +1,31 @@
+{
+  "elapsed_s": 2450.2828164100647,
+  "margin": 0.009700723988397832,
+  "z": 1.482583381529918,
+  "se": 0.006543122032291628,
+  "challenger_wins": false,
+  "h4": {
+    "chall_r": 0.7742545140176027,
+    "chall_baseline_abs": 0.14733764254325668,
+    "king_baseline_abs": 0.12861635396119564,
+    "base_x": 1.1455591610667908
+  },
+  "challenger": {
+    "S": 0.021284152570321607,
+    "valid": true,
+    "calib_ratio": 0.7742545140176027,
+    "baseline_abs": 0.14733764254325668,
+    "pass_rate": null,
+    "frac_bank": null,
+    "reason": null,
+    "invalid_reason": null
+  },
+  "king": {
+    "S": 0.011482584281723664,
+    "valid": true,
+    "calib_ratio": 0.8232410971180013,
+    "baseline_abs": 0.12861635396119564,
+    "pass_rate": null,
+    "frac_bank": null
+  }
+}

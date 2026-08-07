@@ -100,10 +100,8 @@ Format: `- <finding> — <the number or error that proves it>`
   lacked `write_merge_decision.py`/`watch_fix_decision.sh` until pass128 scp'd them
   for H6 mid50/final. Mid50 decisions use `SIGNAL_*` + `signal_only:true` (never
   tear down the train pod on a mid-ckpt n40).
-- H7–H15 TP×{pandora,golden-crown,diane,kevin,adambell,plmk,kkk-af,kkkk,leary} α0.75 all **INVALID** band
-  (×2.21…2.11); even healthy parent leary×1.017 → merge×2.107; +0.0244 B still bands at 25% — no α0.85; prefer α≥0.90.
-- Parent-duel base× ≠ merge base×: chal-00310 plmk was ×1.000 live, but TP×plmk α0.75 → ×2.017
-  (H12). Do not treat parent calibration as merge calibration; test α≥0.90 (H16) or different B class.
+- H7–H15 α0.75 all **INVALID** band (×2.21…2.11). **H16/H17 α0.90 CLEARS band** (plmk×1.146 / kkk-af×1.133) but margins +0.0097/−0.0037 — no crown; stop α-sweeps on these B's; need new recipe/parent class. No α0.85.
+- Parent-duel base× ≠ merge base× (H12: live×1.000 → α0.75×2.017). Never tear down on null-margin REFUTE — check `rejection_reason` first (H20 false probe ConnectError/OOM while chall down; archived `*.FALSE_PROBE.json`).
 - Dual-side n40/n80 teacher `httpx.ReadTimeout`: 180s×3 dies (H6@29/40); 480s×5 still dies (H9@60/80) — outer 3× retry required; H9/H12 inline; H6/H13/H14 use `watch_n80_retry.sh`→`retry_*_n80.sh` (do not edit live start_*.sh).
 - Near-miss HF parents vanish or gate: origin kkk/kkkk/marsplan/adambell often 404; als kdjf/Tok*/rootti `gated=manual`→403. Before rent: `model_info` + `hf_hub_download(.gitattributes)` + **exact duel rev** via `api/v1/duels/{cid}`. Mirrors: adambell→`0pentensor/…ckpt450-H6`; plmk→`bluecolor777/plmk`@b2cc7b9f; **kkk→`bluecolor777/kkk-af`@7426296b** (chal-00262 +0.0244; `bluecolor777/kkk`@e3563a is a different SHA); kkkk→`vincentwarrior/affine-5ccebdzvsj-kkkk`@3ca1ebe6.
 - After leary, next accessible positive-margin B is weak: Shatoria test3 (+0.0017 ungated); alskdjf/qpoewir still gated with no bluecolor/vincentwarrior mirrors (404); kkkkk/mxvb/Sansaliu 404.
