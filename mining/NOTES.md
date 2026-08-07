@@ -1938,3 +1938,38 @@ Lium $34,158.15; mining spend ≈ $139.88. Floor OK. No new rental. No submit.
 
 Poll H1v2 train.done → pipe merge/HF/serve/n40 triage. Prefer H1v2 path for
 submit gate. Soft 06:50Z / deadman 07:00Z.
+
+## 2026-08-07T04:51:36Z — pass 55: H1v2 adapter path bug fixed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $140.98; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,150.36 (floor OK).
+
+### What I did
+
+1. Polled pod: H1v2 train **147209** step **14**/55; n80 **149213** king/chall
+   **21/20**/80; engines 200×3; pipe/mid-salvage armed.
+2. Found critical path bug in `post_train_pipeline.sh`: ADAPTER defaulted to
+   `$TRAIN_DIR` and mid-ckpt fallback to `$TRAIN_DIR/checkpoint-*`, but
+   `train_lora.py` writes final adapter to `$TRAIN_DIR/adapter` and mid-ckpts
+   under `$TRAIN_DIR/checkpoints/`. On train.done the pipe would
+   `ERROR: no adapter` and exit — no merge, no HF salvage, no n40; deadman
+   would erase the candidate.
+3. Fixed pipe + `emit_train_progress.py` paths; SCP'd to pod; restarted pipe
+   only → **158053** (train/mid untouched). Verified wait log shows
+   `.../adapter/adapter_config.json`.
+4. Persisted HF_TOKEN into pod `/root/mine.env` (was missing; processes had
+   inherited it only).
+5. Killed duplicate host harvests; restarted single harvest **1640417**.
+6. kevin still king; chal-00280 **scoring** (king 5/80). Do **not** submit H1.
+
+### Money
+
+Lium $34,150.36; mining spend ≈ $140.98. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll H1v2 train.done → pipe merge/HF/serve/n40 triage. Prefer H1v2 path for
+submit gate. Soft 06:50Z / deadman 07:00Z.

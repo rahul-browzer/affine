@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T04:49:11Z",
+  "utc": "2026-08-07T04:52:04Z",
   "rule": {
     "submit_margin": 0.04,
     "contract_margin": 0.02,
@@ -62,11 +62,14 @@
       "reign_number": 2,
       "current_eval_id": "chal-00280",
       "current_eval_repo": "Tok331102/affine-5EqYW8McUc-af8",
-      "current_eval_stage": "load_challenger",
+      "current_eval_stage": "scoring",
       "current_eval_progress": {
-        "phase": "load_challenger"
+        "phase": "scoring",
+        "miner": "king",
+        "done": 13,
+        "total": 80
       },
-      "snapshot_generated_at": "2026-08-07T04:48:44.504825+00:00"
+      "snapshot_generated_at": "2026-08-07T04:51:56.570926+00:00"
     },
     "sim_king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
     "sim_king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",

@@ -19,9 +19,10 @@ def main() -> None:
     steps = [int(m.group(1)) for m in re.finditer(r"(\d+)/55\s*\[", raw)]
     last = steps[-1] if steps else None
     train_dir = Path("/root/h1v2/train")
+    ckpt_root = train_dir / "checkpoints"
     ckpts = (
-        sorted(d.name for d in train_dir.glob("checkpoint-*") if d.is_dir())
-        if train_dir.is_dir()
+        sorted(d.name for d in ckpt_root.glob("checkpoint-*") if d.is_dir())
+        if ckpt_root.is_dir()
         else []
     )
     engines = {}
@@ -54,7 +55,7 @@ def main() -> None:
         "total": 55,
         "frac": (last / 55.0) if last is not None else None,
         "train_done": (train_dir / "train.done").exists(),
-        "adapter_present": (train_dir / "adapter_config.json").exists(),
+        "adapter_present": (train_dir / "adapter" / "adapter_config.json").exists(),
         "ckpt_dirs": ckpts,
         "engines": engines,
         "n_loss_logs": len(losses),

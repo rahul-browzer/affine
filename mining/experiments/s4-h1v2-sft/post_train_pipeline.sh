@@ -17,7 +17,10 @@ export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-6,7}
 
 BASE=${BASE:-/root/hf/hub/models--kevin954--Affine-5dfqbbh8ev-sft/snapshots/6a5815fad8f4e34c983b1933c1fae5762fe25220}
 TRAIN_DIR=${TRAIN_DIR:-/root/h1v2/train}
-ADAPTER=${ADAPTER:-$TRAIN_DIR}
+# train_lora.py writes final adapter to $TRAIN_DIR/adapter and mid-ckpts to
+# $TRAIN_DIR/checkpoints/checkpoint-* (NOT $TRAIN_DIR/checkpoint-*).
+ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
+CKPT_ROOT=${CKPT_ROOT:-$TRAIN_DIR/checkpoints}
 MERGED=${MERGED:-/root/h1v2/merged}
 SIM_N40=/root/affine_data/h1v2_sim_result_n40.json
 LOG=/root/logs/h1v2_pipeline.nohup
@@ -27,13 +30,13 @@ log() { echo "[h1v2-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
 mkdir -p /root/logs /root/affine_data /root/h1v2
 
-log "waiting for $TRAIN_DIR/train.done (or adapter_config.json + no train proc)"
+log "waiting for $TRAIN_DIR/train.done (or $ADAPTER/adapter_config.json + no train proc)"
 while true; do
   if [[ -f "$TRAIN_DIR/train.done" ]]; then
     log "train.done present"
     break
   fi
-  if [[ -f "$TRAIN_DIR/adapter_config.json" ]] && ! pgrep -f "s4-h1v2-sft/train_lora.py" >/dev/null 2>&1; then
+  if [[ -f "$ADAPTER/adapter_config.json" ]] && ! pgrep -f "s4-h1v2-sft/train_lora.py" >/dev/null 2>&1; then
     log "adapter present and train proc gone (no train.done — proceed)"
     break
   fi
@@ -47,14 +50,14 @@ while true; do
   sleep 30
 done
 
-# Prefer final adapter dir; fall back to latest checkpoint-*.
+# Prefer final adapter dir; fall back to latest checkpoints/checkpoint-*.
 if [[ ! -f "$ADAPTER/adapter_config.json" ]]; then
-  latest=$(ls -d "$TRAIN_DIR"/checkpoint-* 2>/dev/null | sort -V | tail -1 || true)
+  latest=$(ls -d "$CKPT_ROOT"/checkpoint-* 2>/dev/null | sort -V | tail -1 || true)
   if [[ -n "${latest:-}" && -f "$latest/adapter_config.json" ]]; then
     ADAPTER=$latest
     log "using checkpoint adapter $ADAPTER"
   else
-    log "ERROR: no adapter under $TRAIN_DIR"
+    log "ERROR: no adapter under $ADAPTER or $CKPT_ROOT"
     exit 1
   fi
 fi

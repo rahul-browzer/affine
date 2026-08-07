@@ -1,9 +1,9 @@
 {
-  "utc": "2026-08-07T04:48:51Z",
+  "utc": "2026-08-07T04:51:44Z",
   "experiment": "s4-h1v2-sft",
-  "step": 10,
+  "step": 14,
   "total": 55,
-  "frac": 0.18181818181818182,
+  "frac": 0.2545454545454545,
   "train_done": false,
   "adapter_present": false,
   "ckpt_dirs": [],

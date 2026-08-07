@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-07T04:51:23Z",
+  "pass": 55,
+  "bug": "H1v2 post_train_pipeline looked for adapter_config.json at $TRAIN_DIR/ and checkpoints at $TRAIN_DIR/checkpoint-*, but train_lora.py writes final adapter to $TRAIN_DIR/adapter and mid-ckpts to $TRAIN_DIR/checkpoints/checkpoint-*",
+  "impact_if_unfixed": "On train.done the pipe would ERROR: no adapter and exit 1 — no merge, no HF salvage, no n40; deadman 07:00Z would erase the candidate",
+  "fix": {
+    "ADAPTER_default": "$TRAIN_DIR/adapter",
+    "CKPT_ROOT": "$TRAIN_DIR/checkpoints",
+    "wait_loop_adapter_path": "$TRAIN_DIR/adapter/adapter_config.json",
+    "emit_train_progress": "adapter_present + ckpt_dirs paths corrected"
+  },
+  "deploy": {
+    "pipe_old_pid": 154579,
+    "pipe_new_pid": 158053,
+    "train_untouched_pid": 147209,
+    "mid_salvage_untouched_pid": 154590,
+    "HF_TOKEN_persisted_to_mine_env": true,
+    "new_pipe_HF_TOKEN_len": 37
+  },
+  "verified_log_line": "[h1v2-pipe] 2026-08-07T04:51:21Z waiting for /root/h1v2/train/train.done (or /root/h1v2/train/adapter/adapter_config.json + no train proc)"
+}
