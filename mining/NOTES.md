@@ -1265,3 +1265,41 @@ Lium $34,352.70; mining spend ≈ $90.47. Host deadman 07:00Z.
 
 Poll for `train_done` (~03:33Z) → adapter salvage → n40→n80. Kill
 mine-sim-1 as soon as sim done (name-check). No submit until margin > 0.04 + H4.
+
+
+---
+
+## 2026-08-07T02:49:48Z — pass 37: epoch-1 milestone + harvest stdout-loss scrape
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $92.72; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host deadman 1405846 still armed for 07:00Z.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; Lium $34,344.92 (floor OK).
+   Train step **59/110** (epoch 1 done @ step55); engines 200×3;
+   pipeline 86845 waiting; mid-salvage 83669; GPU6/7 train live;
+   no sim artifacts yet. ETA train.done ~**03:35Z**.
+2. Verified post-train path still healthy: `salvage_adapter.py` Hub-base
+   fix on pod; `mine.env` has HF_TOKEN; adapter_config base path exists
+   for merge; only `/root/merges/h2-kp65` left to reclaim after serve.
+3. Captured epoch-1 loss **0.251** (stdout Trainer dump). Flat/noisy vs
+   ckpt50 last 0.329 / min 0.215 — expected on already-SFT kevin; sim decides.
+4. Fixed host harvest: inline Python heredoc broke on single-quoted loss
+   dicts (killed harvest briefly). Extracted
+   `experiments/s4-h1-sft/emit_train_progress.py`; restarted harvest pid
+   **1447863**. Progress JSON now reports `last_loss=0.251`,
+   `n_stdout_losses=11`.
+5. No submit. No new rental. Train/pipeline/mid-salvage/deadman untouched.
+
+### Money
+
+Lium $34,344.92; mining spend ≈ $92.72. Host deadman 07:00Z.
+
+### Next
+
+Poll for `train_done` (~03:35Z) → adapter salvage → n40→n80. Kill
+mine-sim-1 as soon as sim done (name-check). No submit until margin > 0.04 + H4.

@@ -1,0 +1,31 @@
+{
+  "utc": "2026-08-07T02:49:16Z",
+  "pass": 37,
+  "step_at_emit": 59,
+  "epoch1_step": 55,
+  "total": 110,
+  "epoch": 1.0,
+  "loss_epoch1": 0.251,
+  "loss_ckpt50_last": 0.32915439605712893,
+  "loss_min_seen": 0.2151481866836548,
+  "loss_min_step": 35,
+  "eta_train_done_utc": "~2026-08-07T03:35Z",
+  "note": "End of first epoch on kevin-init LoRA; flat/noisy loss on already-SFT base. Not a kill signal — sim margin decides.",
+  "pipeline_verified": {
+    "train_pid": 82057,
+    "pipeline_pid": 86845,
+    "mid_salvage_pid": 83669,
+    "engines": {"teacher": 200, "king": 200, "chall": 200},
+    "salvage_adapter_hub_base_fix": true,
+    "adapter_config_base_exists_for_merge": true,
+    "hf_token_in_mine_env": true,
+    "merges_present": ["h2-kp65"],
+    "soft_deadline": "2026-08-07T06:50:00Z",
+    "host_deadman": "2026-08-07T07:00:00Z"
+  },
+  "host_harvest": {
+    "pid": 1447863,
+    "emit": "experiments/s4-h1-sft/emit_train_progress.py",
+    "stdout_loss_scrape": true
+  }
+}
