@@ -1,0 +1,8 @@
+{
+  "utc": "2026-08-07T12:59:46Z",
+  "event": "n80_retry_launched",
+  "reason": "httpx.ReadTimeout after 480s×5 at ~60/80; engines still healthy",
+  "script": "retry_h9_n80.sh",
+  "pid_file": "/root/logs/h9_n80_retry.pid",
+  "max_attempts": 3
+}

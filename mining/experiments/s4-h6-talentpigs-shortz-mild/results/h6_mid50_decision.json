@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-07T12:58:13Z",
+  "margin": -0.005656764500728576,
+  "z": -0.6356499326045153,
+  "r_c": 0.7714953747513513,
+  "valid_c": true,
+  "S_c": 0.018340327098433248,
+  "S_k": 0.024147819408650087,
+  "se": 0.008899182097841999,
+  "base_x": 0.9600437277275556,
+  "decision": "SIGNAL_NEG",
+  "parser": "write_merge_decision.py#nested_verdict",
+  "signal_only": true,
+  "submit": false,
+  "note": "mid50 early signal only; final n80 is authoritative"
+}
