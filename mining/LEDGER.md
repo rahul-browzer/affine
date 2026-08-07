@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T06:43:38Z | 33979.14 | 10.000000 | 0 | mine-sim-1 spent $185.00; pass71 H5 merge DONE + resume serve→n80; deadman 12:00Z; no new rental |
 | 2026-08-07T06:33:00Z | 33994.63 | 10.000000 | 0 | mine-sim-1 spent $180.82; pass70 king pivot DONE + H5 α0.65 merge→n80 launched; deadman 12:00Z; no new rental |
 | 2026-08-07T06:25:41Z | 34002.45 | 10.000000 | 0 | mine-sim-1 spent $177.94; pass69 H5 pivot pipe launched (TalentPigs dl→king); deadman→12:00Z; no new rental |
 | 2026-08-07T06:20:30Z | 34010.24 | 10.000000 | 0 | mine-sim-1 spent $175.84; pass68 H1v2 n80 REFUTED margin −0.00030; TalentPigs king; harvest killed keep-pod; no new rental |
@@ -76,6 +77,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T06:43:38Z | observe | mine-sim spent $185.00 | Lium → mine-sim-1 | 33979.14 | 10.000 | H5 merge DONE + resume 231961 serve→n80; floor OK |
 | 2026-08-07T06:33:00Z | observe | mine-sim spent $180.82 | Lium → mine-sim-1 | 33994.63 | 10.000 | H5 pivot DONE + merge pipe 231222; floor OK |
 | 2026-08-07T06:25:41Z | observe | mine-sim spent $177.94 | Lium → mine-sim-1 | 34002.45 | 10.000 | H5 pivot pipe 227022; deadman→12:00Z; floor OK |
 | 2026-08-07T06:20:30Z | observe | mine-sim spent $175.84 | Lium → mine-sim-1 | 34010.24 | 10.000 | H1v2 n80 REFUTED; TalentPigs crowned; keep pod; floor OK |
@@ -149,10 +151,10 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~177.94 so far (meter running @ 23.60/h; host deadman 12:00Z) | — |
+| Lium rentals (`mine-*`) | ~185.00 so far (meter running @ 23.60/h; host deadman 12:00Z) | — |
 
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~177.94 (accruing)** | **0** |
+| **total** | **~185.00 (accruing)** | **0** |
 
-Cap remaining to first crown: **~$3,822** (of $4,000) at $177.94 spent; deadman 12:00Z.
+Cap remaining to first crown: **~$3,815** (of $4,000) at $185.00 spent; deadman 12:00Z.

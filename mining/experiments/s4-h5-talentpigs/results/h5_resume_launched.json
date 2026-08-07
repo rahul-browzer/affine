@@ -1,0 +1,33 @@
+{
+  "utc": "2026-08-07T06:43:38Z",
+  "pass": 71,
+  "event": "h5_merge_done_resume_serve",
+  "bug": "start_merge_sim king-identity check assumed kevin 2-shard name on TalentPigs 16-shard snapshot \u2192 FileNotFoundError killed pipe 231222 after successful merge",
+  "fix": "layout-aware first-shard glob; resume_after_merge.sh skips re-merge",
+  "merge": {
+    "out": "/root/merges/h5-kt65",
+    "alpha": 0.65,
+    "n_merged": 1026,
+    "n_copied_from_A": 19,
+    "max_abs_delta_sample": 0.000640869140625,
+    "first_shard": "model-00001-of-00002.safetensors",
+    "a_first_1MiB_sha256": "c551c75247026a239a1c82976659ce72c81c3ffa327456dddd7c8b732e3235ad",
+    "out_first_1MiB_sha256": "5613cd2a07871a418926584ba4e7c95cbe610c2de84cbd4499d296a1677c698e",
+    "first_1MiB_identical": false,
+    "elapsed_s": 321.0136983394623
+  },
+  "identity": {
+    "out_first_shard": "model-00001-of-00002.safetensors",
+    "king_first_shard": "model-00001-of-00016.safetensors",
+    "shard_layout_match": false,
+    "king_first_1MiB": "15ac0af667e7a043be06a0e670e8c0a3161f1881d5422c826b24b0aa762862f5",
+    "out_first_1MiB": "5613cd2a07871a418926584ba4e7c95cbe610c2de84cbd4499d296a1677c698e",
+    "identical_to_king": false,
+    "max_abs_delta_sample": 0.000640869140625,
+    "first_1MiB_identical_vs_A": false
+  },
+  "resume_pid": 231961,
+  "chall_serve": "/root/merges/h5-kt65 :8002 loading",
+  "king_live": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2\u2026 S=0.0315 reign3",
+  "next": "wait h5_chall_serve.done \u2192 h5_sim_n80.done \u2192 harvest+triage"
+}

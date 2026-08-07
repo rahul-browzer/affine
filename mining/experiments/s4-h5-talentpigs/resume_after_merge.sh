@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# H5: kevin×TalentPigs α=0.65 merge → chall:8002 → n80 sim vs TalentPigs king.
-# Safe to start while king:8001 is still loading — merge is CPU, then we wait
-# for /root/logs/h5_king_pivot.done before re-serving chall / scoring.
+# Resume H5 after merge wrote /root/merges/h5-kt65 but the king-identity
+# check crashed (TalentPigs 16-shard vs merge 2-shard filename mismatch).
+# Skips re-merge; runs refuse check → chall re-serve → n80 sim.
 set -euo pipefail
 
 # shellcheck disable=SC1091
@@ -18,8 +18,6 @@ SRC=${SRC:-/root/mining_src/s4-h5-talentpigs}
 H2SRC=${H2SRC:-/root/mining_src/s4-h2-merge}
 OUT=${OUT:-/root/merges/h5-kt65}
 ALPHA=${ALPHA:-0.65}
-KEVIN_REPO=${KEVIN_REPO:-kevin954/Affine-5dfqbbh8ev-sft}
-KEVIN_REV=${KEVIN_REV:-6a5815fad8f4e34c983b1933c1fae5762fe25220}
 KING_REPO=${KING_REPO:-TalentPigs/affine-5ekxlcg3fx-abc}
 KING_REV=${KING_REV:-dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4}
 
@@ -28,33 +26,21 @@ MERGE_DONE=/root/logs/h5_merge.done
 SERVE_DONE=/root/logs/h5_chall_serve.done
 SIM_DONE=/root/logs/h5_sim_n80.done
 PIPE_DONE=/root/logs/h5_merge_sim.done
-mkdir -p /root/logs /root/merges /root/affine_data
-rm -f "$MERGE_DONE" "$SERVE_DONE" "$SIM_DONE" "$PIPE_DONE" \
+mkdir -p /root/logs /root/affine_data
+rm -f "$SERVE_DONE" "$SIM_DONE" "$PIPE_DONE" \
   /root/logs/h5_merge_sim.aborted /root/logs/h5_merge_sim.partial
 
-log() { echo "[h5-ms] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
+log() { echo "[h5-resume] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
-log "pipeline start alpha=$ALPHA out=$OUT"
-
-# --- 1) merge (CPU; parallel-safe with king load) ---
-if [[ -f "$OUT/model.safetensors.index.json" && -f "$OUT/merge_meta.json" ]]; then
-  log "reuse existing merge at $OUT"
-else
-  rm -rf "$OUT"
-  python "$H2SRC/merge_linear.py" \
-    --a-repo "$KEVIN_REPO" \
-    --a-rev "$KEVIN_REV" \
-    --b-repo "$KING_REPO" \
-    --b-rev "$KING_REV" \
-    --alpha "$ALPHA" \
-    --out "$OUT" \
-    --hf-home "$HF_HOME" \
-    2>&1 | tee -a "$LOG"
+if [[ ! -f "$OUT/model.safetensors.index.json" || ! -f "$OUT/merge_meta.json" ]]; then
+  log "ABORT: merge incomplete at $OUT"
+  echo "aborted_no_merge $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h5_merge_sim.aborted
+  exit 1
 fi
 
-# Refuse weight-identical to live king (B), not only to A (kevin).
-# TalentPigs is 16-shard; kevin/merge is 2-shard — resolve king's first
-# shard by glob, never assume the same filename as merge_meta["first_shard"].
+log "resume from existing merge alpha=$ALPHA out=$OUT"
+
+# Refuse weight-identical (layout-aware: TalentPigs=16-shard, merge=2-shard)
 python - <<PY 2>&1 | tee -a "$LOG"
 import hashlib, json, sys
 from pathlib import Path
@@ -80,39 +66,37 @@ payload = {
     "king_first_1MiB": k,
     "out_first_1MiB": o,
     "identical_to_king": (shard == king_shard and o == k),
+    "max_abs_delta_sample": meta.get("max_abs_delta_sample"),
+    "first_1MiB_identical_vs_A": meta.get("first_1MiB_identical"),
 }
 print(json.dumps(payload, indent=2), flush=True)
-# Exact HF copy requires same shard layout + matching first MiB.
+Path("/root/affine_data/h5_kt65_identity.json").write_text(json.dumps(payload, indent=2) + "\n")
 if payload["identical_to_king"]:
     sys.exit("REFUSE: merge first_1MiB identical to TalentPigs king")
 if meta.get("first_1MiB_identical"):
     sys.exit("REFUSE: merge first_1MiB identical to kevin (A)")
-print("[h5-ms] OK_NON_IDENTICAL_VS_KING", flush=True)
+print("[h5-resume] OK_NON_IDENTICAL_VS_KING", flush=True)
 PY
 
 date -u +%Y-%m-%dT%H:%M:%SZ >"$MERGE_DONE"
 cp -f "$OUT/merge_meta.json" /root/affine_data/h5_kt65_merge_meta.json
 log "MERGE_DONE -> $MERGE_DONE"
 
-# --- 2) wait for king pivot READY ---
-log "wait for /root/logs/h5_king_pivot.done"
-for i in $(seq 1 180); do
-  if [[ -f /root/logs/h5_king_pivot.done ]]; then
-    code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8001/health || true)
-    if [[ "$code" == "200" ]]; then
-      log "king pivot ready (health 200) after ${i} polls"
-      break
-    fi
-  fi
-  if (( i == 180 )); then
-    echo "aborted_king_timeout $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h5_merge_sim.aborted
-    log "ABORT: king pivot not ready in 45m"
-    exit 1
-  fi
-  sleep 15
-done
+# King must already be TalentPigs
+if [[ ! -f /root/logs/h5_king_pivot.done ]]; then
+  log "ABORT: missing h5_king_pivot.done"
+  echo "aborted_no_king_pivot $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h5_merge_sim.aborted
+  exit 1
+fi
+code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8001/health || true)
+if [[ "$code" != "200" ]]; then
+  log "ABORT: king:8001 health=$code"
+  echo "aborted_king_unhealthy $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h5_merge_sim.aborted
+  exit 1
+fi
+log "king:8001 healthy"
 
-# --- 3) re-serve chall = merge (keep teacher+king) ---
+# Re-serve chall = merge (keep teacher+king)
 log "stop chall; serve merge as chall:8002"
 pidf=/root/logs/vllm_chall.pid
 if [[ -f "$pidf" ]]; then
@@ -141,7 +125,6 @@ bash /root/mining_src/s3-duel-sim/wait_ready.sh
 date -u +%Y-%m-%dT%H:%M:%SZ >"$SERVE_DONE"
 log "CHALL_SERVE_DONE -> $SERVE_DONE"
 
-# --- 4) n80 sim vs TalentPigs ---
 SIM_OUT=/root/affine_data/h5_kt65_sim_result.json
 PROG=/root/affine_data/h5_kt65_sim_progress.json
 rm -f "$SIM_OUT" "$PROG" "$SIM_DONE"

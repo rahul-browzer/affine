@@ -2465,3 +2465,35 @@ No submit / no registration burn.
 
 Poll `h5_merge.done` → `h5_sim_n80.done` → harvest+triage (gate >0.04).
 If weak: α=0.50 or refute merge → TalentPigs-init thought distill.
+
+## 2026-08-07T06:43:38Z — pass 71: H5 merge DONE; unblocked identity crash; resume serve→n80
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $185.00; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,979.14 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. Found pass-70 pipe **231222** dead after a successful merge (321s, 67G,
+   `first_1MiB_identical=false` vs kevin). Post-merge refuse check crashed:
+   `FileNotFoundError` looking for `model-00001-of-00002.safetensors` under
+   TalentPigs — king is **16-shard**, merge/kevin is **2-shard**.
+2. Patched `start_merge_sim.sh` to resolve king's first shard by glob and
+   require same layout + matching first MiB for refuse. Added
+   `resume_after_merge.sh` (skip re-merge → identity → chall serve → n80).
+3. Launched resume pid **231961**: identity OK (`identical_to_king=false`,
+   layout_match=false); `h5_merge.done` @ 06:41:14Z; chall:8002 loading
+   `/root/merges/h5-kt65` (pid 232026; wait_ready 232028). Evidence:
+   `results/h5_kt65_identity.json`, `h5_kt65_merge_meta.json`,
+   `h5_resume_launched.json`.
+
+### Money
+
+Lium $33,979.14; mining spend ≈ $185.00. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Poll `h5_chall_serve.done` → `h5_sim_n80.done` → harvest+triage (gate >0.04).

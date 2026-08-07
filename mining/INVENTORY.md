@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z**; harvest killed | Stage 4 H5: king TalentPigs READY; merge α0.65→n80 | RUNNING | SSH `root@69.63.236.160 -p 40301`; merge pipe **231222**; deadman **1783662**; spent $180.82 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z**; harvest killed | Stage 4 H5: merge DONE; chall h5-kt65 loading→n80 | RUNNING | SSH `root@69.63.236.160 -p 40301`; resume pipe **231961**; deadman **1783662**; spent $185.00 |
 
 ## Reconcile log
 
@@ -83,3 +83,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T06:20:30Z | mine-sim-1 RUNNING | matches inventory; spent $175.84; **H1v2 n80 DONE margin −0.00030 REFUTED**; TalentPigs crowned reign3; harvest killed (keep pod); deadman 1757428; validator pods untouched |
 | 2026-08-07T06:25:41Z | mine-sim-1 RUNNING | matches inventory; spent $177.94; **H5 pivot pipe 227022** download TalentPigs (~19G); deadman→12:00Z pid 1783662; validator pods untouched |
 | 2026-08-07T06:33:00Z | mine-sim-1 RUNNING | matches inventory; spent $180.82; **king pivot DONE** TalentPigs:8001; H5 merge+sim pipe **231222** α0.65; deadman 1783662; validator pods untouched |
+| 2026-08-07T06:43:38Z | mine-sim-1 RUNNING | matches inventory; spent $185.00; **merge DONE** + resume pipe **231961** (fixed 16-shard identity crash); chall:8002 loading h5-kt65; deadman 1783662; validator pods untouched |

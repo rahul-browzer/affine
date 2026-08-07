@@ -1,0 +1,12 @@
+{
+  "out": "/root/merges/h5-kt65",
+  "alpha": 0.65,
+  "n_merged": 1026,
+  "n_copied_from_A": 19,
+  "max_abs_delta_sample": 0.000640869140625,
+  "first_shard": "model-00001-of-00002.safetensors",
+  "a_first_1MiB_sha256": "c551c75247026a239a1c82976659ce72c81c3ffa327456dddd7c8b732e3235ad",
+  "out_first_1MiB_sha256": "5613cd2a07871a418926584ba4e7c95cbe610c2de84cbd4499d296a1677c698e",
+  "first_1MiB_identical": false,
+  "elapsed_s": 321.0136983394623
+}
