@@ -57,6 +57,10 @@ class PrintLossCallback(TrainerCallback):
         )
 
 
+def _msg_chars(row: dict) -> int:
+    return sum(len(m.get("content") or "") for m in row.get("messages") or [])
+
+
 class RefSFTDataset(Dataset):
     def __init__(
         self,
@@ -65,16 +69,31 @@ class RefSFTDataset(Dataset):
         max_len: int,
         loss_on: str = "thought",
     ):
-        self.rows = []
+        raw: list[dict] = []
         with path.open() as f:
             for line in f:
                 if line.strip():
-                    self.rows.append(json.loads(line))
+                    raw.append(json.loads(line))
         self.tok = tokenizer
         self.max_len = max_len
         if loss_on not in ("thought", "full"):
             raise ValueError(f"loss_on must be thought|full, got {loss_on!r}")
         self.loss_on = loss_on
+        # Long chat prefixes truncate past the thought at max_len → empty labels.
+        # Char budget ≈ max_len×2.5 leaves room for completion under code-dense toks.
+        if loss_on == "thought":
+            budget = int(max_len * 2.5)
+            kept = [r for r in raw if _msg_chars(r) <= budget]
+            kept.sort(key=_msg_chars)
+            print(
+                f"[train] fit-filter max_len={max_len} budget_chars={budget} "
+                f"kept={len(kept)}/{len(raw)} "
+                f"row0_msg_chars={_msg_chars(kept[0]) if kept else 'n/a'}",
+                flush=True,
+            )
+            self.rows = kept
+        else:
+            self.rows = raw
         self.n_no_fence = 0
         self.n_thought_ok = 0
         self._probe_cuts()

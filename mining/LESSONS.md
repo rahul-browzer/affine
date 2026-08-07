@@ -128,6 +128,10 @@ Format: `- <finding> — <the number or error that proves it>`
   `retry_h28_n80.sh` alone ABORTs if :8001 unhealthy — must recover king first.
 - King-self harvest (TalentPigs `king_rows` @ dbfbb + crown chall) → **686**
   ex mean clipL1 0.0885 — larger/cleaner than mixed winner-zA 406 (H29).
+- Thought-LoRA `max_len=8192` + long chat prefixes → empty supervised span
+  (H29 raw row0 msg_chars=41524 → `supervised_tokens=0/8192` SystemExit).
+  Fit-filter msg_chars≤max_len×2.5 + sort short-first (368/686 kept;
+  sample0 59/1513) before train — `train_lora.py` now does this.
 
 ## Money / platform
 

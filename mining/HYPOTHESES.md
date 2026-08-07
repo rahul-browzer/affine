@@ -7,8 +7,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H28 | high | winner-zA LoRA (**m7-init**) → m>0.04 | **open** (king recover→n80) |
-| 2 | H29 | high | king-self z_A LoRA (**TP-init**) → m>0.04 | **open** (bootstrap→train) |
+| 1 | H28 | high | winner-zA LoRA (**m7-init**) → m>0.04 | **open** (n80 attempt1 live) |
+| 2 | H29 | high | king-self z_A LoRA (**TP-init**) → m>0.04 | **open** (train relaunch 368ex) |
 | — | H27 | was high | winner-zA LoRA (TP-init) | **refuted** m=−0.00792 |
 | — | H23 | was low | TP×Talucampe α0.90 | **refuted** m=−0.00777 |
 | — | H26 | was med | TP×kkk-af α0.90 | **refuted** m=+0.00592 |
@@ -24,14 +24,14 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H28 — same data, m7 init (non-α)
 - **Claim:** H25 α-dilution killed m7's clip-L1; keep m7 intact as init +
   same winner-zA LoRA → m>0.04. Pin `Radiant28/…m7` @ `f766293ee878`.
-- **Status:** n80 aborted (king :8001 dead). Pass183 relaunched king +
-  recover_wait→retry. Still loading/warmup as of pass184. `s4-h28-m7-clip-l1-shape/`.
+- **Status:** recover DONE 19:30:47Z (probe=ok); n80 attempt1 live. Poll
+  `h28_sim_progress.json` → decision. `s4-h28-m7-clip-l1-shape/`.
 
 ### H29 — king-self high clip-L1 z_A (non-α)
 - **Claim:** H27 failed from mixed foreign z_A; train only TalentPigs's own
   high-L1 thoughts (`king_rows` @ dbfbb + crown chall) on TP init → m>0.04.
-- **Status:** harvest 686ex mean clipL1 0.0885; mine-h29-1 bootstrap launched
-  pass184. `s4-h29-king-self-clip-l1/`.
+- **Status:** first train died empty-mask (row0 41k chars). Pass185 fit-filter
+  368/686 + relaunch; sample0 supervised=59/1513. `s4-h29-king-self-clip-l1/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

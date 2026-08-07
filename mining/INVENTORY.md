@@ -7,8 +7,8 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h28-1 | swift-hawk-e1 | 8×H200 | $28.00 | ~2026-08-08T06:11Z | H28 m7-init winner-zA | king recover→n80 |
-| mine-h29-1 | golden-wolf-bc | 8×H200 | $31.92 | ~2026-08-08T07:28Z | H29 king-self clip-L1 | bootstrap→train |
+| mine-h28-1 | swift-hawk-e1 | 8×H200 | $28.00 | ~2026-08-08T06:11Z | H28 m7-init winner-zA | n80 ~9/80 |
+| mine-h29-1 | golden-wolf-bc | 8×H200 | $31.92 | ~2026-08-08T07:28Z | H29 king-self clip-L1 | train 368ex |
 
 SSH: h28 .232:40311 · h29 .21:20100 · known_hosts `/tmp/mine-h2{8,9}-1.known_hosts` · **Free: 3**. Cap 5.
 
@@ -28,6 +28,6 @@ SSH: h28 .232:40311 · h29 .21:20100 · known_hosts `/tmp/mine-h2{8,9}-1.known_h
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-07T19:36Z | h28+h29 match | H29 empty-mask fix+relaunch; H28 n80 ~9/80 |
 | 2026-08-07T19:29Z | h28+h29 match | rented h29 @$31.92/h ttl12h; H29 bootstrap up |
 | 2026-08-07T19:24Z | h28 only | rm h27+h23 after REFUTE; H28 king relaunch |
-| 2026-08-07T19:07Z | h23/27/28 match | re-armed form on all 3; n80 32/53/7 |
