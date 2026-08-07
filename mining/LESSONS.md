@@ -100,8 +100,8 @@ Format: `- <finding> — <the number or error that proves it>`
   lacked `write_merge_decision.py`/`watch_fix_decision.sh` until pass128 scp'd them
   for H6 mid50/final. Mid50 decisions use `SIGNAL_*` + `signal_only:true` (never
   tear down the train pod on a mid-ckpt n40).
-- H7–H13 TP×{pandora,golden-crown,diane,kevin,adambell,plmk,kkk-af} α0.75 all **INVALID** band
-  (×2.21/1.97/1.85/1.98/1.87/2.02/2.05); even +0.0244 near-miss B at 25% sabotages baseline — no α0.85; prefer α≥0.90.
+- H7–H15 TP×{pandora,golden-crown,diane,kevin,adambell,plmk,kkk-af,kkkk,leary} α0.75 all **INVALID** band
+  (×2.21…2.11); even healthy parent leary×1.017 → merge×2.107; +0.0244 B still bands at 25% — no α0.85; prefer α≥0.90.
 - Parent-duel base× ≠ merge base×: chal-00310 plmk was ×1.000 live, but TP×plmk α0.75 → ×2.017
   (H12). Do not treat parent calibration as merge calibration; test α≥0.90 (H16) or different B class.
 - Dual-side n40/n80 teacher `httpx.ReadTimeout`: 180s×3 dies (H6@29/40); 480s×5 still dies (H9@60/80) — outer 3× retry required; H9/H12 inline; H6/H13/H14 use `watch_n80_retry.sh`→`retry_*_n80.sh` (do not edit live start_*.sh).

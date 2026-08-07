@@ -1,0 +1,68 @@
+{
+  "elapsed_s": 2182.751504421234,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/merges/h14-tp75",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h14",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0,
+    "se": null,
+    "z": 0.0,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.04001252964740759,
+      "gate_pass_rate": 0.8639240506329114,
+      "bank_frac": 0.5333333333333333,
+      "calib_ratio": 0.6555463804496788,
+      "baseline_abs": 0.11637034060641975,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": 0.005021653258004202,
+      "mean_mix": 0.04001252964740759
+    },
+    "challenger": {
+      "valid": false,
+      "S": null,
+      "gate_pass_rate": 0.8523489932885906,
+      "bank_frac": 0.30833333333333335,
+      "calib_ratio": 0.9748353917791068,
+      "baseline_abs": 0.23784191661112827,
+      "n_turns": 80,
+      "n_pairs": 298,
+      "mean_lambda2": -0.020327745507626383,
+      "mean_mix": -0.014483865228439792,
+      "baseline_band_exceeded": true
+    },
+    "slice": {
+      "seed": 15568424246252464997,
+      "n": 80,
+      "digest": "cdf42c019b5740991b847e066f92d08af89a2e5b8096f64ae5e00d3201242744",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.9748353917791068,
+    "chall_baseline_abs": 0.23784191661112827,
+    "king_baseline_abs": 0.11637034060641975,
+    "base_x": 2.0438362160985832
+  }
+}
