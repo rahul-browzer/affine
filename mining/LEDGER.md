@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T08:49:22Z | 33784.50 | 10.000000 | 0 | mine-sim-1 spent $234.42; pass92 H5b n80 ~15/80 ETA~09:20Z; deadman 12:00Z; no new rental |
 | 2026-08-07T08:45:33Z | 33791.33 | 10.000000 | 0 | mine-sim-1 spent $229.76; pass91 H5b chall READY + n80 sim running; deadman 12:00Z; no new rental |
 | 2026-08-07T08:36:04Z | 33800.14 | 10.000000 | 0 | mine-sim-1 spent $229.22; pass90 recovered H5b rc=127 abort; merge+visual OK; chall loading; deadman 12:00Z; no new rental |
 | 2026-08-07T08:18:46Z | 33831.21 | 10.000000 | 0 | mine-sim-1 spent $222.42; pass89 TalentPigs packed-visual merge_lora fix deployed; train step46/55; deadman 12:00Z; no new rental |
@@ -96,6 +97,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T08:49:22Z | observe | mine-sim spent $234.42 | Lium → mine-sim-1 | 33784.50 | 10.000 | H5b n80 ~15/80 ETA~09:20Z@~2.1tpm; floor OK |
 | 2026-08-07T08:36:04Z | observe | mine-sim spent $229.22 | Lium → mine-sim-1 | 33800.14 | 10.000 | H5b train DONE; pipe relaunch 266631 merge+visual OK; floor OK |
 | 2026-08-07T08:14:54Z | observe | mine-sim spent $219.88 | Lium → mine-sim-1 | 33838.95 | 10.000 | H5b pre-freed chall VRAM GPUs 4,5 (zombie h5-kt50); train step42/55; floor OK |
 | 2026-08-07T07:57:48Z | observe | mine-sim spent $214.22 | Lium → mine-sim-1 | 33862.41 | 10.000 | H5b n80≤3 retry pipe 253801 (train 245350 mid 251832); step24/55; floor OK |

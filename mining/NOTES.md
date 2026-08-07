@@ -3180,3 +3180,31 @@ No submit / no registration burn.
 
 Wait for n80 → `h5b_decision.json`. Gate >0.04 + H4 + live-king.
 Do **not** edit the live pipe script on the pod.
+
+## 2026-08-07T08:49:22Z — pass 92: H5b n80 advancing (15/80, ETA~09:20Z)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $234.42; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,784.50 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+`min_submission_block`=8767079. Host harvest **1964910** + deadman **1783662** alive.
+
+### What I did
+
+1. No `h5b_decision.json` yet (expected — n80 incomplete).
+2. SSH confirmed engines **200×3**, pipe **266631** + sim **276121** alive,
+   attempt 1/3, no retries, no result file.
+3. Progress: king**10**/chall**9** @ 08:46:50Z → king**15**/chall**15** @
+   08:49:11Z. Window ~2.13/2.55 tpm → ETA **~09:20Z**; deadman 12:00Z slack OK.
+4. SCP'd progress; wrote `results/h5b_time_budget_pass92.json`.
+
+### Money
+
+Lium $33,784.50; mining spend ≈ $234. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Wait for n80 → `h5b_decision.json`. Gate >0.04 + H4 + live-king.
+Do **not** edit the live pipe script on the pod.

@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-07T08:49:11Z",
+  "pass": 92,
+  "king": 15,
+  "challenger": 15,
+  "elapsed_min_since_launch": 8.32,
+  "overall_k_tpm": 1.804,
+  "overall_c_tpm": 1.804,
+  "window_min": 2.35,
+  "window_k_tpm": 2.128,
+  "window_c_tpm": 2.553,
+  "eta_utc": "2026-08-07T09:19:44Z",
+  "eta_min": 30.6,
+  "deadman": "2026-08-07T12:00:00Z",
+  "slack_ok": true,
+  "engines_assumed": "all 200 at check",
+  "sim_pid": 276121,
+  "pipe_pid": 266631,
+  "decision": null
+}
