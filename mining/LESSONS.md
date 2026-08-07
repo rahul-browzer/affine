@@ -66,8 +66,12 @@ Format: `- <finding> — <the number or error that proves it>`
   reject <$20/h. Prefer `lium up --gpu H200 -c 8` ≥$28/h.
 - Triton cache races across concurrent vLLM — per-role dirs + wipe + stagger.
   ImportError/`__triton_launcher.so` or missing `fused_moe_kernel.ttir` → kill
-  orphans on those GPUs (`kill -9` compute PIDs), unique `TRITON_CACHE_DIR` per
-  attempt (`role_$(date +%s)`), then relaunch. Health≠alive (APIServer can hang).
+  orphans on those GPUs (`kill -9` compute PIDs **by GPU index**, never
+  `pkill -f "vllm serve …"` — that string is in the SSH remote cmdline and
+  kills your session). Unique `TRITON_CACHE_DIR` per attempt
+  (`role_$(date +%s)_$$`), then relaunch. Health≠alive (APIServer can hang).
+- Post-relaunch wait: MoE load+compile needs **≥120×15s** (H25 50×15s would
+  have failed mid-compile; extended wait then kicked n80 at i=12).
 - `pgrep -f "run_sim_duel.py .*local-hN"` false-matches SSH/bash cmdlines that
   contain the pattern — use `ps -eo pid,cmd | awk '/[r]un_sim_duel.py/ && /local-hN/'`.
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin REFUTE: check
