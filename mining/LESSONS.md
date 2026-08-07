@@ -136,6 +136,10 @@ Format: `- <finding> — <the number or error that proves it>`
   `turns.jsonl.tmp→turns.jsonl` rename → ENOENT → prewarm `set -e` dies
   before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
   never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
+- Winner-zA LoRA on **m7-init** clears gates but m=+0.01095 (H28) — best
+  shaping LoRA so far, still ¼ of submit bar; do not requeue winner-zA.
+- `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up
+  SSH shell with `y: command not found`).
 
 ## Money / platform
 

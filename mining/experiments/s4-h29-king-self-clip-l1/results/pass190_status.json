@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-07T20:02:35Z",
+  "train_done": true,
+  "merge_done": false,
+  "prewarm_done": true,
+  "merged_files": [
+    ".tmpUflwVA",
+    "config.json",
+    "generation_config.json"
+  ],
+  "merged_bytes": 49739504839,
+  "teacher_health": 200,
+  "king_health": 200
+}

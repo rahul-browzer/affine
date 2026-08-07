@@ -7,67 +7,55 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H28 | high | winner-zA LoRA (**m7-init**) → m>0.04 | **open** (n80 41/80) |
-| 2 | H29 | high | king-self LoRA (**TP-init**) → m>0.04 | **open** (train~40/46) |
-| 3 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (train~22/46) |
-| 4 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (train~7/46) |
-| 5 | H32 | high | H29 cell @ **lr=3e-5** → m>0.04 | **open** (train) |
+| 1 | H29 | high | king-self LoRA (**TP-init**) → m>0.04 | **open** (chall loading) |
+| 2 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (merging) |
+| 3 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (serve→n80) |
+| 4 | H32 | high | H29 cell @ **lr=3e-5** → m>0.04 | **open** (serve→n80) |
+| 5 | H33 | high | H29 cell @ **epochs=2** → m>0.04 | **open** (bootstrap) |
+| — | H28 | was high | winner-zA LoRA (m7-init) | **refuted** m=+0.01095 |
 | — | H27 | was high | winner-zA LoRA (TP-init) | **refuted** m=−0.00792 |
-| — | H23 | was low | TP×Talucampe α0.90 | **refuted** m=−0.00777 |
-| — | H26 | was med | TP×kkk-af α0.90 | **refuted** m=+0.00592 |
-| — | H24 | was low | TP×0ronoCris α0.90 | **refuted** m=−0.00466 |
-| — | H25 | was high | TP×Radiant28/m7 α0.90 | **refuted** m=+0.00662 |
-| — | H22…H1 | — | α/LoRA/SFT | **refuted** |
+| — | H23…H1 | — | α/LoRA/SFT | **refuted** |
 | — | H3 | instrumental | clip-L1 lever | **supported** (+rank) |
 
 ---
 
 ## Open
 
-### H28 — same data, m7 init (non-α)
-- **Claim:** H25 α-dilution killed m7's clip-L1; keep m7 intact as init +
-  same winner-zA LoRA → m>0.04. Pin `Radiant28/…m7` @ `f766293ee878`.
-- **Status:** n80 41/80. Poll → decision. `s4-h28-m7-clip-l1-shape/`.
-
 ### H29 — king-self high clip-L1 z_A (non-α)
-- **Claim:** H27 failed from mixed foreign z_A; train only TalentPigs's own
-  high-L1 thoughts on TP init → m>0.04.
-- **Status:** train ~40/46 loss@40≈0.486; prewarm relaunched pass189.
-  `s4-h29-king-self-clip-l1/`.
+- **Claim:** Train only TalentPigs's own high-L1 thoughts on TP init → m>0.04.
+- **Status:** train done loss@45≈0.483; merge OK non-id; chall :8002 loading
+  (t/k 200). `s4-h29-king-self-clip-l1/`.
 
 ### H30 — king-self × m7 init (non-α)
-- **Claim:** missing 2×2 cell: m7 init + TalentPigs king-self high-L1 z_A
-  → m>0.04. Independent of H28/H29.
-- **Status:** train ~22/46; prewarm relaunched pass189. `s4-h30-m7-king-self/`.
+- **Claim:** m7 init + TalentPigs king-self → m>0.04.
+- **Status:** train done; merge writing shards; t/k 200. `s4-h30-m7-king-self/`.
 
 ### H31 — H30 @ lr=3e-5 (non-α)
-- **Claim:** 3× LR on same m7×king-self cell moves clip-L1 enough for m>0.04.
-- **Status:** train ~7/46 on mine-h31-1. `s4-h31-m7-king-self-lr3e5/`.
+- **Claim:** 3× LR on m7×king-self → m>0.04.
+- **Status:** train+merge done; serving toward n80. `s4-h31-m7-king-self-lr3e5/`.
 
 ### H32 — H29 @ lr=3e-5 (non-α)
-- **Claim:** 3× LR on TP-init + king-self completes 2×2 with H29/H30/H31.
-- **Status:** train launched on mine-h32-1 (8×B200). `s4-h32-tp-king-self-lr3e5/`.
+- **Claim:** 3× LR on TP×king-self → m>0.04.
+- **Status:** train+merge done; chall-only serve. `s4-h32-tp-king-self-lr3e5/`.
+
+### H33 — H29 @ epochs=2 (non-α)
+- **Claim:** 2× epochs on TP×king-self@lr1e-5 → m>0.04.
+- **Status:** mine-h33-1 bootstrap. `s4-h33-tp-king-self-ep2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
 
+### H28 — winner-zA LoRA on m7 init
+- m=+0.01095 z=1.35 base×1.131 r=0.679 (gates OK). S_c 0.0259 > S_k 0.0148
+  but < submit bar. Better than H27; still not crown. `s4-h28-…/results/`.
+
 ### H27 — winner-zA LoRA on TalentPigs init
-- m=−0.00792 z=−1.34 base×0.962 r=0.818 (gates OK). S_c 0.0116 < S_k 0.0192.
-  `s4-h27-clip-l1-shape/results/`.
+- m=−0.00792 z=−1.34 base×0.962 r=0.818. `s4-h27-clip-l1-shape/results/`.
 
 ### H23 — TP×Talucampe α0.90
-- m=−0.00777 z=−1.08 base×1.079 r=0.774 (gates OK). `s4-h23-tp-talucampe-a90/results/`.
+- m=−0.00777. `s4-h23-tp-talucampe-a90/results/`.
 
-### H26 — kkk-af α0.90
-- m=+0.00592 z=0.92 base×1.094 r=0.762. `s4-h26-tp-kkk-a90/results/`.
-
-### H24 — 0ronoCris α0.90
-- m=−0.00466 z=−0.58 base×1.049 r=0.789. `s4-h24-tp-ronocris-a90/results/`.
-
-### H25 — Radiant28/m7 α0.90
-- m=+0.00662 z=0.76 base×1.133 r=0.711. `s4-h25-tp-adambell-m7-a90/results/`.
-
-### H22 / H21 / H16 / H20 / H19…H1
-- See archive + LESSONS. No α / plmk / leary relaunch.
+### H26 / H25 / H24 / H22…H1
+- See archive + LESSONS. No α / plmk / leary / winner-zA relaunch.

@@ -1,0 +1,22 @@
+{
+  "experiment": "s4-h1v2-sft",
+  "base": "/root/hf/hub/models--TalentPigs--affine-5ekxlcg3fx-abc/snapshots/dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "data": "/root/h29/king_self_high_l1.jsonl",
+  "max_len": 8192,
+  "epochs": 1.0,
+  "lr": 1e-05,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "batch": 1,
+  "grad_accum": 8,
+  "loss_on": "thought",
+  "cuda_visible": "6,7",
+  "started_utc": "2026-08-07T19:34:24Z",
+  "elapsed_s": 1192.9182007312775,
+  "finished_utc": "2026-08-07T19:54:17Z",
+  "adapter_dir": "/root/h29/train/adapter",
+  "sample0_supervised_tokens": 59,
+  "sample0_total_tokens": 1513,
+  "thought_ok": 368,
+  "no_fence": 0
+}
