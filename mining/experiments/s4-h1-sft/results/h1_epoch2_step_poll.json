@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-07T02:54:18Z",
+  "step": 65,
+  "total": 110,
+  "frac": 0.5909090909090909,
+  "last_loss": 0.251,
+  "train_done": false,
+  "ckpt_dirs": [
+    "checkpoint-50"
+  ],
+  "pipeline_alive": true,
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 200
+  },
+  "eta_train_done_approx_utc": "2026-08-07T03:35Z",
+  "note": "pass39: triage_sim wired into host harvest; soft deadline 06:50Z verified on pod",
+  "seconds_per_step_approx": 54,
+  "steps_remaining": 45,
+  "eta_minutes_approx": 40.5
+}

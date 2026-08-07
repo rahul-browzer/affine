@@ -1341,3 +1341,42 @@ Lium $34,337.16; mining spend ≈ $93.77. Host deadman 07:00Z + early teardown.
 
 Poll for `train_done` (~03:35Z) → adapter salvage → n40→n80. Confirm
 harvest early-rm (or name-check kill). No submit until margin > 0.04 + H4.
+
+
+---
+
+## 2026-08-07T02:54:19Z — pass 39: H1 step65 + sim triage wired into harvest
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $94.80; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host deadman 1405846 still armed for 07:00Z.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; Lium $34,337.16 (floor OK).
+   Train step **65/110** (epoch 2); engines 200×3; pipeline 86845 waiting
+   (soft deadline **06:50Z** confirmed on pod copy of post_train_pipeline.sh);
+   mid-salvage 83669; GPU6/7 train live; no sim artifacts yet. ETA
+   train.done ~**03:35Z** (~45 steps × ~54s).
+2. Confirmed early-teardown cannot kill mid-n80: `got_sim` needs
+   `h1_sim_result.json` or (n40 + `h1_pipeline.done`); pipeline.done only
+   after n80 or n40-only skip.
+3. **Useful increment:** added `experiments/s4-h1-sft/triage_sim.py`
+   (plan.md decision rule → `results/h1_decision.json`; n40-only never
+   `toward_submit`, only `confirm_n80`). Wired into
+   `host_harvest_results.sh`; restarted harvest pid **1459477**. Smoke on
+   H2 α0.65 JSON → action `revise_recipe` margin +0.007 (as expected).
+4. Wrote `results/h1_epoch2_step_poll.json`. No submit. No new rental.
+   Train/pipeline/mid-salvage/deadman untouched.
+
+### Money
+
+Lium $34,337.16; mining spend ≈ $94.80. Host deadman 07:00Z + early teardown.
+
+### Next
+
+Poll for `train_done` (~03:35Z) → adapter salvage → n40→n80. Read
+`results/h1_decision.json` when present. Kill mine-sim-1 as soon as sim
+done (name-check). No submit until action=`toward_submit`.

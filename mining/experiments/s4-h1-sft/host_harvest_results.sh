@@ -102,6 +102,14 @@ while true; do
     fi
   fi
 
+  # Apply plan.md decision rule whenever any sim JSON is local.
+  if [[ -f "$OUT/h1_sim_result.json" || -f "$OUT/h1_sim_result_n40.json" ]]; then
+    if python3 /home/const/subnet120/mining/experiments/s4-h1-sft/triage_sim.py \
+      --results-dir "$OUT" >/dev/null 2>&1; then
+      log "triage → $OUT/h1_decision.json action=$(python3 -c "import json;print(json.load(open('$OUT/h1_decision.json'))['primary']['action'])" 2>/dev/null || echo '?')"
+    fi
+  fi
+
   if (( got_sim == 1 && got_salvage == 1 && got_train == 1 )); then
     date -u +%Y-%m-%dT%H:%M:%SZ >"$OUT/host_harvest.done"
     log "all artifacts harvested; early-teardown mine-sim-1 (stop $/h burn)"

@@ -5,16 +5,16 @@ Rewritten every pass. Do not append.
 ## Stage
 
 **Stage 4 — H1 teacher-ref LoRA SFT RUNNING (epoch 2); dual-phase sim armed;
-early teardown armed.**
+early teardown + auto-triage armed.**
 
 Stage 0–3 complete. H2 kevin×pandora REFUTED. H1 harvest DONE (440
 examples); LoRA train pid **82057** on GPUs 6,7 (engines 0–5 still hot).
 Post-train pipeline pid **86845** waits for `train.done` → HF adapter
 salvage → GPU merge on 6,7 → chall-only re-serve → **n=40 then n=80**.
 **checkpoint-50** on disk + HF. Epoch-1 loss **0.251** @ step 55; now
-**step 62/110**. Host harvest **1454856** (early-teardown on full artifact
-set); host deadman **1405846** kills `mine-sim-1` at **07:00Z**. No
-submissions.
+**step 65/110**. Host harvest **1459477** (early-teardown +
+`triage_sim.py` → `h1_decision.json`); host deadman **1405846** kills
+`mine-sim-1` at **07:00Z**. No submissions.
 
 ## Live facts (verified this pass)
 
@@ -30,21 +30,22 @@ submissions.
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
 | Lium balance | $34,337.16 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$93.77** @ $23.60/h |
+| mining spend to date | `mine-sim-1` spent **$94.80** @ $23.60/h |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 verdict | **REFUTED** (`experiments/s4-h2-merge/result.md`) |
 | H1 harvest | **DONE** — 440 examples, 0 missing |
-| H1 train | **RUNNING** — step **62/110** @ ~54s/it, ETA ~**03:35Z** |
+| H1 train | **RUNNING** — step **65/110** @ ~54s/it, ETA ~**03:35Z** |
 | H1 loss | ckpt50 last 0.329; epoch1 **0.251**; min 0.215 @35 |
 | H1 mid-ckpt | **checkpoint-50 ON HF** (private salvage repo) |
-| H1 pipeline | **ARMED** — pid **86845** (soft deadline **06:50Z**); path verified |
+| H1 pipeline | **ARMED** — pid **86845** (soft deadline **06:50Z** verified on pod) |
 | H1 mid-ckpt salvage | **ARMED** — pid 83669 (ckpt-50 done; waits for 100) |
 | H1 HF salvage repo | **VERIFIED** — private `unconst/Affine-5czsc2fc98-h1-lora` |
 | H1 Lium backup | **ARMED** — `lium bk` path `/root/h1/train` every 1h keep 1d |
-| Host harvest | **ARMED** — pid **1454856** (emit_train_progress + **early teardown**) |
+| Host harvest | **ARMED** — pid **1459477** (emit + early teardown + triage) |
 | Host deadman | **ARMED** — pid **1405846** → `lium rm mine-sim-1` at **07:00Z** |
 | Lium schedule | **CANCELLED** (host deadman replaces) |
+| H1 triage | **ARMED** — `experiments/s4-h1-sft/triage_sim.py` → `results/h1_decision.json` |
 
 ## What's running
 
@@ -67,30 +68,30 @@ On pod:
 - ckpt-50: on disk + HF; epoch1 loss in progress JSON (`last_loss` 0.251)
 
 Host (no GPU):
-- Artifact harvester pid **1454856**, log `.ralph/host_harvest.log`, pidfile `.ralph/host_harvest.pid`
-  → on sim+salvage+train artifacts: name-check then `lium rm mine-sim-1` (saves $/h)
+- Artifact harvester pid **1459477**, log `.ralph/host_harvest.log`, pidfile `.ralph/host_harvest.pid`
+  → on sim+salvage+train artifacts: triage → name-check then `lium rm mine-sim-1`
 - TTL deadman pid **1405846**, log `.ralph/host_ttl_deadman.log`
   → at 07:00Z verifies Name=`mine-sim-1` then `lium rm mine-sim-1 -y` (backstop)
-- Local triage: `experiments/s4-h1-sft/results/h1_train_{progress,loss}.json`
-  + `h1_epoch1_milestone.json` + `h1_epoch2_mid.json` + `emit_train_progress.py`
+- Local triage: `experiments/s4-h1-sft/triage_sim.py` + `results/h1_decision.json`
+  (appears when n40/n80 land). Progress: `results/h1_train_{progress,loss}.json`
+  + `h1_epoch2_step_poll.json`
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
 Nothing hard. Budget to deadman: ~$50 extra vs old 04:53Z TTL if sim
-lands late. **Early teardown** now fires when harvest completes (preferred
-over waiting for 07:00Z). Next pass MUST confirm host harvest + deadman
-still alive; if sim finishes and harvest did not rm, `lium rm mine-sim-1`
-after verifying name. No submit until sim margin > 0.04 + H4 (prefer n=80;
-n40 triage only).
+lands late. **Early teardown** fires when harvest completes (preferred
+over waiting for 07:00Z). Next pass: read `results/h1_decision.json` if
+present; else poll train/pipeline. No submit until sim margin > 0.04 + H4
+(prefer n=80; n40 triage only → `confirm_n80`).
 
 ## Next action (single, highest value)
 
 **Poll `experiments/s4-h1-sft/results/h1_train_progress.json`** for
 `train_done: true` (~**03:35Z**) then `/root/h1/adapter_salvage.json` and
-pipeline log for merge→chall-only→**n40→n80**. Apply
-`experiments/s4-h1-sft/plan.md` decision rule on sim margin (n40 directional;
-confirm n80 before submit). Do **not** submit until margin > 0.04 + H4.
-If H1 pipeline/sim done: confirm harvest early-rm fired (or kill
-`mine-sim-1` yourself after name-check).
+pipeline log for merge→chall-only→**n40→n80**. Prefer reading
+`results/h1_decision.json` (`triage_sim.py` / plan.md rule) over
+re-deriving. Do **not** submit until action=`toward_submit` (n80 margin
+> 0.04 + H4). If H1 pipeline/sim done: confirm harvest early-rm fired (or
+kill `mine-sim-1` yourself after name-check).

@@ -1,8 +1,8 @@
 {
-  "utc": "2026-08-07T02:51:40Z",
-  "step": 62,
+  "utc": "2026-08-07T02:54:17Z",
+  "step": 65,
   "total": 110,
-  "frac": 0.5636363636363636,
+  "frac": 0.5909090909090909,
   "train_done": false,
   "ckpt_dirs": [
     "checkpoint-50"
@@ -179,7 +179,7 @@
       "source": "trainer_state"
     },
     {
-      "step": 62,
+      "step": 65,
       "epoch": 1.0,
       "loss": 0.251,
       "grad_norm": 0.2341,
