@@ -9,7 +9,7 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 |---|---|---|---|---|---|---|
 | mine-h18-1 | golden-comet-e1 | 8×H200 | $28.00 | 2026-08-07T22:57:31Z | H18 TP×Shatoria α0.75 | n80 retry @15:27Z |
 | mine-h19-1 | eager-eagle-c6 | 8×H200 | $28.00 | 2026-08-07T22:49:58Z | H19 TP×kkkk α0.90 | n80 @15:27Z |
-| mine-h20-1 | swift-lion-ac | 8×H200 | $31.92 | 2026-08-07T22:52:59Z | H20 TP×leary α0.90 | n80 retry (false probe cleared) |
+| mine-h20-1 | swift-lion-ac | 8×H200 | $31.92 | 2026-08-07T22:52:59Z | H20 TP×leary α0.90 | n80 (chall GPUUTIL=0.72 after OOM@0.80) |
 
 SSH: h18 .232:40307 · h19 .234:40297 · h20 .22:20100
 known_hosts `/tmp/mine-h{18,19,20}-1.known_hosts` · **Free slots: 2**. Cap 5.

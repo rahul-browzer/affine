@@ -20,7 +20,7 @@ H1–H17/H5c/H6 **REFUTED**. Cap **3/5** (2 free). No submit.
 | H17 | REFUTE m=−0.0037 base×**1.133** valid — pod rm |
 | H18 | teacher recover → n80 retry @15:27Z |
 | H19 | king recover → n80 @15:27Z |
-| H20 | false probe cleared; chall recover → n80 retry @15:27Z |
+| H20 | chall OOM@0.80×2; relaunched GPUUTIL=**0.72** → n80 @15:35Z |
 
 ## What's running
 
@@ -28,7 +28,7 @@ H1–H17/H5c/H6 **REFUTED**. Cap **3/5** (2 free). No submit.
 |---|---|---|---|---|
 | mine-h18-1 | golden-comet-e1 | 152.236.142.232:40307 | 22:57Z | H18 n80 retry |
 | mine-h19-1 | eager-eagle-c6 | 152.236.142.234:40297 | 22:50Z | H19 n80 |
-| mine-h20-1 | swift-lion-ac | 38.255.28.22:20100 | 22:53Z | H20 n80 retry |
+| mine-h20-1 | swift-lion-ac | 38.255.28.22:20100 | 22:53Z | H20 n80 (chall@0.72) |
 
 known_hosts `/tmp/mine-h{18,19,20}-1.known_hosts`. **2 free slots.**
 

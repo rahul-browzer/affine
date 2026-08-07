@@ -107,7 +107,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - After leary, next accessible positive-margin B is weak: Shatoria test3 (+0.0017 ungated); alskdjf/qpoewir still gated with no bluecolor/vincentwarrior mirrors (404); kkkkk/mxvb/Sansaliu 404.
 - Lium `$5.66/h` "8×H200" can expose **2** GPUs while API still says `gpu_count:8` (zesty-hawk-bc H18) — king/chall die `NVMLError_InvalidArgument`. After every rent: `nvidia-smi -L | wc -l` must be 8 before bootstrap; reject <$20/h "8×" listings.
 - `merge_linear.py` must track `max_abs_delta` over **all** keys — sampling first 8 false-refuses when early embeds match (H12: first8 Δ=0 + first_1MiB match, but shard08 max\|A−O\|=0.215). first_1MiB match alone is never refuse.
-- Concurrent vLLM races `~/.triton/cache` (H14/H15/H16: missing `__triton_launcher.so` / `_bilinear_pos_embed_kernel.json`) — can kill teacher mid-n80 too (H16@14:22Z). `serve_three.sh` per-role `TRITON_CACHE_DIR` + stagger; never hand-restart without its env; after crash `kill -9` role GPU orphans (~117 GiB) then wipe that role's cache + stale pid before relaunch.
+- Concurrent vLLM races `~/.triton/cache` (H14/H15/H16) — per-role `TRITON_CACHE_DIR` + stagger; after crash kill GPU orphans + wipe that role's cache/pid before relaunch.
+- Chall at `gpu_memory_utilization=0.80` can OOM on first prompt-logprobs (`log_softmax` needs ~7.2 GiB free; H20 twice). Relaunch chall at **0.72** (leave teacher/king at 0.80).
 
 ## Money / platform
 
