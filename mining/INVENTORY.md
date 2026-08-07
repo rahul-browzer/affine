@@ -8,8 +8,8 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
 | mine-h23-1 | gentle-fox-b5 | 8×B300 | $63.60 | 2026-08-08T00:09:46Z | H23 TP×Talucampe α0.90 | king recover178→n80 |
-| mine-h27-1 | noble-orbit-fb | 8×H200 | $31.92 | 2026-08-08T05:34:02Z | H27 winner-zA LoRA | n80 ~3/80 |
-| mine-h28-1 | swift-hawk-e1 | 8×H200 | $28.00 | ~2026-08-08T06:11Z | H28 m7-init winner-zA | train ~43/51 |
+| mine-h27-1 | noble-orbit-fb | 8×H200 | $31.92 | 2026-08-08T05:34:02Z | H27 winner-zA LoRA | n80 ~23/80 + retry |
+| mine-h28-1 | swift-hawk-e1 | 8×H200 | $28.00 | ~2026-08-08T06:11Z | H28 m7-init winner-zA | merge after train.done |
 
 SSH: h23 .244:40300 · h27 .21:20099 · h28 .232:40311
 known_hosts `/tmp/mine-h{23,27,28}-1.known_hosts` · **Free slots: 2**. Cap 5.
@@ -28,6 +28,6 @@ known_hosts `/tmp/mine-h{23,27,28}-1.known_hosts` · **Free slots: 2**. Cap 5.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-07T18:51Z | h23/27/28 match | H28 TRAIN_DONE→merge; armed h27/h28 retry |
 | 2026-08-07T18:43Z | h23/27/28; h26 rm | H26 REFUTE+rm; H23 recover178; H27 form re-scp |
 | 2026-08-07T18:29Z | h23/26/27/28; h24 rm | H24 REFUTE+rm; H23 king Triton relaunch |
-| 2026-08-07T18:15Z | h23/24/26/27/28 match | H23 king EngineDead→relaunch; no rent/rm |

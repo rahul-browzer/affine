@@ -1,0 +1,22 @@
+{
+  "experiment": "s4-h1v2-sft",
+  "base": "/root/hf/hub/models--Radiant28--5eqdtdzqle-ckpt1000-m7/snapshots/f766293ee878efef5f068a4053d6974017f11f26",
+  "data": "/root/h28/winner_za_high_l1.jsonl",
+  "max_len": 8192,
+  "epochs": 1.0,
+  "lr": 1e-05,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "batch": 1,
+  "grad_accum": 8,
+  "loss_on": "thought",
+  "cuda_visible": "6,7",
+  "started_utc": "2026-08-07T18:15:42Z",
+  "elapsed_s": 2047.682169675827,
+  "finished_utc": "2026-08-07T18:49:50Z",
+  "adapter_dir": "/root/h28/train/adapter",
+  "sample0_supervised_tokens": 53,
+  "sample0_total_tokens": 1891,
+  "thought_ok": 406,
+  "no_fence": 0
+}

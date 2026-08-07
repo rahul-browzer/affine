@@ -112,6 +112,9 @@ Format: `- <finding> — <the number or error that proves it>`
   wait spun until killed). Bake pid-alive check into wait loop.
 - H27 ghost dentry again: `ls` listed `watch_form_decision.sh`, `open`→ENOENT;
   form watcher silently gone mid-n80. `rm` + re-scp from local before relaunch.
+- `pgrep -f "watch_n80_retry.sh hN"` false-matches the SSH remote cmdline that
+  embeds the same string → reports ALREADY_ARMED when n=0. Count with
+  `ps -eo pid,cmd | awk '/[w]atch_n80_retry\.sh hN /'` (pass179).
 
 ## Money / platform
 
