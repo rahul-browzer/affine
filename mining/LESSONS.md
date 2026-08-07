@@ -146,6 +146,5 @@ Format: `- <finding> — <the number or error that proves it>`
   (`a203…/b203…/c203…`); patch `retry_h*_n80.sh` + never rely on bare post_train.
 - `watch_n80_retry` must **not** `exec` the retry — abort kills the sidecar
   (H37/H38 pass203). `nohup bash "$RETRY"` + keep polling.
-
 ## Money / platform
 - Floor $10k; burn ~τ0.68; no cryptoType.
