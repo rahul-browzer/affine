@@ -9,7 +9,7 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 |---|---|---|---|---|---|---|
 | mine-h16-1 | cosmic-eagle-2d | 8×H200 | $28.00 | 2026-08-07T21:51:17Z | H16 TP×plmk α0.90 | n80 ~42/80 |
 | mine-h17-1 | cosmic-orbit-9b | 8×H200 | $31.92 | 2026-08-07T21:56:20Z | H17 TP×kkk-af α0.90 | n80 ~28/80 |
-| mine-h18-1 | zesty-hawk-bc | 8×H200 | $5.66 | 2026-08-07T22:35:39Z | H18 TP×Shatoria α0.75 | merge→serve |
+| mine-h18-1 | zesty-hawk-bc | 8×H200 | $5.66 | 2026-08-07T22:35:39Z | H18 TP×Shatoria α0.75 | serve→n80 |
 | mine-h19-1 | eager-eagle-c6 | 8×H200 | $28.00 | 2026-08-07T22:49:58Z | H19 TP×kkkk α0.90 | bootstrap |
 | mine-h20-1 | swift-lion-ac | 8×H200 | $31.92 | 2026-08-07T22:52:59Z | H20 TP×leary α0.90 | bootstrap |
 

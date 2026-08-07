@@ -20,7 +20,7 @@ H1–H15/H5c/H6 **REFUTED**. H16–H20 open. Cap **5/5**. No submit.
 | H15 | **REFUTED** base×2.107 — pod rm ~$33 |
 | H16 | n80 ~42/80 |
 | H17 | n80 ~28/80 |
-| H18 | merge finishing (shard 16/16) → serve→n80 |
+| H18 | engines launching → n80 |
 | H19 | bootstrap live (kkkk α0.90) |
 | H20 | bootstrap live (leary α0.90) |
 
