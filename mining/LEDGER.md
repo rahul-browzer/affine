@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $190,132.69 | 2026-08-07T22:32Z |
-| cumulative mining spend | ~$3,750 (h34–h38 accruing) | 2026-08-07T22:32Z |
-| **available for mining** | **~$180,133** (balance − $10,000 floor) | 2026-08-07T22:32Z |
-| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-07T22:32Z |
-| miner burn (5 pods) | ~$152/h (h34/35/36 $31.92×3 + h37/38 $28×2) | 2026-08-07T22:32Z |
+| Lium balance | $190,077.20 | 2026-08-07T22:42Z |
+| cumulative mining spend | ~$3,820 (h34–h38 accruing) | 2026-08-07T22:42Z |
+| **available for mining** | **~$180,077** (balance − $10,000 floor) | 2026-08-07T22:42Z |
+| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-07T22:42Z |
+| miner burn (5 pods) | ~$152/h (h34/35/36 $31.92×3 + h37/38 $28×2) | 2026-08-07T22:42Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -29,4 +29,4 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 | 2026-08-07T21:20Z | 190377.59 | rm mine-h31-1 golden-raven-d8 (~$40) after H31 REFUTE m=+0.00016 |
 | 2026-08-07T21:18Z | 190395.14 | rented mine-h35-1 calm-fox-12 8×H200 @$31.92/h ttl12h (H35 lr1e4) |
 | 2026-08-07T21:17Z | 190395.14 | rm mine-h30-1 golden-hawk-9f (~$47) after H30 REFUTE m=−0.00316 |
-| 2026-08-07T20:59Z | 190470.97 | rm mine-h29-1 + rented mine-h34-1 |
+| 2026-08-07T20:59Z | 190715.48 | rm mine-h29-1 + rented mine-h34-1 |

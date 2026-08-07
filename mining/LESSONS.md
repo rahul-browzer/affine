@@ -81,16 +81,17 @@ Format: `- <finding> — <the number or error that proves it>`
   (H23 pass170). H200 unaffected.
 - Triton races: per-role `TRITON_CACHE_DIR` + wipe + stagger; kill orphans by
   GPU index never `pkill -f "vllm serve"` (kills SSH). MoE wait ≥120×15s.
-  Health=200 ≠ alive — probe `/v1/completions` with real model id (not
-  `"default"`→404); first probe can EngineDead on missing `__triton_launcher.so`
-  → wipe caches + relaunch, settle ≥20s (H23/H24/H30/H32).
+  Health=200 ≠ alive — gate n80 on `/v1/completions` 200 with real model id
+  (not `"default"`→404). First probe can EngineDead on missing
+  `__triton_launcher.so` → wipe+relaunch, settle ≥20s (H23/H30/H37@29s false
+  REFUTE pass204). `write_merge_decision` → `FALSE_PROBE_*` not REFUTE when
+  rejection_reason has unpromptable/ConnectError/EngineDead.
 - `pgrep -f` false-matches SSH/watcher argv — use
   `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
   from `watch_n80_retry` (self-deadlock H32 pass198).
-- Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin REFUTE: check
-  `rejection_reason` first — ConnectError/unpromptable/probe_force/`EngineDeadError`
-  = **false probe**; quarantine + relaunch engine, do **not** `lium rm`. After
-  false decision, quarantine + relaunch form+retry sidecars (H25@61/80).
+- Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin: check
+  `rejection_reason` first — false probe → quarantine + relaunch engines/
+  form+retry sidecars, never `lium rm` (H25@61/80, H37 pass204).
 - Ghost dentry: `ls` lists script but `open`→ENOENT — `rm` + re-scp; `test -x`.
 - B300 flashinfer sampling JIT can still die under concurrent launch — clear
   `cached_ops/sampling`, relaunch with `SERVE_STAGGER_S≥45` (H23).
@@ -147,4 +148,4 @@ Format: `- <finding> — <the number or error that proves it>`
   (H37/H38 pass203). `nohup bash "$RETRY"` + keep polling.
 
 ## Money / platform
-- No API to re-add cancelled TTL → host deadman. Floor $10k; burn ~τ0.68; no cryptoType.
+- Floor $10k; burn ~τ0.68; no cryptoType.

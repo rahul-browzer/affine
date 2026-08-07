@@ -25,12 +25,26 @@ MAX_ATTEMPTS=${MAX_ATTEMPTS:-3}
 
 log() { echo "[h37-n80-retry] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
+_promptable() {
+  # health=200 ≠ alive (H30/H37 Triton __triton_launcher.so → ConnectError false REFUTE)
+  local port=$1 mid code
+  mid=$(curl -s --max-time 5 "http://127.0.0.1:${port}/v1/models" \
+    | python3 -c 'import sys,json; d=json.load(sys.stdin); print(d["data"][0]["id"] if d.get("data") else "")' 2>/dev/null || true)
+  [[ -n "$mid" ]] || return 1
+  code=$(curl -s -o /tmp/_probe_${port}.json -w "%{http_code}" --max-time 60 \
+    "http://127.0.0.1:${port}/v1/completions" \
+    -H 'Content-Type: application/json' \
+    -d "{\"model\":\"${mid}\",\"prompt\":\"hi\",\"max_tokens\":2}" || true)
+  [[ "$code" == "200" ]]
+}
+
 _engines_ok() {
   local t k c
   t=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8000/health || true)
   k=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8001/health || true)
   c=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8002/health || true)
-  [[ "$t" == "200" && "$k" == "200" && "$c" == "200" ]]
+  [[ "$t" == "200" && "$k" == "200" && "$c" == "200" ]] || return 1
+  _promptable 8002
 }
 
 mkdir -p /root/logs /root/affine_data

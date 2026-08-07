@@ -9,8 +9,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 |---|---|---|---|---|
 | 1 | H34 | med | H30 cell @ **epochs=2** → m>0.04 | **open** (n80 a203 ~7/80) |
 | 2 | H36 | high | m7×(winner∪king-self) → m>0.04 | **open** (n80 a203) |
-| 3 | H37 | high | H28 cell @ **lr=1e-4** → m>0.04 | **open** (chall p203) |
-| 4 | H38 | high | H28 cell @ **epochs=2** → m>0.04 | **open** (chall load) |
+| 3 | H37 | high | H28 cell @ **lr=1e-4** → m>0.04 | **open** (chall p204; false REFUTE Q) |
+| 4 | H38 | high | H28 cell @ **epochs=2** → m>0.04 | **open** (chall p204) |
 | 5 | H35 | med | H30 cell @ **lr=1e-4** → m>0.04 | **open** (n80 a203) |
 | — | H33 | was med | H29 @ epochs=2 | **refuted** m=−0.00158 |
 | — | H32 | was med | H29 @ lr=3e-5 | **refuted** m=−0.00601 |
@@ -36,13 +36,13 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H37 — H28 @ lr=1e-4 (non-α)
 - **Claim:** 10× LR on m7×winner-zA → m>0.04 after H28 +0.01095.
-- **Status:** chall EngineCore died; recover p203 loading; watcher owns n80.
-  `s4-h37-m7-winner-za-lr1e4/` + `results/recover_pass203.md`.
+- **Status:** p203 chall Triton-died on first completion → false REFUTE
+  quarantined; chall p204 + completions-gated retry. `recover_pass204.md`.
 
 ### H38 — H28 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×winner-zA@lr1e-5 → m>0.04.
-- **Status:** king 200; chall loading via post_train; watcher armed w/ hashes.
-  `s4-h38-m7-winner-za-ep2/` + `results/recover_pass202.md`.
+- **Status:** post_train killed; chall Triton-init fail → p204 relaunch;
+  watcher armed. `recover_pass204.md`.
 
 ### H35 — H30 @ lr=1e-4 (non-α)
 - **Claim:** 10× LR on m7×king-self → m>0.04 after H30/H31 near-null.

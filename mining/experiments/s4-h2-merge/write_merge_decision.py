@@ -39,8 +39,32 @@ def extract(d: dict) -> dict:
     }
 
 
-def decide(hyp: str, margin, valid, *, signal_only: bool) -> str:
+_FALSE_PROBE_MARKERS = (
+    "unpromptable",
+    "connecterror",
+    "enginedead",
+    "probe_sample_failed",
+    "probe_force",
+    "all connection attempts failed",
+)
+
+
+def is_false_probe(d: dict) -> str | None:
+    """Return rejection_reason if this is an engine/probe failure, else None."""
+    v = d.get("verdict") or {}
+    rr = v.get("rejection_reason") or d.get("rejection_reason") or ""
+    if not rr:
+        return None
+    low = str(rr).lower()
+    if any(m in low for m in _FALSE_PROBE_MARKERS):
+        return str(rr)
+    return None
+
+
+def decide(hyp: str, margin, valid, *, signal_only: bool, false_probe: str | None) -> str:
     tag = hyp.upper().replace("-", "_")
+    if false_probe:
+        return f"FALSE_PROBE_{tag}"
     if margin is not None and margin > 0.04 and valid:
         return "SIGNAL_STRONG" if signal_only else "ADVANCE_STAGE5"
     if margin is not None and margin >= 0.02:
@@ -62,22 +86,31 @@ def main() -> None:
     d = json.loads(Path(args.sim_result).read_text())
     fields = extract(d)
     signal_only = args.signal_only or args.hyp.endswith("mid50")
+    false_probe = is_false_probe(d)
     dec = {
         "utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         **fields,
         "decision": decide(
-            args.hyp, fields["margin"], fields["valid_c"], signal_only=signal_only
+            args.hyp,
+            fields["margin"],
+            fields["valid_c"],
+            signal_only=signal_only,
+            false_probe=false_probe,
         ),
         "parser": "write_merge_decision.py#nested_verdict",
         "signal_only": signal_only,
         "submit": False
-        if signal_only
+        if signal_only or false_probe
         else (
             fields["margin"] is not None
             and fields["margin"] > 0.04
             and bool(fields["valid_c"])
         ),
     }
+    if false_probe:
+        dec["false_probe"] = True
+        dec["rejection_reason"] = false_probe
+        dec["note"] = "engine/probe failure — quarantine+relaunch; do NOT tear down"
     if signal_only:
         dec["note"] = "mid50 early signal only; final n80 is authoritative"
     out = Path(args.out)
