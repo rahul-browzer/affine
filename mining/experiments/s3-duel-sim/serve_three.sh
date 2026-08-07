@@ -81,8 +81,12 @@ _launch() {
   # dies on first request. Triton skips that path (evalsrv bench role does the
   # same). Harmless on GLM teacher.
   local extra_args=(--additional-config '{"gdn_prefill_backend": "triton"}')
-  echo "[serve] $(date -u +%Y-%m-%dT%H:%M:%SZ) start $name repo=$repo rev=${rev:-latest} port=$port gpus=$gpus"
-  CUDA_VISIBLE_DEVICES=$gpus nohup vllm serve "$repo" \
+  # Concurrent teacher/king/chall JIT races the shared ~/.triton/cache
+  # (H14/H15: FileNotFoundError / missing __triton_launcher.so). Isolate.
+  local tcache=/root/.triton/cache/${name}
+  mkdir -p "$tcache"
+  echo "[serve] $(date -u +%Y-%m-%dT%H:%M:%SZ) start $name repo=$repo rev=${rev:-latest} port=$port gpus=$gpus TRITON_CACHE_DIR=$tcache"
+  CUDA_VISIBLE_DEVICES=$gpus TRITON_CACHE_DIR=$tcache nohup vllm serve "$repo" \
     --port "$port" \
     --tensor-parallel-size "$TP" \
     --max-model-len "$MAXLEN" \
@@ -100,7 +104,10 @@ _launch() {
 }
 
 _launch teacher 8000 "0,1" "$TEACHER_REPO" "$TEACHER_REV"
+# Stagger so three MoE compiles do not thrash even with isolated caches.
+sleep "${SERVE_STAGGER_S:-15}"
 _launch king    8001 "2,3" "$KING_REPO"    "$KING_REV"
+sleep "${SERVE_STAGGER_S:-15}"
 _launch chall   8002 "4,5" "$CHALL_REPO"   "$CHALL_REV"
 
 echo "[serve] launched. Wait with: bash /root/mining_src/s3-duel-sim/wait_ready.sh"

@@ -89,7 +89,6 @@ Format: `- <finding> — <the number or error that proves it>`
   occupy others — do not serialize (H7+H8 beside mine-h5c-1; 3 live mine-*).
 - Reign earners with null published S (e.g. golden-crown, diane613) are still
   valid merge parents — they hold weight_bps; H8/H9 cover those two vs TalentPigs.
-- Launch train with its post_train waiter uploaded (H6 lacked it until pass121).
 - After REFUTE, kill idle chall on :8002 before reuse (H5c held GPUs 4–5); also
   H6 post_train `restart_for_h2` kills `vllm_chall.pid` at merge-end — SIGSTOP the
   pipe until mid50 lands (`gate_mid50_before_final.sh`); never edit the live pipe.
@@ -109,6 +108,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - Near-miss HF parents vanish or gate: origin kkk/kkkk/marsplan/adambell often 404; als kdjf/Tok*/rootti `gated=manual`→403. Before rent: `model_info` + `hf_hub_download(.gitattributes)` + **exact duel rev** via `api/v1/duels/{cid}`. Mirrors: adambell→`0pentensor/…ckpt450-H6`; plmk→`bluecolor777/plmk`@b2cc7b9f; **kkk→`bluecolor777/kkk-af`@7426296b** (chal-00262 +0.0244; `bluecolor777/kkk`@e3563a is a different SHA); kkkk→`vincentwarrior/affine-5ccebdzvsj-kkkk`@3ca1ebe6.
 - After leary, next accessible positive-margin B is weak: Shatoria test3 (+0.0017 ungated); alskdjf/qpoewir still gated with no bluecolor/vincentwarrior mirrors (404); kkkkk/mxvb/Sansaliu 404.
 - `merge_linear.py` must track `max_abs_delta` over **all** keys — sampling first 8 false-refuses when early embeds match (H12: first8 Δ=0 + first_1MiB match, but shard08 max\|A−O\|=0.215). first_1MiB match alone is never refuse.
+- Concurrent vLLM races `~/.triton/cache` (H14/H15: missing `__triton_launcher.so` / `_bilinear_pos_embed_kernel.json`) — `serve_three.sh` uses per-role `TRITON_CACHE_DIR` + 15s stagger. Never hand-restart without that script's env (`VLLM_USE_FLASHINFER_SAMPLER=0`, `VLLM_USE_DEEP_GEMM=0`) or FlashInfer ninja/CUDA-header dies; after `pkill vllm` also `kill -9` `nvidia-smi` compute PIDs (orphans hold ~117 GiB as `[Not Found]`).
 
 ## Money / platform
 
