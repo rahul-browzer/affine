@@ -57,5 +57,4 @@ ssh … -p 40301 … 'test -f /root/affine_data/h8_decision.json && cat $_; \
   tail -n 8 /root/logs/bootstrap_h8.log'
 ```
 
-H5c≤0.04 → refute, keep pod for H6. H7/H8 REFUTE → `lium rm` that
-`mine-h*-1` only (name-check first). No submit without margin>0.04.
+H5c≤0.04 → refute, keep pod for H6. H7/H8 REFUTE → `lium rm` that `mine-h*-1` only (name-check first). No submit without margin>0.04.
