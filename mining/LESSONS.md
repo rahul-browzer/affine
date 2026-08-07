@@ -90,6 +90,14 @@ Format: `- <finding> — <the number or error that proves it>`
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin REFUTE: check
   `rejection_reason` first — ConnectError/unpromptable/probe_force = **false probe**
   (H20/H24); quarantine decision, relaunch engine, do **not** `lium rm`.
+- After a false-probe null-margin decision, `watch_form_decision`/`watch_n80_retry`
+  exit ("decision present") and never rewrite — quarantine the decision **and**
+  relaunch both sidecars before the real n80 finishes (H25 pass171 @61/80).
+- Keep `experiments/s4-h2-merge/watch_form_decision.sh` in git; pods have shown
+  ghost dentries (`ls` lists file, `open`→ENOENT) — re-scp from local if missing.
+- B300: FA sm_103 patch ≠ done. Engines can still die on flashinfer sampling JIT
+  under concurrent launch — clear half-written `cached_ops/sampling`, relaunch
+  with `SERVE_STAGGER_S≥45` (H23 pass171).
 
 ## Money / platform
 
