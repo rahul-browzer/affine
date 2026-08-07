@@ -1,5 +1,3 @@
-[h5-harvest] 2026-08-07T06:51:55Z polling mine-sim-1 for H5 n80 → /home/const/subnet120/mining/experiments/s4-h5-talentpigs/results (stop 2026-08-07T11:45:00Z)
-[h5-harvest] 2026-08-07T07:16:15Z got h5_kt65_sim_result.json
 {
   "utc": "2026-08-07T07:16:15Z",
   "rule": {
@@ -76,5 +74,3 @@
   },
   "submit": false
 }
-[h5-harvest] 2026-08-07T07:16:15Z triage → h5_decision.json action=reject_gates margin=0.0
-[h5-harvest] 2026-08-07T07:16:15Z done; exiting

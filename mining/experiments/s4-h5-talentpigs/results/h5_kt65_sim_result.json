@@ -1,0 +1,68 @@
+{
+  "elapsed_s": 1719.0727105140686,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/merges/h5-kt65",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h5-kt65",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0,
+    "se": null,
+    "z": 0.0,
+    "k_sigma": 3.0,
+    "n_paired_turns": 47,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.02874045067890711,
+      "gate_pass_rate": 0.8270440251572327,
+      "bank_frac": 0.5020833333333333,
+      "calib_ratio": 0.7463544448345041,
+      "baseline_abs": 0.12180690265282439,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": 0.00020480593868525628,
+      "mean_mix": 0.02874045067890711
+    },
+    "challenger": {
+      "valid": false,
+      "S": null,
+      "gate_pass_rate": 0.7205882352941176,
+      "bank_frac": 0.2092198581560284,
+      "calib_ratio": 1.0774990867975431,
+      "baseline_abs": 0.5397768876527447,
+      "n_turns": 80,
+      "n_pairs": 68,
+      "mean_lambda2": -0.033195875181816555,
+      "mean_mix": -0.04785091038164108,
+      "baseline_band_exceeded": true
+    },
+    "slice": {
+      "seed": 2032036172792853535,
+      "n": 80,
+      "digest": "f29ffbfde67f08c54ea3c8da992813024f9689e996dbe778c7aca1e8b2a06660",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 1.0774990867975431,
+    "chall_baseline_abs": 0.5397768876527447,
+    "king_baseline_abs": 0.12180690265282439,
+    "base_x": 4.431414607029486
+  }
+}

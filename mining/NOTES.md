@@ -2645,3 +2645,34 @@ No submit / no registration burn.
 Read `results/h5_decision.json` when harvest lands (~07:13Z); else poll
 `h5_sim_n80.done`. Triage gate >0.04; weak → α=0.50 or TalentPigs-init
 thought distill.
+
+## 2026-08-07T07:17:35Z — pass 77: H5 α0.65 REJECT gates; α0.50 launched
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $198.35; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,924.61 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. Waited out α0.65 n80 to completion (~07:15:40Z). Harvest wrote
+   `results/h5_decision.json` + `h5_kt65_sim_result.json`.
+2. Triage: chall **INVALID** — `baseline_band_exceeded`, base×=**4.431**,
+   r=1.077, margin forced **0.0**, action `reject_gates`, submit=false.
+   King valid S=0.02874. Live-king guard match.
+3. Per plan (try α∈{0.65,0.50} before refute): launched α=0.50 pipeline
+   pid **240001** → `/root/merges/h5-kt50/` → chall:8002 → n80. Host
+   harvest **1847826** → `h5_a50_decision.json`. Deadman **1783662** @12:00Z.
+4. Wrote `result.md`, `start_merge_sim_a50.sh`, `host_harvest_h5_a50.sh`,
+   `results/h5_a50_launched.json`.
+
+### Money
+
+Lium $33,924.61; mining spend ≈ $198.35. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5_a50_decision.json` when harvest lands. If still gate-fail
+or margin < 0.02 → refute H5 merge → TalentPigs-init thought distill.

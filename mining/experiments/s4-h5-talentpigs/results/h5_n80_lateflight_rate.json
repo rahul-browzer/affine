@@ -1,0 +1,35 @@
+{
+  "utc": "2026-08-07T07:07:40Z",
+  "sample_s": 121,
+  "king": [
+    53,
+    54
+  ],
+  "chall": [
+    56,
+    59
+  ],
+  "king_tpm": 0.496,
+  "chall_tpm": 1.488,
+  "eta_min_king": 52.43,
+  "p1": {
+    "utc": "2026-08-07T07:05:36Z",
+    "hotkey": "local-h5-kt65",
+    "chall_repo": "/root/merges/h5-kt65",
+    "n_turns": 80,
+    "challenger": 56,
+    "challenger_total": 80,
+    "king": 53,
+    "king_total": 80
+  },
+  "p2": {
+    "utc": "2026-08-07T07:07:30Z",
+    "hotkey": "local-h5-kt65",
+    "chall_repo": "/root/merges/h5-kt65",
+    "n_turns": 80,
+    "challenger": 59,
+    "challenger_total": 80,
+    "king": 54,
+    "king_total": 80
+  }
+}

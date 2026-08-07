@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5 / new-king | highest now | pivot to TalentPigs king; merge or mild distill → margin **> 0.04** | **open** — α0.65 n80 ADVANCING (~48/51) ETA~07:13Z; harvest armed |
+| 1 | H5 / new-king | highest now | pivot to TalentPigs king; merge or mild distill → margin **> 0.04** | **open** — α0.65 **gate-fail** base×4.43; α0.50 merge→n80 LAUNCHED |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 4 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
@@ -273,9 +273,20 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   engines 200×3; sim **235312** alive; result absent; harvest **1818104**
   + deadman **1783662** alive. ETA finish **~07:13Z** (pulled forward
   ~16m vs pass75). Evidence: `results/h5_n80_midflight_rate.json`.
+- **α0.65 n80 DONE (2026-08-07T07:15:40Z pass 77):** chall **INVALID** —
+  `baseline_band_exceeded`; base×=**4.431**; r=**1.077**; margin forced
+  **0.0**; king S=0.02874 valid; triage `reject_gates`; submit=false.
+  Live-king guard match. Artifacts: `results/h5_kt65_sim_result.json`,
+  `h5_decision.json`, `result.md`.
+- **α0.50 launched (2026-08-07T07:17:31Z pass 77):** pipe **240001**
+  `start_merge_sim_a50.sh` → `/root/merges/h5-kt50/` → chall serve →
+  n80; host harvest **1847826** → `h5_a50_decision.json`. Evidence:
+  `results/h5_a50_launched.json`. Pre-registered: if α0.50 also fails
+  (gates or margin < 0.02) → refute merge parents → TalentPigs-init
+  thought distill.
 - **Prediction (pre-register BEFORE merge):** n80 paired margin ≥ **+0.04**
   vs TalentPigs; H4 OK; both valid; weight_identical=false.
-- **Verdict:** open — n80 ADVANCING; awaiting margin / harvest triage.
+- **Verdict:** open — α0.65 gate-fail base×4.43; α0.50 merge→n80 in flight.
 
 ## Scaffolding
 
