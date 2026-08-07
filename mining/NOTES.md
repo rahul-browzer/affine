@@ -2308,3 +2308,33 @@ Lium $34,056.97; mining spend ≈ $165.68. Floor OK. No new rental. No submit.
 
 Poll n80 → harvest `h1v2_sim_result.json` → triage `h1v2_decision.json`.
 Submit only if margin > 0.04 + H4 OK. Re-check snapshot if queue crowns.
+
+## 2026-08-07T06:02:40Z — pass 66: H1v2 artifact harvest fix + n80 ETA
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $168.86; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,041.08 (floor OK).
+
+### What I did
+
+1. Polled n80: engines 200×3; sim **198714** alive. Rate check 31/31 →
+   35/36 in 150s → **~1.8 turns/min** (slower than pass-65 2.65) → ETA
+   **~06:25Z** (~25m slack to soft 06:50; ~35m to deadman 07:00). Progress
+   at write ~37–38/80. No TTL extend.
+2. Found host harvest never SCPed `h1v2_sim_result_artifact.json` — pair-level
+   decomp would vanish at deadman. Patched `host_harvest_results.sh` to fetch
+   n80 + n40 artifacts; killed old harvest 1670883; restarted **1748334**.
+3. kevin still king @ `6a5815…`; live eval **chal-00284** load_challenger.
+   Evidence: `h1v2_n80_eta_poll.json`, `h1v2_harvest_artifact_fix.json`.
+   Do **not** submit until n80 margin > 0.04 + H4 OK.
+
+### Money
+
+Lium $34,041.08; mining spend ≈ $168.86. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll n80 → confirm harvest of `h1v2_sim_result.json` + artifact → triage
+`h1v2_decision.json`. Submit only if margin > 0.04 + H4 OK.

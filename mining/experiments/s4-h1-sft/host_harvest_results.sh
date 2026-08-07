@@ -117,11 +117,14 @@ while true; do
       "$OUT_H1V2/h1_n80_progress_mirror.json" 2>/dev/null || true
   fi
   for f in h1v2_sim_result.json h1v2_sim_result_n40.json \
+           h1v2_sim_result_artifact.json h1v2_sim_result_n40_artifact.json \
            h1v2_decision_n80.json h1v2_decision_n40.json h1v2_merge_meta.json \
            h1v2_adapter_salvage.json h1v2_merged_salvage.json \
            h1v2_hf_salvage_armed.json; do
     # Overwrite OK for progress-sized decision/result files once; prefer
     # fetching when missing OR when n80 lands after an earlier n40.
+    # Artifacts (~0.5–1 MiB) carry per-turn pairs for post-mortems; without
+    # them deadman 07:00Z erases the only decomposition (pass 66).
     if [[ ! -f "$OUT_H1V2/$f" ]] \
       && "${SSH[@]}" "test -f /root/affine_data/$f" 2>/dev/null; then
       "${SCP[@]}" "root@69.63.236.160:/root/affine_data/$f" "$OUT_H1V2/$f" \

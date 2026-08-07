@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-07T06:01:04Z",
+  "pass": 66,
+  "what": "host_harvest now SCPs h1v2_sim_result_artifact.json (+ n40 artifact)",
+  "why": "pair-level decomposition was not harvested; deadman would erase it",
+  "old_harvest_pid": 1670883,
+  "new_harvest_pid": 1748334,
+  "deadman_pid": 1405846,
+  "files_added": [
+    "h1v2_sim_result_artifact.json",
+    "h1v2_sim_result_n40_artifact.json"
+  ],
+  "wrapper_pid_mistake": 1748332
+}

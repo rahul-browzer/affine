@@ -1,32 +1,51 @@
 {
-  "utc": "2026-08-07T05:54:31Z",
-  "pass": 65,
+  "utc": "2026-08-07T06:01:04Z",
+  "pass": 66,
   "sim_pid": 198714,
   "sim_alive": true,
-  "engines_http": {":8000": 200, ":8001": 200, ":8002": 200},
-  "progress_a": {
-    "utc": "2026-08-07T05:52:37Z",
-    "king": 20,
-    "challenger": 20
+  "engines_http": {
+    ":8000": 200,
+    ":8001": 200,
+    ":8002": 200
   },
-  "progress_b": {
-    "utc": "2026-08-07T05:54:19Z",
-    "king": 25,
-    "challenger": 24
+  "progress": {
+    "utc": "2026-08-07T06:00:57Z",
+    "hotkey": "local-h1v2-sim-n80",
+    "chall_repo": "/root/h1v2/merged",
+    "n_turns": 80,
+    "king": 38,
+    "king_total": 80,
+    "challenger": 37,
+    "challenger_total": 80
   },
-  "dt_s": 102.0,
-  "d_king": 5,
-  "d_chall": 4,
-  "avg_turns_per_min": 2.647,
-  "paired_done_approx": 24,
-  "left": 56,
-  "eta_utc": "2026-08-07T06:15:28Z",
-  "slack_to_soft_06:50_min": 34.5,
-  "slack_to_deadman_07:00_min": 44.5,
+  "paired_done_approx": 37,
+  "left": 43,
+  "rate_poll": {
+    "a_utc": "2026-08-07T05:57:54Z",
+    "a_king": 31,
+    "a_chall": 31,
+    "b_utc": "2026-08-07T06:00:35Z",
+    "b_king": 35,
+    "b_chall": 36,
+    "dt_s": 150.0,
+    "avg_turns_per_min": 1.8,
+    "max_side_tpm": 2.0
+  },
+  "eta_utc": "2026-08-07T06:24:58Z",
+  "slack_to_soft_06:50_min": 25.0,
+  "slack_to_deadman_07:00_min": 35.0,
   "soft_deadline_utc": "2026-08-07T06:50:00Z",
   "deadman_utc": "2026-08-07T07:00:00Z",
   "budget_ok": true,
   "result_present": false,
+  "harvest_fix": {
+    "what": "host_harvest now SCPs h1v2_sim_result_artifact.json (+ n40 artifact)",
+    "why": "pair-level decomposition was not harvested; deadman would erase it",
+    "old_harvest_pid": 1670883,
+    "new_harvest_pid": 1748334,
+    "deadman_pid": 1405846,
+    "wrapper_pid_mistake": 1748332
+  },
   "live_king": {
     "repo": "kevin954/Affine-5dfqbbh8ev-sft",
     "revision": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
@@ -37,5 +56,5 @@
     "stage": "load_challenger",
     "repo": "TalentPigs/affine-5ekxlcg3fx-abc"
   },
-  "note": "Faster than pass-64 ~1.6 t/min estimate; ETA ~06:15 well under soft/deadman. Do not extend TTL."
+  "note": "Slower than pass-65 2.65 t/min; ETA ~06:25 still \u226a soft/deadman. Artifact harvest armed before n80 DONE."
 }
