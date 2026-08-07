@@ -2146,3 +2146,41 @@ Lium $34,111.44; mining spend ≈ $151.76. Floor OK. No new rental. No submit.
 
 Poll H1v2 train.done → merge → HF PIDs → chall serve → **H1v2 n80** triage.
 Submit only if margin > 0.04 + H4 OK. Soft 06:50Z / deadman 07:00Z.
+
+## 2026-08-07T05:37:11Z — pass 61: H1v2 train.done → merge → HF → chall load
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $158.87; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,080.33 (floor OK).
+
+### What I did
+
+1. Polled H1v2: train advanced 45→50→55; `train.done` at **05:28:51Z**
+   (thought_ok=440; elapsed 3139s; sample0 supervised 29/6080). Mid-ckpt
+   salvage pushed checkpoint-50 and checkpoint-55 to
+   `unconst/Affine-5czsc2fc98-h1v2-lora`.
+2. Pipe **171602** left wait immediately (H1 n80 already gone) →
+   `merge_lora` on GPUs 6,7 → `merge.done` **05:35:39Z**.
+   `weight_identical: false` (both shard **tails** differ; first_1MiB match
+   is the known LoRA embed-leading false-positive — gate correctly did not
+   refuse).
+3. Background HF: final adapter salvage OK (`6c964d35…` @ 05:35:41Z);
+   merged push pid **191137** still uploading. Chall-only restart launched
+   (`/root/h1v2/merged` on :8002 GPUs 4,5); teacher/king stay 200.
+4. Harvested to `experiments/s4-h1v2-sft/results/`: `train_result.json`,
+   `h1v2_merge_meta.json`, mid/adapter salvage metas,
+   `h1v2_train_merge_transition.json`. kevin still king; chal-00283
+   load_challenger. Do **not** submit yet.
+5. Budget: serve READY ~05:48 → prefer-n80 (remain_soft≥3200) → n80 ~55m
+   fits soft 06:50 / deadman 07:00.
+
+### Money
+
+Lium $34,080.33; mining spend ≈ $158.87. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll chall :8002 /health 200 → confirm H1v2 n80 launch → triage decision.
+Submit only if margin > 0.04 + H4 OK.

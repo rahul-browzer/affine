@@ -1,0 +1,15 @@
+{
+  "experiment": "s4-h1v2-sft",
+  "base": "/root/hf/hub/models--kevin954--Affine-5dfqbbh8ev-sft/snapshots/6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "data": "/root/h1/teacher_refs_sft.jsonl",
+  "max_len": 8192,
+  "epochs": 1.0,
+  "lr": 2e-05,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "batch": 1,
+  "grad_accum": 8,
+  "loss_on": "thought",
+  "cuda_visible": "6,7",
+  "started_utc": "2026-08-07T04:36:32Z"
+}

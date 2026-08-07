@@ -1,20 +1,23 @@
 {
-  "utc": "2026-08-07T05:18:56Z",
+  "utc": "2026-08-07T05:36:52Z",
   "experiment": "s4-h1v2-sft",
-  "step": 43,
+  "step": 55,
   "total": 55,
-  "frac": 0.7818181818181819,
-  "train_done": false,
-  "adapter_present": false,
-  "ckpt_dirs": [],
+  "frac": 1.0,
+  "train_done": true,
+  "adapter_present": true,
+  "ckpt_dirs": [
+    "checkpoint-50",
+    "checkpoint-55"
+  ],
   "engines": {
     "teacher": 200,
     "king": 200,
-    "chall": 200
+    "chall": "<urlopen error [Errno 111] Connection refused>"
   },
-  "n_loss_logs": 8,
+  "n_loss_logs": 11,
   "first_loss": 0.49318628311157225,
-  "last_loss": 0.4000575065612793,
+  "last_loss": 0.4153751373291016,
   "pipe_waiting": true,
   "pipe_done": false,
   "pipe_aborted": false,

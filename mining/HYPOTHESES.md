@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** step43/55 loss0.400; pipe **171602** prefer-n80; H1 n80 freed engines |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **train+merge DONE**; chall loading→prefer-n80; HF adapter salvaged |
 | 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
@@ -115,7 +115,16 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   until H1v2 chall restart. Train **147209** step **43**/55 loss **0.400**;
   pipe **171602** still waiting on train.done; ETA train ~05:30Z. Mid-ckpt
   still empty (save_steps=50). Prediction unchanged.
-- **Verdict:** open — training in progress (prediction unchanged).
+- **Train+merge (05:37Z pass 61):** `train.done` **05:28:51Z** (55/55;
+  thought_ok=440; elapsed 3139s; sample0 supervised 29/6080). Mid-ckpt-50
+  + ckpt-55 salvaged to `…-h1v2-lora`. Merge **05:35:39Z**
+  `weight_identical: false` (shard tails ≠; first_1MiB match = expected LoRA
+  FP). Final adapter HF push OK (`6c964d35…`); merged push **191137** in
+  flight. Pipe skipped H1-n80 wait (already done) → chall-only re-serve
+  loading `:8002`. Evidence:
+  `results/h1v2_train_merge_transition.json`, `train_result.json`,
+  `h1v2_merge_meta.json`. Prediction unchanged — awaits n80.
+- **Verdict:** open — merge/serve in progress; n80 not yet scored.
 
 
 ## H2 — weight-merge of recent kings / near-kings beats both

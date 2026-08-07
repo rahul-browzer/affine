@@ -1,0 +1,15 @@
+{
+  "repo": "unconst/Affine-5czsc2fc98-h1v2-lora",
+  "private": true,
+  "adapter": "/root/h1v2/train/adapter",
+  "staged_files": [
+    "README.md",
+    "adapter_config.json",
+    "adapter_model.safetensors"
+  ],
+  "base_hub": "kevin954/Affine-5dfqbbh8ev-sft",
+  "path_in_repo": null,
+  "commit_sha": "https://huggingface.co/unconst/Affine-5czsc2fc98-h1v2-lora/commit/6c964d35c66a0891d1a6a88bf1414ac96ff4dbe2",
+  "uploaded_utc": "2026-08-07T05:35:41Z",
+  "note": "adapter-only salvage; not a submission revision"
+}

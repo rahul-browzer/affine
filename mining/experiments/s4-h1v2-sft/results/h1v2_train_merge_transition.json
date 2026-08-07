@@ -1,0 +1,66 @@
+{
+  "utc": "2026-08-07T05:36:50Z",
+  "pass": 61,
+  "event": "h1v2_train_done_merge_serve",
+  "train_done_utc": "2026-08-07T05:28:51Z",
+  "merge_done_utc": "2026-08-07T05:35:39Z",
+  "train": {
+    "loss_on": "thought",
+    "examples": null,
+    "thought_ok": 440,
+    "elapsed_s": 3138.6817898750305,
+    "finished_utc": "2026-08-07T05:28:51Z",
+    "sample0_supervised_tokens": 29,
+    "last_loss_step50": 0.5500140190124512,
+    "loss_curve_note": "step45 loss 0.362 \u2192 step50 0.550 (logging window); not a collapse signal alone"
+  },
+  "merge": {
+    "weight_identical": false,
+    "first_1MiB_identical": true,
+    "note": "first_1MiB match is expected LoRA false-positive; shard tails differ \u2192 not weight-identical",
+    "shard_windows": {
+      "model-00001-of-00002.safetensors": {
+        "size_base": 49739502312,
+        "size_out": 49739502312,
+        "equal": {
+          "head": true,
+          "mid": true,
+          "tail": false
+        }
+      },
+      "model-00002-of-00002.safetensors": {
+        "size_base": 19581812712,
+        "size_out": 19581812712,
+        "equal": {
+          "head": true,
+          "mid": true,
+          "tail": false
+        }
+      }
+    },
+    "elapsed_s": 373.0743842124939,
+    "finished_utc": "2026-08-07T05:35:38Z",
+    "adapter": "/root/h1v2/train/adapter",
+    "out": "/root/h1v2/merged"
+  },
+  "hf": {
+    "adapter_push_pid": "191133",
+    "merged_push_pid": "191137",
+    "adapter_salvage": true,
+    "merged_salvage": false,
+    "mid_50": true,
+    "mid_55": true
+  },
+  "serve": {
+    "chall_restarting": true,
+    "teacher": 200,
+    "king": 200,
+    "chall": "URLError"
+  },
+  "budget": {
+    "soft": "2026-08-07T06:50:00Z",
+    "deadman": "2026-08-07T07:00:00Z",
+    "note": "after serve READY (~05:48Z) remain_soft~3720s >=3200 \u2192 prefer n80"
+  },
+  "next": "wait chall 8002 /health 200 \u2192 pipe launches H1v2 n80 \u2192 triage h1v2_decision.json; submit only if margin>0.04 + H4 OK"
+}

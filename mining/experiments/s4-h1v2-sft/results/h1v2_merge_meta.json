@@ -1,0 +1,35 @@
+{
+  "base": "/root/hf/hub/models--kevin954--Affine-5dfqbbh8ev-sft/snapshots/6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "adapter": "/root/h1v2/train/adapter",
+  "out": "/root/h1v2/merged",
+  "device_map": "auto",
+  "cuda_visible": "6,7",
+  "base_first_shard": "/root/hf/hub/models--kevin954--Affine-5dfqbbh8ev-sft/snapshots/6a5815fad8f4e34c983b1933c1fae5762fe25220/model-00001-of-00002.safetensors",
+  "out_first_shard": "/root/h1v2/merged/model-00001-of-00002.safetensors",
+  "base_first_1MiB_sha256": "c551c75247026a239a1c82976659ce72c81c3ffa327456dddd7c8b732e3235ad",
+  "out_first_1MiB_sha256": "c551c75247026a239a1c82976659ce72c81c3ffa327456dddd7c8b732e3235ad",
+  "first_1MiB_identical": true,
+  "shard_windows": {
+    "model-00001-of-00002.safetensors": {
+      "size_base": 49739502312,
+      "size_out": 49739502312,
+      "equal": {
+        "head": true,
+        "mid": true,
+        "tail": false
+      }
+    },
+    "model-00002-of-00002.safetensors": {
+      "size_base": 19581812712,
+      "size_out": 19581812712,
+      "equal": {
+        "head": true,
+        "mid": true,
+        "tail": false
+      }
+    }
+  },
+  "weight_identical": false,
+  "elapsed_s": 373.0743842124939,
+  "finished_utc": "2026-08-07T05:35:38Z"
+}
