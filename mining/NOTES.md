@@ -1187,3 +1187,41 @@ Lium $34,383.87; floor OK. Mining spend ≈ $82.07. Host deadman 07:00Z.
 Poll `results/h1_train_progress.json` / sim artifacts; apply plan.md
 decision rule when n40/n80 land. Kill mine-sim-1 as soon as sim done
 (name-check). No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T02:26Z — pass 35: H1 poll + loss visibility fix
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $83.67; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host deadman 1405846 still armed for 07:00Z.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; Lium $34,376.09 (floor OK).
+   Train step **34/110** @ ~56s/it (ETA ~03:37Z); engines 200×3;
+   pipeline 86845 waiting; mid-salvage 83669; GPU7 util 40% / ~82GB
+   (train live); no ckpt-* yet; no sim artifacts.
+2. Found **stdout loss gap**: transformers 5.14 uses ProgressCallback
+   `tqdm.write` when tqdm enabled; under nohup the loss dicts never hit
+   `h1_train.nohup` (clear/`\r` only). `log_history` still lands in
+   `trainer_state.json` at save_steps=50 — first loss numbers ~02:42Z.
+3. Patched host harvest to scrape `trainer_state.json` →
+   `results/h1_train_{progress,loss}.json` + staged
+   `h1_trainer_state.json`; relaunched harvest pid **1421187**.
+   Verified new fields (`n_loss_logs=0` until ckpt-50).
+4. Added `PrintLossCallback` to `train_lora.py` and uploaded to pod
+   (current train pid 82057 still old code — helps only on restart).
+5. No submit. No new rental. Train/pipeline/mid-salvage/deadman untouched.
+
+### Money
+
+Lium $34,376.09; floor OK. Mining spend ≈ $83.67. Host deadman 07:00Z.
+
+### Next
+
+Poll progress/loss JSON; at step 50 confirm ckpt + non-null loss +
+mid-salvage HF push. Then train.done → n40/n80. Kill mine-sim-1 as soon
+as sim done (name-check). No submit until margin > 0.04 + H4.

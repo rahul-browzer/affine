@@ -22,6 +22,7 @@
 | 2026-08-07T02:12:52Z | train at step 20/110 @ ~51s/it; ETA ~03:30Z; engines 200×3; host harvest 1393267 |
 | 2026-08-07T02:18:50Z | Lium TTL cancelled; host deadman 07:00Z; pipe **86845** soft 06:50Z; step 26 |
 | 2026-08-07T02:21:57Z | step **30/110** @ ~59s/it; ETA ~**03:41Z**; HF write probe OK; host harvest **1414858** scrapes `results/h1_train_progress.json` |
+| 2026-08-07T02:26:01Z | step **34/110** @ ~56s/it; ETA ~**03:37Z**; found stdout loss gap (tqdm+nohup); harvest **1421187** scrapes `trainer_state` loss + `h1_train_loss.json`; PrintLossCallback in train_lora.py for future runs |
 
 ## How to check
 

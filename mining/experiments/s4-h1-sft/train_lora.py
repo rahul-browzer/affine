@@ -20,8 +20,22 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     Trainer,
+    TrainerCallback,
     TrainingArguments,
 )
+
+
+class PrintLossCallback(TrainerCallback):
+    """Force loss lines onto stdout — tqdm.write is swallowed under nohup redirects."""
+
+    def on_log(self, args, state, control, logs=None, **kwargs):  # noqa: ANN001
+        if not logs or not state.is_world_process_zero:
+            return
+        payload = {k: logs[k] for k in ("loss", "grad_norm", "learning_rate", "epoch") if k in logs}
+        print(
+            f"[train-log] step={state.global_step} {json.dumps(payload)}",
+            flush=True,
+        )
 
 
 THINK_OPEN = "<think>"
@@ -185,6 +199,7 @@ def main() -> None:
         args=targs,
         train_dataset=ds,
         data_collator=collate,
+        callbacks=[PrintLossCallback()],
     )
     print("[train] starting", flush=True)
     trainer.train()

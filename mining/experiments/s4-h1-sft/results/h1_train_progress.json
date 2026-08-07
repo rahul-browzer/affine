@@ -1,8 +1,8 @@
 {
-  "utc": "2026-08-07T02:22:55Z",
-  "step": 31,
+  "utc": "2026-08-07T02:25:51Z",
+  "step": 34,
   "total": 110,
-  "frac": 0.2818181818181818,
+  "frac": 0.3090909090909091,
   "train_done": false,
   "ckpt_dirs": [],
   "pipeline_alive": true,
@@ -10,5 +10,11 @@
     "teacher": 200,
     "king": 200,
     "chall": 200
-  }
+  },
+  "trainer_state": null,
+  "n_loss_logs": 0,
+  "first_loss": null,
+  "last_loss": null,
+  "loss_logs": [],
+  "mid_salvaged": []
 }
