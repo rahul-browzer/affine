@@ -1,10 +1,10 @@
 {
-  "utc": "2026-08-07T04:33:35Z",
-  "pass": 50,
+  "utc": "2026-08-07T04:37:26Z",
+  "pass": 51,
   "pid": 143331,
   "alive": true,
-  "king": 11,
-  "challenger": 10,
+  "king": 16,
+  "challenger": 16,
   "n_turns": 80,
   "result_exists": false,
   "engines": {
@@ -14,5 +14,5 @@
   },
   "live_king": "kevin954/Affine-5dfqbbh8ev-sft",
   "current_eval": "chal-00280",
-  "h1v2_plan": "experiments/s4-h1v2-sft/plan.md"
+  "h1v2_train_pid": 147209
 }

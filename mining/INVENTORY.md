@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z**; harvest early-rm (push grace) | Stage 4 H1 n80 (~11/80); H1v2 plan ready | RUNNING | SSH `root@69.63.236.160 -p 40301`; n40 DONE revise_recipe; n80 **143331** king11/chall10; engines 200×3; HF @3364892…; harvest **1486917**; deadman 1405846; chal-00280 dispatching; spent $133.70 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z**; harvest early-rm (push grace) | Stage 4 H1 n80 (~16/80) + H1v2 train on 6,7 | RUNNING | SSH `root@69.63.236.160 -p 40301`; n40 DONE revise_recipe; n80 **143331** king16/chall16; H1v2 **147209** thought-only; engines 200×3; HF @3364892…; harvest **1486917**; deadman 1405846; chal-00280 load_challenger; spent $135.36 |
 
 ## Reconcile log
 
@@ -63,3 +63,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T04:11:12Z | mine-sim-1 RUNNING | matches inventory; spent $125.06; CausalLM text-config+visual-shard serve bugs fixed; chall 200; n40 sim 137799; chal-00279 loading; deadman 1405846; validator pods untouched |
 | 2026-08-07T04:29:15Z | mine-sim-1 RUNNING | matches inventory; spent $131.54; H1 n40 DONE margin −0.00241 revise_recipe; n80 143331; chal-00279 scoring; deadman 1405846; validator pods untouched |
 | 2026-08-07T04:33:35Z | mine-sim-1 RUNNING | matches inventory; spent $133.70; n80 ~11/80; H1v2 plan drafted; chal-00280 dispatching; deadman 1405846; validator pods untouched |
+| 2026-08-07T04:37:27Z | mine-sim-1 RUNNING | matches inventory; spent $135.36; n80 ~16/80; H1v2 train **147209** launched GPUs 6,7; chal-00280 load_challenger; deadman 1405846; validator pods untouched |

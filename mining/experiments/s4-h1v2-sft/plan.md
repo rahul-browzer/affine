@@ -68,6 +68,7 @@ or after deadman salvage + re-bootstrap. Same 440 `teacher_refs` rows.
 
 ## Timing / money notes
 
-- Drafted while H1 n80 still running (ETA ~35–40 min from 04:27Z launch;
+- **TRAINING launched 2026-08-07T04:36:23Z** pid 147209 on GPUs 6,7
+  (parallel with H1 n80). Drafted while H1 n80 still running (ETA ~35–40 min from 04:27Z launch;
   soft 06:50Z / deadman 07:00Z).
 - No new rental this plan. Cap and Lium floor still bind before any new pod.

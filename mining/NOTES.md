@@ -1809,3 +1809,35 @@ Lium $34,181.35; mining spend ≈ $133.70. Floor OK. No new rental. No submit.
 
 Poll n80 → re-triage → implement/launch H1v2 on same pod before 07:00Z if
 possible. No slot burn on H1.
+
+## 2026-08-07T04:37:27Z — pass 51: H1v2 thought-only train launched (parallel w/ n80)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $135.36; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host harvest 1486917 + deadman 1405846 still alive. Lium $34,173.73 (floor OK).
+
+### What I did
+
+1. Polled H1 n80 (pid 143331): engines 200×3; progress king **16**/80 /
+   chall **16**/80 @ 04:36Z. Result not ready. kevin still king; chal-00280
+   in `load_challenger`.
+2. Noticed GPUs **6,7 idle** while n80 burns 0–5 — no reason to wait for n80
+   before H1v2 train (merge/serve still waits for train.done + chall restart).
+3. Implemented `experiments/s4-h1v2-sft/`: `thought_mask.py` (cut at
+   `\n\n```bash`), `train_lora.py --loss-on thought` (offset_mapping label
+   mask), `verify_thought_mask.py`, `start_h1v2.sh`. Sample verify pass;
+   full 440/440 fence OK on pod (mean thought 291 chars / action 370).
+4. SCP'd to pod; launched train pid **147209** @ 04:36:23Z — kevin base
+   loading on 6,7 (~33 GB/GPU). lr=2e-5, 1 epoch, LoRA r16. Prediction
+   unchanged: n80 sim margin ≥ +0.04 with r∈[0.70,0.85] and clip-L1 ≥ +0.015.
+5. Do **not** submit H1 merge. Soft 06:50Z / deadman 07:00Z still bind.
+
+### Money
+
+Lium $34,173.73; mining spend ≈ $135.36. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll H1v2 train.done + H1 n80 result → merge/serve H1v2 → n40 triage.

@@ -1,0 +1,31 @@
+{
+  "utc": "2026-08-07T04:37:26Z",
+  "pass": 51,
+  "h1_n80": {
+    "pid": 143331,
+    "king": 16,
+    "challenger": 16,
+    "n_turns": 80,
+    "result_exists": false
+  },
+  "h1v2_train": {
+    "pid": 147209,
+    "gpus": "6,7",
+    "loss_on": "thought",
+    "lr": 2e-05,
+    "epochs": 1,
+    "examples": 440,
+    "thought_ok": 440,
+    "log": "/root/logs/h1v2_train.nohup",
+    "out": "/root/h1v2/train",
+    "status": "loading_base",
+    "started_utc": "2026-08-07T04:36:32Z"
+  },
+  "live_king": "kevin954/Affine-5dfqbbh8ev-sft",
+  "current_eval": "chal-00280",
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 200
+  }
+}

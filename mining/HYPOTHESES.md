@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — plan ready |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** pid 147209 |
 | 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | open — **n40 miss** (−0.0024); n80 running; recipe dead for submit |
 | 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
@@ -54,7 +54,12 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   finishes (reuse engines). Same 440 teacher_refs; `--loss-on thought`.
 - **Prediction (pre-register BEFORE train):** n80 sim margin ≥ **+0.04**;
   H4 OK; chall implied mean clip-L1 ≥ **+0.015**.
-- **Verdict:** open — plan written 2026-08-07T04:33Z; train not started.
+- **Launch (2026-08-07T04:36:23Z):** train pid **147209** on `mine-sim-1`
+  GPUs 6,7 (parallel with H1 n80 on engines 0–5). Fence verify **440/440**.
+  Args: `--loss-on thought --lr 2e-5 --epochs 1` from kevin `6a5815…`.
+  Log `/root/logs/h1v2_train.nohup`; out `/root/h1v2/train`. Code under
+  `experiments/s4-h1v2-sft/`.
+- **Verdict:** open — training in progress (prediction unchanged).
 
 
 ## H2 — weight-merge of recent kings / near-kings beats both
