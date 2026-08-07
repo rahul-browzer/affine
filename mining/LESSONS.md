@@ -91,8 +91,8 @@ Format: `- <finding> — <the number or error that proves it>`
   launch the next LoRA there instead of renting (H6 pid 46680 beside H5c n80).
 - Independent merge hypotheses go on separate `mine-*` pods while train/sim
   occupy others — do not serialize (H7+H8 beside mine-h5c-1; 3 live mine-*).
-- Reign earners with null published S (e.g. golden-crown) are still valid merge
-  parents — they hold weight_bps and are untried vs TalentPigs.
+- Reign earners with null published S (e.g. golden-crown, diane613) are still
+  valid merge parents — they hold weight_bps; H8/H9 cover those two vs TalentPigs.
 - Launching train without uploading its post_train waiter leaves a dead-end when
   train.done lands — H6 train ran with only `start_h6.sh` on pod until pass121
   scp'd `post_train_pipeline.sh` (pid 53727).
