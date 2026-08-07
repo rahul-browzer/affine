@@ -397,3 +397,35 @@ Lium $34,617.36; floor OK. Mining spend ≈ $22.59. No new rental. TTL still
 ### Next
 
 On READY: `run_sim_duel.py` vs kevin; record margin. No submit until >0.04.
+
+---
+
+## 2026-08-06T23:59Z — pass 11: H2 serve READY; sim duel launched
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $25.38; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Polled king:8001 + chall:8002 until health 200 (~5.5 min after pass-10
+   relaunch). Marker: `/root/logs/h2_restart.nohup` → `READY` at 23:57:20Z.
+2. Confirmed chall serves local `/root/merges/h2-kp50` with no `--revision`.
+3. Live snapshot still king=`kevin954/Affine-5dfqbbh8ev-sft` S≈0.03956.
+4. Launched nohup sim:
+   `PYTHONPATH=/root/mining_src/affine_pkg python …/run_sim_duel.py --save-artifact`
+   → pid **68843**, log `/root/logs/h2_sim.nohup`, out
+   `/root/affine_data/h2_sim_result.json`. GPUs 0–5 busy; process ALIVE at
+   ~2 min (no turn progress lines yet — sampling duel slower than Stage3
+   force-echo).
+
+### Money
+
+Lium $34,609.61; floor OK. Mining spend ≈ $25.38. No new rental. TTL still
+2026-08-07T04:53:17Z.
+
+### Next
+
+Collect `h2_sim_result.json` margin vs kevin; apply plan.md decision rule.
+No submit until margin > 0.04 + H4.
