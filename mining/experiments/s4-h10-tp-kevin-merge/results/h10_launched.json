@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-07T12:11:51Z",
+  "pod": "mine-h10-1",
+  "huid": "gentle-eagle-d5",
+  "ssh": "38.255.28.19:20099",
+  "ttl": "8h",
+  "remove_at_approx": "2026-08-07T20:10Z",
+  "rate_usd_hr": 31.92,
+  "hypothesis": "H10 TalentPigs\u00d7kevin \u03b10.75 (TP-dominant; H5 was kevin-dominant)",
+  "pipeline_pid": 898,
+  "a": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2",
+  "b": "kevin954/Affine-5dfqbbh8ev-sft@6a5815fa",
+  "alpha": 0.75
+}

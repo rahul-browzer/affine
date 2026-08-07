@@ -36,7 +36,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - **H1** full (z,y) SFT on teacher_refs — REFUTED, n80 margin −0.01994 z=−2.42.
 - **H1v2** thought-only SFT — REFUTED, n80 −0.00030 (dead even), r=0.904.
 - **H2** kevin×pandora weight merge — REFUTED, α0.5 −0.010 / α0.65 +0.007.
-- **H5** kevin×TalentPigs merge — REFUTED, α0.65 base×4.43, α0.50 unpromptable.
+- **H5** kevin-dominant×TP (A=kevin) — REFUTED α0.65 base×4.43 / α0.50 unpromptable; TP-dominant flip is H10 (open).
 - **H5b** TalentPigs-init thought LoRA lr=1e-5 — REFUTED, n80 +0.00322 z=0.55.
 
 ## Serving the king's checkpoint (VLM landmines)
