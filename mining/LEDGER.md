@@ -7,10 +7,10 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $32,569.72 | 2026-08-07T16:18Z |
-| cumulative mining spend | ~$1,630 (h20 closed~$45; h21–25/h24 accruing) | 2026-08-07T16:18Z |
-| headroom to floor | ~$4,570 | |
-| headroom to $4,000 cap | ~$2,370 | |
+| Lium balance | $32,549.86 | 2026-08-07T16:22Z |
+| cumulative mining spend | ~$1,650 (h21–25 accruing; no new rent) | 2026-08-07T16:22Z |
+| headroom to floor | ~$4,550 | |
+| headroom to $4,000 cap | ~$2,350 | |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
