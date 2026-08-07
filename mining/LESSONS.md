@@ -140,6 +140,9 @@ Format: `- <finding> — <the number or error that proves it>`
   shaping LoRA so far, still ¼ of submit bar; do not requeue winner-zA.
 - `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up
   SSH shell with `y: command not found`).
+- `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
+  → n80 → `__triton_launcher.so` → ConnectError false REFUTE in ~6m; quarantine
+  + GPU-index chall relaunch + completions probe before retry.
 
 ## Money / platform
 

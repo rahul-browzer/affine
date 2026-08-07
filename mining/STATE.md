@@ -12,25 +12,24 @@ Rewritten every pass. Do not append.
 |---|---|
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
-| min_submission_block | 8767079 |
-| Lium / spend | **~$190,607** · cum mining ~$3,110 · **avail ~$181k** |
+| min_submission_block | 8767079 (llms/contract; API field null) |
+| Lium / spend | **~$190,569** · cum mining ~$3,150 · **avail ~$180.5k** |
 | miner | τ10.000 free · 0 submissions |
-| H28 | **REFUTE** m=+0.01095 z=1.35 base×1.131 · pod rm ~$57 |
-| H29 | n80 live ~7/80 chall · 6/80 king · probe OK |
-| H30 | merge writing shards · t/k 200 · chall not up |
-| H31 | king recover191 launched (Triton race) · wait probe |
-| H32 | king recover191 launched (orphans reaped) · wait probe |
-| H33 | bootstrap DL TalentPigs · pip OK |
+| H29 | n80 **~29/80** · probes OK · watchers up |
+| H30 | false REFUTE ConnectError quarantined; chall recover192 loading |
+| H31 | king probe OK; chall loading (wait_ready ~288s) |
+| H32 | king die@probe → recover192 relaunched; chall already up |
+| H33 | train **~29/92** (ep2) · t/k prewarm launched |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h29-1 | golden-wolf-bc | 38.255.28.21:20100 | ~07:28Z | H29 n80 running |
-| mine-h30-1 | golden-hawk-9f | 38.255.28.22:20100 | ~07:39Z | H30 merge→n80 |
-| mine-h31-1 | golden-raven-d8 | 152.236.142.236:40301 | ~07:42Z | H31 king recover→n80 |
-| mine-h32-1 | noble-raven-24 | 150.136.71.147:20300 | ~07:48Z | H32 king recover→n80 |
-| mine-h33-1 | gentle-comet-aa | 152.236.142.232:40309 | ~08:15Z | H33 bootstrap DL |
+| mine-h29-1 | golden-wolf-bc | 38.255.28.21:20100 | ~07:28Z | H29 n80 ~29/80 |
+| mine-h30-1 | golden-hawk-9f | 38.255.28.22:20100 | ~07:39Z | H30 chall recover→n80 |
+| mine-h31-1 | golden-raven-d8 | 152.236.142.236:40301 | ~07:42Z | H31 chall load→n80 |
+| mine-h32-1 | noble-raven-24 | 150.136.71.147:20300 | ~07:48Z | H32 king recover192 |
+| mine-h33-1 | gentle-comet-aa | 152.236.142.232:40309 | ~08:15Z | H33 train ep2 ~29/92 |
 
 known_hosts `/tmp/mine-h2{9,0,1,2}-1.known_hosts` + `/tmp/mine-h33-1.known_hosts`.
 **Free slots: 0.**
@@ -38,16 +37,15 @@ known_hosts `/tmp/mine-h2{9,0,1,2}-1.known_hosts` + `/tmp/mine-h33-1.known_hosts
 ## Blocked
 
 No submit until some n80 margin > 0.04. **Do not requeue plmk / H21–H28 / α.**
-H28 winner-zA@m7 dead (+0.011). Never tear down on ConnectError/unpromptable.
-Health=200 ≠ alive — require `/v1/completions` probe.
-Thought-LoRA: fit-filter msg_chars≤max_len×2.5.
-Corpus sync: use flock `sync_corpus.sh`. `lium up` needs `-y`.
+Never tear down on ConnectError/unpromptable — quarantine + recover.
+Health=/v1/models ≠ alive — require `/v1/completions` before n80.
+H30 pass192: false REFUTE from health-only n80 start; recover scripts on pod.
 
 ## Next action
 
-1. H29: poll n80 → decision; m>0.04→Stage 5 else REFUTE+rm.
-2. H31/H32: confirm recover191 king probe OK → pipeline chall+n80 (or
-   recover_wait fallback); then same gate.
-3. H30: poll merge.done → chall serve → n80.
-4. H33: poll BOOTSTRAP_DONE → train (epochs=2) → merge → n80.
-5. On any REFUTE: `lium rm` that `mine-*` only; free slot → next non-α variant.
+1. H30: poll recover192 chall probe → n80; if probe kills engine, re-wipe+relaunch.
+2. H29: poll n80 → decision; m>0.04→Stage 5 else REFUTE+rm.
+3. H31: poll chall health+probe → n80 (same Triton risk as H30).
+4. H32: poll recover192 king probe → pipeline/retry n80.
+5. H33: poll train.done → merge → n80.
+6. On any REFUTE: `lium rm` that `mine-*` only; free slot → next non-α variant.
