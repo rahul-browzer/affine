@@ -2497,3 +2497,32 @@ No submit / no registration burn.
 ### Next
 
 Poll `h5_chall_serve.done` → `h5_sim_n80.done` → harvest+triage (gate >0.04).
+
+## 2026-08-07T06:47:05Z — pass 72: H5 chall READY; n80 sim launched
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $185.40; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,971.35 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. Polled resume pipe **231961**: chall vLLM loaded merge on GPUs 4,5
+   (~332s wait incl. torch.compile); health **200** @ 06:46:45Z.
+2. Confirmed markers: `h5_chall_serve.done` @ 06:46:53Z; engines
+   teacher/king/chall all 200.
+3. Confirmed n80 sim pid **235312** launched vs TalentPigs
+   (`run_sim_duel.py` → `/root/affine_data/h5_kt65_sim_result.json`).
+   Progress JSON not yet written (first turns). Evidence:
+   `results/h5_chall_ready_n80_launched.json`.
+
+### Money
+
+Lium $33,971.35; mining spend ≈ $185.40. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Poll `h5_kt65_sim_progress.json` → `h5_sim_n80.done` → harvest+triage
+(gate >0.04). If weak: α=0.50 or refute merge → TalentPigs-init thought distill.

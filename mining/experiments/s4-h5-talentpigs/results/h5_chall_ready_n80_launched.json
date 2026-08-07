@@ -1,0 +1,43 @@
+{
+  "utc": "2026-08-07T06:47:05Z",
+  "pass": 72,
+  "king": {
+    "repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+    "revision": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "score": 0.031501971059510636,
+    "reign": 3
+  },
+  "merge": {
+    "path": "/root/merges/h5-kt65",
+    "alpha": 0.65,
+    "identical_to_king": false,
+    "shard_layout_match": false
+  },
+  "engines": {
+    "teacher_8000": 200,
+    "king_8001": 200,
+    "chall_8002": 200
+  },
+  "markers": {
+    "h5_merge.done": "2026-08-07T06:41:14Z",
+    "h5_chall_serve.done": "2026-08-07T06:46:53Z"
+  },
+  "serve": {
+    "chall_pid": 232026,
+    "gpus": "4,5",
+    "wait_ready_elapsed_s": 332,
+    "log": "/root/logs/vllm_chall.log"
+  },
+  "sim": {
+    "pid": 235312,
+    "cmd": "python /root/mining_src/s4-h2-merge/run_sim_duel.py --king-repo TalentPigs/affine-5ekxlcg3fx-abc --king-rev dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4 --chall-repo /root/merges/h5-kt65 --chall-rev local --n-turns 80 --hotkey local-h5-kt65 --out /root/affine_data/h5_kt65_sim_result.json --progress-out /root/affine_data/h5_kt65_sim_progress.json --save-artifact",
+    "out": "/root/affine_data/h5_kt65_sim_result.json",
+    "progress": "/root/affine_data/h5_kt65_sim_progress.json",
+    "log": "/root/logs/h5_kt65_sim.nohup",
+    "launched_utc": "2026-08-07T06:46:53Z"
+  },
+  "resume_pipe_pid": 231961,
+  "next_markers": ["h5_sim_n80.done", "h5_merge_sim.done"],
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "submit": false
+}

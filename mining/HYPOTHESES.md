@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5 / new-king | highest now | pivot to TalentPigs king; merge or mild distill → margin **> 0.04** | **open** — α0.65 merge DONE; chall loading→n80 |
+| 1 | H5 / new-king | highest now | pivot to TalentPigs king; merge or mild distill → margin **> 0.04** | **open** — α0.65 chall READY; n80 sim RUNNING |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 4 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
@@ -246,9 +246,14 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   chall:8002 loading merge. Identity: layout_match=false,
   identical_to_king=false. Evidence: `results/h5_kt65_identity.json`,
   `h5_kt65_merge_meta.json`, `h5_resume_launched.json`.
+- **Chall READY + n80 launched (2026-08-07T06:46:53Z pass 72):**
+  chall:8002 health **200** after ~332s wait; `h5_chall_serve.done`;
+  sim pid **235312** `run_sim_duel.py` n=80 →
+  `/root/affine_data/h5_kt65_sim_result.json`. Engines 8000/8001/8002
+  all 200. Evidence: `results/h5_chall_ready_n80_launched.json`.
 - **Prediction (pre-register BEFORE merge):** n80 paired margin ≥ **+0.04**
   vs TalentPigs; H4 OK; both valid; weight_identical=false.
-- **Verdict:** open — merge OK; chall load→n80 pending.
+- **Verdict:** open — n80 sim RUNNING; awaiting margin.
 
 ## Scaffolding
 
