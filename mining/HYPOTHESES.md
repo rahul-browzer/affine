@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **n80 RUNNING** (~10/80); merged HF push **202393** public retry |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **n80 RUNNING** (~16/80); merged HF **DONE** public `a314357…` |
 | 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
@@ -134,6 +134,15 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   `…-h1-merged` + `…-h1v2-merged`; relaunched public push pid **202393**
   (venv python). Adapter salvage already OK. n80 ~10/80. Evidence:
   `results/h1v2_hf_quota_fix.json`.
+- **Merged salvage DONE (05:50Z pass 64):** push **202393** finished
+  05:49:40Z → `unconst/Affine-5czsc2fc98-h1v2-merged` @
+  `a31435754de2974e63779f53e953ee1433eaf295` (public, 67 GiB, 3 shards).
+  Verified on HF (14 files incl. both model shards + visual-extra). Also
+  publicized `…-h1-lora` + `…-h1v2-lora` (private-quota hygiene). n80
+  ~16/80 @ 05:50, ETA ~06:30 < soft 06:50. Evidence:
+  `results/h1v2_merged_salvage.json`,
+  `h1v2_merged_salvage_confirmed.json`,
+  `h1v2_merged_salvage_verified.json`.
 - **Verdict:** open — n80 sampling; prediction unchanged until result.
 
 

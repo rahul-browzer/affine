@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T05:50:34Z | 34056.97 | 10.000000 | 0 | mine-sim-1 spent $164.13; pass64 H1v2 merged HF public salvage DONE a314357…; n80~16/80; no new rental |
 | 2026-08-07T05:47:50Z | 34064.74 | 10.000000 | 0 | mine-sim-1 spent $162.94; pass63 H1v2 HF quota fix + public merged push retry; n80~10/80; no new rental |
 | 2026-08-07T05:44:10Z | 34072.51 | 10.000000 | 0 | mine-sim-1 spent $161.57; pass62 H1v2 chall READY→n80 sim running; no new rental |
 | 2026-08-07T05:37:11Z | 34080.33 | 10.000000 | 0 | mine-sim-1 spent $158.87; pass61 H1v2 train+merge DONE; chall loading; no new rental |
@@ -69,6 +70,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T05:50:34Z | observe | mine-sim spent $164.13 | Lium → mine-sim-1 | 34056.97 | 10.000 | pass64 H1v2 merged HF salvage DONE public a314357… (67GiB); loras publicized; n80~16/80 ETA~06:30; floor OK |
 | 2026-08-07T05:47:50Z | observe | mine-sim spent $162.94 | Lium → mine-sim-1 | 34064.74 | 10.000 | pass63 H1v2 merged push failed private quota → publicized h1-merged + retry public push 202393; n80~10/80; floor OK |
 | 2026-08-07T05:44:10Z | observe | mine-sim spent $161.57 | Lium → mine-sim-1 | 34072.51 | 10.000 | pass62 chall READY 05:41:16Z prefer-n80 pid 198714 (1/80); HF merge push still up; floor OK |
 | 2026-08-07T05:37:11Z | observe | mine-sim spent $158.87 | Lium → mine-sim-1 | 34080.33 | 10.000 | pass61 H1v2 train.done 05:28:51Z merge.done 05:35:39Z; HF adapter OK; chall loading→n80; floor OK |

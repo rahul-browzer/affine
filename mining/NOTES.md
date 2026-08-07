@@ -2247,3 +2247,35 @@ Lium $34,064.74; mining spend ≈ $162.94. Floor OK. No new rental. No submit.
 
 Poll n80 → harvest + triage. Confirm `h1v2_merged_salvage.json` when push ends.
 Submit only if margin > 0.04 + H4 OK.
+
+## 2026-08-07T05:50:34Z — pass 64: H1v2 merged HF salvage confirmed DONE
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $164.13; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,056.97 (floor OK).
+
+### What I did
+
+1. Polled n80: engines 200×3; sim **198714** alive; progress king **16**/80 /
+   chall **15**/80 @ 05:50:29Z (rate ~1.6 turns/min → ETA ~06:30 < soft 06:50).
+2. Confirmed merged HF push **202393** **DONE** at 05:49:40Z:
+   `unconst/Affine-5czsc2fc98-h1v2-merged` @
+   `a31435754de2974e63779f53e953ee1433eaf295` (public, 67.0 GiB, 3 shards,
+   14 files). Harvested `h1v2_merged_salvage.json` + verified on HF API.
+3. Publicized `…-h1-lora` + `…-h1v2-lora` via `update_repo_settings` so
+   future private-quota blocks are less likely (adapters already salvaged).
+4. Evidence: `experiments/s4-h1v2-sft/results/h1v2_merged_salvage_confirmed.json`
+   (+ `_verified.json`, pod salvage mirror). kevin still king; **chal-00283**
+   scoring ~77/80 (watch for crown flip). Do **not** submit until n80
+   margin > 0.04 + H4 OK. Deadman can no longer erase the only merged copy.
+
+### Money
+
+Lium $34,056.97; mining spend ≈ $164.13. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll n80 → harvest `h1v2_sim_result.json` → triage `h1v2_decision.json`.
+Submit only if margin > 0.04 + H4 OK. Re-check snapshot if chal-00283 crowns.

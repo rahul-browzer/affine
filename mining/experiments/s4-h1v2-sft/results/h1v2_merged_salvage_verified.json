@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-07T05:50:30Z",
+  "pass": 64,
+  "repo": "unconst/Affine-5czsc2fc98-h1v2-merged",
+  "private": false,
+  "sha": "a31435754de2974e63779f53e953ee1433eaf295",
+  "commit_url": "https://huggingface.co/unconst/Affine-5czsc2fc98-h1v2-merged/commit/a31435754de2974e63779f53e953ee1433eaf295",
+  "n_files": 14,
+  "total_bytes": 0,
+  "total_gib": 0.0,
+  "safetensors": [
+    "model-00001-of-00002.safetensors",
+    "model-00002-of-00002.safetensors",
+    "model-visual-extra.safetensors"
+  ],
+  "note": "public merged salvage confirmed; NOT a submission; n80 sim still running"
+}

@@ -1,0 +1,34 @@
+{
+  "utc": "2026-08-07T05:50:25Z",
+  "pass": 64,
+  "action": "confirm_h1v2_merged_hf_public_salvage",
+  "salvage": {
+    "repo": "unconst/Affine-5czsc2fc98-h1v2-merged",
+    "private": false,
+    "merged": "/root/h1v2/merged",
+    "bytes": 71903778184,
+    "n_shards": 3,
+    "base_hub": "kevin954/Affine-5dfqbbh8ev-sft",
+    "commit_sha": "https://huggingface.co/unconst/Affine-5czsc2fc98-h1v2-merged/commit/a31435754de2974e63779f53e953ee1433eaf295",
+    "uploaded_utc": "2026-08-07T05:49:40Z",
+    "note": "full merged salvage; NOT a submission until Stage-5 gate"
+  },
+  "verified_sha": "a31435754de2974e63779f53e953ee1433eaf295",
+  "n80_at_confirm": {
+    "king": 15,
+    "challenger": 15,
+    "n_turns": 80
+  },
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 200
+  },
+  "sim_pid": 198714,
+  "push_pid_was": 202393,
+  "push_status": "DONE",
+  "live_king": "kevin954/Affine-5dfqbbh8ev-sft",
+  "live_eval": "chal-00283 scoring ~75/80",
+  "submit": false,
+  "note": "TTL insurance complete before deadman 07:00Z; do NOT submit until n80 margin>0.04 + H4"
+}
