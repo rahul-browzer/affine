@@ -8,8 +8,8 @@ kevin×pandora, H5 was kevin×TalentPigs; both refuted.
 
 - α=0.75 first (`out = 0.75·TalentPigs + 0.25·pandora`), TalentPigs shard/config
 - n80 paired margin ≥ **+0.04** vs live TalentPigs
-- H4: r∈[0.70,0.85], base×≤1.15; weight ≠ king
-- If 0.02≤margin≤0.04 or soft gate: try α=0.85
+- Gates: r∈[0.3,4.0], baseline≤1.25×king, weight ≠ king (H4 tight band REFUTED)
+- If 0.02≤margin≤0.04: try α=0.85
 - If margin<0.02 after both → refute H7 for these parents
 
 ## Why α high toward TalentPigs
@@ -28,8 +28,9 @@ clip-L1 style (crown clipL1 +0.026, r≈0.76).
 
 ## Decision rule
 
-- margin > 0.04 + H4 OK → Stage 5 prep (submit checklist).
-- else refute; tear `mine-h7-1`. Do not submit.
+- margin > 0.04 + chall_valid → Stage 5 prep (submit checklist).
+- 0.02≤margin≤0.04 → TRY_ALPHA_085 on same pod.
+- margin < 0.02 → REFUTE_H7; tear `mine-h7-1`. Do not submit.
 
 ## Out of scope
 
