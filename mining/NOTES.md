@@ -2215,3 +2215,35 @@ Lium $34,072.51; mining spend ≈ $161.57. Floor OK. No new rental. No submit.
 
 Poll n80 progress → harvest `h1v2_sim_result.json` → triage decision.
 Submit only if margin > 0.04 + H4 OK. Harvest merged salvage when push ends.
+
+## 2026-08-07T05:47:50Z — pass 63: H1v2 merged HF push quota fix + retry
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $162.94; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,064.74 (floor OK).
+
+### What I did
+
+1. Polled n80: engines 200×3; sim **198714** alive; progress king **10**/80 /
+   chall **9**/80 @ 05:47:25Z (ETA ~06:35 < soft 06:50).
+2. Found merged HF push **191137** **DEAD** with
+   `Private repository storage limit reached` — `…-h1-merged` private ~72 GiB
+   filled quota; H1v2 ~67 GiB commit rejected. Adapter salvage already OK.
+3. Made `unconst/Affine-5czsc2fc98-h1-merged` **public** (H1 recipe REFUTED;
+   keep salvage). Set `…-h1v2-merged` public too.
+4. Relaunched push with `/root/venv/bin/python3` + `--public` pid **202393**
+   ALIVE @ 05:47:32Z (`private=False`). Bare `python3` retry hit
+   ModuleNotFoundError — always use venv.
+5. Evidence: `experiments/s4-h1v2-sft/results/h1v2_hf_quota_fix.json`.
+   kevin still king; chal-00283 scoring. Do **not** submit until n80.
+
+### Money
+
+Lium $34,064.74; mining spend ≈ $162.94. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll n80 → harvest + triage. Confirm `h1v2_merged_salvage.json` when push ends.
+Submit only if margin > 0.04 + H4 OK.

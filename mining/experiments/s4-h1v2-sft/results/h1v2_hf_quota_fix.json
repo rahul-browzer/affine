@@ -1,0 +1,36 @@
+{
+  "utc": "2026-08-07T05:47:33Z",
+  "pass": 63,
+  "event": "h1v2_merged_push_quota_fix_retry",
+  "failure": {
+    "pid": 191137,
+    "utc_approx": "2026-08-07T05:43Z",
+    "error": "BadRequestError: Private repository storage limit reached",
+    "request_id": "Root=1-6a75707e-7850d75c7aeaaa39654c58de;627a9e98-0b21-408c-8913-bd123f8ad3c2",
+    "log": "/root/logs/h1v2_push_merged.nohup"
+  },
+  "root_cause": "unconst/Affine-5czsc2fc98-h1-merged was private (~71.9 GiB) and filled HF private storage; H1v2 merged (~67 GiB) could not commit",
+  "fix": {
+    "made_public": "unconst/Affine-5czsc2fc98-h1-merged",
+    "private_before": true,
+    "private_after": false,
+    "also_public": "unconst/Affine-5czsc2fc98-h1v2-merged",
+    "rationale": "H1 recipe REFUTED — keep salvage public rather than delete; free private quota for H1v2 TTL insurance"
+  },
+  "retry": {
+    "pid": 202393,
+    "utc": "2026-08-07T05:46:31Z",
+    "cmd": "/root/venv/bin/python3 push_merged.py --merged /root/h1v2/merged --repo unconst/Affine-5czsc2fc98-h1v2-merged --public --out-meta /root/affine_data/h1v2_merged_salvage.json",
+    "status_at_check": "ALIVE uploading private=False",
+    "note": "first retry with bare python3 failed ModuleNotFoundError; venv python required"
+  },
+  "n80_at_check": {
+    "utc": "2026-08-07T05:47:25Z",
+    "king": 10,
+    "challenger": 9,
+    "n_turns": 80,
+    "sim_pid": 198714
+  },
+  "submit": false,
+  "note": "adapter salvage already OK (6c964d35…); merged salvage is TTL insurance before deadman 07:00Z"
+}

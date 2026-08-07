@@ -1,10 +1,10 @@
 {
-  "utc": "2026-08-07T05:44:00Z",
+  "utc": "2026-08-07T05:47:25Z",
   "hotkey": "local-h1v2-sim-n80",
   "chall_repo": "/root/h1v2/merged",
   "n_turns": 80,
-  "king": 1,
+  "king": 10,
   "king_total": 80,
-  "challenger": 1,
+  "challenger": 9,
   "challenger_total": 80
 }
