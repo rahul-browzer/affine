@@ -3066,3 +3066,44 @@ No submit / no registration burn.
 Read `results/h5b_decision.json` when harvest lands (~09:15–10:20Z). Until
 then poll `h5b_train_progress.json` `stage` through train→merge→n80.
 Gate >0.04 + H4. Expect chall=0 until serve stage.
+
+
+## 2026-08-07T08:18:46Z — pass 89: H5b TalentPigs packed-visual merge_lora fix
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $222.42; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,831.21 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+`min_submission_block`=8767079.
+
+### What I did
+
+1. No `h5b_decision.json` — train step **46**/55, loss@40 **0.468**, ETA
+   train.done ~08:28Z. Pipe **258082** waiting; mid **251832**; harvest
+   **1935669**; deadman **1783662**. Chall still pre-freed (GPUs 4,5=0).
+2. Found critical merge bug for TalentPigs base: **no**
+   `model-visual*.safetensors` — 333 `model.visual.*` tensors packed into
+   `model-00016-of-00016.safetensors` with 9 language tensors. Existing
+   `merge_lora` only copied `model-visual*` (kevin layout). H5b merge would
+   drop the vision tower, restore wrapper `config.json`, then chall:8002
+   would crash — abort after ~$220 of train.
+3. Patched `experiments/s4-h1-sft/merge_lora.py`: keep kevin-style copy;
+   extract still-missing keys into `model-visual-restored.safetensors`;
+   refuse if base has visual and out has none; stage meta as
+   `h5b_merge_meta.json`. SCP to pod (md5 `e5f51cec…`, compile OK). Dry-run:
+   would restore 333 keys from shard 16. Train/pipe/mid **not** restarted
+   (pipe invokes merge_lora.py at merge time).
+4. Evidence: `results/h5b_talentpigs_visual_restore_fix.json`,
+   `results/h5b_time_budget_pass89.json`.
+
+### Money
+
+Lium $33,831.21; mining spend ≈ $222. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:15–10:20Z). Until
+then poll `stage` through train→merge (confirm visual restore in merge log)
+→chall→n80. Gate >0.04 + H4.

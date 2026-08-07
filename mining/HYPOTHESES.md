@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** step **42**/55; pipe **258082** n80≤3; harvest **1935669**; chall VRAM pre-freed (pass 88) |
+| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** step **46**/55; pipe **258082** n80≤3; harvest **1935669**; packed-visual merge fix deployed (pass 89) |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
@@ -362,6 +362,17 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   **245350** / pipe **258082** / mid **251832** untouched. Step
   **42**/55 loss@40 **0.468**. Evidence:
   `results/h5b_prefree_chall_vram.json`, `h5b_time_budget_pass88.json`.
+- **TalentPigs packed-visual merge fix (2026-08-07T08:18:46Z pass 89):**
+  TalentPigs has **no** `model-visual*.safetensors` — 333 visual tensors
+  live in `model-00016-of-00016.safetensors` with 9 language tensors.
+  Old `merge_lora` only copied `model-visual*` (kevin layout) → H5b
+  merge would drop vision tower → chall serve crash under restored
+  wrapper config. Patched to extract missing keys into
+  `model-visual-restored.safetensors`; refuse if base has visual and
+  out has none; stage meta as `h5b_merge_meta.json`. SCP'd to pod
+  (md5 `e5f51cec…`) at step **46**/55 — train/pipe/mid untouched.
+  Evidence: `results/h5b_talentpigs_visual_restore_fix.json`,
+  `h5b_time_budget_pass89.json`.
 - **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
   H4 OK; clip-L1 ≥ +0.015; not weight-identical.
 - **Verdict:** open.

@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T08:18:46Z | 33831.21 | 10.000000 | 0 | mine-sim-1 spent $222.42; pass89 TalentPigs packed-visual merge_lora fix deployed; train step46/55; deadman 12:00Z; no new rental |
 | 2026-08-07T08:14:54Z | 33838.95 | 10.000000 | 0 | mine-sim-1 spent $219.88; pass88 pre-freed chall VRAM GPUs 4,5 (zombie h5-kt50); train step42/55; deadman 12:00Z; no new rental |
 | 2026-08-07T08:11:12Z | 33838.95 | 10.000000 | 0 | mine-sim-1 spent $219.44; pass87 H5b stage-aware harvest scrape (pid 1935669); train step38/55; deadman 12:00Z; no new rental |
 | 2026-08-07T08:08:03Z | 33846.85 | 10.000000 | 0 | mine-sim-1 spent $217.21; pass86 H5b HF wait off critical path (pipe 258082); train step35/55; deadman 12:00Z; no new rental |

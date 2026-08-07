@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T08:15:15Z",
+  "utc": "2026-08-07T08:19:27Z",
   "experiment": "s4-h5b-talentpigs-distill",
   "stage": "waiting_train",
   "train_done": false,
@@ -21,10 +21,10 @@
     "chall": 0
   },
   "total": 55,
-  "step": 42,
-  "frac": 0.7636363636363637,
-  "n_loss_logs": 8,
+  "step": 47,
+  "frac": 0.8545454545454545,
+  "n_loss_logs": 9,
   "first_loss": 0.5960640907287598,
-  "last_loss": 0.4683667182922363,
-  "last_loss_step": 40
+  "last_loss": 0.40008840560913084,
+  "last_loss_step": 45
 }

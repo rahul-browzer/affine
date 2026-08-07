@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-07T08:18:46Z",
+  "pass": 89,
+  "lium_spent_usd": 222.42,
+  "lium_balance_usd": 33831.21,
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "harvest_stop_utc": "2026-08-07T11:45:00Z",
+  "train_step": 46,
+  "train_total": 55,
+  "eta_train_done_utc": "~08:28Z",
+  "eta_decision_utc": "~09:15-10:20Z",
+  "increment": "fixed merge_lora TalentPigs packed-visual restore before train.done; deployed to pod",
+  "king": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_s": 0.031501971059510636
+}

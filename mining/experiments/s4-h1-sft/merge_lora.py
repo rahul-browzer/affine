@@ -98,31 +98,80 @@ def main() -> None:
             shutil.copy2(src, args.out / name)
             print(f"[merge] restored {name} from base", flush=True)
 
-    # CausalLM save also drops the vision tower shard (model.visual.*).
+    # CausalLM save also drops the vision tower (model.visual.*).
     # With the wrapper config restored, vLLM requires those weights.
-    # Copy untouched visual shard(s) + merge their weight_map entries.
+    #
+    # Two layouts observed:
+    #   kevin: separate model-visual*.safetensors — copy whole files.
+    #   TalentPigs: visual packed into model-00016-of-00016.safetensors
+    #   alongside a few language tensors — cannot copy the whole shard
+    #   (would clobber merged LoRA language weights). Extract only missing
+    #   keys into model-visual-restored.safetensors.
+    out_idx_path = args.out / "model.safetensors.index.json"
+    base_idx_path = base_path / "model.safetensors.index.json"
+    out_idx = (
+        json.loads(out_idx_path.read_text())
+        if out_idx_path.is_file()
+        else {"metadata": {}, "weight_map": {}}
+    )
+    base_idx = (
+        json.loads(base_idx_path.read_text())
+        if base_idx_path.is_file()
+        else {"weight_map": {}}
+    )
+    added = 0
     visual_shards = sorted(base_path.glob("model-visual*.safetensors"))
-    if visual_shards:
-        out_idx_path = args.out / "model.safetensors.index.json"
-        base_idx_path = base_path / "model.safetensors.index.json"
-        out_idx = (
-            json.loads(out_idx_path.read_text())
-            if out_idx_path.is_file()
-            else {"metadata": {}, "weight_map": {}}
+    for src in visual_shards:
+        shutil.copy2(src, args.out / src.name)
+        print(f"[merge] restored visual shard {src.name}", flush=True)
+    for key, shard in (base_idx.get("weight_map") or {}).items():
+        if key not in out_idx["weight_map"] and (
+            args.out / shard
+        ).is_file():
+            # Key lives in a shard we already copied (kevin-style).
+            out_idx["weight_map"][key] = shard
+            added += 1
+
+    missing = {
+        k: sh
+        for k, sh in (base_idx.get("weight_map") or {}).items()
+        if k not in out_idx["weight_map"]
+    }
+    if missing:
+        from collections import defaultdict
+
+        from safetensors.torch import save_file
+        from safetensors import safe_open
+
+        by_shard: dict[str, list[str]] = defaultdict(list)
+        for key, shard in missing.items():
+            by_shard[shard].append(key)
+        restored: dict[str, torch.Tensor] = {}
+        for shard, keys in by_shard.items():
+            src = base_path / shard
+            if not src.is_file():
+                raise FileNotFoundError(
+                    f"missing base shard for visual restore: {src}"
+                )
+            with safe_open(str(src), framework="pt", device="cpu") as f:
+                for key in keys:
+                    restored[key] = f.get_tensor(key)
+            print(
+                f"[merge] extracted {len(keys)} missing keys from {shard}",
+                flush=True,
+            )
+        out_vis = args.out / "model-visual-restored.safetensors"
+        save_file(restored, str(out_vis))
+        for key in restored:
+            out_idx["weight_map"][key] = out_vis.name
+            added += 1
+        print(
+            f"[merge] wrote {out_vis.name} with {len(restored)} tensors "
+            f"(TalentPigs-style packed visual restore)",
+            flush=True,
         )
-        base_idx = (
-            json.loads(base_idx_path.read_text())
-            if base_idx_path.is_file()
-            else {"weight_map": {}}
-        )
-        added = 0
-        for src in visual_shards:
-            shutil.copy2(src, args.out / src.name)
-            print(f"[merge] restored visual shard {src.name}", flush=True)
-        for key, shard in (base_idx.get("weight_map") or {}).items():
-            if key not in out_idx["weight_map"]:
-                out_idx["weight_map"][key] = shard
-                added += 1
+
+    if added or visual_shards or missing:
         total = sum(p.stat().st_size for p in args.out.glob("*.safetensors"))
         out_idx.setdefault("metadata", {})
         out_idx["metadata"]["total_size"] = total
@@ -131,7 +180,19 @@ def main() -> None:
                 "total_parameters"
             ]
         out_idx_path.write_text(json.dumps(out_idx, indent=2) + "\n")
-        print(f"[merge] merged {added} visual weight_map keys into index", flush=True)
+        n_vis = sum(1 for k in out_idx["weight_map"] if "visual" in k)
+        print(
+            f"[merge] index now has {added} restored keys; "
+            f"visual_keys={n_vis}",
+            flush=True,
+        )
+        if n_vis == 0 and any(
+            "visual" in k for k in (base_idx.get("weight_map") or {})
+        ):
+            raise SystemExit(
+                "REFUSE: base has model.visual.* but merged output has none "
+                "— chall serve would crash under wrapper config"
+            )
 
     # Hygiene: no *.py, strip auto_map if present.
     cfg_path = args.out / "config.json"
@@ -226,7 +287,9 @@ def main() -> None:
     # clobber H1's meta if harvest hasn't SCP'd it yet (pass 58).
     Path("/root/affine_data").mkdir(parents=True, exist_ok=True)
     out_s = str(args.out)
-    if "/h1v2/" in out_s or out_s.rstrip("/").endswith("h1v2/merged"):
+    if "/h5b/" in out_s or out_s.rstrip("/").endswith("h5b/merged"):
+        stage_name = "h5b_merge_meta.json"
+    elif "/h1v2/" in out_s or out_s.rstrip("/").endswith("h1v2/merged"):
         stage_name = "h1v2_merge_meta.json"
     else:
         stage_name = "h1_merge_meta.json"

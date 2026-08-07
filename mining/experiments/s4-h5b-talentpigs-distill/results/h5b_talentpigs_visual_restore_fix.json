@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-07T08:18:46Z",
+  "pass": 89,
+  "bug": "TalentPigs packs 333 model.visual.* tensors into model-00016-of-00016.safetensors (mixed with 9 language tensors); merge_lora only restored model-visual*.safetensors (kevin layout). H5b merge would drop vision tower → wrapper config + vLLM chall serve crash → pipe abort; whole train wasted.",
+  "fix": "After CausalLM save: keep kevin-style model-visual* copy; also extract any still-missing base weight_map keys into model-visual-restored.safetensors and splice into index. Refuse if base has visual keys but out has zero.",
+  "also": "stage merge_meta to h5b_merge_meta.json when out is /root/h5b/merged",
+  "deploy": {
+    "host_md5": "e5f51cec5c3565a3c19e6e3b69d4535e",
+    "pod_path": "/root/mining_src/s4-h1-sft/merge_lora.py",
+    "compile_ok": true,
+    "dry_run_would_restore": 333,
+    "from_shard": "model-00016-of-00016.safetensors"
+  },
+  "train_at_deploy": {
+    "step": 46,
+    "total": 55,
+    "train_pid": 245350,
+    "pipe_pid": 258082,
+    "mid_pid": 251832,
+    "note": "file-on-disk update only; pipe not restarted (calls merge_lora.py at merge time)"
+  }
+}
