@@ -1,0 +1,22 @@
+{
+  "experiment": "s4-h1v2-sft",
+  "base": "/root/hf/hub/models--TalentPigs--affine-5ekxlcg3fx-abc/snapshots/dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "data": "/root/h27/winner_za_high_l1.jsonl",
+  "max_len": 8192,
+  "epochs": 1.0,
+  "lr": 1e-05,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "batch": 1,
+  "grad_accum": 8,
+  "loss_on": "thought",
+  "cuda_visible": "6,7",
+  "started_utc": "2026-08-07T17:37:43Z",
+  "elapsed_s": 2391.2511928081512,
+  "finished_utc": "2026-08-07T18:17:34Z",
+  "adapter_dir": "/root/h27/train/adapter",
+  "sample0_supervised_tokens": 53,
+  "sample0_total_tokens": 1891,
+  "thought_ok": 406,
+  "no_fence": 0
+}

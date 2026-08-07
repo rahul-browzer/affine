@@ -83,6 +83,10 @@ Format: `- <finding> — <the number or error that proves it>`
   `/v1/completions` probe before starting n80 (H24 pass168). Bake the
   probe into `start_*_n80.sh` before first n80 too (H23 pass169) — not
   only into recover sidecars.
+- First completions after health=200 can **kill** the engine (H23 pass177:
+  probe→ missing `__triton_launcher.so` → EngineDead). Do not keep polling
+  a dead wait loop — wipe `king_*` Triton caches + flashinfer sampling,
+  unique `TRITON_CACHE_DIR`, relaunch; settle ≥20s before probe.
 - `pgrep -f "run_sim_duel.py .*local-hN"` false-matches SSH/bash cmdlines that
   contain the pattern — use `ps -eo pid,cmd | awk '/[r]un_sim_duel.py/ && /local-hN/'`.
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin REFUTE: check

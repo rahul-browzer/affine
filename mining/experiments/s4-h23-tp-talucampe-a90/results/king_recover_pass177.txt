@@ -1,0 +1,8 @@
+2026-08-07T18:27Z pass177: pass176 king relaunch reached health=200 at i=30 then
+first /v1/completions died — Triton `__triton_launcher.so` missing under
+`/root/.triton/cache/king_1786126532_33696/...` → EngineDeadError; GPUs 2,3 freed.
+Action: killed stuck recover-wait 33749; wiped king_* Triton caches + flashinfer
+sampling; relaunched king pid=38735 with fresh TCACHE=king_1786127226_38678;
+recover-wait177 pid=38740 (20s settle before probe) → start_h23_n80 on probe=ok.
+Script: `relaunch_king_pass177.sh`. Do not rm pod. Check:
+`tail /root/logs/h23_king_recover_pass177.log`
