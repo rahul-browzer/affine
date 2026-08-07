@@ -1,0 +1,37 @@
+{
+  "utc": "2026-08-07T06:55:50Z",
+  "pass": 74,
+  "event": "h5_n80_rate_confirmed",
+  "sim_pid": 235312,
+  "resume_pid": 231961,
+  "harvest_pid": 1818104,
+  "deadman": "12:00Z",
+  "progress_t0": {
+    "utc": "2026-08-07T06:53:18Z",
+    "king": 15,
+    "challenger": 17
+  },
+  "progress_t1": {
+    "utc": "2026-08-07T06:55:26Z",
+    "hotkey": "local-h5-kt65",
+    "chall_repo": "/root/merges/h5-kt65",
+    "n_turns": 80,
+    "challenger": 24,
+    "challenger_total": 80,
+    "king": 19,
+    "king_total": 80
+  },
+  "dt_min": 2.133,
+  "king_turns_per_min": 1.875,
+  "chall_turns_per_min": 3.281,
+  "eta_remaining_min": 32.5,
+  "eta_finish_utc": "2026-08-07T07:27:58Z",
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 200
+  },
+  "result_present": false,
+  "king_live": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "note": "120s recheck confirms advance; harvest 1818104 still armed; no submit"
+}
