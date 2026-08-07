@@ -107,7 +107,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - Accessible +margin B left: **Radiant28/ckpt1000-m7@f766293ee878 (+0.018)**; sft2@affa6d81 (+0.0109); Talucampe ck5@da35105f (+0.0069); Shatoria test3 (+0.0017); 0ronoCris@d43ada88 (+0.0016). Origin adambell/qpoewir/affine-god/Tok* gated; Sansaliu/completeyourprofile 404.
 - Lium `$5.66/h` "8×H200" can expose **2** GPUs while API still says `gpu_count:8` (zesty-hawk-bc; golden-fox-c0 ls$22.64→rent$5.66). After every rent: `nvidia-smi -L | wc -l` must be 8; reject <$20/h. Prefer `lium up --gpu H200 -c 8` landing ≥$28; $23 listings often "GPU splitting" 400.
 - `merge_linear.py` must track `max_abs_delta` over **all** keys — sampling first 8 false-refuses when early embeds match (H12: first8 Δ=0 + first_1MiB match, but shard08 max\|A−O\|=0.215). first_1MiB match alone is never refuse.
-- Concurrent vLLM races `~/.triton/cache` (H14/H15/H16) — per-role `TRITON_CACHE_DIR` + stagger; after crash kill GPU orphans + wipe that role's cache/pid before relaunch.
+- Concurrent vLLM races `~/.triton/cache` (H14/H15/H16/H21) — per-role dirs+stagger still race on first compile (`__triton_launcher.so` missing); wipe that role's cache/pid, relaunch staggered, arm engines→n80 watchdog if wait_ready may timeout.
 - Chall at `gpu_memory_utilization=0.80` can OOM on first prompt-logprobs (`log_softmax` needs ~7.2 GiB free; H20 twice). Relaunch chall at **0.72** (leave teacher/king at 0.80).
 
 ## Money / platform

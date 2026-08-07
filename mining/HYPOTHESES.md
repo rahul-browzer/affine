@@ -8,7 +8,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H25 | high | TP×Radiant28/ckpt1000-m7 α0.90 → margin>0.04 | **open** (bootstrap) |
-| 2 | H21 | high | TalentPigs×sft2 α0.75 → margin>0.04 | **open** (→n80) |
+| 2 | H21 | high | TalentPigs×sft2 α0.75 → margin>0.04 | **open** (engines recovering→n80) |
 | 3 | H23 | med | TalentPigs×Talucampe ck5 α0.90 → margin>0.04 | **open** (bootstrap) |
 | 4 | H22 | med | TalentPigs×kevin α0.90 → base×≤1.25 and margin>0.04 | **open** (DL kevin) |
 | 5 | H20 | med | TalentPigs×leary α0.90 → margin>0.04 | **open** (n80 ~59/80) |
@@ -33,7 +33,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H21 — TalentPigs × syntaxsorcerer1/sft2 α0.75
 - **Claim:** chal-00325 +0.0109 base×1.009 → margin>0.04.
 - **Test:** `mine-h21-1`; merge done maxΔ≈6e-5; engines→n80.
-- **Status:** wait_ready/n80. `experiments/s4-h21-tp-sft2/`.
+- **Status:** Triton race killed king/chall; pass159 wiped caches+relaunched; watchdog→n80.
 
 ### H23 — TalentPigs × Talucampe037/ck5 α0.90
 - **Claim:** chal-00193 +0.0069 → margin>0.04.
@@ -41,7 +41,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Status:** launched pass158. `experiments/s4-h23-tp-talucampe-a90/`.
 
 ### H22 / H20 / H24
-- H22 kevin DL; H20 n80 ~59/80; H24 staged after next free.
+- H22 merging; H20 n80 72/80; H24 staged after next free.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman with outcome 0.936 (clip-L1) vs 0.711 (Λ2), n=14.
