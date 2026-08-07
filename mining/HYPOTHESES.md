@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H29 | high | king-self LoRA (**TP-init**) → m>0.04 | **open** (chall loading) |
+| 1 | H29 | high | king-self LoRA (**TP-init**) → m>0.04 | **open** (n80 ~7/80) |
 | 2 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (merging) |
-| 3 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (serve→n80) |
-| 4 | H32 | high | H29 cell @ **lr=3e-5** → m>0.04 | **open** (serve→n80) |
-| 5 | H33 | high | H29 cell @ **epochs=2** → m>0.04 | **open** (bootstrap) |
+| 3 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (king recover191) |
+| 4 | H32 | high | H29 cell @ **lr=3e-5** → m>0.04 | **open** (king recover191) |
+| 5 | H33 | high | H29 cell @ **epochs=2** → m>0.04 | **open** (bootstrap DL) |
 | — | H28 | was high | winner-zA LoRA (m7-init) | **refuted** m=+0.01095 |
 | — | H27 | was high | winner-zA LoRA (TP-init) | **refuted** m=−0.00792 |
 | — | H23…H1 | — | α/LoRA/SFT | **refuted** |
@@ -23,8 +23,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H29 — king-self high clip-L1 z_A (non-α)
 - **Claim:** Train only TalentPigs's own high-L1 thoughts on TP init → m>0.04.
-- **Status:** train done loss@45≈0.483; merge OK non-id; chall :8002 loading
-  (t/k 200). `s4-h29-king-self-clip-l1/`.
+- **Status:** n80 live chall 7/80 king 6/80 (20:20Z). `s4-h29-king-self-clip-l1/`.
 
 ### H30 — king-self × m7 init (non-α)
 - **Claim:** m7 init + TalentPigs king-self → m>0.04.
@@ -32,15 +31,17 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H31 — H30 @ lr=3e-5 (non-α)
 - **Claim:** 3× LR on m7×king-self → m>0.04.
-- **Status:** train+merge done; serving toward n80. `s4-h31-m7-king-self-lr3e5/`.
+- **Status:** merge OK; king Triton-dead → recover191 relaunched.
+  `s4-h31-m7-king-self-lr3e5/`.
 
 ### H32 — H29 @ lr=3e-5 (non-α)
 - **Claim:** 3× LR on TP×king-self → m>0.04.
-- **Status:** train+merge done; chall-only serve. `s4-h32-tp-king-self-lr3e5/`.
+- **Status:** merge OK; king Triton-dead → recover191 relaunched.
+  `s4-h32-tp-king-self-lr3e5/`.
 
 ### H33 — H29 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on TP×king-self@lr1e-5 → m>0.04.
-- **Status:** mine-h33-1 bootstrap. `s4-h33-tp-king-self-ep2/`.
+- **Status:** bootstrap DL TalentPigs (pip/vllm OK). `s4-h33-tp-king-self-ep2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
