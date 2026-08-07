@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z** | Stage 4 H1 train + salvage→GPU-merge→n40→n80 | RUNNING | SSH `root@69.63.236.160 -p 40301`; train 82057 step59/110 epoch1 loss0.251; ckpt-50 on HF; pipe 86845; mid-salvage 83669; bk /root/h1/train 1h; host harvest **1447863**; deadman 1405846; spent $92.72 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z**; harvest early-rm | Stage 4 H1 train + salvage→GPU-merge→n40→n80 | RUNNING | SSH `root@69.63.236.160 -p 40301`; train 82057 step62/110; ckpt-50 on HF; pipe 86845; mid-salvage 83669; bk /root/h1/train 1h; host harvest **1454856** (early teardown); deadman 1405846; spent $93.77 |
 
 ## Reconcile log
 
@@ -50,3 +50,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T02:26:01Z | mine-sim-1 RUNNING | matches inventory; spent $83.67; H1 step34; host harvest **1421187** scrapes trainer_state loss; deadman 1405846; validator pods untouched |
 | 2026-08-07T02:43:18Z | mine-sim-1 RUNNING | matches inventory; spent $90.47; H1 step53; ckpt-50 loss+HF salvage OK (fixed base_model README); validator pods untouched |
 | 2026-08-07T02:49:48Z | mine-sim-1 RUNNING | matches inventory; spent $92.72; H1 step59 epoch1 loss0.251; harvest→emit_train_progress; deadman 1405846; validator pods untouched |
+| 2026-08-07T02:51:41Z | mine-sim-1 RUNNING | matches inventory; spent $93.77; H1 step62; harvest **1454856** early-teardown armed; deadman 1405846; validator pods untouched |

@@ -1303,3 +1303,41 @@ Lium $34,344.92; mining spend ≈ $92.72. Host deadman 07:00Z.
 
 Poll for `train_done` (~03:35Z) → adapter salvage → n40→n80. Kill
 mine-sim-1 as soon as sim done (name-check). No submit until margin > 0.04 + H4.
+
+
+---
+
+## 2026-08-07T02:51:41Z — pass 38: H1 step62 + host early-teardown armed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $93.77; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host deadman 1405846 still armed for 07:00Z.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; Lium $34,337.16 (floor OK).
+   Train step **62/110** (epoch 2); engines 200×3; pipeline 86845 waiting;
+   mid-salvage 83669; GPU6/7 train live; no sim artifacts yet. ETA
+   train.done ~**03:35Z**.
+2. Confirmed post-train path still healthy (adapter salvage Hub-base fix on
+   pod; train.done → merge → chall-only → n40→n80). Disk 5.7T free;
+   ckpt-50 adapter ~33MB on disk + HF.
+3. **Useful increment:** patched `host_harvest_results.sh` so when
+   sim+salvage+train artifacts are all local, it name-checks
+   `lium describe mine-sim-1` then `lium rm mine-sim-1 -y`. Stops $23.60/h
+   burn as soon as the decision signal lands instead of waiting for the
+   07:00Z deadman (could save ~1–2h / $24–47 if sim finishes ~05:00Z).
+   Restarted harvest pid **1454856**. Deadman remains as backstop.
+4. Wrote `results/h1_epoch2_mid.json`. No submit. No new rental.
+   Train/pipeline/mid-salvage/deadman untouched.
+
+### Money
+
+Lium $34,337.16; mining spend ≈ $93.77. Host deadman 07:00Z + early teardown.
+
+### Next
+
+Poll for `train_done` (~03:35Z) → adapter salvage → n40→n80. Confirm
+harvest early-rm (or name-check kill). No submit until margin > 0.04 + H4.

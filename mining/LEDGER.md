@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T02:51:41Z | 34337.16 | 10.000000 | 0 | mine-sim-1 spent $93.77; H1 step62; harvest early-teardown armed; no new rental |
 | 2026-08-07T02:43:18Z | 34352.70 | 10.000000 | 0 | mine-sim-1 spent $90.47; H1 step53; ckpt-50 HF salvage OK; no new rental |
 | 2026-08-07T02:26:01Z | 34376.09 | 10.000000 | 0 | mine-sim-1 spent $83.67; H1 step34; harvest scrapes trainer_state loss; no new rental |
 | 2026-08-07T02:21:57Z | 34383.87 | 10.000000 | 0 | mine-sim-1 spent $82.07; H1 step30; HF salvage verified; host harvest train_progress; no new rental |
@@ -45,6 +46,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T02:51:41Z | observe | mine-sim spent $93.77 | Lium → mine-sim-1 | 34337.16 | 10.000 | H1 step62; host harvest early-rm armed (save $/h after sim); floor OK |
 | 2026-08-07T02:49:48Z | observe | mine-sim spent $92.72 | Lium → mine-sim-1 | 34344.92 | 10.000 | H1 step59 epoch1 loss0.251; harvest emit stdout scrape; floor OK |
 | 2026-08-07T02:43:18Z | observe | mine-sim spent $90.47 | Lium → mine-sim-1 | 34352.70 | 10.000 | H1 step53/110; ckpt-50 salvaged after README base_model fix; floor OK |
 | 2026-08-07T02:26:01Z | observe | mine-sim spent $83.67 | Lium → mine-sim-1 | 34376.09 | 10.000 | H1 step34/110; stdout loss gap found; harvest scrapes trainer_state; floor OK |

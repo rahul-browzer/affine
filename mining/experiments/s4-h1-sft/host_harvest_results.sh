@@ -104,7 +104,26 @@ while true; do
 
   if (( got_sim == 1 && got_salvage == 1 && got_train == 1 )); then
     date -u +%Y-%m-%dT%H:%M:%SZ >"$OUT/host_harvest.done"
-    log "all artifacts harvested; done"
+    log "all artifacts harvested; early-teardown mine-sim-1 (stop $/h burn)"
+    # HARD RULE: verify name immediately before every rm. Never touch non-mine-*.
+    name=$(lium describe mine-sim-1 2>/dev/null | awk '/^Name/{print $2; exit}') || name=
+    if [[ "$name" != "mine-sim-1" ]]; then
+      log "WARN: describe Name='$name' != mine-sim-1; refusing rm (deadman 07:00Z still armed)"
+      exit 0
+    fi
+    case "$name" in
+      mine-*) ;;
+      *)
+        log "FATAL: name does not start with mine-; refusing rm"
+        exit 2
+        ;;
+    esac
+    log "lium rm mine-sim-1 (verified name=$name)"
+    if lium rm mine-sim-1 -y; then
+      log "early teardown OK"
+    else
+      log "WARN: lium rm failed; host deadman 07:00Z remains as backstop"
+    fi
     exit 0
   fi
 
