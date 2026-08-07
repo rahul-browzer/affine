@@ -14,8 +14,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - Clip-L1 is the lever (H3): Spearman 0.936 vs outcome; Λ2 only 0.711.
 - r ∈ [0.3, 4.0] (not our invented [0.70,0.85]); baseline band chall ≤1.25× king.
   Low r is a faithful-distill symptom, never a training target.
-- **α-merge is a ~1-in-260 lottery** (10 n80; H25 best-B m=+0.00662 still
-  ≪0.02). α0.90 clears band but margin≈0. Stop α search / do not requeue m7.
+- **α-merge is a ~1-in-260 lottery** (11 n80; H26 m=+0.00592 / H25 +0.00662
+  still ≪0.02). α0.90 clears band but margin≈0. Stop α search / do not requeue.
 - **Select B by TP-era clip-L1, not parent margin** (`s2-clip-l1-rank`): m7
   c_clipL1=+0.0435 → H25 m=+0.00662 (REFUTE); plmk +0.0389 but H16 m=+0.0097 —
   do not requeue; kkk +0.0288 pre-TP mid-pack. Clip-L1 rank ≠ duel margin.
@@ -30,7 +30,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - Merges: H2 kevin×pandora α0.5/−0.010 α0.65/+0.007; H5 kevin-dom×TP band/unpromptable
   (A must be king); H7–H15+H18 α0.75 band-fail; H16/H17/H19 α0.90 band-clear
   weak (+0.0097/−0.0037/+0.0035); H20 leary −0.01168; H21 sft2 α0.75 −0.00682;
-  H22 kevin α0.90 −0.01179; H25 m7 α0.90 +0.00662 — stop α lottery / leary / m7.
+  H22 kevin α0.90 −0.01179; H25 m7 α0.90 +0.00662; H26 kkk α0.90 +0.00592
+  — stop α lottery / leary / m7 / kkk.
 
 ## Serving / VLM
 
@@ -106,6 +107,11 @@ Format: `- <finding> — <the number or error that proves it>`
 - After engine relaunch, **reset `start_*_n80.sh` wait** — orphan `wait_ready`
   keeps the old elapsed clock (H23: 18m burned on dead engines; TIMEOUT_S=2400
   would have fired mid-compile). Kill start+wait by PID, relaunch start.
+- recover-wait must **exit if king APIServer pid dies** — else polls health for
+  ~40m on empty GPUs (H23 pass177→178: died mid CUDA-graph on Triton `.so`,
+  wait spun until killed). Bake pid-alive check into wait loop.
+- H27 ghost dentry again: `ls` listed `watch_form_decision.sh`, `open`→ENOENT;
+  form watcher silently gone mid-n80. `rm` + re-scp from local before relaunch.
 
 ## Money / platform
 
