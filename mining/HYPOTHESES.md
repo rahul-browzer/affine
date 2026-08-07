@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H37 | high | H28 cell @ **lr=1e-4** → m>0.04 | **open** (n80 ~61/80) |
-| 2 | H38 | high | H28 cell @ **epochs=2** → m>0.04 | **open** (n80 ~59/80) |
-| 3 | H39 | high | H28 cell @ **lr=3e-5** → m>0.04 | **open** (n80 a203) |
-| 4 | H40 | high | H28 cell @ **epochs=3** → m>0.04 | **open** (chall→retry) |
-| 5 | H41 | med | H28 cell @ **lora r=32** → m>0.04 | **open** (merge shard2) |
+| 1 | H37 | high | H28 cell @ **lr=1e-4** → m>0.04 | **open** (n80 ~66/80) |
+| 2 | H38 | high | H28 cell @ **epochs=2** → m>0.04 | **open** (n80 ~67/80) |
+| 3 | H39 | high | H28 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~12/80) |
+| 4 | H40 | high | H28 cell @ **epochs=3** → m>0.04 | **open** (chall recover p212) |
+| 5 | H41 | med | H28 cell @ **lora r=32** → m>0.04 | **open** (chall loading) |
 | — | H36 | was high | m7×union z_A | **refuted** m=+0.00052 |
 | — | H35 | was med | H30 @ lr=1e-4 | **refuted** m=+0.01602 |
 | — | H34 | was med | H30 @ epochs=2 | **refuted** m=+0.00593 |
@@ -26,26 +26,25 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H37 — H28 @ lr=1e-4 (non-α)
 - **Claim:** 10× LR on m7×winner-zA → m>0.04 after H28 +0.01095.
-- **Status:** n80 a203 ~61/80 @ 23:52Z. `s4-h37-m7-winner-za-lr1e4/`.
+- **Status:** n80 a203 ~66/80 @ 23:56Z. `s4-h37-m7-winner-za-lr1e4/`.
 
 ### H38 — H28 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×winner-zA@lr1e-5 → m>0.04.
-- **Status:** n80 a203 ~59/80 @ 23:52Z. `s4-h38-m7-winner-za-ep2/`.
+- **Status:** n80 a203 ~67/80 @ 23:56Z. `s4-h38-m7-winner-za-ep2/`.
 
 ### H39 — H28 @ lr=3e-5 (non-α)
 - **Claim:** mid-LR between H28 1e-5 and H37 1e-4 → m>0.04.
-- **Status:** n80 a203 sole (p211 killed bare post_train race).
-  `s4-h39-m7-winner-za-lr3e5/`.
+- **Status:** n80 a203 sole ~12/80. `s4-h39-m7-winner-za-lr3e5/`.
 
 ### H40 — H28 @ epochs=3 (non-α)
 - **Claim:** 3× epochs on m7×winner-zA@lr1e-5 → m>0.04.
-- **Status:** merge.done; chall loading; post_train disarmed p211;
-  retry owns hashed n80. `s4-h40-m7-winner-za-ep3/`.
+- **Status:** merge.done; chall Triton race → recover p212
+  (`relaunch_chall_pass212.sh`); retry wait. `s4-h40-m7-winner-za-ep3/`.
 
 ### H41 — H28 @ LoRA r=32 (non-α)
 - **Claim:** 2× LoRA rank (r32/α64) → m>0.04.
-- **Status:** merge shard2; disarm_bare_n80_pass211 armed.
-  `s4-h41-m7-winner-za-r32/`.
+- **Status:** merge.done; chall loading ~38GiB; disarm_bare_n80_pass211
+  armed. `s4-h41-m7-winner-za-r32/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
