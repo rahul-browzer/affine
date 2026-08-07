@@ -1581,3 +1581,45 @@ Poll for `train_done` (~03:36Z) → adapter salvage → merge_meta
 (`first_1MiB_identical: false`) → merged_salvage → n40→n80. Read
 `results/h1_decision.json` when present (live-king guard). Watch H6 crown.
 No submit until action=`toward_submit`.
+
+---
+
+## 2026-08-07T03:15:18Z — pass 45: H6 verdict captured; kevin still king
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $102.97; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host harvest 1486917 + deadman 1405846 still alive. Train step **87/110**;
+engines 200×3; pipe 105148 waiting; ETA train.done ~**03:36Z**.
+
+### What I did
+
+1. Polled `api/v1/snapshot` through end of chal-00274. H6 finished scoring
+   ~03:14Z; current_eval cleared; **king unchanged** kevin @ S≈0.03956.
+2. Fetched `https://affine.io/api/v1/duels/chal-00274` and wrote:
+   - `results/chal-00274_verdict.json` (full)
+   - `results/chal-00274_h6_summary.json` (decision fields)
+   - refreshed `h1_live_king_watch.json` / time budget / step poll
+3. **H6 numbers that matter:**
+   - margin **+0.02287** (clears δ=0.02) but z=**2.371** &lt; 3
+   - SE=0.00965 → 3·SE=**0.02894** (binding bar this slice)
+   - chall S=+0.0170 vs king-slice S=**−0.0060** (huge slice swing vs
+     published king S 0.0396)
+   - r=0.757, base×=0.975 (H4 envelope OK); mean Λ2 still negative both sides
+   - `challenger_wins=false`, `accepted=false`
+4. Lesson for Stage 5: clearing min_margin alone is a common near-miss; need
+   margin ≳ 3·SE. Our submit gate **0.04** would correctly refuse H6.
+   H1 sim-vs-kevin remains the right target. Queue head: chal-00275.
+5. No submit. No new rental. Train/pipeline/deadman untouched.
+
+### Money
+
+Lium $34,306.02; mining spend ≈ $102.97. Floor OK. Host deadman 07:00Z.
+
+### Next
+
+Poll for `train_done` (~03:36Z) → adapter salvage → merge_meta
+(`first_1MiB_identical: false`) → merged_salvage → n40→n80. Read
+`results/h1_decision.json` when present. Watch queue (chal-00275+). No
+submit until action=`toward_submit`.

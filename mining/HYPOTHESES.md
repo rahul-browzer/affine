@@ -29,19 +29,21 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Prediction (pre-register before train):** challenger mean paired margin ≥
   **+0.04** vs live king on an 80-turn public-D slice, all gates passing,
   r∈[0.70,0.85], base×≤1.15.
-- **In flight (2026-08-07T03:12Z):** harvest 440/440; LoRA r=16 2ep from
-  kevin init, 110 steps, pid 82057 (**step 84/110** @ ~55s/it, ETA
+- **In flight (2026-08-07T03:15Z):** harvest 440/440; LoRA r=16 2ep from
+  kevin init, 110 steps, pid 82057 (**step 87/110** @ ~55s/it, ETA
   ~**03:36Z**). **checkpoint-50** on HF; epoch-1 complete loss **0.251**
   (step5→50 = 0.283→0.329; min 0.215 @35). Post-train pipeline pid
   **105148** waiting; soft deadline **06:50Z**; fail-closed mid-ckpt
   promote if train dies pre-done. **merge_lora refuses first_1MiB==kevin**;
   **bg `push_merged.py`** → private `unconst/Affine-5czsc2fc98-h1-merged`
   (repo pre-created) so deadman cannot erase the only vLLM-ready candidate.
-  n80 ETA ~05:02Z. Host harvest **1486917** (early `lium rm` accepts
+  n80 ETA ~05:01Z. Host harvest **1486917** (early `lium rm` accepts
   train_fallback/train.done + mid/merged salvage; defers while push alive
-  ≤20 min); deadman 1405846 @ 07:00Z. **Triage live-king guard** refuses
-  `toward_submit` if snapshot king ≠ sim king (H6 chal-00274 at scoring
-  **70/80**). This run: 0 `[train-log]` lines (callback fix staged, not live).
+  ≤20 min); deadman 1405846 @ 07:00Z. **Triage live-king guard** armed.
+  **chal-00274 H6 REJECTED** 2026-08-07T03:14Z: margin **+0.0229** cleared
+  δ=0.02 but z=**2.37**&lt;3 (3·SE=0.0289); r=0.757 base×=0.975; kevin
+  remains — H1 sim target still valid. Our submit gate 0.04 would refuse.
+  This run: 0 `[train-log]` lines (callback fix staged, not live).
 - **Verdict:** open.
 
 ## H2 — weight-merge of recent kings / near-kings beats both

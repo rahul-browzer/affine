@@ -17,11 +17,11 @@ salvage → GPU merge on 6,7 (**refuses if first_1MiB sha == kevin**) →
 (private) → chall-only re-serve → **n=40 then n=80** → wait for push.
 If train dies pre-done, pipeline **promotes latest mid-ckpt** (fail-closed).
 **checkpoint-50** on disk + HF. Epoch-1 loss **0.251** @ step 55; now
-**step 84/110**. Host harvest **1486917** (early-teardown accepts
+**step 87/110**. Host harvest **1486917** (early-teardown accepts
 train_fallback/train.done + mid/merged salvage; defers while merged push
 alive ≤20 min); host deadman **1405846** kills `mine-sim-1` at **07:00Z**.
-No submissions. Live eval **chal-00274** `adambell/…ckpt450-H6` scoring
-king **70/80** (watch for king change before submit — triage guard armed).
+No submissions. **chal-00274 H6 REJECTED** (margin +0.0229 but z=2.37&lt;3);
+**kevin still king** — H1 sim target unchanged. Queue head chal-00275.
 
 ## Live facts (verified this pass)
 
@@ -37,12 +37,12 @@ king **70/80** (watch for king change before submit — triage guard armed).
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
 | Lium balance | $34,306.02 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$101.74** @ $23.60/h |
+| mining spend to date | `mine-sim-1` spent **$102.97** @ $23.60/h |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 verdict | **REFUTED** (`experiments/s4-h2-merge/result.md`) |
 | H1 harvest | **DONE** — 440 examples, 0 missing |
-| H1 train | **RUNNING** — step **84/110** @ ~55s/it, ETA ~**03:36Z** |
+| H1 train | **RUNNING** — step **87/110** @ ~55s/it, ETA ~**03:36Z** |
 | H1 loss | ckpt50 last 0.329; epoch1 **0.251**; min 0.215 @35; epoch2 await ckpt-100 |
 | H1 mid-ckpt | **checkpoint-50 ON HF** (private salvage repo) |
 | H1 pipeline | **ARMED** — pid **105148** (soft deadline **06:50Z**; fail-closed promote; **merged HF push**) |
@@ -54,10 +54,11 @@ king **70/80** (watch for king change before submit — triage guard armed).
 | Host harvest | **ARMED** — pid **1486917** (early teardown + push grace) |
 | Host deadman | **ARMED** — pid **1405846** → `lium rm mine-sim-1` at **07:00Z** |
 | Lium schedule | **CANCELLED** (host deadman replaces) |
-| H1 triage | **ARMED** — live-king guard (`re_sim_new_king` / `confirm_live_king`); `results/h1_decision.json` when sim lands |
-| H1 n80 budget | **OK** — ETA n80 done ~05:02Z; slack soft ~108 min |
-| Live challenger | **chal-00274** H6 scoring king **70/80** (king still kevin) |
-| reg_cost_tao | **0.653** (snapshot market) |
+| H1 triage | **ARMED** — live-king guard; `results/h1_decision.json` when sim lands |
+| H1 n80 budget | **OK** — ETA n80 done ~05:01Z; slack soft ~108 min |
+| Last live duel | **chal-00274 H6** REJECTED — margin +0.0229, z=2.37&lt;3 (3·SE=0.0289) |
+| Live challenger | none (idle between duels); queue head **chal-00275** |
+| reg_cost_tao | **0.645** (snapshot market) |
 
 ## What's running
 
@@ -83,7 +84,7 @@ On pod:
 - H1 mid-ckpt salvage: pid **83669**
 - Train progress/loss JSON: `/root/affine_data/h1_train_{progress,loss}.json`
 - ckpt-50: on disk + HF; epoch1 loss in progress JSON
-- `run_sim_duel.py` on pod now writes `king_rev` (SCP'd this pass)
+- `run_sim_duel.py` on pod writes `king_rev`
 - Disk: `/root` 5.7T free; `mine.env` HF_TOKEN present (len 37).
 
 Host (no GPU):
@@ -94,6 +95,7 @@ Host (no GPU):
   → `results/h1_decision.json` (appears when n40/n80 land).
   Progress: `results/h1_train_{progress,loss}.json` + `h1_epoch2_step_poll.json`
   + `h1_time_budget.json` + `h1_live_king_watch.json`
+  + **`chal-00274_verdict.json` / `chal-00274_h6_summary.json`** (H6 closed)
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
@@ -103,8 +105,10 @@ Nothing hard. Budget to deadman: ~$50 extra vs old 04:53Z TTL if sim
 lands late. **Early teardown** fires when harvest completes (preferred
 over waiting for 07:00Z), but **defers while merged HF push is alive**.
 Next pass: read `results/h1_decision.json` if present; else poll
-train/pipeline. Re-check snapshot — chal-00274 may crown. No submit until
+train/pipeline. King confirmed kevin after H6. No submit until
 sim margin > 0.04 + H4 **and** triage action=`toward_submit` (live king match).
+H6 lesson: clearing δ=0.02 is not enough — need margin ≳ 3·SE (~0.029 here);
+our 0.04 gate correctly refuses that near-miss.
 
 ## Next action (single, highest value)
 
@@ -114,8 +118,8 @@ sim margin > 0.04 + H4 **and** triage action=`toward_submit` (live king match).
 `results/h1_merged_salvage.json` (HF push of full merged), and pipeline
 log for merge→chall-only→**n40→n80**. Prefer reading
 `results/h1_decision.json` (`triage_sim.py` / plan.md rule + **live-king
-guard**) over re-deriving. **Re-check `api/v1/snapshot` king** (H6 at
-70/80). Do **not** submit until action=`toward_submit` (n80 margin > 0.04
+guard**) over re-deriving. **Re-check `api/v1/snapshot` king** (next up
+chal-00275). Do **not** submit until action=`toward_submit` (n80 margin > 0.04
 + H4 + live king match). If H1 pipeline/sim done: confirm harvest early-rm
 fired (or kill `mine-sim-1` yourself after name-check), after merged push
 meta or grace. If train died: check `/root/h1/train_fallback.json`.

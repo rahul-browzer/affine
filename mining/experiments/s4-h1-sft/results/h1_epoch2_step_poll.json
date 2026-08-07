@@ -1,12 +1,14 @@
 {
-  "utc": "2026-08-07T03:11:48Z",
-  "step": 84,
+  "utc": "2026-08-07T03:15:18Z",
+  "step": 87,
   "total": 110,
-  "frac": 0.7636363636363637,
+  "frac": 0.7909090909090909,
   "train_done": false,
-  "ckpt_dirs": ["checkpoint-50"],
-  "eta_train_done_utc": "2026-08-07T03:35:38Z",
+  "ckpt_dirs": [
+    "checkpoint-50"
+  ],
+  "eta_train_done_utc": "2026-08-07T03:36:23Z",
   "seconds_per_step_approx": 55,
-  "chal_00274_progress": "king 70/80",
-  "note": "pass44: triage live-king guard + king_rev in sim results; H6 scoring 70/80"
+  "chal_00274": "DONE \u2014 rejected z=2.37<3 margin=+0.0229; kevin remains",
+  "note": "pass45: captured H6 verdict; king still kevin; H1 train step 87/110"
 }

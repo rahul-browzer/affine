@@ -1,17 +1,23 @@
 {
-  "utc": "2026-08-07T03:11:56Z",
+  "utc": "2026-08-07T03:15:18Z",
   "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
   "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
   "king_score": 0.03955783762471344,
-  "current_eval_id": "chal-00274",
-  "current_eval_repo": "adambell/Affine-5dvha3y7cd-ckpt450-H6",
-  "current_eval_stage": "scoring",
-  "current_eval_progress": {
-    "phase": "scoring",
-    "miner": "king",
-    "done": 70,
-    "total": 80
+  "current_eval_id": null,
+  "current_eval_repo": null,
+  "current_eval_stage": null,
+  "last_finished_eval": {
+    "challenge_id": "chal-00274",
+    "repo": "adambell/Affine-5dvha3y7cd-ckpt450-H6",
+    "challenger_wins": false,
+    "accepted": false,
+    "margin": 0.02287124062424554,
+    "z": 2.3705239361373853,
+    "se": 0.009648179575656486,
+    "three_se": 0.028944538726969456,
+    "rejection": "cleared min_margin but z<3 (margin 0.0229 < 3\u00b7SE 0.0289)"
   },
-  "reg_cost_tao": 0.65347898,
-  "note": "pass44: triage live-king guard armed; H6 scoring watch"
+  "queue_head": "chal-00275 Tok331102/affine-5EqYW8McUc-af6",
+  "reg_cost_tao": 0.644730563,
+  "note": "pass45: H6 finished \u2014 kevin stays king; H1 sim vs kevin still valid"
 }
