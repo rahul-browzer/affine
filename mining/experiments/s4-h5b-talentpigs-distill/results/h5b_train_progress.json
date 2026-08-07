@@ -1,19 +1,26 @@
 {
-  "utc": "2026-08-07T08:19:27Z",
+  "utc": "2026-08-07T08:36:44Z",
   "experiment": "s4-h5b-talentpigs-distill",
-  "stage": "waiting_train",
-  "train_done": false,
-  "adapter_present": false,
-  "ckpt_dirs": [],
-  "merge_done": false,
+  "stage": "merge_identity",
+  "train_done": true,
+  "adapter_present": true,
+  "ckpt_dirs": [
+    "checkpoint-50",
+    "checkpoint-55"
+  ],
+  "merge_done": true,
   "chall_serve_done": false,
   "sim_n80_done": false,
-  "pipe_waiting": true,
+  "pipe_waiting": false,
   "pipe_done": false,
   "pipe_aborted": false,
-  "last_pipe_line": "[h5b-pipe] 2026-08-07T08:07:43Z waiting for /root/h5b/train/train.done (or adapter + no train proc)",
-  "mid_salvaged": [],
-  "identical_to_king": null,
+  "last_pipe_line": "[wait] t=1 k=1 c=0 elapsed=76s",
+  "mid_salvaged": [
+    "checkpoint-50",
+    "checkpoint-55",
+    "adapter-final"
+  ],
+  "identical_to_king": false,
   "sim_progress": null,
   "engines": {
     "teacher": 200,
@@ -21,10 +28,10 @@
     "chall": 0
   },
   "total": 55,
-  "step": 47,
-  "frac": 0.8545454545454545,
-  "n_loss_logs": 9,
+  "step": 55,
+  "frac": 1.0,
+  "n_loss_logs": 11,
   "first_loss": 0.5960640907287598,
-  "last_loss": 0.40008840560913084,
-  "last_loss_step": 45
+  "last_loss": 0.4251213550567627,
+  "last_loss_step": 55
 }

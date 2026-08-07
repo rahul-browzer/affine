@@ -1,0 +1,29 @@
+{
+  "merged_n_shards": 2,
+  "king_n_shards": 16,
+  "merged_first": "model-00001-of-00002.safetensors",
+  "king_first": "model-00001-of-00016.safetensors",
+  "first_1MiB_identical": false,
+  "merge_meta_weight_identical": false,
+  "window_any_diff": true,
+  "identical_to_king": false,
+  "shard_windows_sample": {
+    "model-00001-of-00002.safetensors": {
+      "king": "model-00001-of-00016.safetensors",
+      "equal": {
+        "head": false,
+        "mid": false,
+        "tail": false
+      }
+    },
+    "model-00002-of-00002.safetensors": {
+      "king": "model-00002-of-00016.safetensors",
+      "equal": {
+        "head": false,
+        "mid": false,
+        "tail": false
+      }
+    }
+  },
+  "note": "first_1MiB match alone is NOT refuse (LoRA leaves embeds); refuse only on merge_meta.weight_identical or all windows equal"
+}

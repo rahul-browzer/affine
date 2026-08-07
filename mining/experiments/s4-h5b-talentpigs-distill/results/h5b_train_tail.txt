@@ -1,8 +1,8 @@
- 82%|████████▏ | 45/55 [43:03<09:32, 57.24s/it]{'loss': '0.4684', 'grad_norm': '1.238', 'learning_rate': '2.085e-06', 'epoch': '0.7273'}
-[train-log] step=45 {"loss": 0.40008840560913084, "grad_norm": 0.7111533880233765, "learning_rate": 1.0257277929332332e-06, "epoch": 0.8181818181818182}
-
-                                               
-
- 82%|████████▏ | 45/55 [43:03<09:32, 57.24s/it]
- 84%|████████▎ | 46/55 [44:05<08:50, 58.91s/it]
- 85%|████████▌ | 47/55 [44:55<07:28, 56.10s/it]
+  "finished_utc": "2026-08-07T08:26:33Z",
+  "adapter_dir": "/root/h5b/train/adapter",
+  "sample0_supervised_tokens": 29,
+  "sample0_total_tokens": 6080,
+  "thought_ok": 440,
+  "no_fence": 0
+}
+[train] DONE

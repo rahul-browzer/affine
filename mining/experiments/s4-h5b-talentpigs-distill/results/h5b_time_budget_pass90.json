@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-07T08:36:04Z",
+  "pass": 90,
+  "lium_spent_mine_sim_1_usd": 229.22,
+  "lium_balance_usd": 33800.14,
+  "floor_usd": 28000,
+  "cap_remaining_usd": 3771,
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "harvest_stop_utc": "2026-08-07T11:45:00Z",
+  "stage": "chall_serve_loading",
+  "eta_n80_decision_utc": "2026-08-07T09:30Z..10:30Z",
+  "slack_to_deadman_min": 204
+}

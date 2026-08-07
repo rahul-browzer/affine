@@ -1,0 +1,15 @@
+{
+  "repo": "unconst/Affine-5czsc2fc98-h5b-lora",
+  "private": true,
+  "adapter": "/root/h5b/train/adapter",
+  "staged_files": [
+    "README.md",
+    "adapter_config.json",
+    "adapter_model.safetensors"
+  ],
+  "base_hub": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "path_in_repo": "adapter",
+  "commit_sha": "https://huggingface.co/unconst/Affine-5czsc2fc98-h5b-lora/commit/ad537ed48936c3681277b3d21c1f30862196d273",
+  "uploaded_utc": "2026-08-07T08:27:23Z",
+  "note": "adapter-only salvage; not a submission revision"
+}

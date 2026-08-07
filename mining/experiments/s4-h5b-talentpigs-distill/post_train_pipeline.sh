@@ -60,7 +60,7 @@ while true; do
     break
   fi
   if [[ -f "$ADAPTER/adapter_config.json" ]] && ! pgrep -f "s4-h1v2-sft/train_lora.py" >/dev/null 2>&1; then
-    log "adapter present and train proc gone — proceed"
+    log "adapter present and train proc gone - proceed"
     break
   fi
   now=$(date -u +%s)
@@ -73,6 +73,9 @@ while true; do
   sleep 30
 done
 
+# LANDMINE: never SCP/edit this file while a live pipe is in the wait
+# loop - bash keeps a file offset; mid-file edits → "ted: command not
+# found" style garbage (pass 90, rc=127 after train.done).
 # train.done is written BEFORE Python tears down the 35B resident on GPUs
 # 6,7. Merging immediately OOMs / thrashes those GPUs. Wait for the train
 # proc to exit, then a short CUDA settle.
@@ -211,16 +214,16 @@ if identical:
 if first_1mib_same and any_diff:
     print(
         "[h5b] NOTE: first_1MiB matches king (expected for TalentPigs-init "
-        "LoRA); later windows differ — OK",
+        "LoRA); later windows differ - OK",
         flush=True,
     )
 print("[h5b] OK_NON_IDENTICAL_VS_KING", flush=True)
 PY
 
 # Adapter + merged HF salvage in background (TTL/deadman insurance).
-# Do not submit these repos — salvage only.
+# Do not submit these repos - salvage only.
 #
-# CRITICAL: do NOT wait on mid HF uploads here. A 60×10s poll (pass 79–85)
+# CRITICAL: do NOT wait on mid HF uploads here. A 60×10s poll (pass 79-85)
 # sat on the critical path after merge and could burn ≤10m of chall-serve/n80
 # budget under deadman 12:00Z. Mid owns adapter-final; pipe only pushes
 # adapter root if mid is already gone without that tag. Merged push always
@@ -231,12 +234,12 @@ HF_BASE_HUB=${HF_BASE_HUB:-TalentPigs/affine-5ekxlcg3fx-abc}
 SEEN_MID=${SEEN_MID:-/root/h5b/mid_ckpt_salvaged.txt}
 if [[ -n "${HF_TOKEN:-}" ]]; then
   if [[ -f "$SEEN_MID" ]] && grep -qx "adapter-final" "$SEEN_MID"; then
-    log "mid already salvaged adapter-final — skip root adapter push"
+    log "mid already salvaged adapter-final - skip root adapter push"
     echo "{\"skipped\":true,\"reason\":\"mid adapter-final present\"}" \
       >/root/affine_data/h5b_adapter_salvage.json
     rm -f /root/logs/h5b_push_adapter.pid
   elif pgrep -f "s4-h5b-talentpigs-distill/mid_ckpt_salvage.sh" >/dev/null 2>&1; then
-    log "mid still running — skip root adapter push (mid owns adapter-final; no wait)"
+    log "mid still running - skip root adapter push (mid owns adapter-final; no wait)"
     echo "{\"skipped\":true,\"reason\":\"mid still running; owns adapter-final\"}" \
       >/root/affine_data/h5b_adapter_salvage.json
     rm -f /root/logs/h5b_push_adapter.pid
@@ -275,7 +278,7 @@ fi
 # Merge used CUDA 6,7; clear before serve so chall lands on physical 4,5.
 unset CUDA_VISIBLE_DEVICES
 
-# Chall-only restart (same proven path as H1v2). Keep TalentPigs king hot —
+# Chall-only restart (same proven path as H1v2). Keep TalentPigs king hot -
 # restart_for_h2's KEVIN_* vars are the king slot name, not "must be kevin".
 log "chall-only re-serve $MERGED (keep teacher+TalentPigs king)"
 RESTART_KING=0 \

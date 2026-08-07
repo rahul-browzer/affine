@@ -3107,3 +3107,41 @@ No submit / no registration burn.
 Read `results/h5b_decision.json` when harvest lands (~09:15–10:20Z). Until
 then poll `stage` through train→merge (confirm visual restore in merge log)
 →chall→n80. Gate >0.04 + H4.
+
+## 2026-08-07T08:36:04Z — pass 90: H5b rc=127 file-offset abort recovered; merge+visual OK
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $229.22; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,800.14 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+`min_submission_block`=8767079.
+
+### What I did
+
+1. Polled H5b: train finished **08:26:33Z** (55/55, loss@55 **0.425**,
+   adapter present) but pipe **258082** aborted with
+   `line 74: ted: command not found` / `aborted_err_rc=127`. Harvest already
+   wrote `h5b_decision.json` action=`pipe_aborted` and exited.
+2. Root cause: bash file-offset landmine — live pipe slept in wait loop while
+   earlier passes SCP'd edits to `post_train_pipeline.sh`; after `train.done`
+   break, bash resumed mid-word (`ted` from `written`).
+3. Archived false decision → `h5b_decision_pass90_false_abort.json`. Patched
+   pipeline (ascii dashes + landmine comment). Cleared abort markers.
+   Relaunched pipe **266631** + harvest **1964910**. Deadman **1783662** kept.
+4. Merge **DONE** 08:35:14Z: `extracted 333 missing keys` →
+   `model-visual-restored.safetensors`; `identical_to_king=false`. Chall:8002
+   loading on GPUs 4,5 (pid 270081). HF merged push async (pid 269981);
+   adapter-final already salvaged (`ad537ed…`).
+5. Evidence: `results/h5b_pipe_file_offset_abort_fix.json`,
+   `h5b_identity.json`, `h5b_merge_meta.json`, `h5b_time_budget_pass90.json`.
+
+### Money
+
+Lium $33,800.14; mining spend ≈ $229. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Wait for chall:8002 **200** → n80 → `h5b_decision.json`. Gate >0.04 + H4.
+Do **not** edit the live pipe script on the pod.

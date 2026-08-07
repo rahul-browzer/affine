@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-07T08:27:11Z",
+  "experiment": "s4-h5b-talentpigs-distill",
+  "submit": false,
+  "primary": {
+    "source": "pipeline_aborted",
+    "action": "pipe_aborted",
+    "margin": null,
+    "reason": "aborted_err_rc=127 2026-08-07T08:26:44Z"
+  },
+  "abort_text": "aborted_err_rc=127 2026-08-07T08:26:44Z",
+  "note": "post-train pipeline aborted before a durable n80 verdict; do not submit; pivot or re-arm under deadman"
+}

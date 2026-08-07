@@ -1,0 +1,65 @@
+{
+  "base": "/root/hf/hub/models--TalentPigs--affine-5ekxlcg3fx-abc/snapshots/dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "adapter": "/root/h5b/train/adapter",
+  "out": "/root/h5b/merged",
+  "device_map": "auto",
+  "cuda_visible": "6,7",
+  "base_first_shard": "/root/hf/hub/models--TalentPigs--affine-5ekxlcg3fx-abc/snapshots/dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4/model-00001-of-00016.safetensors",
+  "out_first_shard": "/root/h5b/merged/model-00001-of-00002.safetensors",
+  "base_first_1MiB_sha256": "15ac0af667e7a043be06a0e670e8c0a3161f1881d5422c826b24b0aa762862f5",
+  "out_first_1MiB_sha256": "194097aeed1a1cbf9a58b89a58e0d2fc9b7a2c0627a50ac6438aacf34c6a92fb",
+  "first_1MiB_identical": false,
+  "shard_windows": {
+    "model-00001-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00002-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00003-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00004-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00005-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00006-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00007-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00008-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00009-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00010-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00011-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00012-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00013-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00014-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00015-of-00016.safetensors": {
+      "out_missing": true
+    },
+    "model-00016-of-00016.safetensors": {
+      "out_missing": true
+    }
+  },
+  "weight_identical": false,
+  "elapsed_s": 365.72459387779236,
+  "finished_utc": "2026-08-07T08:35:14Z"
+}

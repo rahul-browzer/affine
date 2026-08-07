@@ -1,0 +1,28 @@
+{
+  "utc": "2026-08-07T08:28:44Z",
+  "pass": 90,
+  "symptom": "post_train_pipeline.sh: line 74: ted: command not found",
+  "aborted_text": "aborted_err_rc=127 2026-08-07T08:26:44Z",
+  "root_cause": "bash file-offset landmine: pipe 258082 slept in wait loop while later passes SCP'd edits to the same script path; after train.done break, bash resumed mid-word (ted from written) → exit 127",
+  "train_status_at_abort": {
+    "train_done": "2026-08-07T08:26:33Z",
+    "steps": "55/55",
+    "last_loss": 0.4251213550567627,
+    "adapter": "/root/h5b/train/adapter",
+    "elapsed_s": 3243.6
+  },
+  "false_decision_archived": "h5b_decision_pass90_false_abort.json",
+  "fix": "SCP fresh post_train_pipeline.sh (ascii dashes + landmine comment); clear aborted markers; relaunch pipe 266631 + harvest 1964910; do NOT edit live pipe scripts under a sleeping bash",
+  "post_fix_merge": {
+    "merge_done": "2026-08-07T08:35:14Z",
+    "visual_restored": "/root/h5b/merged/model-visual-restored.safetensors",
+    "log_line": "extracted 333 missing keys from model-00016-of-00016.safetensors",
+    "weight_identical": false,
+    "identical_to_king": false,
+    "elapsed_s": 365.7
+  },
+  "pipe_pid": 266631,
+  "harvest_pid": 1964910,
+  "deadman_pid": 1783662,
+  "deadman_utc": "2026-08-07T12:00:00Z"
+}

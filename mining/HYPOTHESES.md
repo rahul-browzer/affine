@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** step **46**/55; pipe **258082** n80≤3; harvest **1935669**; packed-visual merge fix deployed (pass 89) |
+| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **DONE** 55/55 loss0.425; merge+visual OK; pipe **266631** chall loading→n80≤3; harvest **1964910** |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
@@ -373,6 +373,20 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   (md5 `e5f51cec…`) at step **46**/55 — train/pipe/mid untouched.
   Evidence: `results/h5b_talentpigs_visual_restore_fix.json`,
   `h5b_time_budget_pass89.json`.
+- **Bash file-offset abort + recover (2026-08-07T08:28:44Z pass 90):**
+  train finished 08:26:33Z (55/55, loss@55 **0.425**, adapter OK) but
+  pipe **258082** died with `line 74: ted: command not found` /
+  `aborted_err_rc=127` — bash kept a file offset into
+  `post_train_pipeline.sh` while earlier passes SCP'd edits during the
+  wait loop. Harvest wrote false `pipe_aborted` decision and exited.
+  Cleared markers, relaunched pipe **266631** + harvest **1964910**.
+  Merge completed 08:35:14Z: **extracted 333** visual keys →
+  `model-visual-restored.safetensors`; `identical_to_king=false`;
+  chall:8002 loading on GPUs 4,5. **Never edit a live pipe script
+  under a sleeping bash.** Evidence:
+  `results/h5b_pipe_file_offset_abort_fix.json`, `h5b_identity.json`,
+  `h5b_merge_meta.json`, `h5b_time_budget_pass90.json`,
+  `h5b_decision_pass90_false_abort.json`.
 - **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
   H4 OK; clip-L1 ≥ +0.015; not weight-identical.
 - **Verdict:** open.
