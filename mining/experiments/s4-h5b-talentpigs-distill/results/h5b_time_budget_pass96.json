@@ -1,0 +1,57 @@
+{
+  "utc": "2026-08-07T09:03:19Z",
+  "pass": 96,
+  "sim_pid": 276121,
+  "pipe_pid": 266631,
+  "attempt": "1/3",
+  "progress": {
+    "king": 39,
+    "challenger": 40,
+    "n_turns": 80,
+    "progress_utc": "2026-08-07T09:02:56Z"
+  },
+  "window_from_pass95": {
+    "from": {
+      "utc": "2026-08-07T08:59:13Z",
+      "king": 33,
+      "chall": 33
+    },
+    "to": {
+      "utc": "2026-08-07T09:02:56Z",
+      "king": 39,
+      "chall": 40
+    },
+    "dt_min": 3.717,
+    "king_tpm": 1.614,
+    "chall_tpm": 1.883,
+    "bottleneck_tpm": 1.614
+  },
+  "wall_90s_recheck": {
+    "from": {
+      "utc": "2026-08-07T09:01:22Z",
+      "king": 35,
+      "chall": 36
+    },
+    "to": {
+      "utc": "2026-08-07T09:02:56Z",
+      "king": 39,
+      "chall": 40
+    },
+    "wall_sleep_s": 90,
+    "king_delta": 4,
+    "chall_delta": 4,
+    "bottleneck_tpm_wall": 2.667
+  },
+  "remaining": 40,
+  "eta_utc_window": "2026-08-07T09:27:42Z",
+  "eta_min_window": 24.8,
+  "eta_utc_wall": "2026-08-07T09:17:56Z",
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "slack_min_to_deadman_vs_eta": 152.3,
+  "engines": "200x3",
+  "result_pending": true,
+  "decision_pending": true,
+  "lium_spent_usd": 239.86,
+  "lium_balance_usd": 33760.86,
+  "note": "recovered vs pass95 dip (~1.30tpm); wall ~2.67tpm; slack OK; no submit"
+}
