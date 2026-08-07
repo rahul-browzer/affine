@@ -5,14 +5,15 @@ Rewritten every pass. Do not append.
 ## Stage
 
 **Stage 4 — H1 teacher-ref LoRA SFT RUNNING (epoch 2); dual-phase sim armed;
-early teardown + auto-triage armed.**
+fail-closed mid-ckpt promote + early teardown + triage armed.**
 
 Stage 0–3 complete. H2 kevin×pandora REFUTED. H1 harvest DONE (440
 examples); LoRA train pid **82057** on GPUs 6,7 (engines 0–5 still hot).
-Post-train pipeline pid **86845** waits for `train.done` → HF adapter
+Post-train pipeline pid **102073** waits for `train.done` → HF adapter
 salvage → GPU merge on 6,7 → chall-only re-serve → **n=40 then n=80**.
-**checkpoint-50** on disk + HF. Epoch-1 loss **0.251** @ step 55; now
-**step 65/110**. Host harvest **1459477** (early-teardown +
+If train dies pre-done, pipeline **promotes latest mid-ckpt** (fail-closed)
+instead of exiting. **checkpoint-50** on disk + HF. Epoch-1 loss **0.251**
+@ step 55; now **step 69/110**. Host harvest **1459477** (early-teardown +
 `triage_sim.py` → `h1_decision.json`); host deadman **1405846** kills
 `mine-sim-1` at **07:00Z**. No submissions.
 
@@ -28,17 +29,17 @@ salvage → GPU merge on 6,7 → chall-only re-serve → **n=40 then n=80**.
 | weight_version_key | 1 |
 | min_margin | 0.02 (duel) |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $34,337.16 (floor $28,000) |
+| Lium balance | $34,329.39 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$94.80** @ $23.60/h |
+| mining spend to date | `mine-sim-1` spent **$96.48** @ $23.60/h |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 verdict | **REFUTED** (`experiments/s4-h2-merge/result.md`) |
 | H1 harvest | **DONE** — 440 examples, 0 missing |
-| H1 train | **RUNNING** — step **65/110** @ ~54s/it, ETA ~**03:35Z** |
+| H1 train | **RUNNING** — step **69/110** @ ~55s/it, ETA ~**03:36Z** |
 | H1 loss | ckpt50 last 0.329; epoch1 **0.251**; min 0.215 @35 |
 | H1 mid-ckpt | **checkpoint-50 ON HF** (private salvage repo) |
-| H1 pipeline | **ARMED** — pid **86845** (soft deadline **06:50Z** verified on pod) |
+| H1 pipeline | **ARMED** — pid **102073** (soft deadline **06:50Z**; fail-closed promote) |
 | H1 mid-ckpt salvage | **ARMED** — pid 83669 (ckpt-50 done; waits for 100) |
 | H1 HF salvage repo | **VERIFIED** — private `unconst/Affine-5czsc2fc98-h1-lora` |
 | H1 Lium backup | **ARMED** — `lium bk` path `/root/h1/train` every 1h keep 1d |
@@ -46,6 +47,7 @@ salvage → GPU merge on 6,7 → chall-only re-serve → **n=40 then n=80**.
 | Host deadman | **ARMED** — pid **1405846** → `lium rm mine-sim-1` at **07:00Z** |
 | Lium schedule | **CANCELLED** (host deadman replaces) |
 | H1 triage | **ARMED** — `experiments/s4-h1-sft/triage_sim.py` → `results/h1_decision.json` |
+| H1 n80 budget | **OK** — ETA n80 done ~05:02Z; slack soft ~108 min (`results/h1_time_budget.json`) |
 
 ## What's running
 
@@ -56,8 +58,9 @@ salvage → GPU merge on 6,7 → chall-only re-serve → **n=40 then n=80**.
 On pod:
 - Teacher:8000 + King:8001 + Chall:8002 — all /health 200 (chall still h2-kp65)
 - H1 train: pid **82057**, log `/root/logs/h1_train.nohup`, out `/root/h1/train/`
-- H1 pipeline: pid **86845**, log `/root/logs/h1_pipeline.nohup`
-  - waits → **HF salvage** `unconst/Affine-5czsc2fc98-h1-lora` (private, adapter-only)
+- H1 pipeline: pid **102073**, log `/root/logs/h1_pipeline.nohup`
+  - waits → on train death: **promote latest checkpoint-*** → adapter
+  → **HF salvage** `unconst/Affine-5czsc2fc98-h1-lora` (private, adapter-only)
   → **GPU merge** `CUDA_VISIBLE_DEVICES=6,7 --device-map auto` → `/root/h1/merged`
   → **chall-only** restart (`RESTART_KING=0`; teacher+king stay hot)
   → reclaim `/root/merges/h2-kp65` after serve
@@ -65,7 +68,7 @@ On pod:
   → **sim n=80** → `/root/affine_data/h1_sim_result.json` if ≥50 min to **06:50Z**
 - H1 mid-ckpt salvage: pid **83669**
 - Train progress/loss JSON: `/root/affine_data/h1_train_{progress,loss}.json`
-- ckpt-50: on disk + HF; epoch1 loss in progress JSON (`last_loss` 0.251)
+- ckpt-50: on disk + HF; epoch1 loss in progress JSON
 
 Host (no GPU):
 - Artifact harvester pid **1459477**, log `.ralph/host_harvest.log`, pidfile `.ralph/host_harvest.pid`
@@ -74,7 +77,7 @@ Host (no GPU):
   → at 07:00Z verifies Name=`mine-sim-1` then `lium rm mine-sim-1 -y` (backstop)
 - Local triage: `experiments/s4-h1-sft/triage_sim.py` + `results/h1_decision.json`
   (appears when n40/n80 land). Progress: `results/h1_train_{progress,loss}.json`
-  + `h1_epoch2_step_poll.json`
+  + `h1_epoch2_step_poll.json` + `h1_time_budget.json`
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
@@ -89,9 +92,10 @@ present; else poll train/pipeline. No submit until sim margin > 0.04 + H4
 ## Next action (single, highest value)
 
 **Poll `experiments/s4-h1-sft/results/h1_train_progress.json`** for
-`train_done: true` (~**03:35Z**) then `/root/h1/adapter_salvage.json` and
+`train_done: true` (~**03:36Z**) then `/root/h1/adapter_salvage.json` and
 pipeline log for merge→chall-only→**n40→n80**. Prefer reading
 `results/h1_decision.json` (`triage_sim.py` / plan.md rule) over
 re-deriving. Do **not** submit until action=`toward_submit` (n80 margin
 > 0.04 + H4). If H1 pipeline/sim done: confirm harvest early-rm fired (or
-kill `mine-sim-1` yourself after name-check).
+kill `mine-sim-1` yourself after name-check). If train died: check
+`/root/h1/train_fallback.json` (fail-closed promote from mid-ckpt).

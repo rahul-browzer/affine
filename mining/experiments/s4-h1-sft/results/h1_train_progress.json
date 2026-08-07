@@ -1,8 +1,8 @@
 {
-  "utc": "2026-08-07T02:55:25Z",
-  "step": 66,
+  "utc": "2026-08-07T02:58:52Z",
+  "step": 70,
   "total": 110,
-  "frac": 0.6,
+  "frac": 0.6363636363636364,
   "train_done": false,
   "ckpt_dirs": [
     "checkpoint-50"
@@ -16,7 +16,7 @@
   "trainer_state": "/root/h1/train/checkpoints/checkpoint-50/trainer_state.json",
   "n_loss_logs": 21,
   "first_loss": 0.2827,
-  "last_loss": 0.251,
+  "last_loss": 0.32915439605712893,
   "loss_logs": [
     {
       "step": null,
@@ -99,6 +99,14 @@
       "source": "stdout-dict"
     },
     {
+      "step": null,
+      "epoch": 1.0,
+      "loss": 0.251,
+      "grad_norm": 0.2341,
+      "learning_rate": 5.444e-05,
+      "source": "stdout-dict"
+    },
+    {
       "step": 5,
       "epoch": 0.09090909090909091,
       "loss": 0.2827098608016968,
@@ -177,14 +185,6 @@
       "grad_norm": 0.7544807195663452,
       "learning_rate": 6.174430228904919e-05,
       "source": "trainer_state"
-    },
-    {
-      "step": 66,
-      "epoch": 1.0,
-      "loss": 0.251,
-      "grad_norm": 0.2341,
-      "learning_rate": 5.444e-05,
-      "source": "stdout-dict"
     }
   ],
   "mid_salvaged": [

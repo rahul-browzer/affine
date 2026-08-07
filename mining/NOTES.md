@@ -1380,3 +1380,41 @@ Lium $34,337.16; mining spend ≈ $94.80. Host deadman 07:00Z + early teardown.
 Poll for `train_done` (~03:35Z) → adapter salvage → n40→n80. Read
 `results/h1_decision.json` when present. Kill mine-sim-1 as soon as sim
 done (name-check). No submit until action=`toward_submit`.
+
+
+---
+
+## 2026-08-07T02:58:34Z — pass 40: fail-closed mid-ckpt promote + n80 budget verified
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $96.48; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host deadman 1405846 still armed for 07:00Z; harvest 1459477 alive.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; Lium $34,329.39 (floor OK).
+   Train step **69/110** (epoch 2); engines 200×3; mid-salvage 83669;
+   GPU6/7 train live; no sim artifacts yet. ETA train.done ~**03:36Z**.
+2. Verified soft deadline parse on pod: `date -u -d 2026-08-07T06:50:00Z`
+   → epoch 1786085400; remain ~13965s; WOULD_RUN_N80. Time budget
+   (`results/h1_time_budget.json`): n80 done ~05:02Z, slack soft ~108 min.
+3. **Useful increment:** patched `post_train_pipeline.sh` so if train dies
+   before `train.done`, it **promotes the latest mid-checkpoint** into
+   `/root/h1/train/adapter` and continues salvage→merge→n40→n80 (writes
+   `/root/h1/train_fallback.json`) instead of exiting. SCP'd to pod;
+   restarted waiting pipeline **86845 → 102073**. Train 82057 untouched.
+4. Wrote `results/h1_time_budget.json` + refreshed step poll. No submit.
+   No new rental.
+
+### Money
+
+Lium $34,329.39; mining spend ≈ $96.48. Host deadman 07:00Z + early teardown.
+
+### Next
+
+Poll for `train_done` (~03:36Z) → adapter salvage → n40→n80. Read
+`results/h1_decision.json` when present. If train died, check
+`train_fallback.json`. Kill mine-sim-1 as soon as sim done (name-check).
+No submit until action=`toward_submit`.

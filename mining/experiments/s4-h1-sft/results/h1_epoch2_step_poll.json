@@ -1,22 +1,23 @@
 {
-  "utc": "2026-08-07T02:54:18Z",
-  "step": 65,
+  "utc": "2026-08-07T02:58:34Z",
+  "step": 69,
   "total": 110,
-  "frac": 0.5909090909090909,
-  "last_loss": 0.251,
+  "frac": 0.6272727272727273,
+  "last_loss": 0.32915439605712893,
   "train_done": false,
   "ckpt_dirs": [
     "checkpoint-50"
   ],
   "pipeline_alive": true,
+  "pipeline_pid": 102073,
   "engines": {
     "teacher": 200,
     "king": 200,
     "chall": 200
   },
-  "eta_train_done_approx_utc": "2026-08-07T03:35Z",
-  "note": "pass39: triage_sim wired into host harvest; soft deadline 06:50Z verified on pod",
-  "seconds_per_step_approx": 54,
-  "steps_remaining": 45,
-  "eta_minutes_approx": 40.5
+  "eta_train_done_approx_utc": "2026-08-07T03:36:09Z",
+  "seconds_per_step_approx": 55,
+  "steps_remaining": 41,
+  "eta_minutes_approx": 37.6,
+  "note": "pass40: fail-closed mid-ckpt promote armed in post_train_pipeline; pipe restarted 102073; n80 budget slack ~108min"
 }

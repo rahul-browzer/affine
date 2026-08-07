@@ -22,6 +22,55 @@ MARKER=/root/logs/h1_pipeline.done
 
 log() { echo "[h1-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*"; }
 
+# Fail-closed: if train dies before writing train.done, promote the newest
+# mid-checkpoint (adapter weights only) so merge→sim still runs. Better a
+# partial-epoch candidate than a silent $23.60/h burn with no decision signal.
+promote_latest_ckpt() {
+  local ckpt_root=/root/h1/train/checkpoints
+  local best="" best_n=-1 n name
+  [[ -d "$ckpt_root" ]] || return 1
+  for d in "$ckpt_root"/checkpoint-*; do
+    [[ -d "$d" ]] || continue
+    [[ -f "$d/adapter_model.safetensors" || -f "$d/adapter_config.json" ]] || continue
+    name=$(basename "$d")
+    n=${name#checkpoint-}
+    [[ "$n" =~ ^[0-9]+$ ]] || continue
+    if (( n > best_n )); then
+      best_n=$n
+      best=$d
+    fi
+  done
+  [[ -n "$best" ]] || return 1
+  log "FAIL-CLOSED: promoting $best → $ADAPTER (train died pre-done)"
+  rm -rf "$ADAPTER"
+  mkdir -p "$ADAPTER"
+  # Adapter artifacts only — skip optimizer/rng (not needed for merge/serve).
+  for f in adapter_config.json adapter_model.safetensors README.md \
+           tokenizer.json tokenizer_config.json special_tokens_map.json \
+           vocab.json merges.txt added_tokens.json chat_template.jinja; do
+    [[ -f "$best/$f" ]] && cp -a "$best/$f" "$ADAPTER/$f"
+  done
+  # Some PEFT saves use model.safetensors naming; copy any leftover *.safetensors.
+  for f in "$best"/*.safetensors; do
+    [[ -f "$f" ]] || continue
+    bn=$(basename "$f")
+    [[ -f "$ADAPTER/$bn" ]] || cp -a "$f" "$ADAPTER/$bn"
+  done
+  if [[ ! -f "$ADAPTER/adapter_config.json" ]]; then
+    log "ERROR: promote missing adapter_config.json from $best"
+    return 1
+  fi
+  {
+    echo "fallback_from=$(basename "$best")"
+    date -u +%Y-%m-%dT%H:%M:%SZ
+  } >"$TRAIN_DONE"
+  printf '%s\n' \
+    "{\"utc\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"fallback\":true,\"from\":\"$(basename "$best")\",\"adapter\":\"$ADAPTER\"}" \
+    >/root/h1/train_fallback.json
+  log "FAIL-CLOSED: wrote $TRAIN_DONE from $(basename "$best")"
+  return 0
+}
+
 if [[ -f "$MARKER" ]]; then
   log "already done ($(cat "$MARKER")); exit"
   exit 0
@@ -30,11 +79,15 @@ fi
 log "waiting for $TRAIN_DONE (poll 30s)"
 _wait_i=0
 while [[ ! -f "$TRAIN_DONE" ]]; do
-  # Bail if train pid died without writing done.
+  # If train pid died without writing done, promote latest mid-ckpt (do not exit).
   if [[ -f /root/logs/h1_train.pid ]]; then
     tpid=$(cat /root/logs/h1_train.pid)
     if ! kill -0 "$tpid" 2>/dev/null && [[ ! -f "$TRAIN_DONE" ]]; then
-      log "ERROR: train pid $tpid dead and no train.done"
+      log "WARN: train pid $tpid dead and no train.done — attempting mid-ckpt promote"
+      if promote_latest_ckpt; then
+        break
+      fi
+      log "ERROR: train dead and no promotable checkpoint"
       exit 1
     fi
   fi
@@ -55,8 +108,16 @@ if [[ -f /root/logs/h1_train.pid ]]; then
   done
 fi
 
+# Normal train path writes adapter/; fail-closed path may have just promoted.
 if [[ ! -d "$ADAPTER" ]]; then
-  log "ERROR: adapter dir missing at $ADAPTER"
+  log "WARN: adapter dir missing at $ADAPTER — trying mid-ckpt promote"
+  if ! promote_latest_ckpt; then
+    log "ERROR: adapter dir missing at $ADAPTER and promote failed"
+    exit 1
+  fi
+fi
+if [[ ! -f "$ADAPTER/adapter_config.json" ]]; then
+  log "ERROR: $ADAPTER/adapter_config.json missing"
   exit 1
 fi
 

@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-07T02:58:34Z",
+  "step": 69,
+  "total": 110,
+  "seconds_per_step_approx": 55,
+  "eta_train_done_utc": "2026-08-07T03:36:09Z",
+  "eta_n40_done_utc": "2026-08-07T04:17:09Z",
+  "eta_n80_done_utc": "2026-08-07T05:02:09Z",
+  "soft_deadline_utc": "2026-08-07T06:50:00Z",
+  "deadman_utc": "2026-08-07T07:00:00Z",
+  "slack_soft_min": 107.8,
+  "slack_dead_min": 117.8,
+  "n80_gate_ok_at_eta": true,
+  "soft_deadline_epoch_verified": 1786085400,
+  "pipeline_pid": 102073,
+  "fail_closed_promote": true,
+  "note": "pass40: verified date -d soft deadline; patched pipeline to promote latest mid-ckpt if train dies pre-done; restarted pipe 102073"
+}

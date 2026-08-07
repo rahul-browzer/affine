@@ -29,13 +29,14 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Prediction (pre-register before train):** challenger mean paired margin ≥
   **+0.04** vs live king on an 80-turn public-D slice, all gates passing,
   r∈[0.70,0.85], base×≤1.15.
-- **In flight (2026-08-07T02:54Z):** harvest 440/440; LoRA r=16 2ep from
-  kevin init, 110 steps, pid 82057 (**step 65/110** @ ~54s/it, ETA
-  ~**03:35Z**). **checkpoint-50** on HF; epoch-1 complete loss **0.251**
+- **In flight (2026-08-07T02:58Z):** harvest 440/440; LoRA r=16 2ep from
+  kevin init, 110 steps, pid 82057 (**step 69/110** @ ~55s/it, ETA
+  ~**03:36Z**). **checkpoint-50** on HF; epoch-1 complete loss **0.251**
   (step5→50 = 0.283→0.329; min 0.215 @35). Post-train pipeline pid
-  **86845** waiting; soft deadline **06:50Z** verified on pod.
-  Host harvest **1459477** (early `lium rm` + `triage_sim.py` →
-  `h1_decision.json`); deadman 1405846 @ 07:00Z backstop.
+  **102073** waiting; soft deadline **06:50Z** verified (`date -d` epoch
+  OK); fail-closed mid-ckpt promote if train dies pre-done. n80 ETA
+  ~05:02Z (~108 min slack). Host harvest **1459477** (early `lium rm` +
+  `triage_sim.py` → `h1_decision.json`); deadman 1405846 @ 07:00Z.
 - **Verdict:** open.
 
 ## H2 — weight-merge of recent kings / near-kings beats both
