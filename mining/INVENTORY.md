@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h32-1 | noble-raven-24 | 8×B200 | $40.00 | ~2026-08-08T07:48Z | H32 TP×ks lr3e5 | n80 ~32/80 |
-| mine-h33-1 | gentle-comet-aa | 8×H200 | $28.00 | ~2026-08-08T08:15Z | H33 TP×ks ep2 | n80 ~27/80 |
-| mine-h34-1 | calm-wolf-a8 | 8×H200 | $31.92 | ~2026-08-08T08:59Z | H34 m7×ks ep2 | train ~45/92 |
-| mine-h35-1 | calm-fox-12 | 8×H200 | $31.92 | ~2026-08-08T09:19Z | H35 m7×ks lr1e4 | bootstrap |
-| mine-h36-1 | calm-orbit-65 | 8×H200 | $31.92 | ~2026-08-08T09:21Z | H36 m7×union | bootstrap |
+| mine-h32-1 | noble-raven-24 | 8×B200 | $40.00 | ~2026-08-08T07:48Z | H32 TP×ks lr3e5 | n80 a198 relaunch |
+| mine-h33-1 | gentle-comet-aa | 8×H200 | $28.00 | ~2026-08-08T08:15Z | H33 TP×ks ep2 | n80 ~34/80 |
+| mine-h34-1 | calm-wolf-a8 | 8×H200 | $31.92 | ~2026-08-08T08:59Z | H34 m7×ks ep2 | train ~50/92 |
+| mine-h35-1 | calm-fox-12 | 8×H200 | $31.92 | ~2026-08-08T09:19Z | H35 m7×ks lr1e4 | train |
+| mine-h36-1 | calm-orbit-65 | 8×H200 | $31.92 | ~2026-08-08T09:21Z | H36 m7×union | train+extra_dl |
 
 SSH: h32 .147:20300 · h33 .232:40309 · h34 .19:20100 · h35 .21:20100 ·
 h36 .22:20098 · known_hosts `/tmp/mine-h3{2,3,4,5,6}-1.known_hosts` ·
@@ -32,6 +32,6 @@ h36 .22:20098 · known_hosts `/tmp/mine-h3{2,3,4,5,6}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-07T21:26Z | h32–h36 match | H32 n80 recover; H36 bootstrap recover |
 | 2026-08-07T21:22Z | h32–h36 match | H30/H31 REFUTE+rm; rented h35+h36 |
 | 2026-08-07T21:06Z | h30–h34 match | H33 chall OK→n80; H34 train; H30~59 |
-| 2026-08-07T21:00Z | h30–h34 match | H29 REFUTE+rm; rented h34; H33 merge |

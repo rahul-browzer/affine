@@ -75,7 +75,7 @@ meta = {
     "gpus": "$CUDA_VISIBLE_DEVICES",
     "out": "$TRAIN_DIR",
     "log": "$LOG",
-    "note": "m7-init UNION winner-zA+king-self @ lr=1e-5
+    "note": "m7-init UNION winner-zA+king-self @ lr=1e-5",
 }
 Path("/root/affine_data/h36_train_launched.json").write_text(json.dumps(meta, indent=2) + "\n")
 print(json.dumps(meta, indent=2))

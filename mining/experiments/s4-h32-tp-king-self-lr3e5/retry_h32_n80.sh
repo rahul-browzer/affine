@@ -46,7 +46,9 @@ if [[ -f "$SIM" ]]; then
   date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h32_n80.done
   exit 0
 fi
-if pgrep -f "run_sim_duel.py .*local-h32" >/dev/null 2>&1; then
+# Narrow match — pgrep -f false-matches SSH/bash cmdlines that embed the
+# pattern (LESSON + H32 pass198).
+if ps -eo pid,cmd | awk '/[r]un_sim_duel.py/ && /local-h32/ {found=1} END{exit !found}'; then
   log "sim already running — noop"
   exit 0
 fi
@@ -58,9 +60,41 @@ if ! _engines_ok; then
 fi
 test -d "$MERGED"
 
+# Completions probe (health=200 ≠ promptable; also catches model-id 404).
+_probe_ok() {
+  python3 - <<'PY'
+import json, urllib.request
+for port in (8000, 8001, 8002):
+    mid = json.load(urllib.request.urlopen(f"http://127.0.0.1:{port}/v1/models", timeout=5))["data"][0]["id"]
+    req = urllib.request.Request(
+        f"http://127.0.0.1:{port}/v1/completions",
+        data=json.dumps({"model": mid, "prompt": "hi", "max_tokens": 1, "temperature": 0}).encode(),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=60) as r:
+        if r.status != 200:
+            raise SystemExit(1)
+print("probe_ok")
+PY
+}
+
+# Fresh block_hash per outer retry budget: default 0*64 slice hit a turn with
+# prompt≈30977 + max_tokens 1792 > 32768 → teacher 400 → whole n80 dies
+# (H32 pass198). Alternate seeds dodge that turn without changing scoring.
+BLOCK_HASHES=(
+  "a198000000000000000000000000000000000000000000000000000000000001"
+  "b198000000000000000000000000000000000000000000000000000000000002"
+  "c198000000000000000000000000000000000000000000000000000000000003"
+)
+
 for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
   rm -f "$SIM" "$PROG"
-  log "n80 attempt $attempt/$MAX_ATTEMPTS"
+  bh="${BLOCK_HASHES[$(( (attempt - 1) % ${#BLOCK_HASHES[@]} ))]}"
+  log "n80 attempt $attempt/$MAX_ATTEMPTS block_hash=${bh:0:16}…"
+  if ! _probe_ok; then
+    log "WARN completions probe failed before attempt $attempt — continuing anyway"
+  fi
   set +e
   python /root/mining_src/s4-h2-merge/run_sim_duel.py \
     --king-repo "$KING_REPO" \
@@ -69,6 +103,7 @@ for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
     --chall-rev local \
     --n-turns 80 \
     --hotkey local-h32 \
+    --block-hash "$bh" \
     --out "$SIM" \
     --progress-out "$PROG" \
     --save-artifact \

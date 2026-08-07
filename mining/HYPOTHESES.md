@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H36 | high | m7×(winner∪king-self) → m>0.04 | **open** (bootstrap) |
-| 2 | H35 | high | H30 cell @ **lr=1e-4** → m>0.04 | **open** (bootstrap) |
-| 3 | H34 | high | H30 cell @ **epochs=2** → m>0.04 | **open** (train ~45/92) |
-| 4 | H32 | med | H29 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~32/80) |
-| 5 | H33 | med | H29 cell @ **epochs=2** → m>0.04 | **open** (n80 ~27/80) |
+| 1 | H36 | high | m7×(winner∪king-self) → m>0.04 | **open** (train+extra_dl) |
+| 2 | H35 | high | H30 cell @ **lr=1e-4** → m>0.04 | **open** (train) |
+| 3 | H34 | high | H30 cell @ **epochs=2** → m>0.04 | **open** (train ~50/92) |
+| 4 | H32 | med | H29 cell @ **lr=3e-5** → m>0.04 | **open** (n80 a198 relaunch) |
+| 5 | H33 | med | H29 cell @ **epochs=2** → m>0.04 | **open** (n80 ~34/80) |
 | — | H31 | was high | H30 @ lr=3e-5 | **refuted** m=+0.00016 |
 | — | H30 | was high | m7×king-self@1ep lr1e-5 | **refuted** m=−0.00316 |
 | — | H29 | was high | king-self LoRA (TP-init) | **refuted** m=−0.01527 |
@@ -25,23 +25,23 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H36 — m7 × UNION(winner-zA ∪ king-self)
 - **Claim:** union high-L1 z_A on m7 → m>0.04 (H28 best single-source +0.011).
-- **Status:** bootstrap on mine-h36-1. `s4-h36-m7-union-za/` (794 ex).
+- **Status:** train + extra_dl/post_train recovered pass198. `s4-h36-m7-union-za/` (794 ex).
 
 ### H35 — H30 @ lr=1e-4 (non-α)
 - **Claim:** 10× LR on m7×king-self → m>0.04 after H30/H31 near-null.
-- **Status:** bootstrap on mine-h35-1. `s4-h35-m7-king-self-lr1e4/`.
+- **Status:** train on mine-h35-1. `s4-h35-m7-king-self-lr1e4/`.
 
 ### H34 — H30 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×king-self@lr1e-5 → m>0.04.
-- **Status:** train ~45/92. `s4-h34-m7-king-self-ep2/`.
+- **Status:** train ~50/92. `s4-h34-m7-king-self-ep2/`.
 
 ### H32 — H29 @ lr=3e-5 (non-α)
 - **Claim:** 3× LR on TP×king-self → m>0.04.
-- **Status:** n80 ~32/80. `s4-h32-tp-king-self-lr3e5/`.
+- **Status:** n80 relaunched pass198 (`block_hash=a198…`). `s4-h32-tp-king-self-lr3e5/`.
 
 ### H33 — H29 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on TP×king-self@lr1e-5 → m>0.04.
-- **Status:** n80 ~27/80. `s4-h33-tp-king-self-ep2/`.
+- **Status:** n80 ~34/80. `s4-h33-tp-king-self-ep2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

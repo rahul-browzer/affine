@@ -34,8 +34,15 @@ while true; do
     sleep "$POLL"
     continue
   fi
-  # also wait out parent start_* that may still be writing decision
-  if pgrep -f "start_${HYP}_n80\\.sh|retry_${HYP}_n80\\.sh" >/dev/null 2>&1; then
+  # Wait out a real start/retry process. Do NOT use pgrep -f on the script
+  # path: this watcher's own argv embeds retry_*.sh and would match forever
+  # (H32 pass198 deadlock after pipeline abort).
+  if ps -eo pid,cmd | awk -v hyp="$HYP" '
+      /watch_n80_retry/ { next }
+      $0 ~ ("bash[[:space:]].*/retry_" hyp "_n80\\.sh") { found=1 }
+      $0 ~ ("bash[[:space:]].*/start_" hyp "_n80\\.sh") { found=1 }
+      END { exit !found }
+    '; then
     sleep "$POLL"
     continue
   fi

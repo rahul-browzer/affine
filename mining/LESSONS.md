@@ -79,34 +79,19 @@ Format: `- <finding> — <the number or error that proves it>`
   profile_run (`Only SM 10.x and 11.x are supported`). Patch upper bound to
   `sm_121f` via `s3-duel-sim/patch_b300_sm103_flash_attn.sh` after venv install
   (H23 pass170). H200 unaffected.
-- Triton cache races across concurrent vLLM — per-role dirs + wipe + stagger.
-  ImportError/`__triton_launcher.so` or missing `fused_moe_kernel.ttir` → kill
-  orphans on those GPUs (`kill -9` compute PIDs **by GPU index**, never
-  `pkill -f "vllm serve …"` — that string is in the SSH remote cmdline and
-  kills your session). Unique `TRITON_CACHE_DIR` per attempt
-  (`role_$(date +%s)_$$`), then relaunch. Health≠alive (APIServer can hang).
-- Post-relaunch wait: MoE load+compile needs **≥120×15s** (H25 50×15s would
-  have failed mid-compile; extended wait then kicked n80 at i=12).
-- Health=200 can mask hung EngineCore (`shm_broadcast` 60s + Triton
-  `__triton_launcher.so` missing). After chall relaunch, require a real
-  `/v1/completions` probe before starting n80 (H24 pass168). Bake the
-  probe into `start_*_n80.sh` before first n80 too (H23 pass169) — not
-  only into recover sidecars.
-- First completions after health=200 can **kill** the engine (H23 pass177:
-  probe→ missing `__triton_launcher.so` → EngineDead). Do not keep polling
-  a dead wait loop — wipe `king_*` Triton caches + flashinfer sampling,
-  unique `TRITON_CACHE_DIR`, relaunch; settle ≥20s before probe.
-- `pgrep -f "run_sim_duel.py .*local-hN"` false-matches SSH/bash cmdlines that
-  contain the pattern — use `ps -eo pid,cmd | awk '/[r]un_sim_duel.py/ && /local-hN/'`.
+- Triton races: per-role `TRITON_CACHE_DIR` + wipe + stagger; kill orphans by
+  GPU index never `pkill -f "vllm serve"` (kills SSH). MoE wait ≥120×15s.
+  Health=200 ≠ alive — probe `/v1/completions` with real model id (not
+  `"default"`→404); first probe can EngineDead on missing `__triton_launcher.so`
+  → wipe caches + relaunch, settle ≥20s (H23/H24/H30/H32).
+- `pgrep -f` false-matches SSH/watcher argv — use
+  `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
+  from `watch_n80_retry` (self-deadlock H32 pass198).
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin REFUTE: check
   `rejection_reason` first — ConnectError/unpromptable/probe_force/`EngineDeadError`
-  (`sample_tokens` RPC timeout) = **false probe** (H20/H24/H23); quarantine
-  progress, relaunch dead engine by GPU-index PIDs, do **not** `lium rm`.
-- After a false-probe null-margin decision, `watch_form_decision`/`watch_n80_retry`
-  exit ("decision present") and never rewrite — quarantine the decision **and**
-  relaunch both sidecars before the real n80 finishes (H25 pass171 @61/80).
-- Ghost dentry: `ls` lists `watch_form_decision.sh` but `open`→ENOENT (H26/H27) —
-  `rm` + re-scp from git; after launch `test -x` both form+retry sidecars.
+  = **false probe**; quarantine + relaunch engine, do **not** `lium rm`. After
+  false decision, quarantine + relaunch form+retry sidecars (H25@61/80).
+- Ghost dentry: `ls` lists script but `open`→ENOENT — `rm` + re-scp; `test -x`.
 - B300 flashinfer sampling JIT can still die under concurrent launch — clear
   `cached_ops/sampling`, relaunch with `SERVE_STAGGER_S≥45` (H23).
 - After engine relaunch: reset `start_*_n80` wait (orphan clock); recover-wait
@@ -144,6 +129,10 @@ Format: `- <finding> — <the number or error that proves it>`
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
   → n80 → `__triton_launcher.so` → ConnectError false REFUTE in ~6m; quarantine
   + GPU-index chall relaunch + completions probe before retry.
+- Teacher sample `400` when prompt_tokens+max_tokens(1792) > 32768 (H32:
+  30977+1792) kills whole n80; rotate `--block-hash` across retry attempts.
+- `start_*.sh` JSON `note` must be a closed string; unterminated → SyntaxError
+  after train nohup → bootstrap `set -e` skips extra_dl/post_train (H36 pass198).
 
 ## Money / platform
 
