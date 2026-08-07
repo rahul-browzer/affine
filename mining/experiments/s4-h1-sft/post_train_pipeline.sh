@@ -55,6 +55,18 @@ if [[ ! -d "$ADAPTER" ]]; then
   exit 1
 fi
 
+# Off-pod salvage BEFORE merge/sim. Adapter is small; TTL remove is 04:53Z
+# and a crashed pass must not erase the train. Not a submission candidate.
+if [[ -z "${HF_TOKEN:-}" ]]; then
+  log "WARN: HF_TOKEN unset after mine.env; skipping adapter salvage"
+else
+  log "salvage LoRA adapter → HF (TTL insurance)"
+  python3 /root/mining_src/s4-h1-sft/salvage_adapter.py \
+    --adapter "$ADAPTER" \
+    --out-meta /root/h1/adapter_salvage.json \
+    || log "WARN: adapter salvage failed (continuing to merge/sim)"
+fi
+
 log "merge LoRA → $MERGED"
 CUDA_VISIBLE_DEVICES= python3 /root/mining_src/s4-h1-sft/merge_lora.py \
   --base "$BASE" \

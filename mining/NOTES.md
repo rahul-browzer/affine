@@ -929,3 +929,36 @@ Lium $34,422.81; floor OK. Mining spend ≈ $72.08. TTL 04:53Z (~3h left).
 
 Collect `h1_sim_result.json` when pipeline finishes; apply plan.md decision
 rule. No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T01:58Z — pass 28: H1 adapter HF salvage armed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $72.77; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; `min_submission_block`=8767079;
+   Lium $34,422.81 (floor OK). TTL still 04:53Z.
+2. Polled H1: train pid 82057 alive at step **5/110** @ ~55s/it
+   (ETA ~03:40Z); engines 200×3; pipeline was waiting (old pid 83194).
+3. Risk: sim finish ~04:35Z vs TTL 04:53Z is tight; a kill would erase the
+   adapter with no off-pod copy. Wrote `salvage_adapter.py` and patched
+   `post_train_pipeline.sh` to push adapter-only to private
+   `unconst/Affine-5czsc2fc98-h1-lora` immediately after `train.done`,
+   before merge/sim. Not a submission candidate.
+4. Uploaded scripts; killed waiting pipeline 83194; relaunched pid
+   **83414**. Train untouched. HF_TOKEN sources from `/root/mine.env`.
+5. No submit. No new rental.
+
+### Money
+
+Lium $34,422.81; floor OK. Mining spend ≈ $72.77. TTL 04:53Z (~2.9h left).
+
+### Next
+
+Collect `h1_sim_result.json` (+ confirm `adapter_salvage.json`); apply
+plan.md decision rule. No submit until margin > 0.04 + H4.
