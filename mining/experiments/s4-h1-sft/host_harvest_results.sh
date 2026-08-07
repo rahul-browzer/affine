@@ -36,8 +36,10 @@ _emit_train_progress() {
     2>/dev/null || true
 }
 
-# H1v2 is the submit-candidate path. Never early-teardown while its train or
-# post-train pipe is still live — H1 n80 completion alone must not kill the pod.
+# H1v2 is the submit-candidate path. Never early-teardown while its train,
+# post-train pipe, n40 sim, OR HF salvage pushes are still live — H1 n80
+# completion alone must not kill the pod (pass 56: pipeline.done fires while
+# ~68G merged upload still runs; killing then erases the only vLLM candidate).
 _h1v2_still_running() {
   "${SSH[@]}" 'bash -s' <<'EOS' 2>/dev/null
 set -e
@@ -45,6 +47,18 @@ if pgrep -f "s4-h1v2-sft/train_lora.py" >/dev/null 2>&1; then exit 0; fi
 if pgrep -f "s4-h1v2-sft/post_train_pipeline.sh" >/dev/null 2>&1; then exit 0; fi
 if pgrep -f "h1v2_sim_result_n40" >/dev/null 2>&1; then exit 0; fi
 if pgrep -af "run_sim_duel.py" 2>/dev/null | grep -q "h1v2"; then exit 0; fi
+for pidf in /root/logs/h1v2_push_merged.pid /root/logs/h1v2_push_adapter.pid; do
+  if [[ -f "$pidf" ]]; then
+    pid=$(cat "$pidf" 2>/dev/null || true)
+    if [[ -n "${pid:-}" ]] && kill -0 "$pid" 2>/dev/null; then
+      exit 0
+    fi
+  fi
+done
+if pgrep -af "push_merged.py|salvage_adapter.py" 2>/dev/null \
+  | grep -qE "h1v2|5czsc2fc98-h1v2"; then
+  exit 0
+fi
 if [[ -f /root/logs/h1v2_pipeline.nohup ]] \
   && [[ ! -f /root/logs/h1v2_pipeline.done ]] \
   && [[ ! -f /root/logs/h1v2_pipeline.aborted ]] \
@@ -127,6 +141,18 @@ while true; do
       || [[ -f "$OUT_H1V2/h1v2_pipeline.partial" ]]; then
       got_h1v2=1
       log "H1v2 terminal artifact present (got_h1v2=1)"
+    fi
+  fi
+  # Authoritative H1v2 triage with live-king guard (pipe's inline JSON lacks it).
+  if [[ -f "$OUT_H1V2/h1v2_sim_result_n40.json" ]] \
+    && [[ ! -f "$OUT_H1V2/h1v2_decision.json" ]]; then
+    mkdir -p "$OUT_H1V2/triage_in"
+    cp -f "$OUT_H1V2/h1v2_sim_result_n40.json" \
+      "$OUT_H1V2/triage_in/h1_sim_result_n40.json"
+    if python3 /home/const/subnet120/mining/experiments/s4-h1-sft/triage_sim.py \
+      --results-dir "$OUT_H1V2/triage_in" \
+      --out "$OUT_H1V2/h1v2_decision.json" >/dev/null 2>&1; then
+      log "H1v2 triage → $OUT_H1V2/h1v2_decision.json action=$(python3 -c "import json;print(json.load(open('$OUT_H1V2/h1v2_decision.json'))['primary']['action'])" 2>/dev/null || echo '?')"
     fi
   fi
   "${SCP[@]}" 'root@69.63.236.160:/root/h1/mid_*_salvage.json' \
@@ -251,13 +277,33 @@ while true; do
     # Do not kill the pod while ~68G merged HF upload is still in flight —
     # that erase is exactly what the push was meant to prevent. Wait up to
     # 20 min; adapter salvage alone still allows a re-merge if push fails.
+    # Cover BOTH H1 and H1v2 push PIDs (pass 56: H1v2 was missing → deadman
+    # race after pipeline.done).
     push_alive=0
+    push_which=
     if "${SSH[@]}" 'test -f /root/logs/h1_push_merged.pid && kill -0 "$(cat /root/logs/h1_push_merged.pid)"' \
       2>/dev/null; then
       push_alive=1
+      push_which=h1
     fi
-    if (( push_alive == 1 )) && [[ ! -f "$OUT/h1_merged_salvage.json" ]]; then
-      log "sim harvested but merged HF push still running; defer early-teardown (recheck 60s)"
+    if "${SSH[@]}" 'test -f /root/logs/h1v2_push_merged.pid && kill -0 "$(cat /root/logs/h1v2_push_merged.pid)"' \
+      2>/dev/null; then
+      push_alive=1
+      push_which=h1v2
+    fi
+    if "${SSH[@]}" 'test -f /root/logs/h1v2_push_adapter.pid && kill -0 "$(cat /root/logs/h1v2_push_adapter.pid)"' \
+      2>/dev/null; then
+      push_alive=1
+      push_which=${push_which:-h1v2_adapter}
+    fi
+    salvage_ok=0
+    if [[ -f "$OUT/h1_merged_salvage.json" ]] \
+      || [[ -f "$OUT_H1V2/h1v2_merged_salvage.json" ]] \
+      || [[ -f "$OUT_H1V2/h1v2_adapter_salvage.json" ]]; then
+      salvage_ok=1
+    fi
+    if (( push_alive == 1 )) && (( salvage_ok == 0 )); then
+      log "sim harvested but ${push_which:-merged} HF push still running; defer early-teardown (recheck 60s)"
       sleep 60
       continue
     fi
@@ -265,17 +311,17 @@ while true; do
     if (( push_alive == 1 )); then
       if [[ ! -f "$OUT/.push_wait_started" ]]; then
         date -u +%s >"$OUT/.push_wait_started"
-        log "merged push still alive; start 20min teardown grace"
+        log "${push_which:-merged} push still alive; start 20min teardown grace"
         sleep 60
         continue
       fi
       started=$(cat "$OUT/.push_wait_started")
       if (( now - started < 1200 )); then
-        log "merged push grace $((now - started))s/1200s; defer teardown"
+        log "${push_which:-merged} push grace $((now - started))s/1200s; defer teardown"
         sleep 60
         continue
       fi
-      log "WARN: merged push grace exhausted; tearing down (adapter salvage remains)"
+      log "WARN: ${push_which:-merged} push grace exhausted; tearing down (adapter salvage remains)"
     fi
     date -u +%Y-%m-%dT%H:%M:%SZ >"$OUT/host_harvest.done"
     log "all artifacts harvested (H1 + H1v2 gate); early-teardown mine-sim-1 (stop $/h burn)"

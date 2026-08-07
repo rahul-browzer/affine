@@ -1973,3 +1973,36 @@ Lium $34,150.36; mining spend ≈ $140.98. Floor OK. No new rental. No submit.
 
 Poll H1v2 train.done → pipe merge/HF/serve/n40 triage. Prefer H1v2 path for
 submit gate. Soft 06:50Z / deadman 07:00Z.
+
+## 2026-08-07T04:54:57Z — pass 56: host harvest H1v2 HF-push teardown race fixed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $142.11; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,150.36 (floor OK).
+
+### What I did
+
+1. Polled pod: H1v2 train **147209** step **17**/55 loss **0.475** (step15);
+   n80 **149213** king/chall **27/26**/80; engines 200×3; pipe/mid armed.
+2. Found critical host race: `host_harvest_results.sh` early-teardown only
+   waited on `h1_push_merged.pid`. After H1v2 `pipeline.done` + H1 artifacts
+   ready, harvest could `lium rm mine-sim-1` while `h1v2_push_merged` (~68G)
+   / adapter push still ran — defeating pass-54 HF salvage insurance.
+3. Patched `_h1v2_still_running` + push-grace block for H1v2 push PIDs;
+   salvage_ok accepts `h1v2_*_salvage.json`.
+4. On `h1v2_sim_result_n40.json`, run `triage_sim.py` →
+   `h1v2_decision.json` (live-king guard; pipe inline JSON lacked it).
+5. Restarted host harvest **1644437**. Evidence:
+   `experiments/s4-h1v2-sft/results/h1v2_harvest_push_teardown_fix.json`.
+6. kevin still king; chal-00280 **scoring**. Do **not** submit H1.
+
+### Money
+
+Lium $34,150.36; mining spend ≈ $142.11. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll H1v2 train.done → pipe merge/HF/serve/n40 triage. Prefer H1v2 path for
+submit gate. Soft 06:50Z / deadman 07:00Z.

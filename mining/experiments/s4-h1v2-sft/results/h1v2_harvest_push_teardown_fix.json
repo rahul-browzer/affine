@@ -1,0 +1,29 @@
+{
+  "utc": "2026-08-07T04:54:57Z",
+  "pass": 56,
+  "bug": "host_harvest_results.sh early-teardown waited only on h1_push_merged.pid; after H1v2 pipeline.done + H1 n80 harvested, pod could be lium-rm'd while h1v2_push_merged (~68G) / h1v2_push_adapter still uploading \u2014 erasing the only vLLM-ready H1v2 candidate before HF salvage completed",
+  "impact_if_unfixed": "Pass 54 HF salvage insurance defeated by host early-teardown; deadman 07:00Z or harvest rm would kill in-flight H1v2 push",
+  "fix": {
+    "_h1v2_still_running": "also true while h1v2_push_{merged,adapter}.pid alive or push_merged/salvage_adapter cmdline matches h1v2",
+    "push_alive_block": "checks h1 + h1v2 merged + h1v2 adapter PIDs; salvage_ok accepts h1v2_*_salvage.json",
+    "triage": "on h1v2_sim_result_n40.json, run triage_sim.py \u2192 h1v2_decision.json (live-king guard)"
+  },
+  "host_harvest_pid": 1644437,
+  "pod_at_fix": {
+    "h1v2_train_step": 17,
+    "h1v2_last_loss": 0.47536,
+    "n80_king_chall": [
+      27,
+      26
+    ],
+    "engines": {
+      "teacher": 200,
+      "king": 200,
+      "chall": 200
+    },
+    "pipe_waiting": true
+  },
+  "king": "kevin954/Affine-5dfqbbh8ev-sft",
+  "chal": "chal-00280 scoring",
+  "do_not_submit": true
+}
