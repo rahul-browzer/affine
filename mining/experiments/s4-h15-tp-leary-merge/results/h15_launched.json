@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-07T13:43:09Z",
+  "pod": "mine-h15-1",
+  "huid": "cosmic-shark-43",
+  "ssh": "152.236.142.232:40309",
+  "price_per_hour": 28.0,
+  "ttl_remove_at": "2026-08-07T21:42:24Z",
+  "pipeline_pid": 830,
+  "hypothesis": "H15 TalentPigs×leary α0.75 (chal-00315 +0.0059 base×≈1.017)",
+  "b_repo": "leary-criste/affine-5g4yy75zuz-test",
+  "b_rev": "1e6d6d02ebe771b767c5d2bfaf3c0a1538605fc3"
+}

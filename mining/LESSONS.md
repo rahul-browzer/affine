@@ -64,12 +64,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - LoRA r=16 / alpha=32 on 2 GPUs takes ~1h45m for 110 steps at 440 examples.
 - Free GPUs 4,5 can merge+n40 a mid-ckpt while train holds 6,7; yield chall
   when final `h5c_merge.done` appears so the post-train pipe is not blocked.
-- H5c mid50 (kevin-init thought LoRA, best loss 0.419@50) n40 margin **−0.019**
-  vs TalentPigs; gate-valid at r=0.897, lost because clip-L1 0.015 ≪ king 0.028.
-  A clip-L1 miss, not a calibration miss.
-- H5c final n80 **REFUTED**: margin −0.01640 z=−2.25; r=0.883 base×1.058 valid;
-  clipL1 0.0168≪king 0.0280 and Λ2 −0.0028 vs +0.0024 — kevin-init expanded
-  shortz distill does not close L1 or Λ2 vs TalentPigs (do not retry same recipe).
+- H5c kevin-init shortz LoRA REFUTED n80 −0.01640 (clipL1 0.017≪king 0.028); mid50 n40 −0.019 — clip-L1 miss, not calibration.
+- H6 TalentPigs-init mild shortz LoRA REFUTED n80 **+0.00330** z=0.54 (r=0.730 base×0.957 valid; clipL1≈0.030≈king) — same near-zero as H5b; do not retry.
 - HF **private** repo storage can hard-fail uploads (`Private repository storage
   limit reached`); keep candidate merges public or prune old private repos.
 

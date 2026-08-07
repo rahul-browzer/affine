@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2404.3555941581726,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h6/merged",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h6",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.003303845401950274,
+    "se": 0.006115708078109819,
+    "z": 0.5402228752179736,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.02927850652049208,
+      "gate_pass_rate": 0.8417721518987342,
+      "bank_frac": 0.46875,
+      "calib_ratio": 0.7403874152620652,
+      "baseline_abs": 0.12408320989102622,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": 0.0016267892467613846,
+      "mean_mix": 0.02927850652049208
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.032058104650764564,
+      "gate_pass_rate": 0.8369905956112853,
+      "bank_frac": 0.5697916666666667,
+      "calib_ratio": 0.7303272271895981,
+      "baseline_abs": 0.11875146321620214,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": 0.00253483744929135,
+      "mean_mix": 0.032058104650764564
+    },
+    "slice": {
+      "seed": 5161092577393773946,
+      "n": 80,
+      "digest": "16cda71a3bcf8662dd62232295f538803b68afa1135d0c901b0c9f4e5eea9930",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.7303272271895981,
+    "chall_baseline_abs": 0.11875146321620214,
+    "king_baseline_abs": 0.12408320989102622,
+    "base_x": 0.9570308772677094
+  }
+}
