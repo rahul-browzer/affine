@@ -1,27 +1,28 @@
 {
-  "utc": "2026-08-07T04:48:37Z",
+  "utc": "2026-08-07T05:04:48Z",
   "soft_deadline": "2026-08-07T06:50:00Z",
   "deadman": "2026-08-07T07:00:00Z",
   "h1v2_train": {
-    "step": 10,
+    "step": 25,
     "total": 55,
-    "last_loss": 0.4383,
-    "eta_approx": "2026-08-07T05:35Z",
+    "last_loss": 0.38065,
+    "eta_approx": "2026-08-07T05:32Z",
     "pipe_abort_if_no_train_by": "2026-08-07T06:10:00Z"
   },
   "h1_n80": {
-    "king": 15,
-    "challenger": 15,
+    "king": 49,
+    "challenger": 48,
     "n": 80,
     "eta_approx": "2026-08-07T05:20Z",
-    "note": "rate ~3.6 samples/min since 04:39 restart; finishes before train.done"
+    "note": "~2 paired turns/min; finishes before train.done"
   },
   "h1v2_n40_path": {
-    "merge_serve_budget_min": 25,
+    "merge_serve_budget_min": 20,
     "n40_budget_min": 25,
-    "expected_ready": "~06:25Z",
-    "slack_to_soft_min": 25,
-    "hf_push": "background during serve+n40 (adapter+merged)"
+    "expected_ready": "~05:55Z",
+    "slack_to_soft_min": 55,
+    "hf_push": "background during n80-wait/serve/n40",
+    "teardown": "host harvest accepts got_h1v2 without got_sim (pass 58)"
   },
-  "verdict": "budget OK if train finishes by ~05:40Z; HF salvage armed so deadman cannot erase candidate"
+  "verdict": "budget OK; pass-58 teardown/n80-wait/meta fixes armed"
 }

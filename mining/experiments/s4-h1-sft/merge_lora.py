@@ -222,9 +222,15 @@ def main() -> None:
         "finished_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
     (args.out / "merge_meta.json").write_text(json.dumps(meta, indent=2) + "\n")
-    # Also stage where host harvest looks.
+    # Stage where host harvest looks. Name by out path so H1v2 merge does not
+    # clobber H1's meta if harvest hasn't SCP'd it yet (pass 58).
     Path("/root/affine_data").mkdir(parents=True, exist_ok=True)
-    Path("/root/affine_data/h1_merge_meta.json").write_text(
+    out_s = str(args.out)
+    if "/h1v2/" in out_s or out_s.rstrip("/").endswith("h1v2/merged"):
+        stage_name = "h1v2_merge_meta.json"
+    else:
+        stage_name = "h1_merge_meta.json"
+    Path(f"/root/affine_data/{stage_name}").write_text(
         json.dumps(meta, indent=2) + "\n"
     )
     print(json.dumps(meta, indent=2), flush=True)

@@ -2038,3 +2038,40 @@ Lium $34,142.61; mining spend ≈ $144.05. Floor OK. No new rental. No submit.
 
 Poll H1v2 train.done → confirm merge∥n80 → HF PIDs → serve → n40 triage.
 Prefer H1v2 path for submit gate. Soft 06:50Z / deadman 07:00Z.
+
+
+## 2026-08-07T05:05:10Z — pass 58: H1v2 teardown + n80-wait + merge-meta fixes
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $146.11; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,134.50 (floor OK).
+
+### What I did
+
+1. Polled pod: H1v2 train **147209** step **~28**/55 loss **0.381** (step25);
+   n80 **149213** king/chall **~49/48**/80; engines 200×3; pipe/mid armed.
+2. Found three latent bugs that would bite after train.done:
+   - Host harvest early-teardown required `got_sim` (H1 n80). If the pipe
+     kills lingering n80 at soft−45m, H1v2 terminal alone could not stop
+     $/h burn until deadman 07:00Z. Fixed: `(got_sim || got_h1v2) && …`.
+   - Pipe n80 wait/pkill used broad `run_sim_duel.py` — would match/kill
+     H1v2's own n40 if the wait were re-entered. Scoped to
+     `run_sim_duel.py.*h1_sim_result`.
+   - `merge_lora.py` always wrote `h1_merge_meta.json`, clobbering H1 meta
+     on H1v2 merge. Now stages `h1v2_merge_meta.json` when `--out` is under
+     `/h1v2/`.
+3. SCP'd + restarted pipe only → **167913** (train/mid/n80 untouched).
+   Restarted host harvest **1662067**. Evidence:
+   `experiments/s4-h1v2-sft/results/h1v2_teardown_n80_wait_fix.json`.
+4. kevin still king; chal-00280 **scoring**. Do **not** submit H1.
+
+### Money
+
+Lium $34,134.50; mining spend ≈ $146.11. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll H1v2 train.done → confirm merge∥n80 → HF PIDs → serve → n40 triage.
+Prefer H1v2 path for submit gate. Soft 06:50Z / deadman 07:00Z.

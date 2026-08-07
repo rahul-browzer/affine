@@ -104,14 +104,17 @@ else
   log "WARN: HF_TOKEN unset; skipping H1v2 HF salvage pushes"
 fi
 
+# Wait only for H1 n80 (out=h1_sim_result). Broad pgrep run_sim_duel.py would
+# also match this pipe's own later n40 if the wait were ever re-entered, and
+# the soft-deadline pkill would murder H1v2's triage sim (pass 58).
 log "waiting for H1 n80 sim to finish before chall restart"
-while pgrep -f "run_sim_duel.py" >/dev/null 2>&1; do
+while pgrep -f "run_sim_duel.py.*h1_sim_result" >/dev/null 2>&1; do
   now=$(date -u +%s)
   soft=$(date -u -d "$SOFT_DEADLINE_UTC" +%s)
   remain=$(( soft - now ))
   if (( remain < 2700 )); then
-    log "WARN: ${remain}s to soft; killing lingering sim to free chall for H1v2"
-    pkill -f "run_sim_duel.py" || true
+    log "WARN: ${remain}s to soft; killing lingering H1 n80 to free chall for H1v2"
+    pkill -f "run_sim_duel.py.*h1_sim_result" || true
     sleep 5
     break
   fi

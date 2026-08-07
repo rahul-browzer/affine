@@ -250,7 +250,11 @@ while true; do
     fi
   fi
 
-  if (( got_sim == 1 && got_salvage == 1 && got_train == 1 )); then
+  # Teardown when H1 train+salvage are in hand AND either H1 n80 finished
+  # OR H1v2 reached a terminal artifact. Requiring got_sim alone stranded the
+  # pod until deadman 07:00Z whenever the pipe killed lingering n80 for H1v2
+  # (remain<2700s) even though the submit-candidate path was done (pass 58).
+  if (( (got_sim == 1 || got_h1v2 == 1) && got_salvage == 1 && got_train == 1 )); then
     # CRITICAL (pass 53): H1 n80 DONE must not tear down while H1v2 still runs.
     if _h1v2_still_running; then
       log "H1 artifacts ready but H1v2 still running — defer early-teardown (deadman 07:00Z)"
@@ -273,6 +277,9 @@ while true; do
         continue
       fi
       log "WARN: H1v2 grace exhausted with no terminal artifact; allowing H1 teardown"
+    fi
+    if (( got_sim == 0 && got_h1v2 == 1 )); then
+      log "teardown via H1v2 terminal (H1 n80 incomplete/killed); H1v2 is the submit path"
     fi
     # Do not kill the pod while ~68G merged HF upload is still in flight —
     # that erase is exactly what the push was meant to prevent. Wait up to

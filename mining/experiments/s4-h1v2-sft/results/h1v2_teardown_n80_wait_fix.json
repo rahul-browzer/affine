@@ -1,0 +1,37 @@
+{
+  "utc": "2026-08-07T05:04:48Z",
+  "pass": 58,
+  "event": "h1v2_teardown_and_n80_wait_fix",
+  "fixes": [
+    {
+      "file": "experiments/s4-h1-sft/host_harvest_results.sh",
+      "bug": "early-teardown required got_sim (H1 n80) even when H1v2 terminal done; pipe kill of n80 at soft-45m stranded burn until deadman 07:00Z",
+      "fix": "teardown when (got_sim||got_h1v2) && got_salvage && got_train; still gated by _h1v2_still_running + push grace"
+    },
+    {
+      "file": "experiments/s4-h1v2-sft/post_train_pipeline.sh",
+      "bug": "n80 wait/pkill used broad run_sim_duel.py \u2014 would match/kill H1v2 n40 if wait re-entered",
+      "fix": "match/pkill only run_sim_duel.py.*h1_sim_result"
+    },
+    {
+      "file": "experiments/s4-h1-sft/merge_lora.py",
+      "bug": "always wrote affine_data/h1_merge_meta.json, clobbering H1 meta on H1v2 merge",
+      "fix": "stage h1v2_merge_meta.json when --out under /h1v2/"
+    }
+  ],
+  "deploy": {
+    "pipe_pid": 167913,
+    "train_pid": 147209,
+    "n80_pid": 149213,
+    "mid_salvage_pid": 154590,
+    "train_n80_mid_untouched": true
+  },
+  "progress_at_fix": {
+    "h1v2_step_last_logged": 25,
+    "h1v2_loss_step25": 0.3806483030319214,
+    "n80_king": 49,
+    "n80_chall": 48
+  },
+  "king": "kevin954/Affine-5dfqbbh8ev-sft",
+  "do_not_submit_h1": true
+}
