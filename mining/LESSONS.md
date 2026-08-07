@@ -95,6 +95,8 @@ Format: `- <finding> — <the number or error that proves it>`
   relaunch both sidecars before the real n80 finishes (H25 pass171 @61/80).
 - Keep `experiments/s4-h2-merge/watch_form_decision.sh` in git; pods have shown
   ghost dentries (`ls` lists file, `open`→ENOENT) — re-scp from local if missing.
+- After launch, `test -x` **both** form+retry sidecars and `pgrep` them — H26 had
+  retry running but form script absent (upload listed it; runtime missing; pass173).
 - B300: FA sm_103 patch ≠ done. Engines can still die on flashinfer sampling JIT
   under concurrent launch — clear half-written `cached_ops/sampling`, relaunch
   with `SERVE_STAGGER_S≥45` (H23 pass171).
