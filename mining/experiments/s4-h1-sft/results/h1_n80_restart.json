@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-07T04:39:52Z",
+  "event": "n80_restart_after_readtimeout",
+  "prior_pid": 143331,
+  "new_pid": 149213,
+  "progress_at_crash": {"king": 16, "challenger": 16, "n_turns": 80, "utc": "2026-08-07T04:36:26Z"},
+  "error": "httpx.ReadTimeout after 3 retries @ 180s (sample path)",
+  "fix": {
+    "vllm_client_timeout_s": 360.0,
+    "vllm_client_retries": 5,
+    "pod_path": "/root/mining_src/affine_pkg/evalsrv/vllm_client.py",
+    "script": "experiments/s4-h1-sft/restart_n80.sh"
+  },
+  "engines_health_at_restart": {"8000": 200, "8001": 200, "8002": 200},
+  "note": "n40 already revise_recipe; n80 is SE confirmation only — do not submit H1"
+}

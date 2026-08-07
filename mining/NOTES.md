@@ -1841,3 +1841,35 @@ Lium $34,173.73; mining spend ≈ $135.36. Floor OK. No new rental. No submit.
 ### Next
 
 Poll H1v2 train.done + H1 n80 result → merge/serve H1v2 → n40 triage.
+
+## 2026-08-07T04:41:30Z — pass 52: n80 ReadTimeout recovery + H1v2 post-train armed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $136.96; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host harvest 1486917 + deadman 1405846 still alive. Lium $34,165.93 (floor OK).
+
+### What I did
+
+1. Polled pod: H1v2 train **147209** alive — base loaded, step **3**/55 @
+   ~59s/it (ETA ~05:32Z). Engines 200×3.
+2. Found H1 n80 **dead**: pid 143331 gone; progress stuck king/chall **16**/80
+   @ 04:36:26Z. Log ends in `httpx.ReadTimeout` on sample after 180s×3 retries.
+3. Patched pod-local `vllm_client` → timeout **360s**, retries **5**. Restarted
+   n80 pid **149213** via `experiments/s4-h1-sft/restart_n80.sh`. Evidence:
+   `results/h1_n80_restart.json`.
+4. Armed H1v2 `post_train_pipeline.sh` pid **149216**: wait `train.done` →
+   merge_lora (reuse CausalLM+visual fixes) → chall-only serve → n40 triage
+   to `/root/affine_data/h1v2_sim_result_n40.json`. Waits for n80 before
+   chall restart; kills sim if <45m to soft 06:50Z.
+5. kevin still king; chal-00280 still `load_challenger`. Do **not** submit H1.
+
+### Money
+
+Lium $34,165.93; mining spend ≈ $136.96. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll H1v2 train.done / pipe n40 + H1 n80 result. Prefer H1v2 path for submit
+gate. Soft 06:50Z / deadman 07:00Z.

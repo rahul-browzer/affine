@@ -7,8 +7,8 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** pid 147209 |
-| 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | open — **n40 miss** (−0.0024); n80 running; recipe dead for submit |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** step3/55 + post-train pipe armed |
+| 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | open — **n40 miss** (−0.0024); n80 restarted after ReadTimeout; recipe dead for submit |
 | 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
 | 5 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
@@ -59,6 +59,11 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   Args: `--loss-on thought --lr 2e-5 --epochs 1` from kevin `6a5815…`.
   Log `/root/logs/h1v2_train.nohup`; out `/root/h1v2/train`. Code under
   `experiments/s4-h1v2-sft/`.
+- **Post-train (2026-08-07T04:39:52Z):** `post_train_pipeline.sh` pid
+  **149216** armed — waits `train.done` → merge_lora (H1 CausalLM+visual
+  fixes) → chall-only serve → n40 → `h1v2_sim_result_n40.json`. Waits for
+  H1 n80 before chall restart (or kills sim if <45m to soft 06:50Z).
+- **Progress (04:41Z):** train step **3**/55 @ ~59s/it → ETA ~05:32Z.
 - **Verdict:** open — training in progress (prediction unchanged).
 
 
