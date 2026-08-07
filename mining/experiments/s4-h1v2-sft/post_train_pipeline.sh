@@ -62,36 +62,24 @@ if [[ ! -f "$ADAPTER/adapter_config.json" ]]; then
   fi
 fi
 
-log "waiting for H1 n80 sim to finish before chall restart"
-while pgrep -f "run_sim_duel.py" >/dev/null 2>&1; do
-  now=$(date -u +%s)
-  soft=$(date -u -d "$SOFT_DEADLINE_UTC" +%s)
-  remain=$(( soft - now ))
-  if (( remain < 2700 )); then
-    log "WARN: ${remain}s to soft; killing lingering sim to free chall for H1v2"
-    pkill -f "run_sim_duel.py" || true
-    sleep 5
-    break
-  fi
-  sleep 30
-done
-
-log "merge LoRA → $MERGED (CUDA $CUDA_VISIBLE_DEVICES)"
+# Merge on GPUs 6,7 WHILE H1 n80 may still be scoring on teacher/king/chall
+# (0–5). Chall restart is the only step that must wait for n80. Reordering
+# recovers ~6 min of merge (+ early HF salvage start) if n80 slips.
+log "merge LoRA → $MERGED (CUDA $CUDA_VISIBLE_DEVICES) — parallel with any live n80"
 python /root/mining_src/s4-h1-sft/merge_lora.py \
   --base "$BASE" \
   --adapter "$ADAPTER" \
   --out "$MERGED" \
   --device-map auto \
   | tee -a "$LOG"
-# Point harvest meta at h1v2 as well.
-if [[ -f /root/affine_data/h1_merge_meta.json ]]; then
-  cp -f /root/affine_data/h1_merge_meta.json /root/affine_data/h1v2_merge_meta.json
-fi
+# Stage H1v2 meta without depending on (or trusting) H1's h1_merge_meta.json —
+# merge_lora.py also writes that path as a legacy side effect.
 cp -f "$MERGED/merge_meta.json" /root/affine_data/h1v2_merge_meta.json 2>/dev/null || true
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h1v2_merge.done
 
-# Adapter + merged HF salvage WHILE we re-serve + n40. Soft 06:50Z / deadman
-# 07:00Z would otherwise erase the only vLLM-ready H1v2 candidate.
+# Adapter + merged HF salvage WHILE we wait for n80 / re-serve / n40.
+# Soft 06:50Z / deadman 07:00Z would otherwise erase the only vLLM-ready
+# H1v2 candidate.
 HF_LORA_REPO=${HF_LORA_REPO:-unconst/Affine-5czsc2fc98-h1v2-lora}
 HF_MERGED_REPO=${HF_MERGED_REPO:-unconst/Affine-5czsc2fc98-h1v2-merged}
 if [[ -n "${HF_TOKEN:-}" ]]; then
@@ -115,6 +103,20 @@ if [[ -n "${HF_TOKEN:-}" ]]; then
 else
   log "WARN: HF_TOKEN unset; skipping H1v2 HF salvage pushes"
 fi
+
+log "waiting for H1 n80 sim to finish before chall restart"
+while pgrep -f "run_sim_duel.py" >/dev/null 2>&1; do
+  now=$(date -u +%s)
+  soft=$(date -u -d "$SOFT_DEADLINE_UTC" +%s)
+  remain=$(( soft - now ))
+  if (( remain < 2700 )); then
+    log "WARN: ${remain}s to soft; killing lingering sim to free chall for H1v2"
+    pkill -f "run_sim_duel.py" || true
+    sleep 5
+    break
+  fi
+  sleep 30
+done
 
 log "chall-only re-serve $MERGED"
 RESTART_KING=0 MERGE="$MERGED" bash /root/mining_src/s4-h2-merge/restart_for_h2.sh

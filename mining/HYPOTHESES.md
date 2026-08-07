@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** step17/55 loss0.475; pipe **158053**; harvest push-race fixed |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** step23/55 loss0.448; pipe **164147** merge∥n80; harvest push-race fixed |
 | 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | open — **n40 miss** (−0.0024); n80 restarted after ReadTimeout; recipe dead for submit |
 | 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
@@ -90,6 +90,11 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   `h1v2_decision.json` (live-king guard). Harvest restarted
   **1644437**. Evidence:
   `results/h1v2_harvest_push_teardown_fix.json`. Train step17/55.
+- **Pipe merge∥n80 (04:59Z pass 57):** pipe waited for H1 n80 before
+  merge+HF push even though merge only uses GPUs 6,7 and a separate
+  out dir. Reordered: merge → HF push → wait n80 → serve → n40.
+  Pipe restarted **164147**. Freed refuted `h2-kp65` 68G. Evidence:
+  `results/h1v2_pipe_merge_before_n80_wait.json`. Train step23/55.
 - **Verdict:** open — training in progress (prediction unchanged).
 
 

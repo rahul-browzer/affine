@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z**; harvest H1v2+push-gated | Stage 4 H1 n80 + H1v2 train+pipe(path-fixed)+HF; harvest **1644437** | RUNNING | SSH `root@69.63.236.160 -p 40301`; n40 DONE revise_recipe; n80 **149213** ~27/26; H1v2 **147209** step17/55 loss0.475; pipe **158053**; mid-salvage **154590**; engines 200×3; HF_TOKEN in mine.env; harvest **1644437** (push-teardown fix); deadman 1405846; chal-00280 scoring; spent $142.11 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z**; harvest H1v2+push-gated | Stage 4 H1 n80 + H1v2 train+pipe(merge∥n80)+HF; harvest **1644437** | RUNNING | SSH `root@69.63.236.160 -p 40301`; n40 DONE revise_recipe; n80 **149213** ~37/37; H1v2 **147209** step23/55 loss0.448; pipe **164147** (merge before n80 wait); mid-salvage **154590**; engines 200×3; freed h2-kp65 68G; harvest **1644437**; deadman 1405846; chal-00280 scoring; spent $144.05 |
 
 ## Reconcile log
 
@@ -69,3 +69,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T04:48:47Z | mine-sim-1 RUNNING | matches inventory; spent $139.88; H1v2 HF repos+pipe HF salvage+mid-salvage armed; pipe **154579**; harvest **1634085**; H1v2 step10/55; n80 ~15/15; chal-00280 load_challenger; deadman 1405846; validator pods untouched |
 | 2026-08-07T04:51:36Z | mine-sim-1 RUNNING | matches inventory; spent $140.98; **fixed H1v2 adapter path bug** + pipe **158053**; HF_TOKEN→mine.env; harvest **1640417**; H1v2 step14/55; n80 ~21/20; chal-00280 scoring; deadman 1405846; validator pods untouched |
 | 2026-08-07T04:54:57Z | mine-sim-1 RUNNING | matches inventory; spent $142.11; **fixed host harvest H1v2 HF-push teardown race** + triage_sim; harvest **1644437**; H1v2 step17/55; n80 ~27/26; chal-00280 scoring; deadman 1405846; validator pods untouched |
+| 2026-08-07T04:59:32Z | mine-sim-1 RUNNING | matches inventory; spent $144.05; **reordered H1v2 pipe merge∥n80** + freed h2-kp65 68G; pipe **164147**; H1v2 step23/55; n80 ~37/37; chal-00280 scoring; deadman 1405846; validator pods untouched |

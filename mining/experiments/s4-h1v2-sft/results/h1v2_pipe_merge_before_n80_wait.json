@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-07T04:59:27Z",
+  "pass": 57,
+  "bug": "post_train_pipeline waited for H1 n80 before merge+HF push; merge only needs GPUs 6,7 and does not touch chall — serialized ~6 min of merge after n80 for no reason, burning soft-deadline slack if n80 slips",
+  "fix": "reorder: train.done → merge (6,7) → background HF adapter+merged push → wait/kill n80 → chall-only re-serve → n40",
+  "also": "removed useless copy of h1_merge_meta.json → h1v2_merge_meta.json (now only stage MERGED/merge_meta.json); freed refuted /root/merges/h2-kp65 (68G) before H1v2 merge lands",
+  "pipe_old_pid": 158053,
+  "pipe_new_pid": 164147,
+  "hf_token_in_pipe_env_len": 37,
+  "train_untouched_pid": 147209,
+  "n80_untouched_pid": 149213,
+  "mid_salvage_untouched_pid": 154590,
+  "at_fix": {
+    "h1v2_step": 23,
+    "h1v2_last_loss": 0.44837288856506347,
+    "n80_king": 37,
+    "n80_challenger": 37,
+    "engines": {"teacher": 200, "king": 200, "chall": 200},
+    "disk_root_after_free": "397G used / 5.7T avail"
+  },
+  "evidence": "pod /root/mining_src/s4-h1v2-sft/post_train_pipeline.sh lines: merge_log@68 < wait_n80@107 < serve@121"
+}

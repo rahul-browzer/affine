@@ -2006,3 +2006,35 @@ Lium $34,150.36; mining spend ≈ $142.11. Floor OK. No new rental. No submit.
 
 Poll H1v2 train.done → pipe merge/HF/serve/n40 triage. Prefer H1v2 path for
 submit gate. Soft 06:50Z / deadman 07:00Z.
+
+## 2026-08-07T04:59:32Z — pass 57: H1v2 pipe merge∥n80 + freed h2-kp65
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $144.05; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,142.61 (floor OK).
+
+### What I did
+
+1. Polled pod: H1v2 train **147209** step **23**/55 loss **0.448** (step20);
+   n80 **149213** king/chall **37/37**/80; engines 200×3; pipe/mid armed;
+   HF_TOKEN present in pipe env (len 37).
+2. Found slack leak: `post_train_pipeline.sh` waited for H1 n80 **before**
+   merge+HF push. Merge only needs GPUs 6,7 and writes `/root/h1v2/merged`
+   (n80 scores `/root/h1/merged` on 0–5) — serializing ~6 min for no reason
+   if n80 slips under soft 06:50Z.
+3. Reordered pipe: train.done → merge → bg HF adapter+merged push → wait/kill
+   n80 → chall-only serve → n40. Dropped useless `h1_merge_meta`→`h1v2` copy.
+4. SCP'd + restarted pipe only → **164147** (train/mid/n80 untouched).
+5. Freed refuted `/root/merges/h2-kp65` (**68G**); `/root` now 397G / 5.7T.
+6. kevin still king; chal-00280 **scoring** (king 49/80). Do **not** submit H1.
+
+### Money
+
+Lium $34,142.61; mining spend ≈ $144.05. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll H1v2 train.done → confirm merge∥n80 → HF PIDs → serve → n40 triage.
+Prefer H1v2 path for submit gate. Soft 06:50Z / deadman 07:00Z.
