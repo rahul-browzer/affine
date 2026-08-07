@@ -1,0 +1,42 @@
+{
+  "utc": "2026-08-07T09:51:30Z",
+  "pass": 104,
+  "pod": "mine-h5c-1",
+  "huid": "golden-hawk-dc",
+  "increment": "upload sim stack + arm mid-salvage + teacher/king prewarm + post_train_pipeline",
+  "train": {
+    "pid": 2820,
+    "step_at_arm": 5,
+    "total_steps": 99,
+    "examples": 791,
+    "loss_on": "thought",
+    "lr": 2e-5,
+    "s_per_it_approx": 47
+  },
+  "armed": {
+    "mid_salvage_pid": 5194,
+    "prewarm_pid": 5206,
+    "pipeline_pid": 5222,
+    "hf_lora": "unconst/Affine-5czsc2fc98-h5c-lora",
+    "hf_merged": "unconst/Affine-5czsc2fc98-h5c-merged",
+    "soft_deadline_utc": "2026-08-07T18:00:00Z",
+    "deadman_utc": "2026-08-07T19:00:00Z",
+    "ttl_remove_utc": "2026-08-07T19:37:46Z"
+  },
+  "prewarm": {
+    "corpus_lines": 9000,
+    "corpus_done": true,
+    "teacher_pid": 5268,
+    "king_pid": 5270,
+    "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+    "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "note": "chall placeholder killed immediately; GPUs 4,5 free for post-merge chall"
+  },
+  "bug_fixed": "upload_and_arm inline pgrep matched ssh -c argv; fixed via arm_on_pod.sh",
+  "gate": {
+    "submit_margin": 0.04,
+    "r_band": [0.70, 0.85],
+    "clip_l1_min": 0.042
+  },
+  "do_not_submit": true
+}

@@ -3591,3 +3591,35 @@ SCP'd to pod; restarted bootstrap pid **1700**.
 ### Next
 
 Poll train → merge → n80 vs live king. Gate margin > 0.04.
+
+---
+
+## 2026-08-07T09:51:30Z — pass 104: H5c post-train path armed
+
+### Reconcile
+
+`lium ps`: `mine-h5c-1` (`golden-hawk-dc`) RUNNING spent $5.92 / 13m;
+validator `affine-eval` / `affine-bench` left alone. No orphans.
+
+### Increment
+
+While train ran (step 5/99 @ ~47s/it), uploaded sim stack and armed the
+full post-train path so merge→serve→n80 starts without another pass:
+
+1. Uploaded `affine_pkg`, `s3-duel-sim`, `s4-h2-merge`, salvage scripts,
+   `post_train_pipeline.sh`, `prewarm_engines.sh`, `mid_ckpt_salvage.sh`.
+2. Created private HF salvage repos `…-h5c-lora` / `…-h5c-merged`.
+3. Fixed false-positive "already running" from `pgrep` matching `ssh -c`
+   argv → `arm_on_pod.sh`.
+4. Armed: mid **5194**, prewarm **5206**, pipe **5222** (waits train.done).
+5. Corpus synced: **9000** turns. Teacher **5268** :8000 + TalentPigs king
+   **5270** :8001 loading on GPUs 0–3; chall placeholder killed (4,5 free).
+6. Train **2820** untouched on GPUs 6,7.
+
+### Soft deadlines
+
+Pipe soft 18:00Z / deadman 19:00Z; pod TTL remove 19:37Z. ETA decision ~13:00Z.
+
+### Next
+
+Poll for `h5c_pipeline.done` + triage n80. No submit until margin > 0.04.
