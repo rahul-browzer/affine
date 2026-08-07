@@ -5,13 +5,13 @@ Rewritten every pass. Do not append.
 ## Stage
 
 **Stage 4 — H5 merge REFUTED; H5b TalentPigs-init thought distill OPEN
-(n80 sim RUNNING attempt 1/3, ~29/80).**
+(n80 sim RUNNING attempt 1/3, ~33/80).**
 
 Stage 0–3 complete. H2 / H1 / H1v2 / **H5 merge** **REFUTED**. Live king
 `TalentPigs/affine-5ekxlcg3fx-abc` reign 3 @ S=0.0315. Train **DONE**
 55/55 loss@55 **0.425**. Merge+visual OK → chall:8002 **200** → n80
-pid **276121** advancing king**29**/chall**29** @ 08:56:09Z
-(window ~2.90 tpm → ETA **~09:14Z**; overall ~1.90 tpm). Advancing.
+pid **276121** advancing king**33**/chall**33** @ 08:59:13Z
+(window ~1.30 tpm → ETA **~09:35Z**; wall-90s dip ~0.67 tpm). Advancing.
 No submit.
 
 ## Live facts (verified this pass)
@@ -28,11 +28,11 @@ No submit.
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
 | Lium balance | $33,769.01 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **~$237** @ $23.60/h |
+| mining spend to date | `mine-sim-1` spent **~$239** @ $23.60/h |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 / H1 / H1v2 / H5 merge | **all REFUTED** |
-| H5b | **open** — n80 running (king29/chall29 @ 08:56Z; ETA ~09:14Z) |
+| H5b | **open** — n80 running (king33/chall33 @ 08:59Z; ETA ~09:35Z) |
 | H1v2 HF merged | public `unconst/Affine-5czsc2fc98-h1v2-merged` @ `a314357…` (do not submit) |
 | H5b HF | private `…-h5b-lora` adapter-final @ `ad537ed…`; `…-h5b-merged` @ `e1d39a1…` (salvage only; do not submit) |
 | Disk | host: text only; pod `/root` ok; merged at `/root/h5b/merged` |
@@ -48,15 +48,15 @@ On pod:
 - H5b pipe pid **266631** — waiting n80
 - n80 sim pid **276121** (`run_sim_duel.py` attempt **1/3**); out
   `/root/affine_data/h5b_sim_result.json`; progress
-  `/root/affine_data/h5b_sim_progress.json` (king **29**/chall **29** @ 08:56:09Z)
-- Rate: window ~2.90 k/c-tpm (recovered vs pass93 ~1.14); overall ~1.90 → ETA
-  **~09:14Z**; deadman slack OK (~166 min)
+  `/root/affine_data/h5b_sim_progress.json` (king **33**/chall **33** @ 08:59:13Z)
+- Rate: window ~1.30 k/c-tpm (dip vs pass94 ~2.90); wall-90s ~0.67 → ETA
+  **~09:35Z**; deadman slack OK (~145 min vs ETA)
 - Markers: `train.done` ✓ → `h5b_merge.done` ✓ → `h5b_chall_serve.done` ✓
   → `h5b_sim_n80.done` (pending) → `h5b_pipeline.done`
 - HF merged salvage **DONE** `e1d39a1…` (private; not a submission)
 - Pipe log: `/root/logs/h5b_pipeline.stdout`
 - Sim log: `/root/logs/h5b_sim.nohup`
-- Evidence: `results/h5b_sim_progress.json`, `h5b_time_budget_pass94.json`
+- Evidence: `results/h5b_sim_progress.json`, `h5b_time_budget_pass95.json`
 - **LANDMINE:** never SCP/edit `post_train_pipeline.sh` while a live pipe
   sleeps in its wait loop (bash file offset → `ted: command not found`)
 
@@ -72,8 +72,8 @@ Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. **Do not submit** H1/H1v2/H2/h5-kt*/h5b HF salvage. Cap remaining ~$3,763.
-Ignore archived false abort. ETA n80 done ~09:14Z (window ~2.90 tpm; slack to deadman OK).
+Nothing hard. **Do not submit** H1/H1v2/H2/h5-kt*/h5b HF salvage. Cap remaining ~$3,761.
+Ignore archived false abort. ETA n80 done ~09:35Z (window ~1.30 tpm; slack to deadman OK).
 
 ## Next action (single, highest value)
 

@@ -1,0 +1,54 @@
+{
+  "utc": "2026-08-07T09:00:18Z",
+  "pass": 95,
+  "sim_pid": 276121,
+  "pipe_pid": 266631,
+  "attempt": "1/3",
+  "progress": {
+    "king": 33,
+    "challenger": 33,
+    "n_turns": 80,
+    "progress_utc": "2026-08-07T08:59:13Z"
+  },
+  "window_from_pass94": {
+    "from": {
+      "utc": "2026-08-07T08:56:09Z",
+      "king": 29,
+      "chall": 29
+    },
+    "to": {
+      "utc": "2026-08-07T08:59:13Z",
+      "king": 33,
+      "chall": 33
+    },
+    "dt_min": 3.067,
+    "king_tpm": 1.304,
+    "chall_tpm": 1.304,
+    "bottleneck_tpm": 1.304
+  },
+  "wall_90s_recheck": {
+    "from": {
+      "utc": "2026-08-07T08:58:23Z",
+      "king": 32,
+      "chall": 31
+    },
+    "to": {
+      "utc": "2026-08-07T08:59:13Z",
+      "king": 33,
+      "chall": 33
+    },
+    "wall_sleep_s": 90,
+    "king_delta": 1,
+    "chall_delta": 2,
+    "bottleneck_tpm_wall": 0.667
+  },
+  "remaining": 47,
+  "eta_utc_window": "2026-08-07T09:35:15Z",
+  "eta_min_window": 36.0,
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "slack_min_to_deadman_vs_eta": 144.8,
+  "engines": "200x3",
+  "result_pending": true,
+  "decision_pending": true,
+  "note": "rate dipped vs pass94 ~2.90tpm; still advancing; slack OK; no submit"
+}

@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T08:57:18Z",
+  "utc": "2026-08-07T09:00:08Z",
   "experiment": "s4-h5b-talentpigs-distill",
   "stage": "n80",
   "train_done": true,
@@ -22,13 +22,13 @@
   ],
   "identical_to_king": false,
   "sim_progress": {
-    "utc": "2026-08-07T08:57:12Z",
+    "utc": "2026-08-07T08:59:13Z",
     "hotkey": "local-h5b",
     "chall_repo": "/root/h5b/merged",
     "n_turns": 80,
-    "king": 30,
+    "king": 33,
     "king_total": 80,
-    "challenger": 30,
+    "challenger": 33,
     "challenger_total": 80
   },
   "engines": {
