@@ -24,10 +24,13 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   (r 0.716 / 0.763 / 0.755; clip-L1 +0.031 / +0.026 / +0.026; base× ≈ 1.06–1.08).
   Crown margins vs genesis +0.070 / +0.061 / +0.041.
 - **Experiment:** Stage 4 local duel sim after Stage 3 gate; train on pod
-  `mine-sft-1` using teacher_refs harvested from public gz.
+  `mine-sim-1` (GPUs 6,7) using teacher_refs harvested from public gz
+  (`experiments/s4-h1-sft/`).
 - **Prediction (pre-register before train):** challenger mean paired margin ≥
   **+0.04** vs live king on an 80-turn public-D slice, all gates passing,
   r∈[0.70,0.85], base×≤1.15.
+- **In flight (2026-08-07T01:51Z):** harvest 440/440 turns; LoRA r=16 2ep
+  from kevin init, 110 steps, pid 82057 — sim after merge.
 - **Verdict:** open.
 
 ## H2 — weight-merge of recent kings / near-kings beats both

@@ -867,3 +867,36 @@ Lium $34,446.14; floor OK. Mining spend ≈ $66.86. TTL 04:53Z (~3.1h left).
 
 Execute H1 on `mine-sim-1` per `experiments/s4-h1-sft/plan.md` (harvest
 teacher_refs → SFT from kevin → re-sim). No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T01:54Z — pass 26: H1 harvest + LoRA train launched
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $71.31; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; `min_submission_block`=8767079;
+   Lium $34,430.56 (floor OK). TTL still 04:53Z (no extend API — only
+   `schedules rm`, which would drop the dead-man switch; left alone).
+2. Built `experiments/s4-h1-sft/{harvest_refs,train_lora,merge_lora,start_h1,
+   upload_and_start}.py/sh`. Uploaded 16 duel gz + scripts to pod.
+3. Harvest: **440** examples (unique turn_ids, max lp_own), **0** missing
+   from corpus. Canonical completion `</think>\nTHOUGHT: {z}\n\n{y}`.
+4. Installed peft 0.20.0 + accelerate 1.14.0 via `/root/.local/bin/uv`.
+5. Launched LoRA SFT on GPUs **6,7** (engines 0–5 untouched, health 200×3):
+   kevin init, r=16 α=32, lr=1e-4, 2 epochs, 110 steps, pid **82057**.
+   Step 1 ~63s → ETA ~03:50Z. trainable 8.36M / 34.7B.
+6. No submit. No new rental.
+
+### Money
+
+Lium $34,430.56; floor OK. Mining spend ≈ $71.31. TTL 04:53Z (~3h left).
+
+### Next
+
+Wait for `/root/h1/train/train.done` → merge_lora → re-serve chall →
+`run_sim_duel.py`. No submit until margin > 0.04 + H4.

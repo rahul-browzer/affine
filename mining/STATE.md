@@ -4,11 +4,11 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H2 kevin×pandora REFUTED; pivot to H1 teacher-ref SFT.**
+**Stage 4 — H1 teacher-ref LoRA SFT RUNNING on `mine-sim-1`.**
 
-Stage 0–3 complete. H2 α=0.5 margin **−0.00996**; α=0.65 margin
-**+0.00725** — both < 0.02 → H2 refuted for these parents. No submissions.
-`experiments/s4-h1-sft/plan.md` drafted. Engines on `mine-sim-1` kept hot.
+Stage 0–3 complete. H2 kevin×pandora REFUTED. H1 harvest DONE (440
+examples); LoRA train pid **82057** on GPUs 6,7 (engines 0–5 still hot).
+No submissions.
 
 ## Live facts (verified this pass)
 
@@ -22,39 +22,42 @@ Stage 0–3 complete. H2 α=0.5 margin **−0.00996**; α=0.65 margin
 | weight_version_key | 1 |
 | min_margin | 0.02 (duel) |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $34,446.14 (floor $28,000) |
+| Lium balance | $34,430.56 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$66.86** @ $23.60/h (TTL cap ≈ $141.60) |
+| mining spend to date | `mine-sim-1` spent **$71.31** @ $23.60/h (TTL cap ≈ $141.60) |
 | our submissions | none |
-| Stage 3 gate | **MET** — `experiments/s3-duel-sim/result.md` |
-| H2 α=0.5 sim | **DONE** — margin −0.00996 |
-| H2 α=0.65 sim | **DONE** — margin +0.00725 @ 01:37Z |
-| H2 verdict | **REFUTED** for kevin×pandora (`experiments/s4-h2-merge/result.md`) |
+| Stage 3 gate | **MET** |
+| H2 verdict | **REFUTED** (`experiments/s4-h2-merge/result.md`) |
+| H1 harvest | **DONE** — 440 examples, 0 missing |
+| H1 train | **RUNNING** — 110 steps, ~63s/it, ETA ~03:50Z |
 
 ## What's running
 
 | name | huid | role | check |
 |---|---|---|---|
-| `mine-sim-1` | `swift-shark-52` | Stage 4 — engines idle-hot after H2; ready for H1 | SSH `root@69.63.236.160 -p 40301`; TTL remove at **2026-08-07T04:53:17Z** |
+| `mine-sim-1` | `swift-shark-52` | Stage 4 H1 LoRA train + idle engines | SSH `root@69.63.236.160 -p 40301`; TTL remove at **2026-08-07T04:53:17Z** |
 
 On pod:
 - Teacher:8000 + King:8001 + Chall:8002 — all /health 200 (chall still h2-kp65)
-- Kevin + pandora weights cached; h2-kp50 / h2-kp65 merges on disk
-- α=0.65 result: `/root/affine_data/h2_kp65_sim_result.json` (local copy in
-  `experiments/s4-h2-merge/results/`)
-- No training job yet
+- H1 train: pid **82057**, log `/root/logs/h1_train.nohup`, out `/root/h1/train/`
+- Done marker: `/root/h1/train/train.done` (absent until finished)
+- Harvest: `/root/h1/teacher_refs_sft.jsonl` (440 lines)
+- peft 0.20.0 + accelerate 1.14.0 installed in `/root/venv`
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. Soft: TTL ends 04:53Z (~3.1h left @ 01:43Z). Do **not**
-submit until sim margin > 0.04 vs live king. Do not rent another pod until
-H1 needs a dedicated train box or this TTL is too short (extend first).
+Nothing hard. Soft: TTL ends 04:53Z (~3h left @ 01:54Z). Train ETA ~03:50Z
+leaves ~1h for merge+re-serve+sim — tight. **Do not** cancel the schedule
+(no Lium “extend TTL” API; only `schedules rm` which would orphan without
+TTL). If train slips past ~04:20Z, prefer finishing merge on this pod and
+deferring sim, or rent `mine-sft-1` / replace with a fresh TTL pod — never
+leave a pod without a TTL. No submit until sim margin > 0.04 + H4.
 
 ## Next action (single, highest value)
 
-**Start H1 on `mine-sim-1`:** harvest teacher_refs → short SFT from kevin →
-serve chall → `run_sim_duel.py`. Follow `experiments/s4-h1-sft/plan.md`.
-Check TTL/balance before long train; extend TTL deliberately if needed
-(never omit `--ttl`). No submit until margin > 0.04 + H4.
+**When `/root/h1/train/train.done` exists:** merge LoRA → `/root/h1/merged`
+(`merge_lora.py`), restart chall:8002 on that dir, run `run_sim_duel.py`
+vs kevin, apply plan.md decision rule. Poll train via
+`tail /root/logs/h1_train.nohup`. Do **not** submit until margin > 0.04 + H4.

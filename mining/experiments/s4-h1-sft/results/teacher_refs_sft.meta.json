@@ -1,0 +1,11 @@
+{
+  "duels_dir": "/root/affine_data/duels",
+  "turns": "/root/affine_data/turns.jsonl",
+  "out": "/root/h1/teacher_refs_sft.jsonl",
+  "src_files": 16,
+  "raw_teacher_samples": 5120,
+  "unique_turn_ids_with_refs": 440,
+  "examples_written": 440,
+  "missing_from_corpus": 0,
+  "completion_format": "</think>\\nTHOUGHT: {z}\\n\\n{y}"
+}

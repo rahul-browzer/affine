@@ -15,16 +15,21 @@ On an 80-turn public-D slice in the Stage-3 simulator:
 - both sides gate-valid
 - H4 envelope: r∈[0.70,0.85], base×≤1.15
 
-## Method (draft — next pass executes)
+## Method (executing)
 
-1. On `mine-sim-1` (engines already hot; TTL → 04:53Z): harvest teacher_refs
-   from public duel gz / sim artifacts into a small chat SFT jsonl
-   (thought+action targets from teacher C on scored turns).
-2. Short LoRA or full SFT from kevin weights on pod (no host GPU). Prefer
-   short run that finishes inside remaining TTL or extend TTL deliberately
-   after `lium balance` check (floor $28k; mining spend cap $4k pre-crown).
-3. Export merged safetensors (no `*.py`, no `auto_map`), serve as chall:8002
-   under stock vllm, re-run `run_sim_duel.py` vs kevin:8001.
+1. **Harvest** (`harvest_refs.py`): 16 public duel gz → dedupe by turn_id,
+   keep max-`lp_own` teacher sample; join prefixes from pod `turns.jsonl`.
+   Completion format = Affine inject body after open `<think>`:
+   `</think>\nTHOUGHT: {z}\n\n{y}`. Result: **440** examples, 0 missing
+   (`results/teacher_refs_sft.meta.json`).
+2. **LoRA SFT** (`train_lora.py`) on `mine-sim-1` GPUs **6,7** (engines
+   stay on 0–5). Base = kevin snapshot `6a5815…`. r=16 α=32, lr=1e-4,
+   2 epochs, batch=1 accum=8, max_len=8192 → **110** optimizer steps.
+   Launched 2026-08-07T01:51Z pid 82057; log `/root/logs/h1_train.nohup`.
+   First step ~63s → ETA ~03:50Z (TTL remove 04:53Z).
+3. **After `train.done`:** `merge_lora.py` → `/root/h1/merged` safetensors
+   (strip `auto_map` / `*.py`); restart chall:8002 on that dir; run
+   `run_sim_duel.py` vs kevin:8001.
 4. Decision rule below.
 
 ## Decision rule
