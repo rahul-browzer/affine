@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-07T08:04:21Z",
+  "pass": 85,
+  "fix": "post_train_pipeline EXIT trap writes h5b_pipeline.aborted on any non-zero exit without done; also aborted_no_adapter path",
+  "why": "merge fail / identity REFUSE / wait_ready timeout / serve crash previously exited under set -e with no abort marker; pass-84 harvest only surfaces decisions from that marker",
+  "old_pipe_pid": 253801,
+  "new_pipe_pid": 256662,
+  "train_pid_untouched": 245350,
+  "mid_pid_untouched": 251832,
+  "train_step_at_restart": 31,
+  "engines": {"teacher": 200, "king": 200, "chall": 200},
+  "harvest_pid": 1917667,
+  "deadman_utc": "2026-08-07T12:00:00Z"
+}

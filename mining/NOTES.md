@@ -2918,3 +2918,38 @@ No submit / no registration burn.
 
 Read `results/h5b_decision.json` when harvest lands (~09:30–10:40Z). Until
 then poll train→merge→identity→HF→n80 (retries if needed). Gate >0.04 + H4.
+
+
+## 2026-08-07T08:04:21Z — pass 85: H5b pipe EXIT abort-trap armed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $216.20; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,854.29 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. No `h5b_decision.json` — train step **31**/55, loss@30 **0.441**, ETA
+   train.done ~08:27Z, n80 end ~10:30Z (slack to deadman 12:00Z ~1.5h).
+   Engines 200×3; mid **251832**; harvest **1917667**; deadman **1783662**.
+2. Audited post-train failure paths vs pass-84 harvest: merge fail, identity
+   REFUSE, `wait_ready` timeout, serve crash, and missing-adapter all exited
+   under `set -e` **without** writing `h5b_pipeline.aborted` — harvest would
+   spin to 11:45Z with no decision for the next pass to pivot on.
+3. Patched `post_train_pipeline.sh`: EXIT trap writes
+   `aborted_err_rc=<n>` unless `pipeline.done` or abort already present;
+   explicit `aborted_no_adapter`. SCP'd; restarted pipe **256662** (train
+   **245350** + mid **251832** untouched).
+4. Evidence: `results/h5b_pipe_abort_trap_fix.json`,
+   `results/h5b_time_budget_pass85.json`.
+
+### Money
+
+Lium $33,854.29; mining spend ≈ $216. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:30–10:40Z). Until
+then poll train→merge→identity→HF→n80 (retries if needed). Gate >0.04 + H4.

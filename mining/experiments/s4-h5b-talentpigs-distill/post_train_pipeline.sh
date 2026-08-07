@@ -28,6 +28,26 @@ DEADMAN_UTC=${DEADMAN_UTC:-2026-08-07T12:00:00Z}
 
 log() { echo "[h5b-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
+# Any non-zero exit that does not already write h5b_pipeline.aborted leaves
+# host harvest spinning until 11:45Z with no decision (merge fail, identity
+# REFUSE, wait_ready timeout, serve crash, missing adapter). Trap closes that.
+_abort_on_exit() {
+  local rc=$?
+  if [[ $rc -eq 0 ]]; then
+    return 0
+  fi
+  if [[ -f /root/logs/h5b_pipeline.done ]]; then
+    return 0
+  fi
+  if [[ ! -f /root/logs/h5b_pipeline.aborted ]]; then
+    echo "aborted_err_rc=${rc} $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+      >/root/logs/h5b_pipeline.aborted
+    echo "[h5b-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) EXIT trap wrote aborted_err_rc=${rc}" \
+      | tee -a "$LOG" >/dev/null 2>&1 || true
+  fi
+}
+trap _abort_on_exit EXIT
+
 mkdir -p /root/logs /root/affine_data /root/h5b
 rm -f /root/logs/h5b_pipeline.aborted /root/logs/h5b_pipeline.done \
   /root/logs/h5b_merge.done /root/logs/h5b_sim_n80.done
@@ -78,6 +98,8 @@ if [[ ! -f "$ADAPTER/adapter_config.json" ]]; then
     log "using checkpoint adapter $ADAPTER"
   else
     log "ERROR: no adapter"
+    echo "aborted_no_adapter $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+      >/root/logs/h5b_pipeline.aborted
     exit 1
   fi
 fi

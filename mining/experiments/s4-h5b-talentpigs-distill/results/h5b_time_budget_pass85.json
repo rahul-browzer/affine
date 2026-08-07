@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-07T08:04:21Z",
+  "pass": 85,
+  "train_step": 31,
+  "train_total": 55,
+  "last_loss": 0.4414482116699219,
+  "last_loss_step": 30,
+  "sec_per_step_approx": 58,
+  "eta_train_done_utc": "2026-08-07T08:27:00Z",
+  "eta_n80_end_utc": "2026-08-07T10:30:00Z",
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "slack_after_n80_h": 1.5,
+  "lium_spent_usd": 216.20,
+  "lium_balance_usd": 33854.29
+}
