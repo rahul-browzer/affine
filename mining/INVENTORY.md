@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h28-1 | swift-hawk-e1 | 8×H200 | $28.00 | ~2026-08-08T06:11Z | H28 m7×winner-zA | n80 32/80 |
-| mine-h29-1 | golden-wolf-bc | 8×H200 | $31.92 | ~2026-08-08T07:28Z | H29 TP×king-self | train ~32/46 |
-| mine-h30-1 | golden-hawk-9f | 8×H200 | $31.92 | ~2026-08-08T07:39Z | H30 m7×king-self | train live |
-| mine-h31-1 | golden-raven-d8 | 8×H200 | $28.00 | ~2026-08-08T07:42Z | H31 m7×king-self lr3e5 | train live |
-| mine-h32-1 | noble-raven-24 | 8×B200 | $40.00 | ~2026-08-08T07:48Z | H32 TP×king-self lr3e5 | bootstrap |
+| mine-h28-1 | swift-hawk-e1 | 8×H200 | $28.00 | ~2026-08-08T06:11Z | H28 m7×winner-zA | n80 41/80 |
+| mine-h29-1 | golden-wolf-bc | 8×H200 | $31.92 | ~2026-08-08T07:28Z | H29 TP×king-self | train~40/46 +prewarm |
+| mine-h30-1 | golden-hawk-9f | 8×H200 | $31.92 | ~2026-08-08T07:39Z | H30 m7×king-self | train~22/46 +prewarm |
+| mine-h31-1 | golden-raven-d8 | 8×H200 | $28.00 | ~2026-08-08T07:42Z | H31 m7×king-self lr3e5 | train~7/46 |
+| mine-h32-1 | noble-raven-24 | 8×B200 | $40.00 | ~2026-08-08T07:48Z | H32 TP×king-self lr3e5 | train launched |
 
 SSH: h28 .232:40311 · h29 .21:20100 · h30 .22:20100 · h31 .236:40301 ·
 h32 150.136.71.147:20300 · known_hosts `/tmp/mine-h2{8,9,0,1,2}-1.known_hosts` ·
@@ -33,6 +33,6 @@ h32 150.136.71.147:20300 · known_hosts `/tmp/mine-h2{8,9,0,1,2}-1.known_hosts` 
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-07T19:52Z | h28–h32 match | relaunched H29/H30 prewarm (corpus race) |
 | 2026-08-07T19:48Z | h28–h31 match; H200 rent fail→B200 | rented h32 @$40/h ttl12h |
 | 2026-08-07T19:43Z | h28+h29+h30+h31 match | rented h31 @$28/h ttl12h (H31) |
-| 2026-08-07T19:39Z | h28+h29+h30 match | rented h30; killed stale h28 form pid876 |

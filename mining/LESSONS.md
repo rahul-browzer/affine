@@ -132,6 +132,10 @@ Format: `- <finding> — <the number or error that proves it>`
 - Catalog 8×H200 @$23.20/h can 400 "Provider doesn't allow GPU splitting"
   on `lium up` (index/uuid); fallback 8×B200 @$40/h works (SM10.0 — no
   sm103 flash patch; pass188 H32).
+- Concurrent `sync_corpus` (extra_dl + prewarm) races on
+  `turns.jsonl.tmp→turns.jsonl` rename → ENOENT → prewarm `set -e` dies
+  before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
+  never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
 
 ## Money / platform
 

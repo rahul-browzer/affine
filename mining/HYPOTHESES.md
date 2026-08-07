@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H28 | high | winner-zA LoRA (**m7-init**) → m>0.04 | **open** (n80 32/80) |
-| 2 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (train) |
-| 3 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (train) |
-| 4 | H32 | high | H29 cell @ **lr=3e-5** → m>0.04 | **open** (bootstrap) |
-| 5 | H29 | high | king-self LoRA (**TP-init**) → m>0.04 | **open** (train ~32/46) |
+| 1 | H28 | high | winner-zA LoRA (**m7-init**) → m>0.04 | **open** (n80 41/80) |
+| 2 | H29 | high | king-self LoRA (**TP-init**) → m>0.04 | **open** (train~40/46) |
+| 3 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (train~22/46) |
+| 4 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (train~7/46) |
+| 5 | H32 | high | H29 cell @ **lr=3e-5** → m>0.04 | **open** (train) |
 | — | H27 | was high | winner-zA LoRA (TP-init) | **refuted** m=−0.00792 |
 | — | H23 | was low | TP×Talucampe α0.90 | **refuted** m=−0.00777 |
 | — | H26 | was med | TP×kkk-af α0.90 | **refuted** m=+0.00592 |
@@ -27,25 +27,26 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H28 — same data, m7 init (non-α)
 - **Claim:** H25 α-dilution killed m7's clip-L1; keep m7 intact as init +
   same winner-zA LoRA → m>0.04. Pin `Radiant28/…m7` @ `f766293ee878`.
-- **Status:** n80 32/80. Poll → decision. `s4-h28-m7-clip-l1-shape/`.
-
-### H30 — king-self × m7 init (non-α)
-- **Claim:** missing 2×2 cell: m7 init + TalentPigs king-self high-L1 z_A
-  → m>0.04. Independent of H28/H29.
-- **Status:** train live. `s4-h30-m7-king-self/`.
-
-### H31 — H30 @ lr=3e-5 (non-α)
-- **Claim:** 3× LR on same m7×king-self cell moves clip-L1 enough for m>0.04.
-- **Status:** train live on mine-h31-1. `s4-h31-m7-king-self-lr3e5/`.
-
-### H32 — H29 @ lr=3e-5 (non-α)
-- **Claim:** 3× LR on TP-init + king-self completes 2×2 with H29/H30/H31.
-- **Status:** mine-h32-1 (8×B200) bootstrap pip. `s4-h32-tp-king-self-lr3e5/`.
+- **Status:** n80 41/80. Poll → decision. `s4-h28-m7-clip-l1-shape/`.
 
 ### H29 — king-self high clip-L1 z_A (non-α)
 - **Claim:** H27 failed from mixed foreign z_A; train only TalentPigs's own
   high-L1 thoughts on TP init → m>0.04.
-- **Status:** train ~32/46 loss@30≈0.513 (368ex). `s4-h29-king-self-clip-l1/`.
+- **Status:** train ~40/46 loss@40≈0.486; prewarm relaunched pass189.
+  `s4-h29-king-self-clip-l1/`.
+
+### H30 — king-self × m7 init (non-α)
+- **Claim:** missing 2×2 cell: m7 init + TalentPigs king-self high-L1 z_A
+  → m>0.04. Independent of H28/H29.
+- **Status:** train ~22/46; prewarm relaunched pass189. `s4-h30-m7-king-self/`.
+
+### H31 — H30 @ lr=3e-5 (non-α)
+- **Claim:** 3× LR on same m7×king-self cell moves clip-L1 enough for m>0.04.
+- **Status:** train ~7/46 on mine-h31-1. `s4-h31-m7-king-self-lr3e5/`.
+
+### H32 — H29 @ lr=3e-5 (non-α)
+- **Claim:** 3× LR on TP-init + king-self completes 2×2 with H29/H30/H31.
+- **Status:** train launched on mine-h32-1 (8×B200). `s4-h32-tp-king-self-lr3e5/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

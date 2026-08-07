@@ -14,9 +14,31 @@ export PYTHONPATH=/root/mining_src/affine_pkg${PYTHONPATH:+:$PYTHONPATH}
 export AFFINE_DATA_DIR=${AFFINE_DATA_DIR:-/root/affine_data}
 mkdir -p "$AFFINE_DATA_DIR" /root/logs
 
+# Concurrent syncers (extra_dl + prewarm) can race on turns.jsonl.tmp→turns.jsonl
+# rename (ENOENT). Use flock; if sync still fails but a non-empty turns.jsonl
+# already exists, adopt it rather than aborting the whole prewarm.
+LOCK=${AFFINE_DATA_DIR}/.corpus_sync.lock
+exec 9>"$LOCK"
+if ! flock -w 600 9; then
+  echo "[corpus] FATAL: could not acquire $LOCK" >&2
+  exit 1
+fi
+
 echo "[corpus] $(date -u +%Y-%m-%dT%H:%M:%SZ) sync start"
+set +e
 python -m evalsrv.corpus --sync 2>&1 | tee /root/logs/corpus_sync.log
-test -f "$AFFINE_DATA_DIR/turns.jsonl"
+rc=${PIPESTATUS[0]}
+set -e
+if [[ $rc -ne 0 ]]; then
+  if [[ -s "$AFFINE_DATA_DIR/turns.jsonl" ]]; then
+    n=$(wc -l < "$AFFINE_DATA_DIR/turns.jsonl")
+    echo "[corpus] WARN sync rc=$rc but adopting existing turns.jsonl lines=$n"
+  else
+    echo "[corpus] FATAL: sync rc=$rc and no turns.jsonl" >&2
+    exit "$rc"
+  fi
+fi
+test -s "$AFFINE_DATA_DIR/turns.jsonl"
 wc -l "$AFFINE_DATA_DIR/turns.jsonl"
 echo "[corpus] $(date -u +%Y-%m-%dT%H:%M:%SZ) DONE"
 touch /root/logs/corpus.done
