@@ -2848,3 +2848,39 @@ No submit / no registration burn.
 Read `results/h5b_decision.json` when harvest lands (~09:30–10:30Z). Until
 then poll train→confirm pipe log `train proc gone` / `GPU settle done` →
 merge → identity → HF → n80. Gate >0.04 + H4.
+
+## 2026-08-07T07:57:48Z — pass 83: H5b n80 retry insurance armed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $214.22; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,862.41 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+Live eval chal-00291 scoring ~51/80 (unrelated); queue 11.
+
+### What I did
+
+1. No `h5b_decision.json` — train step **24**/55, loss@20 **0.521**, ETA
+   train.done ~08:26Z, n80 end ~10:26Z (slack to deadman 12:00Z ~1.5h).
+   Engines 200×3; mid **251832**; harvest **1884718**; deadman **1783662**.
+2. Audited post-train n80 path: single foreground `run_sim_duel` under
+   `set -e`. H1 already burned ~40m of pod time once on `httpx.ReadTimeout`
+   @16/80; vllm_client is 360s×5 but a hard crash still aborts the whole
+   H5b pipe and wastes the TalentPigs-init train.
+3. Patched `post_train_pipeline.sh`: ≤**3** n80 attempts, each gated on
+   ≥40m deadman budget + engine health warn; failures logged to
+   `h5b_sim_retries.log`. SCP'd; restarted pipe **253801** (train
+   **245350** + mid **251832** untouched). HF salvage repos still empty
+   private stubs (siblings=1).
+4. Evidence: `results/h5b_n80_retry_fix.json`,
+   `results/h5b_time_budget_pass83.json`.
+
+### Money
+
+Lium $33,862.41; mining spend ≈ $214. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:30–10:30Z). Until
+then poll train→merge→identity→HF→n80 (retries if needed). Gate >0.04 + H4.

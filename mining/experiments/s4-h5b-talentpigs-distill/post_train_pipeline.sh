@@ -295,19 +295,61 @@ if (( dead - now < 2400 )); then
   exit 1
 fi
 
-rm -f "$SIM_N80" "$PROG" /root/logs/h5b_sim_n80.done
-log "launch n80 sim → $SIM_N80"
-python /root/mining_src/s4-h2-merge/run_sim_duel.py \
-  --king-repo "$KING_REPO" \
-  --king-rev "$KING_REV" \
-  --chall-repo "$MERGED" \
-  --chall-rev local \
-  --n-turns 80 \
-  --hotkey local-h5b \
-  --out "$SIM_N80" \
-  --progress-out "$PROG" \
-  --save-artifact \
-  2>&1 | tee -a /root/logs/h5b_sim.nohup
+# n80 under teacher load has died once on httpx.ReadTimeout (H1 @16/80).
+# Client is already 360s×5; still wrap retries so a single crash does not
+# burn the TalentPigs-init train under deadman 12:00Z.
+N80_MAX_ATTEMPTS=${N80_MAX_ATTEMPTS:-3}
+n80_ok=0
+for attempt in $(seq 1 "$N80_MAX_ATTEMPTS"); do
+  now=$(date -u +%s)
+  dead=$(date -u -d "$DEADMAN_UTC" +%s)
+  # Need ~40m for a full n80; refuse to start a doomed retry.
+  if (( dead - now < 2400 )); then
+    log "ABORT: <40m to deadman before n80 attempt $attempt; stop"
+    echo "aborted_no_n80_budget attempt=$attempt $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+      > /root/logs/h5b_pipeline.aborted
+    exit 1
+  fi
+  # Engines must still be healthy (transient teacher stall / OOM).
+  for port in 8000 8001 8002; do
+    code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 \
+      "http://127.0.0.1:${port}/health" || true)
+    if [[ "$code" != "200" ]]; then
+      log "WARN: engine :${port} health=${code} before n80 attempt $attempt"
+    fi
+  done
+  rm -f "$SIM_N80" "$PROG" /root/logs/h5b_sim_n80.done
+  log "launch n80 sim attempt $attempt/$N80_MAX_ATTEMPTS → $SIM_N80"
+  set +e
+  python /root/mining_src/s4-h2-merge/run_sim_duel.py \
+    --king-repo "$KING_REPO" \
+    --king-rev "$KING_REV" \
+    --chall-repo "$MERGED" \
+    --chall-rev local \
+    --n-turns 80 \
+    --hotkey local-h5b \
+    --out "$SIM_N80" \
+    --progress-out "$PROG" \
+    --save-artifact \
+    2>&1 | tee -a /root/logs/h5b_sim.nohup
+  sim_rc=${PIPESTATUS[0]}
+  set -e
+  if [[ "$sim_rc" -eq 0 && -f "$SIM_N80" ]]; then
+    n80_ok=1
+    log "n80 attempt $attempt OK"
+    break
+  fi
+  log "WARN: n80 attempt $attempt failed rc=$sim_rc; will retry if budget"
+  echo "n80_attempt_${attempt}_failed rc=$sim_rc $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+    >> /root/logs/h5b_sim_retries.log
+  sleep 15
+done
+if [[ "$n80_ok" -ne 1 ]]; then
+  log "ERROR: n80 failed after $N80_MAX_ATTEMPTS attempts"
+  echo "aborted_n80_failed $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+    > /root/logs/h5b_pipeline.aborted
+  exit 1
+fi
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h5b_sim_n80.done
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h5b_pipeline.done
 log "SIM_DONE margin=$(python -c "import json;print(json.load(open('$SIM_N80'))['verdict'].get('margin'))" 2>/dev/null || echo '?')"

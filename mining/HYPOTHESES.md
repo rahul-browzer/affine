@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** step **19**/55; identity + GPU-release-before-merge fixes deployed |
+| 1 | H5b | highest now | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **open** — train **245350** step **24**/55; pipe **253801** n80≤3 retries + prior GPU-release/identity/HF fixes |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
@@ -337,6 +337,14 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   (train **245350** untouched). Step **19**/55 loss@15 **0.508**.
   Evidence: `results/h5b_gpu_release_race_fix.json`,
   `h5b_time_budget_pass82.json`.
+- **n80 retry (2026-08-07T07:57:45Z pass 83):** H1 n80 died once on
+  ReadTimeout despite engines healthy; H5b pipe had a single foreground
+  sim under `set -e` (one crash → burn train at deadman). Patched
+  `post_train_pipeline.sh` for ≤**3** n80 attempts with `<40m` deadman
+  gate + engine health warn; vllm_client already 360s×5. Restarted pipe
+  **253801** (train **245350** + mid **251832** untouched). Step
+  **24**/55 loss@20 **0.521**. Evidence:
+  `results/h5b_n80_retry_fix.json`, `h5b_time_budget_pass83.json`.
 - **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
   H4 OK; clip-L1 ≥ +0.015; not weight-identical.
 - **Verdict:** open.

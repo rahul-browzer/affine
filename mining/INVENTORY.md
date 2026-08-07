@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z**; H5b harvest **1884718** →11:45Z | Stage 4 H5b train step19/55; GPU-release race fixed | RUNNING | SSH `root@69.63.236.160 -p 40301`; train **245350** pipe **251842** mid **251832**; deadman **1783662**; spent ~$212 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z**; H5b harvest **1884718** →11:45Z | Stage 4 H5b train step24/55; n80≤3 retries armed | RUNNING | SSH `root@69.63.236.160 -p 40301`; train **245350** pipe **253801** mid **251832**; deadman **1783662**; spent ~$214 |
 
 ## Reconcile log
 
@@ -95,3 +95,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T07:43:12Z | mine-sim-1 RUNNING | matches inventory; spent $208.43; H5b mid final-adapter salvage fix (mid 247579) + harvest 1884718; freed h5-kt65; train step8/55; deadman 1783662; validator pods untouched |
 | 2026-08-07T07:48:10Z | mine-sim-1 RUNNING | matches inventory; spent $210.38; H5b identity false-positive fix (pipe 249279) + freed h1/h1v2 merged ~136G; train step14/55; deadman 1783662; validator pods untouched |
 | 2026-08-07T07:52:29Z | mine-sim-1 RUNNING | matches inventory; spent $212.07; H5b GPU-release-before-merge + HF serialize (pipe 251842 mid 251832); train step19/55; deadman 1783662; validator pods untouched |
+| 2026-08-07T07:57:48Z | mine-sim-1 RUNNING | matches inventory; spent $214.22; H5b n80≤3 retry pipe **253801** (train 245350 mid 251832); step24/55; deadman 1783662; validator pods untouched |

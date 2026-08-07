@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T07:57:48Z | 33862.41 | 10.000000 | 0 | mine-sim-1 spent $214.22; pass83 H5b n80≤3 retries armed (pipe 253801); train step24/55; deadman 12:00Z; no new rental |
 | 2026-08-07T07:52:29Z | 33870.19 | 10.000000 | 0 | mine-sim-1 spent $212.07; pass82 H5b GPU-release-before-merge + HF serialize; train step19/55; deadman 12:00Z; no new rental |
 | 2026-08-07T07:48:10Z | 33877.92 | 10.000000 | 0 | mine-sim-1 spent $210.38; pass81 H5b identity false-positive fix + freed 136G; train step14/55; deadman 12:00Z; no new rental |
 | 2026-08-07T07:43:12Z | 33885.70 | 10.000000 | 0 | mine-sim-1 spent $208.43; pass80 H5b final-adapter mid-salvage + harvest progress; train step8/55; deadman 12:00Z; no new rental |
@@ -87,6 +88,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T07:57:48Z | observe | mine-sim spent $214.22 | Lium → mine-sim-1 | 33862.41 | 10.000 | H5b n80≤3 retry pipe 253801 (train 245350 mid 251832); step24/55; floor OK |
 | 2026-08-07T07:52:29Z | observe | mine-sim spent $212.07 | Lium → mine-sim-1 | 33870.19 | 10.000 | H5b GPU-release-before-merge + HF serialize (pipe 251842 mid 251832); train step19/55; floor OK |
 | 2026-08-07T07:38:32Z | observe | mine-sim spent $205.56 | Lium → mine-sim-1 | 33893.52 | 10.000 | H5b HF salvage armed (pipe 246775 mid 246776); train step4/55; floor OK |
 | 2026-08-07T07:17:35Z | observe | mine-sim spent $198.35 | Lium → mine-sim-1 | 33924.61 | 10.000 | α0.65 REJECT base×4.43; α0.50 pipe 240001; harvest 1847826; floor OK |

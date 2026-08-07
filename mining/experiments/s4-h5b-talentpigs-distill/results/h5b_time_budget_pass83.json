@@ -1,0 +1,25 @@
+{
+  "utc": "2026-08-07T07:57:47Z",
+  "pass": 83,
+  "train_step": 24,
+  "total": 55,
+  "last_loss": 0.5214980602264404,
+  "last_loss_step": 20,
+  "eta_train_done_utc": "2026-08-07T08:26:12Z",
+  "eta_n80_end_approx_utc": "2026-08-07T10:26:12Z",
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "harvest_stop_utc": "2026-08-07T11:45:00Z",
+  "fix": {
+    "utc": "2026-08-07T07:57:45Z",
+    "pass": 83,
+    "fix": "n80 retry up to 3 attempts with deadman budget gate (H1 ReadTimeout insurance)",
+    "train_pid": 245350,
+    "mid_pid": 251832,
+    "pipe_pid": 253801,
+    "pipe_sha256": "5af6ff645402bf75",
+    "train_step": 24,
+    "vllm_client": "timeout=360 retries=5 (already patched)",
+    "n80_max_attempts": 3
+  },
+  "note": "n80 retries armed; train untouched; slack to deadman depends on n80 start"
+}
