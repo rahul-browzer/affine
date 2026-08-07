@@ -3029,3 +3029,40 @@ No submit / no registration burn.
 Read `results/h5b_decision.json` when harvest lands (~09:20–10:30Z). Until
 then poll `h5b_train_progress.json` `stage` through train→merge→n80.
 Gate >0.04 + H4.
+
+
+## 2026-08-07T08:14:54Z — pass 88: H5b pre-free chall VRAM (GPUs 4,5)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $219.88; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,838.95 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+`min_submission_block`=8767079.
+
+### What I did
+
+1. No `h5b_decision.json` — train step **42**/55, loss@40 **0.468**, ETA
+   train.done ~08:28Z. Pipe **258082** waiting; mid **251832**; harvest
+   **1935669**; deadman **1783662**.
+2. Found critical-path waste: chall:8002 still served deleted-from-disk
+   `/root/merges/h5-kt50` from RAM (~118 GiB ×2 on GPUs 4,5). Post-merge
+   `restart_for_h2` would have to kill + reclaim that VRAM before loading
+   the H5b merged chall — minutes under deadman 12:00Z.
+3. Stopped chall pid **240863** now (teacher+king left **200**; train/pipe/mid
+   untouched). GPUs 4,5 → **0 MiB**. Pipe will chall-only serve after merge
+   into already-empty VRAM.
+4. Evidence: `results/h5b_prefree_chall_vram.json`,
+   `results/h5b_time_budget_pass88.json`. Progress shows
+   `engines.chall=0` intentionally until post-merge serve.
+
+### Money
+
+Lium $33,838.95; mining spend ≈ $220. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:15–10:20Z). Until
+then poll `h5b_train_progress.json` `stage` through train→merge→n80.
+Gate >0.04 + H4. Expect chall=0 until serve stage.

@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-07T08:14:54Z",
+  "pass": 88,
+  "train_step": 42,
+  "train_total": 55,
+  "last_loss_step40": 0.4683667182922363,
+  "eta_train_done_utc": "~08:28Z",
+  "eta_n80_end_utc": "~09:15-10:20Z",
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "harvest_stop_utc": "2026-08-07T11:45:00Z",
+  "lium_spent_usd": 219.88,
+  "lium_balance_usd": 33838.95,
+  "floor_ok": true,
+  "cap_remaining_usd": 3780.12,
+  "increment": "pre-freed GPUs 4,5 by killing zombie chall h5-kt50 (disk already gone); train/pipe/mid untouched",
+  "engines_after": {"teacher": 200, "king": 200, "chall": 0},
+  "gpu_4_5_mib": 0
+}

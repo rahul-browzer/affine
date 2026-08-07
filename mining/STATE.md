@@ -5,12 +5,12 @@ Rewritten every pass. Do not append.
 ## Stage
 
 **Stage 4 — H5 merge REFUTED; H5b TalentPigs-init thought distill TRAINING
-(n80≤3 + abort-aware harvest + stage-aware progress scrape).**
+(n80≤3 + abort-aware harvest + stage-aware scrape + chall VRAM pre-freed).**
 
 Stage 0–3 complete. H2 / H1 / H1v2 / **H5 merge** **REFUTED**. Live king
-`TalentPigs/affine-5ekxlcg3fx-abc` reign 3 @ S=0.0315. Pass 87 fixed host
-harvest progress scrape (`pipe_waiting` stuck-true bug) so post-train stages
-are visible. Train **245350** untouched at step **38**/55. No submit.
+`TalentPigs/affine-5ekxlcg3fx-abc` reign 3 @ S=0.0315. Pass 88 pre-freed
+GPUs 4,5 (zombie chall on deleted `h5-kt50`). Train **245350** at step
+**42**/55. No submit.
 
 ## Live facts (verified this pass)
 
@@ -26,14 +26,14 @@ are visible. Train **245350** untouched at step **38**/55. No submit.
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
 | Lium balance | $33,838.95 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **~$219** @ $23.60/h |
+| mining spend to date | `mine-sim-1` spent **~$220** @ $23.60/h |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 / H1 / H1v2 / H5 merge | **all REFUTED** |
-| H5b | **open** — train step 38/55 → merge → n80 (≤3); HF salvage non-blocking |
+| H5b | **open** — train step 42/55 → merge → n80 (≤3); HF salvage non-blocking |
 | H1v2 HF merged | public `unconst/Affine-5czsc2fc98-h1v2-merged` @ `a314357…` (do not submit) |
 | H5b HF | private `unconst/Affine-5czsc2fc98-h5b-lora` + `…-h5b-merged` (salvage stubs; do not submit) |
-| Disk | host: text only; pod `/root` 5.7T free |
+| Disk | host: text only; pod `/root` 5.7T free; `/root/merges` empty |
 
 ## What's running
 
@@ -42,10 +42,11 @@ are visible. Train **245350** untouched at step **38**/55. No submit.
 | `mine-sim-1` | `swift-shark-52` | H5b train→n80 + HF salvage | SSH `root@69.63.236.160 -p 40301`; deadman **12:00Z** |
 
 On pod:
-- Engines: teacher:8000 + king TalentPigs:8001 + chall:8002 — **200**
-  (chall still serves deleted-from-disk `h5-kt50` in RAM until post-train swap)
-- H5b train pid **245350** GPUs 6,7 (`--loss-on thought --lr 1e-5`) step **38**/55
-  @ ~56s/it → ETA train.done **~08:27Z**; loss@step35 **0.468**
+- Engines: teacher:8000 + king TalentPigs:8001 — **200**; chall:8002 —
+  **stopped** (pass 88 pre-free GPUs 4,5=0 MiB; pipe will chall-only
+  `restart_for_h2` after merge)
+- H5b train pid **245350** GPUs 6,7 (`--loss-on thought --lr 1e-5`) step **42**/55
+  @ ~56–61s/it → ETA train.done **~08:28Z**; loss@step40 **0.468**
 - H5b pipe pid **258082** waiting `train.done` then GPU settle → merge
   → identity → HF async → chall-only (`restart_for_h2`) → **n80 ≤3**;
   EXIT abort-trap armed; **no mid-HF wait on critical path**
@@ -58,8 +59,8 @@ On pod:
 - Train log: `/root/logs/h5b_train.nohup`
 - Pipe log: `/root/logs/h5b_pipeline.stdout`
 - Mid salvage log: `/root/logs/h5b_mid_salvage.nohup`
-- Evidence: `results/h5b_stage_aware_progress_fix.json`,
-  `h5b_time_budget_pass87.json`
+- Evidence: `results/h5b_prefree_chall_vram.json`,
+  `h5b_time_budget_pass88.json`
 
 Host (no GPU):
 - TTL deadman pid **1783662** @ **12:00Z**
@@ -73,7 +74,8 @@ Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. **Do not submit** H1/H1v2/H2/h5-kt*/h5b HF salvage. Cap remaining ~$3,781.
+Nothing hard. **Do not submit** H1/H1v2/H2/h5-kt*/h5b HF salvage. Cap remaining ~$3,780.
+Expect `engines.chall=0` until post-merge serve — intentional.
 
 ## Next action (single, highest value)
 
@@ -85,7 +87,7 @@ abort text + pivot; else refute H5b / iterate). If absent: read
 (`waiting_train`→`post_train`→`merge_identity`→`serve`/`n80`→`n80_done`/`aborted`)
 + step/loss → confirm pipe **258082** advances past train.done; confirm
 `identical_to_king=false` when identity lands; confirm chall-only
-`restart_for_h2` (no mid-HF wait); if n80 fails once, check
+`restart_for_h2` (GPUs 4,5 already free); if n80 fails once, check
 `h5b_sim_retries.log` / pipe log. Mid **251832**; harvest **1935669**;
-deadman **1783662**. ETA train ~08:27Z then merge+serve+n80 → decision
-~09:20–10:30Z. Re-check snapshot before any submit. Do not rent another pod.
+deadman **1783662**. ETA train ~08:28Z then merge+serve+n80 → decision
+~09:15–10:20Z. Re-check snapshot before any submit. Do not rent another pod.

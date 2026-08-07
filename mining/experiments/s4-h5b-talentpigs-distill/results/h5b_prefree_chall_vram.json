@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-07T08:14:38Z",
+  "action": "stopped_zombie_chall_h5kt50",
+  "why": "pre-free GPUs 4,5 during remaining train so post-merge chall load skips VRAM reclaim",
+  "chall_was": "/root/merges/h5-kt50 (deleted from disk; weights in RAM)",
+  "kept": [
+    "teacher:8000",
+    "king:8001 TalentPigs",
+    "train 245350",
+    "pipe 258082",
+    "mid 251832"
+  ]
+}
