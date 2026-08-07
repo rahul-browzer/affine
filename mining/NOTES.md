@@ -2279,3 +2279,32 @@ Lium $34,056.97; mining spend ≈ $164.13. Floor OK. No new rental. No submit.
 
 Poll n80 → harvest `h1v2_sim_result.json` → triage `h1v2_decision.json`.
 Submit only if margin > 0.04 + H4 OK. Re-check snapshot if chal-00283 crowns.
+
+## 2026-08-07T05:54:31Z — pass 65: H1v2 n80 ETA poll + chal-00283 verdict
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $165.68; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,056.97 (floor OK).
+
+### What I did
+
+1. Polled n80: engines 200×3; sim **198714** alive. 90s rate check:
+   20/20 → 25/24 in 102s → **~2.65 turns/min** → ETA **~06:15Z**
+   (~35m slack to soft 06:50; ~45m to deadman 07:00). No TTL extend.
+2. Fetched live duel `chal-00283` (Shatoria/…-test3): **REJECTED** at
+   05:51Z — margin **+0.0017** z=0.18 (noise; both valid). kevin remains
+   king @ `6a5815…`. Live eval now **chal-00284** load_challenger.
+3. Evidence: `experiments/s4-h1v2-sft/results/h1v2_n80_eta_poll.json`,
+   `chal_00283_verdict.json`. Do **not** submit until n80 margin > 0.04
+   + H4 OK.
+
+### Money
+
+Lium $34,056.97; mining spend ≈ $165.68. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll n80 → harvest `h1v2_sim_result.json` → triage `h1v2_decision.json`.
+Submit only if margin > 0.04 + H4 OK. Re-check snapshot if queue crowns.

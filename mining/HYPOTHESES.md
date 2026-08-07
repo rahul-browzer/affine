@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **n80 RUNNING** (~16/80); merged HF **DONE** public `a314357…` |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **n80 RUNNING** (~25/80 ETA ~06:15); merged HF **DONE** public `a314357…` |
 | 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
@@ -143,6 +143,10 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   `results/h1v2_merged_salvage.json`,
   `h1v2_merged_salvage_confirmed.json`,
   `h1v2_merged_salvage_verified.json`.
+- **ETA poll (05:54Z pass 65):** 90s rate 20→25/24 @ ~2.65 t/min → ETA
+  **~06:15Z** (35m slack to soft). **chal-00283 REJECTED** margin +0.0017
+  z=0.18 — kevin still king. Evidence: `h1v2_n80_eta_poll.json`,
+  `chal_00283_verdict.json`.
 - **Verdict:** open — n80 sampling; prediction unchanged until result.
 
 

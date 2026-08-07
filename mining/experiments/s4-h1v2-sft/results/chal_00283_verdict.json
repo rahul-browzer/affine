@@ -1,0 +1,34 @@
+{
+  "utc_recorded": "2026-08-07T05:54:31Z",
+  "pass": 65,
+  "source": "https://affine.io/api/v1/duels/chal-00283",
+  "challenge_id": "chal-00283",
+  "event": "verdict",
+  "at": "2026-08-07T05:51:00.474381+00:00",
+  "repo": "Shatoria/Affine-5ghntktyzq-test3",
+  "revision": "a751418aa4d7fbadf871d7b567bae4dd4828884d",
+  "hotkey": "5F9VuUab1mn4jQihALQ1QsJdXpz8uNrBr7vrApuJRGyRAtkf",
+  "accepted": false,
+  "challenger_wins": false,
+  "margin": 0.0017202288521696919,
+  "z": 0.18273522203366355,
+  "se": 0.009413778214321433,
+  "n_paired_turns": 80,
+  "score": 0.0013384338734273153,
+  "score_king": -0.0004852962157605171,
+  "challenger": {
+    "valid": true,
+    "S": 0.0013384338734273153,
+    "calib_ratio": 0.9291636908049505,
+    "baseline_abs": 0.11772583504472935,
+    "mean_lambda2": -0.012756510370112766
+  },
+  "king": {
+    "valid": true,
+    "S": -0.0004852962157605171,
+    "calib_ratio": 1.0048671536108296,
+    "baseline_abs": 0.13402535138653224,
+    "mean_lambda2": -0.010862935385803886
+  },
+  "implication": "kevin remains king. Near-miss was noise (margin +0.0017 << min_margin 0.02). H1v2 n80 still scored vs kevin 6a5815… — live-king guard OK unless a later queue crown flips before our triage."
+}

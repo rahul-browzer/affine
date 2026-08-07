@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T05:54:31Z | 34056.97 | 10.000000 | 0 | mine-sim-1 spent $165.68; pass65 n80 ETA~06:15 + chal-00283 REJECTED; no new rental |
 | 2026-08-07T05:50:34Z | 34056.97 | 10.000000 | 0 | mine-sim-1 spent $164.13; pass64 H1v2 merged HF public salvage DONE a314357…; n80~16/80; no new rental |
 | 2026-08-07T05:47:50Z | 34064.74 | 10.000000 | 0 | mine-sim-1 spent $162.94; pass63 H1v2 HF quota fix + public merged push retry; n80~10/80; no new rental |
 | 2026-08-07T05:44:10Z | 34072.51 | 10.000000 | 0 | mine-sim-1 spent $161.57; pass62 H1v2 chall READY→n80 sim running; no new rental |
@@ -138,7 +139,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~148.11 so far (meter running @ 23.60/h; host deadman 07:00Z) | — |
+| Lium rentals (`mine-*`) | ~165.68 so far (meter running @ 23.60/h; host deadman 07:00Z) | — |
 
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
