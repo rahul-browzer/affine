@@ -7,10 +7,10 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $32,978.26 | 2026-08-07T14:18Z |
-| cumulative mining spend | ~$1,050 (`mine-sim-1` ~$252 + h5c ~$116 + h7–h12 ~$204 + h13–h17 accruing) | 2026-08-07T14:18Z |
-| headroom to floor | ~$4,978 | |
-| headroom to $4,000 cap | ~$2,950 | |
+| Lium balance | $32,959.66 | 2026-08-07T14:22Z |
+| cumulative mining spend | ~$1,070 (`mine-sim-1` ~$252 + h5c ~$116 + h7–h12 ~$204 + h13–h17 accruing) | 2026-08-07T14:22Z |
+| headroom to floor | ~$4,960 | |
+| headroom to $4,000 cap | ~$2,930 | |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -19,6 +19,7 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-07T14:22Z | 32959.66 | h13–h17 accruing (no rent/rm); H16 n80 started; ~$1070 cum; floor OK |
 | 2026-08-07T14:18Z | 32978.26 | h13–h17 accruing (no rent/rm); H16 king Triton fix; H15 n80 live; ~$1050 cum; floor OK |
 | 2026-08-07T14:12Z | 32996.84 | h13–h17 accruing (no rent/rm); H14/H15 engine recovery; ~$1000 cum; floor OK |
 | 2026-08-07T13:57Z | 33051.70 | rented mine-h17-1 8×H200 @$31.92/h ttl8h (max~$255); H13 n80 live; ~$950 cum; floor OK |
@@ -28,4 +29,3 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 | 2026-08-07T13:32Z | 33133.65 | rented mine-h13-1 8×H200 @$31.92/h ttl8h (max~$255); H10 rm'd (~$40); ~$670 cum; floor OK |
 | 2026-08-07T13:31Z | 33133.65 | lium rm mine-h10-1 after H10 REFUTE base×1.983 (no new rent yet) |
 | 2026-08-07T13:14Z | 33207.10 | h5c+h9+h10+h11+h12 accruing (~$620 cum); H13/H14 retry hardened (no rent); floor OK |
-| 2026-08-07T13:10Z | 33225.35 | h5c+h9+h10+h11+h12 accruing (~$610 cum); H14 staged no rent; H12 n80 live; floor OK |

@@ -1,0 +1,7 @@
+{
+  "utc": "2026-08-07T14:21:53Z",
+  "event": "n80_started",
+  "king_health": 200,
+  "all_ready_elapsed_s": 1057,
+  "note": "king Triton compile finished after 14:15Z relaunch; t/k/c=200; run_sim_duel.py pid live"
+}
