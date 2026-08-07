@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-07T12:00:04Z",
+  "decision": "REFUTE",
+  "margin": -0.016399722179927936,
+  "z": -2.2455793149772587,
+  "se": 0.007303114198882802,
+  "chall_S": 0.014002835870826003,
+  "king_S": 0.03040255805075394,
+  "r": 0.8833507494778445,
+  "base_x": 1.0581545355357025,
+  "mean_clip_l1_chall": 0.01675453161618285,
+  "mean_clip_l1_king": 0.028023956622157425,
+  "mean_lambda2_chall": -0.0027516957453568463,
+  "mean_lambda2_king": 0.002378601428596518,
+  "chall_valid": true,
+  "king_valid": true,
+  "n_paired_turns": 80,
+  "elapsed_s": 2416.984178543091,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "hf_repo": "unconst/Affine-5czsc2fc98-h5c-merged",
+  "keep_pod_for": "H6"
+}

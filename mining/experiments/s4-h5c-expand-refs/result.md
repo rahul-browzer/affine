@@ -90,8 +90,20 @@ Artifacts: `results/h5c_merge_meta.json`, `h5c_identity.json`,
 | item | value |
 |---|---|
 | chall READY | 2026-08-07T11:19:28Z · `/root/h5c/merged` :8002 |
-| n80 | **RUNNING** pid 43690 → `/root/affine_data/h5c_sim_result.json` |
-| HF merged | repo flipped **public**; push `--public` pid 43981 (67 GiB) |
-| gate | margin > 0.04 else refute + teardown |
+| n80 | pid 43690 → `/root/affine_data/h5c_sim_result.json` |
+| HF merged | public `unconst/Affine-5czsc2fc98-h5c-merged` |
 
-Artifact: `results/h5c_n80_launched.json`. Next: poll decision.
+## Final n80 verdict (pass 123) — **REFUTE**
+
+| metric | value |
+|---|---|
+| margin / z / se | **−0.01640** / −2.25 / 0.00730 |
+| S_c / S_k | 0.01400 / 0.03040 |
+| r / base× | **0.883** valid / **1.058** valid |
+| mean clip-L1 c/k | **0.0168** / 0.0280 (need ≥0.042) |
+| mean Λ2 c/k | **−0.0028** / +0.0024 |
+| gates | both valid; lost on margin |
+
+Same failure mode as mid50: clip-L1 (and now Λ2) miss, not calibration.
+**Do not submit.** Keep `mine-h5c-1` for H6. Artifacts:
+`results/h5c_decision.json`, `h5c_n80_summary.json`, `h5c_sim_result.json`.

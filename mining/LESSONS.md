@@ -67,6 +67,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - H5c mid50 (kevin-init thought LoRA, best loss 0.419@50) n40 margin **−0.019**
   vs TalentPigs; gate-valid at r=0.897, lost because clip-L1 0.015 ≪ king 0.028.
   A clip-L1 miss, not a calibration miss.
+- H5c final n80 **REFUTED**: margin −0.01640 z=−2.25; r=0.883 base×1.058 valid;
+  clipL1 0.0168≪king 0.0280 and Λ2 −0.0028 vs +0.0024 — kevin-init expanded
+  shortz distill does not close L1 or Λ2 vs TalentPigs (do not retry same recipe).
 - HF **private** repo storage can hard-fail uploads (`Private repository storage
   limit reached`); keep candidate merges public or prune old private repos.
 
