@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-07T12:04:33Z",
+  "action": "launched_h6_mid50_waiter",
+  "pod": "mine-h5c-1",
+  "wait_pid": 63689,
+  "script": "wait_mid50.sh \u2192 mid50_early_sim.sh",
+  "trigger": "checkpoint-50/adapter_config.json",
+  "gpus": "4,5 (kill idle H5c chall first)",
+  "n_turns": 40,
+  "yield_on": "/root/logs/h6_merge.done",
+  "note": "early signal only; final n80 authoritative"
+}

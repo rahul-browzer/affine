@@ -96,6 +96,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - Launching train without uploading its post_train waiter leaves a dead-end when
   train.done lands — H6 train ran with only `start_h6.sh` on pod until pass121
   scp'd `post_train_pipeline.sh` (pid 53727).
+- After a REFUTE n80, kill the idle chall vLLM on :8002 before reuse — leftover
+  H5c chall held GPUs 4,5 (~143 GiB each) until H6 mid50 waiter explicitly freed them.
 
 ## Money / platform
 

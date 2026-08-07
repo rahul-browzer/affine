@@ -7,10 +7,10 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $33,443.93 | 2026-08-07T12:01Z |
-| cumulative mining spend | ~$349 (`mine-sim-1` ~$252 + h5c ~$67 + h7 ~$16 + h8 ~$14) | 2026-08-07T12:01Z |
+| Lium balance | $33,443.93 | 2026-08-07T12:04Z |
+| cumulative mining spend | ~$350 (`mine-sim-1` ~$252 + h5c ~$68 + h7 ~$16 + h8 ~$14) | 2026-08-07T12:04Z |
 | headroom to floor | ~$5,444 | |
-| headroom to $4,000 cap | ~$3,651 | |
+| headroom to $4,000 cap | ~$3,650 | |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -19,6 +19,7 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-07T12:04Z | 33443.93 | h5c~$68 + h7~$16 + h8~$14; H6 mid50 waiter launched (no new rent); floor OK |
 | 2026-08-07T12:01Z | 33443.93 | h5c~$67 + h7~$16 + h8~$14; H5c REFUTE; H6/H7/H8 accruing; floor OK |
 | 2026-08-07T11:49Z | 33482.89 | h5c+h7+h8 accruing; H7 n80 live; H8 merge→serve; floor OK |
 | 2026-08-07T11:39Z | 33508.56 | h5c~$57 + h7~$5 + h8~$3 accruing; H6 pipe launched; floor OK |
