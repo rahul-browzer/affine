@@ -9,11 +9,12 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → r∈[0.70,0.85], clip-L1≥0.042, margin>0.04 | **open** (train ~3/99) |
+| 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → r∈[0.70,0.85], clip-L1≥0.042, margin>0.04 | **open** (train ~7/99) |
 | 2 | H7 | high (cheap) | TalentPigs×pandora α0.75 → margin>0.04 vs TalentPigs | **open** (bootstrap) |
-| 3 | H5c | was highest | kevin-init thought LoRA on expanded refs → margin>0.04 | **open** (mid50 FAIL; n80 ~15/80) |
-| 4 | H4 | high (rule) | keep r∈[0.70,0.85] and base×≤1.15 or gates kill S | **open** (design rule) |
-| 5 | H3 | instrumental | with Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S | **supported** |
+| 3 | H8 | high (cheap) | TalentPigs×golden-crown α0.75 → margin>0.04 vs TalentPigs | **open** (bootstrap) |
+| 4 | H5c | was highest | kevin-init thought LoRA on expanded refs → margin>0.04 | **open** (mid50 FAIL; n80 ~24/80) |
+| 5 | H4 | high (rule) | keep r∈[0.70,0.85] and base×≤1.15 or gates kill S | **open** (design rule) |
+| 6 | H3 | instrumental | with Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S | **supported** |
 | — | H5b | was highest | TalentPigs-init thought LoRA lr1e-5 → margin>0.04 | **refuted** |
 | — | H5 | was highest | kevin×TalentPigs merge α∈{0.65,0.50} → margin>0.04 | **refuted** |
 | — | H1v2 | was highest | thought-only SFT → margin>0.04 | **refuted** |
@@ -27,16 +28,21 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H6 — TalentPigs-init mild shortz-nolist
 - **Claim:** lr=5e-6 on shortz-nolist (790) from TalentPigs keeps r∈[0.70,0.85] and raises clip-L1 ≥ 0.042.
 - **Test:** train on mine-h5c-1 GPUs 6,7 → merge → n80 vs TalentPigs.
-- **Status:** train **RUNNING** pid 46680 step~3/99 @11:29Z. Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
+- **Status:** train **RUNNING** pid 46680 step~7/99 @11:33Z. Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
 
 ### H7 — TalentPigs × pandora-m4 merge
 - **Claim:** α=0.75 linear merge (TalentPigs-dominant) clears margin > 0.04; untried parents (H2=kevin×pandora, H5=kevin×TP).
 - **Test:** mine-h7-1 bootstrap→merge→n80; try α=0.85 if 0.02≤margin≤0.04.
-- **Status:** pipeline pid 829 **BOOTSTRAP** @11:29Z. Detail: `experiments/s4-h7-tp-pandora-merge/`.
+- **Status:** pipeline pid 829 **BOOTSTRAP** (pandora DL) @11:33Z. Detail: `experiments/s4-h7-tp-pandora-merge/`.
+
+### H8 — TalentPigs × golden-crown merge
+- **Claim:** α=0.75 linear merge with reign-earner golden-crown clears margin > 0.04; independent of H7 (different B).
+- **Test:** mine-h8-1 bootstrap→merge→n80; try α=0.85 if 0.02≤margin≤0.04.
+- **Status:** pipeline pid 820 **BOOTSTRAP** @11:33Z. Detail: `experiments/s4-h8-tp-goldencrown-merge/`.
 
 ### H5c — L1-headroom distill vs TalentPigs
 - **Claim:** kevin-init thought LoRA on expanded teacher_refs clears margin > 0.04.
-- **Status:** mid50 n40 **FAIL** (−0.019); n80 **RUNNING** ~15/80; HF public `unconst/Affine-5czsc2fc98-h5c-merged` @0cda099e. Detail: `experiments/s4-h5c-expand-refs/`.
+- **Status:** mid50 n40 **FAIL** (−0.019); n80 **RUNNING** ~24/80; HF public `unconst/Affine-5czsc2fc98-h5c-merged` @0cda099e. Detail: `experiments/s4-h5c-expand-refs/`.
 
 ### H4 — stay inside the distill envelope
 - **Claim:** r ∈ [0.70, 0.85] and base× ≤ 1.15, or gates invalidate the miner.

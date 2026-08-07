@@ -77,8 +77,10 @@ Format: `- <finding> — <the number or error that proves it>`
 - Prefer direct SSH + `nohup` for long jobs over `lium exec`.
 - On an 8× sim pod, GPUs 6,7 stay free while teacher/king/chall hold 0–5 —
   launch the next LoRA there instead of renting (H6 pid 46680 beside H5c n80).
-- Independent merge hypotheses go on a **second** `mine-*` pod while train/sim
-  occupy the first — do not serialize (H7 mine-h7-1 beside mine-h5c-1).
+- Independent merge hypotheses go on separate `mine-*` pods while train/sim
+  occupy others — do not serialize (H7+H8 beside mine-h5c-1; 3 live mine-*).
+- Reign earners with null published S (e.g. golden-crown) are still valid merge
+  parents — they hold weight_bps and are untried vs TalentPigs.
 
 ## Money / platform
 
