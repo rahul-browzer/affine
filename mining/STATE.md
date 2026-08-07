@@ -4,7 +4,7 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H18–H20 n80 live; H21/H22 bootstrapping; H23 staged (cap 5/5).**
+**Stage 4 — H18–H20 n80 live; H21/H22 bootstrapping; H23+H24 staged (cap 5/5).**
 H1–H17/H5c/H6 **REFUTED**. No submit.
 
 ## Live facts
@@ -14,14 +14,15 @@ H1–H17/H5c/H6 **REFUTED**. No submit.
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 #3 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
 | min_submission_block | 8767079 |
-| Lium / spend | ~$32,698 · ~$1,420 · cap rem ~$2,580 |
+| Lium / spend | ~$32,682 · ~$1,440 · cap rem ~$2,560 |
 | miner | τ10.000 free · 0 submissions |
-| H18 | n80 ~34/80 @15:45Z (TP×Shatoria α0.75) |
-| H19 | n80 ~37/80 @15:45Z (TP×kkkk α0.90) |
-| H20 | n80 ~22/80 @15:45Z (TP×leary α0.90; chall@0.72) |
-| H21 | DL TalentPigs (pip OK) — TP×sft2 α0.75 |
-| H22 | DL TalentPigs — TP×kevin α0.90 |
+| H18 | n80 ~37/80 @15:47Z (TP×Shatoria α0.75) |
+| H19 | n80 ~42/80 @15:47Z (TP×kkkk α0.90) |
+| H20 | n80 ~26/80 @15:47Z (TP×leary α0.90; chall@0.72) |
+| H21 | DL teacher (TP+sft2 done) — TP×sft2 α0.75 |
+| H22 | DL kevin (TP done) — TP×kevin α0.90 |
 | H23 | **staged** TP×Talucampe ck5 α0.90 — launch on first free slot |
+| H24 | **staged** TP×0ronoCris α0.90 — after H23 (scripts ready) |
 
 ## What's running
 
@@ -45,6 +46,6 @@ ally1/hope100 **absent** from public history (pass155).
 
 **Poll nested `*_decision.json` on h18–h22.** On genuine REFUTE: `lium rm`
 that `mine-h*-1` only; ignore `*.FALSE_PROBE.json`. Free slot → launch **H23**
-(`experiments/s4-h23-tp-talucampe-a90/upload_and_launch.sh`). H24 queue:
-0ronoCris distill-ref-2 @d43ada88 (+0.0016 ungated). TRY_ALPHA_095 only if
-gate-valid and 0.02≤m≤0.04.
+(`experiments/s4-h23-tp-talucampe-a90/upload_and_launch.sh`). Next free after
+H23 → **H24** (`experiments/s4-h24-tp-ronocris-a90/upload_and_launch.sh`).
+TRY_ALPHA_095 only if gate-valid and 0.02≤m≤0.04.
