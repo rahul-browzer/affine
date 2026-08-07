@@ -1,0 +1,1 @@
+2026-08-07T06:20:30Z pass68: harvest killed to KEEP mine-sim-1 for new-king pivot (TalentPigs crowned). Deadman 1757428 still @ 08:00Z. Do NOT early-teardown.

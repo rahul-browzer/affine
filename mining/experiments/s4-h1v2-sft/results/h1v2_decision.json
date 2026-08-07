@@ -1,0 +1,76 @@
+{
+  "utc": "2026-08-07T06:20:02Z",
+  "rule": {
+    "submit_margin": 0.04,
+    "contract_margin": 0.02,
+    "h4_r": [
+      0.7,
+      0.85
+    ],
+    "h4_base_x_max": 1.15,
+    "prefer": "n80",
+    "live_king_guard": true
+  },
+  "primary": {
+    "source": "n80",
+    "n_paired_turns": 80,
+    "margin": -0.00029681941467316286,
+    "se": 0.00786956967028853,
+    "z": -0.037717362843079104,
+    "challenger_wins": false,
+    "king_S": 0.005613230565835632,
+    "chall_S": 0.005311279603880765,
+    "king_valid": true,
+    "chall_valid": true,
+    "chall_r": 0.903518113572423,
+    "base_x": 0.9970352392211945,
+    "h4_ok": false,
+    "action": "revise_recipe",
+    "reason": "margin -0.00030 < 0.02; revise recipe or try H5 warm-start; do not burn a slot",
+    "chall_repo": "/root/h1v2/merged",
+    "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+    "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220"
+  },
+  "n40": null,
+  "n80": {
+    "source": "n80",
+    "n_paired_turns": 80,
+    "margin": -0.00029681941467316286,
+    "se": 0.00786956967028853,
+    "z": -0.037717362843079104,
+    "challenger_wins": false,
+    "king_S": 0.005613230565835632,
+    "chall_S": 0.005311279603880765,
+    "king_valid": true,
+    "chall_valid": true,
+    "chall_r": 0.903518113572423,
+    "base_x": 0.9970352392211945,
+    "h4_ok": false,
+    "action": "revise_recipe",
+    "reason": "margin -0.00030 < 0.02; revise recipe or try H5 warm-start; do not burn a slot",
+    "chall_repo": "/root/h1v2/merged",
+    "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+    "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220"
+  },
+  "live_king_guard": {
+    "checked": true,
+    "match": false,
+    "live": {
+      "repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+      "revision": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+      "score": 0.031501971059510636,
+      "reign_number": 3,
+      "current_eval_id": "chal-00286",
+      "current_eval_repo": "dfwasfmdpwkjglnpwngwg/affine-5ccebdzvsj-alskdjf",
+      "current_eval_stage": "ensure_king",
+      "current_eval_progress": {
+        "phase": "ensure_king"
+      },
+      "snapshot_generated_at": "2026-08-07T06:19:03.053964+00:00"
+    },
+    "sim_king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+    "sim_king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
+    "note": "sim king kevin954/Affine-5dfqbbh8ev-sft@6a5815fad8f4e34c983b1933c1fae5762fe25220 != live TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4"
+  },
+  "submit": false
+}

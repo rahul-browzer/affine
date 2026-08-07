@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2314.8598976135254,
+  "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+  "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "chall_repo": "/root/h1v2/merged",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h1v2-sim-n80",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.00029681941467316286,
+    "se": 0.00786956967028853,
+    "z": -0.037717362843079104,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.005613230565835632,
+      "gate_pass_rate": 0.877742946708464,
+      "bank_frac": 0.528125,
+      "calib_ratio": 0.91124192330444,
+      "baseline_abs": 0.1356838148250473,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.01140906819180312,
+      "mean_mix": 0.005613230565835632
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.005311279603880765,
+      "gate_pass_rate": 0.8683385579937304,
+      "bank_frac": 0.490625,
+      "calib_ratio": 0.903518113572423,
+      "baseline_abs": 0.1352815447725353,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.009781556062741349,
+      "mean_mix": 0.005311279603880765
+    },
+    "slice": {
+      "seed": 13705327105804540600,
+      "n": 80,
+      "digest": "50845ea7dcbc1f4e01314756e112111b8729d5d226f3ca8f805742f0db88def9",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.903518113572423,
+    "chall_baseline_abs": 0.1352815447725353,
+    "king_baseline_abs": 0.1356838148250473,
+    "base_x": 0.9970352392211945
+  }
+}

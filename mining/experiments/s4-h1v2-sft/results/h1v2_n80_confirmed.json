@@ -1,0 +1,34 @@
+{
+  "utc": "2026-08-07T06:20:02Z",
+  "margin": -0.00029681941467316286,
+  "z": -0.037717362843079104,
+  "se": 0.00786956967028853,
+  "king_S": 0.005613230565835632,
+  "chall_S": 0.005311279603880765,
+  "chall_r": 0.903518113572423,
+  "base_x": 0.9970352392211945,
+  "h4_ok": false,
+  "action": "revise_recipe",
+  "submit": false,
+  "sim_king": "kevin954/Affine-5dfqbbh8ev-sft@6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "live_king_at_triage": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "live_king_S": 0.031501971059510636,
+  "reign_number": 3,
+  "decomp": {
+    "king": {
+      "n": 319,
+      "mean_L2": -0.01140906819180312,
+      "mean_L1lift": 0.012043034442587709,
+      "mean_clip_L1": 0.017022298757638752,
+      "mean_S": 0.005613230565835632
+    },
+    "challenger": {
+      "n": 319,
+      "mean_L2": -0.009781556062741349,
+      "mean_L1lift": 0.013052218638490938,
+      "mean_clip_L1": 0.015092835666622112,
+      "mean_S": 0.005311279603880765
+    }
+  },
+  "verdict": "H1v2 REFUTED"
+}

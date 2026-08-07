@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T06:09:00Z",
+  "utc": "2026-08-07T06:20:08Z",
   "experiment": "s4-h1v2-sft",
   "step": 55,
   "total": 55,
@@ -18,8 +18,8 @@
   "n_loss_logs": 11,
   "first_loss": 0.49318628311157225,
   "last_loss": 0.4153751373291016,
-  "pipe_waiting": true,
-  "pipe_done": false,
+  "pipe_waiting": false,
+  "pipe_done": true,
   "pipe_aborted": false,
   "n40_present": false
 }

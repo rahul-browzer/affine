@@ -7,12 +7,12 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **n80 RUNNING** (~55/80 ETA ~06:22–06:48); harvest/deadman extended 07:45/08:00; HF `a314357…` |
-| 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
-| 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
-| 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
-| 5 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
-| 6 | H5 | medium | SFT on near-miss lineage to flip −0.0027 → >+0.04 | open (fallback after H1v2) |
+| 1 | H5 / new-king | highest now | pivot to TalentPigs king; merge or mild distill → margin **> 0.04** | **open** — next; live king reign 3 |
+| 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
+| 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
+| 4 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
+| 5 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1/H1v2 breached) |
+| 6 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
 
 ---
 
@@ -153,7 +153,19 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   decomp would die at 07:00Z. Patched + restarted harvest **1748334**.
   n80 ~37/80 @ 06:01; kevin still king; chal-00284 load_challenger.
   Evidence: `h1v2_harvest_artifact_fix.json`, `h1v2_n80_eta_poll.json`.
-- **Verdict:** open — n80 sampling; prediction unchanged until result.
+- **n80 result (06:20Z pass 68):** margin **−0.00030** (z=−0.038,
+  SE=0.00787); chall S=0.00531 vs kevin S=0.00561; both valid; **H4 FAIL**
+  (r=**0.904**∉[0.70,0.85], base×=0.997). Decomp: chall mean_Λ2 slightly
+  better (−0.00978 vs −0.01141) and clip-L1 **+0.01509** (met ≥+0.015
+  pred) but kevin clip-L1 +0.01702 still wins the mix. Triage
+  `revise_recipe`; submit=false. **Live king changed mid-sim:**
+  chal-00284 crowned `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…`
+  reign 3 S=0.0315 at 06:15Z — live-king guard match=false. Artifacts:
+  `results/h1v2_sim_result.json`, `h1v2_decision.json`,
+  `h1v2_n80_confirmed.json`, `result.md`. HF `a314357…` salvage only.
+- **Verdict:** **refuted** for this thought-only LoRA recipe (prediction
+  ≥+0.04 missed; H4 r still high). Better than H1 (parity vs −0.02) but
+  not a crown. Successor: pivot to TalentPigs king + H5/merge/mild distill.
 
 
 ## H2 — weight-merge of recent kings / near-kings beats both
@@ -205,16 +217,21 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   candidate with base×>1.20 will lose or INVALID in sim.
 - **Verdict:** open (design rule; reinforced by Stage 2).
 
-## H5 — near-miss continuation (michael-chan h2 class)
+## H5 — near-miss / new-king pivot (was michael-chan; now TalentPigs)
 
-- **Claim:** Live-king near-miss `michael-chan-000/affine-5EqYW8McUc-h2`
-  (chal-00254, margin **−0.0027**, cS=+0.0176, clip-L1 only +0.0148) is one
-  small teacher-ref SFT away from clearing noise — but our submit gate needs
-  **>0.04**, so treat as a warm start, not a one-shot.
-- **Experiment:** optional after H1/H2; Stage 4 sim.
-- **Prediction:** +teacher-ref SFT from that init → margin ≥ +0.02 vs kevin;
-  reaching +0.04 may still need H1-from-kevin or a merge.
-- **Verdict:** open (lower priority than H1/H2).
+- **Claim (updated 2026-08-07T06:20Z):** After H1/H1v2/H2 all miss vs
+  kevin, the live king is now `TalentPigs/affine-5ekxlcg3fx-abc` @
+  `dbfbb3e2…` (reign 3, S=0.0315 < kevin's 0.0396). A weight-merge of
+  kevin (or H1v2-merged) × TalentPigs, or a mild thought-only distill
+  from TalentPigs init, clears sim margin > 0.04 vs the **live** king.
+- **Prior claim (michael-chan):** near-miss chal-00254 margin −0.0027 —
+  demoted; that lineage is stale under the new crown.
+- **Experiment:** Stage 4 on `mine-sim-1` (pod kept; deadman 08:00Z):
+  download TalentPigs → re-serve :8001 as king → merge or train candidate
+  → n80 vs TalentPigs.
+- **Prediction (pre-register before next train/merge):** n80 paired
+  margin ≥ **+0.04** vs TalentPigs; H4 OK; both valid.
+- **Verdict:** open — next action after H1v2 refute.
 
 ## Scaffolding
 
@@ -222,6 +239,13 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Status:** retired (Stage 0–1 done).
 
 ## Refuted
+
+### H1v2 — thought-only teacher distill (kevin init)
+- Prediction missed: n80 margin ≥ +0.04; H4 r∈[0.70,0.85].
+- Deciding numbers: margin **−0.00030**; r=**0.904**; clip-L1 +0.01509
+  (pred met) but not enough vs kevin +0.017.
+- Kept: thought mask restores clip-L1 vs full-completion H1; still not a
+  crown. Do not submit `…-h1v2-merged` @ `a314357…`.
 
 ### H2 — kevin×pandora linear merge (α∈{0.5, 0.65})
 - Predictions missed: first-try margin >0.02; often >0.04.

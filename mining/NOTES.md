@@ -2370,3 +2370,38 @@ Floor OK. Cap OK. No new rental. No submit.
 
 Poll n80 → confirm harvest of `h1v2_sim_result.json` + artifact → triage
 `h1v2_decision.json`. Submit only if margin > 0.04 + H4 OK.
+
+## 2026-08-07T06:20:30Z — pass 68: H1v2 n80 REFUTED; TalentPigs crowned; keep pod
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $175.84; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $34,010.24 (floor OK).
+
+### What I did
+
+1. Polled n80 → waited for completion (62/80 @ ~1.0 t/min → DONE ~06:19Z).
+   Engines stayed 200×3. SCP'd `h1v2_sim_result.json` + artifact; ran
+   `triage_sim.py` → `h1v2_decision.json`.
+2. **Result:** margin **−0.00030** (z=−0.038); chall S=0.00531 vs kevin
+   S=0.00561; both valid; **H4 FAIL** r=**0.904** / base×=0.997. Decomp:
+   chall Λ2 −0.00978 (slightly better), clip-L1 +0.01509 (pred met) but
+   kevin clip-L1 +0.017 still wins. Action `revise_recipe`; **no submit**.
+   H1v2 **REFUTED**. Wrote `experiments/s4-h1v2-sft/result.md`.
+3. **Live king flipped:** chal-00284 crowned
+   `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` reign 3 S=0.0315 at
+   06:15Z (while our sim still targeted kevin). Live-king guard match=false.
+4. Killed host harvest **1757430** (would early-teardown after got_h1v2);
+   left deadman **1757428** @ 08:00Z; marker `KEEP_POD_FOR_PIVOT.txt`.
+
+### Money
+
+Lium $34,010.24; mining spend ≈ $175.84. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Pivot pod: download TalentPigs → re-serve king :8001 → H5 merge or mild
+distill → n80 vs **live** king (gate > 0.04). Re-check snapshot (chal-00286
+ensure_king may change crown again).
