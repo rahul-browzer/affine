@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2449.291913509369,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/merges/h19-tp90",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h19",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0034788671509154542,
+    "se": 0.005924399201360695,
+    "z": 0.5872101174607613,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.027882691501637052,
+      "gate_pass_rate": 0.774294670846395,
+      "bank_frac": 0.5197916666666667,
+      "calib_ratio": 0.7167336511534087,
+      "baseline_abs": 0.11619100523278507,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.000975833018389003,
+      "mean_mix": 0.027882691501637052
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.031324427571468284,
+      "gate_pass_rate": 0.771875,
+      "bank_frac": 0.490625,
+      "calib_ratio": 0.715361876790576,
+      "baseline_abs": 0.1302136294401065,
+      "n_turns": 80,
+      "n_pairs": 320,
+      "mean_lambda2": -0.0002832736719431938,
+      "mean_mix": 0.031324427571468284
+    },
+    "slice": {
+      "seed": 6696561926507078335,
+      "n": 80,
+      "digest": "d19001f319c32acb03e45b29d8e2999d586b4050745dfe648b4c2144c14abcfd",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.715361876790576,
+    "chall_baseline_abs": 0.1302136294401065,
+    "king_baseline_abs": 0.11619100523278507,
+    "base_x": 1.1206859703057697
+  }
+}
