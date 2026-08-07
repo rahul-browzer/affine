@@ -10,7 +10,7 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **open** (train DONE@99; mid50~16/40; final merge; pipe gated) |
-| 2 | H12 | high (cheap) | TalentPigs×dfwas-alskdjf α0.75 → margin>0.04 (chal-00286 +0.0139 live) | **open** (DL TalentPigs) |
+| 2 | H12 | high (cheap) | TalentPigs×plmk α0.75 → margin>0.04 (chal-00310 +0.0143; als kdjf 403) | **open** (resume DL plmk) |
 | 3 | H11 | high (cheap) | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 (chal-00274 +0.023) | **open** (merge~8/16) |
 | 4 | H9 | high (cheap) | TalentPigs×diane613 α0.75 → margin>0.04 vs TalentPigs | **open** (n80 ~42/80) |
 | 5 | H10 | high (cheap) | TalentPigs×kevin α0.75 (TP-dom) → margin>0.04 | **open** (merge DONE; wait_ready) |
@@ -34,10 +34,10 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Test:** train on mine-h5c-1 GPUs 6,7 → merge → n80 vs TalentPigs.
 - **Status:** train **DONE** step99 (best logged 0.470@60); mid50 n40 ~16/40; final merge saving; post_train **SIGSTOP** until mid50 (`gate_mid50_before_final.sh`). Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
 
-### H12 — TalentPigs × dfwas-alskdjf merge
-- **Claim:** α=0.75 with best *live* near-miss chal-00286 (+0.0139 z=1.77, base×≈0.998) clears margin > 0.04.
-- **Test:** mine-h12-1; B=`dfwasfmdpwkjglnpwngwg/affine-5ccebdzvsj-alskdjf`@a7336221 (kkk/marsplan 404).
-- **Status:** downloading TalentPigs. Detail: `experiments/s4-h12-tp-dfwas-merge/`.
+### H12 — TalentPigs × plmk merge (pivoted from als kdjf)
+- **Claim:** α=0.75 with best *downloadable* near-miss clears margin > 0.04.
+- **Test:** mine-h12-1; B=`bluecolor777/plmk`@b2cc7b9f (=chal-00310 marsplan +0.0143; ungated duplicate). als kdjf gated 403; origin 404.
+- **Status:** resume DL→merge→n80. Detail: `experiments/s4-h12-tp-dfwas-merge/` (`resume_h12_plmk.sh`).
 
 ### H11 — TalentPigs × adambell ckpt450 merge
 - **Claim:** α=0.75 with chal-00274 near-miss (+0.0229 z=2.37 gate-valid) clears margin > 0.04.
