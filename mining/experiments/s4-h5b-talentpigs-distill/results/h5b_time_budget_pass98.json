@@ -1,0 +1,24 @@
+{
+  "pass": 98,
+  "utc": "2026-08-07T09:13:25Z",
+  "progress_utc": "2026-08-07T09:13:12Z",
+  "king": 58,
+  "chall": 58,
+  "n": 80,
+  "window_from": {
+    "utc": "2026-08-07T09:07:03Z",
+    "king": 47,
+    "chall": 47
+  },
+  "window_tpm": 1.789,
+  "wall_90s_tpm": 1.429,
+  "eta_utc": "2026-08-07T09:25:30Z",
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "slack_min_vs_deadman": 154.5,
+  "engines": "200x3",
+  "pipe_pid": 266631,
+  "sim_pid": 276121,
+  "attempt": "1/3",
+  "result_present": false,
+  "scp_after_progress": {"king": 59, "chall": 58, "utc": "2026-08-07T09:13:21Z"}
+}

@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T09:08:36Z",
+  "utc": "2026-08-07T09:13:18Z",
   "experiment": "s4-h5b-talentpigs-distill",
   "stage": "n80",
   "train_done": true,
@@ -14,7 +14,7 @@
   "pipe_waiting": false,
   "pipe_done": false,
   "pipe_aborted": false,
-  "last_pipe_line": "[sim] king 45/80",
+  "last_pipe_line": "[sim] challenger 55/80",
   "mid_salvaged": [
     "checkpoint-50",
     "checkpoint-55",
@@ -22,13 +22,13 @@
   ],
   "identical_to_king": false,
   "sim_progress": {
-    "utc": "2026-08-07T09:08:19Z",
+    "utc": "2026-08-07T09:13:12Z",
     "hotkey": "local-h5b",
     "chall_repo": "/root/h5b/merged",
     "n_turns": 80,
-    "king": 49,
+    "king": 58,
     "king_total": 80,
-    "challenger": 49,
+    "challenger": 58,
     "challenger_total": 80
   },
   "engines": {

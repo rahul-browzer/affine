@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z**; H5b harvest **1964910** →11:45Z | Stage 4 H5b n80 RUNNING ~47/80 (pid 276121) | RUNNING | SSH `root@69.63.236.160 -p 40301`; pipe **266631**; sim **276121**; deadman **1783662**; spent ~$242 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z**; H5b harvest **1964910** →11:45Z | Stage 4 H5b n80 RUNNING ~58/80 (pid 276121) | RUNNING | SSH `root@69.63.236.160 -p 40301`; pipe **266631**; sim **276121**; deadman **1783662**; spent ~$243 |
 
 ## Reconcile log
 
@@ -110,3 +110,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T09:00:18Z | mine-sim-1 RUNNING | matches inventory; spent $238.65; H5b n80 ~king33/chall33 ETA~09:35Z@~1.30tpm (dip); harvest **1964910**; deadman **1783662**; validator pods untouched |
 | 2026-08-07T09:03:19Z | mine-sim-1 RUNNING | matches inventory; spent $239.86; H5b n80 ~king39/chall40 ETA~09:28Z@~1.61tpm (wall~2.67); harvest **1964910**; deadman **1783662**; validator pods untouched |
 | 2026-08-07T09:07:30Z | mine-sim-1 RUNNING | matches inventory; spent $241.59; H5b n80 ~king47/chall47 ETA~09:24Z@~1.94tpm (wall~1.24); harvest **1964910**; deadman **1783662**; validator pods untouched |
+| 2026-08-07T09:13:25Z | mine-sim-1 RUNNING | matches inventory; spent $243.04; H5b n80 ~king58/chall58 ETA~09:25Z@~1.79tpm (wall~1.43); harvest **1964910**; deadman **1783662**; validator pods untouched |
