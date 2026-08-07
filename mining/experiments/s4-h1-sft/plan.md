@@ -27,13 +27,14 @@ On an 80-turn public-D slice in the Stage-3 simulator:
    2 epochs, batch=1 accum=8, max_len=8192 → **110** optimizer steps.
    Launched 2026-08-07T01:51Z pid 82057; log `/root/logs/h1_train.nohup`.
    First step ~63s → ETA ~03:50Z (TTL remove 04:53Z).
-3. **After `train.done`:** automated by `post_train_pipeline.sh` (pid 84834
-   as of 2026-08-07T02:09Z): `salvage_adapter.py` → private
+3. **After `train.done`:** automated by `post_train_pipeline.sh` (pid 85424
+   as of 2026-08-07T02:12Z): `salvage_adapter.py` → private
    `unconst/Affine-5czsc2fc98-h1-lora` (adapter-only TTL insurance);
    `merge_lora.py` GPU 6,7 → `/root/h1/merged`; **chall-only** restart via
-   `restart_for_h2.sh` (`RESTART_KING=0`); `run_sim_duel.py` →
-   `/root/affine_data/h1_sim_result.json` (+ progress JSON for host harvest).
-4. Decision rule below.
+   `restart_for_h2.sh` (`RESTART_KING=0`); dual-phase `run_sim_duel.py`
+   **n=40 then n=80** (skip n80 if <50 min to soft TTL 04:50Z) →
+   `/root/affine_data/h1_sim_result{,_n40}.json`. Lium bk on `/root/h1/train`.
+4. Decision rule below (n80 preferred; n40 triage only).
 
 ## Decision rule
 

@@ -17,6 +17,9 @@
 | 2026-08-07T02:04:17Z | train at step 10/110 @ ~61s/it; ETA ~03:45Z; engines 200×3 |
 | 2026-08-07T02:09:14Z | pipeline restarted pid **84834** — chall-only serve + sim progress JSON; freed h2-kp50+genesis |
 | 2026-08-07T02:09:20Z | train at step 16/110 @ ~50s/it; ETA ~03:28Z; engines 200×3 |
+| 2026-08-07T02:12:15Z | pipeline restarted pid **85424** — dual-phase sim n40→n80 + soft TTL cutoff |
+| 2026-08-07T02:12:20Z | `lium bk set` `/root/h1/train` every 1h keep 1d (adapter TTL insurance) |
+| 2026-08-07T02:12:52Z | train at step 20/110 @ ~51s/it; ETA ~03:30Z; engines 200×3; host harvest 1393267 |
 
 ## How to check
 
@@ -35,8 +38,9 @@ Pipeline `post_train_pipeline.sh` (pid 84834) handles:
 3. `restart_for_h2.sh` with `MERGE=/root/h1/merged` **`RESTART_KING=0`**
    (chall-only; teacher+king stay hot)
 4. Reclaim `/root/merges/h2-kp65` after H1 chall up
-5. `run_sim_duel.py` → `/root/affine_data/h1_sim_result.json`
-   (+ `/root/affine_data/h1_sim_progress.json` during sampling)
+5. `run_sim_duel.py` **n=40** → `/root/affine_data/h1_sim_result_n40.json`
+6. If ≥50 min to soft deadline 04:50Z: **n=80** →
+   `/root/affine_data/h1_sim_result.json` (else n40-only marker)
 
-Done markers: `/root/logs/h1_pipeline.done`, `/root/logs/h1_sim.done`.
-Salvage meta: `/root/h1/adapter_salvage.json`.
+Done markers: `/root/logs/h1_pipeline.done`, `/root/logs/h1_sim.done`,
+`/root/logs/h1_sim_n40.done`. Salvage meta: `/root/h1/adapter_salvage.json`.

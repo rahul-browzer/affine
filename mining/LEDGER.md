@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T02:12:52Z | 34399.46 | 10.000000 | 0 | mine-sim-1 spent $78.50; H1 step20; dual-phase n40→n80 + lium bk /root/h1/train; no new rental |
 | 2026-08-07T02:09:20Z | 34407.24 | 10.000000 | 0 | mine-sim-1 spent $77.11; H1 step16; chall-only serve + progress JSON; no new rental |
 | 2026-08-07T02:04:17Z | 34414.67 | 10.000000 | 0 | mine-sim-1 spent $75.13; H1 step10; GPU-merge pipeline 84156; no new rental |
 | 2026-08-07T02:01:34Z | 34414.67 | 10.000000 | 0 | mine-sim-1 spent $74.05; H1 step8; HF salvage repo + mid-ckpt/host harvest armed; no new rental |
@@ -40,6 +41,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T02:12:52Z | observe | mine-sim spent $78.50 | Lium → mine-sim-1 | 34399.46 | 10.000 | H1 step20; dual-phase sim n40→n80 + lium bk adapters; floor OK |
 | 2026-08-07T02:09:20Z | observe | mine-sim spent $77.11 | Lium → mine-sim-1 | 34407.24 | 10.000 | H1 step16; chall-only restart + sim progress JSON; freed ~136G dead weights; floor OK |
 | 2026-08-07T02:04:17Z | observe | mine-sim spent $75.13 | Lium → mine-sim-1 | 34414.67 | 10.000 | H1 step10; pipeline→GPU merge on 6,7 for TTL margin; floor OK |
 | 2026-08-07T02:01:34Z | observe | mine-sim spent $74.05 | Lium → mine-sim-1 | 34414.67 | 10.000 | H1 step8; pre-created HF lora repo; mid-ckpt+host harvest; floor OK |
@@ -75,7 +77,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~77.11 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
+| Lium rentals (`mine-*`) | ~78.50 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
 
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |

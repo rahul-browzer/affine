@@ -29,14 +29,32 @@ while true; do
     "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_progress.json \
       "$OUT/h1_sim_progress.json" 2>/dev/null || true
   fi
+  if "${SSH[@]}" 'test -f /root/affine_data/h1_sim_progress_n40.json' 2>/dev/null; then
+    "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_progress_n40.json \
+      "$OUT/h1_sim_progress_n40.json" 2>/dev/null || true
+  fi
   "${SCP[@]}" 'root@69.63.236.160:/root/h1/mid_*_salvage.json' \
     "$OUT/" 2>/dev/null || true
+
+  # n40 probe is TTL insurance; harvest even if full 80 never finishes.
+  if [[ ! -f "$OUT/h1_sim_result_n40.json" ]]; then
+    if "${SSH[@]}" 'test -f /root/affine_data/h1_sim_result_n40.json' 2>/dev/null; then
+      "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_result_n40.json \
+        "$OUT/h1_sim_result_n40.json"
+      log "got h1_sim_result_n40.json"
+    fi
+  fi
 
   if (( got_sim == 0 )); then
     if "${SSH[@]}" 'test -f /root/affine_data/h1_sim_result.json' 2>/dev/null; then
       "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_result.json \
         "$OUT/h1_sim_result.json"
       log "got h1_sim_result.json"
+      got_sim=1
+    elif [[ -f "$OUT/h1_sim_result_n40.json" ]] \
+      && "${SSH[@]}" 'test -f /root/logs/h1_pipeline.done' 2>/dev/null; then
+      # Pipeline exited after n40-only (TTL soft cutoff); treat as harvested sim.
+      log "pipeline done with n40-only; counting as sim harvest"
       got_sim=1
     fi
   fi

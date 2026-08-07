@@ -1073,3 +1073,39 @@ Lium $34,407.24; floor OK. Mining spend ≈ $77.11. TTL 04:53Z (~2.7h left).
 
 Collect `h1_sim_result.json` (pod or local results/); apply plan.md
 decision rule. No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T02:12Z — pass 32: H1 dual-phase sim (n40→n80) + adapter bk
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $78.50; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; `min_submission_block`=8767079;
+   Lium $34,399.46 (floor OK). TTL still 04:53Z (~2.7h). Train step
+   **20/110** @ ~51s/it (ETA ~03:30Z); engines 200×3; mid-salvage 83669.
+2. TTL risk: if train slips, full 80-turn sim (~42 min) can miss 04:53Z.
+   Patched `post_train_pipeline.sh` to run **n=40 first** (~21 min) then
+   n=80 only if ≥50 min remain before soft deadline 04:50Z; otherwise
+   exit with n40-only marker. Host harvest now SCPs n40 + progress_n40
+   and accepts n40-only pipeline.done.
+3. Uploaded; killed waiting pipeline 84834 → relaunched pid **85424**.
+   Train + mid-salvage untouched.
+4. `lium bk set mine-sim-1 --path /root/h1/train --every 1h --keep 1d`
+   (adapter/ckpt-only; complements HF salvage). Host harvest relaunched
+   pid **1393267**.
+5. No submit. No new rental. Schedule left intact (no re-add API).
+
+### Money
+
+Lium $34,399.46; floor OK. Mining spend ≈ $78.50. TTL 04:53Z (~2.7h left).
+
+### Next
+
+Collect `h1_sim_result.json` (or n40); apply plan.md decision rule.
+Prefer n80 for submit gate; n40 is triage only. No submit until margin
+> 0.04 + H4.

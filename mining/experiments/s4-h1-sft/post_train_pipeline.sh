@@ -98,11 +98,46 @@ if [[ -d /root/merges/h2-kp65 ]]; then
   rm -rf /root/merges/h2-kp65
 fi
 
-log "launch sim → $SIM_OUT"
+# Dual-phase sim under TTL (remove 04:53Z): n=40 first (~21 min) so a
+# late start or mid-80 kill still leaves a decision signal on disk/HF-harvest;
+# then full n=80 for the plan.md gate (>0.04 on contract slice size).
+SIM_N40=/root/affine_data/h1_sim_result_n40.json
+TTL_DEADLINE_EPOCH=$(date -u -d '2026-08-07T04:50:00Z' +%s 2>/dev/null || echo 0)
+
+log "launch sim n=40 → $SIM_N40 (TTL insurance probe)"
+python /root/mining_src/s4-h2-merge/run_sim_duel.py \
+  --chall-repo "$MERGED" \
+  --out "$SIM_N40" \
+  --hotkey local-h1-sim-n40 \
+  --n-turns 40 \
+  --progress-out /root/affine_data/h1_sim_progress_n40.json \
+  --save-artifact \
+  >>/root/logs/h1_sim.nohup 2>&1
+log "SIM_N40_DONE → $SIM_N40"
+date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h1_sim_n40.done
+
+now_epoch=$(date -u +%s)
+if [[ "$TTL_DEADLINE_EPOCH" =~ ^[0-9]+$ ]] && (( TTL_DEADLINE_EPOCH > 0 )); then
+  remain=$(( TTL_DEADLINE_EPOCH - now_epoch ))
+else
+  remain=99999
+fi
+# Full 80-turn needs ~45 min wall; require 50 min buffer before soft deadline.
+if (( remain < 3000 )); then
+  log "WARN: only ${remain}s to soft TTL deadline; skipping full n=80 (n40 is the signal)"
+  {
+    date -u +%Y-%m-%dT%H:%M:%SZ
+    echo "n40_only remain_s=$remain"
+  } >"$MARKER"
+  exit 0
+fi
+
+log "launch sim n=80 → $SIM_OUT (${remain}s to soft deadline)"
 python /root/mining_src/s4-h2-merge/run_sim_duel.py \
   --chall-repo "$MERGED" \
   --out "$SIM_OUT" \
   --hotkey local-h1-sim \
+  --n-turns 80 \
   --progress-out /root/affine_data/h1_sim_progress.json \
   --save-artifact \
   >>/root/logs/h1_sim.nohup 2>&1
