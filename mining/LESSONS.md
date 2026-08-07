@@ -14,13 +14,11 @@ Format: `- <finding> — <the number or error that proves it>`
 - Clip-L1 is the lever (H3): Spearman 0.936 vs outcome; Λ2 only 0.711.
 - r ∈ [0.3, 4.0] (not our invented [0.70,0.85]); baseline band chall ≤1.25× king.
   Low r is a faithful-distill symptom, never a training target.
-- **α-merge is a ~1-in-260 lottery** (9 n80 mean m=−0.0036 sd=0.0102; bar +0.024
-  =2.7σ). α0.90 clears band but margin≈0. α0.75 usually band-fails but H21 cleared
-  (base×1.001) with m=−0.00682 — still REFUTE. Stop α search.
+- **α-merge is a ~1-in-260 lottery** (10 n80; H25 best-B m=+0.00662 still
+  ≪0.02). α0.90 clears band but margin≈0. Stop α search / do not requeue m7.
 - **Select B by TP-era clip-L1, not parent margin** (`s2-clip-l1-rank`): m7
-  c_clipL1=+0.0435 (H25); plmk +0.0389 but H16 already m=+0.0097 — do not
-  requeue; kkk +0.0288 is pre-TP / mid-pack; hk9/leary-tt ≤+0.020. Screen
-  clip-L1 at n40 before any n80.
+  c_clipL1=+0.0435 → H25 m=+0.00662 (REFUTE); plmk +0.0389 but H16 m=+0.0097 —
+  do not requeue; kkk +0.0288 pre-TP mid-pack. Clip-L1 rank ≠ duel margin.
 - Clip-L1 shaping data ≠ teacher_refs: harvest challenger `z_A` with
   pair clipL1≥0.04 from high-c_clipL1 duels (+ crown), y=teacher y_C,
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
@@ -32,7 +30,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - Merges: H2 kevin×pandora α0.5/−0.010 α0.65/+0.007; H5 kevin-dom×TP band/unpromptable
   (A must be king); H7–H15+H18 α0.75 band-fail; H16/H17/H19 α0.90 band-clear
   weak (+0.0097/−0.0037/+0.0035); H20 leary −0.01168; H21 sft2 α0.75 −0.00682;
-  H22 kevin α0.90 −0.01179 — stop α lottery / leary.
+  H22 kevin α0.90 −0.01179; H25 m7 α0.90 +0.00662 — stop α lottery / leary / m7.
 
 ## Serving / VLM
 
