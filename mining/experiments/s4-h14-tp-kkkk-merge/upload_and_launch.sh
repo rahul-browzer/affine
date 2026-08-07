@@ -26,9 +26,11 @@ cp -a "$ROOT/mining/experiments/s4-h2-merge/merge_linear.py" "$STAGE/s4-h2-merge
 cp -a "$ROOT/mining/experiments/s4-h2-merge/run_sim_duel.py" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/write_merge_decision.py" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_fix_decision.sh" "$STAGE/s4-h2-merge/"
+cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_n80_retry.sh" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/download_parents.sh" "$STAGE/s4-h2-merge/" 2>/dev/null || true
 cp -a "$ROOT/mining/experiments/s4-h14-tp-kkkk-merge/bootstrap_h14.sh" "$STAGE/s4-h14-tp-kkkk-merge/"
 cp -a "$ROOT/mining/experiments/s4-h14-tp-kkkk-merge/start_h14_n80.sh" "$STAGE/s4-h14-tp-kkkk-merge/"
+cp -a "$ROOT/mining/experiments/s4-h14-tp-kkkk-merge/retry_h14_n80.sh" "$STAGE/s4-h14-tp-kkkk-merge/"
 cp -a "$ROOT/mining/experiments/s4-h14-tp-kkkk-merge/plan.md" "$STAGE/s4-h14-tp-kkkk-merge/"
 
 TAR=/tmp/mine-h14-stack.tar.gz
@@ -59,10 +61,12 @@ rm -f "$ENV_TMP"
   chmod 600 /root/mine.env
   chmod +x /root/mining_src/s3-duel-sim/*.sh \
            /root/mining_src/s4-h2-merge/watch_fix_decision.sh \
+           /root/mining_src/s4-h2-merge/watch_n80_retry.sh \
            /root/mining_src/s4-h14-tp-kkkk-merge/*.sh
   test -f /root/mining_src/affine_pkg/affine/score.py
   test -x /root/mining_src/s4-h14-tp-kkkk-merge/bootstrap_h14.sh
   test -x /root/mining_src/s4-h14-tp-kkkk-merge/start_h14_n80.sh
+  test -x /root/mining_src/s4-h14-tp-kkkk-merge/retry_h14_n80.sh
   echo STACK_UPLOAD_OK
   nohup bash -lc "
     set -euo pipefail
@@ -73,6 +77,10 @@ rm -f "$ENV_TMP"
   nohup bash /root/mining_src/s4-h2-merge/watch_fix_decision.sh h14 \
     >/root/logs/h14_fix_decision.nohup 2>&1 &
   echo $! > /root/logs/h14_fix_decision.pid
+  nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h14 \
+    /root/mining_src/s4-h14-tp-kkkk-merge/retry_h14_n80.sh \
+    >/root/logs/h14_watch_retry.nohup 2>&1 &
+  echo $! > /root/logs/h14_watch_retry.pid
   echo PIPELINE_PID=$(cat /root/logs/h14_pipeline.pid)
   sleep 2
   head -n 20 /root/logs/h14_pipeline.nohup || true

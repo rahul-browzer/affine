@@ -37,16 +37,17 @@ for attempt in 1 2 3; do
   rc=${PIPESTATUS[0]}
   set -e
   if [[ $rc -eq 0 && -f /root/affine_data/h13_sim_result.json ]]; then
-    break
+    python3 /root/mining_src/s4-h2-merge/write_merge_decision.py \
+      --hyp h13 \
+      --sim-result /root/affine_data/h13_sim_result.json \
+      --out /root/affine_data/h13_decision.json
+    date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h13_n80.done
+    echo "[h13-n80] DONE"
+    exit 0
   fi
   echo "[h13-n80] attempt=$attempt failed rc=$rc; sleep 30"
   sleep 30
 done
 
-python3 /root/mining_src/s4-h2-merge/write_merge_decision.py \
-  --hyp h13 \
-  --sim-result /root/affine_data/h13_sim_result.json \
-  --out /root/affine_data/h13_decision.json
-
-date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h13_n80.done
-echo "[h13-n80] DONE"
+echo "[h13-n80] ERROR: all 3 attempts failed — watch_n80_retry will take over"
+exit 1

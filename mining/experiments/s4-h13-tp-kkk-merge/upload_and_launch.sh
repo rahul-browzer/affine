@@ -26,9 +26,11 @@ cp -a "$ROOT/mining/experiments/s4-h2-merge/merge_linear.py" "$STAGE/s4-h2-merge
 cp -a "$ROOT/mining/experiments/s4-h2-merge/run_sim_duel.py" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/write_merge_decision.py" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_fix_decision.sh" "$STAGE/s4-h2-merge/"
+cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_n80_retry.sh" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/download_parents.sh" "$STAGE/s4-h2-merge/" 2>/dev/null || true
 cp -a "$ROOT/mining/experiments/s4-h13-tp-kkk-merge/bootstrap_h13.sh" "$STAGE/s4-h13-tp-kkk-merge/"
 cp -a "$ROOT/mining/experiments/s4-h13-tp-kkk-merge/start_h13_n80.sh" "$STAGE/s4-h13-tp-kkk-merge/"
+cp -a "$ROOT/mining/experiments/s4-h13-tp-kkk-merge/retry_h13_n80.sh" "$STAGE/s4-h13-tp-kkk-merge/"
 cp -a "$ROOT/mining/experiments/s4-h13-tp-kkk-merge/plan.md" "$STAGE/s4-h13-tp-kkk-merge/"
 
 TAR=/tmp/mine-h13-stack.tar.gz
@@ -59,10 +61,12 @@ rm -f "$ENV_TMP"
   chmod 600 /root/mine.env
   chmod +x /root/mining_src/s3-duel-sim/*.sh \
            /root/mining_src/s4-h2-merge/watch_fix_decision.sh \
+           /root/mining_src/s4-h2-merge/watch_n80_retry.sh \
            /root/mining_src/s4-h13-tp-kkk-merge/*.sh
   test -f /root/mining_src/affine_pkg/affine/score.py
   test -x /root/mining_src/s4-h13-tp-kkk-merge/bootstrap_h13.sh
   test -x /root/mining_src/s4-h13-tp-kkk-merge/start_h13_n80.sh
+  test -x /root/mining_src/s4-h13-tp-kkk-merge/retry_h13_n80.sh
   echo STACK_UPLOAD_OK
   nohup bash -lc "
     set -euo pipefail
@@ -73,6 +77,10 @@ rm -f "$ENV_TMP"
   nohup bash /root/mining_src/s4-h2-merge/watch_fix_decision.sh h13 \
     >/root/logs/h13_fix_decision.nohup 2>&1 &
   echo $! > /root/logs/h13_fix_decision.pid
+  nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h13 \
+    /root/mining_src/s4-h13-tp-kkk-merge/retry_h13_n80.sh \
+    >/root/logs/h13_watch_retry.nohup 2>&1 &
+  echo $! > /root/logs/h13_watch_retry.pid
   echo PIPELINE_PID=$(cat /root/logs/h13_pipeline.pid)
   sleep 2
   head -n 20 /root/logs/h13_pipeline.nohup || true

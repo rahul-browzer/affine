@@ -10,12 +10,12 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **open** (n80 ~11/80; retry watcher) |
-| 2 | H13 | highest (cheap) | TalentPigs×kkk-af α0.75 → margin>0.04 (chal-00262 +0.0244 exact rev) | **open** (staged; wait slot) |
+| 2 | H13 | highest (cheap) | TalentPigs×kkk-af α0.75 → margin>0.04 (chal-00262 +0.0244 exact rev) | **open** (staged+retry; wait slot) |
 | 3 | H11 | high (cheap) | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 (chal-00274 +0.023) | **open** (n80 ~31/80; retry watcher) |
 | 4 | H10 | high (cheap) | TalentPigs×kevin α0.75 (TP-dom) → margin>0.04 | **open** (n80 ~42/80; retry watcher) |
 | 5 | H12 | high (cheap) | TalentPigs×plmk α0.75 → margin>0.04 (chal-00310 +0.0143) | **open** (n80 just started) |
 | 6 | H9 | high (cheap) | TalentPigs×diane613 α0.75 → margin>0.04 vs TalentPigs | **open** (n80 retry 1/3 ~19/80) |
-| 7 | H14 | med (cheap) | TalentPigs×kkkk α0.75 → margin>0.04 (chal-00268 +0.0132) | **open** (staged; after H13) |
+| 7 | H14 | med (cheap) | TalentPigs×kkkk α0.75 → margin>0.04 (chal-00268 +0.0132) | **open** (staged+retry; after H13) |
 | — | H8 | was high | TalentPigs×golden-crown α0.75 → margin>0.04 | **refuted** — invalid base×1.97 |
 | — | H7 | was high | TalentPigs×pandora α0.75 → margin>0.04 | **refuted** — invalid base×2.21 |
 | — | H5c | was highest | kevin-init thought LoRA on expanded refs → margin>0.04 | **refuted** — n80 −0.01640 |
@@ -36,15 +36,15 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Test:** train on mine-h5c-1 GPUs 6,7 → merge → n80 vs TalentPigs.
 - **Status:** mid50 SIGNAL_NEG; final n80 ~11/80; `watch_n80_retry` armed. Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
 
-### H13 — TalentPigs × kkk-af (chal-00262) — staged
+### H13 — TalentPigs × kkk-af (chal-00262) — staged+hardened
 - **Claim:** α=0.75 with strongest non-crown near-miss (+0.0244 z=2.58) clears margin > 0.04.
-- **Test:** next free slot → `mine-h13-1`; B=`bluecolor777/kkk-af`@7426296b (exact chal-00262 rev; origin 404).
-- **Status:** scripts ready; **priority on first free slot**. Detail: `experiments/s4-h13-tp-kkk-merge/`.
+- **Test:** next free slot → `mine-h13-1`; B=`bluecolor777/kkk-af`@7426296b (HF OK 13:12Z).
+- **Status:** `retry_h13_n80.sh` + `watch_n80_retry` in upload; **priority on first free slot**. Detail: `experiments/s4-h13-tp-kkk-merge/`.
 
-### H14 — TalentPigs × kkkk (chal-00268) — staged
+### H14 — TalentPigs × kkkk (chal-00268) — staged+hardened
 - **Claim:** α=0.75 with chal-00268 near-miss (+0.0132 z=1.24) clears margin > 0.04.
-- **Test:** second free slot → `mine-h14-1`; B=`vincentwarrior/affine-5ccebdzvsj-kkkk`@3ca1ebe6 (HF OK 13:09Z).
-- **Status:** scripts ready; launch after H13 or if kkk-af 404s. Detail: `experiments/s4-h14-tp-kkkk-merge/`.
+- **Test:** second free slot → `mine-h14-1`; B=`vincentwarrior/affine-5ccebdzvsj-kkkk`@3ca1ebe6 (HF OK 13:12Z).
+- **Status:** `retry_h14_n80.sh` + `watch_n80_retry` in upload; after H13. Detail: `experiments/s4-h14-tp-kkkk-merge/`.
 
 ### H12 — TalentPigs × plmk merge (pivoted from als kdjf)
 - **Claim:** α=0.75 with plmk near-miss clears margin > 0.04.
