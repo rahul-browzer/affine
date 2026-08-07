@@ -96,8 +96,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - Launching train without uploading its post_train waiter leaves a dead-end when
   train.done lands — H6 train ran with only `start_h6.sh` on pod until pass121
   scp'd `post_train_pipeline.sh` (pid 53727).
-- After a REFUTE n80, kill the idle chall vLLM on :8002 before reuse — leftover
-  H5c chall held GPUs 4,5 (~143 GiB each) until H6 mid50 waiter explicitly freed them.
+- After REFUTE, kill idle chall on :8002 before reuse (H5c held GPUs 4–5); also
+  H6 post_train `restart_for_h2` kills `vllm_chall.pid` at merge-end — SIGSTOP the
+  pipe until mid50 lands (`gate_mid50_before_final.sh`); never edit the live pipe.
 - `run_sim_duel.py` nests margin/z under `verdict` and valid/S under
   `verdict.challenger` — flat `d.get("margin")` is always None and false-REFUTEs
   winners. Use `s4-h2-merge/write_merge_decision.py` (H5b proof: nested 0.00322
@@ -110,7 +111,6 @@ Format: `- <finding> — <the number or error that proves it>`
   reign earners at 25% sabotage empty-baseline — do not retry those B / no α0.85 on gate-fail.
 - Dual-side n40/n80 can `httpx.ReadTimeout` on teacher sample at default 180s×3 (H6 mid50 died @29/40); pod `vllm_client` now 480s×5; `retry_mid50_n40.sh` + post_train already retries n80×3.
 - Near-miss HF parents often vanish: adambell/kkk(+0.0244)/marsplan(+0.0143) all 404; check `api/models/<repo>` w/ token before rent — use mirror or next live (alskdjf +0.0139 = H12; adambell→`0pentensor/…ckpt450-H6`).
-- H6 post_train swaps chall via `restart_for_h2` (kills `vllm_chall.pid`) as soon as merge ends — if mid50 still owns :8002, SIGSTOP the pipe until mid50 lands (`gate_mid50_before_final.sh`); do not edit the live pipe.
 
 ## Money / platform
 
