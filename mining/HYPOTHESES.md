@@ -29,13 +29,13 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Prediction (pre-register before train):** challenger mean paired margin ≥
   **+0.04** vs live king on an 80-turn public-D slice, all gates passing,
   r∈[0.70,0.85], base×≤1.15.
-- **In flight (2026-08-07T02:04Z):** harvest 440/440; LoRA r=16 2ep from
-  kevin init, 110 steps, pid 82057 (~step 10 @ 61s/it, ETA ~03:45Z).
-  Post-train pipeline pid **84156** armed: HF adapter salvage
+- **In flight (2026-08-07T02:09Z):** harvest 440/440; LoRA r=16 2ep from
+  kevin init, 110 steps, pid 82057 (~step 16 @ 50s/it, ETA ~03:28Z).
+  Post-train pipeline pid **84834** armed: HF adapter salvage
   (`unconst/Affine-5czsc2fc98-h1-lora`, private, **repo pre-created**) →
-  **GPU merge on 6,7** (`--device-map auto`) → re-serve→sim →
-  `/root/affine_data/h1_sim_result.json`. Mid-ckpt salvage pid 83669
-  (checkpoint-N/ on HF); host harvester 1375476 SCPs JSON into
+  **GPU merge on 6,7** → **chall-only re-serve** (king kept) → sim with
+  progress JSON → `/root/affine_data/h1_sim_result.json`. Mid-ckpt salvage
+  pid 83669; host harvester 1388880 SCPs JSON into
   `experiments/s4-h1-sft/results/` before TTL.
 - **Verdict:** open.
 

@@ -29,10 +29,27 @@ def load_engine_cfg(toml_path: Path) -> dict:
 async def main_async(args: argparse.Namespace) -> dict:
     engine = load_engine_cfg(args.toml)
     duel_cfg = engine["duel"]
+    if args.n_turns is not None:
+        duel_cfg["n_turns"] = int(args.n_turns)
+        engine["duel"] = duel_cfg
+
+    progress_state: dict[str, int] = {}
 
     def on_progress(name: str, done: int, total: int) -> None:
+        progress_state[name] = done
+        progress_state[f"{name}_total"] = total
         if done == total or done % 5 == 0:
             print(f"[sim] {name} {done}/{total}", flush=True)
+        if args.progress_out:
+            payload = {
+                "utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                "hotkey": args.hotkey,
+                "chall_repo": args.chall_repo,
+                "n_turns": duel_cfg.get("n_turns"),
+                **progress_state,
+            }
+            args.progress_out.parent.mkdir(parents=True, exist_ok=True)
+            args.progress_out.write_text(json.dumps(payload, indent=2))
 
     teacher = Served(name="teacher", repo=args.teacher_repo,
                      revision=None, port=args.teacher_port)
@@ -116,6 +133,18 @@ def main() -> None:
     ap.add_argument("--hotkey", default="local-h2-sim")
     ap.add_argument("--manifest-sha", default="")
     ap.add_argument("--save-artifact", action="store_true")
+    ap.add_argument(
+        "--n-turns",
+        type=int,
+        default=None,
+        help="override duel.n_turns from toml (default: contract value)",
+    )
+    ap.add_argument(
+        "--progress-out",
+        type=Path,
+        default=None,
+        help="write sampling progress JSON for host harvest / TTL watch",
+    )
     args = ap.parse_args()
     asyncio.run(main_async(args))
 

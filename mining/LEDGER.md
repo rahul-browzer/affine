@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T02:09:20Z | 34407.24 | 10.000000 | 0 | mine-sim-1 spent $77.11; H1 step16; chall-only serve + progress JSON; no new rental |
 | 2026-08-07T02:04:17Z | 34414.67 | 10.000000 | 0 | mine-sim-1 spent $75.13; H1 step10; GPU-merge pipeline 84156; no new rental |
 | 2026-08-07T02:01:34Z | 34414.67 | 10.000000 | 0 | mine-sim-1 spent $74.05; H1 step8; HF salvage repo + mid-ckpt/host harvest armed; no new rental |
 | 2026-08-07T01:58:18Z | 34422.81 | 10.000000 | 0 | mine-sim-1 spent $72.77; H1 step5 + adapter-salvage pipeline; no new rental |
@@ -39,6 +40,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T02:09:20Z | observe | mine-sim spent $77.11 | Lium → mine-sim-1 | 34407.24 | 10.000 | H1 step16; chall-only restart + sim progress JSON; freed ~136G dead weights; floor OK |
 | 2026-08-07T02:04:17Z | observe | mine-sim spent $75.13 | Lium → mine-sim-1 | 34414.67 | 10.000 | H1 step10; pipeline→GPU merge on 6,7 for TTL margin; floor OK |
 | 2026-08-07T02:01:34Z | observe | mine-sim spent $74.05 | Lium → mine-sim-1 | 34414.67 | 10.000 | H1 step8; pre-created HF lora repo; mid-ckpt+host harvest; floor OK |
 | 2026-08-07T01:58:18Z | observe | mine-sim spent $72.77 | Lium → mine-sim-1 | 34422.81 | 10.000 | H1 step5; pipeline 83414 + HF adapter salvage armed; floor OK |
@@ -73,10 +75,10 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~75.13 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
+| Lium rentals (`mine-*`) | ~77.11 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
 
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~75.13+ (accruing)** | **0** |
+| **total** | **~77.11+ (accruing)** | **0** |
 
 Cap remaining to first crown: **~$3,843** (of $4,000) after full 6h TTL if unused early kill.

@@ -1033,3 +1033,43 @@ Lium $34,414.67; floor OK. Mining spend ≈ $75.13. TTL 04:53Z (~2.8h left).
 
 Collect `h1_sim_result.json` (pod or local results/); apply plan.md
 decision rule. No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T02:09Z — pass 31: H1 post-train TTL — chall-only serve
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $77.11; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; `min_submission_block`=8767079;
+   Lium $34,407.24 (floor OK). TTL still 04:53Z (~2.7h). Prior 80-turn sim
+   wall-clock ≈ **2515s (~42 min)**.
+2. Polled H1: train pid 82057 at step **16/110** @ ~50s/it (ETA ~03:28Z);
+   engines 200×3; pipeline was 84156 waiting; mid-salvage 83669 watching.
+3. TTL risk after train ≈78–85 min for salvage+merge+serve+sim. King reload
+   on every `restart_for_h2.sh` was wasted (king already kevin). Patched:
+   - `restart_for_h2.sh`: default **chall-only** stop (`RESTART_KING=0`);
+     teacher+king stay hot via `serve_three.sh` pid skip.
+   - `post_train_pipeline.sh`: reclaim h2-kp50 before merge; chall-only
+     serve; reclaim h2-kp65 after H1 chall up; sim
+     `--progress-out /root/affine_data/h1_sim_progress.json`.
+   - `run_sim_duel.py`: `--n-turns` + `--progress-out` for TTL watch.
+   - host harvest: also SCPs progress + mid metas each poll.
+4. Freed dead weights now: `/root/merges/h2-kp50` + genesis HF cache
+   (~136G); hub now 174G / merges 68G (kp65 until H1 serve).
+5. Killed waiting pipeline 84156 → relaunched pid **84834**. Train +
+   mid-salvage untouched. Host harvest relaunched pid **1388880**.
+6. No submit. No new rental.
+
+### Money
+
+Lium $34,407.24; floor OK. Mining spend ≈ $77.11. TTL 04:53Z (~2.7h left).
+
+### Next
+
+Collect `h1_sim_result.json` (pod or local results/); apply plan.md
+decision rule. No submit until margin > 0.04 + H4.

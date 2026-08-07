@@ -13,20 +13,23 @@ fi
 MERGE=${MERGE:-/root/merges/h2-kp50}
 KEVIN_REPO=${KEVIN_REPO:-kevin954/Affine-5dfqbbh8ev-sft}
 KEVIN_REV=${KEVIN_REV:-6a5815fad8f4e34c983b1933c1fae5762fe25220}
+# Default: only swap chall. King is already kevin for H1; reloading it costs
+# several TTL minutes. Set RESTART_KING=1 only when king must change.
+RESTART_KING=${RESTART_KING:-0}
 
 if [[ ! -f "$MERGE/model.safetensors.index.json" ]]; then
   echo "[h2-serve] missing merge at $MERGE" >&2
   exit 1
 fi
 
-echo "[h2-serve] $(date -u +%Y-%m-%dT%H:%M:%SZ) stop king+chall (keep teacher)"
-for name in king chall; do
-  pidf=/root/logs/vllm_${name}.pid
+_stop_one() {
+  local name=$1
+  local pidf=/root/logs/vllm_${name}.pid
   if [[ -f "$pidf" ]]; then
+    local pid
     pid=$(cat "$pidf")
     if kill -0 "$pid" 2>/dev/null; then
       kill "$pid" || true
-      # wait up to 60s
       for _ in $(seq 1 30); do
         kill -0 "$pid" 2>/dev/null || break
         sleep 2
@@ -35,7 +38,16 @@ for name in king chall; do
     fi
     rm -f "$pidf"
   fi
-done
+}
+
+if [[ "$RESTART_KING" == "1" ]]; then
+  echo "[h2-serve] $(date -u +%Y-%m-%dT%H:%M:%SZ) stop king+chall (keep teacher)"
+  _stop_one king
+  _stop_one chall
+else
+  echo "[h2-serve] $(date -u +%Y-%m-%dT%H:%M:%SZ) stop chall only (keep teacher+king)"
+  _stop_one chall
+fi
 sleep 3
 
 export TEACHER_REPO=${TEACHER_REPO:-zai-org/GLM-4.5-Air-FP8}

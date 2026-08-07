@@ -15,6 +15,8 @@
 | 2026-08-07T02:01:34Z | train at step 8/110 @ ~63s/it; ETA ~03:48Z; engines 200×3 |
 | 2026-08-07T02:04:13Z | pipeline restarted pid **84156** — merge now CUDA 6,7 (`--device-map auto`) for TTL margin |
 | 2026-08-07T02:04:17Z | train at step 10/110 @ ~61s/it; ETA ~03:45Z; engines 200×3 |
+| 2026-08-07T02:09:14Z | pipeline restarted pid **84834** — chall-only serve + sim progress JSON; freed h2-kp50+genesis |
+| 2026-08-07T02:09:20Z | train at step 16/110 @ ~50s/it; ETA ~03:28Z; engines 200×3 |
 
 ## How to check
 
@@ -27,11 +29,14 @@ test -f /root/affine_data/h1_sim_result.json && cat /root/affine_data/h1_sim_res
 
 ## After train.done (automatic)
 
-Pipeline `post_train_pipeline.sh` (pid 83414) handles:
+Pipeline `post_train_pipeline.sh` (pid 84834) handles:
 1. HF salvage adapter → `unconst/Affine-5czsc2fc98-h1-lora` (private)
 2. GPU merge on CUDA 6,7 → `/root/h1/merged`
-3. `restart_for_h2.sh` with `MERGE=/root/h1/merged`
-4. `run_sim_duel.py` → `/root/affine_data/h1_sim_result.json`
+3. `restart_for_h2.sh` with `MERGE=/root/h1/merged` **`RESTART_KING=0`**
+   (chall-only; teacher+king stay hot)
+4. Reclaim `/root/merges/h2-kp65` after H1 chall up
+5. `run_sim_duel.py` → `/root/affine_data/h1_sim_result.json`
+   (+ `/root/affine_data/h1_sim_progress.json` during sampling)
 
 Done markers: `/root/logs/h1_pipeline.done`, `/root/logs/h1_sim.done`.
 Salvage meta: `/root/h1/adapter_salvage.json`.

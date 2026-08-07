@@ -24,6 +24,14 @@ while true; do
     exit 0
   fi
 
+  # Best-effort progress (overwrites); survives TTL kill mid-sim.
+  if "${SSH[@]}" 'test -f /root/affine_data/h1_sim_progress.json' 2>/dev/null; then
+    "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_progress.json \
+      "$OUT/h1_sim_progress.json" 2>/dev/null || true
+  fi
+  "${SCP[@]}" 'root@69.63.236.160:/root/h1/mid_*_salvage.json' \
+    "$OUT/" 2>/dev/null || true
+
   if (( got_sim == 0 )); then
     if "${SSH[@]}" 'test -f /root/affine_data/h1_sim_result.json' 2>/dev/null; then
       "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_result.json \
@@ -46,9 +54,6 @@ while true; do
     if "${SSH[@]}" 'test -f /root/h1/train/train_result.json' 2>/dev/null; then
       "${SCP[@]}" root@69.63.236.160:/root/h1/train/train_result.json \
         "$OUT/train_result.json"
-      # best-effort mid metas
-      "${SCP[@]}" 'root@69.63.236.160:/root/h1/mid_*_salvage.json' \
-        "$OUT/" 2>/dev/null || true
       log "got train_result.json"
       got_train=1
     fi

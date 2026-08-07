@@ -72,6 +72,12 @@ else
     || log "WARN: adapter salvage failed (continuing to merge/sim)"
 fi
 
+# Free dead H2 α=0.5 merge before writing ~68G H1 merged (chall still on kp65).
+if [[ -d /root/merges/h2-kp50 ]]; then
+  log "reclaim /root/merges/h2-kp50"
+  rm -rf /root/merges/h2-kp50
+fi
+
 # GPUs 6,7 are free after train exits; engines stay on 0-5. GPU merge of
 # 35B is much faster than the prior CPU path and buys TTL margin before sim.
 log "merge LoRA → $MERGED (CUDA 6,7)"
@@ -82,15 +88,22 @@ CUDA_VISIBLE_DEVICES=6,7 python3 /root/mining_src/s4-h1-sft/merge_lora.py \
   --device-map auto
 log "merge DONE"
 
-log "re-serve chall=$MERGED (king=kevin, teacher kept)"
-MERGE="$MERGED" bash /root/mining_src/s4-h2-merge/restart_for_h2.sh
+log "re-serve chall=$MERGED (king=kevin kept hot; teacher kept)"
+RESTART_KING=0 MERGE="$MERGED" bash /root/mining_src/s4-h2-merge/restart_for_h2.sh
 log "serve READY"
+
+# Chall now serves H1 merged; reclaim old H2 α=0.65 weights.
+if [[ -d /root/merges/h2-kp65 ]]; then
+  log "reclaim /root/merges/h2-kp65"
+  rm -rf /root/merges/h2-kp65
+fi
 
 log "launch sim → $SIM_OUT"
 python /root/mining_src/s4-h2-merge/run_sim_duel.py \
   --chall-repo "$MERGED" \
   --out "$SIM_OUT" \
   --hotkey local-h1-sim \
+  --progress-out /root/affine_data/h1_sim_progress.json \
   --save-artifact \
   >>/root/logs/h1_sim.nohup 2>&1
 
