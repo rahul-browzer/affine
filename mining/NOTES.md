@@ -1541,3 +1541,43 @@ Poll for `train_done` (~03:37Z) → adapter salvage → merge_meta
 (`first_1MiB_identical: false`) → merged_salvage → n40→n80. Re-check snapshot
 king (chal-00274). Read `results/h1_decision.json` when present. No submit
 until action=`toward_submit`.
+
+---
+
+## 2026-08-07T03:11:56Z — pass 44: triage live-king guard (H6 mid-duel)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $101.74; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host harvest 1486917 + deadman 1405846 still alive.
+
+### What I did
+
+1. Live king still kevin S≈0.03956. Train step **84/110** (GPU6 80%); engines
+   200×3; pipe 105148 waiting; mid-salvage 83669; ETA train.done ~**03:36Z**.
+   Lium $34,306.02 (floor OK). No sim artifacts yet.
+2. **Risk:** chal-00274 `adambell/…ckpt450-H6` scoring king **70/80** — can
+   crown before/during our n40→n80. A kevin-margin `toward_submit` would burn
+   a slot against the wrong king.
+3. **Useful increment:**
+   - `triage_sim.py`: fetch snapshot with User-Agent; if sim king ≠ live king
+     and action is crownward → `re_sim_new_king`; if fetch fails on crownward
+     → `confirm_live_king` (fail closed, `submit=false`). Smoke: match→
+     `toward_submit`; stale→`re_sim_new_king`.
+   - `run_sim_duel.py`: persist `king_rev` in result JSON; SCP'd to pod
+     (pipeline has not started sim yet).
+   - Wrote `results/h1_live_king_watch.json` + refreshed time budget / step poll.
+4. No submit. No new rental. Train/pipeline/deadman untouched.
+
+### Money
+
+Lium $34,306.02; mining spend ≈ $101.74. Host deadman 07:00Z + early teardown
+with push grace.
+
+### Next
+
+Poll for `train_done` (~03:36Z) → adapter salvage → merge_meta
+(`first_1MiB_identical: false`) → merged_salvage → n40→n80. Read
+`results/h1_decision.json` when present (live-king guard). Watch H6 crown.
+No submit until action=`toward_submit`.

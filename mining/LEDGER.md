@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T03:11:56Z | 34306.02 | 10.000000 | 0 | mine-sim-1 spent $101.74; H1 step84; triage live-king guard; no new rental |
 | 2026-08-07T03:05:27Z | 34313.83 | 10.000000 | 0 | mine-sim-1 spent $99.00; H1 step76; merged HF push armed; no new rental |
 | 2026-08-07T03:02:02Z | 34321.27 | 10.000000 | 0 | mine-sim-1 spent $97.83; H1 step73; merge identity gate armed; no new rental |
 | 2026-08-07T02:58:34Z | 34329.39 | 10.000000 | 0 | mine-sim-1 spent $96.48; H1 step69; fail-closed promote + pipe 102073; no new rental |
@@ -50,6 +51,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T03:11:56Z | observe | mine-sim spent $101.74 | Lium → mine-sim-1 | 34306.02 | 10.000 | H1 step84; triage live-king guard + sim king_rev SCP'd; H6 scoring 70/80; floor OK |
 | 2026-08-07T03:08:17Z | observe | mine-sim spent $100.29 | Lium → mine-sim-1 | 34313.83 | 10.000 | H1 step79; host early-teardown accepts train_fallback/train.done + mid/merged salvage; harvest 1486917; floor OK |
 | 2026-08-07T03:05:27Z | observe | mine-sim spent $99.00 | Lium → mine-sim-1 | 34313.83 | 10.000 | H1 step76; bg merged HF push armed (pipe 105148); private repo pre-created; floor OK |
 | 2026-08-07T03:02:02Z | observe | mine-sim spent $97.83 | Lium → mine-sim-1 | 34321.27 | 10.000 | H1 step73; merge_lora first_1MiB≠kevin refuse armed; kevin sha c551c752… verified; floor OK |

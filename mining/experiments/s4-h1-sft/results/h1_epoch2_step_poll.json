@@ -1,12 +1,12 @@
 {
-  "utc": "2026-08-07T03:08:16Z",
-  "step": 79,
+  "utc": "2026-08-07T03:11:48Z",
+  "step": 84,
   "total": 110,
-  "frac": 0.7181818181818181,
+  "frac": 0.7636363636363637,
   "train_done": false,
-  "ckpt_dirs": [
-    "checkpoint-50"
-  ],
-  "eta_train_done_utc": "2026-08-07T03:36:41Z",
-  "note": "pass43 fixed host early-teardown to accept train_fallback/train.done + mid/merged salvage"
+  "ckpt_dirs": ["checkpoint-50"],
+  "eta_train_done_utc": "2026-08-07T03:35:38Z",
+  "seconds_per_step_approx": 55,
+  "chal_00274_progress": "king 70/80",
+  "note": "pass44: triage live-king guard + king_rev in sim results; H6 scoring 70/80"
 }

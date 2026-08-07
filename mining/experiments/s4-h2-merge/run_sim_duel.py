@@ -77,6 +77,7 @@ async def main_async(args: argparse.Namespace) -> dict:
     out = {
         "elapsed_s": time.time() - t0,
         "king_repo": args.king_repo,
+        "king_rev": args.king_rev,
         "chall_repo": args.chall_repo,
         "block_hash": args.block_hash,
         "hotkey": args.hotkey,

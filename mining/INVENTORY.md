@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z**; harvest early-rm (push grace; train_fallback OK) | Stage 4 H1 train + salvage→GPU-merge→merged-HF-push→n40→n80 | RUNNING | SSH `root@69.63.236.160 -p 40301`; train 82057 step79/110; ckpt-50 on HF; pipe **105148** soft 06:50Z + fail-closed + **bg push_merged** → `unconst/Affine-5czsc2fc98-h1-merged`; merge first_1MiB≠kevin refuse; mid-salvage 83669; bk /root/h1/train 1h; host harvest **1486917**; deadman 1405846; spent $100.29 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z**; harvest early-rm (push grace; train_fallback OK) | Stage 4 H1 train + salvage→GPU-merge→merged-HF-push→n40→n80 | RUNNING | SSH `root@69.63.236.160 -p 40301`; train 82057 step84/110; ckpt-50 on HF; pipe **105148** soft 06:50Z + fail-closed + **bg push_merged** → `unconst/Affine-5czsc2fc98-h1-merged`; merge first_1MiB≠kevin refuse; mid-salvage 83669; bk /root/h1/train 1h; host harvest **1486917**; deadman 1405846; triage live-king guard; spent $101.74 |
 
 ## Reconcile log
 
@@ -56,3 +56,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T03:02:02Z | mine-sim-1 RUNNING | matches inventory; spent $97.83; H1 step73; merge_lora first_1MiB≠kevin refuse armed + harvest **1471795**; deadman 1405846; validator pods untouched |
 | 2026-08-07T03:05:27Z | mine-sim-1 RUNNING | matches inventory; spent $99.00; H1 step76; armed bg merged HF push + pipe **105148** + harvest **1478941**; deadman 1405846; validator pods untouched |
 | 2026-08-07T03:08:17Z | mine-sim-1 RUNNING | matches inventory; spent $100.29; H1 step79; fixed host early-teardown (train_fallback/mid/merged); harvest **1486917**; deadman 1405846; validator pods untouched |
+| 2026-08-07T03:11:56Z | mine-sim-1 RUNNING | matches inventory; spent $101.74; H1 step84; triage live-king guard + sim king_rev; H6 scoring 70/80; deadman 1405846; validator pods untouched |
