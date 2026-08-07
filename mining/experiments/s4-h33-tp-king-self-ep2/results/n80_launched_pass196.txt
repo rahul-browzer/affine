@@ -1,0 +1,3 @@
+2026-08-07T21:06Z pass196: chall :8002 completions probe HTTP 200 after shard load;
+pipeline wait_ready→n80 started (run_sim_duel local-h33 pid 171593).
+merged HF: unconst/Affine-5czsc2fc98-h33-merged @ 4782075ce178 (salvage, not submit).

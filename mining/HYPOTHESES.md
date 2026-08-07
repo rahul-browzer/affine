@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (n80 ~46/80) |
-| 2 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~36/80) |
-| 3 | H32 | high | H29 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~29/80) |
-| 4 | H33 | high | H29 cell @ **epochs=2** → m>0.04 | **open** (merge done; chall loading) |
-| 5 | H34 | high | H30 cell @ **epochs=2** → m>0.04 | **open** (bootstrap) |
+| 1 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (n80 ~59/80) |
+| 2 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~49/80) |
+| 3 | H32 | high | H29 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~15/80) |
+| 4 | H33 | high | H29 cell @ **epochs=2** → m>0.04 | **open** (n80 started) |
+| 5 | H34 | high | H30 cell @ **epochs=2** → m>0.04 | **open** (train live) |
 | — | H29 | was high | king-self LoRA (TP-init) | **refuted** m=−0.01527 |
 | — | H28 | was high | winner-zA LoRA (m7-init) | **refuted** m=+0.01095 |
 | — | H27 | was high | winner-zA LoRA (TP-init) | **refuted** m=−0.00792 |
@@ -24,23 +24,23 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H30 — king-self × m7 init (non-α)
 - **Claim:** m7 init + TalentPigs king-self → m>0.04.
-- **Status:** n80 ~46/80. `s4-h30-m7-king-self/`.
+- **Status:** n80 ~59/80. `s4-h30-m7-king-self/`.
 
 ### H31 — H30 @ lr=3e-5 (non-α)
 - **Claim:** 3× LR on m7×king-self → m>0.04.
-- **Status:** n80 ~36/80 post-recover193. `s4-h31-m7-king-self-lr3e5/`.
+- **Status:** n80 ~49/80 post-recover193. `s4-h31-m7-king-self-lr3e5/`.
 
 ### H32 — H29 @ lr=3e-5 (non-α)
 - **Claim:** 3× LR on TP×king-self → m>0.04.
-- **Status:** n80 ~29/80. `s4-h32-tp-king-self-lr3e5/`.
+- **Status:** n80 ~15/80 (retry after early teacher 400s). `s4-h32-tp-king-self-lr3e5/`.
 
 ### H33 — H29 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on TP×king-self@lr1e-5 → m>0.04.
-- **Status:** train done; merge done; chall :8002 loading. `s4-h33-tp-king-self-ep2/`.
+- **Status:** n80 started pass196 after chall completions OK. `s4-h33-tp-king-self-ep2/`.
 
 ### H34 — H30 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×king-self@lr1e-5 → m>0.04.
-- **Status:** mine-h34-1 bootstrap (pass195). `s4-h34-m7-king-self-ep2/`.
+- **Status:** train live (pid 2294); teacher+king DL done. `s4-h34-m7-king-self-ep2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
