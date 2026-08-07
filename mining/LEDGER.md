@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T09:33:06Z | 33713.30 | 10.000000 | 0 | removed mine-sim-1 final ~$252; pass100 H5c crown autopsy (CPU); no new rental |
 | 2026-08-07T09:26:27Z | 33722.29 | 10.000000 | 0 | mine-sim-1 spent $248.91; pass99 H5b REFUTED margin +0.00322; deadman 12:00Z; no new rental |
 | 2026-08-07T09:13:25Z | 33745.62 | 10.000000 | 0 | mine-sim-1 spent $243.04; pass98 H5b n80 ~58/80 ETA~09:25Z; deadman 12:00Z; no new rental |
 | 2026-08-07T09:07:30Z | 33753.43 | 10.000000 | 0 | mine-sim-1 spent $241.59; pass97 H5b n80 ~47/80 ETA~09:24Z; deadman 12:00Z; no new rental |
@@ -104,6 +105,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T09:33:06Z | stop | mine-sim final ~$252 | Lium ← mine-sim-1 removed | 33713.30 | 10.000 | pass100 H5c autopsy CPU-only; `lium rm mine-sim-1`; floor OK; cap ~$252/$4000 |
 | 2026-08-07T09:13:25Z | observe | mine-sim spent $243.04 | Lium → mine-sim-1 | 33745.62 | 10.000 | H5b n80 ~58/80 ETA~09:25Z; rate ~1.79tpm (wall~1.43); floor OK |
 | 2026-08-07T09:07:30Z | observe | mine-sim spent $241.59 | Lium → mine-sim-1 | 33753.43 | 10.000 | H5b n80 ~47/80 ETA~09:24Z; rate ~1.94tpm (wall~1.24); floor OK |
 | 2026-08-07T09:03:19Z | observe | mine-sim spent $239.86 | Lium → mine-sim-1 | 33760.86 | 10.000 | H5b n80 ~39/80 ETA~09:28Z; rate ~1.61tpm (wall~2.67); floor OK |

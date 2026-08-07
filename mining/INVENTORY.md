@@ -7,12 +7,19 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **12:00Z** | Stage 4 H5b DONE REFUTED; engines idle for H5c pivot | RUNNING | SSH `root@69.63.236.160 -p 40301`; deadman **1783662**; spent ~$249; harvest exited |
+| *(none)* | — | — | — | — | — | — | — | no mine-* pods |
+
+## Dead / removed
+
+| name | huid | final spent | removed UTC | reason |
+|---|---|---|---|---|
+| mine-sim-1 | swift-shark-52 | ~$252 | 2026-08-07T09:33:06Z | idle after H5b; H5c autopsy is CPU-only; killed deadman 1783662 then `lium rm mine-sim-1` |
 
 ## Reconcile log
 
 | UTC | lium ps mine-* | inventory action |
 |---|---|---|
+| 2026-08-07T09:33:06Z | mine-sim-1 → none | verified name `mine-sim-1`/`swift-shark-52`; killed deadman 1783662; `lium rm mine-sim-1 -y`; validator pods untouched; H5c autopsy done |
 | 2026-08-06T22:47:00Z | none | none — only `affine-eval` (8×B300 $64/h) and `affine-bench` (8×H200 $5.80/h) live; both validator-owned, left alone |
 | 2026-08-06T22:49:00Z | none | none — same two validator pods; no orphans |
 | 2026-08-06T22:51:06Z | none | none — same two validator pods; no orphans; Stage 2 closed this pass |

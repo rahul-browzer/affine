@@ -4,12 +4,12 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H5b REFUTED (n80 margin +0.00322). Pivot to H5c.**
+**Stage 4 — H5c recipe locked from crown autopsy. No pod rented.**
 
-Stage 0–3 complete. H2 / H1 / H1v2 / H5 merge / **H5b** **REFUTED**.
-Live king `TalentPigs/affine-5ekxlcg3fx-abc` reign 3 @ S=0.0315 (still;
-chal-00300 was loading at triage — re-check snapshot). Engines still up
-on `mine-sim-1`. No submit.
+Stage 0–3 complete. H2 / H1 / H1v2 / H5 merge / H5b **REFUTED**.
+H5c autopsy (`experiments/s4-h5c-crown-autopsy/`) DONE: TalentPigs crowns
+on **clip-L1**, not Λ2. Next: expand teacher_refs + kevin-init thought
+LoRA vs live TalentPigs. No submit.
 
 ## Live facts (verified this pass)
 
@@ -23,49 +23,41 @@ on `mine-sim-1`. No submit.
 | weight_version_key | 1 |
 | min_margin | 0.02 (duel) |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $33,722.29 (floor $28,000) |
+| Lium balance | $33,713.30 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **~$249** @ $23.60/h |
+| mining spend to date | `mine-sim-1` final ~**$252** @ $23.60/h (REMOVED this pass) |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 / H1 / H1v2 / H5 merge / H5b | **all REFUTED** |
-| H5b n80 | margin **+0.00322** z=0.55; H4 r=0.670 FAIL; action `revise_recipe` |
+| H5c autopsy | **DONE** — crown dL1c +0.0157 / dΛ2 +0.0123; L1 share 0.56; recipe = L1-headroom |
 | H1v2 HF merged | public `unconst/Affine-5czsc2fc98-h1v2-merged` @ `a314357…` (do not submit) |
 | H5b HF | private `…-h5b-lora` / `…-h5b-merged` @ `e1d39a1…` (salvage only; do not submit) |
-| Disk | host: text only; pod `/root` 8% used; `/root/h5b` 67G |
+| Disk | host: text only; no mine-* pods |
 
 ## What's running
 
 | name | huid | role | check |
 |---|---|---|---|
-| `mine-sim-1` | `swift-shark-52` | idle engines after H5b; pivot platform | SSH `root@69.63.236.160 -p 40301`; deadman **12:00Z** |
+| *(none)* | — | — | no `mine-*` pods |
 
-On pod:
-- Engines: teacher:8000 + king TalentPigs:8001 + chall H5b:8002 — **all 200**
-- H5b pipe + n80 sim **exited** (PIPELINE_DONE 09:25:18Z)
-- Markers: `train.done` ✓ → `h5b_merge.done` ✓ → `h5b_chall_serve.done` ✓
-  → `h5b_sim_n80.done` ✓ → `h5b_pipeline.done` ✓
-- Host harvest **exited** after triage (`host_harvest_h5b.done`)
-- Host deadman pid **1783662** @ **12:00Z** (~2.5h left as of 09:26Z)
-- Teacher refs still at `/root/h1/teacher_refs_sft.jsonl` (440)
-- **LANDMINE:** never SCP/edit a live pipe script while bash sleeps in it
+Host deadman **1783662** killed. Validator pods `affine-eval` /
+`affine-bench` — do not touch.
 
-Validator pods `affine-eval` / `affine-bench` — do not touch.
+Note: at autopsy `current_eval` was chal-00301 kevin954 re-challenge
+(dispatching). Re-check snapshot before rent/sim.
 
 ## Blocked
 
 Nothing hard. **Do not submit** any H1/H1v2/H2/h5/h5b checkpoint.
-Cap remaining ~$3,751. Do not repeat mild TalentPigs-init 440-ref LoRA
-(H5b autopsy: Λ2+0.004, clip-L1 flat → margin noise).
+Cap remaining ~$3,748. Do not repeat mild TalentPigs-init 440-ref LoRA.
 
 ## Next action (single, highest value)
 
-**Open H5c under `experiments/s4-h5c-*/` with a plan that is not another
-mild king-init LoRA on the same 440 refs.** Prefer in order: (1) public
-TalentPigs-vs-kevin crown-duel decomposition for a new lever; (2) expand
-teacher_refs from all public gz then train; (3) kevin-init thought
-recipe re-measured vs live TalentPigs only if (1)/(2) point there.
-Re-check `api/v1/snapshot` first (chal-00300 was loading). Keep
-`mine-sim-1` only if a GPU job launches this pass — else `lium rm` **only**
-`mine-sim-1` / `swift-shark-52` before deadman to stop idle burn. Do not
-rent a second pod. Deadman **1783662** → 12:00Z.
+**Open `experiments/s4-h5c-expand-refs/` (or similar): harvest teacher_refs
+from all public `evals/*.json.gz` on this host (text/JSON only), write
+counts + a train JSONL path plan, then rent one `mine-*` H200 (check
+`lium balance` ≥ $28k floor + spend cap) and launch kevin-init
+thought-only LoRA on the expanded set → n80 vs TalentPigs.**
+
+H5c prediction (pre-registered in autopsy `result.md`): n80 margin ≥ +0.04;
+r∈[0.70,0.85]; chall mean clip-L1 ≥ **0.042**. Gate >0.04 before any submit.

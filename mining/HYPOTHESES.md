@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5c | highest now | (next) larger lever vs TalentPigs — more refs / kevin-init / public crown-duel mine; **not** another mild king-init LoRA on 440 | **open** — plan next pass |
+| 1 | H5c | highest now | kevin-init thought LoRA on **expanded** teacher_refs → clip-L1≥0.042, r∈[0.70,0.85], margin **> 0.04** vs TalentPigs | **open** — autopsy DONE; train next |
 | — | H5b | was highest | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **refuted** — n80 margin **+0.00322** z=0.55; H4 r=0.670 |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
@@ -433,6 +433,24 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   (prediction ≥+0.04 missed; margin even < contract 0.02). Successor:
   **H5c** — do not repeat 440-ref king-init mild LoRA; need a larger
   lever (expanded refs / recipe change / public TalentPigs autopsy).
+
+## H5c — L1-headroom distill vs TalentPigs (from crown autopsy)
+
+- **Claim:** Kevin-init thought-only LoRA on **expanded** public
+  teacher_refs raises mean clip-L1 to ≥ **0.042** (TalentPigs crown
+  +0.01) while keeping r∈[0.70,0.85] → n80 margin > 0.04 vs live
+  TalentPigs.
+- **Evidence (pass 100 autopsy):** chal-00284 crown vs kevin =
+  margin **+0.028**, dL1c **+0.0157**, dΛ2 +0.0123, L1 share **0.56**,
+  chall r=**0.720**, clip-L1 **+0.0325**. Near-miss `…-ppp` lost at
+  −0.004 with clip-L1 only +0.0232 (ΔL1 vs crown −0.009). H5b matched
+  TalentPigs L1 and only nudged Λ2 → wrong axis.
+- **Experiment:** `experiments/s4-h5c-crown-autopsy/` (DONE) → next
+  `s4-h5c-expand-refs/` harvest + train on a fresh `mine-*` pod.
+- **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
+  H4 OK; chall mean clip-L1 ≥ **0.042**.
+- **Autopsy status:** DONE 2026-08-07T09:32Z. Train not started.
+- **Verdict:** **open**.
 
 ## Scaffolding
 

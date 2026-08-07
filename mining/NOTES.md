@@ -3428,3 +3428,41 @@ No submit / no registration burn.
 H5c plan (public TalentPigs crown autopsy / expanded refs). Re-check
 snapshot (chal-00300). Keep pod only if GPU job launches; else tear down
 `mine-sim-1` before deadman.
+
+## 2026-08-07T09:33:06Z — pass 100: H5c crown autopsy DONE; tore down mine-sim-1
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent ~$252 → removed
+after verify name prefix `mine-`; validator `affine-eval` / `affine-bench`
+untouched. Host deadman **1783662** killed. No orphan `mine-*`.
+Lium $33,713.30 (floor OK). Snapshot: TalentPigs still king reign 3 @
+S=0.0315; `current_eval` chal-00301 = kevin954 re-challenge
+(dispatching). `min_submission_block`=8767079.
+
+### What I did
+
+1. Opened `experiments/s4-h5c-crown-autopsy/`; downloaded chal-00284
+   (crown), 00273 (ppp near-miss), 00258 (ruby); recomputed under
+   current knobs (`analyze.py` → `results/summary.json` + `table.txt`).
+2. Deciding numbers (crown vs kevin): margin **+0.028**, dL1c
+   **+0.0157**, dΛ2 +0.0123, L1 share **0.56**, chall r=**0.720**,
+   clip-L1 **+0.0325**. Near-miss ppp: margin −0.004, clip-L1 only
+   +0.0232 (Δ −0.009 vs crown), Λ2≈0. Confirms TalentPigs crowns on
+   **clip-L1 envelope**, not Λ2 — matches why H5b (Λ2+0.004, L1 flat)
+   failed.
+3. Locked H5c recipe in `result.md` / HYPOTHESES: kevin-init thought
+   LoRA on **expanded** teacher_refs; target clip-L1≥0.042, r∈[0.70,0.85],
+   n80 margin >0.04 vs TalentPigs.
+4. No GPU job this pass → `lium rm mine-sim-1` (idle burn stop). No
+   new rental. No submit.
+
+### Money
+
+Lium $33,713.30; mining spend cumulative ~$252. Floor OK. Cap OK.
+No registration burn.
+
+### Next
+
+Harvest all public duel teacher_refs on host → rent one `mine-*` →
+H5c train → n80 vs TalentPigs. Re-check snapshot (kevin re-challenge).
