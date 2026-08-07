@@ -139,8 +139,12 @@ Format: `- <finding> — <the number or error that proves it>`
 - Engine recover: wipe `role`+`role_*` Triton caches **before** creating the
   new `TCACHE`, then ≥5s settle (H35 king 201a failed mid-cache; 201b wipe→
   settle→`king_p201b_*` → health 200). Same pattern for teacher/chall (H36
-  pass201). Concurrent prewarm still races — recover the dead role alone.
+  pass201; H37 chall p203). Concurrent prewarm still races — recover dead role.
+- Default `block_hash=0*64` n80 dies teacher **400** at ~40/80 (prompt+1792>
+  32768) — H32 + H34@40/80 pass203. Rotate `--block-hash` on every retry
+  (`a203…/b203…/c203…`); patch `retry_h*_n80.sh` + never rely on bare post_train.
+- `watch_n80_retry` must **not** `exec` the retry — abort kills the sidecar
+  (H37/H38 pass203). `nohup bash "$RETRY"` + keep polling.
 
 ## Money / platform
-
 - No API to re-add cancelled TTL → host deadman. Floor $10k; burn ~τ0.68; no cryptoType.

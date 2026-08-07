@@ -47,5 +47,9 @@ while true; do
     continue
   fi
   log "no sim / no decision — launching retry"
-  exec bash "$RETRY"
+  # Do not exec: retry abort would kill this sidecar (H37/H38 pass203).
+  nohup bash "$RETRY" >>"/root/logs/${HYP}_n80_retry.nohup" 2>&1 &
+  echo $! >"/root/logs/${HYP}_n80_retry.pid"
+  # Wait for retry to either finish or spawn sim before looping again.
+  sleep "$POLL"
 done

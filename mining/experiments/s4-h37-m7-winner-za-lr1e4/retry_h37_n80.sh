@@ -59,9 +59,18 @@ fi
 test -d "$MERGED"
 test -f /root/logs/h37_merge.done
 
+# Fresh block_hash per outer retry (H32/H34): default 0*64 slice hits a turn
+# with prompt+max_tokens > 32768 → teacher 400 → whole n80 dies.
+BLOCK_HASHES=(
+  "a203000000000000000000000000000000000000000000000000000000000001"
+  "b203000000000000000000000000000000000000000000000000000000000002"
+  "c203000000000000000000000000000000000000000000000000000000000003"
+)
+
 for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
   rm -f "$SIM" "$PROG"
-  log "n80 attempt $attempt/$MAX_ATTEMPTS"
+  bh="${BLOCK_HASHES[$(( (attempt - 1) % ${#BLOCK_HASHES[@]} ))]}"
+  log "n80 attempt $attempt/$MAX_ATTEMPTS block_hash=${bh:0:16}…"
   set +e
   python /root/mining_src/s4-h2-merge/run_sim_duel.py \
     --king-repo "$KING_REPO" \
@@ -70,6 +79,7 @@ for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
     --chall-rev local \
     --n-turns 80 \
     --hotkey local-h37 \
+    --block-hash "$bh" \
     --out "$SIM" \
     --progress-out "$PROG" \
     --save-artifact \

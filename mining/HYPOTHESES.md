@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H34 | med | H30 cell @ **epochs=2** → m>0.04 | **open** (n80 ~41/80) |
-| 2 | H36 | high | m7×(winner∪king-self) → m>0.04 | **open** (n80 ~4/80) |
-| 3 | H37 | high | H28 cell @ **lr=1e-4** → m>0.04 | **open** (chall load) |
-| 4 | H38 | high | H28 cell @ **epochs=2** → m>0.04 | **open** (king recover) |
-| 5 | H35 | med | H30 cell @ **lr=1e-4** → m>0.04 | **open** (n80 ~7/80) |
+| 1 | H34 | med | H30 cell @ **epochs=2** → m>0.04 | **open** (n80 a203 ~7/80) |
+| 2 | H36 | high | m7×(winner∪king-self) → m>0.04 | **open** (n80 a203) |
+| 3 | H37 | high | H28 cell @ **lr=1e-4** → m>0.04 | **open** (chall p203) |
+| 4 | H38 | high | H28 cell @ **epochs=2** → m>0.04 | **open** (chall load) |
+| 5 | H35 | med | H30 cell @ **lr=1e-4** → m>0.04 | **open** (n80 a203) |
 | — | H33 | was med | H29 @ epochs=2 | **refuted** m=−0.00158 |
 | — | H32 | was med | H29 @ lr=3e-5 | **refuted** m=−0.00601 |
 | — | H31 | was high | H30 @ lr=3e-5 | **refuted** m=+0.00016 |
@@ -27,27 +27,26 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H34 — H30 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×king-self@lr1e-5 → m>0.04.
-- **Status:** n80 ~41/80 @22:25Z. `s4-h34-m7-king-self-ep2/`.
-  HF salvage `unconst/Affine-5czsc2fc98-h34-merged`.
+- **Status:** first n80 died teacher 400 @~40/80 (0*64); restarted
+  block_hash=a203… ~7/80. `s4-h34-m7-king-self-ep2/`.
 
 ### H36 — m7 × UNION(winner-zA ∪ king-self)
 - **Claim:** union high-L1 z_A on m7 → m>0.04 (H28 best single-source +0.011).
-- **Status:** n80 ~4/80. `s4-h36-m7-union-za/` + `results/recover_pass201.md`.
+- **Status:** n80 a203 (preempted default-hash). `s4-h36-m7-union-za/`.
 
 ### H37 — H28 @ lr=1e-4 (non-α)
 - **Claim:** 10× LR on m7×winner-zA → m>0.04 after H28 +0.01095.
-- **Status:** merge.done non-id; t/k=200; chall loading → n80.
-  `s4-h37-m7-winner-za-lr1e4/`.
+- **Status:** chall EngineCore died; recover p203 loading; watcher owns n80.
+  `s4-h37-m7-winner-za-lr1e4/` + `results/recover_pass203.md`.
 
 ### H38 — H28 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×winner-zA@lr1e-5 → m>0.04.
-- **Status:** merge.done non-id; king recover p202 loading (prewarm king
-  died). `s4-h38-m7-winner-za-ep2/` + `results/recover_pass202.md`.
+- **Status:** king 200; chall loading via post_train; watcher armed w/ hashes.
+  `s4-h38-m7-winner-za-ep2/` + `results/recover_pass202.md`.
 
 ### H35 — H30 @ lr=1e-4 (non-α)
 - **Claim:** 10× LR on m7×king-self → m>0.04 after H30/H31 near-null.
-- **Status:** n80 ~7/80. `s4-h35-m7-king-self-lr1e4/` +
-  `results/recover_pass201.md`.
+- **Status:** n80 a203. `s4-h35-m7-king-self-lr1e4/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

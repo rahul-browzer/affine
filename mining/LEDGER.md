@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $190,151.12 | 2026-08-07T22:25Z |
-| cumulative mining spend | ~$3,730 (h34–h38 accruing) | 2026-08-07T22:25Z |
-| **available for mining** | **~$180,151** (balance − $10,000 floor) | 2026-08-07T22:25Z |
-| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-07T22:25Z |
-| miner burn (5 pods) | ~$152/h (h34/35/36 $31.92×3 + h37/38 $28×2) | 2026-08-07T22:25Z |
+| Lium balance | $190,132.69 | 2026-08-07T22:32Z |
+| cumulative mining spend | ~$3,750 (h34–h38 accruing) | 2026-08-07T22:32Z |
+| **available for mining** | **~$180,133** (balance − $10,000 floor) | 2026-08-07T22:32Z |
+| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-07T22:32Z |
+| miner burn (5 pods) | ~$152/h (h34/35/36 $31.92×3 + h37/38 $28×2) | 2026-08-07T22:32Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
