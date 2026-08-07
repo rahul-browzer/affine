@@ -16,3 +16,5 @@
 - 2026-08-07T00:39Z pass 21: α=0.5 sim **FINISHED** — margin **−0.00996** (wins=false); chall S=0.0189 vs king 0.0289; both valid; r=0.822 base×=0.837; mean_λ2 chal −0.00166. Copied to `results/h2_kp50_sim_result.json`. Wrote `result.md`. Launched α=0.65 merge → `/root/merges/h2-kp65` pid 71425/71431; ETA ~5–6 min then re-serve+sim.
 - 2026-08-07T00:48:53Z pass 22: α=0.65 merge **DONE** (333s, 1026 keys, first_1MiB ≠ kevin). Meta copied to `results/h2_kp65_merge_meta.json`.
 - 2026-08-07T00:49:40Z pass 22: pipeline pid **71925** — re-serve chall=`/root/merges/h2-kp65` then auto-sim → `/root/affine_data/h2_kp65_sim_result.json` (log `h2_kp65_pipeline.nohup` / `h2_kp65_sim.nohup`). King+chall loading @ 00:50Z; teacher kept.
+- 2026-08-07T00:55:19Z pass 23: serve READY; sim pid **77251** launched.
+- 2026-08-07T01:00Z pass 24: pid 77251 ALIVE; health 200×3; 120s recheck — log `[sim] king 5/80` + `[sim] challenger 5/80`; teacher log +436 lines / 120s; teacher ~2 running / ~20 waiting; GPUs 0–1 ~100%; no result yet; live king still kevin S≈0.03956; ETA ~01:35Z; spent $50.07 / Lium $34516; TTL OK.

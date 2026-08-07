@@ -810,3 +810,29 @@ Lium $34,516.22; floor OK. Mining spend ≈ $48.04. TTL 04:53Z (~3.9h left).
 
 Collect `h2_kp65_sim_result.json`; apply plan.md decision rule. Margin <0.02
 → refute H2 kevin×pandora → pivot H1 SFT. No submit until >0.04 + H4.
+
+---
+
+## 2026-08-07T01:00Z — pass 24: α=0.65 sim advancing at 5/80
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $50.07; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Polled α=0.65 sim pid 77251 — still alive; engines 8000/8001/8002 health 200.
+2. 120s recheck confirmed progress: log shows `[sim] king 5/80` +
+   `[sim] challenger 5/80`; teacher log +436 lines; teacher ~2 running /
+   ~20 waiting (capacity bottleneck). No `h2_kp65_sim_result.json` yet.
+3. Live king unchanged kevin S≈0.03956. No submit. No relaunch. No new rental.
+
+### Money
+
+Lium $34,516.22; floor OK. Mining spend ≈ $50.07. TTL 04:53Z (~3.9h left).
+
+### Next
+
+Collect `h2_kp65_sim_result.json` (~01:35Z ETA); apply plan.md decision rule.
+Margin <0.02 → refute H2 kevin×pandora → pivot H1 SFT. No submit until >0.04 + H4.

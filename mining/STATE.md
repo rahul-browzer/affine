@@ -4,11 +4,11 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H2 α=0.5 REFUTED for submit; α=0.65 sim SAMPLING.**
+**Stage 4 — H2 α=0.5 REFUTED for submit; α=0.65 sim SAMPLING (5/80).**
 
 Stage 0–3 complete. α=0.5 kevin×pandora sim: margin **−0.00996** (both
-valid, H4 OK). α=0.65 merge DONE; re-serve READY @ 00:55:19Z; 80-turn sim
-running (pid 77251). No submissions.
+valid, H4 OK). α=0.65 merge DONE; serve READY; 80-turn sim pid **77251**
+alive at king/chall **5/80**. No submissions.
 
 ## Live facts (verified this pass)
 
@@ -23,13 +23,13 @@ running (pid 77251). No submissions.
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
 | Lium balance | $34,516.22 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$48.04** @ $23.60/h (TTL cap ≈ $141.60) |
+| mining spend to date | `mine-sim-1` spent **$50.07** @ $23.60/h (TTL cap ≈ $141.60) |
 | our submissions | none |
 | Stage 3 gate | **MET** — `experiments/s3-duel-sim/result.md` |
 | H2 α=0.5 sim | **DONE** — margin −0.00996; see `experiments/s4-h2-merge/result.md` |
 | H2 α=0.65 merge | **DONE** @ 00:48:53Z — 1026 keys, first_1MiB ≠ kevin |
 | H2 α=0.65 serve | **READY** @ 00:55:19Z (teacher:8000 king:8001 chall:8002) |
-| H2 α=0.65 sim | **RUNNING** — pid **77251** since 00:55:19Z |
+| H2 α=0.65 sim | **SAMPLING** — pid **77251**; @ 01:00Z both sides **5/80** |
 
 ## What's running
 
@@ -38,13 +38,13 @@ running (pid 77251). No submissions.
 | `mine-sim-1` | `swift-shark-52` | Stage 4 H2 α=0.65 sim sampling | SSH `root@69.63.236.160 -p 40301`; TTL remove at **2026-08-07T04:53:17Z** |
 
 On pod:
-- Teacher:8000 (pid 51354) + King:8001 (71961) + Chall:8002 (71963) — all /health 200
+- Teacher:8000 + King:8001 + Chall:8002 — all /health 200
 - Chall weights: `/root/merges/h2-kp65`
-- Pipeline: `/root/logs/h2_kp65_pipeline.sh` (spawned sim)
 - Sim: `run_sim_duel.py --chall-repo /root/merges/h2-kp65` pid **77251**
-  - log `/root/logs/h2_kp65_sim.nohup`
-  - result `/root/affine_data/h2_kp65_sim_result.json`
-  - done marker `/root/logs/h2_kp65_sim.done`
+  - log `/root/logs/h2_kp65_sim.nohup` → `[sim] king 5/80` + `[sim] challenger 5/80`
+  - result `/root/affine_data/h2_kp65_sim_result.json` (not yet)
+  - done marker `/root/logs/h2_kp65_sim.done` (not yet)
+- Teacher bottleneck: ~2 running / ~20 waiting; GPUs 0–1 ~100%
 - Prior α=0.5 result: `/root/affine_data/h2_sim_result.json` (local copy in `experiments/s4-h2-merge/results/`)
 
 Poll:
@@ -57,13 +57,13 @@ ssh -p 40301 root@69.63.236.160 '
 '
 ```
 
-Sim ETA ~40 min from 00:55Z → result ~01:35Z. TTL 04:53Z — plenty of room.
+Sim ETA ~40 min from 00:55Z → result ~01:35Z (same pace as α=0.5). TTL 04:53Z.
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. Soft: TTL ends 04:53Z (~3.9h left @ 00:56Z). Do **not**
+Nothing hard. Soft: TTL ends 04:53Z (~3.9h left @ 01:00Z). Do **not**
 submit until sim margin > 0.04 vs live king. Do not rent another pod.
 
 ## Next action (single, highest value)
@@ -74,4 +74,5 @@ submit until sim margin > 0.04 vs live king. Do not rent another pod.
 - 0.02–0.04 → note support but no submit; consider H1
 - <0.02 → **refute H2** for kevin×pandora; pivot to H1 teacher-ref SFT
 
-If sim still sampling: poll only (do not relaunch).
+If sim still sampling: poll only (do not relaunch). Prefer waiting until
+≥40/80 or done before next write-heavy update.

@@ -8,7 +8,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
 | 1 | H1 | highest | sim margin vs kevin **> 0.04** after teacher-ref SFT from kevin init | open |
-| 2 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | α=0.5 **missed** (−0.010); α=0.65 sim **sampling** (pid 77251) |
+| 2 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | α=0.5 **missed** (−0.010); α=0.65 sim **5/80** (pid 77251) |
 | 3 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule) |
 | 4 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
 | 5 | H5 | medium | SFT on near-miss lineage to flip −0.0027 → >+0.04 | open |
@@ -47,7 +47,9 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **α=0.65 merge (2026-08-07T00:48:53Z):** DONE — 1026 keys merged, 19 from A,
   first_1MiB sha ≠ kevin (`results/h2_kp65_merge_meta.json`); elapsed 333s.
 - **α=0.65 serve+sim (2026-08-07T00:55:19Z):** serve READY; sim pid **77251**
-  → `/root/affine_data/h2_kp65_sim_result.json` (sampling; ETA ~01:35Z).
+  → `/root/affine_data/h2_kp65_sim_result.json`.
+- **α=0.65 progress (2026-08-07T01:00Z):** both sides **5/80**; teacher ~2 run /
+  ~20 wait; ETA ~01:35Z (α=0.5 pace).
 - **Verdict:** open — refute only if α=0.65 sim also lands margin < 0.02.
 
 ## H3 — L1lift is the cheap lever once Λ2 is near king
