@@ -900,3 +900,32 @@ Lium $34,430.56; floor OK. Mining spend ≈ $71.31. TTL 04:53Z (~3h left).
 
 Wait for `/root/h1/train/train.done` → merge_lora → re-serve chall →
 `run_sim_duel.py`. No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T01:56Z — pass 27: H1 post-train pipeline armed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $72.08; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; Lium $34,422.81 (floor OK).
+2. Polled H1 train pid 82057: alive, step **3/110** @ ~60s/it, engines 200×3.
+   ETA ~03:45Z; TTL 04:53Z leaves ~1h for merge+serve+sim — tight.
+3. Wrote + uploaded `experiments/s4-h1-sft/post_train_pipeline.sh`; launched
+   nohup pid **83194** waiting on `train.done` → merge `/root/h1/merged` →
+   re-serve chall → `run_sim_duel.py` → `/root/affine_data/h1_sim_result.json`.
+   Covers Ralph pass gap so handoff cannot miss TTL.
+4. No submit. No new rental.
+
+### Money
+
+Lium $34,422.81; floor OK. Mining spend ≈ $72.08. TTL 04:53Z (~3h left).
+
+### Next
+
+Collect `h1_sim_result.json` when pipeline finishes; apply plan.md decision
+rule. No submit until margin > 0.04 + H4.

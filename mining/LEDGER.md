@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T01:56:34Z | 34422.81 | 10.000000 | 0 | mine-sim-1 spent $72.08; H1 train+pipeline armed; no new rental |
 | 2026-08-07T01:54:36Z | 34430.56 | 10.000000 | 0 | mine-sim-1 spent $71.31; H1 LoRA train launched; no new rental |
 | 2026-08-07T01:43:16Z | 34446.14 | 10.000000 | 0 | mine-sim-1 spent $66.86; H2 α=0.65 done (+0.007); H2 refuted; no new rental |
 | 2026-08-07T01:00:35Z | 34516.22 | 10.000000 | 0 | mine-sim-1 spent $50.07; α=0.65 sim at king/chall 5/80; no new rental |
@@ -35,6 +36,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T01:56:34Z | observe | mine-sim spent $72.08 | Lium → mine-sim-1 | 34422.81 | 10.000 | H1 train step3 + post-train pipeline armed; floor OK |
 | 2026-08-07T01:54:36Z | observe | mine-sim spent $71.31 | Lium → mine-sim-1 | 34430.56 | 10.000 | H1 harvest+LoRA train launched; floor OK |
 | 2026-08-07T01:43:16Z | observe | mine-sim spent $66.86 | Lium → mine-sim-1 | 34446.14 | 10.000 | H2 α=0.65 margin +0.007; H2 refuted; floor OK |
 | 2026-08-07T01:00:35Z | observe | mine-sim spent $50.07 | Lium → mine-sim-1 | 34516.22 | 10.000 | α=0.65 sim at king/chall 5/80; floor OK |
@@ -65,9 +67,9 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~71.31 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
+| Lium rentals (`mine-*`) | ~72.08 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~71.31+ (accruing)** | **0** |
+| **total** | **~72.08+ (accruing)** | **0** |
 
 Cap remaining to first crown: **~$3,843** (of $4,000) after full 6h TTL if unused early kill.

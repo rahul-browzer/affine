@@ -29,8 +29,10 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Prediction (pre-register before train):** challenger mean paired margin ≥
   **+0.04** vs live king on an 80-turn public-D slice, all gates passing,
   r∈[0.70,0.85], base×≤1.15.
-- **In flight (2026-08-07T01:51Z):** harvest 440/440 turns; LoRA r=16 2ep
-  from kevin init, 110 steps, pid 82057 — sim after merge.
+- **In flight (2026-08-07T01:56Z):** harvest 440/440; LoRA r=16 2ep from
+  kevin init, 110 steps, pid 82057 (~step 3 @ 60s/it, ETA ~03:45Z).
+  Post-train pipeline pid 83194 armed: auto merge→re-serve→sim →
+  `/root/affine_data/h1_sim_result.json` (covers TTL handoff).
 - **Verdict:** open.
 
 ## H2 — weight-merge of recent kings / near-kings beats both
