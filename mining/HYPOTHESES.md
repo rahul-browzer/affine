@@ -9,12 +9,12 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **open** (n80 ~60/80; retry watcher) |
-| 2 | H13 | highest (cheap) | TalentPigs×kkk-af α0.75 → margin>0.04 (chal-00262 +0.0244 exact rev) | **open** (mine-h13-1 boot) |
-| 3 | H11 | high (cheap) | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 (chal-00274 +0.023) | **open** (n80 ~75/80; retry watcher) |
-| 4 | H12 | high (cheap) | TalentPigs×plmk α0.75 → margin>0.04 (chal-00310 +0.0143) | **open** (n80 ~44/80) |
-| 5 | H9 | high (cheap) | TalentPigs×diane613 α0.75 → margin>0.04 vs TalentPigs | **open** (n80 retry ~73/80) |
-| 6 | H14 | med (cheap) | TalentPigs×kkkk α0.75 → margin>0.04 (chal-00268 +0.0132) | **open** (staged+retry; wait slot) |
+| 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **open** (n80 ~70/80; retry watcher) |
+| 2 | H13 | highest (cheap) | TalentPigs×kkk-af α0.75 → margin>0.04 (chal-00262 +0.0244 exact rev) | **open** (downloading parents) |
+| 3 | H12 | high (cheap) | TalentPigs×plmk α0.75 → margin>0.04 (chal-00310 +0.0143) | **open** (n80 ~53/80) |
+| 4 | H14 | med (cheap) | TalentPigs×kkkk α0.75 → margin>0.04 (chal-00268 +0.0132) | **open** (mine-h14-1 boot) |
+| — | H11 | was high | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 | **refuted** — invalid base×1.866 |
+| — | H9 | was high | TalentPigs×diane613 α0.75 → margin>0.04 | **refuted** — invalid base×1.851 |
 | — | H10 | was high | TalentPigs×kevin α0.75 (TP-dom) → margin>0.04 | **refuted** — invalid base×1.983 |
 | — | H8 | was high | TalentPigs×golden-crown α0.75 → margin>0.04 | **refuted** — invalid base×1.97 |
 | — | H7 | was high | TalentPigs×pandora α0.75 → margin>0.04 | **refuted** — invalid base×2.21 |
@@ -36,30 +36,20 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Test:** train on mine-h5c-1 GPUs 6,7 → merge → n80 vs TalentPigs.
 - **Status:** mid50 SIGNAL_NEG; final n80 ~60/80; `watch_n80_retry` armed. Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
 
-### H13 — TalentPigs × kkk-af (chal-00262) — boot
+### H13 — TalentPigs × kkk-af (chal-00262) — downloading
 - **Claim:** α=0.75 with strongest non-crown near-miss (+0.0244 z=2.58) clears margin > 0.04.
 - **Test:** `mine-h13-1` (zesty-orbit-df); B=`bluecolor777/kkk-af`@7426296b.
-- **Status:** rented 13:32Z after H10 rm; bootstrap pid 888 + watchers. Detail: `experiments/s4-h13-tp-kkk-merge/`.
+- **Status:** TalentPigs dl done; kkk-af fetching; watchers armed. Detail: `experiments/s4-h13-tp-kkk-merge/`.
 
-### H14 — TalentPigs × kkkk (chal-00268) — staged+hardened
+### H14 — TalentPigs × kkkk (chal-00268) — boot
 - **Claim:** α=0.75 with chal-00268 near-miss (+0.0132 z=1.24) clears margin > 0.04.
-- **Test:** second free slot → `mine-h14-1`; B=`vincentwarrior/affine-5ccebdzvsj-kkkk`@3ca1ebe6 (HF OK 13:12Z).
-- **Status:** `retry_h14_n80.sh` + `watch_n80_retry` in upload; after H13. Detail: `experiments/s4-h14-tp-kkkk-merge/`.
+- **Test:** `mine-h14-1` (swift-orbit-cd); B=`vincentwarrior/affine-5ccebdzvsj-kkkk`@3ca1ebe6.
+- **Status:** rented 13:38Z after H9/H11 rm; pipeline pid 878 + watchers. Detail: `experiments/s4-h14-tp-kkkk-merge/`.
 
 ### H12 — TalentPigs × plmk merge (pivoted from als kdjf)
 - **Claim:** α=0.75 with plmk near-miss clears margin > 0.04.
 - **Test:** mine-h12-1; B=`bluecolor777/plmk`@b2cc7b9f (=chal-00310 +0.0143).
-- **Status:** n80 ~44/80; inline 3×. Detail: `experiments/s4-h12-tp-dfwas-merge/`.
-
-### H11 — TalentPigs × adambell ckpt450 merge
-- **Claim:** α=0.75 with chal-00274 near-miss (+0.0229 z=2.37) clears margin > 0.04.
-- **Test:** mine-h11-1; B=`0pentensor/5dvha3y7cd-ckpt450-H6`@af20efc1.
-- **Status:** n80 ~75/80; `watch_n80_retry` armed. Detail: `experiments/s4-h11-tp-adambell-merge/`.
-
-### H9 — TalentPigs × diane613 merge
-- **Claim:** α=0.75 with reign-earner diane613 clears margin > 0.04.
-- **Test:** mine-h9-1; try α=0.85 if 0.02≤margin≤0.04.
-- **Status:** n80 retry ~73/80. Detail: `experiments/s4-h9-tp-diane-merge/`.
+- **Status:** n80 ~53/80; inline 3×. Detail: `experiments/s4-h12-tp-dfwas-merge/`.
 
 ### H4 — stay inside the distill envelope — **REFUTED** (do not revive)
 - **Claim was:** r ∈ [0.70, 0.85], base× ≤ 1.15, or gates invalidate the miner.
@@ -76,10 +66,17 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Refuted
 
+### H11 — TalentPigs × adambell-ckpt450 α0.75
+- n80 **INVALID**: base×**1.866** (0.230/0.123); r=0.974; Λ2 −0.017. Pod rm ~$30.
+- Detail: `experiments/s4-h11-tp-adambell-merge/result.md`.
+
+### H9 — TalentPigs × diane613 α0.75
+- n80 **INVALID**: base×**1.851** (0.227/0.123); r=0.976; Λ2 −0.018. Pod rm ~$48.
+- Detail: `experiments/s4-h9-tp-diane-merge/result.md`.
+
 ### H10 — TalentPigs × kevin α0.75 (TP-dominant)
 - n80 **INVALID**: base×**1.983**; r=1.028; Λ2 −0.026 vs king −0.012. Pod rm ~$40.
 - Detail: `experiments/s4-h10-tp-kevin-merge/results/h10_decision.json`.
-
 ### H8 — TalentPigs × golden-crown α0.75
 - n80 **INVALID**: `baseline_band_exceeded` base×**1.97** (0.249/0.127); r=0.934; Λ2 −0.018.
 - Same band mode as H7. No α0.85. Detail: `experiments/s4-h8-tp-goldencrown-merge/result.md`.
