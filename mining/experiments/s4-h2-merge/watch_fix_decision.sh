@@ -23,6 +23,10 @@ if [[ ! -s "$SIM" ]]; then
   exit 1
 fi
 source /root/venv/bin/activate
-python3 "$WRITER" --hyp "$HYP" --sim-result "$SIM" --out "$OUT"
+extra=()
+if [[ "$HYP" == *mid50* ]]; then
+  extra+=(--signal-only)
+fi
+python3 "$WRITER" --hyp "$HYP" --sim-result "$SIM" --out "$OUT" "${extra[@]}"
 log "WROTE $OUT"
 cat "$OUT"

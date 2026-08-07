@@ -39,28 +39,47 @@ def extract(d: dict) -> dict:
     }
 
 
-def decide(hyp: str, margin, valid) -> str:
+def decide(hyp: str, margin, valid, *, signal_only: bool) -> str:
+    tag = hyp.upper().replace("-", "_")
     if margin is not None and margin > 0.04 and valid:
-        return "ADVANCE_STAGE5"
+        return "SIGNAL_STRONG" if signal_only else "ADVANCE_STAGE5"
     if margin is not None and margin >= 0.02:
-        return f"TRY_ALPHA_085"
-    return f"REFUTE_{hyp.upper()}"
+        return "SIGNAL_WEAK" if signal_only else "TRY_ALPHA_085"
+    return f"SIGNAL_NEG" if signal_only else f"REFUTE_{tag}"
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--hyp", required=True, help="h7 / h8 / h9 / h10")
+    ap.add_argument("--hyp", required=True, help="h6 / h6_mid50 / h7 / h8 / h9 / h10")
     ap.add_argument("--sim-result", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument(
+        "--signal-only",
+        action="store_true",
+        help="mid-ckpt n40: emit SIGNAL_* (do not tear down pod)",
+    )
     args = ap.parse_args()
     d = json.loads(Path(args.sim_result).read_text())
     fields = extract(d)
+    signal_only = args.signal_only or args.hyp.endswith("mid50")
     dec = {
         "utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         **fields,
-        "decision": decide(args.hyp, fields["margin"], fields["valid_c"]),
+        "decision": decide(
+            args.hyp, fields["margin"], fields["valid_c"], signal_only=signal_only
+        ),
         "parser": "write_merge_decision.py#nested_verdict",
+        "signal_only": signal_only,
+        "submit": False
+        if signal_only
+        else (
+            fields["margin"] is not None
+            and fields["margin"] > 0.04
+            and bool(fields["valid_c"])
+        ),
     }
+    if signal_only:
+        dec["note"] = "mid50 early signal only; final n80 is authoritative"
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(dec, indent=2) + "\n")

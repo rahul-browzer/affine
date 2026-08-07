@@ -7,10 +7,10 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $33,399.31 | 2026-08-07T12:15Z |
-| cumulative mining spend | ~$370 (`mine-sim-1` ~$252 + h5c ~$75 + h7 ~$21 + h8 ~$19 + h9 ~$3 + h10 ~$1) | 2026-08-07T12:15Z |
+| Lium balance | $33,399.31 | 2026-08-07T12:20Z |
+| cumulative mining spend | ~$386 (`mine-sim-1` ~$252 + h5c ~$76 + h7 ~$24 + h8 ~$22 + h9 ~$7 + h10 ~$5) | 2026-08-07T12:20Z |
 | headroom to floor | ~$5,399 | |
-| headroom to $4,000 cap | ~$3,630 | |
+| headroom to $4,000 cap | ~$3,614 | |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -19,6 +19,7 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-07T12:20Z | 33399.31 | h5c+h7+h8+h9+h10 accruing (~$386 cum); no new rent; floor OK |
 | 2026-08-07T12:15Z | 33399.31 | h5c+h7+h8+h9+h10 accruing (~$370 cum); no new rent; floor OK |
 | 2026-08-07T12:11Z | 33417.09 | rented mine-h10-1 8×H200 @$31.92/h ttl8h (max~$255); H10 boot; floor OK |
 | 2026-08-07T12:07Z | 33431.70 | rented mine-h9-1 8×H200 @$31.92/h ttl8h (max~$255); H9 boot; floor OK |
@@ -28,5 +29,3 @@ Floor ≥ **$28,000**; pre-crown mining spend ≤ **$4,000**.
 | 2026-08-07T11:39Z | 33508.56 | h5c~$57 + h7~$5 + h8~$3 accruing; H6 pipe launched; floor OK |
 | 2026-08-07T11:32Z | 33520.05 | rented mine-h8-1 8×H200 @$28/h ttl8h (max~$224); floor OK |
 | 2026-08-07T11:28Z | 33529.46 | rented mine-h7-1 8×H200 @$28/h ttl8h (max~$224); floor OK |
-| 2026-08-07T11:25Z | 33537.66 | mine-h5c-1 at $50.18; H6 train on free GPUs 6,7; floor OK |
-| 2026-08-07T11:19Z | 33545.78 | mine-h5c-1 at $47.57; chall READY + n80 launched; floor OK |

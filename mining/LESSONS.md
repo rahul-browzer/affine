@@ -102,6 +102,10 @@ Format: `- <finding> — <the number or error that proves it>`
   `verdict.challenger` — flat `d.get("margin")` is always None and false-REFUTEs
   winners. Use `s4-h2-merge/write_merge_decision.py` (H5b proof: nested 0.00322
   vs flat None). Sidecar `watch_fix_decision.sh` if start_*.sh already running.
+- Reusing a pod for a new hyp does not inherit `s4-h2-merge/` helpers — mine-h5c-1
+  lacked `write_merge_decision.py`/`watch_fix_decision.sh` until pass128 scp'd them
+  for H6 mid50/final. Mid50 decisions use `SIGNAL_*` + `signal_only:true` (never
+  tear down the train pod on a mid-ckpt n40).
 
 ## Money / platform
 
