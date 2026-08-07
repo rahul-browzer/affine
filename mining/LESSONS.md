@@ -5,7 +5,6 @@ Hard-won knowledge, one line each. **Cap 150 lines** (per GOAL). Detail → `exp
 Format: `- <finding> — <the number or error that proves it>`
 
 ## Scoring / what actually moves S
-
 - All `lp*` are echo+logprob **forced** scores normalized per byte (`lp_per_byte`).
 - `S` is only comparable **within one duel** (slice = reveal-block seed). Never
   cross-duel compare absolute S or absolute clip-L1; use within-slice Δ.
@@ -32,7 +31,6 @@ Format: `- <finding> — <the number or error that proves it>`
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 
 ## Recipes already tried (do not repeat)
-
 - SFT/LoRA near-zero: H1 -0.01994, H1v2 -0.00030, H5b +0.00322, H5c -0.01640
   (clipL1 0.017 << king 0.028), H6 +0.00330. No plain distill-on-refs retry.
 - Merges: H2 kevin×pandora α0.5/−0.010 α0.65/+0.007; H5 kevin-dom×TP band/unpromptable
@@ -42,7 +40,6 @@ Format: `- <finding> — <the number or error that proves it>`
   — stop α lottery / leary / m7 / kkk.
 
 ## Serving / VLM
-
 - King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops
   `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` +
   preprocessor + visual safetensors (333–352 keys).
@@ -51,7 +48,6 @@ Format: `- <finding> — <the number or error that proves it>`
   but shard08 max‖A−O‖=0.215).
 
 ## Training ops
-
 - Under `nohup`, scrape `trainer_state.json` (tqdm.write never hits the log).
 - Always venv python. Salvage mid-ckpts — best loss ≠ last step.
 - LoRA r=16/α32 on 2 GPUs ≈1h45m / 110 steps / 440 ex. Free GPUs 4–5 can
@@ -59,7 +55,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - HF private storage can hard-fail uploads — keep candidate merges public.
 
 ## Shell / pod ops
-
 - Never `lium exec -e HF_TOKEN=...` (prints secret). `/root/mine.env` +
   `set -a; source; set +a` (bare `source` does not export — cost a bootstrap).
 - Never edit a running shell script (bash offset → `ted: command not found`).
