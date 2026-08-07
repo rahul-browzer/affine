@@ -1,0 +1,17 @@
+{
+  "merge_meta_weight_identical": false,
+  "vs_m7_base": {
+    "label": "m7_base",
+    "n_pairs": 2,
+    "window_any_diff": true,
+    "identical": false
+  },
+  "vs_talentpigs_king": {
+    "label": "talentpigs_king",
+    "n_pairs": 2,
+    "window_any_diff": true,
+    "identical": false
+  },
+  "identical_to_base": false,
+  "identical_to_king": false
+}
