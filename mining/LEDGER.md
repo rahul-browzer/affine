@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T09:56:29Z | observe | mine-h5c spent $8.72 | Lium → mine-h5c-1 | 33676.21 | 10.000 | H5c pipe pidfile wait fix + restart; train step11; floor OK |
 | 2026-08-07T09:53:54Z | 33684.34 | 10.000000 | 0 | mine-h5c-1 spent $7.51; host harvest+deadman armed; prior~$252 + accruing; floor OK |
 | 2026-08-07T09:51:30Z | 33684.34 | 10.000000 | 0 | mine-h5c-1 spent $5.92; post-train+prewarm armed; prior~$252 + accruing; floor OK |
 | 2026-08-07T09:47:37Z | 33700.59 | 10.000000 | 0 | mine-h5c-1 spent $4.57; H5c train launched pid 2820; prior~$252 + accruing; floor OK |
@@ -202,9 +203,9 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~**$252** final (`mine-sim-1` removed pass 100) | — |
+| Lium rentals (`mine-*`) | ~**$252** (`mine-sim-1`) + `mine-h5c-1` **$8.72** (live) | — |
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~$252** | **0** |
+| **total** | **~$261** | **0** |
 
-Cap remaining to first crown: **~$3,748** (of $4,000). No live mine-* meter.
+Cap remaining to first crown: **~$3,739** (of $4,000). Live: `mine-h5c-1` @ $28/h.

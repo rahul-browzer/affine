@@ -3657,3 +3657,42 @@ Filled that gap without touching the running train:
 ### Next
 
 Poll `results/h5c_train_progress.json` / `h5c_decision.json`. Gate margin > 0.04.
+
+---
+
+## 2026-08-07T09:56:29Z — pass 106: H5c pipe pidfile wait + chall-placeholder kill
+
+### Reconcile
+
+`lium ps`: `mine-h5c-1` (`golden-hawk-dc`) RUNNING spent $8.72 / 19m;
+validator `affine-eval` / `affine-bench` left alone. No orphans.
+
+### Increment
+
+While train ran (step 10→11/99), audited the armed post-train path and fixed
+two landmines before `train.done`:
+
+1. **Train-wait pgrep false-match.** `post_train_pipeline.sh` used
+   `pgrep -f "s4-h1v2-sft/train_lora.py"`, which matches host SSH scrapes that
+   embed that string in argv — after train.done the GPU-settle loop can hang
+   until the 15m abort. Replaced with `_train_alive()` on
+   `/root/logs/h5c_train.pid` (+ narrow `python3 …/train_lora.py --base`
+   fallback). H1 already used the pidfile pattern.
+2. **serve_three fallback left chall on GPUs 4,5.** Prewarm kills the
+   placeholder; the pipe fallback did not. Added the same kill path so merge
+   settle / real chall keep 4,5 free if prewarm is not READY yet.
+
+Restarted **only** pipe 5222 → **10642**. Train **2820**, mid **5194**,
+prewarm **5206** untouched. Teacher `:8000` READY; king `:8001` still loading
+(CUDA graphs). Evidence:
+`experiments/s4-h5c-expand-refs/results/h5c_pipe_pidfile_fix.json`.
+
+### Snapshot
+
+- King unchanged: TalentPigs reign 3 S=0.0315
+- Live eval: `chal-00301` kevin954 scoring (ignore)
+- Lium $33,676.21; mine-h5c-1 $8.72; no new rental; no submit
+
+### Next
+
+Poll `results/h5c_train_progress.json` / `h5c_decision.json`. Gate margin > 0.04.

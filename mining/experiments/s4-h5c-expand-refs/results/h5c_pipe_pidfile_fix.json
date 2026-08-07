@@ -1,0 +1,26 @@
+{
+  "utc": "2026-08-07T09:56:29Z",
+  "pass": 106,
+  "pod": "mine-h5c-1",
+  "huid": "golden-hawk-dc",
+  "increment": "harden post_train_pipeline train-wait to h5c_train.pid; kill chall placeholder on serve_three fallback; restart pipe only",
+  "bug": "pgrep -f 's4-h1v2-sft/train_lora.py' false-matches host SSH scrapes that embed the pattern in argv, stalling the post-train.done GPU settle forever",
+  "fix": {
+    "train_alive_helper": "_train_alive() uses /root/logs/h5c_train.pid then narrow python3 .../train_lora.py --base fallback",
+    "chall_placeholder": "serve_three fallback now kills vllm_chall.pid like prewarm",
+    "old_pipe_pid": 5222,
+    "new_pipe_pid": 10642,
+    "train_pid_untouched": 2820,
+    "train_step_at_restart": 11,
+    "mid_pid": 5194,
+    "prewarm_pid": 5206
+  },
+  "prewarm_at_restart": {
+    "teacher_v1_models": 200,
+    "king_v1_models": 0,
+    "note": "teacher READY; king still CUDA-graph / load (~6m elapsed)"
+  },
+  "spent_usd": 8.72,
+  "lium_balance_usd": 33676.21,
+  "do_not_submit": true
+}

@@ -33,6 +33,20 @@ DEADMAN_UTC=${DEADMAN_UTC:-2026-08-07T19:00:00Z}
 
 log() { echo "[h5c-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
+# Prefer pidfile over `pgrep -f train_lora.py`: host SSH scrapes that embed the
+# pattern in argv false-match and can stall the post-train.done GPU wait forever.
+_train_alive() {
+  if [[ -f /root/logs/h5c_train.pid ]]; then
+    local tpid
+    tpid=$(cat /root/logs/h5c_train.pid 2>/dev/null || true)
+    if [[ -n "${tpid:-}" ]] && kill -0 "$tpid" 2>/dev/null; then
+      return 0
+    fi
+  fi
+  # Narrow fallback: real trainer argv starts with python3 + full script path.
+  pgrep -f "python3 /root/mining_src/s4-h1v2-sft/train_lora.py --base" >/dev/null 2>&1
+}
+
 _abort_on_exit() {
   local rc=$?
   if [[ $rc -eq 0 ]]; then
@@ -56,12 +70,13 @@ rm -f /root/logs/h5c_pipeline.aborted /root/logs/h5c_pipeline.done \
   /root/logs/h5c_sim_n80.done
 
 log "waiting for $TRAIN_DIR/train.done (or adapter + no train proc)"
+_wait_i=0
 while true; do
   if [[ -f "$TRAIN_DIR/train.done" ]]; then
     log "train.done present"
     break
   fi
-  if [[ -f "$ADAPTER/adapter_config.json" ]] && ! pgrep -f "s4-h1v2-sft/train_lora.py" >/dev/null 2>&1; then
+  if [[ -f "$ADAPTER/adapter_config.json" ]] && ! _train_alive; then
     log "adapter present and train proc gone - proceed"
     break
   fi
@@ -72,19 +87,22 @@ while true; do
     echo "aborted_no_train $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h5c_pipeline.aborted
     exit 1
   fi
+  _wait_i=$((_wait_i + 1))
+  if (( _wait_i % 10 == 0 )); then
+    log "still waiting for train.done (poll #$_wait_i)"
+  fi
   sleep 30
 done
 
-# LANDMINE: never SCP/edit this file while a live pipe is in the wait loop.
-log "waiting for train_lora.py to exit and release GPUs 6,7"
+log "waiting for train pid to exit and release GPUs 6,7"
 for _ in $(seq 1 180); do
-  if ! pgrep -f "s4-h1v2-sft/train_lora.py" >/dev/null 2>&1; then
+  if ! _train_alive; then
     log "train proc gone"
     break
   fi
   sleep 5
 done
-if pgrep -f "s4-h1v2-sft/train_lora.py" >/dev/null 2>&1; then
+if _train_alive; then
   log "ERROR: train still alive >15m after train.done; abort"
   echo "aborted_train_stuck $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h5c_pipeline.aborted
   exit 1
@@ -255,7 +273,20 @@ if [[ "$code_t" != "200" || "$code_k" != "200" ]]; then
     CHALL_REPO="$BASE" \
     CHALL_REV=local \
     bash /root/mining_src/s3-duel-sim/serve_three.sh
-  # Wait teacher+king only; chall will be swapped next.
+  # Wait teacher+king only; kill placeholder chall so GPUs 4,5 stay free for merge settle / real chall.
+  if [[ -f /root/logs/vllm_chall.pid ]]; then
+    cpid=$(cat /root/logs/vllm_chall.pid)
+    if kill -0 "$cpid" 2>/dev/null; then
+      log "stop placeholder chall pid=$cpid"
+      kill "$cpid" || true
+      for _ in $(seq 1 30); do
+        kill -0 "$cpid" 2>/dev/null || break
+        sleep 2
+      done
+      kill -9 "$cpid" 2>/dev/null || true
+    fi
+    rm -f /root/logs/vllm_chall.pid
+  fi
   for _ in $(seq 1 120); do
     code_t=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8000/health || true)
     code_k=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8001/health || true)
@@ -275,6 +306,8 @@ fi
 
 unset CUDA_VISIBLE_DEVICES
 
+# RESTART_KING=0 keeps prewarmed TalentPigs on :8001; KEVIN_REPO is the env name
+# restart_for_h2.sh uses for KING_REPO when it would restart king (it won't here).
 log "chall-only re-serve $MERGED (keep teacher+TalentPigs king)"
 RESTART_KING=0 \
   MERGE="$MERGED" \
