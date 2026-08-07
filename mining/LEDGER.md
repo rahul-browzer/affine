@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T04:33:35Z | 34181.35 | 10.000000 | 0 | mine-sim-1 spent $133.70; n80 ~11/80; H1v2 plan ready; no new rental |
 | 2026-08-07T04:29:15Z | 34189.24 | 10.000000 | 0 | mine-sim-1 spent $131.54; H1 n40 margin −0.00241 revise_recipe; n80 running; no new rental |
 | 2026-08-07T04:11:12Z | 34212.62 | 10.000000 | 0 | mine-sim-1 spent $125.06; config+visual serve fix; n40 sim running; no new rental |
 | 2026-08-07T03:56:51Z | 34235.98 | 10.000000 | 0 | mine-sim-1 spent $119.34; H1 train+merge done; false-identical fixed; resume push+serve; no new rental |
@@ -56,6 +57,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T04:33:35Z | observe | mine-sim spent $133.70 | Lium → mine-sim-1 | 34181.35 | 10.000 | n80 advancing ~11/80; H1v2 plan drafted (no GPU yet); floor OK |
 | 2026-08-07T04:29:15Z | observe | mine-sim spent $131.54 | Lium → mine-sim-1 | 34189.24 | 10.000 | H1 n40 margin −0.00241 (H4 r=1.135 fail); n80 launched; no submit; floor OK |
 | 2026-08-07T04:11:12Z | observe | mine-sim spent $125.06 | Lium → mine-sim-1 | 34212.62 | 10.000 | CausalLM save bugs fixed (wrapper config + visual shard); chall READY; n40 sim; floor OK |
 | 2026-08-07T03:56:51Z | observe | mine-sim spent $119.34 | Lium → mine-sim-1 | 34235.98 | 10.000 | H1 train DONE + merge; first_1MiB false-positive fixed; resume push+serve→sim; floor OK |
@@ -109,7 +111,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~131.54 so far (meter running @ 23.60/h; host deadman 07:00Z) | — |
+| Lium rentals (`mine-*`) | ~133.70 so far (meter running @ 23.60/h; host deadman 07:00Z) | — |
 
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |

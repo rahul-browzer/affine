@@ -7,11 +7,12 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1 | highest | sim margin vs kevin **> 0.04** after teacher-ref SFT from kevin init | open — **n40 miss** (−0.0024); n80 running |
-| 2 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
-| 3 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule) |
-| 4 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
-| 5 | H5 | medium | SFT on near-miss lineage to flip −0.0027 → >+0.04 | open |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — plan ready |
+| 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | open — **n40 miss** (−0.0024); n80 running; recipe dead for submit |
+| 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
+| 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
+| 5 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
+| 6 | H5 | medium | SFT on near-miss lineage to flip −0.0027 → >+0.04 | open (fallback after H1v2) |
 
 ---
 
@@ -37,8 +38,23 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   missed. **n80 RUNNING** for SE confirmation; do not submit this ckpt.
   Artifacts: `experiments/s4-h1-sft/result.md`, `results/h1_sim_result_n40.json`,
   `results/h1_decision.json`. HF merged @ `3364892…`. Soft 06:50Z /
-  deadman 07:00Z. kevin still king (chal-00279 scoring).
-- **Verdict:** open (leaning refuted for this recipe; wait n80).
+  deadman 07:00Z. kevin still king (chal-00280 dispatching as of 04:33Z).
+- **Verdict:** open (leaning refuted for this recipe; wait n80). Successor:
+  **H1v2** thought-only distill.
+
+## H1v2 — thought-only teacher distill restores envelope
+
+- **Claim:** Masking SFT loss to teacher **z_C** tokens only (stop before the
+  bash fence), with milder lr=2e-5 / 1 epoch from kevin init, keeps Λ2 gains
+  while restoring r∈[0.70,0.85] and positive clip-L1 → sim margin > 0.04.
+- **Evidence:** H1 n40 improved Λ2 vs kevin but drove r to 1.135 and clip-L1
+  negative — consistent with over-fitting `y_C` under `z_C` and breaking the
+  king's empty→conditioned calibration (H3/H4).
+- **Experiment:** `experiments/s4-h1v2-sft/` on `mine-sim-1` after H1 n80
+  finishes (reuse engines). Same 440 teacher_refs; `--loss-on thought`.
+- **Prediction (pre-register BEFORE train):** n80 sim margin ≥ **+0.04**;
+  H4 OK; chall implied mean clip-L1 ≥ **+0.015**.
+- **Verdict:** open — plan written 2026-08-07T04:33Z; train not started.
 
 
 ## H2 — weight-merge of recent kings / near-kings beats both

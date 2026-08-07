@@ -1779,3 +1779,33 @@ Lium $34,189.24; mining spend ≈ $131.54. Floor OK. No new rental. No submit.
 
 Poll n80 → re-triage (expect confirm revise). Then H1v2 / H5 — fix r back
 into ~0.72–0.85 and recover clip-L1. No slot burn on this merge.
+
+## 2026-08-07T04:33:35Z — pass 50: n80 advancing; H1v2 plan (thought-only)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $133.70; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host harvest 1486917 + deadman 1405846 still alive.
+
+### What I did
+
+1. Polled H1 n80 (pid 143331): engines 200×3; progress king **11**/80 /
+   chall **10**/80 @ 04:33Z (~2.5 turns/min; ETA ~05:00Z). Result file not
+   yet written. Soft 06:50Z / deadman 07:00Z still OK.
+2. Snapshot: kevin still king @ S=0.03956. chal-00279 finished; live eval
+   moved to **chal-00280** (Tok331102/…-af8) dispatching.
+3. Used idle pass time for the next recipe: wrote
+   `experiments/s4-h1v2-sft/plan.md` + HYPOTHESES **H1v2**. Pre-registered
+   fix for H1's envelope failure: mask loss to teacher **z_C only** (stop
+   before bash fence), lr **2e-5**, **1 epoch**. Prediction: margin ≥ +0.04
+   with r∈[0.70,0.85] and clip-L1 ≥ +0.015. Do not submit H1 merge.
+
+### Money
+
+Lium $34,181.35; mining spend ≈ $133.70. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll n80 → re-triage → implement/launch H1v2 on same pod before 07:00Z if
+possible. No slot burn on H1.
