@@ -1,0 +1,50 @@
+{
+  "utc": "2026-08-07T06:33:00Z",
+  "pass": 70,
+  "action": "launch_h5_merge_sim_pipeline",
+  "king_pivot": {
+    "done_utc": "2026-08-07T06:32:28Z",
+    "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+    "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "health": {"teacher": 200, "king": 200, "chall_h1v2": 200},
+    "markers": [
+      "/root/logs/h5_download.done",
+      "/root/logs/h5_king_pivot.done",
+      "/root/logs/h5_pivot_pipeline.done"
+    ]
+  },
+  "merge_sim": {
+    "pipeline_pid": 231222,
+    "merge_pid_at_launch": 231233,
+    "alpha": 0.65,
+    "a": "kevin954/Affine-5dfqbbh8ev-sft@6a5815fad8f4e34c983b1933c1fae5762fe25220",
+    "b": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "out": "/root/merges/h5-kt65",
+    "keys_common": 1026,
+    "only_A": 19,
+    "only_B": 0,
+    "script": "/root/mining_src/s4-h5-talentpigs/start_merge_sim.sh",
+    "log": "/root/logs/h5_merge_sim.nohup",
+    "markers": {
+      "merge_done": "/root/logs/h5_merge.done",
+      "serve_done": "/root/logs/h5_chall_serve.done",
+      "sim_done": "/root/logs/h5_sim_n80.done",
+      "pipe_done": "/root/logs/h5_merge_sim.done",
+      "sim_out": "/root/affine_data/h5_kt65_sim_result.json",
+      "progress": "/root/affine_data/h5_kt65_sim_progress.json"
+    }
+  },
+  "snapshot_king": {
+    "repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+    "revision": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "score": 0.031501971059510636,
+    "reign_number": 3
+  },
+  "lium": {
+    "balance_usd": 33994.63,
+    "mine_sim_1_spent_usd": 180.82,
+    "deadman": "12:00Z",
+    "deadman_pid": 1783662
+  },
+  "submit": false
+}

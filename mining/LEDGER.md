@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T06:33:00Z | 33994.63 | 10.000000 | 0 | mine-sim-1 spent $180.82; pass70 king pivot DONE + H5 α0.65 merge→n80 launched; deadman 12:00Z; no new rental |
 | 2026-08-07T06:25:41Z | 34002.45 | 10.000000 | 0 | mine-sim-1 spent $177.94; pass69 H5 pivot pipe launched (TalentPigs dl→king); deadman→12:00Z; no new rental |
 | 2026-08-07T06:20:30Z | 34010.24 | 10.000000 | 0 | mine-sim-1 spent $175.84; pass68 H1v2 n80 REFUTED margin −0.00030; TalentPigs king; harvest killed keep-pod; no new rental |
 | 2026-08-07T06:09:00Z | 34033.60 | 10.000000 | 0 | mine-sim-1 spent $171.38; pass67 deadline extend harvest 07:45/deadman 08:00; n80~55/80; no new rental |
@@ -75,6 +76,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T06:33:00Z | observe | mine-sim spent $180.82 | Lium → mine-sim-1 | 33994.63 | 10.000 | H5 pivot DONE + merge pipe 231222; floor OK |
 | 2026-08-07T06:25:41Z | observe | mine-sim spent $177.94 | Lium → mine-sim-1 | 34002.45 | 10.000 | H5 pivot pipe 227022; deadman→12:00Z; floor OK |
 | 2026-08-07T06:20:30Z | observe | mine-sim spent $175.84 | Lium → mine-sim-1 | 34010.24 | 10.000 | H1v2 n80 REFUTED; TalentPigs crowned; keep pod; floor OK |
 | 2026-08-07T06:09:00Z | observe | mine-sim spent $171.38 | Lium → mine-sim-1 | 34033.60 | 10.000 | pass67 n80~55/80; extended harvest→07:45/deadman→08:00 (+≤$23.60 if full hour); floor OK |

@@ -2435,3 +2435,33 @@ No submit / no registration burn.
 
 Poll `/root/logs/h5_king_pivot.done` → merge kevin×TalentPigs α=0.65 →
 chall:8002 → n80 vs TalentPigs (gate >0.04). Re-check snapshot before sim.
+
+## 2026-08-07T06:33:00Z — pass 70: H5 king pivot DONE + α=0.65 merge→n80 launched
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $180.82; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,994.63 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. Confirmed TalentPigs download done (81s, 66G cache) and king:8001 pivot
+   READY at **06:32:28Z** (`h5_king_pivot.done` + `h5_pivot_pipeline.done`;
+   wait_ready ~347s — CUDA graph capture). Engines 200×3 (chall still H1v2).
+2. Wrote `experiments/s4-h5-talentpigs/start_merge_sim.sh` — CPU merge
+   kevin α=0.65 × TalentPigs → `/root/merges/h5-kt65/` with first_1MiB refuse
+   vs king, then chall re-serve → n80 `run_sim_duel.py`. Uploaded to pod.
+3. Launched pipe pid **231222** (merge_linear **231233**): 1026 common keys,
+   only_A=19 mtp leftovers from kevin. Evidence:
+   `results/h5_merge_sim_launched.json`.
+
+### Money
+
+Lium $33,994.63; mining spend ≈ $180.82. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Poll `h5_merge.done` → `h5_sim_n80.done` → harvest+triage (gate >0.04).
+If weak: α=0.50 or refute merge → TalentPigs-init thought distill.
