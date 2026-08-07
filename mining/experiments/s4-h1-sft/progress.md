@@ -54,3 +54,4 @@ Done markers: `/root/logs/h1_pipeline.done`, `/root/logs/h1_sim.done`,
 | 2026-08-07T03:08:17Z | step **79/110**; host harvest **1486917** early-teardown accepts train_fallback/train.done + mid/merged salvage (was blocked on train_result only); chal-00274 H6 scoring; ETA train.done ~03:37Z |
 | 2026-08-07T03:11:56Z | step **84/110**; triage **live-king guard** (User-Agent fetch; `re_sim_new_king` / `confirm_live_king`); sim writes `king_rev`; SCP'd `run_sim_duel.py`; H6 scoring **70/80**; ETA train.done ~**03:36Z** |
 | 2026-08-07T03:15:18Z | step **87/110**; **chal-00274 H6 REJECTED** (margin +0.0229, z=2.37&lt;3, 3·SE=0.0289); kevin still king; verdict in `results/chal-00274_*.json`; ETA train.done ~**03:36Z** |
+| 2026-08-07T03:28:31Z | step **101/110**; **checkpoint-100** on disk+HF (loss **0.207**, min 0.175 @80); mid-salvage OK; emit numeric-ckpt fix; chal-00275 scoring king15/80; ETA train.done ~**03:37Z** |

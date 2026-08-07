@@ -1623,3 +1623,45 @@ Poll for `train_done` (~03:36Z) → adapter salvage → merge_meta
 (`first_1MiB_identical: false`) → merged_salvage → n40→n80. Read
 `results/h1_decision.json` when present. Watch queue (chal-00275+). No
 submit until action=`toward_submit`.
+
+---
+
+## 2026-08-07T03:28:31Z — pass 46: checkpoint-100 on HF; emit prefers numeric ckpt
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $108.12; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host harvest 1486917 + deadman 1405846 still alive. Train step **101/110**;
+engines 200×3; pipe 105148 waiting; ETA train.done ~**03:37Z**.
+
+### What I did
+
+1. Polled train through **checkpoint-100** (appeared ~03:27Z). Mid-salvage
+   pid 83669 pushed adapter-only to private
+   `unconst/Affine-5czsc2fc98-h1-lora/checkpoint-100` commit
+   `d68c0a3b…` at 03:27:30Z. Meta:
+   `results/mid_checkpoint-100_salvage.json`,
+   `results/h1_trainer_state_ckpt100.json`,
+   `results/h1_epoch2_ckpt100.json`.
+2. **Loss path that matters:** epoch1 **0.251** @55 → ckpt100 last **0.207**
+   @100 (epoch 1.818). Min so far **0.175** @80. Transient spike **1.86** @70 /
+   0.93 @75 then recovered — not a train death.
+3. Found host progress stuck on ckpt-50 loss (0.329): `emit_train_progress.py`
+   used lexical `sorted(...)` so `checkpoint-100` < `checkpoint-50` and
+   `candidates[-1]` picked 50. Fixed to numeric step sort; SCP'd to pod;
+   progress now reports last_loss **0.207** from ckpt-100.
+4. Live: kevin still king; **chal-00275** Tok331102/…-af6 **scoring**
+   (king 15/80 @ 03:27Z). Watch for crown before/during our n40→n80.
+5. No submit. No new rental. Train/pipeline/deadman untouched.
+
+### Money
+
+Lium $34,282.69; mining spend ≈ $108.12. Floor OK. Host deadman 07:00Z.
+
+### Next
+
+Poll for `train_done` (~03:37Z) → adapter salvage → merge_meta
+(`first_1MiB_identical: false`) → merged_salvage → n40→n80. Read
+`results/h1_decision.json` when present. Watch chal-00275. No submit until
+action=`toward_submit`.

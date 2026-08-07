@@ -1,0 +1,27 @@
+{
+  "utc": "2026-08-07T03:28:10Z",
+  "checkpoint": "checkpoint-100",
+  "global_step": 100,
+  "epoch": 1.8181818181818183,
+  "last_loss": 0.20740201473236083,
+  "last_epoch": 1.8181818181818183,
+  "min_loss_so_far": 0.17501583099365234,
+  "min_loss_at_epoch": 1.4545454545454546,
+  "epoch1_loss": 0.251,
+  "hf_salvage": {
+    "repo": "unconst/Affine-5czsc2fc98-h1-lora",
+    "private": true,
+    "adapter": "/root/h1/train/checkpoints/checkpoint-100",
+    "staged_files": [
+      "README.md",
+      "adapter_config.json",
+      "adapter_model.safetensors"
+    ],
+    "base_hub": "kevin954/Affine-5dfqbbh8ev-sft",
+    "path_in_repo": "checkpoint-100",
+    "commit_sha": "https://huggingface.co/unconst/Affine-5czsc2fc98-h1-lora/commit/d68c0a3b847374950ad02bdb81f62f17cda193f0",
+    "uploaded_utc": "2026-08-07T03:27:30Z",
+    "note": "adapter-only salvage; not a submission revision"
+  },
+  "note": "pass46: epoch2 mid ckpt; loss improved vs epoch1 0.251 \u2192 0.207 @ epoch 1.818"
+}

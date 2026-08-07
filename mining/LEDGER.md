@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T03:28:31Z | 34282.69 | 10.000000 | 0 | mine-sim-1 spent $108.12; H1 step101; ckpt-100 HF OK loss0.207; chal-00275 scoring; no new rental |
 | 2026-08-07T03:15:18Z | 34306.02 | 10.000000 | 0 | mine-sim-1 spent $102.97; H1 step87; H6 rejected z&lt;3; kevin king; no new rental |
 | 2026-08-07T03:11:56Z | 34306.02 | 10.000000 | 0 | mine-sim-1 spent $101.74; H1 step84; triage live-king guard; no new rental |
 | 2026-08-07T03:05:27Z | 34313.83 | 10.000000 | 0 | mine-sim-1 spent $99.00; H1 step76; merged HF push armed; no new rental |
@@ -52,6 +53,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T03:28:31Z | observe | mine-sim spent $108.12 | Lium → mine-sim-1 | 34282.69 | 10.000 | H1 step101; ckpt-100 salvaged to HF (loss 0.207); chal-00275 scoring; floor OK |
 | 2026-08-07T03:15:18Z | observe | mine-sim spent $102.97 | Lium → mine-sim-1 | 34306.02 | 10.000 | H1 step87; chal-00274 H6 rejected (margin+0.0229 z=2.37&lt;3); kevin remains; floor OK |
 | 2026-08-07T03:11:56Z | observe | mine-sim spent $101.74 | Lium → mine-sim-1 | 34306.02 | 10.000 | H1 step84; triage live-king guard + sim king_rev SCP'd; H6 scoring 70/80; floor OK |
 | 2026-08-07T03:08:17Z | observe | mine-sim spent $100.29 | Lium → mine-sim-1 | 34313.83 | 10.000 | H1 step79; host early-teardown accepts train_fallback/train.done + mid/merged salvage; harvest 1486917; floor OK |
@@ -101,7 +103,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~100.29 so far (meter running @ 23.60/h; host deadman 07:00Z ≈ +$50 vs old 04:53Z TTL) | — |
+| Lium rentals (`mine-*`) | ~108.12 so far (meter running @ 23.60/h; host deadman 07:00Z ≈ +$50 vs old 04:53Z TTL) | — |
 
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |

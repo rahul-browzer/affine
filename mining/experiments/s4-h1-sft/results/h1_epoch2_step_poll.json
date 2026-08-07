@@ -1,14 +1,17 @@
 {
-  "utc": "2026-08-07T03:15:18Z",
-  "step": 87,
+  "utc": "2026-08-07T03:28:10Z",
+  "step": 100,
   "total": 110,
-  "frac": 0.7909090909090909,
+  "frac": 0.9090909090909091,
   "train_done": false,
   "ckpt_dirs": [
-    "checkpoint-50"
+    "checkpoint-50",
+    "checkpoint-100"
   ],
-  "eta_train_done_utc": "2026-08-07T03:36:23Z",
+  "eta_train_done_utc": "2026-08-07T03:37:20Z",
   "seconds_per_step_approx": 55,
-  "chal_00274": "DONE \u2014 rejected z=2.37<3 margin=+0.0229; kevin remains",
-  "note": "pass45: captured H6 verdict; king still kevin; H1 train step 87/110"
+  "ckpt100_loss": 0.20740201473236083,
+  "ckpt100_hf": "unconst/Affine-5czsc2fc98-h1-lora/checkpoint-100",
+  "chal_00275": "scoring king 15/80 as of 03:27Z",
+  "note": "pass46: checkpoint-100 on disk+HF; mid-salvage OK; ~10 steps to train.done"
 }

@@ -33,11 +33,18 @@ def main() -> None:
     steps = [int(m.group(1)) for m in re.finditer(r"(\d+)/110\s*\[", raw)]
     last = steps[-1] if steps else None
     ckpt_root = Path("/root/h1/train/checkpoints")
-    ckpts = (
-        sorted(d.name for d in ckpt_root.glob("checkpoint-*") if d.is_dir())
+
+    def _ckpt_step(path: Path) -> int:
+        # Lexical sort puts checkpoint-100 before checkpoint-50; use numeric step.
+        m = re.search(r"checkpoint-(\d+)$", path.name if path.is_dir() else path.parent.name)
+        return int(m.group(1)) if m else -1
+
+    ckpt_dirs = (
+        [d for d in ckpt_root.glob("checkpoint-*") if d.is_dir()]
         if ckpt_root.is_dir()
         else []
     )
+    ckpts = [d.name for d in sorted(ckpt_dirs, key=_ckpt_step)]
     engines = {}
     for port, name in [(8000, "teacher"), (8001, "king"), (8002, "chall")]:
         try:
@@ -52,7 +59,12 @@ def main() -> None:
     state_path = None
     candidates = []
     if ckpt_root.is_dir():
-        candidates.extend(sorted(ckpt_root.glob("checkpoint-*/trainer_state.json")))
+        candidates.extend(
+            sorted(
+                ckpt_root.glob("checkpoint-*/trainer_state.json"),
+                key=lambda p: _ckpt_step(p.parent),
+            )
+        )
     adapter_state = Path("/root/h1/train/adapter/trainer_state.json")
     if adapter_state.is_file():
         candidates.append(adapter_state)
