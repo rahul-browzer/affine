@@ -8,7 +8,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
 | 1 | H1 | highest | sim margin vs kevin **> 0.04** after teacher-ref SFT from kevin init | open |
-| 2 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | open |
+| 2 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | α=0.5 **missed** (−0.010); α=0.65 running |
 | 3 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule) |
 | 4 | H3 | instrumental lever | once Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S (cap +0.1) | **supported** |
 | 5 | H5 | medium | SFT on near-miss lineage to flip −0.0027 → >+0.04 | open |
@@ -40,7 +40,12 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Experiment:** merge on `mine-merge-1`; score in Stage 3 simulator.
 - **Prediction:** merge paired margin over kevin > **0.02** on first try;
   often > **0.04**. If < 0.02 after two merge recipes, refute for these parents.
-- **Verdict:** open.
+- **Result so far (α=0.5, 2026-08-07):** margin **−0.00996** (z=−1.30);
+  chall S=0.0189 vs king S=0.0289; both valid; r=0.822 base×=0.837 (H4 OK);
+  mean_λ2 chal −0.00166 vs king +0.00359. Equal mix diluted Λ2.
+  Raw: `experiments/s4-h2-merge/result.md` + `results/h2_kp50_sim_result.json`.
+- **Verdict:** open — α=0.65 second recipe running; refute only if that also
+  lands margin < 0.02.
 
 ## H3 — L1lift is the cheap lever once Λ2 is near king
 

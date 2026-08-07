@@ -719,3 +719,34 @@ Lium $34,555.04; floor OK. Mining spend ≈ $39.84. No new rental. TTL still
 
 Collect `h2_sim_result.json` margin vs kevin; apply plan.md decision rule.
 No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T00:43Z — pass 21: H2 α=0.5 LOST (−0.010); α=0.65 merge launched
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $43.18; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Polled H2 sim — completed @ ~00:39Z. Result:
+   - margin **−0.009955**, z=−1.30, se=0.00767
+   - king S=0.02888 / chall S=0.01892; both valid
+   - H4 OK: r=0.822, base×=0.837
+   - mean_λ2: king +0.00359 vs chall **−0.00166** (dilution, not gate fail)
+2. SCP'd result+artifact → `experiments/s4-h2-merge/results/`; wrote `result.md`.
+3. Per plan.md decision rule (margin < 0.02): launched α=0.65 merge on same
+   pod (parents cached). pid 71425 / py 71431 → `/root/merges/h2-kp65`.
+   Log `/root/logs/h2_kp65_merge.log`. Shard 1/2 writing at launch.
+4. Live king unchanged kevin S≈0.03956. No submit. No new rental.
+
+### Money
+
+Lium $34,539.54; floor OK. Mining spend ≈ $43.18. TTL 04:53Z (~4.1h left).
+
+### Next
+
+When `h2_kp65_merge.done`: re-serve chall=h2-kp65, run 80-turn sim. If margin
+still < 0.02 → refute H2 for kevin×pandora; pivot H1 SFT.

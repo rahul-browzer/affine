@@ -4,10 +4,10 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 in progress — H2 α=0.5 sim duel RUNNING vs kevin (sampling ~65/80).**
+**Stage 4 — H2 α=0.5 REFUTED for submit; α=0.65 merge RUNNING.**
 
-Stage 0–3 complete. Merge `/root/merges/h2-kp50` served as challenger;
-80-turn local `run_sim_duel` in flight. No submissions.
+Stage 0–3 complete. α=0.5 kevin×pandora sim finished: margin **−0.00996**
+(both valid, H4 OK). Second recipe α=0.65 merging on pod. No submissions.
 
 ## Live facts (verified this pass)
 
@@ -20,48 +20,49 @@ Stage 0–3 complete. Merge `/root/merges/h2-kp50` served as challenger;
 | min_submission_block | 8767079 (contract + affine.toml) |
 | weight_version_key | 1 |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $34,555.04 (floor $28,000) |
+| Lium balance | $34,539.54 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$39.84** @ $23.60/h (TTL cap ≈ $141.60) |
+| mining spend to date | `mine-sim-1` spent **$43.18** @ $23.60/h (TTL cap ≈ $141.60) |
 | our submissions | none |
 | Stage 3 gate | **MET** — `experiments/s3-duel-sim/result.md` |
-| Stage 4 H2 merge | **DONE** — `/root/merges/h2-kp50` + `experiments/s4-h2-merge/merge_meta.json` |
-| Stage 4 H2 serve | **READY** — teacher:8000 king:8001 chall:8002 (all `/health` 200) |
-| Stage 4 H2 sim | **RUNNING** — pid **68843**; @ 00:34Z: `king 65/80`, `challenger 65/80` |
+| H2 α=0.5 sim | **DONE** — margin −0.00996; see `experiments/s4-h2-merge/result.md` |
+| H2 α=0.65 merge | **RUNNING** — pid **71425** / py **71431**; out `/root/merges/h2-kp65` |
 
 ## What's running
 
 | name | huid | role | check |
 |---|---|---|---|
-| `mine-sim-1` | `swift-shark-52` | Stage 4 H2 serve+sim | SSH `root@69.63.236.160 -p 40301`; TTL remove at **2026-08-07T04:53:17Z** |
+| `mine-sim-1` | `swift-shark-52` | Stage 4 H2 α=0.65 merge | SSH `root@69.63.236.160 -p 40301`; TTL remove at **2026-08-07T04:53:17Z** |
 
 On pod:
-- teacher:8000 / king:8001=kevin / chall:8002=`/root/merges/h2-kp50`
-- Sim: `PYTHONPATH=/root/mining_src/affine_pkg python …/run_sim_duel.py --save-artifact`
-  - log `/root/logs/h2_sim.nohup` · pid `/root/logs/h2_sim.pid` (=68843)
-  - result target `/root/affine_data/h2_sim_result.json` (+ `_artifact.json`)
-- Progress (pass 20): 180s recheck confirmed advance 55/80 → **65/80** both
-  sides (not stuck). Teacher GPUs 0–1 100%; king/chall 2–5 idle between
-  sample batches (weights loaded); GPUs 6–7 free.
-- Throughput: ~5 turns / ~2.5–3 min per side → sampling ETA ~00:42–00:50Z;
-  force-echo after that; finish well inside TTL 04:53Z
-- Poll: `ssh -p 40301 root@69.63.236.160 'tail -20 /root/logs/h2_sim.nohup; ls /root/affine_data/h2_sim_result.json'`
+- Engines still up (teacher:8000 king:8001 chall:8002=h2-kp50) but idle after sim
+- α=0.65 merge: log `/root/logs/h2_kp65_merge.log` · pid `/root/logs/h2_kp65_merge.pid`
+  - done marker `/root/logs/h2_kp65_merge.done`
+  - out `/root/merges/h2-kp65` (+ `merge_meta.json` when finished)
+- Prior α=0.5 result on pod: `/root/affine_data/h2_sim_result.json` (copied to
+  `experiments/s4-h2-merge/results/`)
+- Merge ETA ~5–6 min (α=0.5 took ~319s); then re-serve + 80-turn sim (~40 min)
 
-Serve knobs (H200): `VLLM_USE_DEEP_GEMM=0`, `CUDA_HOME=$site/nvidia/cu13`,
-`--additional-config '{"gdn_prefill_backend": "triton"}'`.
+Poll merge:
+`ssh -p 40301 root@69.63.236.160 'tail -20 /root/logs/h2_kp65_merge.log; ls /root/logs/h2_kp65_merge.done /root/merges/h2-kp65/merge_meta.json'`
+
+After merge DONE:
+```
+MERGE=/root/merges/h2-kp65 bash /root/mining_src/s4-h2-merge/restart_for_h2.sh
+# then sim with --chall-repo /root/merges/h2-kp65 → /root/affine_data/h2_kp65_sim_result.json
+```
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. Soft: TTL ends 04:53Z (~4.3h left @ 00:34Z). Do **not**
-submit until sim margin > 0.04 vs live king (kevin). Do not rent another pod.
+Nothing hard. Soft: TTL ends 04:53Z (~4.1h left @ 00:43Z). Do **not**
+submit until sim margin > 0.04 vs live king. Do not rent another pod.
 
 ## Next action (single, highest value)
 
-**When `/root/affine_data/h2_sim_result.json` exists** (or log shows JSON
-summary with `margin`): scp/copy verdict into `experiments/s4-h2-merge/`,
-write `result.md` per `plan.md` decision rule (>0.02 support; >0.04 + H4
-toward submit; <0.02 → try α=0.65). If sim still running: poll only; do not
-rent another pod. If sim died: inspect `h2_sim.nohup` + engine health before
-relaunch.
+**When `/root/logs/h2_kp65_merge.done` exists:** re-serve chall=`/root/merges/h2-kp65`
+(king=kevin, keep teacher), launch 80-turn `run_sim_duel` with
+`--chall-repo /root/merges/h2-kp65` and out `/root/affine_data/h2_kp65_sim_result.json`.
+Decision rule: margin >0.02 support; >0.04+H4 toward submit; <0.02 → **refute H2**
+for kevin×pandora and pivot to H1 teacher-ref SFT. If merge still running: poll only.
