@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T00:23:39Z | 34570.67 | 10.000000 | 0 | mine-sim-1 spent $35.53; H2 sim sampling 40/80; no new rental |
 | 2026-08-07T00:20:00Z | 34578.48 | 10.000000 | 0 | mine-sim-1 spent $34.10; H2 sim sampling 35/80; no new rental |
 | 2026-08-07T00:16:53Z | 34578.48 | 10.000000 | 0 | mine-sim-1 spent $32.88; H2 sim sampling 30/80; no new rental |
 | 2026-08-07T00:13:41Z | 34586.26 | 10.000000 | 0 | mine-sim-1 spent $31.62; H2 sim sampling 25/80; no new rental |
@@ -26,6 +27,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T00:23:39Z | observe | mine-sim spent $35.53 | Lium → mine-sim-1 | 34570.67 | 10.000 | H2 sim sampling king40/chall40; floor OK |
 | 2026-08-07T00:20:00Z | observe | mine-sim spent $34.10 | Lium → mine-sim-1 | 34578.48 | 10.000 | H2 sim sampling king35/chall35; floor OK |
 | 2026-08-07T00:16:53Z | observe | mine-sim spent $32.88 | Lium → mine-sim-1 | 34578.48 | 10.000 | H2 sim sampling king30/chall30; floor OK |
 | 2026-08-07T00:13:41Z | observe | mine-sim spent $31.62 | Lium → mine-sim-1 | 34586.26 | 10.000 | H2 sim sampling king25/chall25; floor OK |
@@ -47,9 +49,9 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~34.10 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
+| Lium rentals (`mine-*`) | ~35.53 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~34.10+ (accruing)** | **0** |
+| **total** | **~35.53+ (accruing)** | **0** |
 
 Cap remaining to first crown: **~$3,858** (of $4,000) after full 6h TTL if unused early kill.
