@@ -137,7 +137,8 @@ Format: `- <finding> — <the number or error that proves it>`
   before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
   never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
 - Winner-zA LoRA m7-init m=+0.01095 (H28); **TP×king-self@1ep REFUTED**
-  (H29) m=−0.01527 z=−1.56 base×0.948 r=0.841 S_c≪S_k — do not requeue either.
+  (H29) m=−0.01527; **m7×king-self@1ep** H30 m=−0.00316 / H31 m=+0.00016
+  (near-null, gates OK) — do not requeue H28/H29/H30@1e-5/H31@3e-5.
 - `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up
   SSH shell with `y: command not found`).
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
@@ -146,5 +147,4 @@ Format: `- <finding> — <the number or error that proves it>`
 
 ## Money / platform
 
-- No API to re-add cancelled TTL → host deadman. Floor $10k shared with validator.
-- Burn drifts τ0.81→τ0.676 — re-check before register. Keyfiles: no `cryptoType`.
+- No API to re-add cancelled TTL → host deadman. Floor $10k; burn ~τ0.68; no cryptoType.

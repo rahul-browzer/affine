@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2280.013628721237,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h31/merged",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h31",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0001616382650344916,
+    "se": 0.006477926862479443,
+    "z": 0.024952159613087103,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.018744409482245282,
+      "gate_pass_rate": 0.7689873417721519,
+      "bank_frac": 0.475,
+      "calib_ratio": 0.7938463749972661,
+      "baseline_abs": 0.13223139952412735,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": -0.005132825294821725,
+      "mean_mix": 0.018744409482245282
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.01882501191534596,
+      "gate_pass_rate": 0.7515723270440252,
+      "bank_frac": 0.51875,
+      "calib_ratio": 0.7636163397443412,
+      "baseline_abs": 0.14244386692822816,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": -0.009347818935421814,
+      "mean_mix": 0.01882501191534596
+    },
+    "slice": {
+      "seed": 719644971275387950,
+      "n": 80,
+      "digest": "e8e28a0eef3d32c4f31191c226d088c98ac2e0922aca630abd4e15fa2707b096",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.7636163397443412,
+    "chall_baseline_abs": 0.14244386692822816,
+    "king_baseline_abs": 0.13223139952412735,
+    "base_x": 1.0772317879176452
+  }
+}

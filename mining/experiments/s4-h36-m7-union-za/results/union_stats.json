@@ -1,0 +1,8 @@
+{
+  "n": 794,
+  "winner": 406,
+  "king_self": 388,
+  "dup": 298,
+  "winner_path": "/home/const/subnet120/mining/experiments/s4-h27-clip-l1-shape/results/winner_za_high_l1.jsonl",
+  "king_self_path": "/home/const/subnet120/mining/experiments/s4-h29-king-self-clip-l1/results/king_self_high_l1.jsonl"
+}

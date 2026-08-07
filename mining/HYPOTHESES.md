@@ -7,56 +7,62 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (n80 ~59/80) |
-| 2 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~49/80) |
-| 3 | H32 | high | H29 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~15/80) |
-| 4 | H33 | high | H29 cell @ **epochs=2** → m>0.04 | **open** (n80 started) |
-| 5 | H34 | high | H30 cell @ **epochs=2** → m>0.04 | **open** (train live) |
+| 1 | H36 | high | m7×(winner∪king-self) → m>0.04 | **open** (bootstrap) |
+| 2 | H35 | high | H30 cell @ **lr=1e-4** → m>0.04 | **open** (bootstrap) |
+| 3 | H34 | high | H30 cell @ **epochs=2** → m>0.04 | **open** (train ~45/92) |
+| 4 | H32 | med | H29 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~32/80) |
+| 5 | H33 | med | H29 cell @ **epochs=2** → m>0.04 | **open** (n80 ~27/80) |
+| — | H31 | was high | H30 @ lr=3e-5 | **refuted** m=+0.00016 |
+| — | H30 | was high | m7×king-self@1ep lr1e-5 | **refuted** m=−0.00316 |
 | — | H29 | was high | king-self LoRA (TP-init) | **refuted** m=−0.01527 |
 | — | H28 | was high | winner-zA LoRA (m7-init) | **refuted** m=+0.01095 |
-| — | H27 | was high | winner-zA LoRA (TP-init) | **refuted** m=−0.00792 |
-| — | H23…H1 | — | α/LoRA/SFT | **refuted** |
+| — | H27…H1 | — | α/LoRA/SFT | **refuted** |
 | — | H3 | instrumental | clip-L1 lever | **supported** (+rank) |
 
 ---
 
 ## Open
 
-### H30 — king-self × m7 init (non-α)
-- **Claim:** m7 init + TalentPigs king-self → m>0.04.
-- **Status:** n80 ~59/80. `s4-h30-m7-king-self/`.
+### H36 — m7 × UNION(winner-zA ∪ king-self)
+- **Claim:** union high-L1 z_A on m7 → m>0.04 (H28 best single-source +0.011).
+- **Status:** bootstrap on mine-h36-1. `s4-h36-m7-union-za/` (794 ex).
 
-### H31 — H30 @ lr=3e-5 (non-α)
-- **Claim:** 3× LR on m7×king-self → m>0.04.
-- **Status:** n80 ~49/80 post-recover193. `s4-h31-m7-king-self-lr3e5/`.
-
-### H32 — H29 @ lr=3e-5 (non-α)
-- **Claim:** 3× LR on TP×king-self → m>0.04.
-- **Status:** n80 ~15/80 (retry after early teacher 400s). `s4-h32-tp-king-self-lr3e5/`.
-
-### H33 — H29 @ epochs=2 (non-α)
-- **Claim:** 2× epochs on TP×king-self@lr1e-5 → m>0.04.
-- **Status:** n80 started pass196 after chall completions OK. `s4-h33-tp-king-self-ep2/`.
+### H35 — H30 @ lr=1e-4 (non-α)
+- **Claim:** 10× LR on m7×king-self → m>0.04 after H30/H31 near-null.
+- **Status:** bootstrap on mine-h35-1. `s4-h35-m7-king-self-lr1e4/`.
 
 ### H34 — H30 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on m7×king-self@lr1e-5 → m>0.04.
-- **Status:** train live (pid 2294); teacher+king DL done. `s4-h34-m7-king-self-ep2/`.
+- **Status:** train ~45/92. `s4-h34-m7-king-self-ep2/`.
+
+### H32 — H29 @ lr=3e-5 (non-α)
+- **Claim:** 3× LR on TP×king-self → m>0.04.
+- **Status:** n80 ~32/80. `s4-h32-tp-king-self-lr3e5/`.
+
+### H33 — H29 @ epochs=2 (non-α)
+- **Claim:** 2× epochs on TP×king-self@lr1e-5 → m>0.04.
+- **Status:** n80 ~27/80. `s4-h33-tp-king-self-ep2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
 
+### H31 — m7×king-self @ lr=3e-5
+- m=+0.00016 z=0.025 base×1.077 r=0.764. Near-null; gates OK.
+  `s4-h31-m7-king-self-lr3e5/results/`.
+
+### H30 — m7×king-self @ lr=1e-5
+- m=−0.00316 z=−0.37 base×1.165 r=0.679 S_c=0.024 S_k=0.027.
+  Gates OK; Λ2_c≪king. `s4-h30-m7-king-self/results/`.
+
 ### H29 — king-self LoRA on TalentPigs init
-- m=−0.01527 z=−1.56 base×0.948 r=0.841 S_c=0.008 S_k=0.024.
-  Gates OK; loses hard. `s4-h29-king-self-clip-l1/results/`.
+- m=−0.01527 z=−1.56 base×0.948 r=0.841. `s4-h29-king-self-clip-l1/results/`.
 
 ### H28 — winner-zA LoRA on m7 init
 - m=+0.01095 z=1.35 base×1.131 r=0.679 (gates OK). < submit bar.
-  `s4-h28-…/results/`.
+  `s4-h28-m7-clip-l1-shape/results/`.
 
-### H27 — winner-zA LoRA on TalentPigs init
-- m=−0.00792 z=−1.34 base×0.962 r=0.818. `s4-h27-clip-l1-shape/results/`.
-
-### H23 / H26 / H25 / H24 / H22…H1
-- See archive + LESSONS. No α / plmk / leary / winner-zA / TP×king-self@1ep.
+### H27 / H23…H1
+- See archive + LESSONS. No α / plmk / leary / H30@1e-5 / H31@3e-5 /
+  TP×king-self@1ep.

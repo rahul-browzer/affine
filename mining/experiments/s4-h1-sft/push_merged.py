@@ -130,8 +130,13 @@ def main() -> int:
     }
     args.out_meta.parent.mkdir(parents=True, exist_ok=True)
     args.out_meta.write_text(json.dumps(meta, indent=2) + "\n")
-    # Also mirror under /root/h1 for host harvest glob convenience.
-    Path("/root/h1/merged_salvage.json").write_text(json.dumps(meta, indent=2) + "\n")
+    # Best-effort host harvest mirror (H33: hard fail if /root/h1 missing after upload).
+    try:
+        mirror = Path("/root/h1/merged_salvage.json")
+        mirror.parent.mkdir(parents=True, exist_ok=True)
+        mirror.write_text(json.dumps(meta, indent=2) + "\n")
+    except OSError as e:
+        print(f"[push-merged] WARN mirror /root/h1 skipped: {e}", flush=True)
     print(json.dumps(meta, indent=2), flush=True)
     print("[push-merged] DONE", flush=True)
     return 0
