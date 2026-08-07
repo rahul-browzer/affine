@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-h5c-1 | golden-hawk-dc | b14c030f-4588-4090-a704-61e1e212c86a | 8×H200 | $28.00 | remove 2026-08-07T19:37:46Z (10h) | H5c kevin-init thought LoRA on 791 shortz → merge → n80 | RUNNING | SSH 152.236.142.234:40298; bootstrap pid 902; known_hosts `/tmp/mine-h5c-1.known_hosts` |
+| mine-h5c-1 | golden-hawk-dc | b14c030f-4588-4090-a704-61e1e212c86a | 8×H200 | $28.00 | remove 2026-08-07T19:37:46Z (10h) | H5c kevin-init thought LoRA on 791 shortz → merge → n80 | RUNNING | SSH 152.236.142.234:40298; train pid **2820** GPUs 6,7; extra-dl 2826; known_hosts `/tmp/mine-h5c-1.known_hosts` |
 
 ## Dead / removed
 
@@ -19,6 +19,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | UTC | lium ps mine-* | inventory action |
 |---|---|---|
+| 2026-08-07T09:47:37Z | mine-h5c-1 RUNNING | matches inventory; spent $4.57; fixed HF_TOKEN export bug; kevin.done + train **2820** started (99 steps, 791 thought); extra-dl 2826; validator pods untouched |
 | 2026-08-07T09:39:38Z | mine-h5c-1 RUNNING | rented `lium up 1` after H200×8 price sort ($28/h); `--name mine-h5c-1 --ttl 10h --no-ssh -y`; huid `golden-hawk-dc`; uploaded shortz+scripts+mine.env; bootstrap **902** pip installing; validator pods untouched |
 | 2026-08-07T09:35:30Z | none | matches inventory; only validator `affine-eval` / `affine-bench`; no orphan mine-*; H5c harvest host-only |
 | 2026-08-07T09:33:06Z | mine-sim-1 → none | verified name `mine-sim-1`/`swift-shark-52`; killed deadman 1783662; `lium rm mine-sim-1 -y`; validator pods untouched; H5c autopsy done |

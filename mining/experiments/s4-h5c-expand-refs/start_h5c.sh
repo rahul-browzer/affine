@@ -11,10 +11,12 @@ export PATH="/root/.local/bin:${PATH}"
 # shellcheck disable=SC1091
 source /root/venv/bin/activate
 if [[ -f /root/mine.env ]]; then
+  set -a
   # shellcheck disable=SC1091
   source /root/mine.env
+  set +a
 fi
-
+export HF_TOKEN="${HF_TOKEN:-}"
 export HF_HOME=${HF_HOME:-/root/hf}
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-6,7}
 

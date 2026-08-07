@@ -3553,3 +3553,41 @@ S=0.0315; `current_eval` chal-00301 kevin954 re-challenge
 Poll until `h5c_train_launched.stamp` / train log advances; then merge →
 n80 vs live TalentPigs. Extend TTL before 19:37Z if needed. No submit
 until margin > 0.04.
+
+---
+
+## 2026-08-07T09:47:37Z — pass 103: H5c unblocked; train running
+
+### Reconcile
+
+`lium ps`: `mine-h5c-1` (`golden-hawk-dc`) RUNNING spent $4.57 / 10m;
+validator `affine-eval` / `affine-bench` left alone. No orphans.
+
+### Bug
+
+Bootstrap pid 902 finished pip then died:
+`KeyError: 'HF_TOKEN'` in the kevin `snapshot_download` python block.
+`/root/mine.env` had the token (len 37) but was `source`d without
+`export` / `set -a`, so the shell check passed and child Python saw
+nothing.
+
+### Fix
+
+Patched `bootstrap_h5c.sh` and `start_h5c.sh`:
+`set -a; source /root/mine.env; set +a` plus `export HF_TOKEN`.
+SCP'd to pod; restarted bootstrap pid **1700**.
+
+### Result
+
+- kevin.done → snapshot `6a5815…`
+- `h5c_train_launched.stamp` + `bootstrap_h5c.done` at 09:45Z
+- train pid **2820** on CUDA 6,7; config: 791 examples, loss_on=thought,
+  thought_ok=791, lr=2e-5, lora_r=16, **99 steps**, started 09:45:23Z
+- GPUs 6/7 ~49G/68G at load; step 0/99 when polled
+- bg extra-dl pid **2826** (TalentPigs + teacher) — hf cache ~201G
+- King unchanged: TalentPigs reign 3 S=0.0315
+- Lium $33,700.59; no new rental; no submit
+
+### Next
+
+Poll train → merge → n80 vs live king. Gate margin > 0.04.

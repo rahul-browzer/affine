@@ -11,8 +11,11 @@ exec > >(tee -a "$LOG") 2>&1
 echo "[bootstrap-h5c] $(date -u +%Y-%m-%dT%H:%M:%SZ) start host=$(hostname)"
 
 if [[ -f /root/mine.env ]]; then
+  # set -a so KEY=val lines are exported to python children (os.environ).
+  set -a
   # shellcheck disable=SC1091
   source /root/mine.env
+  set +a
 fi
 export HF_HOME=${HF_HOME:-/root/hf}
 export HF_HUB_ENABLE_HF_TRANSFER=${HF_HUB_ENABLE_HF_TRANSFER:-1}
@@ -22,6 +25,8 @@ if [[ -z "${HF_TOKEN:-}" ]]; then
   echo "[bootstrap-h5c] FATAL: HF_TOKEN missing in /root/mine.env"
   exit 1
 fi
+# Defensive: ensure child processes see it even if mine.env lacked export.
+export HF_TOKEN
 
 nvidia-smi -L || true
 test -s /root/h5c/teacher_refs_shortz.jsonl
