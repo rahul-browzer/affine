@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T00:34:39Z | 34555.04 | 10.000000 | 0 | mine-sim-1 spent $39.84; H2 sim sampling 65/80; no new rental |
 | 2026-08-07T00:30:15Z | 34555.04 | 10.000000 | 0 | mine-sim-1 spent $38.01; H2 sim sampling 50/80; no new rental |
 | 2026-08-07T00:23:39Z | 34570.67 | 10.000000 | 0 | mine-sim-1 spent $35.53; H2 sim sampling 40/80; no new rental |
 | 2026-08-07T00:20:00Z | 34578.48 | 10.000000 | 0 | mine-sim-1 spent $34.10; H2 sim sampling 35/80; no new rental |
@@ -28,6 +29,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T00:34:39Z | observe | mine-sim spent $39.84 | Lium → mine-sim-1 | 34555.04 | 10.000 | H2 sim sampling king65/chall65; floor OK |
 | 2026-08-07T00:30:15Z | observe | mine-sim spent $38.01 | Lium → mine-sim-1 | 34555.04 | 10.000 | H2 sim sampling king50/chall50; floor OK |
 | 2026-08-07T00:23:39Z | observe | mine-sim spent $35.53 | Lium → mine-sim-1 | 34570.67 | 10.000 | H2 sim sampling king40/chall40; floor OK |
 | 2026-08-07T00:20:00Z | observe | mine-sim spent $34.10 | Lium → mine-sim-1 | 34578.48 | 10.000 | H2 sim sampling king35/chall35; floor OK |
@@ -51,9 +53,9 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~38.01 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
+| Lium rentals (`mine-*`) | ~39.84 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~38.01+ (accruing)** | **0** |
+| **total** | **~39.84+ (accruing)** | **0** |
 
-Cap remaining to first crown: **~$3,858** (of $4,000) after full 6h TTL if unused early kill.
+Cap remaining to first crown: **~$3,860** (of $4,000) after full 6h TTL if unused early kill.
