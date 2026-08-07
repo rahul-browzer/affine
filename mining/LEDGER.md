@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T00:56:15Z | 34516.22 | 10.000000 | 0 | mine-sim-1 spent $48.04; α=0.65 serve READY + sim sampling; no new rental |
 | 2026-08-07T00:50:33Z | 34531.75 | 10.000000 | 0 | mine-sim-1 spent $45.83; α=0.65 merge DONE; re-serve→sim pipeline; no new rental |
 | 2026-08-07T00:44:01Z | 34539.54 | 10.000000 | 0 | mine-sim-1 spent $43.56; H2 α=0.5 done (−0.010); α=0.65 merging; no new rental |
 | 2026-08-07T00:34:39Z | 34555.04 | 10.000000 | 0 | mine-sim-1 spent $39.84; H2 sim sampling 65/80; no new rental |
@@ -31,6 +32,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T00:56:15Z | observe | mine-sim spent $48.04 | Lium → mine-sim-1 | 34516.22 | 10.000 | α=0.65 serve READY; sim pid 77251; floor OK |
 | 2026-08-07T00:50:33Z | observe | mine-sim spent $45.83 | Lium → mine-sim-1 | 34531.75 | 10.000 | α=0.65 merge DONE; re-serve→sim pipeline; floor OK |
 | 2026-08-07T00:44:01Z | observe | mine-sim spent $43.56 | Lium → mine-sim-1 | 34539.54 | 10.000 | H2 α=0.5 margin −0.010; α=0.65 merge launched; floor OK |
 | 2026-08-07T00:34:39Z | observe | mine-sim spent $39.84 | Lium → mine-sim-1 | 34555.04 | 10.000 | H2 sim sampling king65/chall65; floor OK |
@@ -57,9 +59,9 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~45.83 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
+| Lium rentals (`mine-*`) | ~48.04 so far (meter running @ 23.60/h; TTL cap ~141.60) | — |
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~45.83+ (accruing)** | **0** |
+| **total** | **~48.04+ (accruing)** | **0** |
 
 Cap remaining to first crown: **~$3,860** (of $4,000) after full 6h TTL if unused early kill.

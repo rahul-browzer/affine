@@ -780,3 +780,33 @@ Lium $34,531.75; floor OK. Mining spend ≈ $45.83. TTL 04:53Z (~4.0h left).
 
 Collect `h2_kp65_sim_result.json`; apply plan.md decision rule. Margin <0.02
 → refute H2 kevin×pandora → pivot H1 SFT. No submit until >0.04 + H4.
+
+---
+
+## 2026-08-07T00:56Z — pass 23: α=0.65 serve READY; sim sampling
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $48.04; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Polled α=0.65 pipeline — king/chall still loading at 00:51Z; waited.
+2. Serve READY @ **00:55:19Z** (teacher:8000 king:8001 chall:8002 all 200).
+3. Pipeline auto-launched sim @ 00:55:19Z:
+   - `run_sim_duel.py --chall-repo /root/merges/h2-kp65` pid **77251**
+   - log `/root/logs/h2_kp65_sim.nohup`
+   - out `/root/affine_data/h2_kp65_sim_result.json`
+4. @ 00:56:15Z GPUs 0–5 busy (teacher+king+chall); sim still early (no
+   turn progress lines yet). Did not relaunch. No submit. No new rental.
+5. Live king unchanged kevin S≈0.03956; `min_submission_block`=8767079.
+
+### Money
+
+Lium $34,516.22; floor OK. Mining spend ≈ $48.04. TTL 04:53Z (~3.9h left).
+
+### Next
+
+Collect `h2_kp65_sim_result.json`; apply plan.md decision rule. Margin <0.02
+→ refute H2 kevin×pandora → pivot H1 SFT. No submit until >0.04 + H4.
