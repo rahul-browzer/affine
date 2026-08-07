@@ -1,0 +1,26 @@
+{
+  "utc": "2026-08-07T07:43:12Z",
+  "pass": 80,
+  "action": "fix_h5b_mid_salvage_final_adapter_plus_harvest_progress",
+  "why": "mid_ckpt_salvage exited on train.done without pushing TRAIN_DIR/adapter; a post-train pipeline crash before HF push would lose the only TalentPigs-init candidate at deadman 12:00Z. Also freed unused /root/merges/h5-kt65 (68G); host harvest now emits h5b_train_progress.json and waits on HF push PIDs after triage.",
+  "train_pid_untouched": 245350,
+  "pipe_pid_untouched": 246775,
+  "mid_salvage_pid_old": 246776,
+  "mid_salvage_pid_new": 247579,
+  "host_harvest_pid_new": 1884718,
+  "freed": "/root/merges/h5-kt65",
+  "train_progress_at_fix": {
+    "step": 8,
+    "total": 55,
+    "last_loss": 0.5960640907287598,
+    "last_loss_step": 5,
+    "eta_train_done_utc": "~08:28Z"
+  },
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 200
+  },
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "note": "do not submit h5b HF salvage; wait for h5b_decision.json margin>0.04 + H4"
+}

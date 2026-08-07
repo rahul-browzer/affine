@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-07T07:43:39Z",
+  "experiment": "s4-h5b-talentpigs-distill",
+  "train_done": false,
+  "adapter_present": false,
+  "ckpt_dirs": [],
+  "pipe_waiting": true,
+  "pipe_done": false,
+  "pipe_aborted": false,
+  "mid_salvaged": [],
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 200
+  },
+  "total": 55,
+  "step": 9,
+  "frac": 0.16363636363636364,
+  "n_loss_logs": 1,
+  "first_loss": 0.5960640907287598,
+  "last_loss": 0.5960640907287598,
+  "last_loss_step": 5
+}

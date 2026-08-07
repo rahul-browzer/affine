@@ -2740,3 +2740,38 @@ No submit / no registration burn.
 
 Read `results/h5b_decision.json` when harvest lands (~09:30–10:30Z). Until
 then poll train→merge→HF pids→n80. Gate >0.04 + H4 before Stage 5.
+
+## 2026-08-07T07:43:12Z — pass 80: H5b final-adapter mid-salvage + harvest progress
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $208.43; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,885.70 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+Live eval `chal-00291` loading `adsbasd31badsf/affine-5ec3jw68ha-cmsdkf`.
+
+### What I did
+
+1. No `h5b_decision.json` yet — train mid-flight step **8**/55, loss@5
+   **0.596**, ETA ~08:28Z. Engines 200×3; pipe **246775** waiting
+   `train.done`; deadman **1783662** @12:00Z.
+2. Found mid-ckpt watcher exited on `train.done` without salvaging
+   `$TRAIN_DIR/adapter`. If post-train pipe died before HF push, deadman
+   would erase the only TalentPigs-init candidate (checkpoints alone may
+   race). Patched `mid_ckpt_salvage.sh` to final-sweep + push
+   `adapter-final`; restarted mid **247579** (train/pipe untouched).
+3. Patched `host_harvest_h5b.sh` to emit structured
+   `h5b_train_progress.json` and defer exit while H5b HF push PIDs run.
+   Restarted harvest **1884718**.
+4. Freed unused `/root/merges/h5-kt65` (68G). Chall still serves deleted
+   `h5-kt50` from RAM until post-train swap — leave it.
+
+### Money
+
+Lium $33,885.70; mining spend ≈ $208. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5b_decision.json` when harvest lands (~09:30–10:30Z). Until
+then poll `h5b_train_progress.json` → merge → HF pids → n80. Gate >0.04 + H4.
