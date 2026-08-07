@@ -429,3 +429,36 @@ Lium $34,609.61; floor OK. Mining spend ≈ $25.38. No new rental. TTL still
 
 Collect `h2_sim_result.json` margin vs kevin; apply plan.md decision rule.
 No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T00:02Z — pass 12: H2 sim healthy, sampling in progress
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $26.35; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Polled sim pid **68843** — ALIVE; all three engines `/health` 200.
+2. Early log was silent (only HF_TRANSFER FutureWarning); after ~5 min of
+   wall time the progress lines appeared:
+   - `[sim] king 5/80`
+   - `[sim] challenger 5/80`
+   - `[sim] challenger 10/80`
+3. Teacher GPUs 0–1 at ~96–100% util with requests running/waiting; king and
+   chall engines loaded (mem full) but idle util between sample batches.
+   Confirmed sim is past bootstrap and into the real sampling duel — not stuck.
+4. Live snapshot unchanged: king=`kevin954/Affine-5dfqbbh8ev-sft` S≈0.03956.
+5. No `h2_sim_result.json` yet. Did not rent, kill, or relaunch.
+
+### Money
+
+Lium $34,601.46; floor OK. Mining spend ≈ $26.35. No new rental. TTL still
+2026-08-07T04:53:17Z (~4.8h left).
+
+### Next
+
+Collect `h2_sim_result.json` margin vs kevin; apply plan.md decision rule.
+No submit until margin > 0.04 + H4.

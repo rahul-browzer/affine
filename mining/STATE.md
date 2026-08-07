@@ -4,10 +4,10 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 in progress — H2 α=0.5 sim duel RUNNING vs kevin.**
+**Stage 4 in progress — H2 α=0.5 sim duel RUNNING vs kevin (sampling).**
 
 Stage 0–3 complete. Merge `/root/merges/h2-kp50` served as challenger;
-80-turn local `run_sim_duel` launched this pass. No submissions.
+80-turn local `run_sim_duel` in flight. No submissions.
 
 ## Live facts (verified this pass)
 
@@ -20,14 +20,14 @@ Stage 0–3 complete. Merge `/root/merges/h2-kp50` served as challenger;
 | min_submission_block | check `api/v1/contract` before any submit |
 | weight_version_key | 1 |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $34,609.61 (floor $28,000) |
+| Lium balance | $34,601.46 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$25.38** @ $23.60/h (TTL cap ≈ $141.60) |
+| mining spend to date | `mine-sim-1` spent **$26.35** @ $23.60/h (TTL cap ≈ $141.60) |
 | our submissions | none |
 | Stage 3 gate | **MET** — `experiments/s3-duel-sim/result.md` |
 | Stage 4 H2 merge | **DONE** — `/root/merges/h2-kp50` + `experiments/s4-h2-merge/merge_meta.json` |
-| Stage 4 H2 serve | **READY** (2026-08-06T23:57:20Z) teacher:8000 king:8001 chall:8002 |
-| Stage 4 H2 sim | **RUNNING** — pid in `/root/logs/h2_sim.pid` (=68843 at launch) |
+| Stage 4 H2 serve | **READY** — teacher:8000 king:8001 chall:8002 (all `/health` 200) |
+| Stage 4 H2 sim | **RUNNING** — pid **68843**; log shows `king 5/80`, `challenger 10/80` @ ~00:02Z |
 
 ## What's running
 
@@ -36,11 +36,12 @@ Stage 0–3 complete. Merge `/root/merges/h2-kp50` served as challenger;
 | `mine-sim-1` | `swift-shark-52` | Stage 4 H2 serve+sim | SSH `root@69.63.236.160 -p 40301`; TTL remove at **2026-08-07T04:53:17Z** |
 
 On pod:
-- teacher:8000 / king:8001=kevin / chall:8002=`/root/merges/h2-kp50` (all `/health` 200)
+- teacher:8000 / king:8001=kevin / chall:8002=`/root/merges/h2-kp50`
 - Sim: `PYTHONPATH=/root/mining_src/affine_pkg python …/run_sim_duel.py --save-artifact`
-  - log `/root/logs/h2_sim.nohup` · pid `/root/logs/h2_sim.pid`
+  - log `/root/logs/h2_sim.nohup` · pid `/root/logs/h2_sim.pid` (=68843)
   - result target `/root/affine_data/h2_sim_result.json` (+ `_artifact.json`)
-- Merge meta: n_merged=1026, max_abs_delta≈5.5e-4, first_1MiB_identical=false
+- Progress (pass 12): sampling phase live; teacher GPUs 0–1 ~100%; king/chall idle util but loaded; no result file yet
+- Poll: `ssh -p 40301 root@69.63.236.160 'tail -20 /root/logs/h2_sim.nohup; ls /root/affine_data/h2_sim_result.json'`
 
 Serve knobs (H200): `VLLM_USE_DEEP_GEMM=0`, `CUDA_HOME=$site/nvidia/cu13`,
 `--additional-config '{"gdn_prefill_backend": "triton"}'`.
@@ -49,9 +50,9 @@ Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. Soft: TTL ends 04:53Z — enough for 80-turn sim if it finishes
-in ~2–3h (Stage 3 force-echo was ~few min; full sample duel is slower).
-Do **not** submit until sim margin > 0.04 vs live king (kevin).
+Nothing hard. Soft: TTL ends 04:53Z (~4.8h left @ 00:02Z). Sampling already
+past 10/80 on challenger; expect force-echo after samples. Do **not** submit
+until sim margin > 0.04 vs live king (kevin).
 
 ## Next action (single, highest value)
 

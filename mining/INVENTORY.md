@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | 2026-08-07T04:53:17Z | Stage 4 H2 serve + sim | RUNNING | SSH `root@69.63.236.160 -p 40301`; serve READY; h2_sim pid=68843; spent $25.38 @ 23:57Z |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | 2026-08-07T04:53:17Z | Stage 4 H2 serve + sim | RUNNING | SSH `root@69.63.236.160 -p 40301`; serve READY; h2_sim pid=68843 sampling (king 5/80, chall 10/80 @ 00:02Z); spent $26.35 |
 
 ## Reconcile log
 
@@ -24,3 +24,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-06T23:42:03Z | mine-sim-1 RUNNING | matches inventory; spent $19.17; H2 download→merge started; validator pods untouched |
 | 2026-08-06T23:51:51Z | mine-sim-1 RUNNING | matches inventory; spent $22.59; H2 merge DONE + re-serve; validator pods untouched |
 | 2026-08-06T23:57:49Z | mine-sim-1 RUNNING | matches inventory; spent $25.38; H2 serve READY + sim launched; validator pods untouched |
+| 2026-08-07T00:02:23Z | mine-sim-1 RUNNING | matches inventory; spent $26.35; sim alive sampling king5/chall10; validator pods untouched |
