@@ -1,0 +1,66 @@
+{
+  "elapsed_s": 2515.331416130066,
+  "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
+  "chall_repo": "/root/merges/h2-kp65",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h2-sim",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0072499170783312614,
+    "se": 0.007915941822835582,
+    "z": 0.9158628550574993,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.01872500648725943,
+      "gate_pass_rate": 0.946875,
+      "bank_frac": 0.575,
+      "calib_ratio": 0.8328404311347114,
+      "baseline_abs": 0.14154545607564392,
+      "n_turns": 80,
+      "n_pairs": 320,
+      "mean_lambda2": -0.005558258429749855,
+      "mean_mix": 0.01872500648725943
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.025974923565590693,
+      "gate_pass_rate": 0.878125,
+      "bank_frac": 0.590625,
+      "calib_ratio": 0.8060287089966983,
+      "baseline_abs": 0.12445876098083043,
+      "n_turns": 80,
+      "n_pairs": 320,
+      "mean_lambda2": 0.001053162155501169,
+      "mean_mix": 0.025974923565590693
+    },
+    "slice": {
+      "seed": 5082487138403826687,
+      "n": 80,
+      "digest": "2eddacc205573601eb03a34bc4820df99e1058e07983859cf1c982166dea3d46",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.8060287089966983,
+    "chall_baseline_abs": 0.12445876098083043,
+    "king_baseline_abs": 0.14154545607564392,
+    "base_x": 0.8792847501534623
+  }
+}

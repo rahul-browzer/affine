@@ -1,48 +1,74 @@
-# s4-h2-merge — result (α=0.5)
+# s4-h2-merge — result (H2 kevin×pandora REFUTED)
 
-## Verdict (α=0.5 kevin×pandora)
+## Final verdict
 
-**H2 α=0.5 does not beat kevin.** Paired margin **−0.00996** (z=−1.30).
-Both sides gate-valid; H4 envelope OK. Per `plan.md`: try **α=0.65** next;
-refute H2 for these parents only if α=0.65 also has margin < 0.02.
+**H2 refuted for these parents.** Both pre-registered recipes missed the
+0.02 margin bar (submit gate 0.04 never approached). Pivot to **H1**
+teacher-ref SFT from kevin init.
 
-| metric | king (kevin) | challenger (h2-kp50) |
+| recipe | margin | z | chall S | king S | mean_λ2 chal | r | base× | valid |
+|---|---|---|---|---|---|---|---|---|
+| α=0.5 | **−0.00996** | −1.30 | 0.0189 | 0.0289 | −0.00166 | 0.822 | 0.837 | both |
+| α=0.65 | **+0.00725** | +0.92 | 0.0260 | 0.0187 | +0.00105 | 0.806 | 0.879 | both |
+
+Decision rule (`plan.md`): margin < 0.02 after α∈{0.5, 0.65} → **refute**.
+
+---
+
+## α=0.65 detail (2026-08-07T01:37Z)
+
+| metric | king (kevin) | challenger (h2-kp65) |
 |---|---|---|
-| S | 0.028880 | **0.018924** |
+| S | 0.018725 | **0.025975** |
 | valid | true | true |
-| gate_pass_rate | 0.928 | 0.872 |
-| bank_frac | 0.581 | 0.588 |
-| calib_ratio r | 0.789 | **0.822** (H4 OK) |
-| baseline_abs | 0.1425 | 0.1194 |
-| base× (chal/king) | — | **0.837** (≪1.25; H4 OK) |
-| mean_λ2 | +0.00359 | **−0.00166** |
+| gate_pass_rate | 0.947 | 0.878 |
+| bank_frac | 0.575 | 0.591 |
+| calib_ratio r | 0.833 | **0.806** (H4 OK) |
+| baseline_abs | 0.1415 | 0.1245 |
+| base× (chal/king) | — | **0.879** (≪1.25; H4 OK) |
+| mean_λ2 | −0.00556 | **+0.00105** |
+
+| duel | value |
+|---|---|
+| margin | **+0.007250** |
+| se | 0.007916 |
+| z | +0.916 |
+| n_paired | 80 |
+| challenger_wins | false (need margin>0.02 and >3·SE) |
+| elapsed_s | 2515 |
+| slice digest | `2eddacc205573601eb03a34bc4820df99e1058e07983859cf1c982166dea3d46` |
+
+Raw: `results/h2_kp65_sim_result.json` (+ `h2_kp65_sim_result_artifact.json`).
+Merge meta: `results/h2_kp65_merge_meta.json`.
+
+---
+
+## α=0.5 detail (earlier)
 
 | duel | value |
 |---|---|
 | margin | **−0.009955** |
-| se | 0.007665 |
 | z | −1.299 |
-| n_paired | 80 |
-| challenger_wins | false |
-| elapsed_s | 2510 |
+| chall S / king S | 0.0189 / 0.0289 |
+| r / base× | 0.822 / 0.837 |
 
-Raw: `results/h2_kp50_sim_result.json` (+ artifact sidecar).
+Raw: `results/h2_kp50_sim_result.json`.
+
+---
 
 ## Interpretation
 
-Gates/H4 are fine — failure is ranking, not hygiene. Challenger mean_λ2
-went negative while kevin stayed slightly positive; mix S dropped ~0.010.
-Equal-weight merge diluted teacher-aligned thoughts rather than combining
-strengths. α=0.65 (more kevin) is the pre-registered second recipe.
+- Gates/H4 never the failure mode — ranking was.
+- α=0.65 (more kevin) flipped sign vs α=0.5 (+0.007 vs −0.010) and
+  restored positive mean_λ2, but effect is still noise-floor scale
+  (3·SE≈0.024; δ=0.02). Not a crown path.
+- Linear weight-space mix of these two distill kings does not compound
+  their S; do not burn a slot on either recipe.
+- Keep `mine-sim-1` engines hot for H1 SFT + re-sim (TTL 04:53Z).
 
 ## Decision (applied)
 
-- [x] α=0.5 margin < 0.02 → **do not submit**; launch α=0.65
-- [ ] α=0.65 pending (`/root/merges/h2-kp65`, then re-serve + sim)
-- Submit gate (>0.04) not approached
-
-## Next
-
-1. Finish α=0.65 merge on `mine-sim-1`
-2. `MERGE=/root/merges/h2-kp65` → `restart_for_h2.sh` → `run_sim_duel.py`
-3. If margin still < 0.02 → refute H2 for kevin×pandora; pivot to H1 SFT
+- [x] α=0.5 margin < 0.02 → try α=0.65
+- [x] α=0.65 margin < 0.02 → **refute H2** for kevin×pandora
+- [x] Do **not** submit; do **not** publish merge to HF
+- [ ] Next experiment: `experiments/s4-h1-sft/` (teacher-ref SFT)

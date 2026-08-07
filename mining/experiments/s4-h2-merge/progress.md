@@ -18,3 +18,6 @@
 - 2026-08-07T00:49:40Z pass 22: pipeline pid **71925** — re-serve chall=`/root/merges/h2-kp65` then auto-sim → `/root/affine_data/h2_kp65_sim_result.json` (log `h2_kp65_pipeline.nohup` / `h2_kp65_sim.nohup`). King+chall loading @ 00:50Z; teacher kept.
 - 2026-08-07T00:55:19Z pass 23: serve READY; sim pid **77251** launched.
 - 2026-08-07T01:00Z pass 24: pid 77251 ALIVE; health 200×3; 120s recheck — log `[sim] king 5/80` + `[sim] challenger 5/80`; teacher log +436 lines / 120s; teacher ~2 running / ~20 waiting; GPUs 0–1 ~100%; no result yet; live king still kevin S≈0.03956; ETA ~01:35Z; spent $50.07 / Lium $34516; TTL OK.
+- 2026-08-07T01:09Z pass 25: pid 77251 ALIVE; **20/80** both sides; engines 200×3.
+- 2026-08-07T01:22Z pass 25: **45/80** both sides; GPUs 0–5 busy.
+- 2026-08-07T01:37Z pass 25: α=0.65 sim **FINISHED** — margin **+0.00725** (z=+0.92); chall S=0.0260 vs king 0.0187; both valid; r=0.806 base×=0.879; mean_λ2 chal +0.00105. Copied to `results/h2_kp65_sim_result.json` (+ artifact). **H2 REFUTED** for kevin×pandora (both recipes <0.02). Engines kept hot for H1. spent $66.86 / Lium $34446; TTL 04:53Z.

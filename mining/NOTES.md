@@ -836,3 +836,34 @@ Lium $34,516.22; floor OK. Mining spend ≈ $50.07. TTL 04:53Z (~3.9h left).
 
 Collect `h2_kp65_sim_result.json` (~01:35Z ETA); apply plan.md decision rule.
 Margin <0.02 → refute H2 kevin×pandora → pivot H1 SFT. No submit until >0.04 + H4.
+
+---
+
+## 2026-08-07T01:43Z — pass 25: H2 α=0.65 DONE; H2 REFUTED
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $66.86; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Polled α=0.65 sim through 10→20→45→80/80 (pid 77251); engines stayed 200×3.
+2. Result @ **01:37Z**: margin **+0.00725** (z=+0.92, se=0.00792);
+   chall S=0.0260 vs king S=0.0187; both valid; r=0.806 base×=0.879 (H4 OK);
+   mean_λ2 chal +0.00105. wins=false.
+3. SCP'd `h2_kp65_sim_result.json` + artifact → `experiments/s4-h2-merge/results/`.
+4. Applied plan.md: α0.5 (−0.010) and α0.65 (+0.007) both < 0.02 → **H2
+   refuted** for kevin×pandora linear merges. Wrote `result.md`; updated
+   `HYPOTHESES.md` (kept refuted entry).
+5. Drafted `experiments/s4-h1-sft/plan.md`. Kept engines hot; no submit; no
+   new rental. Live king unchanged kevin S≈0.03956; `min_submission_block`=8767079.
+
+### Money
+
+Lium $34,446.14; floor OK. Mining spend ≈ $66.86. TTL 04:53Z (~3.1h left).
+
+### Next
+
+Execute H1 on `mine-sim-1` per `experiments/s4-h1-sft/plan.md` (harvest
+teacher_refs → SFT from kevin → re-sim). No submit until margin > 0.04 + H4.
