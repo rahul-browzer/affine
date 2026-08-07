@@ -28,6 +28,7 @@ if [[ -f "$MARKER" ]]; then
 fi
 
 log "waiting for $TRAIN_DONE (poll 30s)"
+_wait_i=0
 while [[ ! -f "$TRAIN_DONE" ]]; do
   # Bail if train pid died without writing done.
   if [[ -f /root/logs/h1_train.pid ]]; then
@@ -36,6 +37,10 @@ while [[ ! -f "$TRAIN_DONE" ]]; do
       log "ERROR: train pid $tpid dead and no train.done"
       exit 1
     fi
+  fi
+  _wait_i=$((_wait_i + 1))
+  if (( _wait_i % 10 == 0 )); then
+    log "still waiting for train.done (poll #$_wait_i)"
   fi
   sleep 30
 done
@@ -67,11 +72,14 @@ else
     || log "WARN: adapter salvage failed (continuing to merge/sim)"
 fi
 
-log "merge LoRA → $MERGED"
-CUDA_VISIBLE_DEVICES= python3 /root/mining_src/s4-h1-sft/merge_lora.py \
+# GPUs 6,7 are free after train exits; engines stay on 0-5. GPU merge of
+# 35B is much faster than the prior CPU path and buys TTL margin before sim.
+log "merge LoRA → $MERGED (CUDA 6,7)"
+CUDA_VISIBLE_DEVICES=6,7 python3 /root/mining_src/s4-h1-sft/merge_lora.py \
   --base "$BASE" \
   --adapter "$ADAPTER" \
-  --out "$MERGED"
+  --out "$MERGED" \
+  --device-map auto
 log "merge DONE"
 
 log "re-serve chall=$MERGED (king=kevin, teacher kept)"

@@ -1000,3 +1000,36 @@ Lium $34,414.67; floor OK. Mining spend ≈ $74.05. TTL 04:53Z (~2.9h left).
 
 Collect `h1_sim_result.json` (pod or local results/); apply plan.md
 decision rule. No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T02:04Z — pass 30: H1 post-train merge → GPUs 6,7
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $75.13; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Live king unchanged kevin S≈0.03956; Lium $34,414.67 (floor OK). TTL
+   still 04:53Z (~2.8h). No TTL extend API (`lium update` is jupyter-only;
+   `schedules rm` drops deadman with no re-add).
+2. Polled H1: train pid 82057 at step **10/110** @ ~61s/it (ETA ~03:45Z);
+   engines 200×3; pipeline 83414 waiting; mid-salvage 83669 watching
+   `/root/h1/train/checkpoints` (path matches `train_lora.py` output_dir).
+3. Risk: CPU merge of 35B after train was the slow post-train step under a
+   tight TTL. Patched `merge_lora.py` (`--device-map`) and
+   `post_train_pipeline.sh` to merge on **CUDA 6,7** after train exits
+   (engines stay on 0–5). Uploaded; killed waiting pipeline 83414;
+   relaunched pid **84156**. Train + mid-salvage untouched.
+4. No submit. No new rental.
+
+### Money
+
+Lium $34,414.67; floor OK. Mining spend ≈ $75.13. TTL 04:53Z (~2.8h left).
+
+### Next
+
+Collect `h1_sim_result.json` (pod or local results/); apply plan.md
+decision rule. No submit until margin > 0.04 + H4.

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import time
 from pathlib import Path
@@ -18,6 +19,12 @@ def main() -> None:
     ap.add_argument("--base", required=True)
     ap.add_argument("--adapter", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
+    ap.add_argument(
+        "--device-map",
+        default="cpu",
+        help="transformers device_map; use 'auto' on free GPUs 6,7 after train "
+        "(much faster than cpu for 35B merge under TTL pressure)",
+    )
     args = ap.parse_args()
 
     t0 = time.time()
@@ -25,12 +32,16 @@ def main() -> None:
         shutil.rmtree(args.out)
     args.out.mkdir(parents=True)
 
-    print(f"[merge] load base {args.base}", flush=True)
+    print(
+        f"[merge] load base {args.base} device_map={args.device_map} "
+        f"CUDA_VISIBLE_DEVICES={os.environ.get('CUDA_VISIBLE_DEVICES')}",
+        flush=True,
+    )
     tok = AutoTokenizer.from_pretrained(args.base, trust_remote_code=False)
     model = AutoModelForCausalLM.from_pretrained(
         args.base,
         torch_dtype=torch.bfloat16,
-        device_map="cpu",
+        device_map=args.device_map,
         trust_remote_code=False,
     )
     print(f"[merge] load adapter {args.adapter}", flush=True)
@@ -54,6 +65,8 @@ def main() -> None:
         "base": args.base,
         "adapter": str(args.adapter),
         "out": str(args.out),
+        "device_map": args.device_map,
+        "cuda_visible": os.environ.get("CUDA_VISIBLE_DEVICES"),
         "elapsed_s": time.time() - t0,
         "finished_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
