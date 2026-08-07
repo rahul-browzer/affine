@@ -6,7 +6,8 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
-| 2026-08-07T09:56:29Z | observe | mine-h5c spent $8.72 | Lium → mine-h5c-1 | 33676.21 | 10.000 | H5c pipe pidfile wait fix + restart; train step11; floor OK |
+| 2026-08-07T09:58:27Z | 33676.21 | 10.000000 | 0 | mine-h5c-1 spent $9.64; H5c HF shells pre-created; train step14; floor OK |
+| 2026-08-07T09:56:29Z | 33676.21 | 10.000000 | 0 | mine-h5c-1 spent $8.72; H5c pipe pidfile wait fix + restart; train step11; floor OK |
 | 2026-08-07T09:53:54Z | 33684.34 | 10.000000 | 0 | mine-h5c-1 spent $7.51; host harvest+deadman armed; prior~$252 + accruing; floor OK |
 | 2026-08-07T09:51:30Z | 33684.34 | 10.000000 | 0 | mine-h5c-1 spent $5.92; post-train+prewarm armed; prior~$252 + accruing; floor OK |
 | 2026-08-07T09:47:37Z | 33700.59 | 10.000000 | 0 | mine-h5c-1 spent $4.57; H5c train launched pid 2820; prior~$252 + accruing; floor OK |
@@ -111,6 +112,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T09:58:27Z | observe | mine-h5c spent $9.64 | Lium → mine-h5c-1 | 33676.21 | 10.000 | pass107 pre-created missing H5c HF shells; train step14; t/k READY; floor OK |
 | 2026-08-07T09:39:38Z | rent | $28/h ×10h TTL (max~$280) | Lium → mine-h5c-1 (`golden-hawk-dc`) | 33707.55 | 10.000 | pass102 H5c train pod; floor OK ($28k); cap ~$252+$accrual/$4000 |
 | 2026-08-07T09:33:06Z | stop | mine-sim final ~$252 | Lium ← mine-sim-1 removed | 33713.30 | 10.000 | pass100 H5c autopsy CPU-only; `lium rm mine-sim-1`; floor OK; cap ~$252/$4000 |
 | 2026-08-07T09:13:25Z | observe | mine-sim spent $243.04 | Lium → mine-sim-1 | 33745.62 | 10.000 | H5b n80 ~58/80 ETA~09:25Z; rate ~1.79tpm (wall~1.43); floor OK |
@@ -203,9 +205,9 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~**$252** (`mine-sim-1`) + `mine-h5c-1` **$8.72** (live) | — |
+| Lium rentals (`mine-*`) | ~**$252** (`mine-sim-1`) + `mine-h5c-1` **$9.64** (live) | — |
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~$261** | **0** |
+| **total** | **~$262** | **0** |
 
-Cap remaining to first crown: **~$3,739** (of $4,000). Live: `mine-h5c-1` @ $28/h.
+Cap remaining to first crown: **~$3,738** (of $4,000). Live: `mine-h5c-1` @ $28/h.

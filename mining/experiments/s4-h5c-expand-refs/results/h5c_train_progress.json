@@ -1,5 +1,5 @@
 {
-  "utc": "2026-08-07T09:56:40Z",
+  "utc": "2026-08-07T09:59:09Z",
   "experiment": "s4-h5c-expand-refs",
   "stage": "waiting_train",
   "train_done": false,
@@ -22,10 +22,10 @@
     "chall": 0
   },
   "total": 99,
-  "step": 11,
-  "frac": 0.1111111111111111,
-  "n_loss_logs": 2,
+  "step": 15,
+  "frac": 0.15151515151515152,
+  "n_loss_logs": 3,
   "first_loss": 0.4989624977111816,
-  "last_loss": 0.5103132724761963,
-  "last_loss_step": 10
+  "last_loss": 0.4815556526184082,
+  "last_loss_step": 15
 }

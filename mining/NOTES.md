@@ -3696,3 +3696,34 @@ prewarm **5206** untouched. Teacher `:8000` READY; king `:8001` still loading
 ### Next
 
 Poll `results/h5c_train_progress.json` / `h5c_decision.json`. Gate margin > 0.04.
+
+## 2026-08-07T09:58:27Z — pass 107: H5c HF salvage repos pre-created
+
+### Reconcile
+
+`lium ps`: `mine-h5c-1` (`golden-hawk-dc`) RUNNING spent $9.64 / 21m;
+validator `affine-eval` / `affine-bench` left alone. No orphans.
+
+### Increment
+
+Audited post-train salvage path while train ran (step 12→14/99).
+Pod HfApi returned **401 RepositoryNotFound** for both H5c targets
+(pass 104 "repos created" was stale). Mid-ckpt salvage at save_steps=50
+and pipe HF pushes would have failed open.
+
+1. Created private empty shells from host:
+   - `unconst/Affine-5czsc2fc98-h5c-lora` @ `bb26ad9…`
+   - `unconst/Affine-5czsc2fc98-h5c-merged` @ `128c6fa…`
+2. Verified pod token can `repo_info` both (write path live).
+3. Evidence: `experiments/s4-h5c-expand-refs/results/h5c_hf_repos.json`.
+
+### Snapshot
+
+- Train **2820** step **14**/99 @ ~48s/it; pipe **10642** waiting; mid **5194**
+- Teacher+king READY (200/200); GPUs 4,5 free for chall
+- King unchanged TalentPigs reign 3 S=0.0315; `chal-00301` scoring 75/80
+- Lium $33,676.21; mine-h5c-1 $9.64; no new rental; no submit
+
+### Next
+
+Poll for mid-ckpt~50 salvage + `h5c_decision.json`. Gate margin > 0.04.

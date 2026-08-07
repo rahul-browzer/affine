@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-h5c-1 | golden-hawk-dc | b14c030f-4588-4090-a704-61e1e212c86a | 8×H200 | $28.00 | remove 2026-08-07T19:37:46Z (10h) | H5c train + prewarm teacher/king + post-train→n80 | RUNNING | SSH 152.236.142.234:40298; train **2820** GPUs 6,7 step11/99; pipe **10642** (pidfile wait); teacher :8000 READY / king :8001 loading; mid **5194**; corpus 9000; host harvest **2090851** / deadman **2090852**@19:00Z; known_hosts `/tmp/mine-h5c-1.known_hosts` |
+| mine-h5c-1 | golden-hawk-dc | b14c030f-4588-4090-a704-61e1e212c86a | 8×H200 | $28.00 | remove 2026-08-07T19:37:46Z (10h) | H5c train + prewarm teacher/king + post-train→n80 | RUNNING | SSH 152.236.142.234:40298; train **2820** GPUs 6,7 step14/99; pipe **10642** waiting train.done; teacher+king :8000/:8001 READY; mid **5194**; HF shells `…-h5c-lora`/`…-h5c-merged` pre-created; corpus 9000; host harvest **2090851** / deadman **2090852**@19:00Z; known_hosts `/tmp/mine-h5c-1.known_hosts` |
 
 ## Dead / removed
 
@@ -19,6 +19,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | UTC | lium ps mine-* | inventory action |
 |---|---|---|
+| 2026-08-07T09:58:27Z | mine-h5c-1 RUNNING | matches inventory; spent $9.64; train **2820** step14/99; pipe **10642** wait; t/k READY; pre-created missing H5c HF repos (pod write OK); harvest **2090851** / deadman **2090852**; validator pods untouched |
 | 2026-08-07T09:56:29Z | mine-h5c-1 RUNNING | matches inventory; spent $8.72; train **2820** step11/99; pipe restarted **10642** (pidfile wait + chall-placeholder kill); teacher READY king loading; harvest **2090851** / deadman **2090852**; validator pods untouched |
 | 2026-08-07T09:53:54Z | mine-h5c-1 RUNNING | matches inventory; spent $7.51; train **2820** step8/99; prewarm loading; armed host harvest **2090851** + deadman **2090852**@19:00Z; validator pods untouched |
 | 2026-08-07T09:51:30Z | mine-h5c-1 RUNNING | matches inventory; spent $5.92; sim stack uploaded; mid/prewarm/pipe armed (5194/5206/5222); train **2820** step5/99; validator pods untouched |
