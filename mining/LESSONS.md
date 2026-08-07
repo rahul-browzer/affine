@@ -67,6 +67,11 @@ Format: `- <finding> — <the number or error that proves it>`
   @7426296b. Pin duel SHA. Tok*/alskdjf/qpoewir gated=manual; adambell/marsplan 404.
 - Lium `$5.66/h` "8×H200" can be 2 GPUs — after rent `nvidia-smi -L|wc -l`=8;
   reject <$20/h. Prefer `lium up --gpu H200 -c 8` ≥$28/h.
+- **B300 SM10.3 + vllm 0.22.1:** cutlass aliases `Arch.sm_110f→sm_101f`, so
+  `flash_fwd_sm100` assert `≤sm_110f` rejects sm_103 → all engines die at
+  profile_run (`Only SM 10.x and 11.x are supported`). Patch upper bound to
+  `sm_121f` via `s3-duel-sim/patch_b300_sm103_flash_attn.sh` after venv install
+  (H23 pass170). H200 unaffected.
 - Triton cache races across concurrent vLLM — per-role dirs + wipe + stagger.
   ImportError/`__triton_launcher.so` or missing `fused_moe_kernel.ttir` → kill
   orphans on those GPUs (`kill -9` compute PIDs **by GPU index**, never
