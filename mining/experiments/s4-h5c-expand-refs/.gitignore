@@ -1,0 +1,4 @@
+# Full train JSONL is regenerable from public evals + corpus; keep meta/sample only.
+results/teacher_refs_expanded.jsonl
+results/teacher_refs_shortz.jsonl
+results/teacher_refs_shortz_nolist.jsonl

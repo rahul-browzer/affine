@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5c | highest now | kevin-init thought LoRA on **expanded** teacher_refs → clip-L1≥0.042, r∈[0.70,0.85], margin **> 0.04** vs TalentPigs | **open** — autopsy DONE; train next |
+| 1 | H5c | highest now | kevin-init thought LoRA on **expanded** teacher_refs → clip-L1≥0.042, r∈[0.70,0.85], margin **> 0.04** vs TalentPigs | **open** — autopsy+harvest DONE; DATA=791 shortz; rent+train next |
 | — | H5b | was highest | TalentPigs-init thought-only LoRA (lr=1e-5) → margin **> 0.04** | **refuted** — n80 margin **+0.00322** z=0.55; H4 r=0.670 |
 | — | H5 merge | was highest | kevin×TalentPigs α∈{0.65,0.50} → margin **> 0.04** | **refuted** — α0.65 base×4.43; α0.50 unpromptable |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
@@ -445,11 +445,16 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   chall r=**0.720**, clip-L1 **+0.0325**. Near-miss `…-ppp` lost at
   −0.004 with clip-L1 only +0.0232 (ΔL1 vs crown −0.009). H5b matched
   TalentPigs L1 and only nudged Λ2 → wrong axis.
-- **Experiment:** `experiments/s4-h5c-crown-autopsy/` (DONE) → next
-  `s4-h5c-expand-refs/` harvest + train on a fresh `mine-*` pod.
+- **Experiment:** `experiments/s4-h5c-crown-autopsy/` (DONE) →
+  `s4-h5c-expand-refs/` harvest (DONE) → train on a fresh `mine-*` pod.
 - **Prediction (pre-register BEFORE train):** n80 margin ≥ **+0.04**;
   H4 OK; chall mean clip-L1 ≥ **0.042**.
-- **Autopsy status:** DONE 2026-08-07T09:32Z. Train not started.
+- **Autopsy status:** DONE 2026-08-07T09:32Z.
+- **Harvest status (pass 101):** 60 duels → expanded **1329** /
+  shortz(z≤250) **791** (1.80× H1) / shortz+nolist 790. Shortz alone
+  kills listy (0.14→0.001). Primary DATA =
+  `results/teacher_refs_shortz.jsonl` (gitignored full; regenerable).
+  Train not started.
 - **Verdict:** **open**.
 
 ## Scaffolding

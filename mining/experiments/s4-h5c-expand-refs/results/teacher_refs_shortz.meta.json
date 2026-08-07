@@ -1,0 +1,68 @@
+{
+  "duels_dir": "/home/const/subnet120/affine/state/evals",
+  "turns": "/home/const/subnet120/research/data/turns_minicoder.jsonl",
+  "out": "results/teacher_refs_shortz.jsonl",
+  "src_files": 60,
+  "raw_teacher_samples": 18860,
+  "unique_turn_ids_with_refs": 1329,
+  "examples_written": 791,
+  "missing_from_corpus": 0,
+  "max_z_chars": 250,
+  "drop_listy": false,
+  "dropped_max_z": 538,
+  "dropped_listy": 0,
+  "z_chars_p10": 61,
+  "z_chars_p50": 127,
+  "z_chars_p90": 228,
+  "z_chars_mean": 137.0,
+  "listy_frac": 0.0013,
+  "out_bytes": 27237947,
+  "completion_format": "</think>\\nTHOUGHT: {z}\\n\\n{y}",
+  "vs_h1_440": {
+    "h1_examples": 440,
+    "delta_examples": 351,
+    "expand_factor": 1.798
+  },
+  "top_src_files": [
+    [
+      "chal-00276.json.gz",
+      31
+    ],
+    [
+      "chal-00235.json.gz",
+      29
+    ],
+    [
+      "chal-00233.json.gz",
+      26
+    ],
+    [
+      "chal-00239.json.gz",
+      25
+    ],
+    [
+      "chal-00243.json.gz",
+      24
+    ],
+    [
+      "chal-00236.json.gz",
+      24
+    ],
+    [
+      "chal-00288.json.gz",
+      24
+    ],
+    [
+      "chal-00286.json.gz",
+      23
+    ],
+    [
+      "chal-00273.json.gz",
+      23
+    ],
+    [
+      "chal-00294.json.gz",
+      23
+    ]
+  ]
+}

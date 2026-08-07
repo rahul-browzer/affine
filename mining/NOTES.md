@@ -3466,3 +3466,44 @@ No registration burn.
 
 Harvest all public duel teacher_refs on host → rent one `mine-*` →
 H5c train → n80 vs TalentPigs. Re-check snapshot (kevin re-challenge).
+
+## 2026-08-07T09:36:00Z — pass 101: H5c expand-refs harvest DONE (791 shortz)
+
+### Machine reconcile
+
+`lium ps`: no `mine-*`; only validator `affine-eval` / `affine-bench`.
+Inventory matches. Lium $33,708.61 (floor OK). Snapshot: TalentPigs still
+king reign 3 @ S=0.0315; `current_eval` chal-00301 kevin954 re-challenge
+(`load_challenger`). `min_submission_block`=8767079.
+
+### What I did
+
+1. Opened `experiments/s4-h5c-expand-refs/`.
+2. Harvested teacher_refs from all **60** public duel gz
+   (`affine/state/evals/`, read-only) + corpus join
+   (`research/data/turns_minicoder.jsonl`, read-only).
+3. Wrote three sets + meta/stats/samples:
+   - expanded **1329** (3.02× H1's 440)
+   - shortz z≤250 **791** (1.80×) — primary H5c DATA
+   - shortz+nolist **790** (redundant; shortz alone kills listy)
+4. Locked train path in `result.md` / `start_h5c.sh` (kevin init,
+   thought-only, lr=2e-5, n80 vs TalentPigs, gate >0.04).
+5. No rental this pass (harvest was the increment). No submit.
+
+### Numbers
+
+| set | n | z p50 | listy | vs H1 |
+|---|---|---|---|---|
+| expanded | 1329 | 216 | 0.1415 | 3.02× |
+| shortz≤250 | **791** | 127 | **0.0013** | **1.80×** |
+
+Finding: length filter captures crown style; list scrub adds almost nothing.
+
+### Money
+
+Lium $33,708.61; mining spend still ~$252. Floor OK. Cap OK. No burn.
+
+### Next
+
+Rent `mine-h5c-1` → upload shortz JSONL + train/merge scripts → H5c LoRA
+→ n80 vs TalentPigs. Re-check snapshot (kevin re-challenge in flight).
