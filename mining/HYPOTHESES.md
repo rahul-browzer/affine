@@ -9,10 +9,11 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H13 | highest (cheap) | TalentPigs×kkk-af α0.75 → margin>0.04 (chal-00262 +0.0244 exact rev) | **open** (serve→n80) |
-| 2 | H16 | high (cheap) | TalentPigs×plmk α0.90 → base×≤1.25 and margin>0.04 (H12 α0.75 band×2.02) | **open** (bootstrap) |
-| 3 | H14 | med (cheap) | TalentPigs×kkkk α0.75 → margin>0.04 (chal-00268 +0.0132) | **open** (merging) |
-| 4 | H15 | med (cheap) | TalentPigs×leary α0.75 → margin>0.04 (chal-00315 +0.0059 base×≈1.017) | **open** (merging) |
+| 1 | H13 | highest (cheap) | TalentPigs×kkk-af α0.75 → margin>0.04 (chal-00262 +0.0244 exact rev) | **open** (n80 live) |
+| 2 | H17 | high (cheap) | TalentPigs×kkk-af α0.90 → base×≤1.25 and margin>0.04 (H13 band hedge) | **open** (bootstrap) |
+| 3 | H16 | high (cheap) | TalentPigs×plmk α0.90 → base×≤1.25 and margin>0.04 (H12 α0.75 band×2.02) | **open** (bootstrap) |
+| 4 | H14 | med (cheap) | TalentPigs×kkkk α0.75 → margin>0.04 (chal-00268 +0.0132) | **open** (merging) |
+| 5 | H15 | med (cheap) | TalentPigs×leary α0.75 → margin>0.04 (chal-00315 +0.0059 base×≈1.017) | **open** (merging) |
 | — | H12 | was high | TalentPigs×plmk α0.75 → margin>0.04 | **refuted** — INVALID base×2.017 |
 | — | H6 | was highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **refuted** — n80 +0.00330 |
 | — | H11 | was high | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 | **refuted** — invalid base×1.866 |
@@ -33,10 +34,15 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Open
 
-### H13 — TalentPigs × kkk-af (chal-00262) — serve→n80
+### H13 — TalentPigs × kkk-af (chal-00262) — n80 live
 - **Claim:** α=0.75 with strongest non-crown near-miss (+0.0244 z=2.58) clears margin > 0.04.
 - **Test:** `mine-h13-1` (zesty-orbit-df); B=`bluecolor777/kkk-af`@7426296b.
-- **Status:** merge done 16/16; engines launched 13:49Z. Detail: `experiments/s4-h13-tp-kkk-merge/`.
+- **Status:** n80 attempt1 started 13:54Z (ALL_READY). Detail: `experiments/s4-h13-tp-kkk-merge/`.
+
+### H17 — TalentPigs × kkk-af α0.90 — bootstrap
+- **Claim:** α=0.90 (10% kkk-af) keeps base×≤1.25 if H13 α0.75 bands; margin>0.04.
+- **Test:** `mine-h17-1` (cosmic-orbit-9b); same B as H13. Tear if H13 ADVANCEs.
+- **Status:** rented+launched 13:57Z; pipeline pid 903. Detail: `experiments/s4-h17-tp-kkk-a90/`.
 
 ### H16 — TalentPigs × plmk α0.90 — bootstrap
 - **Claim:** α=0.90 (10% plmk) keeps base×≤1.25 after H12 α0.75 hit ×2.02; margin>0.04.

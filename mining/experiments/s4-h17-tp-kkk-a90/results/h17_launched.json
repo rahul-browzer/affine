@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-07T13:57:00Z",
+  "pod": "mine-h17-1",
+  "huid": "cosmic-orbit-9b",
+  "ssh": "38.255.28.21:20099",
+  "price_per_hour": 31.92,
+  "ttl_remove_at": "2026-08-07T21:56:20Z",
+  "pipeline_pid": 903,
+  "hypothesis": "H17 TalentPigs×kkk-af α0.90 (band hedge while H13 α0.75 n80 runs)",
+  "b_repo": "bluecolor777/kkk-af",
+  "b_rev": "7426296b0a2d74aaf0e2c282410677bfccd0dac6",
+  "alpha": 0.9
+}
