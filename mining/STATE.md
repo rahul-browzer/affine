@@ -4,24 +4,20 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H1 teacher-ref LoRA SFT RUNNING (epoch 2); checkpoint-100 ON HF;
-dual-phase sim armed; merged HF push ARMED; merge first_1MiB≠king refuse
-ARMED; fail-closed mid-ckpt promote + early teardown (push grace) + triage
-with live-king guard armed.**
+**Stage 4 — H1 train DONE; merge DONE (LoRA applied); first_1MiB gate
+FALSE-POSITIVE fixed; resume pipeline RUNNING (HF push + chall re-serve →
+n40→n80).**
 
-Stage 0–3 complete. H2 kevin×pandora REFUTED. H1 harvest DONE (440
-examples); LoRA train pid **82057** on GPUs 6,7 (engines 0–5 still hot).
-**checkpoint-100** on disk + HF (private `…/h1-lora`); epoch-2 loss **0.207**
-@ step 100 (min 0.175 @80; epoch1 was 0.251). Post-train pipeline pid
-**105148** waits for `train.done` → HF adapter salvage → GPU merge on 6,7
-(**refuses if first_1MiB sha == kevin**) → **background HF push** of
-`/root/h1/merged` → `unconst/Affine-5czsc2fc98-h1-merged` (private) →
-chall-only re-serve → **n=40 then n=80** → wait for push.
-If train dies pre-done, pipeline **promotes latest mid-ckpt** (fail-closed;
-ckpt-100 available). Host harvest **1486917**; host deadman **1405846**
-kills `mine-sim-1` at **07:00Z**. No submissions. **chal-00274 H6 REJECTED**;
-**kevin still king**; **chal-00275** scoring (Tok331102 af6). Queue after:
-chal-00276.
+Stage 0–3 complete. H2 kevin×pandora REFUTED. H1 LoRA train finished
+**03:35:57Z** (step 110/110, final loss **0.237**, min **0.175** @80).
+Final adapter on HF (`…/h1-lora` commit `4fe72892…`). GPU merge wrote
+`/root/h1/merged` but old first_1MiB==kevin check **falsely refused sim**
+(embed-leading shard; q/k/v/o_proj + shared_expert.gate differ). Pass 47
+rewrote identity probe (head/mid/tail on `model-*-of-*`) and launched
+`resume_after_false_identical.sh` pid **127103**: bg merged HF push
+**127187** → chall-only re-serve of `/root/h1/merged` → n40→n80. Host
+harvest **1486917**; deadman **1405846** @ **07:00Z**. No submissions.
+**kevin still king**; chal-00275 cleared; **chal-00276** scoring.
 
 ## Live facts (verified this pass)
 
@@ -35,92 +31,57 @@ chal-00276.
 | weight_version_key | 1 |
 | min_margin | 0.02 (duel) |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
-| Lium balance | $34,282.69 (floor $28,000) |
+| Lium balance | $34,235.98 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$108.12** @ $23.60/h |
+| mining spend to date | `mine-sim-1` spent **$119.34** @ $23.60/h |
 | our submissions | none |
 | Stage 3 gate | **MET** |
 | H2 verdict | **REFUTED** (`experiments/s4-h2-merge/result.md`) |
-| H1 harvest | **DONE** — 440 examples, 0 missing |
-| H1 train | **RUNNING** — step **101/110** @ ~55s/it, ETA ~**03:37Z** |
-| H1 loss | epoch1 **0.251**; ckpt100 last **0.207**; min **0.175** @80; spike 1.86 @70 then recovered |
-| H1 mid-ckpt | **checkpoint-50 + checkpoint-100 ON HF** (private salvage repo) |
-| H1 pipeline | **ARMED** — pid **105148** (soft deadline **06:50Z**; fail-closed promote; **merged HF push**) |
-| H1 merge gate | **ARMED** — `merge_lora.py` refuses first_1MiB==kevin |
-| H1 merged HF salvage | **ARMED** — `push_merged.py` → private `unconst/Affine-5czsc2fc98-h1-merged` |
-| H1 mid-ckpt salvage | **ARMED** — pid 83669 (ckpt-50 + **ckpt-100 done**; waits for train.done) |
-| H1 HF adapter salvage repo | **VERIFIED** — private `unconst/Affine-5czsc2fc98-h1-lora` |
-| H1 Lium backup | **ARMED** — `lium bk` path `/root/h1/train` every 1h keep 1d |
-| Host harvest | **ARMED** — pid **1486917** (early teardown + push grace); emit numeric-ckpt fix |
-| Host deadman | **ARMED** — pid **1405846** → `lium rm mine-sim-1` at **07:00Z** |
-| Lium schedule | **CANCELLED** (host deadman replaces) |
-| H1 triage | **ARMED** — live-king guard; `results/h1_decision.json` when sim lands |
-| H1 n80 budget | **OK** — ETA n80 ~04:57Z; slack soft ~113 min |
-| Last live duel | **chal-00274 H6** REJECTED — margin +0.0229, z=2.37&lt;3 |
-| Live challenger | **chal-00275** Tok331102/…-af6 **scoring** (king 15/80 @ 03:27Z) |
-| reg_cost_tao | **0.645** (snapshot market) |
+| H1 harvest | **DONE** — 440 examples |
+| H1 train | **DONE** — 03:35:57Z; step 110; loss final 0.237 / min 0.175@80 |
+| H1 mid-ckpt | checkpoint-50 + 100 + **110** on disk; 50+100+final adapter on HF |
+| H1 merge | **DONE** — `/root/h1/merged`; `weight_identical: false` |
+| H1 identity gate | **FIXED** — multi-window; first_1MiB alone was false-positive |
+| H1 resume | **RUNNING** — pid **127103** (`h1_resume.nohup`); push **127187** |
+| H1 merged HF salvage | **IN FLIGHT** — `unconst/Affine-5czsc2fc98-h1-merged` |
+| Host harvest | **ARMED** — pid **1486917** |
+| Host deadman | **ARMED** — pid **1405846** → rm at **07:00Z** |
+| H1 triage | **ARMED** — live-king guard; waits for n40/n80 |
+| Live challenger | **chal-00276** Sansaliu/…-v1 scoring (king 42/80 @ 03:56Z) |
+| reg_cost_tao | **~0.79** (snapshot market) |
 
 ## What's running
 
 | name | huid | role | check |
 |---|---|---|---|
-| `mine-sim-1` | `swift-shark-52` | Stage 4 H1 train + salvage→GPU-merge→merged-HF-push→n40→n80 | SSH `root@69.63.236.160 -p 40301`; **no Lium Removal at**; host deadman 07:00Z; harvest early-rm on artifacts (defers for push) |
+| `mine-sim-1` | `swift-shark-52` | H1 resume: push→chall-serve→n40→n80 | SSH `root@69.63.236.160 -p 40301`; host deadman 07:00Z |
 
 On pod:
-- Teacher:8000 + King:8001 + Chall:8002 — all /health 200 (chall still h2-kp65)
-- H1 train: pid **82057**, log `/root/logs/h1_train.nohup`, out `/root/h1/train/`
-- H1 pipeline: pid **105148**, log `/root/logs/h1_pipeline.nohup`
-  - waits → on train death: **promote latest checkpoint-*** → adapter
-  → **HF salvage** `unconst/Affine-5czsc2fc98-h1-lora` (private, adapter-only)
-  → **GPU merge** `CUDA_VISIBLE_DEVICES=6,7 --device-map auto` → `/root/h1/merged`
-    (**exit if first_1MiB sha == kevin**)
-  → write `/root/affine_data/h1_merge_meta.json`
-  → **bg HF push** merged → `unconst/Affine-5czsc2fc98-h1-merged` (`h1_push_merged.pid`)
-  → **chall-only** restart (`RESTART_KING=0`; teacher+king stay hot)
-  → reclaim `/root/merges/h2-kp65` after serve
-  → **sim n=40** → `/root/affine_data/h1_sim_result_n40.json` (~21 min)
-  → **sim n=80** → `/root/affine_data/h1_sim_result.json` if ≥50 min to **06:50Z**
-  → wait for merged HF push (max 45 min) before pipeline exit
-- H1 mid-ckpt salvage: pid **83669** (ckpt-50 + **ckpt-100** on HF)
-- Train progress/loss JSON: `/root/affine_data/h1_train_{progress,loss}.json`
-- ckpt-50 + ckpt-100: on disk + HF; emit prefers numeric-latest trainer_state
-- `run_sim_duel.py` on pod writes `king_rev`
-- Disk: `/root` 5.7T free; `mine.env` HF_TOKEN present (len 37).
+- Teacher:8000 + King:8001 — /health 200; Chall:8002 loading `/root/h1/merged`
+- Resume pid **127103**, log `/root/logs/h1_resume.nohup`
+- Merged HF push pid **127187**, log `/root/logs/h1_push_merged.nohup`
+- After serve READY: n40 → `h1_sim_result_n40.json` then n80 → `h1_sim_result.json`
+- Merge meta: `/root/affine_data/h1_merge_meta.json` (`false_positive_first_1MiB_gate: true`)
 
 Host (no GPU):
-- Artifact harvester pid **1486917**, log `.ralph/host_harvest.log`, pidfile `.ralph/host_harvest.pid`
-- TTL deadman pid **1405846**, log `.ralph/host_ttl_deadman.log`
-  → at 07:00Z verifies Name=`mine-sim-1` then `lium rm mine-sim-1 -y` (backstop)
-- Local triage: `experiments/s4-h1-sft/triage_sim.py` + live-king guard
-  → `results/h1_decision.json` (appears when n40/n80 land).
-  Progress: `results/h1_train_{progress,loss}.json` + `h1_epoch2_step_poll.json`
-  + `h1_time_budget.json` + `h1_live_king_watch.json`
-  + **`h1_epoch2_ckpt100.json`** / **`mid_checkpoint-100_salvage.json`**
-  + **`chal-00274_verdict.json` / `chal-00274_h6_summary.json`** (H6 closed)
+- Artifact harvester pid **1486917**
+- TTL deadman pid **1405846** @ 07:00Z
+- Triage → `results/h1_decision.json` when sim lands
 
 Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. Budget to deadman: ~$50 extra vs old 04:53Z TTL if sim
-lands late. **Early teardown** fires when harvest completes (preferred
-over waiting for 07:00Z), but **defers while merged HF push is alive**.
-Next pass: poll `train_done` (~03:37Z) then adapter salvage → merge_meta
-→ n40→n80; read `results/h1_decision.json` if present. **Watch chal-00275**
-(scoring) — live-king guard refuses submit if king flips. No submit until
-sim margin > 0.04 + H4 **and** triage action=`toward_submit` (live king match).
-H6 lesson: clearing δ=0.02 is not enough — need margin ≳ 3·SE; our 0.04 gate
-correctly refuses that near-miss.
+Nothing hard. Soft deadline 06:50Z; deadman 07:00Z. Chall serve may take
+several minutes to load ~68G. Do **not** submit until
+`results/h1_decision.json` action=`toward_submit` (n80 margin > 0.04 + H4
++ live king match).
 
 ## Next action (single, highest value)
 
-**Poll for `train_done: true` (~03:37Z)** then
-`/root/h1/adapter_salvage.json`, `results/h1_merge_meta.json`
-(`first_1MiB_identical: false`), `results/h1_merged_salvage.json`, and
-pipeline log for merge→chall-only→**n40→n80**. Prefer
-`results/h1_decision.json` (triage + **live-king guard**). **Re-check
-`api/v1/snapshot` for chal-00275** (may crown). Do **not** submit until
-action=`toward_submit` (n80 margin > 0.04 + H4 + live king match). If H1
-pipeline/sim done: confirm harvest early-rm fired (or kill `mine-sim-1`
-yourself after name-check), after merged push meta or grace. If train died:
-check `/root/h1/train_fallback.json` (ckpt-100 promotable).
+**Poll resume:** chall /health 200 → n40 progress →
+`results/h1_sim_result_n40.json` / `h1_decision.json` /
+`h1_merged_salvage.json`. Confirm `weight_identical: false` stays. Re-check
+snapshot (chal-00276 may crown). Do **not** submit until triage
+`toward_submit`. If resume died: re-run
+`resume_after_false_identical.sh` (merged weights already on disk).

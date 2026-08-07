@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T03:56:51Z | 34235.98 | 10.000000 | 0 | mine-sim-1 spent $119.34; H1 train+merge done; false-identical fixed; resume push+serve; no new rental |
 | 2026-08-07T03:28:31Z | 34282.69 | 10.000000 | 0 | mine-sim-1 spent $108.12; H1 step101; ckpt-100 HF OK loss0.207; chal-00275 scoring; no new rental |
 | 2026-08-07T03:15:18Z | 34306.02 | 10.000000 | 0 | mine-sim-1 spent $102.97; H1 step87; H6 rejected z&lt;3; kevin king; no new rental |
 | 2026-08-07T03:11:56Z | 34306.02 | 10.000000 | 0 | mine-sim-1 spent $101.74; H1 step84; triage live-king guard; no new rental |
@@ -53,6 +54,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T03:56:51Z | observe | mine-sim spent $119.34 | Lium → mine-sim-1 | 34235.98 | 10.000 | H1 train DONE + merge; first_1MiB false-positive fixed; resume push+serve→sim; floor OK |
 | 2026-08-07T03:28:31Z | observe | mine-sim spent $108.12 | Lium → mine-sim-1 | 34282.69 | 10.000 | H1 step101; ckpt-100 salvaged to HF (loss 0.207); chal-00275 scoring; floor OK |
 | 2026-08-07T03:15:18Z | observe | mine-sim spent $102.97 | Lium → mine-sim-1 | 34306.02 | 10.000 | H1 step87; chal-00274 H6 rejected (margin+0.0229 z=2.37&lt;3); kevin remains; floor OK |
 | 2026-08-07T03:11:56Z | observe | mine-sim spent $101.74 | Lium → mine-sim-1 | 34306.02 | 10.000 | H1 step84; triage live-king guard + sim king_rev SCP'd; H6 scoring 70/80; floor OK |

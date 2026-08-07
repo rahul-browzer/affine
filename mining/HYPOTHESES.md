@@ -29,20 +29,17 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 - **Prediction (pre-register before train):** challenger mean paired margin ≥
   **+0.04** vs live king on an 80-turn public-D slice, all gates passing,
   r∈[0.70,0.85], base×≤1.15.
-- **In flight (2026-08-07T03:28Z):** harvest 440/440; LoRA r=16 2ep from
-  kevin init, 110 steps, pid 82057 (**step 101/110** @ ~55s/it, ETA
-  ~**03:37Z**). **checkpoint-50 + checkpoint-100** on HF (private
-  `unconst/Affine-5czsc2fc98-h1-lora`); epoch-1 loss **0.251**; ckpt-100
-  last loss **0.207** @ epoch 1.818 (min **0.175** @80; transient spike
-  1.86 @70 then recovered). Post-train pipeline pid **105148** waiting;
-  soft deadline **06:50Z**; fail-closed promote (ckpt-100 available).
-  **merge_lora refuses first_1MiB==kevin**; **bg `push_merged.py`** →
-  private `unconst/Affine-5czsc2fc98-h1-merged`. n80 ETA ~04:57Z. Host
-  harvest **1486917**; deadman 1405846 @ 07:00Z. **Triage live-king guard**
-  armed. **chal-00274 H6 REJECTED**; **chal-00275** scoring (Tok331102).
-  kevin remains — H1 sim target still valid. Emit progress fixed to prefer
-  numeric-latest ckpt (was stuck on lexical checkpoint-50).
+- **In flight (2026-08-07T03:56Z):** train **DONE** 03:35:57Z (110/110;
+  final loss **0.237**, min **0.175** @80; epoch1 0.251). Final adapter on
+  HF `unconst/Affine-5czsc2fc98-h1-lora` commit `4fe72892…`. Merge wrote
+  `/root/h1/merged` but **first_1MiB gate false-positived** (embed-leading
+  shard matches kevin; q/k/v/o_proj + shared_expert.gate differ; both
+  shard tails ≠). Fixed probe to head/mid/tail on `model-*-of-*`; resume
+  pid **127103** pushing merged + chall re-serve → n40→n80. Soft 06:50Z;
+  deadman 07:00Z. kevin still king (chal-00275 cleared; chal-00276
+  scoring). See `results/h1_false_identical_gate.json`.
 - **Verdict:** open.
+
 
 ## H2 — weight-merge of recent kings / near-kings beats both
 

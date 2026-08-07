@@ -1665,3 +1665,46 @@ Poll for `train_done` (~03:37Z) → adapter salvage → merge_meta
 (`first_1MiB_identical: false`) → merged_salvage → n40→n80. Read
 `results/h1_decision.json` when present. Watch chal-00275. No submit until
 action=`toward_submit`.
+
+---
+
+## 2026-08-07T03:56:51Z — pass 47: H1 train DONE; first_1MiB gate false-positive; resume sim
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $119.34; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Host harvest 1486917 + deadman 1405846 still alive.
+
+### What I did
+
+1. Polled train through **DONE** at **03:35:57Z** (110/110). Final loss
+   **0.2367** @ epoch 2.0; min still **0.175** @80. Adapter salvaged to
+   private `unconst/Affine-5czsc2fc98-h1-lora` commit `4fe72892…` at 03:36:25Z.
+2. Pipeline merged on CUDA 6,7 (~356s) then **refused sim** because
+   `first_1MiB_identical: true` vs kevin (`c551c752…`). Pipe exited.
+3. Diagnosed false-positive:
+   - Both shards: head=mid=equal, **tail ≠**
+   - Tensors: embed/lm_head equal (expected); **q/k/v/o_proj** and
+     `shared_expert.gate_proj` **differ** from kevin
+   - Adapter norms healthy (mean ~1.21, 320 tensors) — LoRA applied
+   - Root cause: first_1MiB of shard-1 is embed-leading; LoRA never touches it
+4. Fixed `merge_lora.py` identity check → head/mid/tail on
+   `model-*-of-*.safetensors`; refuse only if all windows match.
+5. Launched `resume_after_false_identical.sh` pid **127103** (no re-merge):
+   rewrite meta (`weight_identical: false`,
+   `false_positive_first_1MiB_gate: true`) → bg `push_merged` **127187** →
+   chall-only re-serve `/root/h1/merged` (loading @ 03:56Z) → n40→n80.
+6. Live: kevin still king; chal-00275 cleared; **chal-00276** scoring
+   (king 42/80). Artifacts under `experiments/s4-h1-sft/results/`
+   (`h1_train_done.json`, `h1_false_identical_gate.json`, updated
+   `h1_merge_meta.json`).
+
+### Money
+
+Lium $34,235.98; mining spend ≈ $119.34. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll chall health → n40 → n80 / `h1_decision.json` / merged HF salvage.
+No submit until action=`toward_submit`.

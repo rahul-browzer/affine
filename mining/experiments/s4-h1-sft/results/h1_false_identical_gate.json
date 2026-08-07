@@ -1,0 +1,35 @@
+{
+  "utc": "2026-08-07T03:56:07Z",
+  "pass": 47,
+  "finding": "first_1MiB identity gate false-positive on real LoRA merge",
+  "symptom": "merge_lora.py exited refuse-sim because first_1MiB of shard-1 matched kevin (sha c551c752…)",
+  "root_cause": "shard-1 leading bytes are embed/lm_head (untouched by LoRA targets); head+mid windows can match while LoRA-touched tensors differ",
+  "evidence": {
+    "first_1MiB_identical": true,
+    "shard_windows": {
+      "model-00001-of-00002.safetensors": {"head": true, "mid": true, "tail": false},
+      "model-00002-of-00002.safetensors": {"head": true, "mid": true, "tail": false}
+    },
+    "tensor_equal": {
+      "embed_tokens": true,
+      "lm_head": true,
+      "layers.11.q_proj": false,
+      "layers.11.k_proj": false,
+      "layers.11.v_proj": false,
+      "layers.11.o_proj": false,
+      "layers.0.shared_expert.gate_proj": false
+    },
+    "adapter_norm_mean": 1.2115,
+    "adapter_n_tensors": 320
+  },
+  "fix": "multi-window head/mid/tail on model-*-of-*.safetensors; refuse only if ALL windows match; keep first_1MiB as legacy field",
+  "resume": {
+    "script": "resume_after_false_identical.sh",
+    "pid_file": "/root/logs/h1_resume.pid",
+    "log": "/root/logs/h1_resume.nohup",
+    "started_utc": "2026-08-07T03:55:54Z",
+    "path": "skip re-merge → HF push merged → chall-only re-serve → n40 → n80"
+  },
+  "weight_identical": false,
+  "false_positive_first_1MiB_gate": true
+}

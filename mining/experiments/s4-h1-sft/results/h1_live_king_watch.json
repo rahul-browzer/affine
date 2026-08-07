@@ -1,22 +1,25 @@
 {
-  "utc": "2026-08-07T03:28:10Z",
+  "utc": "2026-08-07T03:56:51Z",
   "king_repo": "kevin954/Affine-5dfqbbh8ev-sft",
-  "king_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "king_revision": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
   "king_score": 0.03955783762471344,
-  "current_eval_id": "chal-00275",
-  "current_eval_repo": "Tok331102/affine-5EqYW8McUc-af6",
-  "current_eval_stage": "scoring",
-  "current_eval_progress": {
-    "phase": "scoring",
-    "miner": "king",
-    "done": 15,
-    "total": 80
+  "reign_number": 2,
+  "current_eval": {
+    "challenge_id": "chal-00276",
+    "repo": "Sansaliu/Affine-5dm33ngrnj-v1",
+    "stage": "scoring",
+    "progress": {
+      "phase": "scoring",
+      "miner": "king",
+      "done": 42,
+      "total": 80
+    }
   },
-  "queue_head": "chal-00276 Sansaliu/Affine-5dm33ngrnj-v1",
-  "reg_cost_tao": 0.605622383,
-  "ckpt100": {
-    "loss": 0.20740201473236083,
-    "hf": "checkpoint-100 salvaged"
+  "phase": {
+    "name": "duel",
+    "since": "2026-08-07T03:39:59.845512+00:00",
+    "challenge_id": "chal-00276"
   },
-  "note": "pass46: kevin still king; chal-00275 scoring; H1 ckpt-100 on HF"
+  "reg_cost_tao": 0.790076313,
+  "note": "pass47: H1 train done; false-identical gate fixed; resume push+serve+sim; chal-00275 cleared (kevin remains); chal-00276 scoring"
 }
