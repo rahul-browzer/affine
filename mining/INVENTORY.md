@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | 2026-08-07T04:53:17Z | Stage 4 H2 serve + sim | RUNNING | SSH `root@69.63.236.160 -p 40301`; serve READY; h2_sim pid=68843 sampling (king 30/80, chall 30/80 @ 00:15Z); spent $32.88 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | 2026-08-07T04:53:17Z | Stage 4 H2 serve + sim | RUNNING | SSH `root@69.63.236.160 -p 40301`; serve READY; h2_sim pid=68843 sampling (king 35/80, chall 35/80 @ 00:20Z); spent $34.10 |
 
 ## Reconcile log
 
@@ -29,3 +29,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T00:11:01Z | mine-sim-1 RUNNING | matches inventory; spent $30.53; sim advancing king20/chall20; teacher bottleneck; validator pods untouched |
 | 2026-08-07T00:13:41Z | mine-sim-1 RUNNING | matches inventory; spent $31.62; sim advancing king25/chall25; teacher bottleneck; validator pods untouched |
 | 2026-08-07T00:16:53Z | mine-sim-1 RUNNING | matches inventory; spent $32.88; sim advancing king30/chall30 (confirmed via 90s recheck); validator pods untouched |
+| 2026-08-07T00:20:00Z | mine-sim-1 RUNNING | matches inventory; spent $34.10; sim advancing king35/chall35 (confirmed via 120s recheck); validator pods untouched |

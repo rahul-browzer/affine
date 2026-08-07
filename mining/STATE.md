@@ -4,7 +4,7 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 in progress — H2 α=0.5 sim duel RUNNING vs kevin (sampling ~30/80).**
+**Stage 4 in progress — H2 α=0.5 sim duel RUNNING vs kevin (sampling ~35/80).**
 
 Stage 0–3 complete. Merge `/root/merges/h2-kp50` served as challenger;
 80-turn local `run_sim_duel` in flight. No submissions.
@@ -17,17 +17,17 @@ Stage 0–3 complete. Merge `/root/merges/h2-kp50` served as challenger;
 | king S | 0.03955783762471344 |
 | reign # | 2 (pandora-m4 still earning as reign 1) |
 | teacher | `zai-org/GLM-4.5-Air-FP8` |
-| min_submission_block | check `api/v1/contract` before any submit |
+| min_submission_block | 8767079 |
 | weight_version_key | 1 |
 | eval stack | vllm 0.22.1 / transformers 5.14.1 / torch 2.11.0 |
 | Lium balance | $34,578.48 (floor $28,000) |
 | miner coldkey free | τ10.000 (unchanged) |
-| mining spend to date | `mine-sim-1` spent **$32.88** @ $23.60/h (TTL cap ≈ $141.60) |
+| mining spend to date | `mine-sim-1` spent **$34.10** @ $23.60/h (TTL cap ≈ $141.60) |
 | our submissions | none |
 | Stage 3 gate | **MET** — `experiments/s3-duel-sim/result.md` |
 | Stage 4 H2 merge | **DONE** — `/root/merges/h2-kp50` + `experiments/s4-h2-merge/merge_meta.json` |
 | Stage 4 H2 serve | **READY** — teacher:8000 king:8001 chall:8002 (all `/health` 200) |
-| Stage 4 H2 sim | **RUNNING** — pid **68843**; log @ 00:15Z: `king 30/80`, `challenger 30/80` |
+| Stage 4 H2 sim | **RUNNING** — pid **68843**; log @ 00:20Z: `king 35/80`, `challenger 35/80` |
 
 ## What's running
 
@@ -40,9 +40,9 @@ On pod:
 - Sim: `PYTHONPATH=/root/mining_src/affine_pkg python …/run_sim_duel.py --save-artifact`
   - log `/root/logs/h2_sim.nohup` · pid `/root/logs/h2_sim.pid` (=68843)
   - result target `/root/affine_data/h2_sim_result.json` (+ `_artifact.json`)
-- Progress (pass 16): sampling advancing; confirmed not stuck via 90s recheck
-  (25/80 → 30/80). Teacher GPUs 0–1 ~95%; king/chall GPUs 2–5 ~95% during
-  sample batches; GPUs 6–7 idle.
+- Progress (pass 17): sampling advancing; confirmed not stuck via 120s recheck
+  (30/80 → 35/80). Teacher GPUs 0–1 ~97%; king/chall GPUs 2–5 idle between
+  batches (0% util, weights loaded); GPUs 6–7 idle.
 - Throughput: ~5 turns / ~2–3 min per side → sampling ETA ~00:40–00:50Z;
   force-echo after that; finish well inside TTL 04:53Z
 - Poll: `ssh -p 40301 root@69.63.236.160 'tail -20 /root/logs/h2_sim.nohup; ls /root/affine_data/h2_sim_result.json'`
@@ -54,7 +54,7 @@ Validator pods `affine-eval` / `affine-bench` — do not touch.
 
 ## Blocked
 
-Nothing hard. Soft: TTL ends 04:53Z (~4.6h left @ 00:16Z). Do **not**
+Nothing hard. Soft: TTL ends 04:53Z (~4.5h left @ 00:20Z). Do **not**
 submit until sim margin > 0.04 vs live king (kevin). Do not rent another pod.
 
 ## Next action (single, highest value)

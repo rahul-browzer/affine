@@ -591,3 +591,35 @@ Lium $34,578.48; floor OK. Mining spend ≈ $32.88. No new rental. TTL still
 
 Collect `h2_sim_result.json` margin vs kevin; apply plan.md decision rule.
 No submit until margin > 0.04 + H4.
+
+---
+
+## 2026-08-07T00:20Z — pass 17: H2 sim advancing (35/80 both sides)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $34.10; plus validator
+`affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+
+### What I did
+
+1. Polled sim pid **68843** — ALIVE (epoll wait); engines 8000/8001/8002 health 200.
+2. Confirmed real progress since pass 16 (not stuck):
+   - before wait: king 30/80, chall 30/80
+   - after 120s: king **35/80**, chall **35/80**
+3. Teacher still the bottleneck (GPUs 0–1 ~97%; king/chall 2–5 idle between
+   sample batches with weights loaded; GPUs 6–7 free).
+4. Throughput ≈ 5 turns / 2–3 min per side → sampling ETA ~00:40–00:50Z,
+   then force-echo; finish well inside TTL 04:53Z. Did not relaunch or rent.
+5. Live snapshot unchanged: king=`kevin954/Affine-5dfqbbh8ev-sft` S≈0.03956;
+   `min_submission_block`=8767079.
+
+### Money
+
+Lium $34,578.48; floor OK. Mining spend ≈ $34.10. No new rental. TTL still
+2026-08-07T04:53:17Z (~4.5h left).
+
+### Next
+
+Collect `h2_sim_result.json` margin vs kevin; apply plan.md decision rule.
+No submit until margin > 0.04 + H4.
