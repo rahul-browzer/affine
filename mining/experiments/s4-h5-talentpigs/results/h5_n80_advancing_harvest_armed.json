@@ -1,0 +1,46 @@
+{
+  "utc": "2026-08-07T06:51:58Z",
+  "pass": 73,
+  "king_live": {
+    "repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+    "revision": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "score": 0.031501971059510636,
+    "reign": 3
+  },
+  "sim": {
+    "pid": 235312,
+    "resume_pid": 231961,
+    "progress_utc": "2026-08-07T06:51:47Z",
+    "king": 12,
+    "challenger": 16,
+    "n_turns": 80,
+    "recheck": {
+      "t0_utc": "2026-08-07T06:49:12Z",
+      "t0_king": 1,
+      "t0_challenger": 3,
+      "t1_utc": "2026-08-07T06:51:20Z",
+      "t1_king": 11,
+      "t1_challenger": 15,
+      "note": "120s recheck confirmed advancement; engines 200×3"
+    },
+    "eta_note": "~2.4–5 king-turns/min → finish ~07:15–07:30Z"
+  },
+  "host_harvest_h5": {
+    "pid": 1818104,
+    "script": "experiments/s4-h5-talentpigs/host_harvest_h5.sh",
+    "log": "experiments/s4-h5-talentpigs/results/host_harvest_h5.nohup",
+    "stop_utc": "2026-08-07T11:45:00Z",
+    "outputs": [
+      "h5_kt65_sim_result.json",
+      "h5_decision.json",
+      "h5_kt65_sim_progress.json"
+    ]
+  },
+  "deadman_pid": 1783662,
+  "deadman_utc": "2026-08-07T12:00:00Z",
+  "lium": {
+    "balance_usd": 33963.56,
+    "mine_sim_spent_usd": 188.27
+  },
+  "submit": false
+}

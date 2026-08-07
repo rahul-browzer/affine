@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T06:51:58Z | 33963.56 | 10.000000 | 0 | mine-sim-1 spent $188.27; pass73 H5 n80 ~12/16 + harvest 1818104; deadman 12:00Z; no new rental |
 | 2026-08-07T06:47:11Z | 33971.35 | 10.000000 | 0 | mine-sim-1 spent $185.40; pass72 H5 chall READY + n80 sim launched; deadman 12:00Z; no new rental |
 | 2026-08-07T06:43:38Z | 33979.14 | 10.000000 | 0 | mine-sim-1 spent $185.00; pass71 H5 merge DONE + resume serve→n80; deadman 12:00Z; no new rental |
 | 2026-08-07T06:33:00Z | 33994.63 | 10.000000 | 0 | mine-sim-1 spent $180.82; pass70 king pivot DONE + H5 α0.65 merge→n80 launched; deadman 12:00Z; no new rental |
@@ -78,6 +79,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T06:51:58Z | observe | mine-sim spent $188.27 | Lium → mine-sim-1 | 33963.56 | 10.000 | H5 n80 ~king12/chall16; harvest 1818104 armed; floor OK |
 | 2026-08-07T06:47:11Z | observe | mine-sim spent $185.40 | Lium → mine-sim-1 | 33971.35 | 10.000 | H5 chall READY + n80 sim 235312; floor OK |
 | 2026-08-07T06:43:38Z | observe | mine-sim spent $185.00 | Lium → mine-sim-1 | 33979.14 | 10.000 | H5 merge DONE + resume 231961 serve→n80; floor OK |
 | 2026-08-07T06:33:00Z | observe | mine-sim spent $180.82 | Lium → mine-sim-1 | 33994.63 | 10.000 | H5 pivot DONE + merge pipe 231222; floor OK |
@@ -153,10 +155,10 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | category | USD | TAO |
 |---|---|---|
-| Lium rentals (`mine-*`) | ~185.00 so far (meter running @ 23.60/h; host deadman 12:00Z) | — |
+| Lium rentals (`mine-*`) | ~188.27 so far (meter running @ 23.60/h; host deadman 12:00Z) | — |
 
 | registration burns | — | 0 |
 | Lium top-ups from miner | — | 0 |
-| **total** | **~185.00 (accruing)** | **0** |
+| **total** | **~188.27 (accruing)** | **0** |
 
-Cap remaining to first crown: **~$3,815** (of $4,000) at $185.00 spent; deadman 12:00Z.
+Cap remaining to first crown: **~$3,812** (of $4,000) at $188.27 spent; deadman 12:00Z.

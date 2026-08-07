@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H5 / new-king | highest now | pivot to TalentPigs king; merge or mild distill → margin **> 0.04** | **open** — α0.65 chall READY; n80 sim RUNNING |
+| 1 | H5 / new-king | highest now | pivot to TalentPigs king; merge or mild distill → margin **> 0.04** | **open** — α0.65 n80 ADVANCING (~12/16); harvest armed |
 | 2 | H1v2 | was highest | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | **refuted** — n80 margin **−0.00030**; r=0.904 H4 fail; clip-L1 +0.015 OK |
 | 3 | H1 | was highest | full (z,y) SFT margin **> 0.04** | **refuted** (this recipe) — n40 −0.0024; n80 **−0.01994** z=−2.42; H4 fail both |
 | 4 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
@@ -251,9 +251,16 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   sim pid **235312** `run_sim_duel.py` n=80 →
   `/root/affine_data/h5_kt65_sim_result.json`. Engines 8000/8001/8002
   all 200. Evidence: `results/h5_chall_ready_n80_launched.json`.
+- **n80 advancing + harvest (2026-08-07T06:51:58Z pass 73):** 120s
+  recheck king 1→11 / chall 3→15; at 06:51:47Z king **12**/80 chall
+  **16**/80; engines still 200×3. Host `host_harvest_h5.sh` pid
+  **1818104** (stop 11:45Z) SCPs result → `triage_sim.py` →
+  `results/h5_decision.json`. Evidence:
+  `results/h5_n80_advancing_harvest_armed.json`,
+  `results/h5_kt65_sim_progress.json`.
 - **Prediction (pre-register BEFORE merge):** n80 paired margin ≥ **+0.04**
   vs TalentPigs; H4 OK; both valid; weight_identical=false.
-- **Verdict:** open — n80 sim RUNNING; awaiting margin.
+- **Verdict:** open — n80 ADVANCING; awaiting margin / harvest triage.
 
 ## Scaffolding
 

@@ -2526,3 +2526,36 @@ No submit / no registration burn.
 
 Poll `h5_kt65_sim_progress.json` → `h5_sim_n80.done` → harvest+triage
 (gate >0.04). If weak: α=0.50 or refute merge → TalentPigs-init thought distill.
+
+## 2026-08-07T06:51:58Z — pass 73: H5 n80 advancing; host harvest armed
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $188.27; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Lium $33,963.56 (floor OK). Snapshot: TalentPigs still king reign 3 @ S=0.0315.
+
+### What I did
+
+1. Polled sim **235312**: progress at 06:49:12Z was king 1 / chall 3; 120s
+   recheck → king **11** / chall **15** at 06:51:20Z; latest king **12** /
+   chall **16** at 06:51:47Z. Engines 8000/8001/8002 all **200**. ETA
+   ~07:15–07:30Z.
+2. Wrote + launched `experiments/s4-h5-talentpigs/host_harvest_h5.sh` pid
+   **1818104** (stop 11:45Z before deadman 12:00Z): polls for
+   `h5_kt65_sim_result.json`, SCPs artifacts, runs `triage_sim.py` →
+   `results/h5_decision.json` with live-king guard.
+3. SCPed live progress JSON. Evidence:
+   `results/h5_n80_advancing_harvest_armed.json`,
+   `results/h5_kt65_sim_progress.json`.
+
+### Money
+
+Lium $33,963.56; mining spend ≈ $188.27. Floor OK. Cap OK. No new rental.
+No submit / no registration burn.
+
+### Next
+
+Read `results/h5_decision.json` when harvest lands; else poll
+`h5_sim_n80.done`. Triage gate >0.04; weak → α=0.50 or TalentPigs-init
+thought distill.
