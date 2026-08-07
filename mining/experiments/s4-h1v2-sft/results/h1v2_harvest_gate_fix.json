@@ -1,0 +1,26 @@
+{
+  "utc": "2026-08-07T04:45:37Z",
+  "pass": 53,
+  "event": "host_harvest_h1v2_gate",
+  "problem": "host_harvest early-teardown fired on H1 got_sim+salvage+train; n80 completion would have lium-rm'd mine-sim-1 while H1v2 train/pipe still running",
+  "fix": {
+    "host_harvest_results.sh": "defer early-teardown while H1v2 train/pipe/n40 alive; scrape H1v2 artifacts to experiments/s4-h1v2-sft/results/",
+    "emit_train_progress.py": "experiments/s4-h1v2-sft/emit_train_progress.py → /root/affine_data/h1v2_train_progress.json",
+    "harvest_pid": 1627557,
+    "deadman_pid": 1405846,
+    "deadman_at": "2026-08-07T07:00:00Z"
+  },
+  "smoke": {
+    "gate_still_running": true,
+    "h1v2_train_step": 6,
+    "h1v2_total": 55,
+    "h1v2_last_loss": 0.49318628311157225,
+    "n80_progress": {"king": 6, "challenger": 5, "n_turns": 80},
+    "engines": {"teacher": 200, "king": 200, "chall": 200}
+  },
+  "money": {
+    "lium_usd": 34158.15,
+    "mine_sim_1_spent": 138.57
+  },
+  "note": "Do not submit H1. Prefer H1v2 n40 once pipe finishes. Soft 06:50Z."
+}

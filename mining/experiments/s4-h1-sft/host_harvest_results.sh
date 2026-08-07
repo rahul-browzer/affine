@@ -8,25 +8,51 @@ SSH=(ssh -i "$HOME/.ssh/id_ed25519" -o StrictHostKeyChecking=accept-new
 SCP=(scp -i "$HOME/.ssh/id_ed25519" -o StrictHostKeyChecking=accept-new
      -P 40301)
 OUT=/home/const/subnet120/mining/experiments/s4-h1-sft/results
-mkdir -p "$OUT"
+OUT_H1V2=/home/const/subnet120/mining/experiments/s4-h1v2-sft/results
+mkdir -p "$OUT" "$OUT_H1V2"
 log() { echo "[host-harvest] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*"; }
 
-log "polling mine-sim-1 for H1 artifacts → $OUT"
+log "polling mine-sim-1 for H1 + H1v2 artifacts → $OUT | $OUT_H1V2"
 # Aligned with pass-33 host deadman (pod kill 07:00Z); was 04:50Z under Lium TTL.
 deadline=$(date -u -d '2026-08-07T06:55:00Z' +%s 2>/dev/null || date -u -d '2026-08-07 06:55:00' +%s)
 got_sim=0
 got_salvage=0
 got_train=0
+got_h1v2=0
 
 # Emit / refresh train step JSON on the pod (tqdm uses \r; parse on pod).
 # Python lives in emit_train_progress.py — keep it out of a bash-quoted heredoc
 # so single-quoted Trainer loss dicts do not break the host script.
 EMIT_PY=/home/const/subnet120/mining/experiments/s4-h1-sft/emit_train_progress.py
+EMIT_H1V2_PY=/home/const/subnet120/mining/experiments/s4-h1v2-sft/emit_train_progress.py
 _emit_train_progress() {
   "${SCP[@]}" "$EMIT_PY" root@69.63.236.160:/root/mining_src/s4-h1-sft/emit_train_progress.py \
     2>/dev/null || true
   "${SSH[@]}" 'python3 /root/mining_src/s4-h1-sft/emit_train_progress.py' \
     2>/dev/null || true
+  "${SCP[@]}" "$EMIT_H1V2_PY" root@69.63.236.160:/root/mining_src/s4-h1v2-sft/emit_train_progress.py \
+    2>/dev/null || true
+  "${SSH[@]}" 'python3 /root/mining_src/s4-h1v2-sft/emit_train_progress.py' \
+    2>/dev/null || true
+}
+
+# H1v2 is the submit-candidate path. Never early-teardown while its train or
+# post-train pipe is still live — H1 n80 completion alone must not kill the pod.
+_h1v2_still_running() {
+  "${SSH[@]}" 'bash -s' <<'EOS' 2>/dev/null
+set -e
+if pgrep -f "s4-h1v2-sft/train_lora.py" >/dev/null 2>&1; then exit 0; fi
+if pgrep -f "s4-h1v2-sft/post_train_pipeline.sh" >/dev/null 2>&1; then exit 0; fi
+if pgrep -f "h1v2_sim_result_n40" >/dev/null 2>&1; then exit 0; fi
+if pgrep -af "run_sim_duel.py" 2>/dev/null | grep -q "h1v2"; then exit 0; fi
+if [[ -f /root/logs/h1v2_pipeline.nohup ]] \
+  && [[ ! -f /root/logs/h1v2_pipeline.done ]] \
+  && [[ ! -f /root/logs/h1v2_pipeline.aborted ]] \
+  && [[ ! -f /root/logs/h1v2_pipeline.partial ]]; then
+  exit 0
+fi
+exit 1
+EOS
 }
 
 while true; do
@@ -57,6 +83,44 @@ while true; do
   if "${SSH[@]}" 'test -f /root/affine_data/h1_sim_progress_n40.json' 2>/dev/null; then
     "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_progress_n40.json \
       "$OUT/h1_sim_progress_n40.json" 2>/dev/null || true
+  fi
+  # H1v2 progress / results (submit-candidate path).
+  if "${SSH[@]}" 'test -f /root/affine_data/h1v2_train_progress.json' 2>/dev/null; then
+    "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1v2_train_progress.json \
+      "$OUT_H1V2/h1v2_train_progress.json" 2>/dev/null || true
+  fi
+  if "${SSH[@]}" 'test -f /root/affine_data/h1v2_sim_progress_n40.json' 2>/dev/null; then
+    "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1v2_sim_progress_n40.json \
+      "$OUT_H1V2/h1v2_sim_progress_n40.json" 2>/dev/null || true
+  fi
+  if "${SSH[@]}" 'test -f /root/affine_data/h1_sim_progress.json' 2>/dev/null; then
+    "${SCP[@]}" root@69.63.236.160:/root/affine_data/h1_sim_progress.json \
+      "$OUT_H1V2/h1_n80_progress_mirror.json" 2>/dev/null || true
+  fi
+  for f in h1v2_sim_result_n40.json h1v2_decision_n40.json h1v2_merge_meta.json; do
+    if [[ ! -f "$OUT_H1V2/$f" ]] \
+      && "${SSH[@]}" "test -f /root/affine_data/$f" 2>/dev/null; then
+      "${SCP[@]}" "root@69.63.236.160:/root/affine_data/$f" "$OUT_H1V2/$f" \
+        2>/dev/null || true
+      log "got $f → $OUT_H1V2/"
+    fi
+  done
+  for f in h1v2_pipeline.done h1v2_pipeline.aborted h1v2_pipeline.partial \
+           h1v2_merge.done h1v2_sim_n40.done; do
+    if [[ ! -f "$OUT_H1V2/$f" ]] \
+      && "${SSH[@]}" "test -f /root/logs/$f" 2>/dev/null; then
+      "${SCP[@]}" "root@69.63.236.160:/root/logs/$f" "$OUT_H1V2/$f" \
+        2>/dev/null || true
+    fi
+  done
+  if (( got_h1v2 == 0 )); then
+    if [[ -f "$OUT_H1V2/h1v2_sim_result_n40.json" ]] \
+      || [[ -f "$OUT_H1V2/h1v2_pipeline.done" ]] \
+      || [[ -f "$OUT_H1V2/h1v2_pipeline.aborted" ]] \
+      || [[ -f "$OUT_H1V2/h1v2_pipeline.partial" ]]; then
+      got_h1v2=1
+      log "H1v2 terminal artifact present (got_h1v2=1)"
+    fi
   fi
   "${SCP[@]}" 'root@69.63.236.160:/root/h1/mid_*_salvage.json' \
     "$OUT/" 2>/dev/null || true
@@ -154,6 +218,29 @@ while true; do
   fi
 
   if (( got_sim == 1 && got_salvage == 1 && got_train == 1 )); then
+    # CRITICAL (pass 53): H1 n80 DONE must not tear down while H1v2 still runs.
+    if _h1v2_still_running; then
+      log "H1 artifacts ready but H1v2 still running — defer early-teardown (deadman 07:00Z)"
+      sleep 60
+      continue
+    fi
+    if (( got_h1v2 == 0 )); then
+      # Train/pipe gone without a terminal marker yet — give one more cycle to
+      # SCP whatever landed, then allow teardown (soft/deadman still bound).
+      if [[ ! -f "$OUT_H1V2/.h1v2_wait_started" ]]; then
+        date -u +%s >"$OUT_H1V2/.h1v2_wait_started"
+        log "H1v2 procs gone, no terminal artifact yet; 10min harvest grace"
+        sleep 60
+        continue
+      fi
+      h1v2_started=$(cat "$OUT_H1V2/.h1v2_wait_started")
+      if (( now - h1v2_started < 600 )); then
+        log "H1v2 harvest grace $((now - h1v2_started))s/600s; defer teardown"
+        sleep 60
+        continue
+      fi
+      log "WARN: H1v2 grace exhausted with no terminal artifact; allowing H1 teardown"
+    fi
     # Do not kill the pod while ~68G merged HF upload is still in flight —
     # that erase is exactly what the push was meant to prevent. Wait up to
     # 20 min; adapter salvage alone still allows a re-merge if push fails.
@@ -184,7 +271,7 @@ while true; do
       log "WARN: merged push grace exhausted; tearing down (adapter salvage remains)"
     fi
     date -u +%Y-%m-%dT%H:%M:%SZ >"$OUT/host_harvest.done"
-    log "all artifacts harvested; early-teardown mine-sim-1 (stop $/h burn)"
+    log "all artifacts harvested (H1 + H1v2 gate); early-teardown mine-sim-1 (stop $/h burn)"
     # HARD RULE: verify name immediately before every rm. Never touch non-mine-*.
     name=$(lium describe mine-sim-1 2>/dev/null | awk '/^Name/{print $2; exit}') || name=
     if [[ "$name" != "mine-sim-1" ]]; then

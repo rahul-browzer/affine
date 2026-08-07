@@ -6,6 +6,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | Lium USD | miner free τ | miner stake τ | notes |
 |---|---|---|---|---|
+| 2026-08-07T04:45:37Z | 34158.15 | 10.000000 | 0 | mine-sim-1 spent $138.57; harvest H1v2-gated (prevent n80 teardown); no new rental |
 | 2026-08-07T04:41:30Z | 34165.93 | 10.000000 | 0 | mine-sim-1 spent $136.96; n80 restarted after ReadTimeout; H1v2 pipe armed; no new rental |
 | 2026-08-07T04:37:27Z | 34173.73 | 10.000000 | 0 | mine-sim-1 spent $135.36; n80 ~16/80; H1v2 train launched GPUs 6,7; no new rental |
 | 2026-08-07T04:33:35Z | 34181.35 | 10.000000 | 0 | mine-sim-1 spent $133.70; n80 ~11/80; H1v2 plan ready; no new rental |
@@ -59,6 +60,7 @@ Floor rules: Lium balance ≥ $28,000 always; cumulative mining spend ≤ $4,000
 
 | UTC | kind | amount | from → to | running Lium USD | running miner τ free | note |
 |---|---|---|---|---|---|---|
+| 2026-08-07T04:45:37Z | observe | mine-sim spent $138.57 | Lium → mine-sim-1 | 34158.15 | 10.000 | harvest H1v2 gate+scrape; H1v2 step6/55; n80~6/5; floor OK |
 | 2026-08-07T04:41:30Z | observe | mine-sim spent $136.96 | Lium → mine-sim-1 | 34165.93 | 10.000 | n80 ReadTimeout@16/80 → restart pid149213 + timeout360×5; H1v2 pipe 149216 armed; floor OK |
 | 2026-08-07T04:37:27Z | observe | mine-sim spent $135.36 | Lium → mine-sim-1 | 34173.73 | 10.000 | H1v2 thought-only train launched on free GPUs 6,7 (parallel w/ n80); floor OK |
 | 2026-08-07T04:33:35Z | observe | mine-sim spent $133.70 | Lium → mine-sim-1 | 34181.35 | 10.000 | n80 advancing ~11/80; H1v2 plan drafted (no GPU yet); floor OK |

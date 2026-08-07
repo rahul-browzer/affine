@@ -1873,3 +1873,35 @@ Lium $34,165.93; mining spend ≈ $136.96. Floor OK. No new rental. No submit.
 
 Poll H1v2 train.done / pipe n40 + H1 n80 result. Prefer H1v2 path for submit
 gate. Soft 06:50Z / deadman 07:00Z.
+
+
+## 2026-08-07T04:45:37Z — pass 53: harvest H1v2 gate (prevent n80 teardown)
+
+### Machine reconcile
+
+`lium ps`: `mine-sim-1` (`swift-shark-52`) RUNNING spent $138.57; plus
+validator `affine-eval` / `affine-bench`. No orphan `mine-*`. Inventory matches.
+Deadman 1405846 still armed @ 07:00Z. Lium $34,158.15 (floor OK).
+
+### What I did
+
+1. Polled pod: H1v2 train **147209** step **6**/55 loss **0.493**; n80
+   **149213** king/chall **6/5**/80; engines 200×3; pipe **149216** waiting.
+2. Found a critical host-harvest hazard: once H1 n80 writes
+   `h1_sim_result.json`, harvest already had salvage+train → would
+   `lium rm mine-sim-1` while H1v2 train/pipe still running.
+3. Patched `experiments/s4-h1-sft/host_harvest_results.sh`:
+   - scrape H1v2 progress/results into `experiments/s4-h1v2-sft/results/`
+   - defer early-teardown while H1v2 train/pipe/n40 alive (or 10m grace)
+4. Added `experiments/s4-h1v2-sft/emit_train_progress.py`; restarted harvest
+   pid **1627557**. Smoke: gate reports still_running; progress JSON harvested.
+5. kevin still king; chal-00280 still `load_challenger`. Do **not** submit H1.
+
+### Money
+
+Lium $34,158.15; mining spend ≈ $138.57. Floor OK. No new rental. No submit.
+
+### Next
+
+Poll H1v2 train.done / pipe n40 + H1 n80 result. Prefer H1v2 path for submit
+gate. Soft 06:50Z / deadman 07:00Z.

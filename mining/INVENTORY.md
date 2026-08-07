@@ -7,7 +7,7 @@ Never touch pods whose names do not start with `mine-`.
 
 | name | huid | id | gpu | $/hr | ttl / remove_at | purpose | status | notes |
 |---|---|---|---|---|---|---|---|---|
-| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z**; harvest early-rm (push grace) | Stage 4 H1 n80 RESTARTED + H1v2 train+pipe | RUNNING | SSH `root@69.63.236.160 -p 40301`; n40 DONE revise_recipe; n80 **149213** (was ReadTimeout@16/80); H1v2 **147209** step3/55; pipe **149216**; engines 200×3; HF @3364892…; harvest **1486917**; deadman 1405846; chal-00280 load_challenger; spent $136.96 |
+| mine-sim-1 | swift-shark-52 | 523f52ca-35f2-4ac4-ac74-97ac44a41d81 | 8×H200 | 23.60 | **Lium TTL cancelled**; host deadman **07:00Z**; harvest H1v2-gated | Stage 4 H1 n80 + H1v2 train+pipe; harvest **1627557** | RUNNING | SSH `root@69.63.236.160 -p 40301`; n40 DONE revise_recipe; n80 **149213** ~6/5; H1v2 **147209** step6/55 loss0.493; pipe **149216**; engines 200×3; HF @3364892…; harvest **1627557** (H1v2 gate); deadman 1405846; chal-00280 load_challenger; spent $138.57 |
 
 ## Reconcile log
 
@@ -65,3 +65,4 @@ Never touch pods whose names do not start with `mine-`.
 | 2026-08-07T04:33:35Z | mine-sim-1 RUNNING | matches inventory; spent $133.70; n80 ~11/80; H1v2 plan drafted; chal-00280 dispatching; deadman 1405846; validator pods untouched |
 | 2026-08-07T04:37:27Z | mine-sim-1 RUNNING | matches inventory; spent $135.36; n80 ~16/80; H1v2 train **147209** launched GPUs 6,7; chal-00280 load_challenger; deadman 1405846; validator pods untouched |
 | 2026-08-07T04:41:30Z | mine-sim-1 RUNNING | matches inventory; spent $136.96; n80 dead→restarted **149213** (timeout 360×5); H1v2 step3/55 + pipe **149216**; chal-00280 load_challenger; deadman 1405846; validator pods untouched |
+| 2026-08-07T04:45:37Z | mine-sim-1 RUNNING | matches inventory; spent $138.57; harvest restarted **1627557** w/ H1v2 gate+scrape; H1v2 step6/55; n80 ~6/5; chal-00280 load_challenger; deadman 1405846; validator pods untouched |

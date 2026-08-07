@@ -7,7 +7,7 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
 
 | rank | id | expected α/$ | predicted effect on S / margin | status |
 |---|---|---|---|---|
-| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** step3/55 + post-train pipe armed |
+| 1 | H1v2 | highest (fixes H1 envelope) | thought-only SFT → r∈[0.70,0.85] + margin **> 0.04** | open — **training** step6/55 loss0.493; harvest H1v2-gated |
 | 2 | H1 | was highest | full (z,y) SFT margin **> 0.04** | open — **n40 miss** (−0.0024); n80 restarted after ReadTimeout; recipe dead for submit |
 | 3 | H2 | very high (almost free compute) | merge margin vs kevin **> 0.02** first try; target **> 0.04** | **refuted** (α0.5 −0.010; α0.65 +0.007) |
 | 4 | H4 | high (constraint, not a train) | keep r∈[0.70,0.85], base×≤1.15 or gates kill S | open (design rule; H1 breached) |
@@ -64,6 +64,9 @@ Ranked by expected α per dollar after Stage 2 public-duel mining
   fixes) → chall-only serve → n40 → `h1v2_sim_result_n40.json`. Waits for
   H1 n80 before chall restart (or kills sim if <45m to soft 06:50Z).
 - **Progress (04:41Z):** train step **3**/55 @ ~59s/it → ETA ~05:32Z.
+- **Progress (04:45Z):** train step **6**/55; first loss **0.493**; ETA ~05:35Z.
+  Host harvest patched (pass 53) so H1 n80 completion cannot early-teardown
+  while H1v2 runs; progress scraped to `experiments/s4-h1v2-sft/results/`.
 - **Verdict:** open — training in progress (prediction unchanged).
 
 
