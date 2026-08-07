@@ -9,11 +9,11 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **open** (train~95/99; mid50~12/40) |
-| 2 | H12 | high (cheap) | TalentPigs×dfwas-alskdjf α0.75 → margin>0.04 (chal-00286 +0.0139 live) | **open** (boot) |
-| 3 | H11 | high (cheap) | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 (chal-00274 +0.023) | **open** (merge~4/16) |
-| 4 | H9 | high (cheap) | TalentPigs×diane613 α0.75 → margin>0.04 vs TalentPigs | **open** (n80 ~38/80) |
-| 5 | H10 | high (cheap) | TalentPigs×kevin α0.75 (TP-dom) → margin>0.04 | **open** (merge~10/16) |
+| 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **open** (train DONE@99; mid50~16/40; final merge; pipe gated) |
+| 2 | H12 | high (cheap) | TalentPigs×dfwas-alskdjf α0.75 → margin>0.04 (chal-00286 +0.0139 live) | **open** (DL TalentPigs) |
+| 3 | H11 | high (cheap) | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 (chal-00274 +0.023) | **open** (merge~8/16) |
+| 4 | H9 | high (cheap) | TalentPigs×diane613 α0.75 → margin>0.04 vs TalentPigs | **open** (n80 ~42/80) |
+| 5 | H10 | high (cheap) | TalentPigs×kevin α0.75 (TP-dom) → margin>0.04 | **open** (merge DONE; wait_ready) |
 | — | H8 | was high | TalentPigs×golden-crown α0.75 → margin>0.04 | **refuted** — invalid base×1.97 |
 | — | H7 | was high | TalentPigs×pandora α0.75 → margin>0.04 | **refuted** — invalid base×2.21 |
 | — | H5c | was highest | kevin-init thought LoRA on expanded refs → margin>0.04 | **refuted** — n80 −0.01640 |
@@ -32,27 +32,27 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H6 — TalentPigs-init mild shortz-nolist
 - **Claim:** lr=5e-6 on shortz-nolist (790) from TalentPigs raises clip-L1 ≥ 0.042 at margin > 0.04.
 - **Test:** train on mine-h5c-1 GPUs 6,7 → merge → n80 vs TalentPigs.
-- **Status:** train **RUNNING** ~95/99; mid50 retry ~12/40 after ReadTimeout@29. Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
+- **Status:** train **DONE** step99 (best logged 0.470@60); mid50 n40 ~16/40; final merge saving; post_train **SIGSTOP** until mid50 (`gate_mid50_before_final.sh`). Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
 
 ### H12 — TalentPigs × dfwas-alskdjf merge
 - **Claim:** α=0.75 with best *live* near-miss chal-00286 (+0.0139 z=1.77, base×≈0.998) clears margin > 0.04.
 - **Test:** mine-h12-1; B=`dfwasfmdpwkjglnpwngwg/affine-5ccebdzvsj-alskdjf`@a7336221 (kkk/marsplan 404).
-- **Status:** boot **RUNNING**. Detail: `experiments/s4-h12-tp-dfwas-merge/`.
+- **Status:** downloading TalentPigs. Detail: `experiments/s4-h12-tp-dfwas-merge/`.
 
 ### H11 — TalentPigs × adambell ckpt450 merge
 - **Claim:** α=0.75 with chal-00274 near-miss (+0.0229 z=2.37 gate-valid) clears margin > 0.04.
 - **Test:** mine-h11-1; B weights from `0pentensor/5dvha3y7cd-ckpt450-H6`@af20efc1 (adambell repo 404).
-- **Status:** merge **RUNNING** ~4/16. Detail: `experiments/s4-h11-tp-adambell-merge/`.
+- **Status:** merge **RUNNING** ~8/16. Detail: `experiments/s4-h11-tp-adambell-merge/`.
 
 ### H9 — TalentPigs × diane613 merge
 - **Claim:** α=0.75 linear merge with reign-earner diane613 clears margin > 0.04; untried B (≠pandora/golden-crown).
 - **Test:** mine-h9-1 bootstrap→merge→n80; try α=0.85 if 0.02≤margin≤0.04.
-- **Status:** n80 **RUNNING** ~38/80. Detail: `experiments/s4-h9-tp-diane-merge/`.
+- **Status:** n80 **RUNNING** ~42/80. Detail: `experiments/s4-h9-tp-diane-merge/`.
 
 ### H10 — TalentPigs × kevin merge (TP-dominant)
 - **Claim:** α=0.75 `0.75·TP + 0.25·kevin` clears margin > 0.04; H5 only tried kevin-dominant (A=kevin).
 - **Test:** mine-h10-1 bootstrap→merge→n80; try α=0.85 if 0.02≤margin≤0.04.
-- **Status:** merge **RUNNING** ~10/16. Detail: `experiments/s4-h10-tp-kevin-merge/`.
+- **Status:** merge **DONE** OK_NON_IDENTICAL; wait_ready→n80. Detail: `experiments/s4-h10-tp-kevin-merge/`.
 
 ### H4 — stay inside the distill envelope — **REFUTED** (do not revive)
 - **Claim was:** r ∈ [0.70, 0.85], base× ≤ 1.15, or gates invalidate the miner.

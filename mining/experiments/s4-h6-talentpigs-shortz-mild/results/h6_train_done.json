@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-07T12:47:06Z",
+  "global_step": 99,
+  "train_loss": 0.5878,
+  "best_logged_loss": {
+    "step": 60,
+    "loss": 0.46971845626831055
+  },
+  "last_logged_loss": {
+    "step": 95,
+    "loss": 0.49425840377807617
+  },
+  "adapter": "/root/h6/train/adapter",
+  "checkpoints": [
+    "checkpoint-50",
+    "checkpoint-99"
+  ],
+  "mid50": "n40 retry running; post_train SIGSTOP-gated until mid50 lands",
+  "final": "merge_lora on GPUs 6,7 after train.done@12:44:43Z"
+}
