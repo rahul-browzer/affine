@@ -129,6 +129,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - Do not idle free `mine-*` slots waiting on another hyp's verdict (GOAL
   2026-08-07). Fill with non-α variants of the live direction; H30 =
   m7×king-self launched while H28 n80 + H29 train still open (pass186).
+- Catalog 8×H200 @$23.20/h can 400 "Provider doesn't allow GPU splitting"
+  on `lium up` (index/uuid); fallback 8×B200 @$40/h works (SM10.0 — no
+  sm103 flash patch; pass188 H32).
 
 ## Money / platform
 
