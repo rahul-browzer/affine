@@ -108,7 +108,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - H7/H8 TP×{pandora,golden-crown} α0.75 both **INVALID** band (base×2.21 / **1.97**); null-S
   reign earners at 25% sabotage empty-baseline — do not retry those B / no α0.85 on gate-fail.
 - Dual-side n40/n80 can `httpx.ReadTimeout` on teacher sample at default 180s×3 (H6 mid50 died @29/40); pod `vllm_client` now 480s×5; `retry_mid50_n40.sh` + post_train already retries n80×3.
-- Near-miss HF parents vanish or gate: adambell/kkk/marsplan 404; als kdjf/Tok331102/rootti mirrors `gated=manual`→403 download. Before rent: `model_info` + `hf_hub_download(.gitattributes)`. Mirrors: adambell→`0pentensor/…ckpt450-H6`; plmk→`bluecolor777/plmk`@b2cc7b9f (chal-00310 +0.0143).
+- Near-miss HF parents vanish or gate: origin kkk/kkkk/marsplan/adambell often 404; als kdjf/Tok*/rootti `gated=manual`→403. Before rent: `model_info` + `hf_hub_download(.gitattributes)` + **exact duel rev** via `api/v1/duels/{cid}`. Mirrors: adambell→`0pentensor/…ckpt450-H6`; plmk→`bluecolor777/plmk`@b2cc7b9f; **kkk→`bluecolor777/kkk-af`@7426296b** (chal-00262 +0.0244; `bluecolor777/kkk`@e3563a is a different SHA); kkkk→`vincentwarrior/affine-5ccebdzvsj-kkkk`@3ca1ebe6.
 
 ## Money / platform
 

@@ -9,16 +9,17 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **open** (train DONE@99; mid50~16/40; final merge; pipe gated) |
-| 2 | H12 | high (cheap) | TalentPigs×plmk α0.75 → margin>0.04 (chal-00310 +0.0143; als kdjf 403) | **open** (resume DL plmk) |
-| 3 | H11 | high (cheap) | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 (chal-00274 +0.023) | **open** (merge~8/16) |
-| 4 | H9 | high (cheap) | TalentPigs×diane613 α0.75 → margin>0.04 vs TalentPigs | **open** (n80 ~42/80) |
-| 5 | H10 | high (cheap) | TalentPigs×kevin α0.75 (TP-dom) → margin>0.04 | **open** (merge DONE; wait_ready) |
+| 1 | H6 | highest | TalentPigs-init shortz-nolist thought LoRA lr5e-6 → clip-L1≥0.042, margin>0.04 | **open** (mid50~37/40; pipe gated) |
+| 2 | H13 | highest (cheap) | TalentPigs×kkk-af α0.75 → margin>0.04 (chal-00262 +0.0244 exact rev) | **open** (staged; wait slot) |
+| 3 | H11 | high (cheap) | TalentPigs×adambell-ckpt450 α0.75 → margin>0.04 (chal-00274 +0.023) | **open** (n80 started) |
+| 4 | H12 | high (cheap) | TalentPigs×plmk α0.75 → margin>0.04 (chal-00310 +0.0143) | **open** (merge~7/16) |
+| 5 | H9 | high (cheap) | TalentPigs×diane613 α0.75 → margin>0.04 vs TalentPigs | **open** (n80 ~60/80) |
+| 6 | H10 | high (cheap) | TalentPigs×kevin α0.75 (TP-dom) → margin>0.04 | **open** (n80 ~12/80) |
 | — | H8 | was high | TalentPigs×golden-crown α0.75 → margin>0.04 | **refuted** — invalid base×1.97 |
 | — | H7 | was high | TalentPigs×pandora α0.75 → margin>0.04 | **refuted** — invalid base×2.21 |
 | — | H5c | was highest | kevin-init thought LoRA on expanded refs → margin>0.04 | **refuted** — n80 −0.01640 |
 | — | H4 | — | keep r∈[0.70,0.85] or gates kill S | **refuted** — real gate is [0.3,4.0]; we never failed it |
-| 6 | H3 | instrumental | with Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S | **supported** |
+| 7 | H3 | instrumental | with Λ2≈king, +0.01 mean clip-L1 ⇒ +0.01 S | **supported** |
 | — | H5b | was highest | TalentPigs-init thought LoRA lr1e-5 → margin>0.04 | **refuted** |
 | — | H5 | was highest | kevin-dom×TalentPigs α∈{0.65,0.50} → margin>0.04 | **refuted** (TP-dom open as H10) |
 | — | H1v2 | was highest | thought-only SFT → margin>0.04 | **refuted** |
@@ -32,27 +33,32 @@ one works. Full pre-compaction text: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H6 — TalentPigs-init mild shortz-nolist
 - **Claim:** lr=5e-6 on shortz-nolist (790) from TalentPigs raises clip-L1 ≥ 0.042 at margin > 0.04.
 - **Test:** train on mine-h5c-1 GPUs 6,7 → merge → n80 vs TalentPigs.
-- **Status:** train **DONE** step99 (best logged 0.470@60); mid50 n40 ~16/40; final merge saving; post_train **SIGSTOP** until mid50 (`gate_mid50_before_final.sh`). Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
+- **Status:** train DONE@99; mid50 ~37/40; post_train **SIGSTOP** until mid50. Detail: `experiments/s4-h6-talentpigs-shortz-mild/`.
+
+### H13 — TalentPigs × kkk-af (chal-00262) — staged
+- **Claim:** α=0.75 with strongest non-crown near-miss (+0.0244 z=2.58) clears margin > 0.04.
+- **Test:** next free slot → `mine-h13-1`; B=`bluecolor777/kkk-af`@7426296b (exact chal-00262 rev; origin 404). Backup: vincentwarrior/…-kkkk@3ca1ebe6 (chal-00268 +0.0132).
+- **Status:** scripts ready; **do not rent until a mine-* frees**. Detail: `experiments/s4-h13-tp-kkk-merge/`.
 
 ### H12 — TalentPigs × plmk merge (pivoted from als kdjf)
-- **Claim:** α=0.75 with best *downloadable* near-miss clears margin > 0.04.
-- **Test:** mine-h12-1; B=`bluecolor777/plmk`@b2cc7b9f (=chal-00310 marsplan +0.0143; ungated duplicate). als kdjf gated 403; origin 404.
-- **Status:** resume DL→merge→n80. Detail: `experiments/s4-h12-tp-dfwas-merge/` (`resume_h12_plmk.sh`).
+- **Claim:** α=0.75 with plmk near-miss clears margin > 0.04.
+- **Test:** mine-h12-1; B=`bluecolor777/plmk`@b2cc7b9f (=chal-00310 +0.0143).
+- **Status:** merge ~7/16 → n80. Detail: `experiments/s4-h12-tp-dfwas-merge/`.
 
 ### H11 — TalentPigs × adambell ckpt450 merge
-- **Claim:** α=0.75 with chal-00274 near-miss (+0.0229 z=2.37 gate-valid) clears margin > 0.04.
-- **Test:** mine-h11-1; B weights from `0pentensor/5dvha3y7cd-ckpt450-H6`@af20efc1 (adambell repo 404).
-- **Status:** merge **RUNNING** ~8/16. Detail: `experiments/s4-h11-tp-adambell-merge/`.
+- **Claim:** α=0.75 with chal-00274 near-miss (+0.0229 z=2.37) clears margin > 0.04.
+- **Test:** mine-h11-1; B=`0pentensor/5dvha3y7cd-ckpt450-H6`@af20efc1.
+- **Status:** n80 **RUNNING**. Detail: `experiments/s4-h11-tp-adambell-merge/`.
 
 ### H9 — TalentPigs × diane613 merge
-- **Claim:** α=0.75 linear merge with reign-earner diane613 clears margin > 0.04; untried B (≠pandora/golden-crown).
-- **Test:** mine-h9-1 bootstrap→merge→n80; try α=0.85 if 0.02≤margin≤0.04.
-- **Status:** n80 **RUNNING** ~42/80. Detail: `experiments/s4-h9-tp-diane-merge/`.
+- **Claim:** α=0.75 with reign-earner diane613 clears margin > 0.04.
+- **Test:** mine-h9-1; try α=0.85 if 0.02≤margin≤0.04.
+- **Status:** n80 ~60/80. Detail: `experiments/s4-h9-tp-diane-merge/`.
 
 ### H10 — TalentPigs × kevin merge (TP-dominant)
-- **Claim:** α=0.75 `0.75·TP + 0.25·kevin` clears margin > 0.04; H5 only tried kevin-dominant (A=kevin).
-- **Test:** mine-h10-1 bootstrap→merge→n80; try α=0.85 if 0.02≤margin≤0.04.
-- **Status:** merge **DONE** OK_NON_IDENTICAL; wait_ready→n80. Detail: `experiments/s4-h10-tp-kevin-merge/`.
+- **Claim:** α=0.75 `0.75·TP + 0.25·kevin` clears margin > 0.04.
+- **Test:** mine-h10-1; try α=0.85 if 0.02≤margin≤0.04.
+- **Status:** n80 ~12/80. Detail: `experiments/s4-h10-tp-kevin-merge/`.
 
 ### H4 — stay inside the distill envelope — **REFUTED** (do not revive)
 - **Claim was:** r ∈ [0.70, 0.85], base× ≤ 1.15, or gates invalidate the miner.
