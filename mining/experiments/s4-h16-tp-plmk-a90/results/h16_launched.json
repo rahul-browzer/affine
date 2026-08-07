@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-07T13:51:41Z",
+  "pod": "mine-h16-1",
+  "huid": "cosmic-eagle-2d",
+  "ssh": "152.236.142.237:40109",
+  "price_per_hour": 28.0,
+  "ttl_remove_at": "2026-08-07T21:51:17Z",
+  "pipeline_pid": 839,
+  "hypothesis": "H16 TalentPigs\u00d7plmk \u03b10.90 (H12 band\u00d72.02 \u2192 less B mass)",
+  "b_repo": "bluecolor777/plmk",
+  "b_rev": "b2cc7b9fb35232c6611254cd6f465a91f590469c",
+  "alpha": 0.9
+}

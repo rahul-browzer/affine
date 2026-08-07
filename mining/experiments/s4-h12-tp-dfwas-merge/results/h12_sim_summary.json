@@ -1,0 +1,16 @@
+{
+  "wins": null,
+  "margin": null,
+  "z": null,
+  "se": null,
+  "king_S": null,
+  "chall_S": null,
+  "chall_valid": null,
+  "king_valid": null,
+  "h4": {
+    "chall_r": 0.98976435956561,
+    "chall_baseline_abs": 0.2524996464734105,
+    "king_baseline_abs": 0.1252012387756134,
+    "base_x": 2.016750384762105
+  }
+}
