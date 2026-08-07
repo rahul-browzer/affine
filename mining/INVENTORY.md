@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h34-1 | calm-wolf-a8 | 8×H200 | $31.92 | ~2026-08-08T08:59Z | H34 m7×ks ep2 | n80 a203 ~56/80 |
-| mine-h35-1 | calm-fox-12 | 8×H200 | $31.92 | ~2026-08-08T09:19Z | H35 m7×ks lr1e4 | n80 a203 ~50/80 |
-| mine-h36-1 | calm-orbit-65 | 8×H200 | $31.92 | ~2026-08-08T09:21Z | H36 m7×union | n80 a203 ~51/80 |
-| mine-h37-1 | swift-matrix-54 | 8×H200 | $28.00 | ~2026-08-08T09:53Z | H37 m7×wZA lr1e4 | chall p205 |
-| mine-h38-1 | golden-matrix-b9 | 8×H200 | $28.00 | ~2026-08-08T09:52Z | H38 m7×wZA ep2 | chall p205 |
+| mine-h34-1 | calm-wolf-a8 | 8×H200 | $31.92 | ~2026-08-08T08:59Z | H34 m7×ks ep2 | n80 a203 ~74/80 |
+| mine-h35-1 | calm-fox-12 | 8×H200 | $31.92 | ~2026-08-08T09:19Z | H35 m7×ks lr1e4 | n80 a203 ~68/80 |
+| mine-h36-1 | calm-orbit-65 | 8×H200 | $31.92 | ~2026-08-08T09:21Z | H36 m7×union | n80 a203 ~66/80 |
+| mine-h37-1 | swift-matrix-54 | 8×H200 | $28.00 | ~2026-08-08T09:53Z | H37 m7×wZA lr1e4 | chall p206 |
+| mine-h38-1 | golden-matrix-b9 | 8×H200 | $28.00 | ~2026-08-08T09:52Z | H38 m7×wZA ep2 | n80 a203 |
 
 SSH: h34 .19:20100 · h35 .21:20100 · h36 .22:20098 · h37 .232:40311 ·
 h38 .236:40298 · known_hosts `/tmp/mine-h3{4,5,6,7,8}-1.known_hosts` ·
@@ -32,6 +32,6 @@ h38 .236:40298 · known_hosts `/tmp/mine-h3{4,5,6,7,8}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-07T23:05Z | h34–h38 match | H38 n80 a203; H37 p205→p206; H34–36 n80 |
 | 2026-08-07T22:56Z | h34–h38 match | H37/H38 chall p205; H38 false_probe Q; H34–36 n80 |
 | 2026-08-07T22:42Z | h34–h38 match | H37 false REFUTE Q; H37/H38 chall p204; H34–36 n80 |
-| 2026-08-07T22:32Z | h34–h38 match | block-hash n80 H34–36; H37 chall recover; H38 chall |
