@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H29 | high | king-self LoRA (**TP-init**) → m>0.04 | **open** (n80 ~29/80) |
-| 2 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (chall recover192) |
-| 3 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (chall loading) |
+| 1 | H29 | high | king-self LoRA (**TP-init**) → m>0.04 | **open** (n80 ~36/80) |
+| 2 | H30 | high | king-self LoRA (**m7-init**) → m>0.04 | **open** (n80 live) |
+| 3 | H31 | high | H30 cell @ **lr=3e-5** → m>0.04 | **open** (chall recover193) |
 | 4 | H32 | high | H29 cell @ **lr=3e-5** → m>0.04 | **open** (king recover192) |
-| 5 | H33 | high | H29 cell @ **epochs=2** → m>0.04 | **open** (train ~29/92) |
+| 5 | H33 | high | H29 cell @ **epochs=2** → m>0.04 | **open** (train ~42/92) |
 | — | H28 | was high | winner-zA LoRA (m7-init) | **refuted** m=+0.01095 |
 | — | H27 | was high | winner-zA LoRA (TP-init) | **refuted** m=−0.00792 |
 | — | H23…H1 | — | α/LoRA/SFT | **refuted** |
@@ -23,26 +23,26 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H29 — king-self high clip-L1 z_A (non-α)
 - **Claim:** Train only TalentPigs's own high-L1 thoughts on TP init → m>0.04.
-- **Status:** n80 ~29/80 probes OK (20:31Z). `s4-h29-king-self-clip-l1/`.
+- **Status:** n80 ~36/80 probes OK. `s4-h29-king-self-clip-l1/`.
 
 ### H30 — king-self × m7 init (non-α)
 - **Claim:** m7 init + TalentPigs king-self → m>0.04.
-- **Status:** merge OK; false REFUTE ConnectError quarantined; chall
-  recover192 loading → n80 after probe. `s4-h30-m7-king-self/`.
+- **Status:** recover192 probe ok → n80 live (20:35Z).
+  `s4-h30-m7-king-self/`.
 
 ### H31 — H30 @ lr=3e-5 (non-α)
 - **Claim:** 3× LR on m7×king-self → m>0.04.
-- **Status:** king probe OK; chall loading via restart_for_h2.
-  `s4-h31-m7-king-self-lr3e5/`.
+- **Status:** false REFUTE ConnectError (Triton) quarantined pass193;
+  chall recover193 loading → n80 after probe. `s4-h31-m7-king-self-lr3e5/`.
 
 ### H32 — H29 @ lr=3e-5 (non-α)
 - **Claim:** 3× LR on TP×king-self → m>0.04.
-- **Status:** recover191 king died on first completions; recover192
-  relaunched. `s4-h32-tp-king-self-lr3e5/`.
+- **Status:** recover192 king still loading (health 000).
+  `s4-h32-tp-king-self-lr3e5/`.
 
 ### H33 — H29 @ epochs=2 (non-α)
 - **Claim:** 2× epochs on TP×king-self@lr1e-5 → m>0.04.
-- **Status:** train ~29/92 fit-filter 368/686. `s4-h33-tp-king-self-ep2/`.
+- **Status:** train ~42/92 loss≈0.44. `s4-h33-tp-king-self-ep2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
