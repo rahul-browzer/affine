@@ -27,8 +27,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H77 — H69@r17 Tok-retarget (non-α) — open
 - **Claim:** r17 shortlist (+0.01641 vs TalentPigs) clears Tok → m>0.04.
-- **Status:** n80 died EngineDead@chall15; **king306** loading → retry 0/120.
-  `…/pass306_king_recover.md`.
+- **Status:** king306 hung (Triton ImportError→shm); **king308** loading →
+  retry 0/120. `…/pass308_king_recover.md`.
 
 ### H78 — m7×winner-zA @ r=21 vs Tok (non-α) — open
 - **Claim:** untested rank between shortlist and band-fail ranks → m>0.04.
