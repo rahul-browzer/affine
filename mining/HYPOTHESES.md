@@ -9,7 +9,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 |---|---|---|---|---|
 | 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (merge) |
 | 2 | H103/F8 | high | Genesis-init × REINFORCE-L1 → m>+0.015 | **open** (bootstrap) |
-| 3 | H98/F1 | high | Tok REINFORCE self-L1lift → m>+0.015 | **open** (train) |
+| 3 | H98/F1 | high | Tok REINFORCE self-L1lift → m>+0.015 | **open** (merge) |
 | 4 | H101/F6 | high | ultrashort≤80 format → m>+0.015 | **open** (train) |
 | 5 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (train) |
 | — | H97/F3 | — | r=256 breaks LoRA ceiling | **refuted** m=−0.01506 |
@@ -29,13 +29,13 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** TRAIN ~170/200; T/K up; C idle; await train→merge→n80.
-- `experiments/s4-h98-f1-rl-l1/` · `results/pass362_king332_refire.md`.
+- **Status:** TRAIN DONE 189/200 mean_r20=0.069; **merge** @21:08Z GPU 6,7.
+- `experiments/s4-h98-f1-rl-l1/` · `results/pass378_train_done.md`.
 
 ### H101 / F6 — Ultrashort≤80 thought format — open
 - **Claim:** Rewrite high-Λ2 z to ≤80-char first-sentence targets; Tok LoRA
   teaches short emit format → m>+0.015 (format axis ≠ F2 selection).
-- **Status:** `mine-f6-1` TRAIN ~15/60 loss≈0.60; data mean z 59.9.
+- **Status:** `mine-f6-1` TRAIN ~57/60 loss≈0.52; T/K done; post_train armed.
 - `experiments/s4-h101-f6-short-format/` · `results/pass372_rent.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
@@ -46,7 +46,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
-- **Status:** `mine-f8-1` bootstrap (uv pip) p377; train next after Genesis DL.
+- **Status:** `mine-f8-1` pip OK; Genesis DL in progress; RL after snapshot.
 - `experiments/s4-h103-f8-genesis-rl/` · `results/pass377_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
