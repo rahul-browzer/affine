@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 1612.775725364685,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h99/merged",
+  "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+  "hotkey": "local-h99",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.001993922814986817,
+    "se": 0.007585498720812075,
+    "z": -0.26285981823662546,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.034423301467675624,
+      "gate_pass_rate": 0.8522012578616353,
+      "bank_frac": 0.490625,
+      "calib_ratio": 0.6453022919678157,
+      "baseline_abs": 0.1275904391069874,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": -0.0009451332326146714,
+      "mean_mix": 0.034423301467675624
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.03188016511202867,
+      "gate_pass_rate": 0.8031746031746032,
+      "bank_frac": 0.49375,
+      "calib_ratio": 0.6575496113751476,
+      "baseline_abs": 0.12327326212974385,
+      "n_turns": 80,
+      "n_pairs": 315,
+      "mean_lambda2": -0.0015364189295898085,
+      "mean_mix": 0.03188016511202867
+    },
+    "slice": {
+      "seed": 13543239868386552128,
+      "n": 80,
+      "digest": "2ecdc6991413e835d6ff72223292ee6b0c8f79e6865997a26eb0c3eb5e5e49be",
+      "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6575496113751476,
+    "chall_baseline_abs": 0.12327326212974385,
+    "king_baseline_abs": 0.1275904391069874,
+    "base_x": 0.9661637893288894
+  }
+}

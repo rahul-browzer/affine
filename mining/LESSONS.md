@@ -54,11 +54,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - Weight-identity: sample head/mid/tail shards. first_1MiB alone is false (embeds). `merge_linear.py` must track `max_abs_delta` over **all** keys (H12: first8 Δ=0 but shard08 max‖A−O‖=0.215).
 
 ## Training ops
-- Under `nohup`, scrape `trainer_state.json` (tqdm.write never hits the log).
-- Always venv python. Salvage mid-ckpts — best loss ≠ last step.
-- LoRA r=16/α32 on 2 GPUs ≈1h45m / 110 steps / 440 ex. Free GPUs 4–5 can
-  merge+n40 while 6–7 train; yield chall when final merge.done lands.
-- HF private storage can hard-fail uploads — keep candidate merges public. Never kill a live HF `snapshot_download` mid-shard for peer-rsync unless peer is proven faster (p370 F4: HF ~60 MB/s vs F1→F4 rsync ~16 MB/s; abort cost half of each 35 GiB blob).
+- Under `nohup`, scrape `trainer_state.json` (tqdm.write never hits the log). Always venv python; salvage mid-ckpts (best loss ≠ last).
+- LoRA r16/α32 ≈1h45m/110 steps/440ex on 2 GPUs; merge+n40 on free 4–5 while 6–7 train.
+- HF private can hard-fail uploads — keep merges public. Never kill live HF `snapshot_download` for peer-rsync unless peer faster (p370: HF ~60 MB/s ≫ F1→F4 rsync ~16 MB/s).
 
 ## Shell / pod ops
 - Never `lium exec -e HF_TOKEN=...` (prints secret). `/root/mine.env` +
@@ -70,11 +68,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - Nested decisions only: `write_merge_decision.py` (flat `margin` false-REFUTEs).
   Sidecar `watch_fix_decision.sh` / `watch_n80_retry.sh`; never edit live start_*.
 - Teacher timeouts: need outer 3× retry even at 480s×5 (H9@60/80).
-- Parent HF: origin often 404/gated. Mirrors: m7→`Radiant28/5eqdtdzqle-ckpt1000-m7`
-  @f766293ee878; plmk→`bluecolor777/plmk`@b2cc7b9f; kkk→`bluecolor777/kkk-af`
-  @7426296b. Pin duel SHA. Tok*/alskdjf/qpoewir gated=manual; adambell/marsplan 404.
-- Lium `$5.66/h` "8×H200" can be 2 GPUs — after rent `nvidia-smi -L|wc -l`=8;
-  reject <$20/h. Prefer `lium up --gpu H200 -c 8` ≥$28/h.
+- Parent HF often 404/gated. Mirrors: m7→`Radiant28/5eqdtdzqle-ckpt1000-m7`@f766293; plmk→`bluecolor777/plmk`@b2cc7b9f; kkk→`bluecolor777/kkk-af`@7426296b. Pin duel SHA.
+- Lium catalog lies: after rent `nvidia-smi -L|wc -l`=8; reject $/h<28. Prefer `lium up --gpu H200 -c 8`.
 - **B300 SM10.3 + vllm 0.22.1:** cutlass aliases `Arch.sm_110f→sm_101f`, so
   `flash_fwd_sm100` assert `≤sm_110f` rejects sm_103 → all engines die at
   profile_run (`Only SM 10.x and 11.x are supported`). Patch upper bound to
@@ -108,6 +103,11 @@ Format: `- <finding> — <the number or error that proves it>`
   −0.022…+0.009. The two 'best' (H64 r18 +0.02509, H67 r19 +0.01835) were vs the
   *dead* TalentPigs king and their r18 replicates came back −0.009/−0.011/+0.0005.
   H93 r15=−0.007; H91 r12=−0.0056; H94 r11=−0.0137; H95 r10=+0.0015 (p369). Do not resume.
+- **F2 high-Λ2 z_A remix REFUTED (H99 p371):** Tok-LoRA on 1059 Λ2≥0.02 ex →
+  m=−0.001994; mean_λ2_c −0.00154 ≈ king −0.00095. Selecting teacher-Λ2 winners
+  as SFT data does not move Λ2 under king-init LoRA — same frozen-Λ2 failure mode
+  as clip-L1 winner-zA. Need non-king base (F4) or non-SFT recipe (F1), not more
+  data filters.
 - H66 king
   mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe `cache/king`,
   `serve_three` (p271); don't wait for post_train abort.

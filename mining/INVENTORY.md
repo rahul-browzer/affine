@@ -8,30 +8,29 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h96-1 | golden-matrix-af | 8×H200 | $28.00 | ~2026-08-09T06:52Z | H96 Tok r9 | **n80~66/80+mid304** |
-| mine-f3-1 | noble-raven-ff | 8×H200 | $28.00 | ~2026-08-09T07:01Z | H97 F3 r256 | **n80~50/80+mid304** |
-| mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | ~2026-08-09T07:06Z | H98 F1 RL | train~135/200+T/K200 |
-| mine-f2-1 | zesty-orbit-85 | 8×B200 | $40.00 | ~2026-08-09T07:13Z | H99 F2 Λ2 | **n80~75/80+mid304** |
+| mine-h96-1 | golden-matrix-af | 8×H200 | $28.00 | ~2026-08-09T06:52Z | H96 Tok r9 | **n80~70/80+mid304** |
+| mine-f3-1 | noble-raven-ff | 8×H200 | $28.00 | ~2026-08-09T07:01Z | H97 F3 r256 | **n80~54/80+mid304** |
+| mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | ~2026-08-09T07:06Z | H98 F1 RL | train~140/200+T/K200 |
 | mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | ~2026-08-09T07:18Z | H100 F4 Genesis | merge+Tok DL |
 
 SSH: h96 .232:40299 · f3 .236:40311 ·
-f1 .54:40099 · f2 150.136.71.147:20295 · f4 204.9.206.243:40099 ·
+f1 .54:40099 · f4 204.9.206.243:40099 ·
 kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
-**Free: 15**. Burn ~$193.4/h. Non-mine — **never rm**.
+**Free: 16**. Burn ~$153.4/h. Non-mine — **never rm**.
 
 ## Dead
 
 | name | final spent | removed UTC | reason |
 |---|---|---|---|
+| mine-f2-1 | ~$57 | 2026-08-08T20:38Z | H99/F2 REFUTE m=−0.001994 vs Tok |
 | mine-h95-1 | ~$70 | 2026-08-08T20:15Z | H95 REFUTE m=+0.001489 vs Tok |
 | mine-h94-1 | ~$53 | 2026-08-08T19:22Z | H94 m=−0.013746 vs Tok |
 | mine-h91-1 | ~$91 | 2026-08-08T19:21Z | H91 m=−0.005604 vs Tok |
-| mine-h93-1 | ~$62 | 2026-08-08T19:17Z | H93 m=−0.007210 vs Tok |
 
 ## Recent reconciles (last 3)
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T20:38Z | 4 live after rm f2 | H99 REFUTE m=−0.002; rm mine-f2-1 |
 | 2026-08-08T20:36Z | 5 live match inv | F4 train→merge; Tok DL resume; no rm/rent |
 | 2026-08-08T20:15Z | 5 live after rm h95 | H95 REFUTE m=+0.0015; rm mine-h95-1 |
-| 2026-08-08T20:10Z | 6 live match inv | F2 n80+mid304 armed; no rm/rent |
