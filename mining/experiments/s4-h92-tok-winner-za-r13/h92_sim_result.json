@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 3109.1095464229584,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h92/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h92",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0006179291470638626,
+    "se": 0.007111121903687615,
+    "z": 0.08689615442303458,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.026337023364941918,
+      "gate_pass_rate": 0.8616352201257862,
+      "bank_frac": 0.434375,
+      "calib_ratio": 0.6899187001789026,
+      "baseline_abs": 0.15270116412250653,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": -0.00916654771840675,
+      "mean_mix": 0.026337023364941918
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.02744078790777893,
+      "gate_pass_rate": 0.8412698412698413,
+      "bank_frac": 0.43125,
+      "calib_ratio": 0.681296722407985,
+      "baseline_abs": 0.14960211356762648,
+      "n_turns": 80,
+      "n_pairs": 315,
+      "mean_lambda2": -0.007360397483518406,
+      "mean_mix": 0.02744078790777893
+    },
+    "slice": {
+      "seed": 15594444309336277043,
+      "n": 80,
+      "digest": "6901c824a8279893d3503999e71b57166f361b2ed30ce963955a1ec945de759c",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.681296722407985,
+    "chall_baseline_abs": 0.14960211356762648,
+    "king_baseline_abs": 0.15270116412250653,
+    "base_x": 0.9797051281652719
+  }
+}
