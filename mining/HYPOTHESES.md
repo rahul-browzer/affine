@@ -43,7 +43,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H51 — H28 @ LoRA α=16 @ r16 (non-α)
 - **Claim:** α÷2 vs H28 α32 (between dead α8 and α32) → m>0.04.
-- **Status:** n80 a203 started @03:58Z after chall recover. `s4-h51-…/results/pass238_n80_started.md`.
+- **Status:** n80 a203 FALSE_PROBE (Triton) → chall relaunch pid=25276 @04:01Z; retry wait. `pass239_chall_recover.md`.
 
 ### H49 — H28 @ LoRA α=4 @ r16 (non-α)
 - **Claim:** α÷8 → m>0.04. (H47 α8 already weak; low prior.)
