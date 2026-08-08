@@ -76,9 +76,10 @@ Format: `- <finding> — <the number or error that proves it>`
   GPU index never `pkill -f "vllm serve"`. MoE wait ≥120×15s; settle ≥30s
   after wipe. Health=200 ≠ alive — gate on `/v1/completions` 200 **twice**
   20s apart. TP race-deletes `__triton_launcher.so` on **first** warmup even
-  after 45s settle with n_pre=16 (H51 p240 a1_w1 ENOENT) — **pre-freeze
-  usually works** (H51 p241/242) but H54 a1 still ENOENT under isolated
-  king-seeded TCACHE — keep outer×3, never `lium rm`. CUDA-graph hang: shm_broadcast >5m after "Registering N addresses"
+  after 45s settle with n_pre=16 (H51 p240 a1_w1 ENOENT) — **king-seed+
+  prefreeze-before-w1 is DEAD for chall** when warmup needs non-king hashes
+  (H56 p247 a1–a3 all 500/ENOENT under mode=555; p251 = writable w1 then
+  freeze). Keep outer×3, never `lium rm`. CUDA-graph hang: shm_broadcast >5m after "Registering N addresses"
   → kill + clear torch_compile_cache + relaunch. Orphans=`VLLM::Worker`
   ppid=1. `FALSE_PROBE_*`≠REFUTE. `serve_three` "already running"≠healthy.
 - `pgrep -f` false-matches SSH/watcher argv — use
