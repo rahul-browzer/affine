@@ -1,0 +1,17 @@
+PATH /verdict {'margin': -0.007412009251820005, 'se': 0.0071953862463893315, 'z': -1.0301058203149798, 'mean_margin': None, 'S_c': None, 'S_k': None, 'valid_c': None, 'valid_k': None, 'r': None, 'r_c': None, 'base_x': None, 'baseline_band': None, 'rejection_reason': None, 'challenger_valid': None, 'king_valid': None, 'frac_bank': None, 'pass_rate': None}
+DECISION {
+  "utc": "2026-08-08T13:18:02Z",
+  "margin": -0.007412009251820005,
+  "z": -1.0301058203149798,
+  "r_c": 0.6188631071729281,
+  "valid_c": true,
+  "S_c": 0.02674461631740974,
+  "S_k": 0.03406568665161369,
+  "se": 0.0071953862463893315,
+  "base_x": 1.0954355163577714,
+  "decision": "REFUTE_H78",
+  "parser": "write_merge_decision.py#nested_verdict",
+  "signal_only": false,
+  "submit": false
+}
+top {'elapsed_s': 'float', 'king_repo': 'str', 'king_rev': 'str', 'chall_repo': 'str', 'block_hash': 'str', 'hotkey': 'str', 'verdict': 'dict', 'h4': 'dict'}

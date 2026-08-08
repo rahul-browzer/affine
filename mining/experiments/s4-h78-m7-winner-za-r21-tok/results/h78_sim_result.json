@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2674.5794174671173,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h78/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h78",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.007412009251820005,
+    "se": 0.0071953862463893315,
+    "z": -1.0301058203149798,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.03406568665161369,
+      "gate_pass_rate": 0.8512658227848101,
+      "bank_frac": 0.5020833333333333,
+      "calib_ratio": 0.6384356572631663,
+      "baseline_abs": 0.1322783450185005,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": -0.0034252100460378035,
+      "mean_mix": 0.03406568665161369
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.02674461631740974,
+      "gate_pass_rate": 0.8056426332288401,
+      "bank_frac": 0.5572916666666667,
+      "calib_ratio": 0.6188631071729281,
+      "baseline_abs": 0.14490239717829254,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.011527703271492095,
+      "mean_mix": 0.02674461631740974
+    },
+    "slice": {
+      "seed": 3412690608789932105,
+      "n": 80,
+      "digest": "635d7b4a005bcc512822039e9b64c2c69b005a402c361e62712935ae664f381b",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6188631071729281,
+    "chall_baseline_abs": 0.14490239717829254,
+    "king_baseline_abs": 0.1322783450185005,
+    "base_x": 1.0954355163577714
+  }
+}
