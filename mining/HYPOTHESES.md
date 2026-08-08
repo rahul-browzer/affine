@@ -7,10 +7,10 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 a203) |
-| 2 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 ~54/80) |
-| 3 | H103/F8 | high | Genesis-init × REINFORCE-L1 → m>+0.015 | **open** (n80 ~43/80) |
-| 4 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (c203 early) |
+| 1 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 ~47/80 c203) |
+| 2 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 b203) |
+| 3 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203) |
+| — | H103/F8 | — | Genesis-init × REINFORCE-L1 → m>+0.015 | **refuted** m=−0.04829 |
 | — | H101/F6 | — | ultrashort≤80 format → m>+0.015 | **refuted** m=−0.00453 |
 | — | H98/F1 | — | Tok REINFORCE self-L1lift → m>+0.015 | **refuted** m=+0.00229 |
 | — | H97/F3 | — | r=256 breaks LoRA ceiling | **refuted** m=−0.01506 |
@@ -23,27 +23,22 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Open
 
+### H104 / F9 — kevin954 past-crown × high-Λ2 — open
+- **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
+  Orthogonal to Genesis (F4/F7) and Tok (F1/F6); past crown outside both basins.
+- **Status:** n80 c203 ~47/80; watcher armed **d203first** (p409).
+- `experiments/s4-h104-f9-kevin-base/` · `results/pass409_d203first.md`.
+
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** teacher recover332 **promptable**; n80 **a203** resumed 23:24Z.
+- **Status:** n80 **b203** ~9/11 (rotated; engines healthy).
 - `experiments/s4-h100-f4-genesis-base/` · `results/pass407_teacher_promptable.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** p408 armed **d203** (dropped a203+c203 H32); attempt 1/6 running.
+- **Status:** n80 **e203** ~6/8 (d203first hash rotate).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass408_d203first.md`.
-
-### H103 / F8 — Genesis-init REINFORCE-L1lift — open
-- **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
-- **Status:** n80 a203 **king43/chall43**.
-- `experiments/s4-h103-f8-genesis-rl/` · `results/pass402_chall_recover.md`.
-
-### H104 / F9 — kevin954 past-crown × high-Λ2 — open
-- **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
-  Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** n80 b203 **king54/chall54** of 80.
-- `experiments/s4-h104-f9-kevin-base/` · `results/pass401_n80_start.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -55,6 +50,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | F5 | Correctness-grounded z | needs verified trajectories first |
 
 ## Refuted (keep)
+
+### H103 / F8 — Genesis-init REINFORCE-L1lift
+- m=−0.048287 z=−5.00 vs Tok (gates OK). mean_λ2_c −0.02090 ≪ king −0.00546.
+- Genesis-RL worsens Λ2; closes RL-L1 on both Tok (F1) and Genesis. **F8 closed.**
+- `s4-h103-f8-genesis-rl/results/result.md`.
 
 ### H101 / F6 — Ultrashort≤80 thought format
 - m=−0.004532 z=−0.57 vs Tok (gates OK). mean_λ2_c −0.00967 ≈ king −0.00895.
@@ -102,4 +102,5 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
   m7×union / lr micro / ep≥2 / **winner-zA as a family (mean −0.004)** /
   **F2 high-Λ2-zA data remix** / **F3 r=256 LoRA ceiling** / r≤8∨=9–15∨=16–24∨≥32 /
   α≤8∨=16∨≥64 / clip≥0.08 / king-self.
-  **F4 Genesis-SFT, F7 teacher-z_C, F8 Genesis-RL, F9 kevin-base are family screens, not cells.** **F1 Tok-RL / F6 format closed.**
+  **F4 Genesis-SFT, F7 teacher-z_C, F9 kevin-base are family screens, not cells.**
+  **F1 Tok-RL / F6 format / F8 Genesis-RL closed.**

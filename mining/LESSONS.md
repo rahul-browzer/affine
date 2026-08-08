@@ -47,7 +47,7 @@ Format: `- <finding> — <the number or error that proves it>`
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 ## Recipes already tried (do not repeat)
 - SFT/LoRA near-zero + α-merges dead (H1–H26): archive. No plain distill-on-refs; stop α/leary/plmk/m7-as-B/kkk.
-- **F1 Tok REINFORCE-L1 REFUTED (H98 p394):** m=+0.00229 z=0.42; mean_λ2_c≈king (−0.00304). Clip-L1 RL on Tok-init does not move Λ2 — same freeze as winner-zA/F2/F3. F8 Genesis-RL still open.
+- **F1+F8 REINFORCE-L1 REFUTED:** Tok-RL H98 m=+0.00229 (λ2 frozen); Genesis-RL H103 p409 m=**−0.0483** z=−5.0, mean_λ2_c −0.021 ≪ king −0.005. Clip-L1 RL does not help Λ2 on either base — **worse** on Genesis. Do not retry RL-L1.
 - **F6 ultrashort≤80 format REFUTED (H101 p399):** m=−0.00453 z=−0.57; mean_λ2_c −0.00967 ≈ king −0.00895. Format rewrite ≠ Λ2 move under Tok-LoRA; do not sweep length cells.
 
 ## Serving / VLM
