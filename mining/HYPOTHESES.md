@@ -25,7 +25,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** Range ~96%; tokwatch alive; longwait deduped (p392).
+- **Status:** Tok done @22:06Z; king_recover util0.72 loading; tokwatch→chall; 1 longwait.
 - `experiments/s4-h100-f4-genesis-base/` · `results/pass392_longwait_dedupe.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
@@ -53,8 +53,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** LoRA done; `merge_lora` live @22:03Z (`device-map auto`).
-- `experiments/s4-h104-f9-kevin-base/` · `results/pass379_rent.md`.
+- **Status:** GPU merge hung @49.7 GiB → CPU merge recover393 live; then n80.
+- `experiments/s4-h104-f9-kevin-base/` · `results/pass393_merge_recover.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
