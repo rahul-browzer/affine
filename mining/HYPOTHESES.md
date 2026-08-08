@@ -8,10 +8,10 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H48 | med | H42 cell @ **lr=1e-6** → m>0.04 | **open** (train.done) |
-| 2 | H46 | med | H42 cell @ **lr=2.5e-6** → m>0.04 | **open** (train.done) |
+| 2 | H46 | med | H42 cell @ **lr=2.5e-6** → m>0.04 | **open** (chall loading) |
 | 3 | H49 | med | H28 cell @ **α=4 r16** → m>0.04 | **open** (bootstrap) |
 | 4 | H47 | med | H28 cell @ **α=8 r16** → m>0.04 | **open** (train.done) |
-| 5 | H45 | med | H28 cell @ **lora r=8** → m>0.04 | **open** (chall recover) |
+| 5 | H45 | med | H28 cell @ **lora r=8** → m>0.04 | **open** (n80 running) |
 | — | H44 | was med | H28 @ clipL1≥0.08 data | **refuted** m=−0.00017 |
 | — | H43 | was med | H28 @ α=64 | **refuted** m=+0.01123 |
 | — | H42 | was med | H28 @ lr=5e-6 | **refuted** m=+0.01613 |
@@ -39,15 +39,16 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H46 — H28 @ lr=2.5e-6 (non-α)
 - **Claim:** half H42 LR → continues gentler-LR gain → m>0.04.
-- **Status:** train.done step26; merge/n80 next. `s4-h46-m7-winner-za-lr2e6/`.
+- **Status:** merge.done 02:05Z; chall :8002 loading. `s4-h46-m7-winner-za-lr2e6/`.
 
 ### H47 — H28 @ LoRA α=8 @ r16 (non-α)
 - **Claim:** α÷4 at fixed r16 (opposite H43 α64) → m>0.04.
-- **Status:** train.done step26; merge/n80 next. `s4-h47-m7-winner-za-a8/`.
+- **Status:** merge in progress (shard1 written). `s4-h47-m7-winner-za-a8/`.
 
 ### H45 — H28 @ LoRA r=8 (non-α)
 - **Claim:** ½ LoRA rank (r8/α16) opposite of H41 → m>0.04.
-- **Status:** merge done; chall recover p222 (Triton). `s4-h45-m7-winner-za-r8/`.
+- **Status:** p222 recover DONE (freeze 22×.so, triple-promptable);
+  n80 attempt1/3 `block_hash=a203…` since 02:07Z. `s4-h45-…/results/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

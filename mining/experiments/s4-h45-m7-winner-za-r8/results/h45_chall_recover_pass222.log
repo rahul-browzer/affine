@@ -1,0 +1,30 @@
+[recover222-h45-chall] 2026-08-08T01:58:38Z START chall relaunch (freeze TCACHE after warmup — p217 mid-load ImportError + shm_broadcast hang; clear torch_compile_cache .so race)
+[recover222-h45-chall] 2026-08-08T01:58:38Z kill leftover pid=883
+[recover222-h45-chall] 2026-08-08T01:58:39Z kill leftover pid=2500
+[recover222-h45-chall] 2026-08-08T01:58:40Z kill leftover pid=12215
+[recover222-h45-chall] 2026-08-08T01:58:41Z kill leftover pid=12406
+[recover222-h45-chall] 2026-08-08T01:58:42Z kill leftover pid=15228
+[recover222-h45-chall] reap gpu=[4, 5] workers=[] parents=[] grandparents=[]
+[recover222-h45-chall] 2026-08-08T01:58:46Z free-check gpus4,5 used<500MiB count=2/2 try=1
+[recover222-h45-chall] 2026-08-08T01:58:46Z wipe role chall caches (default + prior isolated)
+[recover222-h45-chall] 2026-08-08T01:58:47Z settle 30s after wipe
+[recover222-h45-chall] 2026-08-08T01:59:17Z launch chall port=8002 gpus=4,5 util=0.72 TCACHE=/root/.triton/isolated/h45_chall_p222_1786154318_18213 merge=/root/h45/merged
+[recover222-h45-chall] 2026-08-08T01:59:17Z chall_pid=18291
+[recover222-h45-chall] 2026-08-08T01:59:17Z wait health=200 (max 120×10s)
+[recover222-h45-chall] 2026-08-08T02:00:07Z health poll=6/120 code=000
+[recover222-h45-chall] 2026-08-08T02:01:08Z health poll=12/120 code=000
+[recover222-h45-chall] 2026-08-08T02:02:08Z health poll=18/120 code=000
+[recover222-h45-chall] 2026-08-08T02:03:08Z health poll=24/120 code=000
+[recover222-h45-chall] 2026-08-08T02:04:09Z health poll=30/120 code=000
+[recover222-h45-chall] 2026-08-08T02:05:09Z health poll=36/120 code=000
+[recover222-h45-chall] 2026-08-08T02:06:09Z health=200 at poll=42
+[recover222-h45-chall] 2026-08-08T02:06:09Z warmup completion #1 (JIT kernels into TCACHE)
+[recover222-h45-chall] 2026-08-08T02:06:13Z comp w1 code=200
+[recover222-h45-chall] 2026-08-08T02:06:13Z FREEZE TCACHE chmod -R a-w /root/.triton/isolated/h45_chall_p222_1786154318_18213
+[recover222-h45-chall] 2026-08-08T02:06:14Z frozen launcher.so count=22
+[recover222-h45-chall] 2026-08-08T02:06:19Z warmup completion #2 (must survive freeze)
+[recover222-h45-chall] 2026-08-08T02:06:20Z comp w2 code=200
+[recover222-h45-chall] 2026-08-08T02:06:40Z comp w3 code=200
+[recover222-h45-chall] 2026-08-08T02:06:40Z triple-promptable after freeze — rearm watcher
+[recover222-h45-chall] 2026-08-08T02:06:41Z rearmed watcher pid=21086
+[recover222-h45-chall] 2026-08-08T02:06:41Z DONE_LAUNCH (TCACHE frozen; n80 should see double-promptable immediately)
