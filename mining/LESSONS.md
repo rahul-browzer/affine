@@ -144,3 +144,5 @@ Format: `- <finding> — <the number or error that proves it>`
 - Arm watch_preempt_bare_tcache before post_train chall serve (H63/H64 p264) — bare cache/chall n80 is the H61/H62 race; recover after chall_serve.done or :8002=200.
 - p264 preempt **validated** on H64 @07:56:29Z: bare `/root/.triton/cache/chall` → recover264 isolated seed+warm+freeze; kills post_train/wait; rearms form+n80 watchers (pass265).
 - Bare mid-n80 → fire recover264 **immediately** (H61 p266 @21/80); waiting for FALSE_PROBE wastes the slice. Arm preempt scripts on every hyp at rent (H61 lacked them).
+- recover264 **salvage** after writable-w1 ghost ENOENT: if n_so grew (H66 16→22) prefreeze same TCACHE + relaunch → triple-promptable; n80 a203 started (p274).
+- Never `pkill -f PATTERN` over SSH when the remote argv contains PATTERN — kills the session (p274 H67); kill by PID only.
