@@ -13,28 +13,27 @@ Best n80 (vs old TalentPigs): **H64 r18 m=+0.02509**.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$186,351** · cum ~$10,140 · **avail ~$176.3k** |
+| Lium / spend | **~$186,327** · cum ~$10,164 · **avail ~$176.3k** |
 | miner | τ10.000 free · 0 submissions |
-| H80 | **REFUTE** m=−0.000821 z=−0.164 · **Tok-init r17 dead** · rm'd |
-| H81 | **n80 LIVE** a203 **~33/80** · mid304 armed |
-| H82 | recover264 warmups (isolated) · ports 200 · mid304 **not** yet |
-| H83 | **merge LIVE** ~51G · preempt armed |
-| H84 | recover264 health-wait chall · mid304 **arm when n80 starts** |
-| H85 | **bootstrap LIVE** Tok-init r27 · preempt armed |
+| H81 | **n80 LIVE** a203 **~44/80** · mid304 armed |
+| H82 | **n80 LIVE** a203 just started · mid304 armed (p321) |
+| H83 | merge LIVE shard2 writing · preempt **rearmed** p321 |
+| H84 | recover264 settle→warmups · arm mid304 when n80 starts |
+| H85 | **train LIVE** r27 · post_train armed |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h81-1 | golden-orbit-da | 38.255.28.19:20100 | ~01:19Z+1d | n80 a203 ~33/80 |
-| mine-h82-1 | golden-comet-74 | 38.255.28.21:20100 | ~01:29Z+1d | recover→n80 |
+| mine-h81-1 | golden-orbit-da | 38.255.28.19:20100 | ~01:19Z+1d | n80 a203 ~44/80 |
+| mine-h82-1 | golden-comet-74 | 38.255.28.21:20100 | ~01:29Z+1d | n80 a203 + mid304 |
 | mine-h83-1 | cosmic-matrix-be | 38.255.28.18:20098 | ~01:44Z+1d | merge→chall |
 | mine-h84-1 | gentle-lion-26 | 152.236.142.237:40311 | ~01:56Z+1d | recover→n80 |
-| mine-h85-1 | eager-fox-a3 | 152.236.142.232:40300 | ~02:34Z+1d | bootstrap→train |
+| mine-h85-1 | eager-fox-a3 | 152.236.142.232:40300 | ~02:34Z+1d | train→merge |
 
 known_hosts `/tmp/mine-h{81,82,83,84,85}-1.known_hosts`. **Free: 0.** ~$152/h.
 Non-mine `wan-lora-*` / `affine-*` — **do not touch**.
-**p320:** H80 REFUTE+rm; H85 rented; H84 preempt rearm; H82 dup-recover killed.
+**p321:** H83 preempt rearm; H82 recover DONE→n80+mid304.
 
 ## Blocked
 
@@ -53,7 +52,7 @@ recover264 rearms form+n80 **not** mid304 — arm mid304 when n80 starts.
 
 ## Next action
 
-1. H81 (~33/80) → `decision.json`; OOM→king util=0.68/0.72.
-2. H82/H84 recover DONE → n80; **arm mid304** on each when sim starts.
-3. H83 merge→chall (preempt armed); H85 bootstrap→train→merge.
+1. H81 (~44/80) / H82 (just started) → `decision.json`; OOM→king util=0.68/0.72.
+2. H84 recover DONE → n80; **arm mid304** when sim starts (verify via `/proc` `$0`, not SSH argv).
+3. H83 merge→chall (preempt rearmed); H85 train→merge→chall.
 4. Free slot → Tok-init r∉{16–21,24,17,18} / data variant; **no m7×r17/r18; no Tok-init r17/r18**.
