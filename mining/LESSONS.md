@@ -105,10 +105,11 @@ Format: `- <finding> — <the number or error that proves it>`
   **H78@r21 −0.00741 dead**; **H77@r17 −0.02176 dead** (closes m7×r17);
   **H79 Tok-init@r18 −0.00784 dead**; **H80 Tok-init@r17 −0.000821 dead**;
   **H81 Tok-init@r22 +0.008811** (<0.015); **H82@r23 −0.00439 dead**;
-  **H83@r25 +0.00101 dead**; **H84@r26 −0.00242 dead**; **H85@r27
-  −0.00817 dead**; **H86@r28 −0.000341 dead**. Open: **H87–H91** (r29–31 +
-  r14/r12). H66 king mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3,
-  wipe `cache/king`, `serve_three` (p271); don't wait for post_train abort.
+  **H83@r25 +0.00101 dead**; **H84@r26 −0.00242 dead**;   **H85@r27
+  −0.00817 dead**; **H86@r28 −0.000341 dead**; **H87@r29 +0.005075
+  dead**. Open: **H88–H92** (r30–31 + r14/r12/r13). H66 king mid-pipeline
+  Triton ENOENT hung :8001 — reap GPU 2/3, wipe `cache/king`, `serve_three`
+  (p271); don't wait for post_train abort.
 - Teacher Triton ENOENT mid-inductor (`triton_poi_fused_*.json` ghost) → wipe
   teacher* + unique TCACHE re-fire (H89 p334). Orphan `VLLM::Worker` with
   open fds on nvidia0–3 (0 MiB) — kill carefully; concurrent reap coincided
