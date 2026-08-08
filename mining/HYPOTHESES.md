@@ -11,7 +11,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 2 | H50 | med | H42 cell @ **lr=7.5e-6** → m>0.04 | **open** (n80 a203 ~60/80) |
 | 3 | H52 | med | H42 cell @ **lr=6e-6** → m>0.04 | **open** (n80 a203 ~54/80) |
 | 4 | H53 | med | H42 cell @ **lr=4e-6** → m>0.04 | **open** (n80 a203 ~44/80) |
-| 5 | H51 | med | H28 cell @ **α=16 r16** → m>0.04 | **open** (p241 pre-freeze) |
+| 5 | H51 | med | H28 cell @ **α=16 r16** → m>0.04 | **open** (n80 a203 just started) |
 | — | H49 | was low | H28 cell @ α=4 | **refuted** m=+0.01174 |
 | — | H45 | was med | H28 cell @ lora r=8 | **refuted** m=+0.00819 |
 | — | H48 | was med | H42 cell @ lr=1e-6 | **refuted** band×1.269 |
@@ -48,8 +48,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H51 — H28 @ LoRA α=16 @ r16 (non-α)
 - **Claim:** α÷2 vs H28 α32 → m>0.04.
-- **Status:** p240 a1_w1 ENOENT despite 45s settle; p241 king-seed +
-  pre-freeze before w1. `pass241_chall_prefreeze.md`.
+- **Status:** pre-freeze OK (a1_w1–w3=200) → n80 a203 @04:28Z.
+  `pass242_prefreeze_ok.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

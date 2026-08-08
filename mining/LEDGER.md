@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $188,789.11 | 2026-08-08T04:23Z |
-| cumulative mining spend | ~$6,000 (5 pods ~$148/h accruing) | 2026-08-08T04:23Z |
-| **available for mining** | **~$178,789** (balance − $10,000 floor) | 2026-08-08T04:23Z |
-| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T04:23Z |
-| miner burn (5 pods) | ~$148/h (h50/51/54 $28×3 + h52/53 $31.92×2) | 2026-08-08T04:23Z |
+| Lium balance | $188,772.29 | 2026-08-08T04:28Z |
+| cumulative mining spend | ~$6,050 (5 pods ~$148/h accruing) | 2026-08-08T04:28Z |
+| **available for mining** | **~$178,772** (balance − $10,000 floor) | 2026-08-08T04:28Z |
+| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T04:28Z |
+| miner burn (5 pods) | ~$148/h (h50/51/54 $28×3 + h52/53 $31.92×2) | 2026-08-08T04:28Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -29,4 +29,3 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 | 2026-08-08T03:03Z | 189084.04 | rented mine-h51-1 brave-lion-47 8×H200 @$28/h ttl12h (H51 α16) |
 | 2026-08-08T03:03Z | 189084.04 | rented mine-h50-1 eager-hawk-5b 8×H200 @$28/h ttl12h (H50 lr7.5e-6) |
 | 2026-08-08T03:01Z | 189084.04 | rm mine-h48-1 zesty-raven-35 (~$45) H48 REFUTE band×1.269 |
-| 2026-08-08T03:01Z | 189084.04 | rm mine-h47-1 golden-comet-01 (~$46) H47 REFUTE m=+0.00463 |
