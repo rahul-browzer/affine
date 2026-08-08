@@ -40,11 +40,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H71 — H42 @ LoRA r=16 (non-α) — open
 - **Claim:** below H69@r17 → m>0.04 vs Tok.
-- **Status:** train. `…/pass280_launch.md`.
+- **Status:** merge.done → chall serve; preempt rearmed p283. `…/pass286_preempt_rearm.md`.
 
 ### H69 — H42 @ LoRA r=17 (non-α) — open
 - **Claim:** below H64@r18 → m>0.04 (r≤8 dead).
-- **Status:** n80 ~44/80 vs TalentPigs (ranking only).
+- **Status:** n80 ~58/80 vs TalentPigs (ranking only).
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
