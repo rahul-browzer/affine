@@ -31,8 +31,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** b203 chall 400 → attempt2 **c203** king3/chall5; FALSE_PROBE≠REFUTE.
-- `experiments/s4-h102-f7-teacher-zc/` · `results/pass396_dedupe_watcher.md`.
+- **Status:** p408 armed **d203** (dropped a203+c203 H32); attempt 1/6 running.
+- `experiments/s4-h102-f7-teacher-zc/` · `results/pass408_d203first.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
