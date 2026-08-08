@@ -1,0 +1,163 @@
+#!/usr/bin/env bash
+# mine-f10-1: TalentPigs init download → H105 train; bg teacher+Tok331102 king; arm prewarm+post-train.
+set -euo pipefail
+
+LOG=/root/logs/bootstrap_h105.log
+mkdir -p /root/logs /root/hf /root/affine_data /root/mining_src /root/h105
+exec > >(tee -a "$LOG") 2>&1
+
+echo "[bootstrap-h105] $(date -u +%Y-%m-%dT%H:%M:%SZ) start host=$(hostname)"
+
+if [[ -f /root/mine.env ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source /root/mine.env
+  set +a
+fi
+export HF_HOME=${HF_HOME:-/root/hf}
+export HF_HUB_ENABLE_HF_TRANSFER=${HF_HUB_ENABLE_HF_TRANSFER:-1}
+export HF_XET_HIGH_PERFORMANCE=${HF_XET_HIGH_PERFORMANCE:-1}
+export PATH="$HOME/.local/bin:$PATH"
+export HF_TOKEN
+
+if [[ -z "${HF_TOKEN:-}" ]]; then
+  echo "[bootstrap-h105] FATAL: HF_TOKEN missing in /root/mine.env"
+  exit 1
+fi
+
+nvidia-smi -L || true
+NGPU=$(nvidia-smi -L | wc -l)
+echo "[bootstrap-h105] GPU_COUNT=$NGPU"
+test "$NGPU" -ge 8
+test -s /root/h105/winner_za_high_l2.jsonl
+test -f /root/mining_src/s4-h1v2-sft/train_lora.py
+test -f /root/mining_src/s4-h1-sft/merge_lora.py
+test -x /root/mining_src/s4-h105-f10-talentpigs-base/start_h105.sh
+test -x /root/mining_src/s4-h105-f10-talentpigs-base/post_train_pipeline.sh
+
+if ! command -v uv >/dev/null 2>&1; then
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [[ ! -d /root/venv ]]; then
+  uv venv /root/venv --python 3.12
+fi
+# shellcheck disable=SC1091
+source /root/venv/bin/activate
+
+uv pip install \
+  "torch==2.11.0" \
+  "transformers==5.14.1" \
+  "vllm==0.22.1" \
+  "peft" \
+  "accelerate" \
+  "huggingface_hub[hf_transfer]" \
+  "hf_transfer" \
+  "safetensors" \
+  "numpy" \
+  "scipy" \
+  2>&1 | tee /root/logs/pip_h105.log | tail -40
+
+python - <<'PY'
+import torch, transformers, vllm, peft, accelerate
+print("[bootstrap-h105] VERSIONS",
+      "torch", torch.__version__,
+      "transformers", transformers.__version__,
+      "vllm", vllm.__version__,
+      "peft", peft.__version__,
+      "accelerate", accelerate.__version__)
+assert vllm.__version__.startswith("0.22.1"), vllm.__version__
+assert transformers.__version__.startswith("5.14"), transformers.__version__
+PY
+
+# B300 SM10.3 flash_attn upper-bound patch (no-op on H200).
+if [[ -x /root/mining_src/s3-duel-sim/patch_b300_sm103_flash_attn.sh ]]; then
+  bash /root/mining_src/s3-duel-sim/patch_b300_sm103_flash_attn.sh || true
+fi
+
+# Patch vllm client timeouts before any sim.
+python3 - <<'PY'
+from pathlib import Path
+p = Path("/root/mining_src/affine_pkg/evalsrv/vllm_client.py")
+if not p.is_file():
+    print("[bootstrap-h105] no vllm_client to patch", flush=True)
+else:
+    txt = p.read_text()
+    orig = txt
+    txt = txt.replace("httpx.Timeout(180.0, connect=10.0)", "httpx.Timeout(480.0, connect=10.0)")
+    txt = txt.replace("httpx.Timeout(360.0, connect=10.0)", "httpx.Timeout(480.0, connect=10.0)")
+    txt = txt.replace("for attempt in range(3):", "for attempt in range(5):")
+    txt = txt.replace("if attempt == 2:", "if attempt == 4:")
+    if txt != orig:
+        p.write_text(txt)
+        print("[bootstrap-h105] patched vllm_client timeout=480 retries=5", flush=True)
+    else:
+        print("[bootstrap-h105] vllm_client already patched or pattern miss", flush=True)
+PY
+
+# Train init = TalentPigs (non-king base). Live king Tok still downloaded in bg.
+python - <<'PY'
+import os
+from huggingface_hub import snapshot_download
+
+token = os.environ["HF_TOKEN"]
+repo = "TalentPigs/affine-5ekxlcg3fx-abc"
+rev = "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4"
+print("[bootstrap-h105] DOWNLOAD talentpigs-init start", repo, rev, flush=True)
+path = snapshot_download(repo, revision=rev, token=token)
+print(f"[bootstrap-h105] DOWNLOAD talentpigs-init done -> {path}", flush=True)
+open("/root/logs/talentpigs_init.done", "w").write(path + "\n")
+# Do NOT stamp tok331102.done here — train init ≠ live king (F10 non-king base).
+assert path.endswith(rev) or rev in path, path
+PY
+
+echo "[bootstrap-h105] $(date -u +%Y-%m-%dT%H:%M:%SZ) launching H105 train"
+bash /root/mining_src/s4-h105-f10-talentpigs-base/start_h105.sh
+touch /root/logs/h105_train_launched.stamp
+
+# Teacher + Tok331102 king + corpus in background for prewarm/n80.
+nohup bash -lc '
+  set -euo pipefail
+  set -a; source /root/mine.env; set +a
+  source /root/venv/bin/activate
+  export HF_HOME=/root/hf HF_TOKEN
+  python - <<PY
+import os
+from huggingface_hub import snapshot_download
+token = os.environ["HF_TOKEN"]
+print("[bootstrap-h105] DOWNLOAD teacher start", flush=True)
+path = snapshot_download("zai-org/GLM-4.5-Air-FP8", token=token)
+print(f"[bootstrap-h105] DOWNLOAD teacher done -> {path}", flush=True)
+open("/root/logs/teacher.done", "w").write(path + "\n")
+print("[bootstrap-h105] DOWNLOAD tok331102 king start", flush=True)
+kpath = snapshot_download(
+    "Tok331102/affine-5EqYW8McUc-af10",
+    revision="eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+    token=token,
+)
+print(f"[bootstrap-h105] DOWNLOAD tok331102 done -> {kpath}", flush=True)
+open("/root/logs/tok331102.done", "w").write(kpath + "\n")
+PY
+  bash /root/mining_src/s3-duel-sim/sync_corpus.sh || true
+' >/root/logs/h105_extra_dl.nohup 2>&1 &
+echo $! >/root/logs/h105_extra_dl.pid
+
+# Prewarm teacher+king once both ready; post-train waits on train.done.
+nohup bash -lc '
+  set -euo pipefail
+  for i in $(seq 1 240); do
+    [[ -f /root/logs/teacher.done && -f /root/logs/tok331102.done ]] && break
+    sleep 30
+  done
+  test -f /root/logs/teacher.done
+  test -f /root/logs/tok331102.done
+  bash /root/mining_src/s4-h105-f10-talentpigs-base/prewarm_engines.sh
+' >/root/logs/h105_prewarm.nohup 2>&1 &
+echo $! >/root/logs/h105_prewarm.pid
+
+nohup bash /root/mining_src/s4-h105-f10-talentpigs-base/post_train_pipeline.sh \
+  >/root/logs/h105_post_train.nohup 2>&1 &
+echo $! >/root/logs/h105_post_train.pid
+
+echo "[bootstrap-h105] $(date -u +%Y-%m-%dT%H:%M:%SZ) BOOTSTRAP_DONE train=$(cat /root/logs/h105_train.pid) post=$(cat /root/logs/h105_post_train.pid)"
