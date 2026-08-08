@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $185,006.58 | 2026-08-08T19:13Z |
-| cumulative mining spend | ~$12,000 (8 pods ~$254/h accruing) | 2026-08-08T19:13Z |
-| **available for mining** | **~$175,007** (balance − $10,000 floor) | 2026-08-08T19:13Z |
+| Lium balance | $184,968.46 | 2026-08-08T19:19Z |
+| cumulative mining spend | ~$12,040 (8 pods ~$285/h accruing) | 2026-08-08T19:19Z |
+| **available for mining** | **~$174,968** (balance − $10,000 floor) | 2026-08-08T19:19Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (8 pods) | ~$253.6/h | 2026-08-08T19:13Z |
+| miner burn (8 pods) | ~$285.3/h | 2026-08-08T19:19Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,8 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-08T19:19Z | 184968.46 | rent mine-f4-1 calm-wolf-30 @$63.60/h ttl12h (H100/F4 B300) |
+| 2026-08-08T19:17Z | 184968.46 | rm mine-h93-1 (spent ~$62; H93 REFUTE m=−0.007210) |
 | 2026-08-08T19:13Z | 185006.58 | rent mine-f2-1 zesty-orbit-85 @$40/h ttl12h (H99/F2 B200) |
 | 2026-08-08T19:12Z | 185006.58 | rm mine-f2-1 zesty-orbit-24 (COUNT=7; ~$1) |
 | 2026-08-08T19:07Z | 185042.29 | rent mine-f1-1 brave-hawk-5a @$33.81/h ttl12h (H98/F1 RL) |
@@ -29,5 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-08T18:52Z | 185133.03 | rm mine-h92-1 (spent ~$47; H92 REFUTE m=+0.000618) |
 | 2026-08-08T18:36Z | 185220.48 | burn accrual; H94 king re-fire+n80; H93 mid304 |
 | 2026-08-08T18:21Z | 185291.61 | burn accrual; H94/H93 recovers (no rent/rm) |
-| 2026-08-08T18:17Z | 185315.57 | burn accrual; H94 n80+mid304 |
-| 2026-08-08T18:05Z | 185363.21 | rent mine-h95-1 calm-raven-0f @$31.92/h ttl12h |

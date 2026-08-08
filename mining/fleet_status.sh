@@ -3,13 +3,13 @@
 set -euo pipefail
 PODS=(
   "h91|38.255.28.18|20099|/tmp/mine-h91-1.known_hosts"
-  "h93|38.255.28.22|20099|/tmp/mine-h93-1.known_hosts"
   "h94|152.236.142.237|40311|/tmp/mine-h94-1.known_hosts"
   "h95|38.255.28.19|20100|/tmp/mine-h95-1.known_hosts"
   "h96|152.236.142.232|40299|/tmp/mine-h96-1.known_hosts"
   "f3|152.236.142.236|40311|/tmp/mine-f3-1.known_hosts"
   "f1|86.38.238.54|40099|/tmp/mine-f1-1.known_hosts"
   "f2|150.136.71.147|20295|/tmp/mine-f2-1.known_hosts"
+  "f4|204.9.206.243|40099|/tmp/mine-f4-1.known_hosts"
 )
 OUT=$(mktemp -d /tmp/fleet_status.XXXXXX)
 trap 'rm -rf "$OUT"' EXIT
