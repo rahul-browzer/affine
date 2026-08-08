@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h71-1 | eager-fox-be | 8×H200 | $28.00 | ~2026-08-08T22:05Z | H71 m7×wZA r=16 vs Tok | n80 ~19/80 |
-| mine-h72-1 | golden-comet-7a | 8×H200 | $28.00 | ~2026-08-08T22:20Z | H72 r18-rep vs Tok | n80 ~3/80 |
-| mine-h73-1 | eager-matrix-9a | 8×H200 | $31.92 | ~2026-08-08T22:21Z | H73 r19-rep vs Tok | n80 ~10/80 |
-| mine-h74-1 | brave-orbit-28 | 8×H200 | $28.00 | ~2026-08-08T22:42Z | H74 r18-rep#2 vs Tok | train ~20/26 |
-| mine-h75-1 | cosmic-hawk-20 | 8×H200 | $31.92 | ~2026-08-08T23:07Z | H75 r18-rep#3 vs Tok | bootstrap |
+| mine-h71-1 | eager-fox-be | 8×H200 | $28.00 | ~2026-08-08T22:05Z | H71 m7×wZA r=16 vs Tok | n80 ~29/80 |
+| mine-h72-1 | golden-comet-7a | 8×H200 | $28.00 | ~2026-08-08T22:20Z | H72 r18-rep vs Tok | n80 ~16/80 |
+| mine-h73-1 | eager-matrix-9a | 8×H200 | $31.92 | ~2026-08-08T22:21Z | H73 r19-rep vs Tok | n80 ~16/80 |
+| mine-h74-1 | brave-orbit-28 | 8×H200 | $28.00 | ~2026-08-08T22:42Z | H74 r18-rep#2 vs Tok | chall load; retry@0 |
+| mine-h75-1 | cosmic-hawk-20 | 8×H200 | $31.92 | ~2026-08-08T23:07Z | H75 r18-rep#3 vs Tok | train live |
 
 SSH: h71 .237:40311 · h72 .232:40299 · h73 .19:20100 ·
 h74 .236:40300 · h75 .21:20100 ·
@@ -33,6 +33,6 @@ Account also has non-mine `wan-lora-train` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T11:11Z | h71–75 match | H74 kill retry@104→relaunch@0; no rent/rm |
 | 2026-08-08T11:07Z | h71–75 match | rm h70; rent h75 r18-rep#3 |
 | 2026-08-08T10:54Z | h70–74 match | H72 recover264; no rent/rm |
-| 2026-08-08T10:52Z | h70–74 match | H71 salvage→n80; no rent/rm |

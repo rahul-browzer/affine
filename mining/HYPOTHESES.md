@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H72 | med | H64@r18 **replicate** vs Tok → m>0.04 | **open** (n80 ~3/80) |
-| 2 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (train ~20/26) |
-| 3 | H75 | med | H64@r18 **rep#3** vs Tok → m>0.04 | **open** (bootstrap) |
-| 4 | H73 | med | H67@r19 **replicate** vs Tok → m>0.04 | **open** (n80 ~10/80) |
-| 5 | H71 | med | H42 cell @ **r=16** → m>0.04 vs Tok | **open** (n80 ~19/80) |
+| 1 | H72 | med | H64@r18 **replicate** vs Tok → m>0.04 | **open** (n80 ~16/80) |
+| 2 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (merge DONE; chall→n80) |
+| 3 | H75 | med | H64@r18 **rep#3** vs Tok → m>0.04 | **open** (train live) |
+| 4 | H73 | med | H67@r19 **replicate** vs Tok → m>0.04 | **open** (n80 ~16/80) |
+| 5 | H71 | med | H42 cell @ **r=16** → m>0.04 vs Tok | **open** (n80 ~29/80) |
 | — | H70 | was med | H42 cell @ lr=5.01e-6 | **refuted** m=−0.000525 |
 | — | H69 | was med | H42 cell @ r=17 | **refuted** m=+0.01641 (old king) |
 | — | H68 | was med | H42 cell @ lr=4.95e-6 | **refuted** band×1.257 |
@@ -30,23 +30,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H72 — H64@r18 replicate vs Tok (non-α) — open
 - **Claim:** re-draw of best cell (+0.02509) vs live king → m>0.04.
-- **Status:** n80 vs Tok a203 after recover264. `…/pass290_recover264.md`.
+- **Status:** n80 vs Tok a203 ~16/80. `…/pass290_recover264.md`.
 
 ### H74 — H64@r18 replicate #2 vs Tok (non-α) — open
 - **Claim:** second independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** train ~20/26 on mine-h74-1. `…/pass288_launch.md`.
+- **Status:** merge DONE; chall loading; retry refreshed poll=0 (p292).
+  `…/pass292_retry_refresh.md`.
 
 ### H75 — H64@r18 replicate #3 vs Tok (non-α) — open
 - **Claim:** third independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** bootstrap on mine-h75-1. `…/pass291_launch.md`.
+- **Status:** train_lora live on mine-h75-1. `…/pass291_launch.md`.
 
 ### H73 — H67@r19 replicate vs Tok (non-α) — open
 - **Claim:** H67 +0.01835 shortlist re-draw vs Tok → m>0.04.
-- **Status:** n80 vs Tok a203 ~10/80. `…/pass284_launch.md`.
+- **Status:** n80 vs Tok a203 ~16/80. `…/pass284_launch.md`.
 
 ### H71 — H42 @ LoRA r=16 (non-α) — open
 - **Claim:** below H64@r18 → m>0.04 vs Tok.
-- **Status:** n80 vs Tok a203 ~19/80. `…/pass289_salvage_n80.md`.
+- **Status:** n80 vs Tok a203 ~29/80. `…/pass289_salvage_n80.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
