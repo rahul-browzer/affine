@@ -82,8 +82,9 @@ Format: `- <finding> — <the number or error that proves it>`
   health→warmup in 0s → 500/4s) — settle ≥45s after health, freeze a-w after
   w1, outer×3 fresh TCACHE (p230). CUDA-graph hang: shm_broadcast >5m after
   "Registering N addresses" → kill + clear torch_compile_cache + relaunch.
-  Orphans = `VLLM::Worker` **ppid=1**. `FALSE_PROBE_*` ≠ REFUTE — never rm.
+  Orphans=`VLLM::Worker` ppid=1. `FALSE_PROBE_*`≠REFUTE. `serve_three` "already running"≠healthy (H50/51 p234 t=000→reap 0,1).
 - `pgrep -f` false-matches SSH/watcher argv — use
+
   `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
   from `watch_n80_retry` (self-deadlock H32 pass198).
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin: check
@@ -147,4 +148,4 @@ Format: `- <finding> — <the number or error that proves it>`
 - `watch_n80_retry` must **not** `exec` the retry (pass203). Retry must
   **wait** engines (not abort-spam every 30s — pass205). Sim-alive check
   needs `python` in argv — bare `pgrep -f run_sim_duel` self-matches.
-- Money/platform: floor $10k; burn ~τ0.68; no cryptoType.
+  Money: floor $10k; burn ~τ0.68; no cryptoType.
