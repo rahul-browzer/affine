@@ -48,6 +48,7 @@ Format: `- <finding> — <the number or error that proves it>`
 ## Recipes already tried (do not repeat)
 - SFT/LoRA near-zero + α-merges dead (H1–H26): archive. No plain distill-on-refs; stop α/leary/plmk/m7-as-B/kkk.
 - **F1 Tok REINFORCE-L1 REFUTED (H98 p394):** m=+0.00229 z=0.42; mean_λ2_c≈king (−0.00304). Clip-L1 RL on Tok-init does not move Λ2 — same freeze as winner-zA/F2/F3. F8 Genesis-RL still open.
+- **F6 ultrashort≤80 format REFUTED (H101 p399):** m=−0.00453 z=−0.57; mean_λ2_c −0.00967 ≈ king −0.00895. Format rewrite ≠ Λ2 move under Tok-LoRA; do not sweep length cells.
 
 ## Serving / VLM
 - King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` + preprocessor + visual safetensors (333–352 keys). **Tok ships `processor_config.json` not `preprocessor_config.json`** — derive from `image_processor` or chall dies at MultiModalBudget (H79 p307).
@@ -111,13 +112,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F3 r=256 LoRA ceiling REFUTED (H97 p374):** Tok-init r256/α512 winner-zA →
   m=−0.01506 z=−1.84; mean_λ2_c −0.00013 vs king +0.00120. Rank≠base — LoRA
   at r=256 still cannot move Λ2. Do not retry higher rank / full-FT-as-LoRA.
-- H66 king mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe cache/king, serve_three (p271).
-  `serve_three` (p271); don't wait for post_train abort.
-  relaunches after king recover (H90 p342: prior exit@17:08 → rearm@17:19).
-- Teacher Triton ENOENT mid-inductor (`triton_poi_fused_*.json` ghost) → wipe
-  teacher* + unique TCACHE re-fire (H89 p334). Orphan `VLLM::Worker` with
-  open fds on nvidia0–3 (0 MiB) — kill carefully; concurrent reap coincided
-  with chall EngineDead on GPUs 4,5 → recover264 immediately.
+- H66/H90: king Triton ENOENT → reap GPU 2/3, wipe cache/king, `serve_three`; rearm n80 after king recover (don't wait for post_train abort).
+- Teacher Triton ENOENT mid-inductor → wipe teacher* + unique TCACHE (H89). Orphan `VLLM::Worker` ppid=1 on nvidia0–3 — kill carefully; concurrent reap can kill chall → recover264.
+- Mid-n80 king NCCL collective timeout → king API dies, orphan Workers hold GPUs 2,3 at util100; reap orphans then king332 (F9 p399); leave chall.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
   `/root/venv/bin/activate` ≤10m (H60/H61/H62).
 - Rent by UUID from `lium ls --count 8` $/h≥28 + verify COUNT=8 on the pod
