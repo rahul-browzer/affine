@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h77-1 | eager-shark-64 | 8×H200 | $28.00 | ~2026-08-08T23:44Z | H77 r17 vs Tok | **n80 a203** ~59/80 |
-| mine-h79-1 | lunar-shark-be | 8×H200 | $28.00 | ~2026-08-09T00:18Z | H79 Tok-init r18 | **n80 a203** ~31/80 |
-| mine-h80-1 | eager-shark-18 | 8×H200 | $28.00 | ~2026-08-09T00:26Z | H80 Tok-init r17 | **king311** loading |
-| mine-h81-1 | golden-orbit-da | 8×H200 | $31.92 | ~2026-08-09T01:19Z | H81 Tok-init r22 | **bootstrap** |
-| mine-h82-1 | golden-comet-74 | 8×H200 | $31.92 | ~2026-08-09T01:29Z | H82 Tok-init r23 | **bootstrap** |
+| mine-h77-1 | eager-shark-64 | 8×H200 | $28.00 | ~2026-08-08T23:44Z | H77 r17 vs Tok | **n80 a203** ~64/80 |
+| mine-h79-1 | lunar-shark-be | 8×H200 | $28.00 | ~2026-08-09T00:18Z | H79 Tok-init r18 | **n80 a203** ~35/80 |
+| mine-h80-1 | eager-shark-18 | 8×H200 | $28.00 | ~2026-08-09T00:26Z | H80 Tok-init r17 | **king314** isolated |
+| mine-h81-1 | golden-orbit-da | 8×H200 | $31.92 | ~2026-08-09T01:19Z | H81 Tok-init r22 | **bootstrap** dl |
+| mine-h82-1 | golden-comet-74 | 8×H200 | $31.92 | ~2026-08-09T01:29Z | H82 Tok-init r23 | **bootstrap** dl |
 
 SSH: h77 .237:40306 · h79 .232:40100 · h80 .236:40311 ·
 h81 .19:20100 · h82 .21:20100 ·
@@ -33,6 +33,6 @@ Account also has non-mine `wan-lora-train` / `affine-*` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T13:33Z | h77/79/80/81/82 | H80 king314 isolated re-fire; no rent/rm |
 | 2026-08-08T13:30Z | h77/79/80/81/82 | rm h76; rent h82; H76 REFUTE |
 | 2026-08-08T13:20Z | h76/77/79/80/81 | rm h78; rent h81; H80 king re-fire |
-| 2026-08-08T13:14Z | h76–80 match | H80 king311 after ENOENT; no rent/rm |

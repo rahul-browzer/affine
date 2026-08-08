@@ -31,7 +31,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H80 — Tok-init × winner-zA @ r=17 (non-α) — open
 - **Claim:** Tok-init neighbor of H79 at H69 shortlist rank → m>0.04.
-- **Status:** king311 loading (~37 GiB GPUs 2/3); chall OK; retry+mid304 armed.
+- **Status:** king314 isolated TCACHE loading (pid31892→32012); chall OK; retry+mid304 armed.
 
 ### H81 — Tok-init × winner-zA @ r=22 (non-α) — open
 - **Claim:** Tok-init rank step ≥3 from shortlist (r=22 untested) → m>0.04.
