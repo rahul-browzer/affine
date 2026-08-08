@@ -27,22 +27,22 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H99 / F2 — Target Λ2 via high-Λ2 z_A — open
 - **Claim:** Select z_A by Λ2≥0.02 (1059 ex; 65% not in clip-L1 set) → m>+0.015.
-- **Status:** TRAIN 50/60 on mine-f2-1; teacher recover332 @19:39Z (bare TCACHE ENOENT).
+- **Status:** TRAIN 60/60 DONE; merge_lora live; teacher shards 100% (TCACHE teacher_p332_*).
 - `experiments/s4-h99-f2-target-l2/` · `results/pass361_teacher_recover.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** TRAIN ~step35/200 on mine-f1-1; king332 isolated loading after bare ENOENT.
-- `experiments/s4-h98-f1-rl-l1/`.
+- **Status:** TRAIN live; king332 re-fired @19:42Z after ENOENT abort (WGUL55… launcher).
+- `experiments/s4-h98-f1-rl-l1/` · `results/pass362_king332_refire.md`.
 
 ### H97 / F3 — LoRA r=256 ceiling break — open
 - **Claim:** r=256/α512 Tok-init × winner-zA can move Λ2.
-- **Status:** chall salvage n_so 16→22 prefreeze relaunch @19:40Z (merge.done).
+- **Status:** chall salvage prefreeze n_so=22 loading (:8002); T/K 200.
 - `experiments/s4-h97-f3-r256/`.
 
 ### H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- H95 n80~14/80 + mid304; H96 n80~3/80 + mid304.
+- H95 n80~24/80 + mid304; H96 n80~11/80 + mid304.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
