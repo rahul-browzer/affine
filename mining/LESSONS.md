@@ -106,7 +106,7 @@ Format: `- <finding> — <the number or error that proves it>`
   High-lr ≥5.5 and **r=20** band-fail (same ×1.273 as H59). Dead: TP/m7×ks/union
   / lr≤2.5e-6∨=4e-6∨=5.1e-6∨=5.25e-6∨=5.3e-6∨=5.5e-6∨=5.75e-6∨=6e-6∨=7.5e-6∨=8e-6
   ∨≥3e-5 / ep≥2 / r≤8∨=20∨=24∨≥32 / α≤8∨=16∨≥64 / clip≥0.08. Open: H65@5.02
-  H63@5.05 H66@5.08 H61@5.15 H64@r18.
+  H63@5.05 H66@5.08 H61@5.15 H64@r18; queued H67@r19.
 - `watch_n80_retry` can launch `retry_h*_n80.sh` **before** bootstrap finishes
   pip → `source /root/venv/bin/activate` ENOENT (H60 @06:28Z). Retry scripts
   must wait for `/root/venv/bin/activate` (≤10m) before `source` (H61/H62).
