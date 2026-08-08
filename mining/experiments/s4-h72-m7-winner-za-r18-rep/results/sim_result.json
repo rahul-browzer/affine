@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2358.645781993866,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h72/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h72",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.009356114429568059,
+    "se": 0.007015130346938165,
+    "z": -1.3337050014546976,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.029831844265051848,
+      "gate_pass_rate": 0.8227848101265823,
+      "bank_frac": 0.4635416666666667,
+      "calib_ratio": 0.6845886511498984,
+      "baseline_abs": 0.13755795728193818,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": -0.00488651990871302,
+      "mean_mix": 0.029831844265051848
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.019837692715882094,
+      "gate_pass_rate": 0.83125,
+      "bank_frac": 0.478125,
+      "calib_ratio": 0.6578760192386192,
+      "baseline_abs": 0.15308699368043138,
+      "n_turns": 80,
+      "n_pairs": 320,
+      "mean_lambda2": -0.014939267306043667,
+      "mean_mix": 0.019837692715882094
+    },
+    "slice": {
+      "seed": 3836621630125450975,
+      "n": 80,
+      "digest": "08cbdcd2decc83e0fe496acf27565e14464975e499dc353f48ec971e2a45dd3a",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6578760192386192,
+    "chall_baseline_abs": 0.15308699368043138,
+    "king_baseline_abs": 0.13755795728193818,
+    "base_x": 1.112890862188837
+  }
+}

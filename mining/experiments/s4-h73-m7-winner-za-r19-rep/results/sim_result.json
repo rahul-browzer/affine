@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2289.15207195282,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h73/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h73",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.005810377494016894,
+    "se": 0.007864998469695458,
+    "z": -0.7387639700636685,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.039363666340361425,
+      "gate_pass_rate": 0.8734177215189873,
+      "bank_frac": 0.4427083333333333,
+      "calib_ratio": 0.6595776710992243,
+      "baseline_abs": 0.14403647017366464,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": 0.0001926544943103018,
+      "mean_mix": 0.039363666340361425
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.03374782440220762,
+      "gate_pass_rate": 0.846875,
+      "bank_frac": 0.53125,
+      "calib_ratio": 0.5792578229258768,
+      "baseline_abs": 0.16789464647294391,
+      "n_turns": 80,
+      "n_pairs": 320,
+      "mean_lambda2": -0.01042839843384151,
+      "mean_mix": 0.03374782440220762
+    },
+    "slice": {
+      "seed": 2683476761347853429,
+      "n": 80,
+      "digest": "390d971be3fcf6ca78ac14ab3c3c6c92d3249d7aae2dc3933d78dbe4e20e6016",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.5792578229258768,
+    "chall_baseline_abs": 0.16789464647294391,
+    "king_baseline_abs": 0.14403647017366464,
+    "base_x": 1.1656398290690788
+  }
+}

@@ -7,52 +7,56 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H72 | med | H64@r18 **replicate** vs Tok → m>0.04 | **open** (n80 ~68/80) |
-| 2 | H73 | med | H67@r19 **replicate** vs Tok → m>0.04 | **open** (n80 ~72/80) |
-| 3 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (n80 ~15/80) |
-| 4 | H75 | med | H64@r18 **rep#3** vs Tok → m>0.04 | **open** (chall loading) |
-| 5 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (bootstrap) |
+| 1 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (n80 ~30/80) |
+| 2 | H75 | med | H64@r18 **rep#3** vs Tok → m>0.04 | **open** (n80 ~2/80) |
+| 3 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (training) |
+| 4 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (bootstrap) |
+| 5 | H78 | med | r=21 untested vs Tok → m>0.04 | **open** (bootstrap) |
+| — | H73 | was med | H67@r19 replicate vs Tok | **refuted** m=−0.005810 |
+| — | H72 | was med | H64@r18 replicate vs Tok | **refuted** m=−0.009356 |
 | — | H71 | was med | H42 cell @ r=16 | **refuted** m=−0.013655 |
 | — | H70 | was med | H42 cell @ lr=5.01e-6 | **refuted** m=−0.000525 |
 | — | H69 | was med | H42 cell @ r=17 | **refuted** m=+0.01641 (old king) |
-| — | H68 | was med | H42 cell @ lr=4.95e-6 | **refuted** band×1.257 |
-| — | H67 | was med | H42 cell @ r=19 | **refuted** m=+0.01835 (shortlist→H73) |
-| — | H66 | was med | H42 cell @ lr=5.08e-6 | **refuted** m=+0.00976 |
-| — | H65 | was med | H42 cell @ lr=5.02e-6 | **refuted** m=+0.01829 |
-| — | H61 | was med | H42 cell @ lr=5.15e-6 | **refuted** band×1.262 |
-| — | H63 | was med | H42 cell @ lr=5.05e-6 | **refuted** m=+0.00424 |
-| — | H64 | was med | H42 cell @ r=18 | **refuted** m=+0.02509 (best; z=2.993) |
-| — | H62…H1 | — | see archive / below | **refuted** |
+| — | H68…H1 | — | see archive / below | **refuted** |
 | — | H3 | instrumental | clip-L1 lever | **supported** (+rank) |
 
 ---
 
 ## Open
 
-### H72 — H64@r18 replicate vs Tok (non-α) — open
-- **Claim:** re-draw of best cell (+0.02509) vs live king → m>0.04.
-- **Status:** n80 vs Tok a203 ~68/80. `…/pass290_recover264.md`.
-
-### H73 — H67@r19 replicate vs Tok (non-α) — open
-- **Claim:** H67 +0.01835 shortlist re-draw vs Tok → m>0.04.
-- **Status:** n80 vs Tok a203 ~72/80. `…/pass284_launch.md`.
-
 ### H74 — H64@r18 replicate #2 vs Tok (non-α) — open
 - **Claim:** second independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** n80 vs Tok a203 ~15/80. `…/pass294_salvage_n80.md`.
+- **Status:** n80 vs Tok a203 ~30/80. `…/pass294_salvage_n80.md`.
 
 ### H75 — H64@r18 replicate #3 vs Tok (non-α) — open
 - **Claim:** third independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** merge done; chall :8002 loading. `…/pass291_launch.md`.
+- **Status:** n80 vs Tok a203 ~2/80 (recover264 DONE). `…/pass291_launch.md`.
 
 ### H76 — H64@r18 replicate #4 vs Tok (non-α) — open
 - **Claim:** fourth independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** bootstrap on mine-h76-1. `…/pass295_launch.md`.
+- **Status:** training. `…/pass295_launch.md`.
+
+### H77 — H69@r17 Tok-retarget (non-α) — open
+- **Claim:** r17 shortlist (+0.01641 vs TalentPigs) clears Tok → m>0.04.
+- **Status:** bootstrap on mine-h77-1. `…/pass296_launch.md`.
+
+### H78 — m7×winner-zA @ r=21 vs Tok (non-α) — open
+- **Claim:** untested rank between shortlist and band-fail ranks → m>0.04.
+- **Status:** bootstrap on mine-h78-1. `…/pass296_launch.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
+
+### H73 — H67@r19 replicate vs Tok
+- m=−0.005810 z=−0.739 base×1.166 r=0.579 vs Tok. Gates OK. m≤0.
+  **r=19 dead vs Tok.** `…/pass296_n80_refute.md`.
+
+### H72 — H64@r18 replicate vs Tok
+- m=−0.009356 z=−1.334 base×1.113 r=0.658 vs Tok. Gates OK. m≤0.
+  One negative draw; H74/H75/H76 still resolve r18 vs Tok.
+  `…/pass296_n80_refute.md`.
 
 ### H71 — m7×winner-zA @ LoRA r=16
 - m=−0.013655 z=−2.344 base×1.100 r=0.609 vs Tok. Gates OK. m≤0.
@@ -64,7 +68,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H69 — m7×winner-zA @ LoRA r=17
 - m=+0.01641 z=2.05 base×1.196 r=0.602 vs TalentPigs (ranking-only).
-  Below crowning bar. **Shortlist-weak; no Tok re-sim.** `…/pass288_n80_refute.md`.
+  Below crowning bar. **Tok-retarget = H77.** `…/pass288_n80_refute.md`.
 
 ### H68 — m7×winner-zA @ lr=4.95e-6
 - chall INVALID band×**1.257**. margin 0. **lr=4.95e-6 dead.**
@@ -72,8 +76,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H67 — m7×winner-zA @ LoRA r=19
 - m=+0.01835 z=2.571 base×1.237 r=0.613. Gates OK. <0.04.
-  **Shortlist → H73 replicate vs Tok** (not blacklist r=19).
-  `s4-h67-…/results/pass284_n80_refute.md`.
+  **Shortlist → H73** (now REFUTE vs Tok). `…/pass284_n80_refute.md`.
 
 ### H66 — m7×winner-zA @ lr=5.08e-6
 - m=+0.00976 z=1.718 base×1.187 r=0.658. Gates OK. Far below bar.
@@ -92,8 +95,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
   `s4-h63-…/results/pass272_n80_refute.md`.
 
 ### H64 — m7×winner-zA @ LoRA r=18
-- m=+0.02509 z=2.993 base×1.248 r=0.604. Fails 3σ by ~6e-5.
-  **New best**; replicate as H72 vs Tok (not submit-dead only).
+- m=+0.02509 z=2.993 base×1.248 r=0.604. Fails 3σ by ~6e-5 vs TalentPigs.
+  **Best vs old king**; H72 redraw vs Tok m=−0.009. Keep H74–H76.
   `s4-h64-…/results/pass271_n80_refute.md`.
 
 ### H62 / H60 / H59 / H56 / H58 / H54 / H57 / H55
@@ -103,6 +106,6 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H51…H42 / H41…H1
 - See archive + LESSONS. Dead: α-merge / plmk / leary / **TP×ks** /
   **m7×ks** / m7×union / **lr≤2.5e-6∨=4e-6∨=4.95∨=5.02∨=5.05∨=5.08∨=5.1∨=5.15∨=5.25∨=5.3∨=5.5∨=5.75** /
-  **lr=6e-6∨7.5e-6∨8e-6** / **lr≥3e-5** / **ep≥2** / **r≤8∨=20∨=24∨≥32** /
-  **α≤8∨=16** / **α≥64** / **clip≥0.08**. Open: H72/H74/H75/H76@r18-rep
-  H73@r19-rep (all vs Tok). Dead also: **lr=5.01e-6** (H70); **r=16** (H71).
+  **lr=6e-6∨7.5e-6∨8e-6** / **lr≥3e-5** / **ep≥2** / **r≤8∨=16∨=19∨=20∨=24∨≥32** /
+  **α≤8∨=16** / **α≥64** / **clip≥0.08**. Open: H74–H76@r18 H77@r17 H78@r21
+  (all vs Tok). Dead also: **lr=5.01e-6** (H70).
