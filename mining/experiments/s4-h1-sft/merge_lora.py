@@ -91,12 +91,29 @@ def main() -> None:
     for name in (
         "config.json",
         "preprocessor_config.json",
+        "processor_config.json",
         "video_preprocessor_config.json",
     ):
         src = base_path / name
         if src.is_file():
             shutil.copy2(src, args.out / name)
             print(f"[merge] restored {name} from base", flush=True)
+    # Tok331102 ships processor_config.json (nested image_processor) but not
+    # preprocessor_config.json. Stock vLLM/transformers ImageProcessingMixin
+    # still requires preprocessor_config.json — without it chall dies at
+    # MultiModalBudget (H79 pass307). Derive it from processor_config when
+    # the flat file is absent.
+    pre_out = args.out / "preprocessor_config.json"
+    proc_src = base_path / "processor_config.json"
+    if not pre_out.is_file() and proc_src.is_file():
+        proc = json.loads(proc_src.read_text())
+        img = proc.get("image_processor", proc)
+        pre_out.write_text(json.dumps(img, indent=2) + "\n")
+        print(
+            "[merge] derived preprocessor_config.json from "
+            "processor_config.json image_processor",
+            flush=True,
+        )
 
     # CausalLM save also drops the vision tower (model.visual.*).
     # With the wrapper config restored, vLLM requires those weights.

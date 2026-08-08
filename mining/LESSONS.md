@@ -44,7 +44,9 @@ Format: `- <finding> — <the number or error that proves it>`
 ## Serving / VLM
 - King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops
   `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` +
-  preprocessor + visual safetensors (333–352 keys).
+  preprocessor + visual safetensors (333–352 keys). **Tok ships
+  `processor_config.json` not `preprocessor_config.json`** — derive the latter
+  from `image_processor` or chall dies at MultiModalBudget (H79 p307).
 - Weight-identity: sample head/mid/tail shards. first_1MiB alone is false (embeds).
 - `merge_linear.py` must track `max_abs_delta` over **all** keys (H12: first8 Δ=0
   but shard08 max‖A−O‖=0.215).
@@ -99,7 +101,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - Catalog 8×H200 @$23.20/h can 400 "GPU splitting"; fallback 8×B200 @$40/h
   (SM10.0; pass188). `$11.6/h` can be **4 GPUs** — always `nvidia-smi -L|=8`.
 - `sync_corpus` flocks + adopts existing `turns.jsonl` (rename race H29/H30).
-- H27 TP-init+same 406ex m=−0.00792 — do not retry TalentPigs-init shaping.
+  H27 TP-init shaping m=−0.00792 — do not retry.
 - Winner-zA LoRA m7-init: **H64@r18 +0.02509 best vs TalentPigs** (z=2.993);
   **H65@5.02e-6 +0.01829**; **H67@r19 +0.01835** (→H73); H42@5e-6 +0.01613;
   H57@5.25 +0.01537; H58@5.1 +0.01466; H54@8 +0.01380; H60@5.3 +0.01350;

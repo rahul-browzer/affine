@@ -37,11 +37,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H79 — Tok-init × winner-zA @ r=18 (non-α) — open
 - **Claim:** after H72+H74+H75 m≈≤0 on m7-init, Tok-init same hyps clears Tok.
-- **Status:** merge DONE non-id + HF `…-h79-merged`; king ~113 GiB load; chall pending.
+- **Status:** Tok-proc fixed (p307); recover264 chall loading → n80.
+  `…/pass307_tok_processor_fix.md`.
 
 ### H80 — Tok-init × winner-zA @ r=17 (non-α) — open
 - **Claim:** Tok-init neighbor of H79 at H69 shortlist rank → m>0.04.
-- **Status:** merge_lora saving; teacher up; chall/king not yet.
+- **Status:** merge DONE + Tok-proc patched; king loading → chall→n80.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
