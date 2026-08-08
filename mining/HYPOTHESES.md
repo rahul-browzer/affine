@@ -8,7 +8,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H58 | med | H42 cell @ **lr=5.1e-6** → m>0.04 | **open** (bootstrap) |
-| 2 | H57 | med | H42 cell @ **lr=5.25e-6** → m>0.04 | **open** (king prefreeze p249) |
+| 2 | H57 | med | H42 cell @ **lr=5.25e-6** → m>0.04 | **open** (n80 a203 after p249) |
 | 3 | H55 | med | H42 cell @ **lr=5.5e-6** → m>0.04 | **open** (king recover→n80) |
 | 4 | H56 | med | H42 cell @ **r=24** → m>0.04 | **open** (chall prefreeze) |
 | 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (king recover→n80) |
@@ -40,8 +40,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H57 — H28 @ lr=5.25e-6 (non-α)
 - **Claim:** ridge between H42 5e-6 and H55 5.5e-6 → m>0.04.
-- **Status:** n80 died king Triton ENOENT @4/80 → p249 chall-seed
-  prefreeze. `pass249_king_prefreeze.md`.
+- **Status:** p249 freeze a1 OK (w1–w3=200) → n80 a203 started.
+  `pass250_king_freeze_n80.md`.
 
 ### H55 — H28 @ lr=5.5e-6 (non-α)
 - **Claim:** between H42 5e-6 and dead H52 6e-6 → m>0.04.
