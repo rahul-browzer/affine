@@ -12,24 +12,24 @@ King Tok331102 S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$183,623** · cum ~$13,770 · **avail ~$173.6k** |
+| Lium / spend | **~$183,623** · cum ~$13,790 · **avail ~$173.6k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$179.5/h** (5 mine-*) ≪ $833/h · free slots **15** |
-| F4 | turns synced; frozen chall↑ pid=69660 → longwait n80 |
-| F6 | n80 a203 **62/80** |
-| F7 | b203first attempt2=c203 n80 (b203 attempt1 failed) |
-| F8 | king332 Tok util0.72 loading; then chall→n80 |
-| F9 | freeze DONE; n80 retry armed @22:30Z |
+| F4 | frozen chall↑ loading (shard/compile); longwait armed |
+| F6 | n80 a203 **68/80** |
+| F7 | c203 att2 n80 **2/80** |
+| F8 | king332 Tok loading; **longwait 360** armed; post_train→chall |
+| F9 | n80 b203 att2 just started |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
 | mine-f4-1 | calm-wolf-30 | 204.9.206.243:40099 | ~07:18Z+1d | F4 frozen chall↑→longwait |
-| mine-f6-1 | noble-shark-14 | 152.236.142.237:40300 | ~08:42Z+1d | F6 n80 a203 62/80 |
+| mine-f6-1 | noble-shark-14 | 152.236.142.237:40300 | ~08:42Z+1d | F6 n80 a203 68/80 |
 | mine-f7-1 | lunar-shark-87 | 152.236.142.232:40311 | ~08:52Z+1d | F7 c203 n80 att2 |
-| mine-f8-1 | brave-matrix-d8 | 152.236.142.236:40309 | ~09:04Z+1d | H103 king332→chall |
-| mine-f9-1 | lunar-fox-0a | 38.255.28.18:20099 | ~09:12Z+1d | H104 n80 armed |
+| mine-f8-1 | brave-matrix-d8 | 152.236.142.236:40309 | ~09:04Z+1d | H103 king332→chall→longwait |
+| mine-f9-1 | lunar-fox-0a | 38.255.28.18:20099 | ~09:12Z+1d | H104 n80 b203 |
 
 kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 Non-mine — **do not touch**.
@@ -43,7 +43,7 @@ FALSE_PROBE≠REFUTE; never rm non-mine; COUNT=8 & $/h≥28; never `pkill -f`.
 recover264=chall; king-only relaunch; seed chall from **pathfile** then live king TCACHE.
 **Pods must carry fixed `watch_n80_retry`** (match `retry_${hyp}_n80*`).
 **king_recover REPO must be live Tok**, not Genesis (p397 F8 bug).
-**d4 warmup quoting fixed** — old `\'print(\\"x\\"...` → SyntaxError.
+**F8:** shortwait 120 races king+chall cold load → use `retry_h103_n80_longwait` (p398).
 **F4:** if chall dies post-freeze, prefer frozen TCACHE relaunch (no wipe).
 
 ## Operator directive 2026-08-08T18:55Z
@@ -52,6 +52,5 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 ## Next action
 
-1. **F8** wait king332.done → `relaunch_chall_pass264` `/root/h103/merged` → n80.
-2. **F4** chall:8002 promptable → confirm longwait sampling; **F9** await margin.
-3. **F6/F7** await margins (F6~62/80; F7 on c203 att2).
+1. **F8** await king332.done → post_train chall-serve `/root/h103/merged` → longwait n80.
+2. **F6** await margin (~68/80); **F4** chall promptable→sampling; **F9/F7** await.

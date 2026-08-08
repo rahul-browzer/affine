@@ -42,8 +42,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
-- **Status:** king332 Tok util0.72 loading (p397); then chall→n80.
-- `experiments/s4-h103-f8-genesis-rl/` · `results/pass397_king_tok.md`.
+- **Status:** king332 Tok loading; longwait n80 armed (p398); post_train→chall when king↑.
+- `experiments/s4-h103-f8-genesis-rl/` · `results/pass398_longwait.md`.
 
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
