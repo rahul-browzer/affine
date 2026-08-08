@@ -7,51 +7,53 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H75 | med | H64@r18 **rep#3** vs Tok → m>0.04 | **open** (n80 ~69/80) |
-| 2 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (king300 → n80) |
-| 3 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (recover264) |
-| 4 | H78 | med | r=21 untested vs Tok → m>0.04 | **open** (chall loading) |
-| 5 | H79 | med | **Tok-init** × winner-zA@r18 → m>0.04 | **open** (bootstrap) |
+| 1 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (king300 → n80) |
+| 2 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (n80 running) |
+| 3 | H78 | med | r=21 untested vs Tok → m>0.04 | **open** (recover264) |
+| 4 | H79 | med | **Tok-init** × winner-zA@r18 → m>0.04 | **open** (training) |
+| 5 | H80 | med | **Tok-init** × winner-zA@r17 → m>0.04 | **open** (bootstrap) |
+| — | H75 | was med | H64@r18 rep#3 vs Tok | **refuted** m=+0.000550 |
 | — | H74 | was med | H64@r18 rep#2 vs Tok | **refuted** m=−0.011003 |
-| — | H73 | was med | H67@r19 replicate vs Tok | **refuted** m=−0.005810 |
-| — | H72 | was med | H64@r18 replicate vs Tok | **refuted** m=−0.009356 |
-| — | H71…H1 | — | see archive / below | **refuted** |
+| — | H73…H1 | — | see archive / below | **refuted** |
 | — | H3 | instrumental | clip-L1 lever | **supported** (+rank) |
 
 ---
 
 ## Open
 
-### H75 — H64@r18 replicate #3 vs Tok (non-α) — open
-- **Claim:** third independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** n80 vs Tok a203 ~69/80. `…/pass291_launch.md`.
-
 ### H76 — H64@r18 replicate #4 vs Tok (non-α) — open
 - **Claim:** fourth independent redraw of H64 cell vs Tok → m>0.04.
 - **Status:** n80 died@18/80 (king EngineDead); king300 recover loading;
-  retry armed for fresh a203. `…/pass300_king_recover.md`.
+  retry armed for fresh a203. Last m7×r18 draw. `…/pass300_king_recover.md`.
 
 ### H77 — H69@r17 Tok-retarget (non-α) — open
 - **Claim:** r17 shortlist (+0.01641 vs TalentPigs) clears Tok → m>0.04.
-- **Status:** merge done; chall Triton ENOENT → recover264 @12:16Z.
-  `…/pass299_recover264.md`.
+- **Status:** recover264 DONE → n80 a203 running. `…/pass299_recover264.md`.
 
 ### H78 — m7×winner-zA @ r=21 vs Tok (non-α) — open
 - **Claim:** untested rank between shortlist and band-fail ranks → m>0.04.
-- **Status:** merge.done; chall loading :8002. `…/pass296_launch.md`.
+- **Status:** chall up; recover264 diverse warm @12:26Z. `…/pass296_launch.md`.
 
 ### H79 — Tok-init × winner-zA @ r=18 (non-α) — open
-- **Claim:** after H72+H74 m≤0 on m7-init, Tok-init same hyps clears Tok → m>0.04.
-- **Status:** mine-h79-1 bootstrap. `…/pass299_launch.md`.
+- **Claim:** after H72+H74+H75 m≈≤0 on m7-init, Tok-init same hyps clears Tok.
+- **Status:** train_lora live. `…/pass299_launch.md`.
+
+### H80 — Tok-init × winner-zA @ r=17 (non-α) — open
+- **Claim:** Tok-init neighbor of H79 at H69 shortlist rank → m>0.04.
+- **Status:** mine-h80-1 bootstrap. `…/pass301_launch.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
 
+### H75 — H64@r18 replicate #3 vs Tok
+- m=+0.000550 z=0.101 base×1.095 r=0.560 vs Tok. Gates OK. Near-null.
+  Third failed m7×r18 redraw (w/ H72/H74). No more m7×r18 rents; H76 finishes.
+  `…/pass301_n80_refute.md`.
+
 ### H74 — H64@r18 replicate #2 vs Tok
 - m=−0.011003 z=−0.828 base×1.096 r=0.656 vs Tok. Gates OK. m≤0.
-  Second negative r18 redraw (w/ H72). No more m7×r18 rents; H75/H76 finish.
   `…/pass299_n80_refute.md`.
 
 ### H73 — H67@r19 replicate vs Tok
@@ -60,7 +62,6 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H72 — H64@r18 replicate vs Tok
 - m=−0.009356 z=−1.334 base×1.113 r=0.658 vs Tok. Gates OK. m≤0.
-  One negative draw; H75/H76 still resolve r18 vs Tok.
   `…/pass296_n80_refute.md`.
 
 ### H71 — m7×winner-zA @ LoRA r=16
@@ -73,7 +74,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H69 — m7×winner-zA @ LoRA r=17
 - m=+0.01641 z=2.05 base×1.196 r=0.602 vs TalentPigs (ranking-only).
-  Below crowning bar. **Tok-retarget = H77.** `…/pass288_n80_refute.md`.
+  Below crowning bar. **Tok-retarget = H77;** Tok-init twin = H80.
+  `…/pass288_n80_refute.md`.
 
 ### H68 — m7×winner-zA @ lr=4.95e-6
 - chall INVALID band×**1.257**. margin 0. **lr=4.95e-6 dead.**
@@ -93,7 +95,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H64 — m7×winner-zA @ LoRA r=18
 - m=+0.02509 z=2.993 base×1.248 r=0.604. Fails 3σ by ~6e-5 vs TalentPigs.
-  **Best vs old king**; H72/H74 redraws vs Tok m≤0. Keep H75/H76.
+  **Best vs old king**; H72/H74/H75 redraws vs Tok m≈≤0. H76 last draw.
   `s4-h64-…/results/pass271_n80_refute.md`.
 
 ### H62 / H61 / H60 / H59 / H56 / H58 / H54 / H57 / H55
@@ -104,5 +106,5 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - See archive + LESSONS. Dead: α-merge / plmk / leary / **TP×ks** /
   **m7×ks** / m7×union / **lr≤2.5e-6∨=4e-6∨=4.95∨=5.02∨=5.05∨=5.08∨=5.1∨=5.15∨=5.25∨=5.3∨=5.5∨=5.75** /
   **lr=6e-6∨7.5e-6∨8e-6** / **lr≥3e-5** / **ep≥2** / **r≤8∨=16∨=19∨=20∨=24∨≥32** /
-  **α≤8∨=16** / **α≥64** / **clip≥0.08** / king-self. Open: H75–H76@r18
-  H77@r17 H78@r21 H79 Tok-init. Dead also: **lr=5.01e-6** (H70).
+  **α≤8∨=16** / **α≥64** / **clip≥0.08** / king-self. Open: H76@r18
+  H77@r17 H78@r21 H79/H80 Tok-init. Dead also: **lr=5.01e-6** (H70).
