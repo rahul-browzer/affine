@@ -9,9 +9,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 |---|---|---|---|---|
 | 1 | H72 | med | H64@r18 **replicate** vs Tok → m>0.04 | **open** (merge) |
 | 2 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (bootstrap) |
-| 3 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 vs Tok | **open** (n80 ~34/80) |
+| 3 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 vs Tok | **open** (n80 ~51/80) |
 | 4 | H73 | med | H67@r19 **replicate** vs Tok → m>0.04 | **open** (merge) |
-| 5 | H71 | med | H42 cell @ **r=16** → m>0.04 vs Tok | **open** (recover264 warm) |
+| 5 | H71 | med | H42 cell @ **r=16** → m>0.04 vs Tok | **open** (n80 a203) |
 | — | H69 | was med | H42 cell @ r=17 | **refuted** m=+0.01641 (old king) |
 | — | H68 | was med | H42 cell @ lr=4.95e-6 | **refuted** band×1.257 |
 | — | H67 | was med | H42 cell @ r=19 | **refuted** m=+0.01835 (shortlist→H73) |
@@ -37,7 +37,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H70 — H28 @ lr=5.01e-6 (non-α) — open
 - **Claim:** between H42@5e-6 +0.016 and H65@5.02 +0.018 → m>0.04.
-- **Status:** n80 vs Tok (b203) ~34/80. `…/pass285_n80_vs_tok.md`.
+- **Status:** n80 vs Tok (b203) ~51/80. `…/pass285_n80_vs_tok.md`.
 
 ### H73 — H67@r19 replicate vs Tok (non-α) — open
 - **Claim:** H67 +0.01835 shortlist re-draw vs Tok → m>0.04.
@@ -45,7 +45,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H71 — H42 @ LoRA r=16 (non-α) — open
 - **Claim:** below H64@r18 → m>0.04 vs Tok.
-- **Status:** recover264 diverse-warm (:8002=200). `…/pass287_recover264.md`.
+- **Status:** n80 vs Tok a203 (salvage264 n_so22). `…/pass289_salvage_n80.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
