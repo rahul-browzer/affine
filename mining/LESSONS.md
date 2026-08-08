@@ -1,7 +1,5 @@
 # LESSONS — durable findings
-
-Hard-won knowledge, one line each. **Cap 150 lines** (per GOAL). Detail → `experiments/`.
-
+Hard-won knowledge, one line each. **Cap 150 lines.** Detail → `experiments/`.
 Format: `- <finding> — <the number or error that proves it>`
 
 ## Scoring / what actually moves S
@@ -120,11 +118,12 @@ Format: `- <finding> — <the number or error that proves it>`
   `turns.jsonl.tmp→turns.jsonl` rename → ENOENT → prewarm `set -e` dies
   before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
   never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
-- Winner-zA LoRA m7-init: H28 +0.01095; **H42@5e-6 +0.01613 best**; H46@2.5e-6
-  +0.00802; H45@r8 +0.00819; H47@α8 +0.00463; H49@α4 +0.01174; H48@1e-6
-  **band×1.269**; H43/H44 dead. Dead: TP/m7×ks/union / lr≤2.5e-6∨≥3e-5 /
-  ep≥2 / r≤8∨≥32 / α≤8∨≥64 / clip≥0.08. Open: H50@7.5e-6 H51@α16 H52@6e-6
-  H53@4e-6 H54@8e-6.
+- Winner-zA LoRA m7-init: H28 +0.01095; **H42@5e-6 +0.01613 best**; H52@6e-6
+  +0.01280; H50@7.5e-6 +0.00322; H46@2.5e-6 +0.00802; H45@r8 +0.00819;
+  H47@α8 +0.00463; H49@α4 +0.01174; H48@1e-6 **band×1.269**; H43/H44 dead.
+  lr curve **5e-6 > 6e-6 > 7.5e-6**. Dead: TP/m7×ks/union /
+  lr≤2.5e-6∨=6e-6∨=7.5e-6∨≥3e-5 / ep≥2 / r≤8∨≥32 / α≤8∨≥64 / clip≥0.08.
+  Open: H53@4e-6 H55@5.5e-6 H54@8e-6 H51@α16 H56@r24.
 - Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed, else
   path becomes `…-lr2e6` and upload `cp` fails silently on wrong glob.
 - Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always
@@ -147,4 +146,5 @@ Format: `- <finding> — <the number or error that proves it>`
   skip-if-sim-alive (H42/H43 p218) — kill both; skip if retry armed. Soft-deadline
   can abort wait-for-train before train.done (H53: abort 03:30, done 03:35) —
   relaunch post_train with extended SOFT/DEADMAN; do not tear down.
-- `watch_n80_retry` must **not** `exec` the retry (pass203); retry must **wait** engines (not abort-spam — pass205); sim-alive needs `python` in argv.
+  `watch_n80_retry` must **not** `exec` the retry (pass203); retry must **wait**
+  engines (not abort-spam — pass205); sim-alive needs `python` in argv.
