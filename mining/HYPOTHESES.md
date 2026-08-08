@@ -9,7 +9,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 |---|---|---|---|---|
 | 1 | H48 | med | H42 cell @ **lr=1e-6** → m>0.04 | **open** (n80 a203) |
 | 2 | H46 | med | H42 cell @ **lr=2.5e-6** → m>0.04 | **open** (n80 ~14/80) |
-| 3 | H49 | med | H28 cell @ **α=4 r16** → m>0.04 | **open** (merging) |
+| 3 | H49 | med | H28 cell @ **α=4 r16** → m>0.04 | **open** (n80 a203) |
 | 4 | H47 | med | H28 cell @ **α=8 r16** → m>0.04 | **open** (n80 ~20/80) |
 | 5 | H45 | med | H28 cell @ **lora r=8** → m>0.04 | **open** (n80 ~32/80) |
 | — | H44 | was med | H28 @ clipL1≥0.08 data | **refuted** m=−0.00017 |
@@ -31,8 +31,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H49 — H28 @ LoRA α=4 @ r16 (non-α)
 - **Claim:** α÷8 at fixed r16 (gentler than H47 α8) → m>0.04.
-- **Status:** merge writing shard; teacher relaunched p227 (Triton race).
-  `s4-h49-…/results/pass227_teacher_recover.md`.
+- **Status:** merge OK non-id; t+c TCACHE frozen; n80 a203 live.
+  `s4-h49-…/results/pass228_teacher_freeze_n80.md`.
 
 ### H48 — H28 @ lr=1e-6 (non-α)
 - **Claim:** half H46 LR → continues gentler-LR gain → m>0.04.
