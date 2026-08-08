@@ -109,9 +109,8 @@ Format: `- <finding> — <the number or error that proves it>`
   +0.01829**; **H67@r19 +0.01835** (z=2.57 base×1.237 shortlist→H73);
   H42@5e-6 +0.01613; H57@5.25 +0.01537; H58@5.1 +0.01466; H54@8 +0.01380;
   H60@5.3 +0.01350; H66@5.08 +0.00976; H63@5.05 +0.00424; H61@5.15 band×1.262;
-  H62@r20 band×1.273; **H68@4.95 band×1.257**. Dead lr incl. **4.95**. Open:
-  H70@5.01 H69@r17 H71@r16 H72@r18-rep H73@r19-rep (vs Tok). r=18/19 =
-  replicate-not-blacklist.
+  H62@r20 band×1.273; **H68@4.95 band×1.257**; H69@r17 +0.01641 vs
+  TalentPigs (below crown). Open: H70@5.01 H71@r16 H72/H74@r18 H73@r19.
 - H66 king mid-pipeline Triton ENOENT (`__triton_launcher.so` ghost) hung
   :8001 while APIServer alive — reap GPU 2/3 workers, wipe `cache/king`,
   relaunch via `serve_three` (pass271); do not wait for post_train abort.

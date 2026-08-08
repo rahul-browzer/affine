@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2776.024845600128,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h69/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h69",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.016407231493949917,
+    "se": 0.008007914054013989,
+    "z": 2.0488770712674853,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.02177613275637989,
+      "gate_pass_rate": 0.8338557993730408,
+      "bank_frac": 0.5114583333333333,
+      "calib_ratio": 0.7308746779168614,
+      "baseline_abs": 0.13029112275679086,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.006088967832532773,
+      "mean_mix": 0.02177613275637989
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.03815473830239885,
+      "gate_pass_rate": 0.81875,
+      "bank_frac": 0.58125,
+      "calib_ratio": 0.6024172561440786,
+      "baseline_abs": 0.15577181132847906,
+      "n_turns": 80,
+      "n_pairs": 320,
+      "mean_lambda2": -0.0022639609000431383,
+      "mean_mix": 0.03815473830239885
+    },
+    "slice": {
+      "seed": 6069315780770031143,
+      "n": 80,
+      "digest": "9afdb21ccad88900e8a2b4d100e4feb626b0f3a26f3b8946023e4887c77218ca",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6024172561440786,
+    "chall_baseline_abs": 0.15577181132847906,
+    "king_baseline_abs": 0.13029112275679086,
+    "base_x": 1.1955673420609934
+  }
+}

@@ -141,6 +141,14 @@ resubmitted by anyone.
   replay on public D.
 - Gate: only submit when your simulated paired margin over the current king is
   **> 0.04** (twice `min_margin`), to leave room for slice variance.
+- **0.04 is a SUBMIT gate, not a research kill threshold. Do not confuse them.**
+  The actual crowning rule is `margin > max(3·SE, 0.02)`, and at n=80 with
+  SE ≈ 0.0084 that is **≈0.025**. A config at +0.025 is not dead — it is at the
+  real bar and is your best lead. 0.04 exists only so that a *submission* still
+  clears after the validator re-draws its own slice.
+- Therefore: **never mark a config "dead" for landing under 0.04.** Reserve
+  "dead" for configs that are at or below zero, or that fail a gate. Anything
+  in 0.015–0.04 goes on a **shortlist to replicate**, not a blacklist.
 - Always dry-run `submit.py --check` first and paste the output into the
   experiment log.
 - One fresh registered hotkey per submission. Registration costs about τ0.81.
@@ -324,6 +332,17 @@ down. Serial hypothesis testing is the failure mode to avoid.
   a single point.
 - Variants must be **non-α**. Weight-merge α sweeps are refuted (n=9, mean
   −0.0014, best +0.0097, never half the bar) — do not spend a free slot on one.
+- **One n80 duel cannot resolve a small hyperparameter step. SE ≈ 0.0084.**
+  Two configs whose margins differ by less than ~0.017 (2·SE) are
+  indistinguishable from one draw each. So:
+  - Do **not** blacklist an individual lr or rank on the strength of one n80.
+    Sweeping lr at 1% steps (5.01 vs 5.02 vs 5.05e-6) and killing each on a
+    single draw is fitting noise, not finding a response curve.
+  - When a cell lands near the bar, **replicate that same cell** before moving
+    on. A second n80 on your best config is worth more than a new cell one
+    percent away, because the bar is `3·SE` and a re-draw is a fresh shot at it.
+  - Prefer axes that plausibly move the mean by **more than 0.017** (init model,
+    data source, rank in steps of ≥8, epochs) over micro-steps that cannot.
 - Keep each pod single-purpose and name it for its hypothesis
   (`mine-h7-1`, `mine-h8-1`), so a pass reading `INVENTORY.md` cold can tell
   what each one is for and kill the ones whose experiment is finished.
