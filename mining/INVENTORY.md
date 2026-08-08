@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h80-1 | eager-shark-18 | 8×H200 | $28.00 | ~2026-08-09T00:26Z | H80 Tok-init r17 | **n80** ~32/80 |
-| mine-h81-1 | golden-orbit-da | 8×H200 | $31.92 | ~2026-08-09T01:19Z | H81 Tok-init r22 | **merge** + preempt rearm |
-| mine-h82-1 | golden-comet-74 | 8×H200 | $31.92 | ~2026-08-09T01:29Z | H82 Tok-init r23 | **merge** + preempt rearm |
-| mine-h83-1 | cosmic-matrix-be | 8×H200 | $31.92 | ~2026-08-09T01:44Z | H83 Tok-init r25 | **train** r25 |
-| mine-h84-1 | gentle-lion-26 | 8×H200 | $28.00 | ~2026-08-09T01:56Z | H84 Tok-init r26 | **train** ~13/26 |
+| mine-h80-1 | eager-shark-18 | 8×H200 | $28.00 | ~2026-08-09T00:26Z | H80 Tok-init r17 | **n80** ~60/80 |
+| mine-h81-1 | golden-orbit-da | 8×H200 | $31.92 | ~2026-08-09T01:19Z | H81 Tok-init r22 | **n80** a203 + mid304 |
+| mine-h82-1 | golden-comet-74 | 8×H200 | $31.92 | ~2026-08-09T01:29Z | H82 Tok-init r23 | **merge** ~63G |
+| mine-h83-1 | cosmic-matrix-be | 8×H200 | $31.92 | ~2026-08-09T01:44Z | H83 Tok-init r25 | **merge** ~12G + preempt rearm |
+| mine-h84-1 | gentle-lion-26 | 8×H200 | $28.00 | ~2026-08-09T01:56Z | H84 Tok-init r26 | **serve** teacher/king |
 
 SSH: h80 .236:40311 · h81 .19:20100 · h82 .21:20100 ·
 h83 .18:20098 · h84 .237:40311 ·
@@ -33,6 +33,6 @@ Account also has non-mine `wan-lora-*` / `affine-*` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T14:21Z | h80/81/82/83/84 | H81 n80+mid304; rearm h83 preempt; no rent/rm |
 | 2026-08-08T14:08Z | h80/81/82/83/84 | H83 train; rearm h81/h82 preempt; no rent/rm |
 | 2026-08-08T14:03Z | h80/81/82/83/84 | H82 train→merge; H84 train; no rent/rm |
-| 2026-08-08T13:56Z | h80/81/82/83/84 | rm h79; rent h84; H80 n80+mid304 |
