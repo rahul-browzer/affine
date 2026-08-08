@@ -7,11 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H83 | med | **Tok-init** × winner-zA@r25 → m>0.04 | **open** (n80 ~70/80) |
-| 2 | H85 | med | **Tok-init** × winner-zA@r27 → m>0.04 | **open** (n80 ~1/80) |
-| 3 | H86 | med | **Tok-init** × winner-zA@r28 → m>0.04 | **open** (train) |
-| 4 | H87 | med | **Tok-init** × winner-zA@r29 → m>0.04 | **open** (bootstrap) |
-| 5 | H88 | med | **Tok-init** × winner-zA@r30 → m>0.04 | **open** (bootstrap) |
+| 1 | H85 | med | **Tok-init** × winner-zA@r27 → m>0.04 | **open** (n80 ~16/80) |
+| 2 | H86 | med | **Tok-init** × winner-zA@r28 → m>0.04 | **open** (recover→n80) |
+| 3 | H87 | med | **Tok-init** × winner-zA@r29 → m>0.04 | **open** (bootstrap) |
+| 4 | H88 | med | **Tok-init** × winner-zA@r30 → m>0.04 | **open** (bootstrap) |
+| 5 | H89 | med | **Tok-init** × winner-zA@r31 → m>0.04 | **open** (bootstrap) |
+| — | H83 | was med | **Tok-init** × winner-zA@r25 vs Tok | **refuted** m=+0.001012 |
 | — | H84 | was med | **Tok-init** × winner-zA@r26 vs Tok | **refuted** m=−0.002423 |
 | — | H82 | was med | **Tok-init** × winner-zA@r23 vs Tok | **refuted** m=−0.004388 |
 | — | H81 | was med | **Tok-init** × winner-zA@r22 vs Tok | **refuted** m=+0.008811 |
@@ -24,31 +25,36 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Open
 
-### H83 — Tok-init × winner-zA @ r=25 (non-α) — open
-- **Claim:** Tok-init r=25 (untested; ∉ dead) → m>0.04.
-- **Status:** n80 a203 **~70/80** + mid304. `…/pass323_n80_mid304.md`.
-
 ### H85 — Tok-init × winner-zA @ r=27 (non-α) — open
 - **Claim:** Tok-init r=27 → m>0.04.
-- **Status:** recover a2 DONE → n80 a203 **~1/80** + mid304.
+- **Status:** n80 a203 **~16/80** + mid304.
   `…/pass326_recover_n80.md`.
 
 ### H86 — Tok-init × winner-zA @ r=28 (non-α) — open
 - **Claim:** Tok-init r=28 → m>0.04.
-- **Status:** train step~26. `…/pass324_launch.md`.
+- **Status:** recover264 settle→w1 @15:37Z; ports 200; n80 pending.
+  `…/pass324_launch.md`.
 
 ### H87 — Tok-init × winner-zA @ r=29 (non-α) — open
 - **Claim:** after H82@r23 REFUTE, r=29 → m>0.04.
-- **Status:** bootstrap launched. `…/pass326_launch.md`.
+- **Status:** bootstrap DOWNLOAD tok-init. `…/pass326_launch.md`.
 
 ### H88 — Tok-init × winner-zA @ r=30 (non-α) — open
 - **Claim:** after H84@r26 REFUTE, r=30 → m>0.04.
-- **Status:** bootstrap launched. `…/pass326_launch.md`.
+- **Status:** bootstrap DOWNLOAD tok-init. `…/pass326_launch.md`.
+
+### H89 — Tok-init × winner-zA @ r=31 (non-α) — open
+- **Claim:** after H83@r25 REFUTE, r=31 → m>0.04.
+- **Status:** bootstrap launched. `…/pass327_launch.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
+
+### H83 — Tok-init × winner-zA @ r=25
+- m=+0.001012 z=0.202 base×0.975 r=0.582 vs Tok. Gates OK. m≈0.
+  **Tok-init r=25 dead vs Tok.** `…/pass327_n80_refute.md`.
 
 ### H84 — Tok-init × winner-zA @ r=26
 - m=−0.002423 z=−0.343 base×0.997 r=0.644 vs Tok. Gates OK. m≤0.
@@ -87,4 +93,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - See archive + LESSONS. Dead: α-merge / plmk / leary / **TP×ks** / **m7×ks** /
   m7×union / **lr micro-steps** / **ep≥2** / **r≤8∨=16–24∨≥32** /
   **α≤8∨=16∨≥64** / **clip≥0.08** / king-self / **Tok-init
-  r17∨r18∨r22∨r23∨r26**. Open: **H83/H85–H88**.
+  r17∨r18∨r22∨r23∨r25∨r26**. Open: **H85–H89**.
