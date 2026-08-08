@@ -42,9 +42,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** FALSE_PROBE (H32 overflow) quarantined; salvage 555 hang
-  unfrozen p386; chall reloading → n80 retry.
-- `experiments/s4-h102-f7-teacher-zc/` · `results/pass386_unfreeze_salvage.md`.
+- **Status:** salvage :8002=200; killed a203 (H32) → **b203 n80 live** p387.
+- `experiments/s4-h102-f7-teacher-zc/` · `results/pass387_b203_n80.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
