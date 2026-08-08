@@ -114,8 +114,9 @@ Format: `- <finding> — <the number or error that proves it>`
   (→H77 Tok / H80 Tok-init); **H70@5.01 −0.000525 vs Tok dead**; **H71@r16
   −0.01366 vs Tok dead**; **H72/H74/H75@r18 vs Tok** m=−0.009/−0.011/+0.00055
   (**H76@r18 −0.01974** closes m7×r18); **H73@r19 −0.00581 dead**;
-  **H78@r21 −0.00741 dead**; **H77@r17 −0.02176 dead** (closes m7×r17).
-  Open: **H79–H83 Tok-init** (r18/17/22/23/25).
+  **H78@r21 −0.00741 dead**; **H77@r17 −0.02176 dead** (closes m7×r17);
+  **H79 Tok-init@r18 −0.00784 dead** (gates OK). Open: **H80–H84 Tok-init**
+  (r17/22/23/25/26).
 - H66 king mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe
   `cache/king`, `serve_three` (p271); don't wait for post_train abort.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
