@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2747.1885612010956,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h58/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h58",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.014659640897925139,
+    "se": 0.007865584534162976,
+    "z": 1.8637700522133107,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.011109729347444936,
+      "gate_pass_rate": 0.8119122257053292,
+      "bank_frac": 0.45625,
+      "calib_ratio": 0.8019675543217847,
+      "baseline_abs": 0.11530364731450012,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.008927979982353368,
+      "mean_mix": 0.011109729347444936
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.024258100268929876,
+      "gate_pass_rate": 0.7931034482758621,
+      "bank_frac": 0.546875,
+      "calib_ratio": 0.6685150135833049,
+      "baseline_abs": 0.14049204020974596,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.008216889247071186,
+      "mean_mix": 0.024258100268929876
+    },
+    "slice": {
+      "seed": 8504845538639102809,
+      "n": 80,
+      "digest": "bdc149fdae6387677ef05bd55e09159f892e68c1668b4dea031d532183f74aab",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6685150135833049,
+    "chall_baseline_abs": 0.14049204020974596,
+    "king_baseline_abs": 0.11530364731450012,
+    "base_x": 1.218452698434963
+  }
+}

@@ -28,8 +28,9 @@ MERGED=${MERGED:-/root/h62/merged}
 SIM_N80=/root/affine_data/h62_sim_result.json
 PROG=/root/affine_data/h62_sim_progress.json
 LOG=/root/logs/h62_pipeline.nohup
-SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-08T20:00:00Z}
-DEADMAN_UTC=${DEADMAN_UTC:-2026-08-08T21:00:00Z}
+# Patched pass259: TTL remove_at=2026-08-08T19:01Z → soft=TTL−1h, deadman=TTL
+SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-08T18:01:00Z}
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-08T19:01:00Z}
 
 log() { echo "[h62-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
