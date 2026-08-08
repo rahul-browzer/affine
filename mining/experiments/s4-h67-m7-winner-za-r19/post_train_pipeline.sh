@@ -29,8 +29,8 @@ SIM_N80=/root/affine_data/h67_sim_result.json
 PROG=/root/affine_data/h67_sim_progress.json
 LOG=/root/logs/h67_pipeline.nohup
 # Patched pass259: TTL remove_at=2026-08-08T19:01Z → soft=TTL−1h, deadman=TTL
-SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-08T18:27:00Z}
-DEADMAN_UTC=${DEADMAN_UTC:-2026-08-08T18:57:00Z}
+SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-08T19:51:00Z}
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-08T20:21:00Z}
 
 log() { echo "[h67-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
