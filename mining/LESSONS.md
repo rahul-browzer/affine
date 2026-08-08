@@ -38,13 +38,8 @@ Format: `- <finding> — <the number or error that proves it>`
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 
 ## Recipes already tried (do not repeat)
-- SFT/LoRA near-zero: H1 -0.01994, H1v2 -0.00030, H5b +0.00322, H5c -0.01640
-  (clipL1 0.017 << king 0.028), H6 +0.00330. No plain distill-on-refs retry.
-- Merges: H2 kevin×pandora α0.5/−0.010 α0.65/+0.007; H5 kevin-dom×TP band/unpromptable
-  (A must be king); H7–H15+H18 α0.75 band-fail; H16/H17/H19 α0.90 band-clear
-  weak (+0.0097/−0.0037/+0.0035); H20 leary −0.01168; H21 sft2 α0.75 −0.00682;
-  H22 kevin α0.90 −0.01179; H25 m7 α0.90 +0.00662; H26 kkk α0.90 +0.00592
-  — stop α lottery / leary / m7 / kkk.
+- SFT/LoRA near-zero + α-merges dead (H1–H26): see HYPOTHESES/archive. No plain
+  distill-on-refs; stop α lottery / leary / plmk / m7-as-B / kkk.
 
 ## Serving / VLM
 - King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops
@@ -148,3 +143,4 @@ Format: `- <finding> — <the number or error that proves it>`
 - **Never sed-patch a running `post_train_pipeline.sh`** (H70 p282: retarget@09:59Z while merge ran → bash offset `line 134: --out: command not found` rc=127 after merge DONE; no merge.done). Patch only idle copies / env; if merge artifacts exist, write `merge.done` + `relaunch_chall` (do not re-merge).
 - **watch_preempt must not relaunch on isolated writable TCACHE** (H70 p283: chall health=200 @10:14:48Z settle→w1; preempt saw mode=755 n_so=16 “not frozen” → 2nd recover reaped healthy chall @10:14:49Z). Isolated path = leave alone; skip if `relaunch_chall` already alive; only bare `/root/.triton/cache/chall` launches recover.
 - Bare post_train chall can hit :8002=200 with mid-load Triton ghost WARNING then still finish; preempt264→recover264 is correct (H71 p287). Stale `retry_h*_n80` wait started before chall existed burns the 120×15s budget — recover kills+rearms; if no recover, kill retry PID near poll≳100 so watcher refreshes wait.
+- recover264 DONE rearms form+watch_n80 only — **not** preempt; rearm `watch_preempt_bare_tcache_pass264` after DONE (H78 p303) or mid-n80 bare has no watcher.

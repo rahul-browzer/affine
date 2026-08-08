@@ -9,7 +9,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 |---|---|---|---|---|
 | 1 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (king302 → n80) |
 | 2 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (king302 → n80) |
-| 3 | H78 | med | r=21 untested vs Tok → m>0.04 | **open** (recover264) |
+| 3 | H78 | med | r=21 untested vs Tok → m>0.04 | **open** (n80 a203) |
 | 4 | H79 | med | **Tok-init** × winner-zA@r18 → m>0.04 | **open** (training) |
 | 5 | H80 | med | **Tok-init** × winner-zA@r17 → m>0.04 | **open** (bootstrap) |
 | — | H75 | was med | H64@r18 rep#3 vs Tok | **refuted** m=+0.000550 |
@@ -33,7 +33,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H78 — m7×winner-zA @ r=21 vs Tok (non-α) — open
 - **Claim:** untested rank between shortlist and band-fail ranks → m>0.04.
-- **Status:** chall up; recover264 diverse warm @12:26Z. `…/pass296_launch.md`.
+- **Status:** recover264 salvage n_so16→22 freeze555 → n80 a203 @12:33Z.
+  `…/pass303_n80_start.md`.
 
 ### H79 — Tok-init × winner-zA @ r=18 (non-α) — open
 - **Claim:** after H72+H74+H75 m≈≤0 on m7-init, Tok-init same hyps clears Tok.
