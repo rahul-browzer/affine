@@ -119,9 +119,11 @@ Format: `- <finding> — <the number or error that proves it>`
   `turns.jsonl.tmp→turns.jsonl` rename → ENOENT → prewarm `set -e` dies
   before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
   never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
-- Winner-zA LoRA m7-init: H28 m=+0.01095; **H42@lr5e-6 m=+0.01613 best
-  family** (still <0.04); H46@2.5e-6 next. **TP×ks + m7×ks + m7×union dead**.
-  Intensity/capacity up kills — H37/H39/H38/H41; never lr≥3e-5 / ep≥2 / r≥32.
+- Winner-zA LoRA m7-init: H28 +0.01095; **H42@5e-6 +0.01613 best**; H43@α64
+  +0.01123; H40 ep3 REFUTE-by-ops (recover 212–219). Dead: TP/m7×ks/union /
+  lr≥3e-5 / ep≥2 / r≥32 / α≥64. Open: H46@2.5e-6 H47@α8 H48@1e-6 H44/H45.
+- Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed, else
+  path becomes `…-lr2e6` and upload `cp` fails silently on wrong glob.
 - Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always
   `nvidia-smi -L|wc -l`=8 after rent; reject <$20/h (was 2-GPU@$5.66; now 4 too).
 - `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up
