@@ -140,3 +140,4 @@ Format: `- <finding> — <the number or error that proves it>`
   retry (pass203); retry must **wait** engines; sim-alive needs `python` in argv.
 - Arm watch_preempt_bare_tcache before post_train chall serve (H63/H64 p264) — bare cache/chall n80 is the H61/H62 race; recover after chall_serve.done or :8002=200.
 - p264 preempt **validated** on H64 @07:56:29Z: bare `/root/.triton/cache/chall` → recover264 isolated seed+warm+freeze; kills post_train/wait; rearms form+n80 watchers (pass265).
+- Bare mid-n80 → fire recover264 **immediately** (H61 p266 @21/80); waiting for FALSE_PROBE wastes the slice. Arm preempt scripts on every hyp at rent (H61 lacked them).
