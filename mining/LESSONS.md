@@ -138,4 +138,4 @@ Format: `- <finding> — <the number or error that proves it>`
   script `:-` defaults to ≥TTL−1h (env alone dies on restart; pass245);
   relaunch post_train, never tear down. `watch_n80_retry` must **not** `exec`
   retry (pass203); retry must **wait** engines; sim-alive needs `python` in argv.
-- Arm \`watch_preempt_bare_tcache\` before post_train chall serve (H63/H64 p264) — bare \`cache/chall\` n80 is the H61/H62 race; recover after \`chall_serve.done\` or :8002=200.
+- Arm watch_preempt_bare_tcache before post_train chall serve (H63/H64 p264) — bare cache/chall n80 is the H61/H62 race; recover after chall_serve.done or :8002=200.
