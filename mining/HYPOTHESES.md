@@ -7,10 +7,10 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H88 | med | **Tok-init** × winner-zA@r30 → m>0.04 | **open** (n80+mid304 ~59/80) |
-| 2 | H89 | med | **Tok-init** × winner-zA@r31 → m>0.04 | **open** (n80+mid304 ~67/80) |
-| 3 | H90 | med | **Tok-init** × winner-zA@r14 → m>0.04 | **open** (king340) |
-| 4 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (king340+merge) |
+| 1 | H88 | med | **Tok-init** × winner-zA@r30 → m>0.04 | **open** (n80+mid304 ~66/80) |
+| 2 | H89 | med | **Tok-init** × winner-zA@r31 → m>0.04 | **open** (n80+mid304 ~71/80) |
+| 3 | H90 | med | **Tok-init** × winner-zA@r14 → m>0.04 | **open** (king340+retry120) |
+| 4 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (king DONE+merge) |
 | 5 | H92 | med | **Tok-init** × winner-zA@r13 → m>0.04 | **open** (bootstrap) |
 | — | H87 | was med | **Tok-init** × winner-zA@r29 vs Tok | **refuted** m=+0.005075 |
 | — | H86 | was med | **Tok-init** × winner-zA@r28 vs Tok | **refuted** m=−0.000341 |
@@ -28,19 +28,19 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H88 — Tok-init × winner-zA @ r=30 (non-α) — open
 - **Claim:** after H84@r26 REFUTE, r=30 → m>0.04.
-- **Status:** n80 a203 ~59/80 + mid304. `…/pass336_n80_mid304.md`.
+- **Status:** n80 a203 ~66/80 + mid304. `…/pass336_n80_mid304.md`.
 
 ### H89 — Tok-init × winner-zA @ r=31 (non-α) — open
 - **Claim:** after H83@r25 REFUTE, r=31 → m>0.04.
-- **Status:** n80 a203 ~67/80 + mid304. `…/pass336_n80_mid304.md`.
+- **Status:** n80 a203 ~71/80 + mid304. `…/pass336_n80_mid304.md`.
 
 ### H90 — Tok-init × winner-zA @ r=14 (non-α) — open
 - **Claim:** ≥8 from H81@r22; untested r=14 → m>0.04.
-- **Status:** king340 after mid-n80 sample_tokens TimeoutError. `…/pass340_king_recover.md`.
+- **Status:** king340 loading; n80 retry rearmed `_wait_engines 120` (p341). `…/pass341_retry_rearm.md`.
 
 ### H91 — Tok-init × winner-zA @ r=12 (non-α) — open
 - **Claim:** ≥8 from H81@r22; untested r=12 → m>0.04.
-- **Status:** king340 re-fire after p339 NODUTTS4 ENOENT; merge shard1/2. `…/pass340_king_recover.md`.
+- **Status:** king340 DONE `:8001=200`; merge writing shard2. `…/pass340_king_recover.md`.
 
 ### H92 — Tok-init × winner-zA @ r=13 (non-α) — open
 - **Claim:** between H91@r12 and H90@r14; untested r=13 → m>0.04.
