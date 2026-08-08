@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H85 | med | **Tok-init** × winner-zA@r27 → m>0.04 | **open** (n80 61/80) |
-| 2 | H86 | med | **Tok-init** × winner-zA@r28 → m>0.04 | **open** (n80 37/80) |
-| 3 | H87 | med | **Tok-init** × winner-zA@r29 → m>0.04 | **open** (merge+tchr p331) |
-| 4 | H88 | med | **Tok-init** × winner-zA@r30 → m>0.04 | **open** (merge) |
-| 5 | H89 | med | **Tok-init** × winner-zA@r31 → m>0.04 | **open** (recover264) |
+| 1 | H86 | med | **Tok-init** × winner-zA@r28 → m>0.04 | **open** (n80 ~60/80) |
+| 2 | H87 | med | **Tok-init** × winner-zA@r29 → m>0.04 | **open** (chall bare) |
+| 3 | H88 | med | **Tok-init** × winner-zA@r30 → m>0.04 | **open** (merge) |
+| 4 | H89 | med | **Tok-init** × winner-zA@r31 → m>0.04 | **open** (tchr+king p332) |
+| — | H85 | was med | **Tok-init** × winner-zA@r27 vs Tok | **refuted** m=−0.008170 |
 | — | H83 | was med | **Tok-init** × winner-zA@r25 vs Tok | **refuted** m=+0.001012 |
 | — | H84 | was med | **Tok-init** × winner-zA@r26 vs Tok | **refuted** m=−0.002423 |
 | — | H82 | was med | **Tok-init** × winner-zA@r23 vs Tok | **refuted** m=−0.004388 |
@@ -25,18 +25,14 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Open
 
-### H85 — Tok-init × winner-zA @ r=27 (non-α) — open
-- **Claim:** Tok-init r=27 → m>0.04.
-- **Status:** n80 a203 **61/80** + mid304.
-
 ### H86 — Tok-init × winner-zA @ r=28 (non-α) — open
 - **Claim:** Tok-init r=28 → m>0.04.
-- **Status:** n80 a203 **37/80** + mid304. `…/pass328_n80_armed.md`.
+- **Status:** n80 a203 **~60/80** + mid304.
 
 ### H87 — Tok-init × winner-zA @ r=29 (non-α) — open
 - **Claim:** after H82@r23 REFUTE, r=29 → m>0.04.
-- **Status:** train DONE loss0.415 → merge writing; teacher recover331
-  (Triton ENOENT bare cache). `…/pass331_teacher_recover.md`.
+- **Status:** merge DONE · chall bare loading · preempt rearmed p332.
+  `…/pass332_merge_chall_preempt.md`.
 
 ### H88 — Tok-init × winner-zA @ r=30 (non-α) — open
 - **Claim:** after H84@r26 REFUTE, r=30 → m>0.04.
@@ -44,13 +40,17 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H89 — Tok-init × winner-zA @ r=31 (non-α) — open
 - **Claim:** after H83@r25 REFUTE, r=31 → m>0.04.
-- **Status:** chall briefly ALL_READY on bare TCACHE → preempt→recover264.
-  HF salvage `unconst/Affine-5czsc2fc98-h89-merged`.
+- **Status:** recover264 DONE chall :8002; teacher+king bare ENOENT →
+  recover332 isolated. `…/pass332_teacher_king_recover.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
+
+### H85 — Tok-init × winner-zA @ r=27
+- m=−0.008170 z=−1.282 base×0.973 r=0.684 vs Tok. Gates OK. m≤0.
+  **Tok-init r=27 dead vs Tok.** `…/pass332_n80_refute.md`.
 
 ### H83 — Tok-init × winner-zA @ r=25
 - m=+0.001012 z=0.202 base×0.975 r=0.582 vs Tok. Gates OK. m≈0.
@@ -93,4 +93,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - See archive + LESSONS. Dead: α-merge / plmk / leary / **TP×ks** / **m7×ks** /
   m7×union / **lr micro-steps** / **ep≥2** / **r≤8∨=16–24∨≥32** /
   **α≤8∨=16∨≥64** / **clip≥0.08** / king-self / **Tok-init
-  r17∨r18∨r22∨r23∨r25∨r26**. Open: **H85–H89**.
+  r17∨r18∨r22∨r23∨r25∨r26∨r27**. Open: **H86–H89**.

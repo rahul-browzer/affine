@@ -1,7 +1,6 @@
 # LESSONS — durable findings
 Hard-won knowledge, one line each. **Cap 150 lines.** Detail → `experiments/`.
 Format: `- <finding> — <the number or error that proves it>`
-
 ## Scoring / what actually moves S
 - All `lp*` are echo+logprob **forced** scores normalized per byte (`lp_per_byte`).
 - `S` is only comparable **within one duel** (slice = reveal-block seed). Never
@@ -117,9 +116,10 @@ Format: `- <finding> — <the number or error that proves it>`
   **H78@r21 −0.00741 dead**; **H77@r17 −0.02176 dead** (closes m7×r17);
   **H79 Tok-init@r18 −0.00784 dead**; **H80 Tok-init@r17 −0.000821 dead**;
   **H81 Tok-init@r22 +0.008811** (<0.015); **H82@r23 −0.00439 dead**;
-  **H83@r25 +0.00101 dead**; **H84@r26 −0.00242 dead**. Open: **H85–H89**
-  (r27–31). H66 king mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3,
-  wipe `cache/king`, `serve_three` (p271); don't wait for post_train abort.
+  **H83@r25 +0.00101 dead**; **H84@r26 −0.00242 dead**; **H85@r27
+  −0.00817 dead**. Open: **H86–H89** (r28–31). H66 king mid-pipeline Triton
+  ENOENT hung :8001 — reap GPU 2/3, wipe `cache/king`, `serve_three` (p271);
+  don't wait for post_train abort.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
   `/root/venv/bin/activate` ≤10m (H60/H61/H62).
 - Rent by UUID from `lium ls --count 8` $/h≥28 + verify COUNT=8 (`lium up
