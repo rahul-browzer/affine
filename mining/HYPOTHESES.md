@@ -7,10 +7,10 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H81 | med | **Tok-init** × winner-zA@r22 → m>0.04 | **open** (n80 ~49/80) |
-| 2 | H82 | med | **Tok-init** × winner-zA@r23 → m>0.04 | **open** (n80 ~8/80) |
-| 3 | H83 | med | **Tok-init** × winner-zA@r25 → m>0.04 | **open** (chall serve) |
-| 4 | H84 | med | **Tok-init** × winner-zA@r26 → m>0.04 | **open** (king322+mid304) |
+| 1 | H81 | med | **Tok-init** × winner-zA@r22 → m>0.04 | **open** (n80 ~73/80) |
+| 2 | H82 | med | **Tok-init** × winner-zA@r23 → m>0.04 | **open** (n80 ~30/80) |
+| 3 | H83 | med | **Tok-init** × winner-zA@r25 → m>0.04 | **open** (n80 + mid304) |
+| 4 | H84 | med | **Tok-init** × winner-zA@r26 → m>0.04 | **open** (n80 b203 ~6/80) |
 | 5 | H85 | med | **Tok-init** × winner-zA@r27 → m>0.04 | **open** (train) |
 | — | H80 | was med | **Tok-init** × winner-zA@r17 vs Tok | **refuted** m=−0.000821 |
 | — | H79 | was med | **Tok-init** × winner-zA@r18 vs Tok | **refuted** m=−0.007836 |
@@ -26,20 +26,20 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H81 — Tok-init × winner-zA @ r=22 (non-α) — open
 - **Claim:** Tok-init rank step ≥3 from shortlist (r=22 untested) → m>0.04.
-- **Status:** n80 a203 **~49/80**; mid304 armed.
+- **Status:** n80 a203 **~73/80**; mid304 armed.
 
 ### H82 — Tok-init × winner-zA @ r=23 (non-α) — open
 - **Claim:** Tok-init rank neighbor of H81 (r=23 untested) → m>0.04.
-- **Status:** n80 a203 **~8/80** + mid304. `…/pass321_n80_mid304.md`.
+- **Status:** n80 a203 **~30/80** + mid304. `…/pass321_n80_mid304.md`.
 
 ### H83 — Tok-init × winner-zA @ r=25 (non-α) — open
 - **Claim:** Tok-init r=25 (untested; ∉ dead) → m>0.04.
-- **Status:** merge DONE OK_NON_IDENTICAL; teacher+king up; chall serve pending.
+- **Status:** recover264 DONE → n80 a203 LIVE + mid304. `…/pass323_n80_mid304.md`.
 
 ### H84 — Tok-init × winner-zA @ r=26 (non-α) — open
 - **Claim:** after H79 Tok-init@r18 REFUTE, r=26 → m>0.04.
-- **Status:** mid-n80 bare king ENOENT → **king322** isolated util=0.72 + mid304.
-  `…/pass322_king_recover_mid304.md`.
+- **Status:** king322 PROMPTABLE → n80 **b203** ~6/80 + mid304.
+  `…/pass323_n80_live.md`.
 
 ### H85 — Tok-init × winner-zA @ r=27 (non-α) — open
 - **Claim:** after H80 Tok-init@r17 REFUTE, r=27 (≥3 step, ∉ dead) → m>0.04.
