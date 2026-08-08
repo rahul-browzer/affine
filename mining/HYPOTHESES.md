@@ -9,7 +9,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 |---|---|---|---|---|
 | 1 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (n80 ~20/80) |
 | 2 | H92 | med | **Tok-init** × winner-zA@r13 → m>0.04 | **open** (n80 ~3/80) |
-| 3 | H94 | med | **Tok-init** × winner-zA@r11 → m>0.04 | **open** (chall load) |
+| 3 | H94 | med | **Tok-init** × winner-zA@r11 → m>0.04 | **open** (recover347) |
 | 4 | H93 | med | **Tok-init** × winner-zA@r15 → m>0.04 | **open** (train ~26) |
 | 5 | H95 | med | **Tok-init** × winner-zA@r10 → m>0.04 | **open** (bootstrap) |
 | — | H90 | was med | **Tok-init** × winner-zA@r14 vs Tok | **refuted** m=−0.008472 |
@@ -38,7 +38,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H94 — Tok-init × winner-zA @ r=11 (non-α) — open
 - **Claim:** between dead ≤8 and live r12; untested r=11 → m>0.04.
-- **Status:** merge.done; chall loading. `…/pass343_rent.md`.
+- **Status:** bare chall ENOENT → recover347 (seed king n_so=16).
+  `…/pass347_chall_recover.md`.
 
 ### H95 — Tok-init × winner-zA @ r=10 (non-α) — open
 - **Claim:** gap dead ≤8 ↔ live r11; untested r=10 → m>0.04.
