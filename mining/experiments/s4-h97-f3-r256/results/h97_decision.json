@@ -1,0 +1,22 @@
+{
+  "hypo": "H97",
+  "family": "F3",
+  "utc": "2026-08-08T20:49:25Z",
+  "king": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "margin": -0.015057552113781129,
+  "se": 0.008177030954075409,
+  "z": -1.841444920332176,
+  "challenger_wins": false,
+  "king_S": 0.04512314889154849,
+  "chall_S": 0.03246919726739321,
+  "king_valid": true,
+  "chall_valid": true,
+  "king_mean_lambda2": 0.0012028396345512892,
+  "chall_mean_lambda2": -0.00013360023091211896,
+  "gates_ok": true,
+  "verdict": "REFUTE",
+  "reason": "m=-0.015057 <=0; r=256 did not break LoRA ceiling vs Tok",
+  "decision_rule": "m<=0 -> REFUTE; tear mine-f3-1"
+}

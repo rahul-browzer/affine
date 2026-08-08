@@ -1,5 +1,6 @@
 # LESSONS — durable findings
 Hard-won knowledge, one line each. **Cap 150 lines.** Detail → `experiments/`.
+Overflow: `archive/LESSONS-overflow-2026-08-08-p374.md`.
 Format: `- <finding> — <the number or error that proves it>`
 ## Method search — read before spending a slot
 - **95 experiments = 2 families, not 95 ideas.** All were weight-merge or
@@ -44,7 +45,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - Clip-L1 shaping data ≠ teacher_refs: harvest challenger `z_A` with
   pair clipL1≥0.04 from high-c_clipL1 duels (+ crown), y=teacher y_C,
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
-
 ## Recipes already tried (do not repeat)
 - SFT/LoRA near-zero + α-merges dead (H1–H26): see archive. No plain distill-on-refs; stop α lottery / leary / plmk / m7-as-B / kkk.
 
@@ -109,6 +109,9 @@ Format: `- <finding> — <the number or error that proves it>`
   as SFT data does not move Λ2 under king-init LoRA — same frozen-Λ2 failure mode
   as clip-L1 winner-zA. Need non-king base (F4) or non-SFT recipe (F1), not more
   data filters.
+- **F3 r=256 LoRA ceiling REFUTED (H97 p374):** Tok-init r256/α512 winner-zA →
+  m=−0.01506 z=−1.84; mean_λ2_c −0.00013 vs king +0.00120. Rank≠base — LoRA
+  at r=256 still cannot move Λ2. Do not retry higher rank / full-FT-as-LoRA.
 - H66 king
   mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe `cache/king`,
   `serve_three` (p271); don't wait for post_train abort.
@@ -123,9 +126,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - Rent by UUID from `lium ls --count 8` $/h≥28 + verify COUNT=8 on the pod
   (`nvidia-smi -L|wc -l`; catalog can lie — COUNT=5@$14.5 or COUNT=7@$31.92
   H99 p355). Always `-y` (bare `yes|` floods SSH with `y: command not found`).
-- p253/p260 diverse writable warmups→freeze beats short-only post-w1 freeze.
-- B300 flashinfer JIT: clear `cached_ops/sampling`, `SERVE_STAGGER_S≥45`.
-- Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed.
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
   → n80 → `__triton_launcher.so` → ConnectError false REFUTE in ~6m; quarantine
   + GPU-index chall relaunch + completions probe before retry.

@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2636.4222373962402,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h97/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h97",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.015057552113781129,
+    "se": 0.008177030954075409,
+    "z": -1.841444920332176,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.04512314889154849,
+      "gate_pass_rate": 0.8387096774193549,
+      "bank_frac": 0.4666666666666667,
+      "calib_ratio": 0.6157820460630011,
+      "baseline_abs": 0.15760797658519501,
+      "n_turns": 80,
+      "n_pairs": 310,
+      "mean_lambda2": 0.0012028396345512892,
+      "mean_mix": 0.04512314889154849
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.03246919726739321,
+      "gate_pass_rate": 0.7909407665505227,
+      "bank_frac": 0.5197916666666667,
+      "calib_ratio": 0.725329153908306,
+      "baseline_abs": 0.14089595105471422,
+      "n_turns": 80,
+      "n_pairs": 287,
+      "mean_lambda2": -0.00013360023091211896,
+      "mean_mix": 0.03246919726739321
+    },
+    "slice": {
+      "seed": 5784491777443117438,
+      "n": 80,
+      "digest": "f97bfcb9993578c6b0a8eb8f81d88af54d25d2aa72ce095ef74c867b7e4c3fbc",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.725329153908306,
+    "chall_baseline_abs": 0.14089595105471422,
+    "king_baseline_abs": 0.15760797658519501,
+    "base_x": 0.8939645956215477
+  }
+}
