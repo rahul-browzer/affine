@@ -68,7 +68,7 @@ Format: `- <finding> — <the number or error that proves it>`
   workers (orphan EngineCore holds ~117 GiB → relaunch OOM). Chall util **0.72**.
 - Nested decisions only: `write_merge_decision.py` (flat `margin` false-REFUTEs).
   Sidecar `watch_form_decision.sh` / `watch_n80_retry.sh`; never edit live start_*.
-  Match `retry_${hyp}_n80*` not only `…_n80.sh` — `_longwait`/`_b203first` invisible → 30s respawn resets poll (F4 p392).
+  Match `retry_${hyp}_n80*` not only `…_n80.sh` — `_longwait`/`_b203first` invisible → 30s respawn (F4 p392; F7 p396 dual c203+b203). **SCP watcher to pods** — local fix ≠ live.
 - Teacher timeouts: need outer 3× retry even at 480s×5 (H9@60/80).
 - Parent HF gated: m7→Radiant28/…-m7@f766293; plmk/kkk mirrors; pin duel SHA.
 - Lium catalog lies: after rent `nvidia-smi -L|wc -l`=8; reject $/h<28. Prefer `lium up --gpu H200 -c 8`.
@@ -146,5 +146,5 @@ Format: `- <finding> — <the number or error that proves it>`
 - **watch_preempt must not relaunch on isolated writable TCACHE** (H70 p283: chall health=200 @10:14:48Z settle→w1; preempt saw mode=755 n_so=16 “not frozen” → 2nd recover reaped healthy chall @10:14:49Z). Isolated path = leave alone; skip if `relaunch_chall` already alive; only bare `/root/.triton/cache/chall` launches recover.
 - Bare chall :8002=200 can still die mid-load Triton ghost — preempt264→recover264 (H71). Stale n80 wait burns 120×15s — recover kills+rearms; else kill retry near poll≳100.
 - recover264 DONE rearms form+n80 only (not preempt/mid304). Match `$0` via `/proc/*/cmdline` (H82/H93). Seed chall from **`*_king_tcache_pass332.path` first**, then live :8001 environ, then `isolated/*king*` — never bare `cache/king` alone. F4 p395: pathfile+19 .so present yet relaunch logged `no king TCACHE`; mid-load rsync 0→19 .so unblocked. clone: `test -x` rearm (H94).
-- Peer-seed mid-load when seed misses or hash absent (F6 a1 `6YKNXZRS…`; F4 p395). **Salvage pre-freeze 555 hangs load** if torchinductor twin is also 555 — APIServer stalls before EngineCore at ~4 MiB; `chmod 755` both mid-load unblocks (F7 p386).
+- Peer-seed mid-load when seed misses (F4 p395). **Bare peer-seed then preempt kills healthy chall** (F9 p396: 200→recover); prefer isolated from first launch. Salvage 555 hang: `chmod 755` TCACHE+torchinductor (F7 p386).
 - **huggingface_hub≥1.27 never resumes** `.incomplete`: unique `{etag}.{uuid}.incomplete` opened `"wb"`, deleted on fail (PR#4228). Orphan large incompletes need HTTP `Range` resume (H100/F4 p383). **post_train/n80 120×15s races Range** — kill waiter + arm tok.done→king→chall; n80 needs `retry_*_longwait` ≥360×15s (F4 p388/p391).

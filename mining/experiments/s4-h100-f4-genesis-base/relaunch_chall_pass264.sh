@@ -338,10 +338,13 @@ for attempt in 1 2 3; do
   n_seed=0
   SEED_SRC=""
   # Prefer pathfile written by king_recover_pass332 (ps/environ race missed it p395).
-  if [[ -f /root/logs/h100_king_tcache_pass332.path ]]; then
-    SEED_SRC=$(cat /root/logs/h100_king_tcache_pass332.path 2>/dev/null || true)
-    [[ -n "$SEED_SRC" && -d "$SEED_SRC" ]] || SEED_SRC=""
-  fi
+  # Glob hyp-agnostic: h100/h104/…_king_tcache_pass332.path (p396).
+  for _pf in /root/logs/*_king_tcache_pass332.path; do
+    [[ -f "$_pf" ]] || continue
+    SEED_SRC=$(cat "$_pf" 2>/dev/null || true)
+    [[ -n "$SEED_SRC" && -d "$SEED_SRC" ]] && break
+    SEED_SRC=""
+  done
   if [[ -z "$SEED_SRC" ]]; then
     # Use args (not cmd) + split match — ps truncation can drop "--port 8001".
     for pid in $(ps -eo pid,args | awk '/\/vllm/ && /serve/ && /--port 8001/ {print $1}'); do
