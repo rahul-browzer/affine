@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H67 | med | H42 cell @ **r=19** → m>0.04 | **open** (n80 ~10/80) |
-| 2 | H69 | med | H42 cell @ **r=17** → m>0.04 | **open** (merge) |
-| 3 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 | **open** (bootstrap) |
-| 4 | H66 | med | H42 cell @ **lr=5.08e-6** → m>0.04 | **open** (n80 ~40/80) |
-| 5 | H68 | med | H42 cell @ **lr=4.95e-6** → m>0.04 | **open** (n80 ~7/80) |
+| 1 | H67 | med | H42 cell @ **r=19** → m>0.04 | **open** (n80 ~29/80) |
+| 2 | H69 | med | H42 cell @ **r=17** → m>0.04 | **open** (n80 a203 up) |
+| 3 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 | **open** (training) |
+| 4 | H66 | med | H42 cell @ **lr=5.08e-6** → m>0.04 | **open** (n80 ~63/80) |
+| 5 | H68 | med | H42 cell @ **lr=4.95e-6** → m>0.04 | **open** (n80 ~28/80) |
 | — | H65 | was med | H42 cell @ lr=5.02e-6 | **refuted** m=+0.01829 |
 | — | H61 | was med | H42 cell @ lr=5.15e-6 | **refuted** band×1.262 |
 | — | H63 | was med | H42 cell @ lr=5.05e-6 | **refuted** m=+0.00424 |
@@ -34,26 +34,26 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H67 — H42 @ LoRA r=19 (non-α) — open
 - **Claim:** between H64@r18 best-short and H62@r20 band-dead → m>0.04.
-- **Status:** recover264 DONE → n80 a203 ~10/80.
+- **Status:** n80 a203 ~29/80.
   `s4-h67-…/results/pass276_n80_started.md`.
 
 ### H69 — H42 @ LoRA r=17 (non-α) — open
 - **Claim:** below H64@r18 best → m>0.04 (r≤8 dead).
-- **Status:** merge DONE; chall loading; preempt rearmed p277.
-  `s4-h69-…/results/pass277_preempt_rearm.md`.
+- **Status:** recover264 DONE → n80 a203 started @09:54Z.
+  `s4-h69-…/results/pass278_n80_started.md`.
 
 ### H70 — H28 @ lr=5.01e-6 (non-α) — open
 - **Claim:** between H42@5e-6 +0.016 and H65@5.02 +0.018 → m>0.04.
-- **Status:** rented+bootstrap. `s4-h70-…/results/pass276_launch.md`.
+- **Status:** training on GPUs 6–7. `s4-h70-…/results/pass276_launch.md`.
 
 ### H66 — H28 @ lr=5.08e-6 (non-α)
 - **Claim:** between H63@5.05 dead and H58@5.1 dead → m>0.04.
-- **Status:** n80 a203 ~40/80.
+- **Status:** n80 a203 ~63/80.
   `s4-h66-…/results/pass274_recover_n80.md`.
 
 ### H68 — H28 @ lr=4.95e-6 (non-α)
 - **Claim:** just under H42@5e-6 peak (H53@4e-6 dead) → m>0.04.
-- **Status:** recover264 DONE → n80 a203 ~7/80.
+- **Status:** n80 a203 ~28/80.
   `s4-h68-…/results/pass276_n80_started.md`.
 
 ### H3 — clip-L1 lever (supported)

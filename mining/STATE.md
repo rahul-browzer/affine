@@ -15,23 +15,23 @@ Was H42 lr5e-6 m=+0.01613. **H61/H63 REFUTE**.
 |---|---|
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
-| Lium / spend | **~$187,600** · cum mining ~$8,187 · **avail ~$177.6k** |
+| Lium / spend | **~$187,582** · cum mining ~$8,206 · **avail ~$177.6k** |
 | miner | τ10.000 free · 0 submissions |
-| H66 | n80 a203 @ **43**/80 |
-| H67 | n80 a203 @ **13**/80 |
-| H68 | n80 a203 @ **14**/80 |
-| H69 | chall loading (1/3 shards); preempt **rearmed** p277 |
-| H70 | m7 download (~96%); pip DONE |
+| H66 | n80 a203 @ **63**/80 |
+| H67 | n80 a203 @ **29**/80 |
+| H68 | n80 a203 @ **28**/80 |
+| H69 | n80 a203 **started** (pid 21726) |
+| H70 | train lr5.01e-6 on GPUs 6–7 (no train.done) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h66-1 | swift-eagle-f0 | 152.236.142.232:40300 | ~20:26Z | n80 a203 43/80 |
-| mine-h67-1 | eager-hawk-f5 | 152.236.142.236:40300 | ~20:51Z | n80 a203 13/80 |
-| mine-h68-1 | cosmic-shark-68 | 38.255.28.21:20100 | ~20:58Z | n80 a203 14/80 |
-| mine-h69-1 | noble-eagle-06 | 38.255.28.22:20100 | ~21:08Z | chall load→preempt→n80 |
-| mine-h70-1 | cosmic-raven-9e | 38.255.28.18:20100 | ~21:42Z | bootstrap→train |
+| mine-h66-1 | swift-eagle-f0 | 152.236.142.232:40300 | ~20:26Z | n80 a203 63/80 |
+| mine-h67-1 | eager-hawk-f5 | 152.236.142.236:40300 | ~20:51Z | n80 a203 29/80 |
+| mine-h68-1 | cosmic-shark-68 | 38.255.28.21:20100 | ~20:58Z | n80 a203 28/80 |
+| mine-h69-1 | noble-eagle-06 | 38.255.28.22:20100 | ~21:08Z | n80 a203 just up |
+| mine-h70-1 | cosmic-raven-9e | 38.255.28.18:20100 | ~21:42Z | train → post_train |
 
 known_hosts `/tmp/mine-h{66,67,68,69,70}-1.known_hosts`.
 **Free slots: 0.** Burn ~$152/h mining.
@@ -52,8 +52,7 @@ If recover264 owns chall, **king-only relaunch** (not `serve_three`).
 
 ## Next action
 
-1. H69: wait chall 200 → preempt recover264 → n80 a203.
-2. H66 (~43/80): wait → `decision.json`; REFUTE/teardown if m≤0.04.
-3. H67/H68: wait → `decision.json`.
-4. H70: wait train→post_train→n80.
-5. On free slot → next non-α neighbor (prefer near H64 r18 / H65 5.02).
+1. H66 (~63/80): wait → `decision.json`; REFUTE/teardown if m≤0.04.
+2. H67/H68/H69: wait → `decision.json` (H69 just started a203).
+3. H70: wait train→post_train→n80; arm/confirm preempt.
+4. On free slot → next non-α neighbor (prefer near H64 r18 / H65 5.02).
