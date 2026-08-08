@@ -121,11 +121,25 @@ test -f /root/logs/h102_merge.done
 
 # Fresh block_hash per outer retry (H32/H34): default 0*64 slice hits a turn
 # with prompt+max_tokens > 32768 → teacher 400 → whole n80 dies.
+# b203 FIRST — a203 is the known H32 overflow slice; FALSE_PROBE quarantine
+# + watcher re-exec used to reset attempt→1/a203 forever (p387/p389).
 BLOCK_HASHES=(
-  "a203000000000000000000000000000000000000000000000000000000000001"
   "b203000000000000000000000000000000000000000000000000000000000002"
   "c203000000000000000000000000000000000000000000000000000000000003"
+  "a203000000000000000000000000000000000000000000000000000000000001"
 )
+
+_is_false_probe_sim() {
+  local f=$1
+  [[ -f "$f" ]] || return 1
+  python3 -c '
+import json,sys
+d=json.load(open(sys.argv[1]))
+rr=str(d.get("rejection_reason") or "")
+sys.exit(0 if (d.get("false_probe") or "unpromptable" in rr or "ConnectError" in rr
+               or d.get("margin") is None and rr) else 1)
+' "$f" 2>/dev/null
+}
 
 for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
   rm -f "$SIM" "$PROG"
@@ -147,11 +161,24 @@ for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
   rc=${PIPESTATUS[0]}
   set -e
   if [[ $rc -eq 0 && -f "$SIM" ]]; then
-    python3 /root/mining_src/s4-h2-merge/write_merge_decision.py \
-      --hyp h102 --sim-result "$SIM" --out "$DEC"
-    date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h102_n80.done
-    log "N80_DONE"
-    exit 0
+    # FALSE_PROBE must NOT exit 0 — watcher quarantines + relaunches attempt 1
+    # and never reaches later hashes (p389).
+    if _is_false_probe_sim "$SIM"; then
+      ts=$(date -u +%Y%m%dT%H%M%SZ)
+      mkdir -p /root/affine_data/false_probes
+      mv "$SIM" "/root/affine_data/false_probes/h102_sim_retryQ_${ts}.json"
+      [[ -f "${SIM%.json}_artifact.json" ]] && \
+        mv "${SIM%.json}_artifact.json" \
+          "/root/affine_data/false_probes/h102_artifact_retryQ_${ts}.json" || true
+      log "WARN attempt $attempt FALSE_PROBE — continue to next block_hash"
+      rc=42
+    else
+      python3 /root/mining_src/s4-h2-merge/write_merge_decision.py \
+        --hyp h102 --sim-result "$SIM" --out "$DEC"
+      date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h102_n80.done
+      log "N80_DONE"
+      exit 0
+    fi
   fi
   log "WARN attempt $attempt failed rc=$rc; wait engines then retry"
   if ! _wait_engines 40; then

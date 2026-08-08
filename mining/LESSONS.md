@@ -134,7 +134,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - `start_*.sh` JSON `note` must be a closed string; unterminated → SyntaxError
   after train nohup → bootstrap `set -e` skips extra_dl/post_train (H36 pass198).
 - Engine recover: wipe `role`+`role_*` Triton caches before new `TCACHE`, ≥20s settle (H35–H41; H40 cuda_utils ImportError → reap by GPU). Concurrent prewarm races — recover dead role.
-- Default `block_hash=0*64` n80 dies teacher **400** @~40/80 — rotate a203/b203/c203. **FALSE_PROBE quarantine + watcher restart resets attempt→1/a203** (rehits H32 `prompt≥30977+1792`); kill a203 (rc=143) so attempt 2 uses b203 (F7 p387). Bare post_train races retry — skip if retry armed. Soft-deadline: patch `:-` ≥TTL−1h (H53–H56); never tear down. `watch_n80_retry` must not `exec` retry; sim-alive needs `python` in argv.
+- Default `block_hash=0*64` n80 dies teacher **400** @~40/80 — rotate a203/b203/c203. **FALSE_PROBE quarantine + watcher restart resets attempt→1/a203** (rehits H32); kill a203 (rc=143)→b203 (F7 p387/p389). Also: retry `rc=0`+rejection writes N80_DONE → never reaches b203 — treat FALSE_PROBE as attempt fail; prefer b203-first (local fix p389, scp when idle). Bare post_train races retry — skip if retry armed. Soft-deadline: patch `:-` ≥TTL−1h; never tear down. `watch_n80_retry` must not `exec` retry.
 - Arm watch_preempt_bare_tcache before post_train chall serve; recover after chall_serve.done or :8002=200 (H61/H62 bare-cache race).
 - p264 preempt validated H64: bare cache/chall → recover264 seed+warm+freeze; rearms form+n80 (pass265). Mid-n80 bare → fire recover264 immediately (H61@21/80).
 - recover264 salvage after writable-w1 ghost ENOENT: n_so grew → prefreeze same TCACHE + relaunch (H66 16→22; p274).
