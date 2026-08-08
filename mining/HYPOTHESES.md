@@ -9,9 +9,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 |---|---|---|---|---|
 | 1 | H58 | med | H42 cell @ **lr=5.1e-6** → m>0.04 | **open** (bootstrap) |
 | 2 | H57 | med | H42 cell @ **lr=5.25e-6** → m>0.04 | **open** (chall re-serve) |
-| 3 | H55 | med | H42 cell @ **lr=5.5e-6** → m>0.04 | **open** (n80 ~13/80) |
+| 3 | H55 | med | H42 cell @ **lr=5.5e-6** → m>0.04 | **open** (king recover→n80) |
 | 4 | H56 | med | H42 cell @ **r=24** → m>0.04 | **open** (chall prefreeze) |
-| 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (n80 armed) |
+| 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (king recover→n80) |
 | — | H51 | was med | H28 cell @ α=16 | **refuted** m=+0.00855 |
 | — | H53 | was med | H42 cell @ lr=4e-6 | **refuted** m=−0.00885 |
 | — | H52 | was med | H42 cell @ lr=6e-6 | **refuted** m=+0.01280 |
@@ -44,7 +44,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H55 — H28 @ lr=5.5e-6 (non-α)
 - **Claim:** between H42 5e-6 and dead H52 6e-6 → m>0.04.
-- **Status:** n80 live ~13/80 (a203). `pass243_launch.md`.
+- **Status:** king die @16/80 ConnectError → p248 recover. `pass248_king_recover.md`.
 
 ### H56 — H42 @ LoRA r=24 (non-α)
 - **Claim:** open r gap (r≤8∧r≥32 dead) @ lr=5e-6 → m>0.04.
@@ -53,7 +53,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H54 — H28 @ lr=8e-6 (non-α)
 - **Claim:** above dead 7.5e-6 → m>0.04 (**low prior** — H50 collapsed).
-- **Status:** a2 triple-promptable; freeze.done; n80 armed. `pass246_chall_prefreeze.md`.
+- **Status:** king :8001 down @ n80 start → p248 recover. `pass248_king_recover.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
