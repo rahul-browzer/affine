@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h75-1 | cosmic-hawk-20 | 8×H200 | $31.92 | ~2026-08-08T23:07Z | H75 r18-rep#3 vs Tok | n80 ~69/80 |
-| mine-h76-1 | gentle-raven-df | 8×H200 | $31.92 | ~2026-08-08T23:38Z | H76 r18-rep#4 vs Tok | n80 ~18/80 |
-| mine-h77-1 | eager-shark-64 | 8×H200 | $28.00 | ~2026-08-08T23:44Z | H77 r17 vs Tok | recover264 |
+| mine-h75-1 | cosmic-hawk-20 | 8×H200 | $31.92 | ~2026-08-08T23:07Z | H75 r18-rep#3 vs Tok | n80 ~75/80 |
+| mine-h76-1 | gentle-raven-df | 8×H200 | $31.92 | ~2026-08-08T23:38Z | H76 r18-rep#4 vs Tok | king300 recover |
+| mine-h77-1 | eager-shark-64 | 8×H200 | $28.00 | ~2026-08-08T23:44Z | H77 r17 vs Tok | recover264 warm |
 | mine-h78-1 | eager-comet-a4 | 8×H200 | $31.92 | ~2026-08-08T23:44Z | H78 r21 vs Tok | chall loading |
-| mine-h79-1 | lunar-shark-be | 8×H200 | $28.00 | ~2026-08-09T00:18Z | H79 Tok-init r18 | bootstrap |
+| mine-h79-1 | lunar-shark-be | 8×H200 | $28.00 | ~2026-08-09T00:18Z | H79 Tok-init r18 | bootstrap dl |
 
 SSH: h75 .21:20100 · h76 .18:20100 · h77 .237:40306 ·
 h78 .22:20100 · h79 .232:40100 ·
@@ -33,6 +33,6 @@ Account also has non-mine `wan-lora-train` / `affine-*` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T12:23Z | h75–79 match | H76 king300 recover after EngineDead; H75~75/80 |
 | 2026-08-08T12:19Z | h75–79; −h74 | H74 REFUTE tear; H77 recover264; rent h79 Tok-init |
 | 2026-08-08T12:12Z | h74–78 match | H76 stale-retry refresh→recover264→n80 |
-| 2026-08-08T12:03Z | h74–78 match | H76 train→merge→chall; H77/H78 train.done→merge |
