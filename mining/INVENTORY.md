@@ -7,31 +7,31 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h37-1 | swift-matrix-54 | 8×H200 | $28.00 | ~2026-08-08T09:53Z | H37 m7×wZA lr1e4 | n80 @66/80 |
-| mine-h38-1 | golden-matrix-b9 | 8×H200 | $28.00 | ~2026-08-08T09:52Z | H38 m7×wZA ep2 | n80 @67/80 |
-| mine-h39-1 | swift-wolf-6e | 8×H200 | $33.81 | ~2026-08-08T11:11Z | H39 m7×wZA lr3e5 | n80 @12/80 |
-| mine-h40-1 | gentle-eagle-c9 | 8×B200 | $40.00 | ~2026-08-08T11:12Z | H40 m7×wZA ep3 | chall recover p212 |
-| mine-h41-1 | zesty-lion-26 | 8×H200 | $31.92 | ~2026-08-08T11:14Z | H41 m7×wZA r32 | chall loading |
+| mine-h39-1 | swift-wolf-6e | 8×H200 | $33.81 | ~2026-08-08T11:11Z | H39 m7×wZA lr3e5 | n80 @~26/80 |
+| mine-h40-1 | gentle-eagle-c9 | 8×B200 | $40.00 | ~2026-08-08T11:12Z | H40 m7×wZA ep3 | chall load |
+| mine-h41-1 | zesty-lion-26 | 8×H200 | $31.92 | ~2026-08-08T11:14Z | H41 m7×wZA r32 | chall load |
+| mine-h42-1 | cosmic-matrix-bb | 8×H200 | $31.92 | ~2026-08-08T12:04Z | H42 m7×wZA lr5e6 | bootstrap |
+| mine-h43-1 | noble-eagle-18 | 8×H200 | $31.92 | ~2026-08-08T12:05Z | H43 m7×wZA α64 | bootstrap |
 
-SSH: h37 .232:40311 · h38 .236:40298 · h39 .54:40301 · h40 .147:20300 ·
-h41 .19:20099 · known_hosts `/tmp/mine-h{37,38,39,40,41}-1.known_hosts` ·
-**Free: 0**. Cap 5. Burn ~$161.7/h mining.
+SSH: h39 .54:40301 · h40 .147:20300 · h41 .19:20099 · h42 .21:20100 ·
+h43 .22:20099 · known_hosts `/tmp/mine-h{39,40,41,42,43}-1.known_hosts` ·
+**Free: 0**. Cap 5. Burn ~$169.6/h mining.
 
 ## Dead
 
 | name | final spent | removed UTC | reason |
 |---|---|---|---|
+| mine-h38-1 | ~$61 | 2026-08-08T00:03Z | H38 REFUTE m=−0.00037 |
+| mine-h37-1 | ~$61 | 2026-08-08T00:03Z | H37 REFUTE m=−0.00088 |
 | mine-h36-1 | ~$59 | 2026-08-07T23:13Z | H36 REFUTE m=+0.00052 |
 | mine-h35-1 | ~$59 | 2026-08-07T23:10Z | H35 REFUTE m=+0.01602 |
 | mine-h34-1 | ~$69 | 2026-08-07T23:10Z | H34 REFUTE m=+0.00593 |
 | mine-h37-1 (eager-lion-11) | ~$0.2 | 2026-08-07T21:53Z | REJECT 4 GPU @$11.6 |
-| mine-h33-1 | ~$42 | 2026-08-07T21:51Z | H33 REFUTE m=−0.00158 |
-| mine-h32-1 | ~$80 | 2026-08-07T21:51Z | H32 REFUTE m=−0.00601 |
 
 ## Recent reconciles (last 3)
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T00:05Z | h39–h43 match | H37/H38 REFUTE+rm; rented h42/h43 |
 | 2026-08-07T23:56Z | h37–h41 match | H40 chall recover p212 (triton) |
-| 2026-08-07T23:52Z | h37–h41 match | H39 bare-n80 kill; H40 disarm; H41 disarm armed |
-| 2026-08-07T23:45Z | h37–h41 match | H40 teacher recover p210; train.done |
+| 2026-08-07T23:52Z | h37–h41 match | H39 bare-n80 kill; H40/H41 disarm |

@@ -117,9 +117,10 @@ Format: `- <finding> — <the number or error that proves it>`
   before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
   never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
 - Winner-zA LoRA m7-init m=+0.01095 (H28); **TP×king-self family dead** —
-  H29/H32/H33. **m7×king-self family dead** — H30 m=−0.003 / H31 +0.000 /
-  H34@ep2 +0.006 / H35@lr1e-4 +0.016 (best; base×1.238 near band) — never
-  requeue. **m7×union** H36 m=+0.00052 near-null — do not requeue.
+  H29/H32/H33. **m7×king-self family dead** — H30–H35. **m7×union** H36
+  m=+0.00052. **H28 intensity up kills signal** — H37@lr1e-4 m=−0.00088,
+  H38@ep2 m=−0.00037 (both near-null, gates OK) — never requeue lr≥1e-4 or
+  ep≥2 on m7×winner-zA; prefer gentler/data/α axes (H42/H43).
 - Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always
   `nvidia-smi -L|wc -l`=8 after rent; reject <$20/h (was 2-GPU@$5.66; now 4 too).
 - `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up

@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2663.0931401252747,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h38/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h38",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.0003665378912925515,
+    "se": 0.006424319297565919,
+    "z": -0.057054743750272086,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.03268634782715684,
+      "gate_pass_rate": 0.8201892744479495,
+      "bank_frac": 0.5260416666666667,
+      "calib_ratio": 0.7235142742655399,
+      "baseline_abs": 0.1280675435592033,
+      "n_turns": 80,
+      "n_pairs": 317,
+      "mean_lambda2": 0.0032610869474903855,
+      "mean_mix": 0.03268634782715684
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.032050230103995214,
+      "gate_pass_rate": 0.8422712933753943,
+      "bank_frac": 0.540625,
+      "calib_ratio": 0.6720443865449844,
+      "baseline_abs": 0.1466234569426775,
+      "n_turns": 80,
+      "n_pairs": 317,
+      "mean_lambda2": -0.004085352624787837,
+      "mean_mix": 0.032050230103995214
+    },
+    "slice": {
+      "seed": 2945456464025412466,
+      "n": 80,
+      "digest": "ea0df46eadf34df3dade99fed3547c19caf6a1b59532dd293af1f2026f187f17",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6720443865449844,
+    "chall_baseline_abs": 0.1466234569426775,
+    "king_baseline_abs": 0.1280675435592033,
+    "base_x": 1.144891616312576
+  }
+}
