@@ -7,12 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (bootstrap) |
-| 2 | H99/F2 | high | high-Λ2 z_A SFT → m>+0.015 | **open** (train) |
+| 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (train) |
+| 2 | H99/F2 | high | high-Λ2 z_A SFT → m>+0.015 | **open** (merge) |
 | 3 | H98/F1 | high | REINFORCE self-L1lift → m>+0.015 | **open** (train) |
-| 4 | H97/F3 | high | r=256 breaks LoRA ceiling → m>+0.015 | **open** (merge) |
+| 4 | H97/F3 | high | r=256 breaks LoRA ceiling → m>+0.015 | **open** (n80) |
 | 5 | H95 | med | Tok-init r10 → m>0.04 | **open** (n80 live + mid304) |
-| 6 | H96 | med | Tok-init r9 → m>0.04 | **open** (recover264) |
+| 6 | H96 | med | Tok-init r9 → m>0.04 | **open** (n80 live + mid304) |
 | — | H94/H91…H1 | — | winner-zA / α / merges | **refuted** (see below) |
 | — | H3 | instrumental | clip-L1 lever | **supported** (+rank) |
 
@@ -22,27 +22,27 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** BOOTSTRAP on mine-f4-1 (B300 @$63.60). Screen +0.015 → CONFIRM k=4.
+- **Status:** genesis DL DONE; train live GPUs6,7 (B300 @$63.60). Screen +0.015 → CONFIRM k=4.
 - `experiments/s4-h100-f4-genesis-base/`.
 
 ### H99 / F2 — Target Λ2 via high-Λ2 z_A — open
 - **Claim:** Select z_A by Λ2≥0.02 (1059 ex; 65% not in clip-L1 set) → m>+0.015.
-- **Status:** TRAIN 60/60 DONE; merge_lora live; teacher shards 100% (TCACHE teacher_p332_*).
+- **Status:** merge_lora live (merged/config present); T/K 200; await merge.done→chall.
 - `experiments/s4-h99-f2-target-l2/` · `results/pass361_teacher_recover.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** TRAIN live; king332 re-fired @19:42Z after ENOENT abort (WGUL55… launcher).
+- **Status:** TRAIN ~step55/200; king332 loading util0.72 TCACHE h98_king_p332_*.
 - `experiments/s4-h98-f1-rl-l1/` · `results/pass362_king332_refire.md`.
 
 ### H97 / F3 — LoRA r=256 ceiling break — open
 - **Claim:** r=256/α512 Tok-init × winner-zA can move Λ2.
-- **Status:** chall salvage prefreeze n_so=22 loading (:8002); T/K 200.
-- `experiments/s4-h97-f3-r256/`.
+- **Status:** n80 LIVE a203 + mid304; salvage DONE n_so=22 frozen.
+- `experiments/s4-h97-f3-r256/` · `results/pass363_n80_armed.md`.
 
 ### H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- H95 n80~24/80 + mid304; H96 n80~11/80 + mid304.
+- H95 n80~30/80 + mid304; H96 n80~16/80 + mid304.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
