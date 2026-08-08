@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h87-1 | swift-shark-4f | 8×H200 | $31.92 | ~2026-08-09T03:31Z | H87 Tok-init r29 | n80+mid304 ~29/80 |
-| mine-h88-1 | zesty-hawk-be | 8×H200 | $31.92 | ~2026-08-09T03:32Z | H88 Tok-init r30 | n80+mid304 ~4/80 |
-| mine-h89-1 | gentle-fox-06 | 8×H200 | $28.00 | ~2026-08-09T03:38Z | H89 Tok-init r31 | n80+mid304 ~9/80 |
-| mine-h90-1 | noble-shark-3c | 8×H200 | $28.00 | ~2026-08-09T04:23Z | H90 Tok-init r14 | merge+mid304 armed |
-| mine-h91-1 | brave-shark-d2 | 8×H200 | $31.92 | ~2026-08-09T04:31Z | H91 Tok-init r12 | DL last shard ~25/35G |
+| mine-h87-1 | swift-shark-4f | 8×H200 | $31.92 | ~2026-08-09T03:31Z | H87 Tok-init r29 | n80+mid304 ~62/80 |
+| mine-h88-1 | zesty-hawk-be | 8×H200 | $31.92 | ~2026-08-09T03:32Z | H88 Tok-init r30 | n80+mid304 ~31/80 |
+| mine-h89-1 | gentle-fox-06 | 8×H200 | $28.00 | ~2026-08-09T03:38Z | H89 Tok-init r31 | n80+mid304 ~44/80 |
+| mine-h90-1 | noble-shark-3c | 8×H200 | $28.00 | ~2026-08-09T04:23Z | H90 Tok-init r14 | n80+mid304 just started |
+| mine-h91-1 | brave-shark-d2 | 8×H200 | $31.92 | ~2026-08-09T04:31Z | H91 Tok-init r12 | train r12 |
 
 SSH: h87 .22:20100 · h88 .19:20100 · h89 .237:40309 ·
 h90 .232:40310 · h91 .18:20099 ·
@@ -33,6 +33,6 @@ Account also has non-mine `wan-lora-*` / `affine-*` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T17:02Z | h87/88/89/90/91 | H90 n80 live post-recover264; H91 train |
 | 2026-08-08T16:45Z | h87/88/89/90/91 | H90 mid304 armed; merge live |
 | 2026-08-08T16:42Z | h87/88/89/90/91 | H88+H89 n80+mid304; H90 merge |
-| 2026-08-08T16:35Z | h87/88/89/90/91 | H87 mid304; H88 king311+recover264 |
