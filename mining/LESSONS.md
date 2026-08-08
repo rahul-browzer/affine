@@ -58,7 +58,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - Always venv python. Salvage mid-ckpts — best loss ≠ last step.
 - LoRA r=16/α32 on 2 GPUs ≈1h45m / 110 steps / 440 ex. Free GPUs 4–5 can
   merge+n40 while 6–7 train; yield chall when final merge.done lands.
-- HF private storage can hard-fail uploads — keep candidate merges public.
+- HF private storage can hard-fail uploads — keep candidate merges public. Never kill a live HF `snapshot_download` mid-shard for peer-rsync unless peer is proven faster (p370 F4: HF ~60 MB/s vs F1→F4 rsync ~16 MB/s; abort cost half of each 35 GiB blob).
 
 ## Shell / pod ops
 - Never `lium exec -e HF_TOKEN=...` (prints secret). `/root/mine.env` +

@@ -21,27 +21,27 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** genesis DL DONE; train live GPUs6,7 (B300 @$63.60). Screen +0.015 → CONFIRM k=4.
-- `experiments/s4-h100-f4-genesis-base/`.
+- **Status:** train DONE 60/60; **merge writing**; Tok king DL resumed (p370).
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass370_train_merge.md`.
 
 ### H99 / F2 — Target Λ2 via high-Λ2 z_A — open
 - **Claim:** Select z_A by Λ2≥0.02 (1059 ex; 65% not in clip-L1 set) → m>+0.015.
-- **Status:** recover264 DONE; **n80 live** b203 (~1/80) + mid304 armed (p368).
+- **Status:** **n80 ~75/80** b203 + mid304 (soonest family screen).
 - `experiments/s4-h99-f2-target-l2/` · `results/pass368_n80_mid304.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** TRAIN live; T/K 200 (king promptable); await train→merge→n80.
+- **Status:** TRAIN ~step135/200; T/K 200; await train→merge→n80.
 - `experiments/s4-h98-f1-rl-l1/` · `results/pass362_king332_refire.md`.
 
 ### H97 / F3 — LoRA r=256 ceiling break — open
 - **Claim:** r=256/α512 Tok-init × winner-zA can move Λ2.
-- **Status:** king366 PROMPTABLE @20:04Z; **n80 live** a203 + mid304 armed (p367).
+- **Status:** **n80 ~50/80** a203 + mid304.
 - `experiments/s4-h97-f3-r256/` · `results/pass367_n80_mid304.md`.
 
 ### H96 — Tok-init r9 — open (draining)
 - Last winner-zA cell; retire on resolve; **do not** launch more r-neighbours.
-- H96 n80~40/80 b203 + mid304.
+- H96 n80~66/80 b203 + mid304.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
