@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H63 | med | H42 cell @ **lr=5.05e-6** → m>0.04 | **open** (bootstrap) |
-| 2 | H61 | med | H42 cell @ **lr=5.15e-6** → m>0.04 | **open** (chall load) |
-| 3 | H60 | med | H42 cell @ **lr=5.3e-6** → m>0.04 | **open** (n80 ~11/80) |
-| 4 | H64 | med | H42 cell @ **r=18** → m>0.04 | **open** (bootstrap) |
-| 5 | H62 | med | H42 cell @ **r=20** → m>0.04 | **open** (chall load) |
+| 1 | H63 | med | H42 cell @ **lr=5.05e-6** → m>0.04 | **open** (train) |
+| 2 | H61 | med | H42 cell @ **lr=5.15e-6** → m>0.04 | **open** (n80 ~1/80) |
+| 3 | H60 | med | H42 cell @ **lr=5.3e-6** → m>0.04 | **open** (n80 ~16/80) |
+| 4 | H64 | med | H42 cell @ **r=18** → m>0.04 | **open** (train) |
+| 5 | H62 | med | H42 cell @ **r=20** → m>0.04 | **open** (p262 recover) |
 | — | H59 | was med | H42 cell @ lr=5.75e-6 | **refuted** band×1.273 |
 | — | H56 | was med | H42 cell @ r=24 | **refuted** m=+0.00140 |
 | — | H58 | was med | H42 cell @ lr=5.1e-6 | **refuted** m=+0.01466 |
@@ -28,24 +28,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H63 — H28 @ lr=5.05e-6 (non-α)
 - **Claim:** densest under peak (H42@5e-6 best ↔ H58@5.1 REFUTE) → m>0.04.
-- **Status:** mine-h63-1 bootstrap. `s4-h63-…/results/pass261_launch.md`.
+- **Status:** train launched. `s4-h63-…/results/pass261_launch.md`.
 
 ### H61 — H28 @ lr=5.15e-6 (non-α)
 - **Claim:** denser 5.1–5.25 gap → m>0.04.
-- **Status:** merge.done; chall :8002 loading. `s4-h61-…/plan.md`.
+- **Status:** n80 a203 ~1/80 on bare TCACHE — watch FALSE_PROBE.
 
 ### H60 — H28 @ lr=5.3e-6 (non-α)
 - **Claim:** between dead 5.25 and band-dead 5.5/5.75 → m>0.04.
-- **Status:** p260 recover OK; n80 a203 ~11/80.
-  `s4-h60-…/results/pass261_chall_recover_ok.md`.
+- **Status:** n80 a203 ~16/80 (p260 OK).
 
 ### H64 — H42 @ LoRA r=18 (non-α)
 - **Claim:** open r gap denser (r16 best-ish / r20 open / r24 dead).
-- **Status:** mine-h64-1 bootstrap. `s4-h64-…/results/pass261_launch.md`.
+- **Status:** train launched. `s4-h64-…/results/pass261_launch.md`.
 
 ### H62 — H42 @ LoRA r=20 (non-α)
 - **Claim:** between r16 and dead r24 → m>0.04.
-- **Status:** merge.done; chall :8002 loading. `s4-h62-…/plan.md`.
+- **Status:** p262 preempt recover (bare TCACHE→isolated).
+  `s4-h62-…/results/pass262_chall_preempt_recover.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
