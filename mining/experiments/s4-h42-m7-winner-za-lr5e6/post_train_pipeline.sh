@@ -354,9 +354,16 @@ for attempt in $(seq 1 "$N80_MAX_ATTEMPTS"); do
       log "WARN: engine :${port} health=${code} before n80 attempt $attempt"
     fi
   done
-  # If retry watcher already owns an n80, skip launching a second sim.
+  # Retry owns hashed n80. Skip if sim OR watcher/retry armed (pass218:
+  # sim-only check lost the race — both launched within ~16s of promptable).
   if ps -eo args | awk '/[r]un_sim_duel.py/ && /local-h42/' | grep -q .; then
     log "n80 already running under retry — skip post_train launch"
+    n80_ok=1
+    break
+  fi
+  if ps -eo args | awk '/[w]atch_n80_retry\.sh/ && / h42 /' | grep -q . \
+    || ps -eo args | awk '/[r]etry_h42_n80\.sh/' | grep -q .; then
+    log "watch_n80_retry/retry_h42 armed — defer n80 to retry; skip post_train launch"
     n80_ok=1
     break
   fi
