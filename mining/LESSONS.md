@@ -98,8 +98,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - Thought-LoRA `max_len=8192` + long prefixes → `supervised_tokens=0` — fit-
   filter msg_chars≤max_len×2.5 + sort short-first (`train_lora.py`).
 - Do not idle free `mine-*` slots (GOAL 2026-08-07); fill non-α variants.
-- Catalog 8×H200 @$23.20/h can 400 "GPU splitting"; fallback 8×B200 @$40/h
-  (SM10.0; pass188). `$11.6/h` can be **4 GPUs** — always `nvidia-smi -L|=8`.
+  Rent by UUID $/h≥28 + `nvidia-smi -L|=8` (catalog lies; $11.6/h can be 4 GPUs).
 - `sync_corpus` flocks + adopts existing `turns.jsonl` (rename race H29/H30).
   H27 TP-init shaping m=−0.00792 — do not retry.
 - Winner-zA LoRA m7-init: **H64@r18 +0.02509 best vs TalentPigs** (z=2.993);
