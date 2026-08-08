@@ -49,13 +49,26 @@ _engines_ok() {
 
 # MoE chall load is 10–20m; abort-immediately → watcher spam every 30s (pass205).
 # Wait for health+completions before starting n80 (LESSON: ≥120×15s MoE wait).
+_freeze_chall_tcache() {
+  # Pass 217: after first completions JIT, TP workers race-delete
+  # __triton_launcher.so mid-settle. Freeze live TRITON_CACHE_DIR a-w.
+  local pid tcache
+  pid=$(cat /root/logs/vllm_chall.pid 2>/dev/null || true)
+  [[ -n "${pid:-}" && -r "/proc/$pid/environ" ]] || return 0
+  tcache=$(tr '\0' '\n' <"/proc/$pid/environ" | awk -F= '/^TRITON_CACHE_DIR=/{print $2; exit}')
+  [[ -n "${tcache:-}" && -d "$tcache" ]] || return 0
+  chmod -R a-w "$tcache" 2>/dev/null || true
+  log "froze chall TCACHE a-w: $tcache (launcher.so=$(find "$tcache" -name '__triton_launcher*.so' 2>/dev/null | wc -l))"
+}
+
 _wait_engines() {
   local max=${1:-120} i=0
   while (( i < max )); do
     if _engines_ok; then
       # Double-probe: first completions can EngineDead on missing
-      # __triton_launcher.so (H37/H40 p204/p205). Confirm again after settle.
-      log "first promptable at poll=$i — settle 20s + re-probe"
+      # __triton_launcher.so (H37/H40 p204/p216). Freeze cache then settle.
+      log "first promptable at poll=$i — freeze TCACHE + settle 20s + re-probe"
+      _freeze_chall_tcache
       sleep 20
       if _engines_ok; then
         log "engines double-promptable after ${i} polls"

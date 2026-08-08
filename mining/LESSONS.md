@@ -77,10 +77,12 @@ Format: `- <finding> — <the number or error that proves it>`
 - Triton races: per-role `TRITON_CACHE_DIR` + wipe + stagger; kill orphans by
   GPU index never `pkill -f "vllm serve"`. MoE wait ≥120×15s; settle ≥30s
   after wipe. Health=200 ≠ alive — gate on `/v1/completions` 200 **twice**
-  20s apart. `.so` can vanish mid-init too (H40 p215 profile_run), not only
-  after first completion — put TCACHE under `/root/.triton/isolated/` outside
-  the `chall_*` wipe glob (H40 p216). Orphans are `VLLM::Worker` **ppid=1**;
-  reap via `ps` too. `FALSE_PROBE_*` ≠ REFUTE — never `lium rm`.
+  20s apart. Isolated TCACHE survives mid-init (H40 p216) but TP still
+  race-deletes `__triton_launcher.so` ~40s after first completions — freeze
+  with `chmod -R a-w $TCACHE` after warmup (H40 p217). CUDA-graph hang:
+  shm_broadcast >5m after "Registering N addresses" → kill + clear
+  `/root/.cache/vllm/torch_compile_cache` + relaunch. Orphans =
+  `VLLM::Worker` **ppid=1**. `FALSE_PROBE_*` ≠ REFUTE — never `lium rm`.
 - `pgrep -f` false-matches SSH/watcher argv — use
   `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
   from `watch_n80_retry` (self-deadlock H32 pass198).
@@ -120,8 +122,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - Winner-zA LoRA m7-init m=+0.01095 (H28); **TP×king-self family dead** —
   H29/H32/H33. **m7×king-self family dead** — H30–H35. **m7×union** H36
   m=+0.00052. **H28 intensity up kills signal** — H37@lr1e-4 m=−0.00088,
-  H38@ep2 m=−0.00037 (both near-null, gates OK) — never requeue lr≥1e-4 or
-  ep≥2 on m7×winner-zA; prefer gentler/data/α axes (H42/H43).
+  H39@lr3e-5 m=+0.00544 (<H28), H38@ep2 m=−0.00037 — never requeue
+  lr≥3e-5 or ep≥2 on m7×winner-zA; prefer gentler/data/α (H42–H44).
 - Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always
   `nvidia-smi -L|wc -l`=8 after rent; reject <$20/h (was 2-GPU@$5.66; now 4 too).
 - `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up
