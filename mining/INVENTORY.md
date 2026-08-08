@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h76-1 | gentle-raven-df | 8×H200 | $31.92 | ~2026-08-08T23:38Z | H76 r18-rep#4 vs Tok | **n80 a203** ~38/80 |
-| mine-h77-1 | eager-shark-64 | 8×H200 | $28.00 | ~2026-08-08T23:44Z | H77 r17 vs Tok | **king308** → n80 |
-| mine-h78-1 | eager-comet-a4 | 8×H200 | $31.92 | ~2026-08-08T23:44Z | H78 r21 vs Tok | **n80 a203** ~47/80 |
-| mine-h79-1 | lunar-shark-be | 8×H200 | $28.00 | ~2026-08-09T00:18Z | H79 Tok-init r18 | recover264 a2 |
-| mine-h80-1 | eager-shark-18 | 8×H200 | $28.00 | ~2026-08-09T00:26Z | H80 Tok-init r17 | chall load; preempt**19017** |
+| mine-h76-1 | gentle-raven-df | 8×H200 | $31.92 | ~2026-08-08T23:38Z | H76 r18-rep#4 vs Tok | **n80 a203** ~45/80 |
+| mine-h77-1 | eager-shark-64 | 8×H200 | $28.00 | ~2026-08-08T23:44Z | H77 r17 vs Tok | **n80 a203** |
+| mine-h78-1 | eager-comet-a4 | 8×H200 | $31.92 | ~2026-08-08T23:44Z | H78 r21 vs Tok | **n80 a203** ~55/80 |
+| mine-h79-1 | lunar-shark-be | 8×H200 | $28.00 | ~2026-08-09T00:18Z | H79 Tok-init r18 | recover264 post visual |
+| mine-h80-1 | eager-shark-18 | 8×H200 | $28.00 | ~2026-08-09T00:26Z | H80 Tok-init r17 | recover264 post visual |
 
 SSH: h76 .18:20100 · h77 .237:40306 · h78 .22:20100 ·
 h79 .232:40100 · h80 .236:40311 ·
@@ -33,6 +33,6 @@ Account also has non-mine `wan-lora-train` / `affine-*` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T13:07Z | h76–80 match | H79/H80 visual phantom fix + recover; no rent/rm |
 | 2026-08-08T12:58Z | h76–80 match | H80 preempt rearm p309; no rent/rm |
 | 2026-08-08T12:56Z | h76–80 match | H77 king308 recover; no rent/rm |
-| 2026-08-08T12:53Z | h76–80 match | H79 Tok-proc fix + recover264; H80 patched; no rent/rm |

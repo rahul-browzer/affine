@@ -8,10 +8,10 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (n80 a203) |
-| 2 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (king306→n80) |
+| 2 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (n80 a203) |
 | 3 | H78 | med | r=21 untested vs Tok → m>0.04 | **open** (n80 a203) |
-| 4 | H79 | med | **Tok-init** × winner-zA@r18 → m>0.04 | **open** (merge) |
-| 5 | H80 | med | **Tok-init** × winner-zA@r17 → m>0.04 | **open** (training) |
+| 4 | H79 | med | **Tok-init** × winner-zA@r18 → m>0.04 | **open** (recover) |
+| 5 | H80 | med | **Tok-init** × winner-zA@r17 → m>0.04 | **open** (recover) |
 | — | H75 | was med | H64@r18 rep#3 vs Tok | **refuted** m=+0.000550 |
 | — | H74 | was med | H64@r18 rep#2 vs Tok | **refuted** m=−0.011003 |
 | — | H73…H1 | — | see archive / below | **refuted** |
@@ -27,23 +27,23 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H77 — H69@r17 Tok-retarget (non-α) — open
 - **Claim:** r17 shortlist (+0.01641 vs TalentPigs) clears Tok → m>0.04.
-- **Status:** king306 hung (Triton ImportError→shm); **king308** loading →
-  retry 0/120. `…/pass308_king_recover.md`.
+- **Status:** king308 PROMPTABLE @13:02Z; **n80 a203** started.
+  `…/pass308_king_recover.md`.
 
 ### H78 — m7×winner-zA @ r=21 vs Tok (non-α) — open
 - **Claim:** untested rank between shortlist and band-fail ranks → m>0.04.
-- **Status:** n80 a203 + mid304; chall13/king12 @12:38Z.
+- **Status:** n80 a203 + mid304; ~55/80 @13:05Z.
   `…/pass303_n80_start.md` · `…/pass304_mid_n80_bare_guard.md`.
 
 ### H79 — Tok-init × winner-zA @ r=18 (non-α) — open
 - **Claim:** after H72+H74+H75 m≈≤0 on m7-init, Tok-init same hyps clears Tok.
-- **Status:** Tok-proc OK; recover264 a1 died pre-health; **a2 loading** → n80.
-  `…/pass307_tok_processor_fix.md`.
+- **Status:** p310 visual phantom restored (333 keys); recover264 a1 loading
+  (36 GiB/GPU). `…/pass310_visual_phantom_fix.md`.
 
 ### H80 — Tok-init × winner-zA @ r=17 (non-α) — open
 - **Claim:** Tok-init neighbor of H79 at H69 shortlist rank → m>0.04.
-- **Status:** merge+Tok-proc DONE; chall bare-loading; preempt rearmed
-  p309 (pid19017). Next: recover264 → n80. `…/pass309_preempt_rearm.md`.
+- **Status:** same p310 visual restore; recover264 a1 loading (36 GiB/GPU).
+  `…/pass310_visual_phantom_fix.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

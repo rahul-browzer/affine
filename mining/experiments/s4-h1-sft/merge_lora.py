@@ -149,6 +149,35 @@ def main() -> None:
             out_idx["weight_map"][key] = shard
             added += 1
 
+    # CausalLM can leave visual keys in the index pointing at language
+    # shards that do not contain them (Tok331102 2-shard layout). Treat
+    # those phantom entries as missing so we extract a real visual shard.
+    from safetensors import safe_open
+
+    def _shard_keyset(path: Path) -> set[str]:
+        if not path.is_file():
+            return set()
+        with safe_open(str(path), framework="pt") as f:
+            return set(f.keys())
+
+    out_shard_keys: dict[str, set[str]] = {}
+    phantom = {}
+    for key, shard in list(out_idx["weight_map"].items()):
+        if "visual" not in key:
+            continue
+        if shard not in out_shard_keys:
+            out_shard_keys[shard] = _shard_keyset(args.out / shard)
+        if key not in out_shard_keys[shard]:
+            phantom[key] = shard
+    if phantom:
+        print(
+            f"[merge] phantom visual index entries (not in shard files): "
+            f"{len(phantom)} — will extract from base",
+            flush=True,
+        )
+        for key in phantom:
+            out_idx["weight_map"].pop(key, None)
+
     missing = {
         k: sh
         for k, sh in (base_idx.get("weight_map") or {}).items()
@@ -158,7 +187,6 @@ def main() -> None:
         from collections import defaultdict
 
         from safetensors.torch import save_file
-        from safetensors import safe_open
 
         by_shard: dict[str, list[str]] = defaultdict(list)
         for key, shard in missing.items():
@@ -188,7 +216,7 @@ def main() -> None:
             flush=True,
         )
 
-    if added or visual_shards or missing:
+    if added or visual_shards or missing or phantom:
         total = sum(p.stat().st_size for p in args.out.glob("*.safetensors"))
         out_idx.setdefault("metadata", {})
         out_idx["metadata"]["total_size"] = total
@@ -198,17 +226,44 @@ def main() -> None:
             ]
         out_idx_path.write_text(json.dumps(out_idx, indent=2) + "\n")
         n_vis = sum(1 for k in out_idx["weight_map"] if "visual" in k)
+        # Refuse on index-only visual (phantom) — verify tensors exist.
+        vis_resolved = 0
+        for key, shard in out_idx["weight_map"].items():
+            if "visual" not in key:
+                continue
+            if shard not in out_shard_keys:
+                out_shard_keys[shard] = _shard_keyset(args.out / shard)
+            if key in out_shard_keys[shard] or (
+                (args.out / shard).is_file()
+                and key in _shard_keyset(args.out / shard)
+            ):
+                vis_resolved += 1
+        # Refresh keyset for newly written visual shard.
+        if (args.out / "model-visual-restored.safetensors").is_file():
+            out_shard_keys["model-visual-restored.safetensors"] = _shard_keyset(
+                args.out / "model-visual-restored.safetensors"
+            )
+            vis_resolved = sum(
+                1
+                for k, sh in out_idx["weight_map"].items()
+                if "visual" in k and k in out_shard_keys.get(sh, set())
+            )
         print(
             f"[merge] index now has {added} restored keys; "
-            f"visual_keys={n_vis}",
+            f"visual_keys={n_vis} visual_resolved={vis_resolved}",
             flush=True,
         )
-        if n_vis == 0 and any(
+        base_has_vis = any(
             "visual" in k for k in (base_idx.get("weight_map") or {})
-        ):
+        )
+        if base_has_vis and vis_resolved == 0:
             raise SystemExit(
                 "REFUSE: base has model.visual.* but merged output has none "
                 "— chall serve would crash under wrapper config"
+            )
+        if base_has_vis and vis_resolved < n_vis:
+            raise SystemExit(
+                f"REFUSE: phantom visual index — resolved {vis_resolved}/{n_vis}"
             )
 
     # Hygiene: no *.py, strip auto_map if present.

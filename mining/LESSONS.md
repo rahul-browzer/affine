@@ -47,6 +47,11 @@ Format: `- <finding> — <the number or error that proves it>`
   preprocessor + visual safetensors (333–352 keys). **Tok ships
   `processor_config.json` not `preprocessor_config.json`** — derive the latter
   from `image_processor` or chall dies at MultiModalBudget (H79 p307).
+- **Tok phantom visual index:** CausalLM can leave 333 `model.visual.*` keys in
+  `model.safetensors.index.json` pointing at language shards with **0** visual
+  tensors — index count≠disk. `merge_lora` must verify keys exist in claimed
+  shards and extract `model-visual-restored.safetensors` (H79/H80 p310: 852 MiB,
+  then GPUs 4,5 → 36 GiB; prior: ValueError uninit visual.*).
 - Weight-identity: sample head/mid/tail shards. first_1MiB alone is false (embeds).
 - `merge_linear.py` must track `max_abs_delta` over **all** keys (H12: first8 Δ=0
   but shard08 max‖A−O‖=0.215).
@@ -110,21 +115,16 @@ Format: `- <finding> — <the number or error that proves it>`
   −0.01366 vs Tok dead**; **H72/H74/H75@r18 vs Tok** m=−0.009/−0.011/+0.00055
   (no more m7×r18 rents; H76 last draw); **H73@r19 −0.00581 dead**. Open:
   H76@r18 H77@r17 H78@r21 **H79/H80 Tok-init**.
-- H66 king mid-pipeline Triton ENOENT (`__triton_launcher.so` ghost) hung
-  :8001 while APIServer alive — reap GPU 2/3 workers, wipe `cache/king`,
-  relaunch via `serve_three` (pass271); do not wait for post_train abort.
-- `watch_n80_retry` can launch `retry_h*_n80.sh` **before** bootstrap finishes
-  pip → `source /root/venv/bin/activate` ENOENT (H60 @06:28Z). Retry scripts
-  must wait for `/root/venv/bin/activate` (≤10m) before `source` (H61/H62).
-- `lium up --gpu H200 -c 8` can pick **$14.5/h** labeled 8×H200 with
-  nvidia-smi COUNT=**5** (golden-comet-7a p254) — always rent by UUID from
-  `lium ls --count 8` with **$/h≥28**, then verify COUNT=8 before upload.
-- p253/p260 diverse writable warmups→freeze: H56+H58+H60 reached triple-
-  promptable and n80 start (n_so 16→22); prefer over short-only post-w1 freeze.
-- B300 flashinfer sampling JIT: clear `cached_ops/sampling`, `SERVE_STAGGER_S≥45`.
+- H66 king mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe
+  `cache/king`, `serve_three` (p271); don't wait for post_train abort.
+- `watch_n80_retry` can launch before venv exists — retry must wait for
+  `/root/venv/bin/activate` ≤10m (H60/H61/H62).
+- Rent by UUID from `lium ls --count 8` $/h≥28 + verify COUNT=8 (`lium up
+  --gpu H200 -c 8` can yield COUNT=5 @$14.5/h). Always `-y` (bare `yes|`
+  floods SSH with `y: command not found`).
+- p253/p260 diverse writable warmups→freeze beats short-only post-w1 freeze.
+- B300 flashinfer JIT: clear `cached_ops/sampling`, `SERVE_STAGGER_S≥45`.
 - Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed.
-- `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up
-  SSH shell with `y: command not found`).
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
   → n80 → `__triton_launcher.so` → ConnectError false REFUTE in ~6m; quarantine
   + GPU-index chall relaunch + completions probe before retry.
