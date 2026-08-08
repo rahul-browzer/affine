@@ -123,8 +123,8 @@ if ok < 2:
     sys.exit(1)
 PY
 
-REPO=dendriteholdings/albedo-qwen3.6-35b-king-genesis
-REV=abe89194d6addf82e71f3f1ba9fef94b05404abf
+REPO=Tok331102/affine-5EqYW8McUc-af10
+REV=eb8bf9a356a254f71faaa439e8abc3cfba572c53
 LOG=/root/logs/vllm_king.log
 : >"$LOG"
 log "start $REPO@$REV port=8001 gpus=2,3 util=0.72 TCACHE=$TCACHE"

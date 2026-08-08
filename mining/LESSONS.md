@@ -89,15 +89,12 @@ Format: `- <finding> — <the number or error that proves it>`
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin: check
   `rejection_reason` first — false probe → quarantine + relaunch engines/
   form+retry sidecars, never `lium rm` (H25@61/80, H37 pass204).
-- Ghost dentry: `ls` lists but `open`→ENOENT — `rm` + re-scp; `test -x`.
 - After engine relaunch: reset `start_*_n80` wait; recover-wait exits if king
   APIServer dies; kill only `$0 ~ /\/start_…\.sh/` (never embed in `bash -c`).
 - Form/retry watchers: poll `awk '/[w]atch_form_decision\.sh/ && / hN /'`;
   relaunch if 0. King/chall mid-n80: reap `VLLM::Worker` ppid=1 (H55 p248).
 - Thought-LoRA `max_len=8192` + long prefixes → `supervised_tokens=0` — fit-
   filter msg_chars≤max_len×2.5 + sort short-first (`train_lora.py`).
-- Do not idle free `mine-*` slots (GOAL 2026-08-07); fill non-α variants.
-  Rent by UUID $/h≥28 + `nvidia-smi -L|=8` (catalog lies; $11.6/h can be 4 GPUs).
 - `sync_corpus` flocks + adopts existing `turns.jsonl` (rename race H29/H30).
   H27 TP-init shaping m=−0.00792 — do not retry.
 - **Winner-zA LoRA family: CLOSED, n=30+ cells, mean −0.004 vs live king.**
@@ -148,3 +145,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - recover264 DONE rearms form+n80 only (not preempt/mid304). Match `$0` via `/proc/*/cmdline` (H82/H93). Seed chall from **`*_king_tcache_pass332.path` first**, then live :8001 environ, then `isolated/*king*` — never bare `cache/king` alone. F4 p395: pathfile+19 .so present yet relaunch logged `no king TCACHE`; mid-load rsync 0→19 .so unblocked. clone: `test -x` rearm (H94).
 - Peer-seed mid-load when seed misses (F4 p395). **Bare peer-seed then preempt kills healthy chall** (F9 p396: 200→recover); prefer isolated from first launch. Salvage 555 hang: `chmod 755` TCACHE+torchinductor (F7 p386).
 - **huggingface_hub≥1.27 never resumes** `.incomplete`: unique `{etag}.{uuid}.incomplete` opened `"wb"`, deleted on fail (PR#4228). Orphan large incompletes need HTTP `Range` resume (H100/F4 p383). **post_train/n80 120×15s races Range** — kill waiter + arm tok.done→king→chall; n80 needs `retry_*_longwait` ≥360×15s (F4 p388/p391).
+- **king_recover_pass332 must serve live Tok on :8001**, not Genesis — F8 p397 script still had Genesis REPO; patched before launch (would have scored vs wrong king).
+- **Post-freeze chall death + missing turns.jsonl:** F4 p397 n80 `FileNotFoundError` turns.jsonl; recover264 after triple-promptable hit `il: command not found` then reaped healthy chall — prefer frozen-TCACHE relaunch (no wipe) + `sync_corpus` before n80.
+- **Diverse-warm d4 quoting:** `python3 -c \'print(\\"x\\"...` → SyntaxError (empty pad still often 200); fixed to `python3 -c "print('x' * 4096)"` on F4–F9 scripts.

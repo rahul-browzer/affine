@@ -25,30 +25,30 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** chall:8002=200; diverse warm @22:25Z → freeze → longwait n80.
-- `experiments/s4-h100-f4-genesis-base/` · `results/pass395_peer_seed.md`.
+- **Status:** turns synced; frozen TCACHE chall↑ (p397) → longwait n80.
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass397_frozen_relaunch.md`.
 
 ### H101 / F6 — Ultrashort≤80 thought format — open
 - **Claim:** Rewrite high-Λ2 z to ≤80-char first-sentence targets; Tok LoRA
   teaches short emit format → m>+0.015 (format axis ≠ F2 selection).
-- **Status:** n80 a203 **54/80** @22:25Z.
+- **Status:** n80 a203 **62/80** @22:27Z.
 - `experiments/s4-h101-f6-short-format/` · `results/pass385_midload_seed.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** single b203 n80 (p396 killed c203 twin; watcher fixed on pods).
+- **Status:** b203first att2=c203 n80 running (b203 att1 failed).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass396_dedupe_watcher.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
-- **Status:** merge.done 68G; king :8001=000 — needs king-only recover then chall.
-- `experiments/s4-h103-f8-genesis-rl/` · `results/pass377_rent.md`.
+- **Status:** king332 Tok util0.72 loading (p397); then chall→n80.
+- `experiments/s4-h103-f8-genesis-rl/` · `results/pass397_king_tok.md`.
 
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** recover264 isolated+seeded (19.so); chall loading after bare preempt.
+- **Status:** freeze DONE; n80 retry armed @22:30Z.
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass396_preempt_reseed.md`.
 
 ### H3 — clip-L1 lever (supported)

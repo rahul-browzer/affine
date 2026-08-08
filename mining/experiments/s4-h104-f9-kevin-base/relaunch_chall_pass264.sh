@@ -250,7 +250,7 @@ PY
   _comp "a${a}_d1" "warmup short ${a}" 4 || return 1
   _comp "a${a}_d2" "Write a Python function that merges two sorted lists into one sorted list and explain briefly." 32 || return 1
   _comp "a${a}_d3" "$longpad" 16 || return 1
-  _comp "a${a}_d4" "$(python3 -c 'print(\"x\" * 4096)')" 8 || return 1
+  _comp "a${a}_d4" "$(python3 -c "print('x' * 4096)")" 8 || return 1
   return 0
 }
 

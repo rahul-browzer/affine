@@ -250,7 +250,7 @@ PY
   _comp "a${a}_d1" "warmup short ${a}" 4 || return 1
   _comp "a${a}_d2" "Write a Python function that merges two sorted lists into one sorted list and explain briefly." 32 || return 1
   _comp "a${a}_d3" "$longpad" 16 || return 1
-  _comp "a${a}_d4" "$(python3 -c 'print(\"x\" * 4096)')" 8 || return 1
+  _comp "a${a}_d4" "$(python3 -c "print('x' * 4096)")" 8 || return 1
   return 0
 }
 
@@ -485,10 +485,10 @@ echo $! >/root/logs/h100_form_decision.pid
 log "rearmed form pid=$(cat /root/logs/h100_form_decision.pid)"
 
 nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h100 \
-  /root/mining_src/s4-h100-f4-genesis-base/retry_h100_n80.sh \
+  /root/mining_src/s4-h100-f4-genesis-base/retry_h100_n80_longwait.sh \
   >/root/logs/h100_watch_retry.launch.nohup 2>&1 &
 echo $! >/root/logs/h100_watch_retry.pid
-log "rearmed watcher pid=$(cat /root/logs/h100_watch_retry.pid)"
+log "rearmed watcher pid=$(cat /root/logs/h100_watch_retry.pid) → longwait"
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h100_chall_serve.done
 echo "TCACHE=$TCACHE mode=$(stat -c %a $TCACHE) probe=200 attempts_ok post_diverse_freeze=1 king_seed=1" \
   > /root/logs/h100_chall_freeze_pass264.done
