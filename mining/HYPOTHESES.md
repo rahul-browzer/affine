@@ -8,7 +8,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H72 | med | H64@r18 **replicate** vs Tok → m>0.04 | **open** (train) |
-| 2 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 vs Tok | **open** (Tok retarget→n80) |
+| 2 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 vs Tok | **open** (n80 vs Tok) |
 | 3 | H73 | med | H67@r19 **replicate** vs Tok → m>0.04 | **open** (train) |
 | 4 | H71 | med | H42 cell @ **r=16** → m>0.04 vs Tok | **open** (train) |
 | 5 | H69 | med | H42 cell @ **r=17** → m>0.04 | **open** (n80 ~44/80 old king) |
@@ -32,7 +32,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H70 — H28 @ lr=5.01e-6 (non-α) — open
 - **Claim:** between H42@5e-6 +0.016 and H65@5.02 +0.018 → m>0.04.
-- **Status:** chall frozen; Tok :8001 loading → n80. `…/pass284_retarget_progress.md`.
+- **Status:** n80 attempt 2/3 vs Tok (b203) @10:25:50Z. `…/pass285_n80_vs_tok.md`.
 
 ### H73 — H67@r19 replicate vs Tok (non-α) — open
 - **Claim:** H67 +0.01835 shortlist re-draw vs Tok → m>0.04.

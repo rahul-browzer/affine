@@ -13,25 +13,23 @@ Best n80 (vs old TalentPigs): **H64 r18 m=+0.02509**.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$187,471** · cum ~$8,450 · **avail ~$177.5k** |
+| Lium / spend | **~$187,453** · cum ~$8,470 · **avail ~$177.5k** |
 | miner | τ10.000 free · 0 submissions |
-| H68 | **REFUTE** band×1.257 (lr=4.95e-6 dead); rm |
-| H67 | m=+0.01835 z=2.57 base×1.237 (shortlist); rm → **H73** |
-| H69 | n80 a203 @ **~44**/80 vs TalentPigs (ranking only) |
-| H70 | Tok :8001 loading after chall_serve.done; then n80 vs Tok |
-| H71 | train vs Tok (r=16) |
-| H72 | bootstrap→train **r=18 replicate** vs Tok |
-| H73 | bootstrap→train **r=19 replicate** vs Tok |
+| H70 | **n80 attempt 2/3 vs Tok** (b203) — started 10:25:50Z |
+| H69 | n80 ~53/80 vs TalentPigs (ranking only) |
+| H71 | merge writing shards → chall serve → n80 vs Tok |
+| H72 | bootstrap m7 download |
+| H73 | bootstrap m7 download |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h69-1 | noble-eagle-06 | 38.255.28.22:20100 | ~21:08Z | n80 ~44/80 old king |
-| mine-h70-1 | cosmic-raven-9e | 38.255.28.18:20100 | ~21:42Z | Tok retarget→n80 |
-| mine-h71-1 | eager-fox-be | 152.236.142.237:40311 | ~22:05Z | train r16 vs Tok |
-| mine-h72-1 | golden-comet-7a | 152.236.142.232:40299 | ~22:20Z | train r18-rep vs Tok |
-| mine-h73-1 | eager-matrix-9a | 38.255.28.19:20100 | ~22:21Z | train r19-rep vs Tok |
+| mine-h69-1 | noble-eagle-06 | 38.255.28.22:20100 | ~21:08Z | n80 ~53/80 old king |
+| mine-h70-1 | cosmic-raven-9e | 38.255.28.18:20100 | ~21:42Z | **n80 vs Tok** |
+| mine-h71-1 | eager-fox-be | 152.236.142.237:40311 | ~22:05Z | merge→serve→n80 Tok |
+| mine-h72-1 | golden-comet-7a | 152.236.142.232:40299 | ~22:20Z | bootstrap m7 dl |
+| mine-h73-1 | eager-matrix-9a | 38.255.28.19:20100 | ~22:21Z | bootstrap m7 dl |
 
 known_hosts `/tmp/mine-h{69,70,71,72,73}-1.known_hosts`.
 **Free slots: 0.** Burn ~$152/h mining.
@@ -54,8 +52,9 @@ Late merge→serve: rearm preempt if poll ≳200/240.
 
 ## Next action
 
-1. H70: Tok :8001 promptable → n80 vs Tok → decision.
-2. H69 (~44/80): decision vs TalentPigs — tear if m≤0.04; else re-sim vs Tok.
-3. H71/H72/H73: train → merge → n80 vs Tok.
-4. Free slot → non-α neighbor **KING=Tok331102 from rent** (prefer
+1. H70: await n80 decision vs Tok → tear / shortlist / submit-gate.
+2. H69 (~53/80): decision vs TalentPigs — tear if m≤0.04; else re-sim vs Tok.
+3. H71: finish merge → chall serve → n80 vs Tok.
+4. H72/H73: train → merge → n80 vs Tok.
+5. Free slot → non-α neighbor **KING=Tok331102 from rent** (prefer
    replicate best shortlist cell, not 1% lr step).
