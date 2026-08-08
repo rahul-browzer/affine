@@ -101,9 +101,9 @@ Format: `- <finding> — <the number or error that proves it>`
   relaunch if 0 (pass179/182).
 - Winner-zA thought LoRA on **TalentPigs init** loses (H27 m=−0.00792, gates
   OK) — shaping data alone ≠ crown; do not retry TP-init + same 406 ex.
-- H28 king :8001 can die mid-n80 after a burst of `/v1/completions` 500s
-  (ConnectError; pipeline 3× abort). Relaunch king (not `lium rm`);
-  `retry_h28_n80.sh` alone ABORTs if :8001 unhealthy — must recover king first.
+- King/chall can die mid-n80 (`EngineDeadError`/500s) leaving orphan
+  `VLLM::Worker` on role GPUs (H51 p237 chall; H28 king). Reap by GPU index +
+  `relaunch_chall_072` / king relaunch — never `lium rm`; retry waits engines.
 - King-self harvest (TalentPigs `king_rows` @ dbfbb + crown chall) → **686**
   ex mean clipL1 0.0885 — larger/cleaner than mixed winner-zA 406 (H29).
 - Thought-LoRA `max_len=8192` + long chat prefixes → empty supervised span
