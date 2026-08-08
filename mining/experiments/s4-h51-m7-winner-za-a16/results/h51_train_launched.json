@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-08T03:07:42Z",
+  "hypo": "H51",
+  "pid": 2539,
+  "base": "/root/hf/hub/models--Radiant28--5eqdtdzqle-ckpt1000-m7/snapshots/f766293ee878efef5f068a4053d6974017f11f26",
+  "base_hub": "Radiant28/5eqdtdzqle-ckpt1000-m7",
+  "base_rev": "f766293ee878efef5f068a4053d6974017f11f26",
+  "data": "/root/h51/winner_za_high_l1.jsonl",
+  "examples": 406,
+  "lr": 1e-05,
+  "lora_r": 16,
+  "lora_alpha": 16,
+  "loss_on": "thought",
+  "gpus": "6,7",
+  "out": "/root/h51/train",
+  "log": "/root/logs/h51_train.nohup",
+  "note": "H28 cell @ \u03b1=16 r16 (\u00bd of H28 \u03b132; between dead \u03b18 and \u03b132); m7-init winner-zA lr=1e-5"
+}

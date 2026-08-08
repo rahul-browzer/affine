@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-08T03:07:51Z",
+  "hypo": "H50",
+  "pid": 2568,
+  "base": "/root/hf/hub/models--Radiant28--5eqdtdzqle-ckpt1000-m7/snapshots/f766293ee878efef5f068a4053d6974017f11f26",
+  "base_hub": "Radiant28/5eqdtdzqle-ckpt1000-m7",
+  "base_rev": "f766293ee878efef5f068a4053d6974017f11f26",
+  "data": "/root/h50/winner_za_high_l1.jsonl",
+  "examples": 406,
+  "lr": 7.5e-06,
+  "loss_on": "thought",
+  "gpus": "6,7",
+  "out": "/root/h50/train",
+  "log": "/root/logs/h50_train.nohup",
+  "note": "H28 cell @ lr=7.5e-6 (1.5\u00d7 H42 5e-6; above-peak probe after H48 band-fail); m7-init winner-zA"
+}

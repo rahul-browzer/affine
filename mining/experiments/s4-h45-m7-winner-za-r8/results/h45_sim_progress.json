@@ -1,0 +1,10 @@
+{
+  "utc": "2026-08-08T03:09:15Z",
+  "hotkey": "local-h45",
+  "chall_repo": "/root/h45/merged",
+  "n_turns": 80,
+  "challenger": 60,
+  "challenger_total": 80,
+  "king": 60,
+  "king_total": 80
+}
