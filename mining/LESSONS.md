@@ -114,7 +114,8 @@ Format: `- <finding> — <the number or error that proves it>`
   (→H77 Tok / H80 Tok-init); **H70@5.01 −0.000525 vs Tok dead**; **H71@r16
   −0.01366 vs Tok dead**; **H72/H74/H75@r18 vs Tok** m=−0.009/−0.011/+0.00055
   (**H76@r18 −0.01974** closes m7×r18); **H73@r19 −0.00581 dead**;
-  **H78@r21 −0.00741 dead**. Open: H77@r17 **H79/H80/H81/H82 Tok-init**.
+  **H78@r21 −0.00741 dead**; **H77@r17 −0.02176 dead** (closes m7×r17).
+  Open: **H79–H83 Tok-init** (r18/17/22/23/25).
 - H66 king mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe
   `cache/king`, `serve_three` (p271); don't wait for post_train abort.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
@@ -140,11 +141,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - Never `pkill -f` over SSH (p274); kill by PID. recover264 owns chall (GPUs 4,5) → king-only relaunch (H67 p275).
 - Preempt 240×~10s≈40m: late merge→serve poll≳200 → **rearm preempt by PID** before TIMEOUT (H69 p277@216).
 - Live king can flip mid-flight (p279 TalentPigs→Tok331102 S=0.04456); mid-n80 vs old king is ranking-only — retarget before n80; submit needs margin vs **current** king.
-- Script-path self-match in SSH argv → match `$0` via `/proc/*/cmdline`. Substring `/retry_hN_n80.sh` also hits **watcher argv** — kill only the retry `$0`. Mid-n80 king EngineDead (Triton ENOENT **or** `sample_tokens` TimeoutError) → king-only recover (H76 p300/p302; H77 p302/p306); leave chall alone. Stuck orphan TP1+APIServer gone → kill recover PID, reap, re-fire. Load-time Triton ENOENT (health stays 000) → kill+wipe+**isolated** TCACHE re-fire (bare `cache/king` ENOENT again H80 p312→p314 NODUTTS4); early-abort on launcher.so ImportError.
+- Script-path self-match in SSH argv → match `$0` via `/proc/*/cmdline`. Substring `/retry_hN_n80.sh` also hits **watcher argv** — kill only the retry `$0`. Mid-n80 king EngineDead (Triton ENOENT **or** `sample_tokens` TimeoutError) → king-only recover (H76 p300/p302; H77 p302/p306); leave chall alone. Stuck orphan TP1+APIServer gone → kill recover PID, reap, re-fire. Load-time Triton ENOENT (health stays 000) → kill+wipe+**isolated** TCACHE re-fire (bare `cache/king` ENOENT again H80 p312→p314 NODUTTS4); early-abort on launcher.so ImportError. **King util=0.80 can CUDA-OOM on first n80 turn after PROMPTABLE** (H80 p314: 7.58 GiB need / 6.23 free) → re-fire isolated at **util=0.72**.
 - **Never sed-patch a running `post_train_pipeline.sh`** (H70 p282: retarget@09:59Z while merge ran → bash offset `line 134: --out: command not found` rc=127 after merge DONE; no merge.done). Patch only idle copies / env; if merge artifacts exist, write `merge.done` + `relaunch_chall` (do not re-merge).
 - **watch_preempt must not relaunch on isolated writable TCACHE** (H70 p283: chall health=200 @10:14:48Z settle→w1; preempt saw mode=755 n_so=16 “not frozen” → 2nd recover reaped healthy chall @10:14:49Z). Isolated path = leave alone; skip if `relaunch_chall` already alive; only bare `/root/.triton/cache/chall` launches recover.
 - Bare post_train chall can hit :8002=200 with mid-load Triton ghost WARNING then still finish; preempt264→recover264 is correct (H71 p287). Stale `retry_h*_n80` wait started before chall existed burns the 120×15s budget — recover kills+rearms; if no recover, kill retry PID near poll≳100 so watcher refreshes wait.
-- recover264 DONE rearms form+watch_n80 only — **not** preempt. One-shot
-  `watch_preempt_bare_tcache_pass264` **exits** on isolated chall (p303 rearm
-  → immediate "leave alone"). Mid-n80 bare needs **continuous**
-  `watch_mid_n80_bare_tcache_pass304.sh` while sim alive (H76–H80 p304).
+- recover264 DONE rearms form+watch_n80 only — **not** preempt. One-shot `watch_preempt_bare_tcache_pass264` **exits** on isolated chall (p303). Mid-n80 bare needs **continuous** `watch_mid_n80_bare_tcache_pass304.sh` while sim alive (H76–H80 p304).
