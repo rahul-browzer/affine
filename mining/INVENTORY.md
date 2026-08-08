@@ -7,9 +7,9 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h74-1 | brave-orbit-28 | 8×H200 | $28.00 | ~2026-08-08T22:42Z | H74 r18-rep#2 vs Tok | n80 ~57/80 |
-| mine-h75-1 | cosmic-hawk-20 | 8×H200 | $31.92 | ~2026-08-08T23:07Z | H75 r18-rep#3 vs Tok | n80 ~45/80 |
-| mine-h76-1 | gentle-raven-df | 8×H200 | $31.92 | ~2026-08-08T23:38Z | H76 r18-rep#4 vs Tok | merge→chall serve |
+| mine-h74-1 | brave-orbit-28 | 8×H200 | $28.00 | ~2026-08-08T22:42Z | H74 r18-rep#2 vs Tok | n80 ~71/80 |
+| mine-h75-1 | cosmic-hawk-20 | 8×H200 | $31.92 | ~2026-08-08T23:07Z | H75 r18-rep#3 vs Tok | n80 ~58/80 |
+| mine-h76-1 | gentle-raven-df | 8×H200 | $31.92 | ~2026-08-08T23:38Z | H76 r18-rep#4 vs Tok | n80 started |
 | mine-h77-1 | eager-shark-64 | 8×H200 | $28.00 | ~2026-08-08T23:45Z | H77 r17 vs Tok | merging |
 | mine-h78-1 | eager-comet-a4 | 8×H200 | $31.92 | ~2026-08-08T23:45Z | H78 r21 vs Tok | merging |
 
@@ -33,6 +33,6 @@ Account also has non-mine `wan-lora-train` / `affine-*` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T12:12Z | h74–78 match | H76 stale-retry refresh→recover264→n80 |
 | 2026-08-08T12:03Z | h74–78 match | H76 train→merge→chall; H77/H78 train.done→merge |
 | 2026-08-08T11:45Z | h74–76 +h77 +h78; −h72 −h73 | H72/H73 REFUTE tear; rent h77 r17 + h78 r21 |
-| 2026-08-08T11:37Z | h72–75 +h76; −h71 | H71 REFUTE tear; rent h76 r18-rep#4 |

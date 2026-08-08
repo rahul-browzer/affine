@@ -7,9 +7,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (n80 ~57/80) |
-| 2 | H75 | med | H64@r18 **rep#3** vs Tok → m>0.04 | **open** (n80 ~45/80) |
-| 3 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (chall serve) |
+| 1 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (n80 ~71/80) |
+| 2 | H75 | med | H64@r18 **rep#3** vs Tok → m>0.04 | **open** (n80 ~58/80) |
+| 3 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (n80 started) |
 | 4 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (merging) |
 | 5 | H78 | med | r=21 untested vs Tok → m>0.04 | **open** (merging) |
 | — | H73 | was med | H67@r19 replicate vs Tok | **refuted** m=−0.005810 |
@@ -26,16 +26,16 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H74 — H64@r18 replicate #2 vs Tok (non-α) — open
 - **Claim:** second independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** n80 vs Tok a203 ~57/80. `…/pass294_salvage_n80.md`.
+- **Status:** n80 vs Tok a203 ~71/80. `…/pass294_salvage_n80.md`.
 
 ### H75 — H64@r18 replicate #3 vs Tok (non-α) — open
 - **Claim:** third independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** n80 vs Tok a203 ~45/80. `…/pass291_launch.md`.
+- **Status:** n80 vs Tok a203 ~58/80. `…/pass291_launch.md`.
 
 ### H76 — H64@r18 replicate #4 vs Tok (non-α) — open
 - **Claim:** fourth independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** merge DONE, OK_NON_IDENTICAL, chall :8002 loading.
-  `…/pass297_train_merge.md`.
+- **Status:** n80 vs Tok a203 started 12:12Z after stale-retry
+  refresh + recover264. `…/pass298_n80_start.md`.
 
 ### H77 — H69@r17 Tok-retarget (non-α) — open
 - **Claim:** r17 shortlist (+0.01641 vs TalentPigs) clears Tok → m>0.04.
