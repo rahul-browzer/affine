@@ -14,27 +14,27 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$186,021** · cum ~$10,525 · **avail ~$176.0k** |
+| Lium / spend | **~$185,997** · cum ~$10,549 · **avail ~$176.0k** |
 | miner | τ10.000 free · 0 submissions |
-| H85 | **n80** a203 **~32/80** · mid304 |
-| H86 | **n80** a203 just started · mid304 armed · TCACHE frozen 555 |
-| H87 | bootstrap DOWNLOAD tok-init ~58G |
-| H88 | bootstrap DOWNLOAD tok-init ~53G |
-| H89 | **train** ~38% step~10/26 · teacher+king DL parallel |
+| H85 | **n80** a203 **36/80** · mid304 |
+| H86 | **n80** a203 **1/80** · mid304 |
+| H87 | **train** loading base (pid 4648) · teacher DL parallel |
+| H88 | bootstrap DOWNLOAD tok-init ~63G |
+| H89 | **train** ~62% step~16/26 |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h85-1 | eager-fox-a3 | 152.236.142.232:40300 | ~02:34Z+1d | n80 ~32/80 |
-| mine-h86-1 | calm-wolf-21 | 152.236.142.236:40300 | ~02:59Z+1d | n80 just started |
-| mine-h87-1 | swift-shark-4f | 38.255.28.22:20100 | ~03:31Z+1d | DOWNLOAD tok-init |
+| mine-h85-1 | eager-fox-a3 | 152.236.142.232:40300 | ~02:34Z+1d | n80 36/80 |
+| mine-h86-1 | calm-wolf-21 | 152.236.142.236:40300 | ~02:59Z+1d | n80 1/80 |
+| mine-h87-1 | swift-shark-4f | 38.255.28.22:20100 | ~03:31Z+1d | train r29 |
 | mine-h88-1 | zesty-hawk-be | 38.255.28.19:20100 | ~03:32Z+1d | DOWNLOAD tok-init |
 | mine-h89-1 | gentle-fox-06 | 152.236.142.237:40309 | ~03:38Z+1d | train r31 |
 
 known_hosts `/tmp/mine-h{85,86,87,88,89}-1.known_hosts`. **Free: 0.** ~$148/h.
 Non-mine `wan-lora-*` / `affine-*` — **do not touch**.
-**p328:** H86 salvage recover DONE → n80 a203 + mid304 armed (TCACHE isolated 555).
+**p329:** H87 DOWNLOAD→train @15:50Z (post/form/n80/preempt armed).
 
 ## Blocked
 
@@ -54,5 +54,5 @@ mid304 detect: `$0` arg1=`…/watch_mid_n80…sh` only — SSH `-c` text is fals
 ## Next action
 
 1. H85/H86 n80 → `decision.json`; tear if REFUTE; fill slot.
-2. H87/H88 DOWNLOAD→train; H89 train→merge→n80.
-3. Free slot → Tok-init r∉{16–26,31} / data variant; no m7×r17/r18.
+2. H87 train→merge→n80; H88 DOWNLOAD→train; H89 train→merge→n80.
+3. Free slot → Tok-init r∉{16–26,29,31} / data variant; no m7×r17/r18.
