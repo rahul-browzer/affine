@@ -101,11 +101,11 @@ Format: `- <finding> — <the number or error that proves it>`
   H50@7.5e-6 +0.00322; H53@4e-6 **−0.00885**; H46@2.5e-6 +0.00802; H45@r8
   +0.00819; H47@α8 +0.00463; H49@α4 +0.01174; H48@1e-6 **band×1.269**;
   H55@5.5e-6 **band×1.256**; H59@5.75e-6 **band×1.273**; H56@r24
-  **+0.00140**. lr **5e-6 > 5.25e-6 > 5.1e-6 > 8e-6 > 6e-6 > 7.5e-6 >
-  4e-6(neg)**; α16=+0.00855. High-lr ≥5.5 band-fails. Dead: TP/m7×ks/union /
-  lr≤2.5e-6∨=4e-6∨=5.1e-6∨=5.25e-6∨=5.5e-6∨=5.75e-6∨=6e-6∨=7.5e-6∨=8e-6∨≥3e-5 /
-  ep≥2 / r≤8∨=24∨≥32 / α≤8∨=16∨≥64 / clip≥0.08. Open: H63@5.05 H61@5.15
-  H60@5.3 H64@r18 H62@r20.
+  **+0.00140**; H60@5.3e-6 **+0.01350**. lr **5e-6 > 5.25e-6 > 5.1e-6 >
+  8e-6 > 5.3e-6 > 6e-6 > 7.5e-6 > 4e-6(neg)**; α16=+0.00855. High-lr ≥5.5
+  band-fails. Dead: TP/m7×ks/union / lr≤2.5e-6∨=4e-6∨=5.1e-6∨=5.25e-6∨=5.3e-6
+  ∨=5.5e-6∨=5.75e-6∨=6e-6∨=7.5e-6∨=8e-6∨≥3e-5 / ep≥2 / r≤8∨=24∨≥32 /
+  α≤8∨=16∨≥64 / clip≥0.08. Open: H65@5.02 H63@5.05 H61@5.15 H64@r18 H62@r20.
 - `watch_n80_retry` can launch `retry_h*_n80.sh` **before** bootstrap finishes
   pip → `source /root/venv/bin/activate` ENOENT (H60 @06:28Z). Retry scripts
   must wait for `/root/venv/bin/activate` (≤10m) before `source` (H61/H62).

@@ -7,11 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H63 | med | H42 cell @ **lr=5.05e-6** → m>0.04 | **open** (merge slow; preempt wait) |
-| 2 | H61 | med | H42 cell @ **lr=5.15e-6** → m>0.04 | **open** (p266 recover264 fired) |
-| 3 | H60 | med | H42 cell @ **lr=5.3e-6** → m>0.04 | **open** (n80 ~68/80) |
-| 4 | H64 | med | H42 cell @ **r=18** → m>0.04 | **open** (salvage pre-frozen relaunch) |
-| 5 | H62 | med | H42 cell @ **r=20** → m>0.04 | **open** (n80 ~31/80) |
+| 1 | H65 | med | H42 cell @ **lr=5.02e-6** → m>0.04 | **open** (bootstrap) |
+| 2 | H63 | med | H42 cell @ **lr=5.05e-6** → m>0.04 | **open** (freeze OK → n80) |
+| 3 | H61 | med | H42 cell @ **lr=5.15e-6** → m>0.04 | **open** (n80 ~7/80) |
+| 4 | H64 | med | H42 cell @ **r=18** → m>0.04 | **open** (n80 ~2/80) |
+| 5 | H62 | med | H42 cell @ **r=20** → m>0.04 | **open** (n80 ~59/80) |
+| — | H60 | was med | H42 cell @ lr=5.3e-6 | **refuted** m=+0.01350 |
 | — | H59 | was med | H42 cell @ lr=5.75e-6 | **refuted** band×1.273 |
 | — | H56 | was med | H42 cell @ r=24 | **refuted** m=+0.00140 |
 | — | H58 | was med | H42 cell @ lr=5.1e-6 | **refuted** m=+0.01466 |
@@ -26,33 +27,35 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Open
 
+### H65 — H28 @ lr=5.02e-6 (non-α)
+- **Claim:** densest under peak after H60@5.3 REFUTE → m>0.04.
+- **Status:** mine-h65-1 bootstrap @ 08:11Z; preempt264 armed.
+  `s4-h65-…/results/pass267_launch.md`.
+
 ### H63 — H28 @ lr=5.05e-6 (non-α)
 - **Claim:** densest under peak (H42@5e-6 best ↔ H58@5.1 REFUTE) → m>0.04.
-- **Status:** merge writing shard2 (slow); preempt264 waiting.
-  `s4-h63-…/results/pass265_merge_slow.md`.
+- **Status:** p264 freeze n_so=22 → n80 rearmed @ 08:11:40Z.
 
 ### H61 — H28 @ lr=5.15e-6 (non-α)
 - **Claim:** denser 5.1–5.25 gap → m>0.04.
-- **Status:** bare mid-n80@21/80 → p266 recover264 fired (attempt1 settle).
-  `s4-h61-…/results/pass266_bare_preempt.md`.
-
-### H60 — H28 @ lr=5.3e-6 (non-α)
-- **Claim:** between dead 5.25 and band-dead 5.5/5.75 → m>0.04.
-- **Status:** n80 a203 ~68/80 isolated freeze OK.
+- **Status:** freeze264 done; n80 a203 ~7/80.
 
 ### H64 — H42 @ LoRA r=18 (non-α)
 - **Claim:** open r gap denser (r16 best-ish / r20 open / r24 dead).
-- **Status:** w1 EngineDead → salvage n_so16→18 pre-frozen relaunch.
-  `s4-h64-…/results/pass265_preempt_fired.md`.
+- **Status:** salvage freeze OK; n80 a203 ~2/80.
 
 ### H62 — H42 @ LoRA r=20 (non-α)
 - **Claim:** between r16 and dead r24 → m>0.04.
-- **Status:** n80 a203 ~31/80 (isolated freeze n_so=23).
+- **Status:** n80 a203 ~59/80.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
+
+### H60 — m7×winner-zA @ lr=5.3e-6
+- m=+0.01350 z=2.23 base×1.212 r=0.659. Gates OK. **lr=5.3e-6 dead.**
+  `s4-h60-…/results/pass267_n80_refute.md`.
 
 ### H59 — m7×winner-zA @ lr=5.75e-6
 - chall INVALID band×**1.273**; margin 0. **lr=5.75e-6 dead.**
@@ -67,7 +70,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H51…H42 / H41…H1
 - See archive + LESSONS. Dead: α-merge / plmk / leary / **TP×ks** /
-  **m7×ks** / m7×union / **lr≤2.5e-6∨=4e-6∨=5.1e-6∨=5.25e-6∨=5.5e-6∨=5.75e-6** /
+  **m7×ks** / m7×union / **lr≤2.5e-6∨=4e-6∨=5.1e-6∨=5.25e-6∨=5.3e-6∨=5.5e-6∨=5.75e-6** /
   **lr=6e-6∨7.5e-6∨8e-6** / **lr≥3e-5** / **ep≥2** / **r≤8∨=24∨≥32** /
-  **α≤8∨=16** / **α≥64** / **clip≥0.08**. Open: H63@5.05 H61@5.15
-  H60@5.3 H64@r18 H62@r20.
+  **α≤8∨=16** / **α≥64** / **clip≥0.08**. Open: H65@5.02 H63@5.05
+  H61@5.15 H64@r18 H62@r20.
