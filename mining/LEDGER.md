@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $185,855.94 | 2026-08-08T16:24Z |
-| cumulative mining spend | ~$10,740 (5 pods ~$148/h accruing) | 2026-08-08T16:24Z |
-| **available for mining** | **~$175,856** (balance − $10,000 floor) | 2026-08-08T16:24Z |
+| Lium balance | $185,810.45 | 2026-08-08T16:32Z |
+| cumulative mining spend | ~$10,825 (5 pods ~$152/h accruing) | 2026-08-08T16:32Z |
+| **available for mining** | **~$175,810** (balance − $10,000 floor) | 2026-08-08T16:32Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (5 pods) | ~$148/h (h86/89/90 $28×3 + h87/88 $31.92×2) | 2026-08-08T16:24Z |
+| miner burn (5 pods) | ~$152/h (h89/90 $28×2 + h87/88/91 $31.92×3) | 2026-08-08T16:32Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -20,6 +20,8 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-08T16:31Z | 185810.45 | rent mine-h91-1 brave-shark-d2 @$31.92/h ttl12h (H91 r12) |
+| 2026-08-08T16:30Z | 185810.45 | rm mine-h86-1 (spent ~$42; H86 REFUTE m=−0.000341) |
 | 2026-08-08T16:24Z | 185855.94 | rent mine-h90-1 noble-shark-3c @$28.00/h ttl12h (H90 r14) |
 | 2026-08-08T16:21Z | 185855.94 | rm mine-h85-1 (spent ~$50; H85 REFUTE m=−0.008170); burn accrual |
 | 2026-08-08T16:09Z | 185926.97 | burn accrual; H87 teacher recover331 (no rent/rm) |
@@ -28,5 +30,3 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 | 2026-08-08T15:49Z | 186020.73 | burn accrual; H86 n80+mid304 armed (no rent/rm) |
 | 2026-08-08T15:38Z | 186066.52 | rent mine-h89-1 gentle-fox-06 @$28.00/h ttl12h |
 | 2026-08-08T15:37Z | 186066.52 | rm mine-h83-1 (spent ~$60; H83 REFUTE m=+0.001012) |
-| 2026-08-08T15:32Z | 186090.00 | rent mine-h88-1 zesty-hawk-be @$31.92/h ttl12h |
-| 2026-08-08T15:32Z | 186090.00 | rm mine-h84-1 (spent ~$36; H84 REFUTE m=−0.002423) |

@@ -37,23 +37,12 @@ Format: `- <finding> — <the number or error that proves it>`
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 
 ## Recipes already tried (do not repeat)
-- SFT/LoRA near-zero + α-merges dead (H1–H26): see HYPOTHESES/archive. No plain
-  distill-on-refs; stop α lottery / leary / plmk / m7-as-B / kkk.
+- SFT/LoRA near-zero + α-merges dead (H1–H26): see archive. No plain distill-on-refs; stop α lottery / leary / plmk / m7-as-B / kkk.
 
 ## Serving / VLM
-- King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops
-  `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` +
-  preprocessor + visual safetensors (333–352 keys). **Tok ships
-  `processor_config.json` not `preprocessor_config.json`** — derive the latter
-  from `image_processor` or chall dies at MultiModalBudget (H79 p307).
-- **Tok phantom visual index:** CausalLM can leave 333 `model.visual.*` keys in
-  `model.safetensors.index.json` pointing at language shards with **0** visual
-  tensors — index count≠disk. `merge_lora` must verify keys exist in claimed
-  shards and extract `model-visual-restored.safetensors` (H79/H80 p310: 852 MiB,
-  then GPUs 4,5 → 36 GiB; prior: ValueError uninit visual.*).
-- Weight-identity: sample head/mid/tail shards. first_1MiB alone is false (embeds).
-- `merge_linear.py` must track `max_abs_delta` over **all** keys (H12: first8 Δ=0
-  but shard08 max‖A−O‖=0.215).
+- King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` + preprocessor + visual safetensors (333–352 keys). **Tok ships `processor_config.json` not `preprocessor_config.json`** — derive from `image_processor` or chall dies at MultiModalBudget (H79 p307).
+- **Tok phantom visual index:** CausalLM can leave 333 `model.visual.*` keys in `model.safetensors.index.json` pointing at language shards with **0** visual tensors — index count≠disk. `merge_lora` must verify keys exist in claimed shards and extract `model-visual-restored.safetensors` (H79/H80 p310: 852 MiB → GPUs 4,5 36 GiB).
+- Weight-identity: sample head/mid/tail shards. first_1MiB alone is false (embeds). `merge_linear.py` must track `max_abs_delta` over **all** keys (H12: first8 Δ=0 but shard08 max‖A−O‖=0.215).
 
 ## Training ops
 - Under `nohup`, scrape `trainer_state.json` (tqdm.write never hits the log).
@@ -117,9 +106,13 @@ Format: `- <finding> — <the number or error that proves it>`
   **H79 Tok-init@r18 −0.00784 dead**; **H80 Tok-init@r17 −0.000821 dead**;
   **H81 Tok-init@r22 +0.008811** (<0.015); **H82@r23 −0.00439 dead**;
   **H83@r25 +0.00101 dead**; **H84@r26 −0.00242 dead**; **H85@r27
-  −0.00817 dead**. Open: **H86–H90** (r28–31 + r14). H66 king mid-pipeline Triton
-  ENOENT hung :8001 — reap GPU 2/3, wipe `cache/king`, `serve_three` (p271);
-  don't wait for post_train abort.
+  −0.00817 dead**; **H86@r28 −0.000341 dead**. Open: **H87–H91** (r29–31 +
+  r14/r12). H66 king mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3,
+  wipe `cache/king`, `serve_three` (p271); don't wait for post_train abort.
+- Teacher Triton ENOENT mid-inductor (`triton_poi_fused_*.json` ghost) → wipe
+  teacher* + unique TCACHE re-fire (H89 p334). Orphan `VLLM::Worker` with
+  open fds on nvidia0–3 (0 MiB) — kill carefully; concurrent reap coincided
+  with chall EngineDead on GPUs 4,5 → recover264 immediately.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
   `/root/venv/bin/activate` ≤10m (H60/H61/H62).
 - Rent by UUID from `lium ls --count 8` $/h≥28 + verify COUNT=8 (`lium up
