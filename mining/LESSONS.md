@@ -77,13 +77,13 @@ Format: `- <finding> — <the number or error that proves it>`
   after wipe. Health=200 ≠ alive — gate on `/v1/completions` 200 **twice**
   20s apart. TP race-deletes `__triton_launcher.so` on **first** warmup even
   after 45s settle with n_pre=16 (H51 p240 a1_w1 ENOENT) — **king-seed+
-  prefreeze-before-w1 is DEAD for chall** when warmup needs non-king hashes
-  (H56 p247 a1–a3 all 500/ENOENT under mode=555; p251 = writable w1 then
-  freeze). Keep outer×3, never `lium rm`. CUDA-graph hang: shm_broadcast >5m after "Registering N addresses"
-  → kill + clear torch_compile_cache + relaunch. Orphans=`VLLM::Worker`
+  prefreeze-before-w1 is DEAD for chall** (H56 p247 a1–a3 500/ENOENT
+  mode=555); **writable-w1 then freeze WORKS** (H56 p251 a1: w1→freeze
+  →w2/w3=200, +6 launcher.so, n80 a203). Keep outer×3, never `lium rm`.
+  CUDA-graph hang (shm_broadcast >5m after "Registering N addresses") →
+  kill + clear torch_compile_cache + relaunch. Orphans=`VLLM::Worker`
   ppid=1. `FALSE_PROBE_*`≠REFUTE. `serve_three` "already running"≠healthy.
 - `pgrep -f` false-matches SSH/watcher argv — use
-
   `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
   from `watch_n80_retry` (self-deadlock H32 pass198).
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin: check
