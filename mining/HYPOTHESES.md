@@ -7,11 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H52 | med | H42 cell @ **lr=6e-6** → m>0.04 | **open** (train) |
-| 2 | H50 | med | H42 cell @ **lr=7.5e-6** → m>0.04 | **open** (train) |
-| 3 | H51 | med | H28 cell @ **α=16 r16** → m>0.04 | **open** (train) |
-| 4 | H45 | med | H28 cell @ **lora r=8** → m>0.04 | **open** (n80 ~59/80) |
-| 5 | H49 | low | H28 cell @ **α=4 r16** → m>0.04 | **open** (n80 ~12/80) |
+| 1 | H53 | med | H42 cell @ **lr=4e-6** → m>0.04 | **open** (bootstrap) |
+| 2 | H52 | med | H42 cell @ **lr=6e-6** → m>0.04 | **open** (merge) |
+| 3 | H50 | med | H42 cell @ **lr=7.5e-6** → m>0.04 | **open** (merge) |
+| 4 | H51 | med | H28 cell @ **α=16 r16** → m>0.04 | **open** (merge) |
+| 5 | H49 | low | H28 cell @ **α=4 r16** → m>0.04 | **open** (n80 ~33/80) |
+| — | H45 | was med | H28 cell @ lora r=8 | **refuted** m=+0.00819 |
 | — | H48 | was med | H42 cell @ lr=1e-6 | **refuted** band×1.269 |
 | — | H47 | was med | H28 cell @ α=8 | **refuted** m=+0.00463 |
 | — | H46 | was med | H42 cell @ lr=2.5e-6 | **refuted** m=+0.00802 |
@@ -28,30 +29,34 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Open
 
+### H53 — H28 @ lr=4e-6 (non-α)
+- **Claim:** between H46 2.5e-6 (+0.008) and H42 5e-6 (+0.016) → m>0.04.
+- **Status:** BOOTSTRAP pid915 @03:21Z mine-h53-1. `s4-h53-…/`.
+
 ### H52 — H28 @ lr=6e-6 (non-α)
 - **Claim:** just above H42 5e-6 → m>0.04.
-- **Status:** TRAIN_LAUNCHED pid=2848 @03:09:05Z. `s4-h52-…/results/`.
+- **Status:** train.done step26 → MERGE. `s4-h52-…/results/`.
 
 ### H50 — H28 @ lr=7.5e-6 (non-α)
 - **Claim:** 1.5× H42 → m>0.04 (above-peak after lr↓ failed).
-- **Status:** TRAIN_LAUNCHED pid=2568 @03:07:51Z. `s4-h50-…/results/`.
+- **Status:** train.done step26 → MERGE. `s4-h50-…/results/`.
 
 ### H51 — H28 @ LoRA α=16 @ r16 (non-α)
 - **Claim:** α÷2 vs H28 α32 (between dead α8 and α32) → m>0.04.
-- **Status:** TRAIN_LAUNCHED pid=2539 @03:07:42Z. `s4-h51-…/results/`.
-
-### H45 — H28 @ LoRA r=8 (non-α)
-- **Claim:** ½ LoRA rank (r8/α16) opposite of H41 → m>0.04.
-- **Status:** n80 b203 ~59/80. `s4-h45-…/results/`.
+- **Status:** train.done step26 → MERGE. `s4-h51-…/results/`.
 
 ### H49 — H28 @ LoRA α=4 @ r16 (non-α)
 - **Claim:** α÷8 → m>0.04. (H47 α8 already weak; low prior.)
-- **Status:** n80 a203 ~12/80. `s4-h49-…/results/`.
+- **Status:** n80 a203 ~33/80. `s4-h49-…/results/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
+
+### H45 — m7×winner-zA @ LoRA r=8
+- m=+0.00819 z=1.19 base×1.234 r=0.579. **r≤8 dead** (with r≥32).
+  `s4-h45-m7-winner-za-r8/results/`.
 
 ### H48 — m7×winner-zA @ lr=1e-6
 - INVALID base×**1.269** > 1.25. **lr≤1e-6 dead (band).**
@@ -80,4 +85,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H36…H29 / H28 / H27…H1
 - See archive + LESSONS. No α-merge / plmk / leary / **TP×ks** /
   **m7×ks** / m7×union / **lr≤2.5e-6** / **lr≥3e-5** / **ep≥2** /
-  **r≥32** / **α≤8** / **α≥64** / **clip≥0.08**. H51 α16 still open.
+  **r≤8∨r≥32** / **α≤8** / **α≥64** / **clip≥0.08**. H51 α16 still open.
