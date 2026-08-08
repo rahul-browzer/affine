@@ -42,8 +42,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** king NCCL-dead@11/80; king332 recover p399 launched.
-- `experiments/s4-h104-f9-kevin-base/` · `results/pass396_preempt_reseed.md`.
+- **Status:** king332 loading; **longwait n80 armed p400** (short poll40 killed @32/40).
+- `experiments/s4-h104-f9-kevin-base/` · `results/pass400_longwait.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
