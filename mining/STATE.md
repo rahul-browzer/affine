@@ -14,27 +14,27 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$186,254** · cum ~$10,265 · **avail ~$176.3k** |
+| Lium / spend | **~$186,209** · cum ~$10,310 · **avail ~$176.2k** |
 | miner | τ10.000 free · 0 submissions |
-| H82 | **n80** a203 **~38/80** · mid304 |
-| H83 | **n80** a203 **~9/80** · mid304 |
-| H84 | **n80** b203 **~18/80** · mid304 |
-| H85 | **chall serve** post-merge · :8002 loading |
-| H86 | **bootstrap** r28 · just launched (p324) |
+| H82 | **n80** a203 **~46/80** · mid304 |
+| H83 | **n80** a203 **~15/80** · mid304 |
+| H84 | **n80** b203 **~30/80** · mid304 |
+| H85 | **n80** a203 just launched · mid304 + recover274 |
+| H86 | **train** start_h86 (tok_init.done) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h82-1 | golden-comet-74 | 38.255.28.21:20100 | ~01:29Z+1d | n80 ~38/80 |
-| mine-h83-1 | cosmic-matrix-be | 38.255.28.18:20098 | ~01:44Z+1d | n80 ~9/80 |
-| mine-h84-1 | gentle-lion-26 | 152.236.142.237:40311 | ~01:56Z+1d | n80 b203 ~18/80 |
-| mine-h85-1 | eager-fox-a3 | 152.236.142.232:40300 | ~02:34Z+1d | chall→n80 |
-| mine-h86-1 | calm-wolf-21 | 152.236.142.236:40300 | ~02:59Z+1d | bootstrap r28 |
+| mine-h82-1 | golden-comet-74 | 38.255.28.21:20100 | ~01:29Z+1d | n80 ~46/80 |
+| mine-h83-1 | cosmic-matrix-be | 38.255.28.18:20098 | ~01:44Z+1d | n80 ~15/80 |
+| mine-h84-1 | gentle-lion-26 | 152.236.142.237:40311 | ~01:56Z+1d | n80 b203 ~30/80 |
+| mine-h85-1 | eager-fox-a3 | 152.236.142.232:40300 | ~02:34Z+1d | n80+recover+mid304 |
+| mine-h86-1 | calm-wolf-21 | 152.236.142.236:40300 | ~02:59Z+1d | train start_h86 |
 
 known_hosts `/tmp/mine-h{82,83,84,85,86}-1.known_hosts`. **Free: 0.** ~$148/h.
 Non-mine `wan-lora-*` / `affine-*` — **do not touch**.
-**p324:** H81 REFUTE m=+0.008811 → rm; rent H86 r28.
+**p325:** H85 :8002=200 → n80 a203; armed mid304; preempt→recover274 bare.
 
 ## Blocked
 
@@ -52,7 +52,7 @@ H84 n80 uses **b203** (a203 aborted by king death).
 
 ## Next action
 
-1. H82 (~38/80) → `decision.json`; then H83/H84.
-2. H85 :8002=200 → n80 + arm mid304.
-3. H86 bootstrap→train→merge→chall; arm mid304 when n80 starts.
+1. H85 recover274 DONE → chall isolated+promptable; confirm n80_retry rearmed; n80 progresses.
+2. H82 (~46/80) → `decision.json`; then H83/H84.
+3. H86 train→merge→chall; arm mid304 when n80 starts.
 4. Free slot → Tok-init r∉{16–22,24} / data variant; no m7×r17/r18.

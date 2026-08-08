@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H82 | med | **Tok-init** × winner-zA@r23 → m>0.04 | **open** (n80 ~38/80) |
-| 2 | H83 | med | **Tok-init** × winner-zA@r25 → m>0.04 | **open** (n80 ~9/80) |
-| 3 | H84 | med | **Tok-init** × winner-zA@r26 → m>0.04 | **open** (n80 ~18/80) |
-| 4 | H85 | med | **Tok-init** × winner-zA@r27 → m>0.04 | **open** (chall serve) |
-| 5 | H86 | med | **Tok-init** × winner-zA@r28 → m>0.04 | **open** (bootstrap) |
+| 1 | H82 | med | **Tok-init** × winner-zA@r23 → m>0.04 | **open** (n80 ~46/80) |
+| 2 | H83 | med | **Tok-init** × winner-zA@r25 → m>0.04 | **open** (n80 ~15/80) |
+| 3 | H84 | med | **Tok-init** × winner-zA@r26 → m>0.04 | **open** (n80 ~30/80) |
+| 4 | H85 | med | **Tok-init** × winner-zA@r27 → m>0.04 | **open** (n80+recover+mid304) |
+| 5 | H86 | med | **Tok-init** × winner-zA@r28 → m>0.04 | **open** (train) |
 | — | H81 | was med | **Tok-init** × winner-zA@r22 vs Tok | **refuted** m=+0.008811 |
 | — | H80 | was med | **Tok-init** × winner-zA@r17 vs Tok | **refuted** m=−0.000821 |
 | — | H79 | was med | **Tok-init** × winner-zA@r18 vs Tok | **refuted** m=−0.007836 |
@@ -27,23 +27,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H82 — Tok-init × winner-zA @ r=23 (non-α) — open
 - **Claim:** Tok-init rank neighbor of H81 (r=23 untested) → m>0.04.
-- **Status:** n80 a203 **~38/80** + mid304. `…/pass321_n80_mid304.md`.
+- **Status:** n80 a203 **~46/80** + mid304. `…/pass321_n80_mid304.md`.
 
 ### H83 — Tok-init × winner-zA @ r=25 (non-α) — open
 - **Claim:** Tok-init r=25 (untested; ∉ dead) → m>0.04.
-- **Status:** n80 a203 **~9/80** + mid304. `…/pass323_n80_mid304.md`.
+- **Status:** n80 a203 **~15/80** + mid304. `…/pass323_n80_mid304.md`.
 
 ### H84 — Tok-init × winner-zA @ r=26 (non-α) — open
 - **Claim:** after H79 Tok-init@r18 REFUTE, r=26 → m>0.04.
-- **Status:** n80 **b203** ~18/80 + mid304. `…/pass323_n80_live.md`.
+- **Status:** n80 **b203** ~30/80 + mid304. `…/pass323_n80_live.md`.
 
 ### H85 — Tok-init × winner-zA @ r=27 (non-α) — open
 - **Claim:** after H80 Tok-init@r17 REFUTE, r=27 (≥3 step, ∉ dead) → m>0.04.
-- **Status:** merge DONE → chall re-serve (:8002 loading). `…/pass320_launch.md`.
+- **Status:** n80 a203 + mid304 armed; recover274 isolating bare TCACHE.
+  `…/pass325_n80_mid304.md`.
 
 ### H86 — Tok-init × winner-zA @ r=28 (non-α) — open
 - **Claim:** after H81 Tok-init@r22 REFUTE (m=+0.0088), r=28 → m>0.04.
-- **Status:** bootstrap LIVE on mine-h86-1. `…/pass324_launch.md`.
+- **Status:** tok_init.done → start_h86 train. `…/pass324_launch.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
