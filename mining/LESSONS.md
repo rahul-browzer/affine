@@ -147,5 +147,4 @@ Format: `- <finding> — <the number or error that proves it>`
   kill post_train+both sims; skip if `watch_n80_retry`/`retry_hN` **armed**.
 - `watch_n80_retry` must **not** `exec` the retry (pass203). Retry must
   **wait** engines (not abort-spam every 30s — pass205). Sim-alive check
-  needs `python` in argv — bare `pgrep -f run_sim_duel` self-matches.
-  Money: floor $10k; burn ~τ0.68; no cryptoType.
+  needs `python` in argv (bare pgrep self-matches). Floor $10k; burn~τ0.68; no cryptoType.
