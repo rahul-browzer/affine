@@ -96,14 +96,15 @@ Format: `- <finding> — <the number or error that proves it>`
   (SM10.0; pass188). `$11.6/h` can be **4 GPUs** — always `nvidia-smi -L|=8`.
 - `sync_corpus` flocks + adopts existing `turns.jsonl` (rename race H29/H30).
 - H27 TP-init+same 406ex m=−0.00792 — do not retry TalentPigs-init shaping.
-- Winner-zA LoRA m7-init: **H64@r18 +0.02509 best** (z=2.993 fails 3σ by ~6e-5;
+-   Winner-zA LoRA m7-init: **H64@r18 +0.02509 best** (z=2.993 fails 3σ by ~6e-5;
   base×1.248); H42@5e-6 +0.01613; H57@5.25e-6 +0.01537; H58@5.1e-6 +0.01466;
   H54@8e-6 +0.01380; H60@5.3e-6 +0.01350; H52@6e-6 +0.01280; H28 +0.01095;
-  H53@4e-6 **−0.00885**; H56@r24 +0.00140; H62@r20 **band×1.273**; H55/H59
-  band. lr **5e-6 > 5.25e-6 > 5.1e-6 > 8e-6 > 5.3e-6 > 6e-6 > 4e-6(neg)**;
-  α16=+0.00855. Dead: TP/m7×ks/union / lr≤2.5e-6∨=4e-6∨=5.1–5.3∨=5.5∨=5.75∨=6
-  ∨=7.5∨=8∨≥3e-5 / ep≥2 / **r≤8∨=18∨=20∨=24∨≥32** / α≤8∨=16∨≥64 / clip≥0.08.
-  Open: H65@5.02 H63@5.05 H66@5.08 H61@5.15 H67@r19; queued H68@4.95e-6.
+  H53@4e-6 **−0.00885**; H63@5.05e-6 **+0.00424**; H56@r24 +0.00140;
+  H62@r20 **band×1.273**; H55/H59 band. lr **5e-6 > 5.25e-6 > 5.1e-6 > 8e-6 >
+  5.3e-6 > 6e-6 > 5.05e-6 > 4e-6(neg)**; α16=+0.00855. Dead: TP/m7×ks/union /
+  lr≤2.5e-6∨=4e-6∨=5.05∨=5.1–5.3∨=5.5∨=5.75∨=6∨=7.5∨=8∨≥3e-5 / ep≥2 /
+  **r≤8∨=18∨=20∨=24∨≥32** / α≤8∨=16∨≥64 / clip≥0.08. Open: H65@5.02 H66@5.08
+  H61@5.15 H67@r19 H68@4.95e-6.
 - H66 king mid-pipeline Triton ENOENT (`__triton_launcher.so` ghost) hung
   :8001 while APIServer alive — reap GPU 2/3 workers, wipe `cache/king`,
   relaunch via `serve_three` (pass271); do not wait for post_train abort.

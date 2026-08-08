@@ -28,8 +28,8 @@ MERGED=${MERGED:-/root/h68/merged}
 SIM_N80=/root/affine_data/h68_sim_result.json
 PROG=/root/affine_data/h68_sim_progress.json
 LOG=/root/logs/h68_pipeline.nohup
-SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-08T19:15:00Z}
-DEADMAN_UTC=${DEADMAN_UTC:-2026-08-08T19:45:00Z}
+SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-08T19:58:00Z}
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-08T20:28:00Z}
 
 log() { echo "[h68-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
