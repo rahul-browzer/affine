@@ -38,10 +38,16 @@ fi
 
 log "START new_king=$NEW_REPO@$NEW_REV"
 
-# 1) Patch KING defaults so retry/post_train n80 args match served model.
+# 1) Patch KING defaults so retry/n80 args match served model.
+# NEVER sed-patch a running post_train_pipeline.sh (p282: bash offset → rc=127
+# after merge DONE). Skip post_train if that process is alive; retry/prewarm OK.
+_post_alive=0
+if ps -eo args | awk '/[p]ost_train_pipeline\.sh/ {found=1} END{exit !found}'; then
+  _post_alive=1
+  log "SKIP patch post_train_pipeline.sh (process alive — p282 lesson)"
+fi
 for f in \
   /root/mining_src/s4-h70-m7-winner-za-lr501e6/retry_h70_n80.sh \
-  /root/mining_src/s4-h70-m7-winner-za-lr501e6/post_train_pipeline.sh \
   /root/mining_src/s4-h70-m7-winner-za-lr501e6/prewarm_engines.sh
 do
   [[ -f "$f" ]] || continue
@@ -51,6 +57,16 @@ do
     "$f"
   log "patched $f"
 done
+if [[ "$_post_alive" -eq 0 ]]; then
+  f=/root/mining_src/s4-h70-m7-winner-za-lr501e6/post_train_pipeline.sh
+  if [[ -f "$f" ]]; then
+    sed -i \
+      -e "s|KING_REPO=\${KING_REPO:-TalentPigs/affine-5ekxlcg3fx-abc}|KING_REPO=\${KING_REPO:-${NEW_REPO}}|" \
+      -e "s|KING_REV=\${KING_REV:-dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4}|KING_REV=\${KING_REV:-${NEW_REV}}|" \
+      "$f"
+    log "patched $f"
+  fi
+fi
 
 # 2) Download new king (CPU/disk; merge uses GPUs 6,7).
 log "huggingface_hub snapshot_download $NEW_REPO@$NEW_REV"

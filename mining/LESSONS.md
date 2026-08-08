@@ -6,8 +6,17 @@ Format: `- <finding> — <the number or error that proves it>`
 - All `lp*` are echo+logprob **forced** scores normalized per byte (`lp_per_byte`).
 - `S` is only comparable **within one duel** (slice = reveal-block seed). Never
   cross-duel compare absolute S or absolute clip-L1; use within-slice Δ.
-- Crown needs margin > max(3·SE, 0.02). Field bunched ±0.014 of king; we lose
-  on margin, not gates. Real bar ≈0.024 at SE≈0.008.
+- Crown needs margin > max(3·SE, 0.02) ≈ **0.025** at SE≈0.0084. We lose on
+  margin, not gates.
+- **0.04 is our SUBMIT gate (slice-variance headroom), NOT the crowning bar and
+  NOT a kill threshold.** Conflating them nearly binned our best work: H64 r=18
+  m=+0.02509 z=2.993 missed 3·SE=0.02515 by **0.000059 (0.23%)** and was written
+  into the dead list. A cell in 0.015–0.04 is a **shortlist to replicate**.
+- **SE≈0.0084 ⇒ one n80 cannot separate cells <0.017 apart.** Sweeping lr at 1%
+  steps (5.01/5.02/5.05e-6) and blacklisting each on one draw is fitting noise:
+  the same family gave +0.0135, +0.0098, +0.0042, +0.0183, +0.0161 with no
+  order. **Replicate the best cell instead of stepping 1% sideways** — a re-draw
+  is a fresh shot at 3·SE; a neighbour cell is a coin flip already flipped.
 - Clip-L1 is the lever (H3): Spearman 0.936 vs outcome; Λ2 only 0.711.
 - r ∈ [0.3, 4.0] (not our invented [0.70,0.85]); baseline band chall ≤1.25× king.
   Low r is a faithful-distill symptom, never a training target.
@@ -55,7 +64,7 @@ Format: `- <finding> — <the number or error that proves it>`
 ## Shell / pod ops
 - Never `lium exec -e HF_TOKEN=...` (prints secret). `/root/mine.env` +
   `set -a; source; set +a` (bare `source` does not export — cost a bootstrap).
-- Never edit a running shell script (bash offset → `ted: command not found`).
+- Never edit a running shell script (bash offset → `ted: command not found` / H70 `--out`).
 - Prefer SSH+nohup over `lium exec`. Teardown fail-open on train markers.
 - Independent hyps on separate `mine-*` pods; after REFUTE kill idle :8002
   workers (orphan EngineCore holds ~117 GiB → relaunch OOM). Chall util **0.72**.
@@ -126,23 +135,14 @@ Format: `- <finding> — <the number or error that proves it>`
   30977+1792) kills whole n80; rotate `--block-hash` across retry attempts.
 - `start_*.sh` JSON `note` must be a closed string; unterminated → SyntaxError
   after train nohup → bootstrap `set -e` skips extra_dl/post_train (H36 pass198).
-- Engine recover: wipe `role`+`role_*` Triton caches **before** creating the
-  new `TCACHE`, then ≥20s settle (H35/H36/H37/H41; H40 p210 teacher hung
-  health=000 with workers holding VRAM after `cuda_utils.so` ImportError —
-  reap by GPU index first). Concurrent prewarm still races — recover dead role.
-- Default `block_hash=0*64` n80 dies teacher **400** @~40/80 (H32/H34). Rotate
-  a203/b203/c203 on every retry. Bare post_train **races** retry (H42/H43) —
-  skip if retry armed. Soft-deadline: cloned SOFT/DEADMAN=`04:30Z`/`05:30Z`
-  aborts once past (`<60m to soft`); H53–H56 hit this — export **and** patch
-  script `:-` defaults to ≥TTL−1h (env alone dies on restart; pass245);
-  relaunch post_train, never tear down. `watch_n80_retry` must **not** `exec`
-  retry (pass203); retry must **wait** engines; sim-alive needs `python` in argv.
-- Arm watch_preempt_bare_tcache before post_train chall serve (H63/H64 p264) — bare cache/chall n80 is the H61/H62 race; recover after chall_serve.done or :8002=200.
-- p264 preempt **validated** on H64 @07:56:29Z: bare `/root/.triton/cache/chall` → recover264 isolated seed+warm+freeze; kills post_train/wait; rearms form+n80 watchers (pass265).
-- Bare mid-n80 → fire recover264 **immediately** (H61 p266 @21/80); waiting for FALSE_PROBE wastes the slice. Arm preempt scripts on every hyp at rent (H61 lacked them).
-- recover264 **salvage** after writable-w1 ghost ENOENT: if n_so grew (H66 16→22) prefreeze same TCACHE + relaunch → triple-promptable; n80 a203 started (p274).
-- Never `pkill -f PATTERN` over SSH when the remote argv contains PATTERN — kills the session (p274 H67); kill by PID only.
-- When recover264 owns chall (GPUs 4,5), relaunch king **alone** — `serve_three` fights chall and races Triton (H67 p275: king ENOENT `NPCWTIH3…/__triton_launcher.so` after pass274 serve_three; king_recover_pass275.sh).
-- Preempt 240×~10s ≈40m from rent: late merge→serve can leave poll ≳200 before chall 200 (H69 p277 @216/240, 65 GiB load just started) — **rearm preempt by PID** (kill+relaunch) before TIMEOUT; do not wait for TIMEOUT log.
-- Live king can flip mid-flight (p279 @09:49Z TalentPigs→Tok331102 S=0.04456); mid-n80 vs old king is ranking-only — retarget free/post-merge pods (`retarget_king_pass279.sh`) before n80; submit gate needs margin vs **current** king.
-- `awk '/retry_hN_n80/'` also matches `watch_n80_retry … retry_hN_n80.sh` argv (p279 killed watcher pid941) — match `/[r]etry_hN_n80\.sh/` with no `watch_` parent, or kill by exact PID from `ps`.
+- Engine recover: wipe `role`+`role_*` Triton caches before new `TCACHE`, ≥20s settle (H35–H41; H40 cuda_utils ImportError → reap by GPU). Concurrent prewarm races — recover dead role.
+- Default `block_hash=0*64` n80 dies teacher **400** @~40/80 — rotate a203/b203/c203. Bare post_train races retry — skip if retry armed. Soft-deadline: patch script `:-` ≥TTL−1h (H53–H56); never tear down. `watch_n80_retry` must not `exec` retry; sim-alive needs `python` in argv.
+- Arm watch_preempt_bare_tcache before post_train chall serve; recover after chall_serve.done or :8002=200 (H61/H62 bare-cache race).
+- p264 preempt validated H64: bare cache/chall → recover264 seed+warm+freeze; rearms form+n80 (pass265). Mid-n80 bare → fire recover264 immediately (H61@21/80).
+- recover264 salvage after writable-w1 ghost ENOENT: n_so grew → prefreeze same TCACHE + relaunch (H66 16→22; p274).
+- Never `pkill -f` over SSH (kills session if argv matches; p274); kill by PID only.
+- recover264 owns chall (GPUs 4,5) → relaunch king **alone** (H67 p275 serve_three raced Triton).
+- Preempt 240×~10s≈40m: late merge→serve poll≳200 → **rearm preempt by PID** before TIMEOUT (H69 p277@216).
+- Live king can flip mid-flight (p279 TalentPigs→Tok331102 S=0.04456); mid-n80 vs old king is ranking-only — retarget before n80; submit needs margin vs **current** king.
+- `awk '/retry_hN_n80/'` matches `watch_n80_retry … retry_hN_n80.sh` argv (p279 killed watcher) — match `/[r]etry_hN_n80\.sh/` or kill by exact PID.
+- **Never sed-patch a running `post_train_pipeline.sh`** (H70 p282: retarget@09:59Z while merge ran → bash offset `line 134: --out: command not found` rc=127 after merge DONE; no merge.done). Patch only idle copies / env; if merge artifacts exist, write `merge.done` + `relaunch_chall` (do not re-merge).

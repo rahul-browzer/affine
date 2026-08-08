@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h67-1 | eager-hawk-f5 | 8×H200 | $28.00 | ~2026-08-08T20:51Z | H67 m7×wZA r=19 | n80 ~58/80 (old king) |
-| mine-h68-1 | cosmic-shark-68 | 8×H200 | $31.92 | ~2026-08-08T20:58Z | H68 m7×wZA lr4.95e-6 | n80 ~60/80 (old king) |
-| mine-h69-1 | noble-eagle-06 | 8×H200 | $31.92 | ~2026-08-08T21:08Z | H69 m7×wZA r=17 | n80 ~22/80 (old king) |
-| mine-h70-1 | cosmic-raven-9e | 8×H200 | $31.92 | ~2026-08-08T21:42Z | H70 m7×wZA lr5.01e-6 | merge+Tok; preempt rearm |
-| mine-h71-1 | eager-fox-be | 8×H200 | $28.00 | ~2026-08-08T22:05Z | H71 m7×wZA r=16 vs Tok | pip→train |
+| mine-h67-1 | eager-hawk-f5 | 8×H200 | $28.00 | ~2026-08-08T20:51Z | H67 m7×wZA r=19 | n80 ~65/80 (old king) |
+| mine-h68-1 | cosmic-shark-68 | 8×H200 | $31.92 | ~2026-08-08T20:58Z | H68 m7×wZA lr4.95e-6 | n80 ~66/80 (old king) |
+| mine-h69-1 | noble-eagle-06 | 8×H200 | $31.92 | ~2026-08-08T21:08Z | H69 m7×wZA r=17 | n80 ~25/80 (old king) |
+| mine-h70-1 | cosmic-raven-9e | 8×H200 | $31.92 | ~2026-08-08T21:42Z | H70 m7×wZA lr5.01e-6 | chall recover; Tok wait |
+| mine-h71-1 | eager-fox-be | 8×H200 | $28.00 | ~2026-08-08T22:05Z | H71 m7×wZA r=16 vs Tok | train |
 
 SSH: h67 .236:40300 · h68 .21:20100 · h69 .22:20100 ·
 h70 .18:20100 · h71 .237:40311 ·
@@ -32,6 +32,6 @@ known_hosts `/tmp/mine-h{67,68,69,70,71}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T10:11Z | h67–71 match | H70 merge salvage+chall recover282 |
 | 2026-08-08T10:08Z | h67–71 match | H70 preempt rearm pid13587; counts |
 | 2026-08-08T10:06Z | h67–71 match | H66 REFUTE+rm; rent h71 r16 vs Tok |
-| 2026-08-08T10:00Z | h66–70 match | king→Tok; H70 retarget279; counts |
