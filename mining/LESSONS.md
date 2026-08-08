@@ -107,10 +107,10 @@ Format: `- <finding> — <the number or error that proves it>`
   **H81 Tok-init@r22 +0.008811** (<0.015); **H82@r23 −0.00439 dead**;
   **H83@r25 +0.00101 dead**; **H84@r26 −0.00242 dead**;   **H85@r27
   −0.00817 dead**; **H86@r28 −0.000341 dead**; **H87@r29 +0.005075
-  dead**; **H89@r31 −0.007241 dead**. Open: **H88/H90–H93** (r30 +
-  r14/r12/r13/r15). H66 king mid-pipeline Triton ENOENT hung :8001 — reap
-  GPU 2/3, wipe `cache/king`, `serve_three` (p271); don't wait for
-  post_train abort.
+  dead**; **H88@r30 +0.001358 dead**; **H89@r31 −0.007241 dead**.
+  Open: **H90–H94** (r14/r12/r13/r15/r11). H66 king mid-pipeline Triton
+  ENOENT hung :8001 — reap GPU 2/3, wipe `cache/king`, `serve_three`
+  (p271); don't wait for post_train abort.
 - mid304 exits on `sim gone` — rearm via file `arm_mid304_hN.sh` when n80
   relaunches after king recover (H90 p342: prior exit@17:08 → rearm@17:19).
 - Teacher Triton ENOENT mid-inductor (`triton_poi_fused_*.json` ghost) → wipe
