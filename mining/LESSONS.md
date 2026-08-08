@@ -145,3 +145,4 @@ Format: `- <finding> — <the number or error that proves it>`
 - recover264 **salvage** after writable-w1 ghost ENOENT: if n_so grew (H66 16→22) prefreeze same TCACHE + relaunch → triple-promptable; n80 a203 started (p274).
 - Never `pkill -f PATTERN` over SSH when the remote argv contains PATTERN — kills the session (p274 H67); kill by PID only.
 - When recover264 owns chall (GPUs 4,5), relaunch king **alone** — `serve_three` fights chall and races Triton (H67 p275: king ENOENT `NPCWTIH3…/__triton_launcher.so` after pass274 serve_three; king_recover_pass275.sh).
+- Preempt 240×~10s ≈40m from rent: late merge→serve can leave poll ≳200 before chall 200 (H69 p277 @216/240, 65 GiB load just started) — **rearm preempt by PID** (kill+relaunch) before TIMEOUT; do not wait for TIMEOUT log.

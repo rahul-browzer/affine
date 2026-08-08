@@ -6,9 +6,8 @@ Rewritten every pass. Do not append.
 
 **Stage 4 — H66–H70 live (5/5).** No submit.
 Best n80: **H64 r18 m=+0.02509** (z=2.993; <0.04).
-2nd: **H65 lr5.02e-6 m=+0.01829** (REFUTE pass276).
-Was H42 lr5e-6 m=+0.01613. **H61 REFUTE** band×1.262.
-**H63 REFUTE** m=+0.00424.
+2nd: **H65 lr5.02e-6 m=+0.01829** (REFUTE).
+Was H42 lr5e-6 m=+0.01613. **H61/H63 REFUTE**.
 
 ## Live facts
 
@@ -16,22 +15,22 @@ Was H42 lr5e-6 m=+0.01613. **H61 REFUTE** band×1.262.
 |---|---|
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
-| Lium / spend | **~$187,617** · cum mining ~$8,170 · **avail ~$177.6k** |
+| Lium / spend | **~$187,600** · cum mining ~$8,187 · **avail ~$177.6k** |
 | miner | τ10.000 free · 0 submissions |
-| H66 | n80 a203 @ **40**/80 |
-| H67 | n80 a203 @ **10**/80 (recover264 DONE) |
-| H68 | n80 a203 @ **7**/80 (recover264 DONE) |
-| H69 | merge_lora still writing (~1 shard) |
-| H70 | bootstrap pip (just rented) |
+| H66 | n80 a203 @ **43**/80 |
+| H67 | n80 a203 @ **13**/80 |
+| H68 | n80 a203 @ **14**/80 |
+| H69 | chall loading (1/3 shards); preempt **rearmed** p277 |
+| H70 | m7 download (~96%); pip DONE |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h66-1 | swift-eagle-f0 | 152.236.142.232:40300 | ~20:26Z | n80 a203 40/80 |
-| mine-h67-1 | eager-hawk-f5 | 152.236.142.236:40300 | ~20:51Z | n80 a203 10/80 |
-| mine-h68-1 | cosmic-shark-68 | 38.255.28.21:20100 | ~20:58Z | n80 a203 7/80 |
-| mine-h69-1 | noble-eagle-06 | 38.255.28.22:20100 | ~21:08Z | merge→serve |
+| mine-h66-1 | swift-eagle-f0 | 152.236.142.232:40300 | ~20:26Z | n80 a203 43/80 |
+| mine-h67-1 | eager-hawk-f5 | 152.236.142.236:40300 | ~20:51Z | n80 a203 13/80 |
+| mine-h68-1 | cosmic-shark-68 | 38.255.28.21:20100 | ~20:58Z | n80 a203 14/80 |
+| mine-h69-1 | noble-eagle-06 | 38.255.28.22:20100 | ~21:08Z | chall load→preempt→n80 |
 | mine-h70-1 | cosmic-raven-9e | 38.255.28.18:20100 | ~21:42Z | bootstrap→train |
 
 known_hosts `/tmp/mine-h{66,67,68,69,70}-1.known_hosts`.
@@ -49,12 +48,12 @@ Clone scripts: replace **full EXP dirname** before `hN` sed.
 **Bare mid-n80 → fire recover264 immediately**; arm preempt at rent.
 **Never `pkill -f` from SSH** — pattern in argv kills the session (use PID).
 If recover264 owns chall, **king-only relaunch** (not `serve_three`).
+**Late merge→serve:** rearm preempt if poll ≳200/240 before chall 200.
 
 ## Next action
 
-1. H66 (~40/80): wait → `decision.json`; REFUTE/teardown if m≤0.04.
-2. H67 (~10/80): wait → `decision.json`.
-3. H68 (~7/80): wait → `decision.json`.
-4. H69: wait merge→chall serve→preempt264→n80.
-5. H70: wait bootstrap→train→post_train→n80.
-6. On free slot → next non-α neighbor (prefer near H64 r18 / H65 5.02).
+1. H69: wait chall 200 → preempt recover264 → n80 a203.
+2. H66 (~43/80): wait → `decision.json`; REFUTE/teardown if m≤0.04.
+3. H67/H68: wait → `decision.json`.
+4. H70: wait train→post_train→n80.
+5. On free slot → next non-α neighbor (prefer near H64 r18 / H65 5.02).

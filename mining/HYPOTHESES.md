@@ -39,8 +39,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H69 — H42 @ LoRA r=17 (non-α) — open
 - **Claim:** below H64@r18 best → m>0.04 (r≤8 dead).
-- **Status:** merge_lora writing. preempt264 armed.
-  `s4-h69-…/results/pass273_launch.md`.
+- **Status:** merge DONE; chall loading; preempt rearmed p277.
+  `s4-h69-…/results/pass277_preempt_rearm.md`.
 
 ### H70 — H28 @ lr=5.01e-6 (non-α) — open
 - **Claim:** between H42@5e-6 +0.016 and H65@5.02 +0.018 → m>0.04.

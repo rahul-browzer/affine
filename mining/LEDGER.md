@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $187,617.19 | 2026-08-08T09:43Z |
-| cumulative mining spend | ~$8,170 (5 pods ~$152/h accruing) | 2026-08-08T09:43Z |
-| **available for mining** | **~$177,617** (balance − $10,000 floor) | 2026-08-08T09:43Z |
+| Lium balance | $187,600.10 | 2026-08-08T09:46Z |
+| cumulative mining spend | ~$8,187 (5 pods ~$152/h accruing) | 2026-08-08T09:46Z |
+| **available for mining** | **~$177,600** (balance − $10,000 floor) | 2026-08-08T09:46Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (5 pods) | ~$152/h (h66/67 $28×2 + h68/69/70 $31.92×3) | 2026-08-08T09:43Z |
+| miner burn (5 pods) | ~$152/h (h66/67 $28×2 + h68/69/70 $31.92×3) | 2026-08-08T09:46Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -20,6 +20,7 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-08T09:46Z | 187600.10 | burn accrual (no rent/rm); H69 preempt rearm only |
 | 2026-08-08T09:43Z | 187617.19 | rented mine-h70-1 cosmic-raven-9e 8×H200 @$31.92/h ttl12h (H70 lr5.01e-6) |
 | 2026-08-08T09:42Z | 187617.19 | rm mine-h65-1 calm-wolf-24 (~$43) H65 REFUTE m=+0.01829 |
 | 2026-08-08T09:08Z | 187743.86 | rented mine-h69-1 noble-eagle-06 8×H200 @$31.92/h ttl12h (H69 r=17) |
