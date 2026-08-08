@@ -32,17 +32,17 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** TRAIN on mine-f1-1. Screen +0.015 → CONFIRM k=4.
+- **Status:** TRAIN ~step35/200 on mine-f1-1; king332 isolated loading after bare ENOENT.
 - `experiments/s4-h98-f1-rl-l1/`.
 
 ### H97 / F3 — LoRA r=256 ceiling break — open
 - **Claim:** r=256/α512 Tok-init × winner-zA can move Λ2.
-- **Status:** MERGE on mine-f3-1. Screen +0.015 → CONFIRM k=4.
+- **Status:** chall recover264 mid-load (merge.done) on mine-f3-1.
 - `experiments/s4-h97-f3-r256/`.
 
 ### H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- H95 n80 a203+mid304 @19:30Z; H96 recover264 after bare preempt.
+- H95 n80~4/80 a203+mid304; H96 n80 a203+mid304 @19:36Z.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

@@ -12,22 +12,24 @@ No submit. Best vs Tok: H81 +0.0088 (REFUTE). King Tok331102 S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$184,856** · cum ~$12,260 · **avail ~$174.9k** |
+| Lium / spend | **~$184,820** · cum ~$12,296 · **avail ~$174.8k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$225/h** (6 mine-*) ≪ $833/h · free slots **14** |
-| H95 | **n80 live** (a203) + mid304 armed; engines 200/200/200 |
-| H96 | recover264 loading isolated chall (bare preempted) |
-| F3/F1/F2 | chall-load / train / train |
-| H100/F4 | BOOTSTRAP (pip/vllm on B300) |
+| H95 | **n80 ~4/80** a203 + mid304; eng 200/200/200 |
+| H96 | **n80 live** a203 + mid304 armed @19:36Z; eng 200/200/200 |
+| F3 | chall recover264 mid-load (merge.done) |
+| F1 | RL train ~step35/200; **king332 isolated loading** |
+| F2 | LoRA train; teacher unhealthy (000) — defer until train ends |
+| F4 | bootstrap pip/vllm on B300 |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | **n80 + mid304** |
-| mine-h96-1 | golden-matrix-af | 152.236.142.232:40299 | ~06:52Z+1d | recover264→n80 |
+| mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | **n80+mid304** |
+| mine-h96-1 | golden-matrix-af | 152.236.142.232:40299 | ~06:52Z+1d | **n80+mid304** |
 | mine-f3-1 | noble-raven-ff | 152.236.142.236:40311 | ~07:01Z+1d | F3 chall load |
-| mine-f1-1 | brave-hawk-5a | 86.38.238.54:40099 | ~07:06Z+1d | F1 train |
+| mine-f1-1 | brave-hawk-5a | 86.38.238.54:40099 | ~07:06Z+1d | F1 train+king332 |
 | mine-f2-1 | zesty-orbit-85 | 150.136.71.147:20295 | ~07:13Z+1d | F2 train |
 | mine-f4-1 | calm-wolf-30 | 204.9.206.243:40099 | ~07:18Z+1d | F4 bootstrap |
 
@@ -50,7 +52,8 @@ Retire winner-zA on resolve; no more r-neighbours. F1–F4 rented.
 
 ## Next action
 
-1. **H95** await n80 → `h95_decision.json` (mid304 armed; leave alone).
-2. **H96** await recover264 DONE → n80; then `arm_mid304` if present.
-3. **F1–F4** await train/merge/bootstrap (F3 chall loading; F4 pip).
-4. Free slots → **new family only** (F5 if verified-traj data ready; else hold).
+1. **H95/H96** await n80 → `h*_decision.json` (mid304 armed; leave alone).
+2. **F1** await king332 PROMPTABLE + train→merge→n80; arm mid304 when n80 starts.
+3. **F3** await chall recover DONE → n80; arm mid304.
+4. **F2** train; fix teacher (relaunch_teacher_pass332) only if still 000 when train ends.
+5. **F4** await bootstrap→train. Free slots → **new family only** (F5 if traj ready).
