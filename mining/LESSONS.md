@@ -77,8 +77,8 @@ Format: `- <finding> — <the number or error that proves it>`
   after wipe. Health=200 ≠ alive — gate on `/v1/completions` 200 **twice**
   20s apart. TP race-deletes `__triton_launcher.so` on **first** warmup even
   after 45s settle with n_pre=16 (H51 p240 a1_w1 ENOENT) — **pre-freeze
-  CONFIRMED** p241/242: king-seed + `chmod -R a-w` before w1 → a1_w1/w2/w3
-  all 200, n80 live @04:28Z. CUDA-graph hang: shm_broadcast >5m after "Registering N addresses"
+  usually works** (H51 p241/242) but H54 a1 still ENOENT under isolated
+  king-seeded TCACHE — keep outer×3, never `lium rm`. CUDA-graph hang: shm_broadcast >5m after "Registering N addresses"
   → kill + clear torch_compile_cache + relaunch. Orphans=`VLLM::Worker`
   ppid=1. `FALSE_PROBE_*`≠REFUTE. `serve_three` "already running"≠healthy.
 - `pgrep -f` false-matches SSH/watcher argv — use
@@ -121,9 +121,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - Winner-zA LoRA m7-init: H28 +0.01095; **H42@5e-6 +0.01613 best**; H52@6e-6
   +0.01280; H50@7.5e-6 +0.00322; H53@4e-6 **−0.00885**; H46@2.5e-6 +0.00802;
   H45@r8 +0.00819; H47@α8 +0.00463; H49@α4 +0.01174; H48@1e-6 **band×1.269**.
-  lr **5e-6 > 6e-6 > 7.5e-6 > 4e-6(neg)**. Dead: TP/m7×ks/union /
-  lr≤2.5e-6∨=4e-6∨=6e-6∨=7.5e-6∨≥3e-5 / ep≥2 / r≤8∨≥32 / α≤8∨≥64 / clip≥0.08.
-  Open: H57@5.25e-6 H55@5.5e-6 H54@8e-6 H51@α16 H56@r24.
+  lr **5e-6 > 6e-6 > 7.5e-6 > 4e-6(neg)**; α16=+0.00855. Dead: TP/m7×ks/union /
+  lr≤2.5e-6∨=4e-6∨=6e-6∨=7.5e-6∨≥3e-5 / ep≥2 / r≤8∨≥32 / α≤8∨=16∨≥64 /
+  clip≥0.08. Open: H58@5.1 H57@5.25 H55@5.5 H54@8 H56@r24.
 - Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed, else
   path becomes `…-lr2e6` and upload `cp` fails silently on wrong glob.
 - Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always

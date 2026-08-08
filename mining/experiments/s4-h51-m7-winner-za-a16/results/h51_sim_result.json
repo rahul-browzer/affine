@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2619.2262568473816,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h51/merged",
+  "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+  "hotkey": "local-h51",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.008549869102033382,
+    "se": 0.009964467402682323,
+    "z": 0.8580357340254686,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.01647799842492796,
+      "gate_pass_rate": 0.789308176100629,
+      "bank_frac": 0.4927083333333333,
+      "calib_ratio": 0.7806092556310401,
+      "baseline_abs": 0.1276631596379515,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": -0.006290759031953138,
+      "mean_mix": 0.01647799842492796
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.0248196450609452,
+      "gate_pass_rate": 0.8495297805642633,
+      "bank_frac": 0.5572916666666667,
+      "calib_ratio": 0.6608678752954655,
+      "baseline_abs": 0.15177746613550028,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.00895282374180981,
+      "mean_mix": 0.0248196450609452
+    },
+    "slice": {
+      "seed": 8559921660804477677,
+      "n": 80,
+      "digest": "e217fc3d82b3bebe0f4d31aacb9252c9c16e320fcf3f7bf2d4fd31cc806aee7a",
+      "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6608678752954655,
+    "chall_baseline_abs": 0.15177746613550028,
+    "king_baseline_abs": 0.1276631596379515,
+    "base_x": 1.1888900961399997
+  }
+}
