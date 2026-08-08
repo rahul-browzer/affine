@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2285.7301018238068,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h70/merged",
+  "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+  "hotkey": "local-h70",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.0005249747813541974,
+    "se": 0.007790863669551836,
+    "z": -0.06738338695437551,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.026378331160309895,
+      "gate_pass_rate": 0.7816455696202531,
+      "bank_frac": 0.3875,
+      "calib_ratio": 0.706094884436178,
+      "baseline_abs": 0.13792643772245136,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": -0.006354767099961407,
+      "mean_mix": 0.026378331160309895
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.02565427415557096,
+      "gate_pass_rate": 0.7791798107255521,
+      "bank_frac": 0.49375,
+      "calib_ratio": 0.6381232580678692,
+      "baseline_abs": 0.15366698366895648,
+      "n_turns": 80,
+      "n_pairs": 317,
+      "mean_lambda2": -0.0098991948744871,
+      "mean_mix": 0.02565427415557096
+    },
+    "slice": {
+      "seed": 2518779377200154308,
+      "n": 80,
+      "digest": "7528cf27908d625428a2400c796fb4dd18ed360d8ff926fe02b012fac166a0a3",
+      "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6381232580678692,
+    "chall_baseline_abs": 0.15366698366895648,
+    "king_baseline_abs": 0.13792643772245136,
+    "base_x": 1.1141227614257663
+  }
+}

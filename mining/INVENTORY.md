@@ -7,15 +7,15 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h70-1 | cosmic-raven-9e | 8×H200 | $31.92 | ~2026-08-08T21:42Z | H70 m7×wZA lr5.01e-6 | n80 vs Tok 58/80 |
-| mine-h71-1 | eager-fox-be | 8×H200 | $28.00 | ~2026-08-08T22:05Z | H71 m7×wZA r=16 vs Tok | n80 vs Tok a203 |
-| mine-h72-1 | golden-comet-7a | 8×H200 | $28.00 | ~2026-08-08T22:20Z | H72 r18-rep vs Tok | recover264 |
-| mine-h73-1 | eager-matrix-9a | 8×H200 | $31.92 | ~2026-08-08T22:21Z | H73 r19-rep vs Tok | chall loading |
-| mine-h74-1 | brave-orbit-28 | 8×H200 | $28.00 | ~2026-08-08T22:42Z | H74 r18-rep#2 vs Tok | train ~14/26 |
+| mine-h71-1 | eager-fox-be | 8×H200 | $28.00 | ~2026-08-08T22:05Z | H71 m7×wZA r=16 vs Tok | n80 ~19/80 |
+| mine-h72-1 | golden-comet-7a | 8×H200 | $28.00 | ~2026-08-08T22:20Z | H72 r18-rep vs Tok | n80 ~3/80 |
+| mine-h73-1 | eager-matrix-9a | 8×H200 | $31.92 | ~2026-08-08T22:21Z | H73 r19-rep vs Tok | n80 ~10/80 |
+| mine-h74-1 | brave-orbit-28 | 8×H200 | $28.00 | ~2026-08-08T22:42Z | H74 r18-rep#2 vs Tok | train ~20/26 |
+| mine-h75-1 | cosmic-hawk-20 | 8×H200 | $31.92 | ~2026-08-08T23:07Z | H75 r18-rep#3 vs Tok | bootstrap |
 
-SSH: h70 .18:20100 · h71 .237:40311 · h72 .232:40299 ·
-h73 .19:20100 · h74 .236:40300 ·
-known_hosts `/tmp/mine-h{70,71,72,73,74}-1.known_hosts` ·
+SSH: h71 .237:40311 · h72 .232:40299 · h73 .19:20100 ·
+h74 .236:40300 · h75 .21:20100 ·
+known_hosts `/tmp/mine-h{71,72,73,74,75}-1.known_hosts` ·
 **Free: 0**. Cap 5. Burn ~$147.8/h mining.
 Account also has non-mine `wan-lora-train` — **never rm**.
 
@@ -23,16 +23,16 @@ Account also has non-mine `wan-lora-train` — **never rm**.
 
 | name | final spent | removed UTC | reason |
 |---|---|---|---|
+| mine-h70-1 | ~$40 | 2026-08-08T11:06Z | H70 m=−0.000525 vs Tok |
 | mine-h69-1 | ~$50 | 2026-08-08T10:42Z | H69 m=+0.01641 vs TalentPigs |
 | mine-h68-1 | ~$45 | 2026-08-08T10:19Z | H68 REFUTE band×1.257 |
 | mine-h67-1 | $41.66 | 2026-08-08T10:20Z | H67 m=+0.01835 shortlist→H73 |
 | mine-h66-1 | ~$46 | 2026-08-08T10:05Z | H66 REFUTE m=+0.00976 |
-| mine-h65-1 | ~$43 | 2026-08-08T09:42Z | H65 REFUTE m=+0.01829 |
 
 ## Recent reconciles (last 3)
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T11:07Z | h71–75 match | rm h70; rent h75 r18-rep#3 |
 | 2026-08-08T10:54Z | h70–74 match | H72 recover264; no rent/rm |
 | 2026-08-08T10:52Z | h70–74 match | H71 salvage→n80; no rent/rm |
-| 2026-08-08T10:43Z | h70–74 match | rm h69; rent h74 r18-rep#2 |
