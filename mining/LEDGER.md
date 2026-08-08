@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $187,947.11 | 2026-08-08T08:11Z |
-| cumulative mining spend | ~$7,650 (5 pods ~$152/h accruing) | 2026-08-08T08:11Z |
-| **available for mining** | **~$177,947** (balance − $10,000 floor) | 2026-08-08T08:11Z |
-| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:11Z |
-| miner burn (5 pods) | ~$152/h (h62+h65 $28×2 + h61/63/64 $31.92×3) | 2026-08-08T08:11Z |
+| Lium balance | $187,891.26 | 2026-08-08T08:27Z |
+| cumulative mining spend | ~$7,725 (5 pods ~$152/h accruing) | 2026-08-08T08:27Z |
+| **available for mining** | **~$177,891** (balance − $10,000 floor) | 2026-08-08T08:27Z |
+| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:27Z |
+| miner burn (5 pods) | ~$152/h (h65+h66 $28×2 + h61/63/64 $31.92×3) | 2026-08-08T08:27Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -20,6 +20,8 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-08T08:27Z | 187891.26 | rented mine-h66-1 swift-eagle-f0 8×H200 @$28/h ttl12h (H66 lr5.08e-6) |
+| 2026-08-08T08:26Z | 187891.26 | rm mine-h62-1 golden-matrix-66 (~$40) H62 REFUTE band×1.273 |
 | 2026-08-08T08:11Z | 187947.11 | rented mine-h65-1 calm-wolf-24 8×H200 @$28/h ttl12h (H65 lr5.02e-6) |
 | 2026-08-08T08:10Z | 187947.11 | rm mine-h60-1 swift-eagle-4e (~$55) H60 REFUTE m=+0.01350 |
 | 2026-08-08T07:28Z | 188113.89 | rented mine-h64-1 gentle-wolf-eb 8×H200 @$31.92/h ttl12h (H64 r=18) |
@@ -28,5 +30,3 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 | 2026-08-08T07:27Z | 188113.89 | rm mine-h56-1 swift-fox-1d (~$79) H56 REFUTE m=+0.00140 |
 | 2026-08-08T07:02Z | 188205.05 | rented mine-h62-1 golden-matrix-66 8×H200 @$28/h ttl12h (H62 r=20) |
 | 2026-08-08T07:01Z | 188205.05 | rm mine-h58-1 eager-matrix-0d (~$53) H58 REFUTE m=+0.01466 |
-| 2026-08-08T06:47Z | 188260.46 | rented mine-h61-1 golden-matrix-4b 8×H200 @$31.92/h ttl12h (H61 lr5.15e-6) |
-| 2026-08-08T06:47Z | 188260.46 | rm mine-h54-1 calm-matrix-9c (~$67) H54 REFUTE m=+0.01380 |
