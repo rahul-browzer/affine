@@ -23,24 +23,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** train DONE; **merge writing** (~28 GiB); Tok DL ~24 GiB.
-- `experiments/s4-h100-f4-genesis-base/` · `results/pass370_train_merge.md`.
+- **Status:** train DONE; GPU save hung → **CPU merge recover p376** (Tok paused).
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass376_merge_recover.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** TRAIN ckpt@150/200; T/K 200; C idle; await train→merge→n80.
+- **Status:** TRAIN ~170/200; T/K up; C idle; await train→merge→n80.
 - `experiments/s4-h98-f1-rl-l1/` · `results/pass362_king332_refire.md`.
 
 ### H101 / F6 — Ultrashort≤80 thought format — open
 - **Claim:** Rewrite high-Λ2 z to ≤80-char first-sentence targets; Tok LoRA
   teaches short emit format → m>+0.015 (format axis ≠ F2 selection).
-- **Status:** `mine-f6-1` TRAIN 0/60 (fit-filter 477/1058); data mean z 59.9.
+- **Status:** `mine-f6-1` TRAIN ~15/60 loss≈0.60; data mean z 59.9.
 - `experiments/s4-h101-f6-short-format/` · `results/pass372_rent.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** `mine-f7-1` bootstrap (uv/venv); Genesis DL→train next.
+- **Status:** `mine-f7-1` Genesis DL ~10 GiB; train next.
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass375_rent.md`.
 
 ### H3 — clip-L1 lever (supported)

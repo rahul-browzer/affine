@@ -28,10 +28,9 @@ MERGED=${MERGED:-/root/h100/merged}
 SIM_N80=/root/affine_data/h100_sim_result.json
 PROG=/root/affine_data/h100_sim_progress.json
 LOG=/root/logs/h100_pipeline.nohup
-# Patched pass259: TTL remove_at=2026-08-08T19:01Z → soft=TTL−1h, deadman=TTL
-# Pass312 rent ~13:19Z ttl12h → remove≈01:19Z+1d; soft=TTL−1h, deadman=TTL−30m
-SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-09T00:29:00Z}
-DEADMAN_UTC=${DEADMAN_UTC:-2026-08-09T00:59:00Z}
+# Pass376: calm-wolf-30 remove≈2026-08-09T07:18Z → soft=TTL−1h, deadman=TTL−30m
+SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-09T06:18:00Z}
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-09T06:48:00Z}
 
 log() { echo "[h100-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
@@ -125,14 +124,22 @@ if [[ ! -f "$ADAPTER/adapter_config.json" ]]; then
   fi
 fi
 
-log "merge LoRA → $MERGED"
-rm -rf "$MERGED"
-python /root/mining_src/s4-h1-sft/merge_lora.py \
-  --base "$BASE" \
-  --adapter "$ADAPTER" \
-  --out "$MERGED" \
-  --device-map auto \
-  | tee -a "$LOG"
+# SKIP_MERGE=1: reuse existing merged (pass376 CPU recover after GPU save hang).
+# MERGE_DEVICE_MAP=cpu|auto — GPU auto save can stall in request_wait_answer
+# mid-shard on gocryptfs (H95@18:56Z; H100/F4 p376).
+if [[ "${SKIP_MERGE:-0}" == "1" && -f "$MERGED/config.json" ]] \
+  && ls "$MERGED"/model-*-of-*.safetensors >/dev/null 2>&1; then
+  log "SKIP_MERGE=1 — reuse $MERGED ($(ls "$MERGED"/model-*-of-*.safetensors | wc -l) shards)"
+else
+  log "merge LoRA → $MERGED device_map=${MERGE_DEVICE_MAP:-auto}"
+  rm -rf "$MERGED"
+  python /root/mining_src/s4-h1-sft/merge_lora.py \
+    --base "$BASE" \
+    --adapter "$ADAPTER" \
+    --out "$MERGED" \
+    --device-map "${MERGE_DEVICE_MAP:-auto}" \
+    | tee -a "$LOG"
+fi
 cp -f "$MERGED/merge_meta.json" /root/affine_data/h100_merge_meta.json 2>/dev/null || true
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h100_merge.done
 

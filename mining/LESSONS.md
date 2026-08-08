@@ -55,8 +55,8 @@ Format: `- <finding> — <the number or error that proves it>`
 
 ## Training ops
 - Under `nohup`, scrape `trainer_state.json` (tqdm.write never hits the log). Always venv python; salvage mid-ckpts (best loss ≠ last).
-- LoRA r16/α32 ≈1h45m/110 steps/440ex on 2 GPUs; merge+n40 on free 4–5 while 6–7 train.
-- HF private can hard-fail uploads — keep merges public. Never kill live HF `snapshot_download` for peer-rsync unless peer faster (p370: HF ~60 MB/s ≫ F1→F4 rsync ~16 MB/s).
+- LoRA r16/α32 ≈1h45m/110 steps on 2 GPUs. HF private uploads hard-fail — keep merges public. Never kill live HF DL for slower peer-rsync (p370: HF≪rsync).
+- GPU `merge_lora --device-map auto` save can hang mid-shard on gocryptfs (`WCHAN=request_wait_answer`, wchar flat, GPU util 0%) — kill merge+post_train by PID, `--device-map cpu`, resume post_train `SKIP_MERGE=1` (H95 p352; H100/F4 p376 tmp=49.7 GiB stuck).
 
 ## Shell / pod ops
 - Never `lium exec -e HF_TOKEN=...` (prints secret). `/root/mine.env` +
@@ -147,4 +147,4 @@ Format: `- <finding> — <the number or error that proves it>`
 - Bare post_train chall can hit :8002=200 with mid-load Triton ghost WARNING then still finish; preempt264→recover264 is correct (H71 p287). Stale `retry_h*_n80` wait started before chall existed burns the 120×15s budget — recover kills+rearms; if no recover, kill retry PID near poll≳100 so watcher refreshes wait.
 - recover264 DONE rearms form+watch_n80 only — **not** preempt/mid304. Arm mid304 when n80 starts; mid304 exits on `sim gone` → re-arm after recover. Detect live scripts via `/proc/*/cmdline` `$0` (SSH/`bash -c` argv is a false positive — H82/H93 p349: mid304 `recover_alive` skipped while check script argv held `relaunch_chall_pass264.sh`).
 - Chall recover must seed from **live king isolated TCACHE** (`:8001` `TRITON_CACHE_DIR`), not bare `/root/.triton/cache/king` — H91 p344: "no king TCACHE" → cold JIT → NODUTTS4 ImportError; seed king n_so=16 fixed path. Early-abort wait_health on launcher ImportError (don't burn 120×10s).
-- Clone recover: wrong hyp dirname in rearm path (H94 p348) → `test -x` before DONE; symlink correct EXP (never sed live recover). King cold-JIT isolated TCACHE can still die load-time ENOENT (F3 p332 NODUTTS4); seed from **live peer king** TCACHE (H95 n_so=23) into fresh isolated util=0.72 — p366 OK.
+- Clone recover: wrong hyp dirname in rearm path (H94 p348) → `test -x` before DONE; symlink correct EXP. King cold-JIT ENOENT → seed **live peer king** TCACHE (H95 n_so=23 → p366 OK).
