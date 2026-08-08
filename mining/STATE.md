@@ -4,42 +4,43 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H90–H94 live (5/5).** No submit.
+**Stage 4 — H91–H95 live (5/5).** No submit.
 Best n80 (vs old TalentPigs): **H64 r18 m=+0.02509**.
 Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 **Live king:** Tok331102 S=0.04456 (reign 4).
+**H90 REFUTE** m=−0.008472 (Tok-init r14 dead).
 
 ## Live facts
 
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$185,527** · cum ~$11,350 · **avail ~$175.5k** |
+| Lium / spend | **~$185,363** · cum ~$11,450 · **avail ~$175.4k** |
 | miner | τ10.000 free · 0 submissions |
-| H90 | n80 a203 ~42/80 · mid304 · t/k/c=200 |
-| H91 | **n80 a203 live** · mid304 · freeze344 salvage n_so=22 |
-| H92 | merge.done · chall loading :8002 · t/k=200 |
-| H93 | bootstrap DOWNLOAD tok-init (~10/11 files) |
-| H94 | train_lora r11 live · stamp present |
+| H91 | n80 a203 ~20/80 · mid304 |
+| H92 | n80 a203 ~3/80 · mid304 · freeze n_so=23 |
+| H93 | train_lora r15 ~step26 |
+| H94 | merge.done · chall loading :8002 |
+| H95 | bootstrap live (Tok-init r10) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h90-1 | noble-shark-3c | 152.236.142.232:40310 | ~04:23Z+1d | n80+mid304 |
 | mine-h91-1 | brave-shark-d2 | 38.255.28.18:20099 | ~04:31Z+1d | n80+mid304 |
-| mine-h92-1 | calm-lion-f6 | 152.236.142.236:40300 | ~05:12Z+1d | chall load |
-| mine-h93-1 | eager-raven-1e | 38.255.28.22:20099 | ~05:21Z+1d | bootstrap DL |
-| mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | train r11 |
+| mine-h92-1 | calm-lion-f6 | 152.236.142.236:40300 | ~05:12Z+1d | n80+mid304 |
+| mine-h93-1 | eager-raven-1e | 38.255.28.22:20099 | ~05:21Z+1d | train r15 |
+| mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | chall load |
+| mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | bootstrap |
 
-known_hosts `/tmp/mine-h{90,91,92,93,94}-1.known_hosts`. **Free: 0.** ~$148/h.
+known_hosts `/tmp/mine-h{91,92,93,94,95}-1.known_hosts`. **Free: 0.** ~$152/h.
 Non-mine `wan-lora-*` / `affine-*` — **do not touch**.
 
 ## Blocked
 
 No submit until n80 margin > 0.04 **vs Tok331102**.
-Dead: plmk/α/TP×ks/m7×ks/union/lr micro/ep≥2/r≤8∨=16–24∨≥32/α≤8∨=16∨≥64/clip≥0.08/king-self.
-**m7×r17/r18 + Tok-init r17/r18/r22/r23/r25–r31 closed.** Open: H90–H94.
+Dead: plmk/α/TP×ks/m7×ks/union/lr micro/ep≥2/r≤8∨=14∨=16–24∨≥32/α≤8∨=16∨≥64/clip≥0.08/king-self.
+**m7×r17/r18 + Tok-init r14/r17/r18/r22/r23/r25–r31 closed.** Open: H91–H95.
 FALSE_PROBE≠REFUTE; never rm non-mine; COUNT=8 & $/h≥28.
 Never `pkill -f`; match `$0` via `/proc/*/cmdline` (not SSH argv).
 recover264=chall; king-only relaunch. Never sed live post_train.
@@ -51,6 +52,6 @@ recover344 rearms form+n80 only — **arm mid304 when n80 starts**.
 
 ## Next action
 
-1. **H90/H91** await n80 → `h9{0,1}_decision.json` (keep mid304).
-2. **H92** await chall health→warm/freeze→n80+mid304 (king util=0.80 — watch OOM).
-3. **H93** await train_launched; **H94** await merge→serve→n80.
+1. **H91/H92** await n80 → `h9{1,2}_decision.json` (keep mid304).
+2. **H94** await chall health→warm/freeze→n80+mid304 (arm mid304 at n80 start).
+3. **H93** await merge→serve; **H95** await train_launched.
