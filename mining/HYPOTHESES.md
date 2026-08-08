@@ -7,10 +7,10 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 ~58/80 c203) |
-| 2 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (bootstrap p411) |
-| 3 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 b203; d203first) |
-| 4 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203) |
+| 1 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 1/6) |
+| 2 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (HF DL base) |
+| 3 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 b203 ~29/80) |
+| 4 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203 ~20/80) |
 | — | H103/F8 | — | Genesis-init × REINFORCE-L1 → m>+0.015 | **refuted** m=−0.04829 |
 | — | H101/F6 | — | ultrashort≤80 format → m>+0.015 | **refuted** m=−0.00453 |
 | — | H98/F1 | — | Tok REINFORCE self-L1lift → m>+0.015 | **refuted** m=+0.00229 |
@@ -27,24 +27,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7) and Tok (F1/F6); past crown outside both basins.
-- **Status:** n80 c203 ~58/80; watcher armed **d203first** (p409).
-- `experiments/s4-h104-f9-kevin-base/` · `results/pass409_d203first.md`.
+- **Status:** c203 H32@62/80 (p412); **d203** attempt 1/6 live; MAX=6.
+- `experiments/s4-h104-f9-kevin-base/` · `results/pass412_c203_h32_d203.md`.
 
 ### H105 / F10 — TalentPigs past-crown × high-Λ2 — open
 - **Claim:** `TalentPigs/affine-5ekxlcg3fx-abc` @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
   Reign-3 crown; orthogonal to Genesis/kevin/Tok basins.
-- **Status:** mine-f10-1 rented p411; bootstrap/uv-pip; d203first armed at launch.
+- **Status:** pip OK; TalentPigs HF DL in progress; d203first armed.
 - `experiments/s4-h105-f10-talentpigs-base/` · `results/pass411_rent.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** n80 **b203** ~18/80; watcher armed **d203first** (p410).
+- **Status:** n80 **b203** ~29/80; watcher armed **d203first** (p410).
 - `experiments/s4-h100-f4-genesis-base/` · `results/pass410_d203first.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** n80 **e203** ~14/80 (d203first hash rotate).
+- **Status:** n80 **e203** ~20/80 (d203first hash rotate).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass408_d203first.md`.
 
 ### H3 — clip-L1 lever (supported)
