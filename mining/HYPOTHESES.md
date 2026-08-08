@@ -30,8 +30,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** merge DONE (non-id); chall loading bare TCACHE; **preempt rearmed p381**.
-- `experiments/s4-h98-f1-rl-l1/` · `results/pass381_preempt_rearm.md`.
+- **Status:** recover264 a1 after bare Triton ENOENT; mid-load seed n_so 0→19.
+- `experiments/s4-h98-f1-rl-l1/` · `results/pass382_recover264_enoent.md`.
 
 ### H101 / F6 — Ultrashort≤80 thought format — open
 - **Claim:** Rewrite high-Λ2 z to ≤80-char first-sentence targets; Tok LoRA

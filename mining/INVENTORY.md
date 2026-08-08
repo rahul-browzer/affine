@@ -8,12 +8,12 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | 2026-08-09T07:05Z | H98 F1 RL | chall load; preempt rearmed |
+| mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | 2026-08-09T07:05Z | H98 F1 RL | recover264 a1 + seed |
 | mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | CPU merge shard2 |
-| mine-f6-1 | noble-shark-14 | 8×H200 | $28.00 | 2026-08-09T08:42Z | H101 F6 shortfmt | CPU merge tmp47G |
-| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | king recover+push |
+| mine-f6-1 | noble-shark-14 | 8×H200 | $28.00 | 2026-08-09T08:42Z | H101 F6 shortfmt | CPU merge shard2 |
+| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | king 200→chall |
 | mine-f8-1 | brave-matrix-d8 | 8×H200 | $28.00 | 2026-08-09T09:04Z | H103 F8 Genesis-RL | RL train |
-| mine-f9-1 | lunar-fox-0a | 8×H200 | $31.92 | 2026-08-09T09:12Z | H104 F9 kevin-base | kevin DL ~22G |
+| mine-f9-1 | lunar-fox-0a | 8×H200 | $31.92 | 2026-08-09T09:12Z | H104 F9 kevin-base | kevin DL ~28G |
 
 SSH: f1 .54:40099 · f4 204.9.206.243:40099 · f6 .237:40300 · f7 .232:40311 ·
 f8 .236:40309 · f9 38.255.28.18:20099 · kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
@@ -32,6 +32,6 @@ f8 .236:40309 · f9 38.255.28.18:20099 · kh `~/.ssh/id_ed25519` + `/tmp/mine-*-
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T21:24Z | 6 live | F1 recover264+mid-load seed; no rm/rent |
 | 2026-08-08T21:19Z | 6 live | F1 preempt rearm after TIMEOUT; no rm/rent |
 | 2026-08-08T21:16Z | 6 live | F6 hung merge→CPU recover; F7 king recover; no rm/rent |
-| 2026-08-08T21:13Z | 6 live (+f9) | rent mine-f9-1 H200@$31.92; H104/F9 bootstrap |
