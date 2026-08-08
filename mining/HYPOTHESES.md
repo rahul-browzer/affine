@@ -27,7 +27,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H99 / F2 — Target Λ2 via high-Λ2 z_A — open
 - **Claim:** Select z_A by Λ2≥0.02 (1059 ex; 65% not in clip-L1 set) → m>+0.015.
-- **Status:** merge DONE (`/root/h99/merged`+visual); chall :8002 loading; T/K 200; retry armed.
+- **Status:** merge DONE; chall health200 @19:58 → diverse warmups (recover264); T/K 200; await DONE→n80.
 - `experiments/s4-h99-f2-target-l2/` · `results/pass361_teacher_recover.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
@@ -37,12 +37,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H97 / F3 — LoRA r=256 ceiling break — open
 - **Claim:** r=256/α512 Tok-init × winner-zA can move Λ2.
-- **Status:** king bare-cache ENOENT@19:47 killed n80; **king332 re-fire** util0.72 isolated TCACHE; await promptable→n80; rearm mid304.
-- `experiments/s4-h97-f3-r256/` · `results/pass364_king332_refire.md`.
+- **Status:** p332 cold-JIT ABORT ENOENT; **king366** seeded from H95 (n_so=23) util0.72 — loading @20:00Z → await promptable→n80; rearm mid304.
+- `experiments/s4-h97-f3-r256/` · `results/pass366_king366_seeded.md`.
 
 ### H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- H95 n80~39/80 + mid304; H96 n80~3/80 b203 + mid304 rearmed p365.
+- H95 n80~50/80 + mid304; H96 n80~15/80 b203 + mid304.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

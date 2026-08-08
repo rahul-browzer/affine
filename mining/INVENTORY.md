@@ -8,12 +8,12 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h95-1 | calm-raven-0f | 8×H200 | $31.92 | ~2026-08-09T06:05Z | H95 Tok r10 | **n80~39/80+mid304** |
-| mine-h96-1 | golden-matrix-af | 8×H200 | $28.00 | ~2026-08-09T06:52Z | H96 Tok r9 | **n80~3/80+mid304** |
-| mine-f3-1 | noble-raven-ff | 8×H200 | $28.00 | ~2026-08-09T07:01Z | H97 F3 r256 | **king332 loading** |
+| mine-h95-1 | calm-raven-0f | 8×H200 | $31.92 | ~2026-08-09T06:05Z | H95 Tok r10 | **n80~50/80+mid304** |
+| mine-h96-1 | golden-matrix-af | 8×H200 | $28.00 | ~2026-08-09T06:52Z | H96 Tok r9 | **n80~15/80+mid304** |
+| mine-f3-1 | noble-raven-ff | 8×H200 | $28.00 | ~2026-08-09T07:01Z | H97 F3 r256 | **king366 loading** |
 | mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | ~2026-08-09T07:06Z | H98 F1 RL | train+T/K200 |
-| mine-f2-1 | zesty-orbit-85 | 8×B200 | $40.00 | ~2026-08-09T07:13Z | H99 F2 Λ2 | chall recover264 |
-| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | ~2026-08-09T07:18Z | H100 F4 Genesis | **train ~8/60** |
+| mine-f2-1 | zesty-orbit-85 | 8×B200 | $40.00 | ~2026-08-09T07:13Z | H99 F2 Λ2 | chall warm→n80 |
+| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | ~2026-08-09T07:18Z | H100 F4 Genesis | **train live** |
 
 SSH: h95 .19:20100 · h96 .232:40299 · f3 .236:40311 ·
 f1 .54:40099 · f2 150.136.71.147:20295 · f4 204.9.206.243:40099 ·
@@ -33,6 +33,6 @@ kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T20:00Z | 6 live match inv | F3 king366 seeded re-fire; no rm/rent |
 | 2026-08-08T19:54Z | 6 live match inv | H96 mid304 rearm; no rm/rent |
 | 2026-08-08T19:51Z | 6 live match inv | F3 king332 re-fire (bare ENOENT); no rm/rent |
-| 2026-08-08T19:47Z | 6 live match inv | F3 salvage→n80+mid304; F4 train; no rm/rent |
