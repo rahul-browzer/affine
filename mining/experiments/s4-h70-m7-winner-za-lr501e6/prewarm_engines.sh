@@ -25,8 +25,9 @@ bash /root/mining_src/s3-duel-sim/sync_corpus.sh | tee -a "$LOG"
 
 TEACHER_REPO=${TEACHER_REPO:-zai-org/GLM-4.5-Air-FP8}
 TEACHER_REV=${TEACHER_REV:-}
-KING_REPO=${KING_REPO:-TalentPigs/affine-5ekxlcg3fx-abc}
-KING_REV=${KING_REV:-dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4}
+# Pass 279: live king Tok331102 (was TalentPigs @ dbfbb3e2)
+KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
+KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 
 # Launch teacher+king only by calling serve_three with chall = king local
 # then immediately stopping chall if it started. Cleaner: inline two launches

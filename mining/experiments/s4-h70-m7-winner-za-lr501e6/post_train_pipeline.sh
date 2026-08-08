@@ -18,9 +18,10 @@ export PYTHONPATH=/root/mining_src/affine_pkg:${PYTHONPATH:-}
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-6,7}
 
 BASE=${BASE:-/root/hf/hub/models--Radiant28--5eqdtdzqle-ckpt1000-m7/snapshots/f766293ee878efef5f068a4053d6974017f11f26}
-KING_REPO=${KING_REPO:-TalentPigs/affine-5ekxlcg3fx-abc}
-KING_REV=${KING_REV:-dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4}
-KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--TalentPigs--affine-5ekxlcg3fx-abc/snapshots/dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4}
+# Pass 279: live king Tok331102 (was TalentPigs @ dbfbb3e2)
+KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
+KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
+KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 TRAIN_DIR=${TRAIN_DIR:-/root/h70/train}
 ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
 CKPT_ROOT=${CKPT_ROOT:-$TRAIN_DIR/checkpoints}

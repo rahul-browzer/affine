@@ -117,8 +117,6 @@ Format: `- <finding> — <the number or error that proves it>`
   promptable and n80 start (n_so 16→22); prefer over short-only post-w1 freeze.
 - B300 flashinfer sampling JIT: clear `cached_ops/sampling`, `SERVE_STAGGER_S≥45`.
 - Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed.
-- Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always
-  `nvidia-smi -L|wc -l`=8 after rent; reject <$20/h (was 2-GPU@$5.66; now 4 too).
 - `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up
   SSH shell with `y: command not found`).
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
@@ -146,3 +144,5 @@ Format: `- <finding> — <the number or error that proves it>`
 - Never `pkill -f PATTERN` over SSH when the remote argv contains PATTERN — kills the session (p274 H67); kill by PID only.
 - When recover264 owns chall (GPUs 4,5), relaunch king **alone** — `serve_three` fights chall and races Triton (H67 p275: king ENOENT `NPCWTIH3…/__triton_launcher.so` after pass274 serve_three; king_recover_pass275.sh).
 - Preempt 240×~10s ≈40m from rent: late merge→serve can leave poll ≳200 before chall 200 (H69 p277 @216/240, 65 GiB load just started) — **rearm preempt by PID** (kill+relaunch) before TIMEOUT; do not wait for TIMEOUT log.
+- Live king can flip mid-flight (p279 @09:49Z TalentPigs→Tok331102 S=0.04456); mid-n80 vs old king is ranking-only — retarget free/post-merge pods (`retarget_king_pass279.sh`) before n80; submit gate needs margin vs **current** king.
+- `awk '/retry_hN_n80/'` also matches `watch_n80_retry … retry_hN_n80.sh` argv (p279 killed watcher pid941) — match `/[r]etry_hN_n80\.sh/` with no `watch_` parent, or kill by exact PID from `ps`.

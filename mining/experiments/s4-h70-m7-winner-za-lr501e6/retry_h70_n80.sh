@@ -19,8 +19,9 @@ fi
 export PYTHONPATH=/root/mining_src/affine_pkg${PYTHONPATH:+:$PYTHONPATH}
 export HF_HOME=${HF_HOME:-/root/hf}
 
-KING_REPO=${KING_REPO:-TalentPigs/affine-5ekxlcg3fx-abc}
-KING_REV=${KING_REV:-dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4}
+# Pass 279: live king Tok331102 (was TalentPigs @ dbfbb3e2)
+KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
+KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 MERGED=${MERGED:-/root/h70/merged}
 SIM=/root/affine_data/h70_sim_result.json
 PROG=/root/affine_data/h70_sim_progress.json
