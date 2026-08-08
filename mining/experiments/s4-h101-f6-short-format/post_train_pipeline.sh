@@ -125,14 +125,22 @@ if [[ ! -f "$ADAPTER/adapter_config.json" ]]; then
   fi
 fi
 
-log "merge LoRA → $MERGED"
-rm -rf "$MERGED"
-python /root/mining_src/s4-h1-sft/merge_lora.py \
-  --base "$BASE" \
-  --adapter "$ADAPTER" \
-  --out "$MERGED" \
-  --device-map auto \
-  | tee -a "$LOG"
+# SKIP_MERGE=1: reuse existing merged (pass380 CPU recover after GPU save hang).
+# MERGE_DEVICE_MAP=cpu|auto — GPU auto save can stall in request_wait_answer
+# mid-shard on gocryptfs (H95 p352; H100/F4 p376; H101/F6 p380).
+if [[ "${SKIP_MERGE:-0}" == "1" && -f "$MERGED/config.json" ]] \
+  && ls "$MERGED"/model-*-of-*.safetensors >/dev/null 2>&1; then
+  log "SKIP_MERGE=1 — reuse $MERGED ($(ls "$MERGED"/model-*-of-*.safetensors | wc -l) shards)"
+else
+  log "merge LoRA → $MERGED device_map=${MERGE_DEVICE_MAP:-auto}"
+  rm -rf "$MERGED"
+  python /root/mining_src/s4-h1-sft/merge_lora.py \
+    --base "$BASE" \
+    --adapter "$ADAPTER" \
+    --out "$MERGED" \
+    --device-map "${MERGE_DEVICE_MAP:-auto}" \
+    | tee -a "$LOG"
+fi
 cp -f "$MERGED/merge_meta.json" /root/affine_data/h101_merge_meta.json 2>/dev/null || true
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h101_merge.done
 
