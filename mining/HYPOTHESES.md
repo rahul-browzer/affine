@@ -25,24 +25,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** p397 nvcc-dead; **cuda401 relaunch** chall↑ (CUDA_HOME=cu13).
-- `experiments/s4-h100-f4-genesis-base/` · `results/pass401_cuda_relaunch.md`.
+- **Status:** cuda401 died CCCL (nvcc13.3≠CTK13.0); **cuda403** patch+chall↑.
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass403_cccl_relaunch.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** c203 FALSE_PROBE(chall 400) → watcher **b203 attempt 1/3** (p402).
+- **Status:** n80 b203 ~king13/chall11 of 80 (p403).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass396_dedupe_watcher.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
-- **Status:** chall EngineDead@22:47 → **recover264** chall↑ (p402); longwait alive.
+- **Status:** recover264 chall :8002=200 diverse-warm (p403); freeze→n80 next.
 - `experiments/s4-h103-f8-genesis-rl/` · `results/pass402_chall_recover.md`.
 
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** n80 b203 **king4/chall4** of 80.
+- **Status:** n80 b203 **king16/chall16** of 80.
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass401_n80_start.md`.
 
 ### H3 — clip-L1 lever (supported)

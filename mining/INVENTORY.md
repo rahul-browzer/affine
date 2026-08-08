@@ -8,10 +8,10 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | cuda401 chall↑ |
-| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | b203 n80 restart |
-| mine-f8-1 | brave-matrix-d8 | 8×H200 | $28.00 | 2026-08-09T09:04Z | H103 F8 Genesis-RL | recover264 chall↑ |
-| mine-f9-1 | lunar-fox-0a | 8×H200 | $31.92 | 2026-08-09T09:12Z | H104 F9 kevin-base | n80 b203 4/4 |
+| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | cuda403 chall↑ |
+| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | n80 b203 ~13/11 |
+| mine-f8-1 | brave-matrix-d8 | 8×H200 | $28.00 | 2026-08-09T09:04Z | H103 F8 Genesis-RL | recover264 warm |
+| mine-f9-1 | lunar-fox-0a | 8×H200 | $31.92 | 2026-08-09T09:12Z | H104 F9 kevin-base | n80 b203 ~16/16 |
 
 SSH: f4 204.9.206.243:40099 · f7 .232:40311 · f8 .236:40309 ·
 f9 38.255.28.18:20099 · kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
@@ -31,6 +31,6 @@ f9 38.255.28.18:20099 · kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T23:01Z | 4 live | F4 CCCL patch+cuda403; no rm/rent |
 | 2026-08-08T22:54Z | 4 live | F8 recover264; no rm/rent |
 | 2026-08-08T22:51Z | 4 live | F9 n80+F4 cuda401; no rm/rent |
-| 2026-08-08T22:45Z | 4 live | F9 longwait arm; no rm/rent |
