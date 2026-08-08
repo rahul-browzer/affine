@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# After H95 train.done: merge LoRA → chall:8002 → n80 vs Tok331102 king.
+# After H98 train.done: merge LoRA → chall:8002 → n80 vs Tok331102 king.
 # Base = Tok331102 (train init = king) (train init); sim king = live Tok331102. Prewarm holds teacher+king.
 set -euo pipefail
 
@@ -21,26 +21,27 @@ BASE=${BASE:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb
 KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
 KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
-TRAIN_DIR=${TRAIN_DIR:-/root/h95/train}
+TRAIN_DIR=${TRAIN_DIR:-/root/h98/train}
 ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
 CKPT_ROOT=${CKPT_ROOT:-$TRAIN_DIR/checkpoints}
-MERGED=${MERGED:-/root/h95/merged}
-SIM_N80=/root/affine_data/h95_sim_result.json
-PROG=/root/affine_data/h95_sim_progress.json
-LOG=/root/logs/h95_pipeline.nohup
+MERGED=${MERGED:-/root/h98/merged}
+SIM_N80=/root/affine_data/h98_sim_result.json
+PROG=/root/affine_data/h98_sim_progress.json
+LOG=/root/logs/h98_pipeline.nohup
 # Patched pass259: TTL remove_at=2026-08-08T19:01Z → soft=TTL−1h, deadman=TTL
 # Pass312 rent ~13:19Z ttl12h → remove≈01:19Z+1d; soft=TTL−1h, deadman=TTL−30m
-SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-09T00:29:00Z}
-DEADMAN_UTC=${DEADMAN_UTC:-2026-08-09T00:59:00Z}
+# Pass354 rent ~19:06Z ttl12h → remove≈07:06Z+1d; soft=TTL−1h, deadman=TTL−30m
+SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-09T06:06:00Z}
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-09T06:36:00Z}
 
-log() { echo "[h95-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
+log() { echo "[h98-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
 # Prefer pidfile over `pgrep -f train_lora.py`: host SSH scrapes that embed the
 # pattern in argv false-match and can stall the post-train.done GPU wait forever.
 _train_alive() {
-  if [[ -f /root/logs/h95_train.pid ]]; then
+  if [[ -f /root/logs/h98_train.pid ]]; then
     local tpid
-    tpid=$(cat /root/logs/h95_train.pid 2>/dev/null || true)
+    tpid=$(cat /root/logs/h98_train.pid 2>/dev/null || true)
     if [[ -n "${tpid:-}" ]] && kill -0 "$tpid" 2>/dev/null; then
       return 0
     fi
@@ -54,22 +55,22 @@ _abort_on_exit() {
   if [[ $rc -eq 0 ]]; then
     return 0
   fi
-  if [[ -f /root/logs/h95_pipeline.done ]]; then
+  if [[ -f /root/logs/h98_pipeline.done ]]; then
     return 0
   fi
-  if [[ ! -f /root/logs/h95_pipeline.aborted ]]; then
+  if [[ ! -f /root/logs/h98_pipeline.aborted ]]; then
     echo "aborted_err_rc=${rc} $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-      >/root/logs/h95_pipeline.aborted
-    echo "[h95-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) EXIT trap wrote aborted_err_rc=${rc}" \
+      >/root/logs/h98_pipeline.aborted
+    echo "[h98-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) EXIT trap wrote aborted_err_rc=${rc}" \
       | tee -a "$LOG" >/dev/null 2>&1 || true
   fi
 }
 trap _abort_on_exit EXIT
 
-mkdir -p /root/logs /root/affine_data /root/h95
-rm -f /root/logs/h95_pipeline.aborted /root/logs/h95_pipeline.done \
-  /root/logs/h95_merge.done /root/logs/h95_chall_serve.done \
-  /root/logs/h95_sim_n80.done
+mkdir -p /root/logs /root/affine_data /root/h98
+rm -f /root/logs/h98_pipeline.aborted /root/logs/h98_pipeline.done \
+  /root/logs/h98_merge.done /root/logs/h98_chall_serve.done \
+  /root/logs/h98_sim_n80.done
 
 log "waiting for $TRAIN_DIR/train.done (or adapter + no train proc)"
 _wait_i=0
@@ -86,7 +87,7 @@ while true; do
   soft=$(date -u -d "$SOFT_DEADLINE_UTC" +%s)
   if (( now > soft - 3600 )); then
     log "WARN: <60m to soft and train not done; abort"
-    echo "aborted_no_train $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h95_pipeline.aborted
+    echo "aborted_no_train $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h98_pipeline.aborted
     exit 1
   fi
   _wait_i=$((_wait_i + 1))
@@ -106,7 +107,7 @@ for _ in $(seq 1 180); do
 done
 if _train_alive; then
   log "ERROR: train still alive >15m after train.done; abort"
-  echo "aborted_train_stuck $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h95_pipeline.aborted
+  echo "aborted_train_stuck $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h98_pipeline.aborted
   exit 1
 fi
 sleep 15
@@ -120,29 +121,21 @@ if [[ ! -f "$ADAPTER/adapter_config.json" ]]; then
   else
     log "ERROR: no adapter"
     echo "aborted_no_adapter $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-      >/root/logs/h95_pipeline.aborted
+      >/root/logs/h98_pipeline.aborted
     exit 1
   fi
 fi
 
-# SKIP_MERGE=1: reuse existing /root/h95/merged (pass352 CPU recover after GPU
-# save hang). MERGE_DEVICE_MAP=cpu|auto — GPU auto save can stall in
-# request_wait_answer mid-shard2 (H95@18:56Z).
-if [[ "${SKIP_MERGE:-0}" == "1" && -f "$MERGED/config.json" ]] \
-  && ls "$MERGED"/model-*-of-*.safetensors >/dev/null 2>&1; then
-  log "SKIP_MERGE=1 — reuse $MERGED ($(ls "$MERGED"/model-*-of-*.safetensors | wc -l) shards)"
-else
-  log "merge LoRA → $MERGED device_map=${MERGE_DEVICE_MAP:-auto}"
-  rm -rf "$MERGED"
-  python /root/mining_src/s4-h1-sft/merge_lora.py \
-    --base "$BASE" \
-    --adapter "$ADAPTER" \
-    --out "$MERGED" \
-    --device-map "${MERGE_DEVICE_MAP:-auto}" \
-    | tee -a "$LOG"
-fi
-cp -f "$MERGED/merge_meta.json" /root/affine_data/h95_merge_meta.json 2>/dev/null || true
-date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h95_merge.done
+log "merge LoRA → $MERGED"
+rm -rf "$MERGED"
+python /root/mining_src/s4-h1-sft/merge_lora.py \
+  --base "$BASE" \
+  --adapter "$ADAPTER" \
+  --out "$MERGED" \
+  --device-map auto \
+  | tee -a "$LOG"
+cp -f "$MERGED/merge_meta.json" /root/affine_data/h98_merge_meta.json 2>/dev/null || true
+date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h98_merge.done
 
 # Refuse weight-identical to Tok331102 base/king (same checkpoint).
 python - <<PY 2>&1 | tee -a "$LOG"
@@ -220,7 +213,7 @@ payload = {
     "identical_to_base": identical_base,
     "identical_to_king": identical_king,
 }
-Path("/root/affine_data/h95_identity.json").write_text(
+Path("/root/affine_data/h98_identity.json").write_text(
     json.dumps(payload, indent=2) + "\n"
 )
 print(json.dumps(payload, indent=2), flush=True)
@@ -228,34 +221,34 @@ if identical_base:
     sys.exit("REFUSE: merged weight-identical to Tok init base")
 if identical_king:
     sys.exit("REFUSE: merged weight-identical to Tok331102 king")
-print("[h95] OK_NON_IDENTICAL", flush=True)
+print("[h98] OK_NON_IDENTICAL", flush=True)
 PY
 
-HF_LORA_REPO=${HF_LORA_REPO:-unconst/Affine-5czsc2fc98-h95-lora}
-HF_MERGED_REPO=${HF_MERGED_REPO:-unconst/Affine-5czsc2fc98-h95-merged}
+HF_LORA_REPO=${HF_LORA_REPO:-unconst/Affine-5czsc2fc98-h98-lora}
+HF_MERGED_REPO=${HF_MERGED_REPO:-unconst/Affine-5czsc2fc98-h98-merged}
 HF_BASE_HUB=${HF_BASE_HUB:-Tok331102/affine-5EqYW8McUc-af10}
-SEEN_MID=${SEEN_MID:-/root/h95/mid_ckpt_salvaged.txt}
+SEEN_MID=${SEEN_MID:-/root/h98/mid_ckpt_salvaged.txt}
 if [[ -n "${HF_TOKEN:-}" ]]; then
   if [[ -f "$SEEN_MID" ]] && grep -qx "adapter-final" "$SEEN_MID"; then
     log "mid already salvaged adapter-final - skip root adapter push"
     echo "{\"skipped\":true,\"reason\":\"mid adapter-final present\"}" \
-      >/root/affine_data/h95_adapter_salvage.json
-    rm -f /root/logs/h95_push_adapter.pid
-  elif pgrep -f "s4-h95-tok-winner-za-r10/mid_ckpt_salvage.sh" >/dev/null 2>&1; then
+      >/root/affine_data/h98_adapter_salvage.json
+    rm -f /root/logs/h98_push_adapter.pid
+  elif pgrep -f "s4-h98-f1-rl-l1/mid_ckpt_salvage.sh" >/dev/null 2>&1; then
     log "mid still running - skip root adapter push"
     echo "{\"skipped\":true,\"reason\":\"mid still running\"}" \
-      >/root/affine_data/h95_adapter_salvage.json
-    rm -f /root/logs/h95_push_adapter.pid
+      >/root/affine_data/h98_adapter_salvage.json
+    rm -f /root/logs/h98_push_adapter.pid
   else
     log "background HF push adapter → $HF_LORA_REPO"
     nohup python3 /root/mining_src/s4-h1-sft/salvage_adapter.py \
       --adapter "$ADAPTER" \
       --repo "$HF_LORA_REPO" \
       --base-hub "$HF_BASE_HUB" \
-      --commit-message "H95 Tok-init winner-zA thought LoRA salvage (TTL insurance; not a submission)" \
-      --out-meta /root/affine_data/h95_adapter_salvage.json \
-      >>/root/logs/h95_push_adapter.nohup 2>&1 &
-    echo $! >/root/logs/h95_push_adapter.pid
+      --commit-message "H98 Tok-init winner-zA thought LoRA salvage (TTL insurance; not a submission)" \
+      --out-meta /root/affine_data/h98_adapter_salvage.json \
+      >>/root/logs/h98_push_adapter.nohup 2>&1 &
+    echo $! >/root/logs/h98_push_adapter.pid
   fi
   log "background HF push merged → $HF_MERGED_REPO (non-blocking)"
   # Always --public: private HF storage quota hard-fails full merges (LESSONS).
@@ -263,13 +256,13 @@ if [[ -n "${HF_TOKEN:-}" ]]; then
     --merged "$MERGED" \
     --repo "$HF_MERGED_REPO" \
     --public \
-    --commit-message "H95 Tok-init winner-zA thought merged salvage (TTL insurance; not a submission)" \
-    --out-meta /root/affine_data/h95_merged_salvage.json \
-    >>/root/logs/h95_push_merged.nohup 2>&1 &
-  echo $! >/root/logs/h95_push_merged.pid
-  log "adapter push pid=$(cat /root/logs/h95_push_adapter.pid 2>/dev/null || echo skipped) merged push pid=$(cat /root/logs/h95_push_merged.pid)"
+    --commit-message "H98 Tok-init winner-zA thought merged salvage (TTL insurance; not a submission)" \
+    --out-meta /root/affine_data/h98_merged_salvage.json \
+    >>/root/logs/h98_push_merged.nohup 2>&1 &
+  echo $! >/root/logs/h98_push_merged.pid
+  log "adapter push pid=$(cat /root/logs/h98_push_adapter.pid 2>/dev/null || echo skipped) merged push pid=$(cat /root/logs/h98_push_merged.pid)"
 else
-  log "WARN: HF_TOKEN unset; skipping H95 HF salvage pushes"
+  log "WARN: HF_TOKEN unset; skipping H98 HF salvage pushes"
 fi
 
 # Prefer prewarmed teacher+king; otherwise start them before chall.
@@ -312,7 +305,7 @@ code_t=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:80
 code_k=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8001/health || true)
 if [[ "$code_t" != "200" || "$code_k" != "200" ]]; then
   log "ABORT: teacher/king unhealthy after wait t=$code_t k=$code_k"
-  echo "aborted_engines_unhealthy $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h95_pipeline.aborted
+  echo "aborted_engines_unhealthy $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h98_pipeline.aborted
   exit 1
 fi
 
@@ -328,19 +321,19 @@ RESTART_KING=0 \
   TEACHER_REPO=${TEACHER_REPO:-zai-org/GLM-4.5-Air-FP8} \
   TEACHER_REV=${TEACHER_REV:-} \
   bash /root/mining_src/s4-h2-merge/restart_for_h2.sh
-date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h95_chall_serve.done
+date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h98_chall_serve.done
 log "CHALL_SERVE_DONE"
 
 now=$(date -u +%s)
 dead=$(date -u -d "$DEADMAN_UTC" +%s)
 if (( dead - now < 2400 )); then
   log "ABORT: <40m to deadman; skip n80"
-  echo "aborted_no_n80_budget $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h95_pipeline.aborted
+  echo "aborted_no_n80_budget $(date -u +%Y-%m-%dT%H:%M:%SZ)" > /root/logs/h98_pipeline.aborted
   exit 1
 fi
 
 N80_MAX_ATTEMPTS=${N80_MAX_ATTEMPTS:-3}
-# Fresh block_hash per attempt (H32/H34/H95): default 0*64 dies teacher 400 @~40/80.
+# Fresh block_hash per attempt (H32/H34/H98): default 0*64 dies teacher 400 @~40/80.
 # Prefer leaving n80 to retry_h*_n80.sh when watch_n80_retry is armed — dual launch races.
 BLOCK_HASHES=(
   "a203000000000000000000000000000000000000000000000000000000000001"
@@ -354,7 +347,7 @@ for attempt in $(seq 1 "$N80_MAX_ATTEMPTS"); do
   if (( dead - now < 2400 )); then
     log "ABORT: <40m to deadman before n80 attempt $attempt; stop"
     echo "aborted_no_n80_budget attempt=$attempt $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-      > /root/logs/h95_pipeline.aborted
+      > /root/logs/h98_pipeline.aborted
     exit 1
   fi
   for port in 8000 8001 8002; do
@@ -366,18 +359,18 @@ for attempt in $(seq 1 "$N80_MAX_ATTEMPTS"); do
   done
   # Retry owns hashed n80. Skip if sim OR watcher/retry armed (pass218:
   # sim-only check lost the race — both launched within ~16s of promptable).
-  if ps -eo args | awk '/[r]un_sim_duel.py/ && /local-h95/' | grep -q .; then
+  if ps -eo args | awk '/[r]un_sim_duel.py/ && /local-h98/' | grep -q .; then
     log "n80 already running under retry — skip post_train launch"
     n80_ok=1
     break
   fi
-  if ps -eo args | awk '/[w]atch_n80_retry\.sh/ && / h95 /' | grep -q . \
-    || ps -eo args | awk '/[r]etry_h95_n80\.sh/' | grep -q .; then
-    log "watch_n80_retry/retry_h95 armed — defer n80 to retry; skip post_train launch"
+  if ps -eo args | awk '/[w]atch_n80_retry\.sh/ && / h98 /' | grep -q . \
+    || ps -eo args | awk '/[r]etry_h98_n80\.sh/' | grep -q .; then
+    log "watch_n80_retry/retry_h98 armed — defer n80 to retry; skip post_train launch"
     n80_ok=1
     break
   fi
-  rm -f "$SIM_N80" "$PROG" /root/logs/h95_sim_n80.done
+  rm -f "$SIM_N80" "$PROG" /root/logs/h98_sim_n80.done
   bh="${BLOCK_HASHES[$(( (attempt - 1) % ${#BLOCK_HASHES[@]} ))]}"
   log "launch n80 sim attempt $attempt/$N80_MAX_ATTEMPTS block_hash=${bh:0:16}… → $SIM_N80"
   set +e
@@ -387,12 +380,12 @@ for attempt in $(seq 1 "$N80_MAX_ATTEMPTS"); do
     --chall-repo "$MERGED" \
     --chall-rev local \
     --n-turns 80 \
-    --hotkey local-h95 \
+    --hotkey local-h98 \
     --block-hash "$bh" \
     --out "$SIM_N80" \
     --progress-out "$PROG" \
     --save-artifact \
-    2>&1 | tee -a /root/logs/h95_sim.nohup
+    2>&1 | tee -a /root/logs/h98_sim.nohup
   sim_rc=${PIPESTATUS[0]}
   set -e
   if [[ "$sim_rc" -eq 0 && -f "$SIM_N80" ]]; then
@@ -402,16 +395,16 @@ for attempt in $(seq 1 "$N80_MAX_ATTEMPTS"); do
   fi
   log "WARN: n80 attempt $attempt failed rc=$sim_rc; will retry if budget"
   echo "n80_attempt_${attempt}_failed rc=$sim_rc $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-    >> /root/logs/h95_sim_retries.log
+    >> /root/logs/h98_sim_retries.log
   sleep 15
 done
 if [[ "$n80_ok" -ne 1 ]]; then
   log "ERROR: n80 failed after $N80_MAX_ATTEMPTS attempts"
   echo "aborted_n80_failed $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-    > /root/logs/h95_pipeline.aborted
+    > /root/logs/h98_pipeline.aborted
   exit 1
 fi
-date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h95_sim_n80.done
-date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h95_pipeline.done
+date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h98_sim_n80.done
+date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h98_pipeline.done
 log "SIM_DONE margin=$(python -c "import json;print(json.load(open('$SIM_N80'))['verdict'].get('margin'))" 2>/dev/null || echo '?')"
 log "PIPELINE_DONE"
