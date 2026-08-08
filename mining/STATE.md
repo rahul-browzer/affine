@@ -15,12 +15,12 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$185,316** · cum ~$11,550 · **avail ~$175.3k** |
+| Lium / spend | **~$185,292** · cum ~$11,575 · **avail ~$175.3k** |
 | miner | τ10.000 free · 0 submissions |
-| H91 | n80 a203 ~46/80 · mid304 |
-| H92 | n80 a203 ~27/80 · mid304 |
-| H93 | merge.done · chall loading :8002 |
-| H94 | n80 a203 just started · mid304 armed |
+| H91 | n80 a203 ~51/80 · mid304 |
+| H92 | n80 a203 ~33/80 · mid304 |
+| H93 | recover264 after bare chall (mid304 fired) |
+| H94 | king recover332 util0.72 loading · chall OK |
 | H95 | bootstrap DL tok-init ~91% |
 
 ## What's running
@@ -29,8 +29,8 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 |---|---|---|---|---|
 | mine-h91-1 | brave-shark-d2 | 38.255.28.18:20099 | ~04:31Z+1d | n80+mid304 |
 | mine-h92-1 | calm-lion-f6 | 152.236.142.236:40300 | ~05:12Z+1d | n80+mid304 |
-| mine-h93-1 | eager-raven-1e | 38.255.28.22:20099 | ~05:21Z+1d | chall load |
-| mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | n80+mid304 |
+| mine-h93-1 | eager-raven-1e | 38.255.28.22:20099 | ~05:21Z+1d | chall recover264 |
+| mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | king recover |
 | mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | bootstrap |
 
 known_hosts `/tmp/mine-h{91,92,93,94,95}-1.known_hosts`. **Free: 0.** ~$152/h.
@@ -48,10 +48,11 @@ mid304 for mid-n80 bare; preempt exits on isolated TCACHE.
 Tok-init: `preprocessor_config` + real visual shard (index≠disk).
 King Triton ENOENT → isolated TCACHE; OOM@util=0.80 → **0.72**.
 Seed chall from **live king isolated TCACHE** (not bare `cache/king`).
-recover344/347 rearms form+n80 only — **arm mid304 when n80 starts**.
+recover264/king-recover rearm form+n80 only — **arm mid304 when n80 starts**.
 
 ## Next action
 
-1. **H91/H92/H94** await n80 → `h{91,92,94}_decision.json` (keep mid304).
-2. **H93** await chall health→warm/freeze→n80; **arm mid304 at n80 start**.
-3. **H95** await train_launched.
+1. **H94** await king PROMPTABLE → retry n80 → `bash /root/logs/arm_mid304_h94.sh`.
+2. **H93** await recover264 DONE → n80 → **re-arm mid304** (exited with sim).
+3. **H91/H92** await n80 → `h{91,92}_decision.json` (keep mid304).
+4. **H95** await train_launched.
