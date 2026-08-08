@@ -7,11 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H67 | med | H42 cell @ **r=19** → m>0.04 | **open** (recover264+king275) |
-| 2 | H69 | med | H42 cell @ **r=17** → m>0.04 | **open** (train done) |
-| 3 | H65 | med | H42 cell @ **lr=5.02e-6** → m>0.04 | **open** (n80 51/80) |
-| 4 | H66 | med | H42 cell @ **lr=5.08e-6** → m>0.04 | **open** (n80 5/80) |
-| 5 | H68 | med | H42 cell @ **lr=4.95e-6** → m>0.04 | **open** (post_train) |
+| 1 | H67 | med | H42 cell @ **r=19** → m>0.04 | **open** (n80 ~10/80) |
+| 2 | H69 | med | H42 cell @ **r=17** → m>0.04 | **open** (merge) |
+| 3 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 | **open** (bootstrap) |
+| 4 | H66 | med | H42 cell @ **lr=5.08e-6** → m>0.04 | **open** (n80 ~40/80) |
+| 5 | H68 | med | H42 cell @ **lr=4.95e-6** → m>0.04 | **open** (n80 ~7/80) |
+| — | H65 | was med | H42 cell @ lr=5.02e-6 | **refuted** m=+0.01829 |
 | — | H61 | was med | H42 cell @ lr=5.15e-6 | **refuted** band×1.262 |
 | — | H63 | was med | H42 cell @ lr=5.05e-6 | **refuted** m=+0.00424 |
 | — | H64 | was med | H42 cell @ r=18 | **refuted** m=+0.02509 (best; z=2.993) |
@@ -33,31 +34,36 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H67 — H42 @ LoRA r=19 (non-α) — open
 - **Claim:** between H64@r18 best-short and H62@r20 band-dead → m>0.04.
-- **Status:** pass274 king died Triton ENOENT @09:28; preempt→recover264
-  + king-only pass275. `s4-h67-…/results/pass275_king_recover.md`.
+- **Status:** recover264 DONE → n80 a203 ~10/80.
+  `s4-h67-…/results/pass276_n80_started.md`.
 
 ### H69 — H42 @ LoRA r=17 (non-α) — open
 - **Claim:** below H64@r18 best → m>0.04 (r≤8 dead).
-- **Status:** train done step26; post_train next. preempt264 armed.
+- **Status:** merge_lora writing. preempt264 armed.
   `s4-h69-…/results/pass273_launch.md`.
 
-### H65 — H28 @ lr=5.02e-6 (non-α)
-- **Claim:** densest under peak after H60@5.3 REFUTE → m>0.04.
-- **Status:** n80 b203 51/80. `s4-h65-…/results/pass267_launch.md`.
+### H70 — H28 @ lr=5.01e-6 (non-α) — open
+- **Claim:** between H42@5e-6 +0.016 and H65@5.02 +0.018 → m>0.04.
+- **Status:** rented+bootstrap. `s4-h70-…/results/pass276_launch.md`.
 
 ### H66 — H28 @ lr=5.08e-6 (non-α)
 - **Claim:** between H63@5.05 dead and H58@5.1 dead → m>0.04.
-- **Status:** salvage recover264 → n80 a203 5/80.
+- **Status:** n80 a203 ~40/80.
   `s4-h66-…/results/pass274_recover_n80.md`.
 
 ### H68 — H28 @ lr=4.95e-6 (non-α)
 - **Claim:** just under H42@5e-6 peak (H53@4e-6 dead) → m>0.04.
-- **Status:** train done; post_train. `s4-h68-…/results/pass272_launch.md`.
+- **Status:** recover264 DONE → n80 a203 ~7/80.
+  `s4-h68-…/results/pass276_n80_started.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
+
+### H65 — m7×winner-zA @ lr=5.02e-6
+- m=+0.01829 z=2.233 base×1.219 r=0.601. Gates OK. 2nd-best; <0.04.
+  **lr=5.02e-6 dead.** `s4-h65-…/results/pass276_n80_refute.md`.
 
 ### H61 — m7×winner-zA @ lr=5.15e-6
 - chall INVALID band×**1.262** (base×1.262) r=0.608. margin 0.
@@ -93,7 +99,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H51…H42 / H41…H1
 - See archive + LESSONS. Dead: α-merge / plmk / leary / **TP×ks** /
-  **m7×ks** / m7×union / **lr≤2.5e-6∨=4e-6∨=5.05∨=5.1∨=5.15∨=5.25∨=5.3∨=5.5∨=5.75** /
+  **m7×ks** / m7×union / **lr≤2.5e-6∨=4e-6∨=5.02∨=5.05∨=5.1∨=5.15∨=5.25∨=5.3∨=5.5∨=5.75** /
   **lr=6e-6∨7.5e-6∨8e-6** / **lr≥3e-5** / **ep≥2** / **r≤8∨=18∨=20∨=24∨≥32** /
-  **α≤8∨=16** / **α≥64** / **clip≥0.08**. Open: H65@5.02 H66@5.08
+  **α≤8∨=16** / **α≥64** / **clip≥0.08**. Open: H70@5.01 H66@5.08
   H67@r19 H68@4.95e-6 H69@r17.
