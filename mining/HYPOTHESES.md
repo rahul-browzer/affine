@@ -8,7 +8,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H90 | med | **Tok-init** × winner-zA@r14 → m>0.04 | **open** (n80+mid304 ~20/80) |
-| 2 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (chall loading) |
+| 2 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (chall recover344) |
 | 3 | H92 | med | **Tok-init** × winner-zA@r13 → m>0.04 | **open** (train) |
 | 4 | H93 | med | **Tok-init** × winner-zA@r15 → m>0.04 | **open** (bootstrap) |
 | 5 | H94 | med | **Tok-init** × winner-zA@r11 → m>0.04 | **open** (bootstrap) |
@@ -34,7 +34,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H91 — Tok-init × winner-zA @ r=12 (non-α) — open
 - **Claim:** ≥8 from H81@r22; untested r=12 → m>0.04.
-- **Status:** merge DONE; chall loading :8002. `…/pass340_king_recover.md`.
+- **Status:** recover344 seeded king n_so=16; chall loading.
+  `…/pass344_chall_recover.md`.
 
 ### H92 — Tok-init × winner-zA @ r=13 (non-α) — open
 - **Claim:** between H91@r12 and H90@r14; untested r=13 → m>0.04.

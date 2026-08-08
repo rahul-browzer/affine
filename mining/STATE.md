@@ -7,7 +7,6 @@ Rewritten every pass. Do not append.
 **Stage 4 — H90–H94 live (5/5).** No submit.
 Best n80 (vs old TalentPigs): **H64 r18 m=+0.02509**.
 Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
-**H88 r30 REFUTE** m=+0.001358 (torn down).
 **Live king:** Tok331102 S=0.04456 (reign 4).
 
 ## Live facts
@@ -15,23 +14,23 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$185,550** · cum ~$11,260 · **avail ~$175.5k** |
+| Lium / spend | **~$185,527** · cum ~$11,300 · **avail ~$175.5k** |
 | miner | τ10.000 free · 0 submissions |
-| H90 | n80 a203 ~20/80 · mid304 · t/k/c=200 |
-| H91 | chall loading (:8002=000) · relaunch264 · t/k=200 |
-| H92 | train r13 live · post_train armed |
-| H93 | bootstrap DOWNLOAD tok-init |
-| H94 | bootstrap COUNT=8 @$28 · just launched |
+| H90 | n80 a203 ~30/80 · mid304 · t/k/c=200 |
+| H91 | chall recover344 loading · seeded king n_so=16 |
+| H92 | merge_lora live · t/k=200 · post_train |
+| H93 | bootstrap DOWNLOAD tok-init (~35G) |
+| H94 | bootstrap DOWNLOAD tok-init (~33G) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
 | mine-h90-1 | noble-shark-3c | 152.236.142.232:40310 | ~04:23Z+1d | n80+mid304 |
-| mine-h91-1 | brave-shark-d2 | 38.255.28.18:20099 | ~04:31Z+1d | chall load |
-| mine-h92-1 | calm-lion-f6 | 152.236.142.236:40300 | ~05:12Z+1d | train r13 |
-| mine-h93-1 | eager-raven-1e | 38.255.28.22:20099 | ~05:21Z+1d | bootstrap r15 |
-| mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | bootstrap r11 |
+| mine-h91-1 | brave-shark-d2 | 38.255.28.18:20099 | ~04:31Z+1d | chall recover344 |
+| mine-h92-1 | calm-lion-f6 | 152.236.142.236:40300 | ~05:12Z+1d | merge r13 |
+| mine-h93-1 | eager-raven-1e | 38.255.28.22:20099 | ~05:21Z+1d | bootstrap DL |
+| mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | bootstrap DL |
 
 known_hosts `/tmp/mine-h{90,91,92,93,94}-1.known_hosts`. **Free: 0.** ~$148/h.
 Non-mine `wan-lora-*` / `affine-*` — **do not touch**.
@@ -47,12 +46,13 @@ recover264=chall; king-only relaunch. Never sed live post_train.
 mid304 for mid-n80 bare; preempt exits on isolated TCACHE.
 Tok-init: `preprocessor_config` + real visual shard (index≠disk).
 King Triton ENOENT → isolated TCACHE; OOM@util=0.80 → **0.72**.
-H91: chall→preempt settle; arm mid304 when n80 starts.
+Seed chall from **live king isolated TCACHE** (not bare `cache/king`).
+H91: await freeze344 → n80+mid304.
 H90: keep mid304; await `h90_decision.json`.
 
 ## Next action
 
-1. **H90** await n80 → `h90_decision.json` (keep mid304).
-2. **H91** await :8002=200 → preempt settle → n80+mid304.
-3. **H92** await train→merge→n80.
+1. **H91** await recover344 health→warm→freeze → n80+mid304.
+2. **H90** await n80 → `h90_decision.json` (keep mid304).
+3. **H92** await merge→chall serve→n80 (king util=0.80 — watch OOM).
 4. **H93/H94** await train_launched stamps.
