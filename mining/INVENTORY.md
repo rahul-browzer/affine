@@ -7,15 +7,16 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h86-1 | calm-wolf-21 | 8×H200 | $28.00 | ~2026-08-09T02:59Z | H86 Tok-init r28 | **n80** ~60/80 |
+| mine-h86-1 | calm-wolf-21 | 8×H200 | $28.00 | ~2026-08-09T02:59Z | H86 Tok-init r28 | **n80** ~69/80 |
 | mine-h87-1 | swift-shark-4f | 8×H200 | $31.92 | ~2026-08-09T03:31Z | H87 Tok-init r29 | chall bare+preempt |
-| mine-h88-1 | zesty-hawk-be | 8×H200 | $31.92 | ~2026-08-09T03:32Z | H88 Tok-init r30 | **merge** |
-| mine-h89-1 | gentle-fox-06 | 8×H200 | $28.00 | ~2026-08-09T03:38Z | H89 Tok-init r31 | tchr+king p332 |
+| mine-h88-1 | zesty-hawk-be | 8×H200 | $31.92 | ~2026-08-09T03:32Z | H88 Tok-init r30 | chall bare loading |
+| mine-h89-1 | gentle-fox-06 | 8×H200 | $28.00 | ~2026-08-09T03:38Z | H89 Tok-init r31 | tchr+king recover332 |
+| mine-h90-1 | noble-shark-3c | 8×H200 | $28.00 | ~2026-08-09T04:23Z | H90 Tok-init r14 | **bootstrap** |
 
 SSH: h86 .236:40300 · h87 .22:20100 · h88 .19:20100 ·
-h89 .237:40309 ·
-known_hosts `/tmp/mine-h{86,87,88,89}-1.known_hosts` ·
-**Free: 1**. Cap 5. Burn ~$119.8/h mining.
+h89 .237:40309 · h90 .232:40310 ·
+known_hosts `/tmp/mine-h{86,87,88,89,90}-1.known_hosts` ·
+**Free: 0**. Cap 5. Burn ~$147.8/h mining.
 Account also has non-mine `wan-lora-*` / `affine-*` — **never rm**.
 
 ## Dead
@@ -32,6 +33,6 @@ Account also has non-mine `wan-lora-*` / `affine-*` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T16:24Z | h86/87/88/89/90 | rent h90 @$28/h ttl12h COUNT=8; H90 bootstrap |
 | 2026-08-08T16:21Z | h86/87/88/89 | rm h85 REFUTE; H89 tchr+king recover332; no rent |
 | 2026-08-08T16:09Z | h85/86/87/88/89 | H87 teacher recover331; H89 recover264; no rent/rm |
-| 2026-08-08T16:05Z | h85/86/87/88/89 | H89 train→merge→chall; H88 DL→train; no rent/rm |

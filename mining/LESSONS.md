@@ -117,7 +117,7 @@ Format: `- <finding> — <the number or error that proves it>`
   **H79 Tok-init@r18 −0.00784 dead**; **H80 Tok-init@r17 −0.000821 dead**;
   **H81 Tok-init@r22 +0.008811** (<0.015); **H82@r23 −0.00439 dead**;
   **H83@r25 +0.00101 dead**; **H84@r26 −0.00242 dead**; **H85@r27
-  −0.00817 dead**. Open: **H86–H89** (r28–31). H66 king mid-pipeline Triton
+  −0.00817 dead**. Open: **H86–H90** (r28–31 + r14). H66 king mid-pipeline Triton
   ENOENT hung :8001 — reap GPU 2/3, wipe `cache/king`, `serve_three` (p271);
   don't wait for post_train abort.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
