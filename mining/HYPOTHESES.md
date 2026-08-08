@@ -31,18 +31,18 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** c203 n80 **king3/chall2** of 80 (p401).
+- **Status:** c203 FALSE_PROBE(chall 400) → watcher **b203 attempt 1/3** (p402).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass396_dedupe_watcher.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
-- **Status:** chall READY; longwait n80 (post_train deferred).
-- `experiments/s4-h103-f8-genesis-rl/` · `results/pass398_longwait.md`.
+- **Status:** chall EngineDead@22:47 → **recover264** chall↑ (p402); longwait alive.
+- `experiments/s4-h103-f8-genesis-rl/` · `results/pass402_chall_recover.md`.
 
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** n80 **attempt 2/3 b203** (a203 failed fast @22:49Z).
+- **Status:** n80 b203 **king4/chall4** of 80.
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass401_n80_start.md`.
 
 ### H3 — clip-L1 lever (supported)
