@@ -146,6 +146,5 @@ Format: `- <finding> — <the number or error that proves it>`
   skip-if-sim-alive (H42/H43 p218) — kill both; skip if retry armed. Soft-deadline
   can abort wait-for-train before train.done (H53: abort 03:30, done 03:35) —
   relaunch post_train with extended SOFT/DEADMAN; do not tear down.
-- `watch_n80_retry` must **not** `exec` the retry (pass203). Retry must
-  **wait** engines (not abort-spam every 30s — pass205). Sim-alive check
-  needs `python` in argv (bare pgrep self-matches).
+- `watch_n80_retry` must **not** `exec` the retry (pass203); retry must **wait**
+  engines (not abort-spam — pass205); sim-alive needs `python` in argv.
