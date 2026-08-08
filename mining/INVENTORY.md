@@ -8,9 +8,9 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h95-1 | calm-raven-0f | 8×H200 | $31.92 | ~2026-08-09T06:05Z | H95 Tok r10 | recover264 |
-| mine-h96-1 | golden-matrix-af | 8×H200 | $28.00 | ~2026-08-09T06:52Z | H96 Tok r9 | chall→n80 |
-| mine-f3-1 | noble-raven-ff | 8×H200 | $28.00 | ~2026-08-09T07:01Z | H97 F3 r256 | merge |
+| mine-h95-1 | calm-raven-0f | 8×H200 | $31.92 | ~2026-08-09T06:05Z | H95 Tok r10 | **n80+mid304** |
+| mine-h96-1 | golden-matrix-af | 8×H200 | $28.00 | ~2026-08-09T06:52Z | H96 Tok r9 | recover264 |
+| mine-f3-1 | noble-raven-ff | 8×H200 | $28.00 | ~2026-08-09T07:01Z | H97 F3 r256 | chall load |
 | mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | ~2026-08-09T07:06Z | H98 F1 RL | train |
 | mine-f2-1 | zesty-orbit-85 | 8×B200 | $40.00 | ~2026-08-09T07:13Z | H99 F2 Λ2 | train |
 | mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | ~2026-08-09T07:18Z | H100 F4 Genesis | bootstrap |
@@ -33,6 +33,6 @@ kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T19:31Z | 6 live match inv | H95 recover DONE→n80+mid304; H96 preempt→recover; no rm/rent |
 | 2026-08-08T19:24Z | 6 live match inv | H95 mid304→bare→recover264; no rm/rent |
 | 2026-08-08T19:22Z | −h91 −h94 | H91/H94 REFUTE; rm both; 6 live |
-| 2026-08-08T19:19Z | −h93 +f4 B300 | H93 REFUTE; rent mine-f4-1 F4 Genesis |

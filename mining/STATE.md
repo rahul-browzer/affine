@@ -12,26 +12,26 @@ No submit. Best vs Tok: H81 +0.0088 (REFUTE). King Tok331102 S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$184,929** · cum ~$12,185 · **avail ~$174.9k** |
+| Lium / spend | **~$184,856** · cum ~$12,260 · **avail ~$174.9k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$225/h** (6 mine-*) ≪ $833/h · free slots **14** |
-| H95 | recover264 loading chall (bare TCACHE caught @26/80) |
-| H96 | chall loading → n80 |
-| F3/F1/F2 | merge / train / train |
-| H100/F4 | BOOTSTRAP (Genesis-init) |
+| H95 | **n80 live** (a203) + mid304 armed; engines 200/200/200 |
+| H96 | recover264 loading isolated chall (bare preempted) |
+| F3/F1/F2 | chall-load / train / train |
+| H100/F4 | BOOTSTRAP (pip/vllm on B300) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | recover264 → n80 |
-| mine-h96-1 | golden-matrix-af | 152.236.142.232:40299 | ~06:52Z+1d | chall→n80 |
-| mine-f3-1 | noble-raven-ff | 152.236.142.236:40311 | ~07:01Z+1d | F3 merge |
+| mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | **n80 + mid304** |
+| mine-h96-1 | golden-matrix-af | 152.236.142.232:40299 | ~06:52Z+1d | recover264→n80 |
+| mine-f3-1 | noble-raven-ff | 152.236.142.236:40311 | ~07:01Z+1d | F3 chall load |
 | mine-f1-1 | brave-hawk-5a | 86.38.238.54:40099 | ~07:06Z+1d | F1 train |
 | mine-f2-1 | zesty-orbit-85 | 150.136.71.147:20295 | ~07:13Z+1d | F2 train |
 | mine-f4-1 | calm-wolf-30 | 204.9.206.243:40099 | ~07:18Z+1d | F4 bootstrap |
 
-kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts` (not `/tmp/mine-*` key files).
+kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 Non-mine `wan-lora-*` / `affine-*` / `glm52-*` — **do not touch**.
 
 ## Blocked
@@ -50,7 +50,7 @@ Retire winner-zA on resolve; no more r-neighbours. F1–F4 rented.
 
 ## Next action
 
-1. **H95** await recover264 DONE (:8002=200) → n80 relaunch → `bash /root/logs/arm_mid304_h95.sh`.
-2. **H96** await chall:8002=200 → n80; leave alone while loading.
-3. **F1–F4** await train/merge/bootstrap.
+1. **H95** await n80 → `h95_decision.json` (mid304 armed; leave alone).
+2. **H96** await recover264 DONE → n80; then `arm_mid304` if present.
+3. **F1–F4** await train/merge/bootstrap (F3 chall loading; F4 pip).
 4. Free slots → **new family only** (F5 if verified-traj data ready; else hold).
