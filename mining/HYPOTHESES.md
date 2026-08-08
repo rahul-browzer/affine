@@ -29,7 +29,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H72 — H64@r18 replicate vs Tok (non-α) — open
 - **Claim:** re-draw of best cell (+0.02509) vs live king → m>0.04.
-- **Status:** merge on mine-h72-1. `…/pass284_launch.md`.
+- **Status:** recover264 after bare-cache Triton ghost (merge done).
+  `…/pass290_recover264.md`.
 
 ### H74 — H64@r18 replicate #2 vs Tok (non-α) — open
 - **Claim:** second independent redraw of H64 cell vs Tok → m>0.04.

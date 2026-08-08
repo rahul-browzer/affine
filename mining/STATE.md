@@ -13,24 +13,24 @@ Best n80 (vs old TalentPigs): **H64 r18 m=+0.02509**.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$187,361** · cum ~$8,625 · **avail ~$177.4k** |
+| Lium / spend | **~$187,361** · cum ~$8,650 · **avail ~$177.4k** |
 | miner | τ10.000 free · 0 submissions |
-| H70 | n80 vs Tok ~51/80 (b203) |
-| H71 | **n80 vs Tok** a203 (salvage264→freeze n_so=22) |
-| H72 | merge done; chall loading / post_train |
-| H73 | merge in progress |
-| H74 | bootstrap (venv ok) |
+| H70 | n80 vs Tok **58/80** (b203) |
+| H71 | n80 vs Tok a203 (engines 200; progress pending) |
+| H72 | **recover264** after bare-cache Triton ghost (chall dead) |
+| H73 | merge done; chall loading :8002 (GPUs 4,5 ~36 GiB) |
+| H74 | train ~14/26 → merge→n80 |
 | H69 | **done** m=+0.01641 vs TalentPigs → tore |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h70-1 | cosmic-raven-9e | 38.255.28.18:20100 | ~21:42Z | **n80 vs Tok** ~51/80 |
+| mine-h70-1 | cosmic-raven-9e | 38.255.28.18:20100 | ~21:42Z | **n80 vs Tok** 58/80 |
 | mine-h71-1 | eager-fox-be | 152.236.142.237:40311 | ~22:05Z | **n80 vs Tok** a203 |
-| mine-h72-1 | golden-comet-7a | 152.236.142.232:40299 | ~22:20Z | chall serve → n80 Tok |
-| mine-h73-1 | eager-matrix-9a | 38.255.28.19:20100 | ~22:21Z | merge → chall → n80 |
-| mine-h74-1 | brave-orbit-28 | 152.236.142.236:40300 | ~22:42Z | bootstrap→train |
+| mine-h72-1 | golden-comet-7a | 152.236.142.232:40299 | ~22:20Z | **recover264** → n80 Tok |
+| mine-h73-1 | eager-matrix-9a | 38.255.28.19:20100 | ~22:21Z | chall load → warm→n80 |
+| mine-h74-1 | brave-orbit-28 | 152.236.142.236:40300 | ~22:42Z | train ~14/26 |
 
 known_hosts `/tmp/mine-h{70,71,72,73,74}-1.known_hosts`.
 **Free slots: 0.** Burn ~$148/h mining.
@@ -47,9 +47,9 @@ Never sed live post_train. Preempt: skip isolated TCACHE / if recover alive.
 
 ## Next action
 
-1. H70/H71: await n80 `decision.json` vs Tok → tear / shortlist / submit-gate.
-2. H72: await chall health→warm/freeze→n80 vs Tok.
-3. H73: await merge→chall→n80 vs Tok.
-4. H74: await bootstrap→train→merge→n80 vs Tok.
+1. H72: await recover264 DONE (`h72_chall_serve.done` / freeze.done) → n80 vs Tok; no 2nd recover while pid 16974 alive.
+2. H70/H71: await n80 `decision.json` vs Tok → tear / shortlist / submit-gate.
+3. H73: await chall health→warm/freeze→n80 vs Tok.
+4. H74: await train→merge→chall→n80 vs Tok.
 5. Free slot → non-α neighbor **KING=Tok331102 from rent** (prefer
    replicate best shortlist cell, not 1% lr step).
