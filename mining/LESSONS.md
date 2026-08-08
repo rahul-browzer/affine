@@ -143,8 +143,9 @@ Format: `- <finding> — <the number or error that proves it>`
   reap by GPU index first). Concurrent prewarm still races — recover dead role.
 - Default `block_hash=0*64` n80 dies teacher **400** @~40/80 (H32/H34). Rotate
   a203/b203/c203 on every retry. Bare post_train **races** retry even with
-  skip-if-sim-alive (H42/H43 p218: both launched within ~16s of promptable) —
-  kill post_train+both sims; skip if `watch_n80_retry`/`retry_hN` **armed**.
+  skip-if-sim-alive (H42/H43 p218) — kill both; skip if retry armed. Soft-deadline
+  can abort wait-for-train before train.done (H53: abort 03:30, done 03:35) —
+  relaunch post_train with extended SOFT/DEADMAN; do not tear down.
 - `watch_n80_retry` must **not** `exec` the retry (pass203). Retry must
   **wait** engines (not abort-spam every 30s — pass205). Sim-alive check
-  needs `python` in argv (bare pgrep self-matches). Floor $10k; burn~τ0.68; no cryptoType.
+  needs `python` in argv (bare pgrep self-matches).

@@ -13,13 +13,13 @@ No submit. Best family still **H42 lr5e-6 m=+0.01613** (<0.04).
 |---|---|
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
-| Lium / spend | **~$188,958** · cum mining ~$5,720 · **avail ~$179.0k** |
+| Lium / spend | **~$188,958** · cum mining ~$5,750 · **avail ~$179.0k** |
 | miner | τ10.000 free · 0 submissions |
-| H49 | **n80 retry#2 b203** ~5/80 (a203 died teacher 400 @~58) |
-| H50 | teacher recovered p234 → **chall :8002 loading** merged |
-| H51 | teacher recovered p234 → **chall :8002 loading** merged |
-| H52 | merge writing shard0 `.tmp` 47G (t/k healthy) |
-| H53 | **train.done** step26 → post_train → merge next |
+| H49 | n80 retry#2 b203 **~13/80** (engines healthy) |
+| H50 | t/k 200 · chall :8002 loading (torch.compile) |
+| H51 | t/k 200 · chall :8002 loading (torch.compile) |
+| H52 | merge writing shard0 47G + tmp 19G (~55G) |
+| H53 | **post_train relaunched** merge_lora on GPU6,7 (soft-abort recover) |
 
 ## What's running
 
@@ -47,7 +47,7 @@ Reject catalog pods with nvidia-smi COUNT≠8 or $/h<$20.
 
 ## Next action
 
-1. Poll H50/H51 → chall promptable → n80 → `hN_decision.json`.
-2. Poll H49 retry#2 → decision; H52 merge.done → chall; H53 merge→chall→n80.
+1. Poll H50/H51 → chall promptable (2× completions) → n80 → decision.
+2. Poll H49 → `h49_decision.json`; H52/H53 merge.done → chall → n80.
 3. REFUTE → `lium rm mine-hN-1` only; fill non-α H28-neighbour (not dead cells).
-4. Hyperparams verified: H49 α4 · H50 lr7.5e-6 · H51 α16 · H52 lr6e-6 · H53 lr4e-6.
+4. Hyperparams: H49 α4 · H50 lr7.5e-6 · H51 α16 · H52 lr6e-6 · H53 lr4e-6.

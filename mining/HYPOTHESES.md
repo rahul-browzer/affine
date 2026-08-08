@@ -7,7 +7,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H53 | med | H42 cell @ **lr=4e-6** → m>0.04 | **open** (train.done) |
+| 1 | H53 | med | H42 cell @ **lr=4e-6** → m>0.04 | **open** (merge) |
 | 2 | H52 | med | H42 cell @ **lr=6e-6** → m>0.04 | **open** (merge write) |
 | 3 | H50 | med | H42 cell @ **lr=7.5e-6** → m>0.04 | **open** (chall load) |
 | 4 | H51 | med | H28 cell @ **α=16 r16** → m>0.04 | **open** (chall load) |
@@ -31,7 +31,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H53 — H28 @ lr=4e-6 (non-α)
 - **Claim:** between H46 2.5e-6 (+0.008) and H42 5e-6 (+0.016) → m>0.04.
-- **Status:** train.done step26 → merge next. `s4-h53-…/`.
+- **Status:** post_train soft-abort recovered; merge_lora running. `s4-h53-…/`.
 
 ### H52 — H28 @ lr=6e-6 (non-α)
 - **Claim:** just above H42 5e-6 → m>0.04.
