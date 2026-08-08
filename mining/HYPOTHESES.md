@@ -11,9 +11,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 2 | H99/F2 | high | high-Λ2 z_A SFT → m>+0.015 | **open** (n80) |
 | 3 | H98/F1 | high | REINFORCE self-L1lift → m>+0.015 | **open** (train) |
 | 4 | H97/F3 | high | r=256 breaks LoRA ceiling → m>+0.015 | **open** (n80) |
-| 5 | H95 | med | Tok-init r10 → m>0.04 | **open** (n80 live + mid304) |
-| 6 | H96 | med | Tok-init r9 → m>0.04 | **open** (n80 live + mid304) |
-| — | H94/H91…H1 | — | winner-zA / α / merges | **refuted** (see below) |
+| 5 | H96 | med | Tok-init r9 → m>0.04 | **open** (n80 live + mid304) |
+| — | H95/H94…H1 | — | winner-zA / α / merges | **refuted** (see below) |
 | — | H3 | instrumental | clip-L1 lever | **supported** (+rank) |
 
 ---
@@ -40,9 +39,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Status:** king366 PROMPTABLE @20:04Z; **n80 live** a203 + mid304 armed (p367).
 - `experiments/s4-h97-f3-r256/` · `results/pass367_n80_mid304.md`.
 
-### H95 / H96 — Tok-init r-cells — open (draining)
-- Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- H95 n80~72/80 + mid304; H96 n80~32/80 b203 + mid304.
+### H96 — Tok-init r9 — open (draining)
+- Last winner-zA cell; retire on resolve; **do not** launch more r-neighbours.
+- H96 n80~40/80 b203 + mid304.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -55,6 +54,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | F6 | Thought format/length axis | later |
 
 ## Refuted (keep)
+
+### H95 — Tok-init × winner-zA @ r=10
+- m=+0.001489 z=0.24 vs Tok (gates OK). **r=10 dead** (noise≈0; ≪CONFIRM). `s4-h95-…/results/result.md`.
 
 ### H94 — Tok-init × winner-zA @ r=11
 - m=−0.013746 z=−1.59 vs Tok. **r=11 dead.** `s4-h94-…/results/result.md`.
