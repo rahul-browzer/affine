@@ -11,4 +11,5 @@
 
 **Rent note:** before launch, patch `post_train_pipeline.sh` SOFT/DEADMAN
 `:-` defaults to ≥TTL−1h (env alone dies on restart). Prefer UUID @$≥28/h,
-verify nvidia-smi COUNT=8. Prefer r=20 only if H56 n80 reports first.
+verify nvidia-smi COUNT=8. If H56 n80 reports first, launch **H62 r=20**
+(`s4-h62-m7-winner-za-r20/`) instead of this hyp.

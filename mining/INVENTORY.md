@@ -7,15 +7,15 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h54-1 | calm-matrix-9c | 8×H200 | $28.00 | ~2026-08-08T16:23Z | H54 m7×wZA lr8e-6 | n80 ~47/80 |
-| mine-h56-1 | swift-fox-1d | 8×H200 | $28.00 | ~2026-08-08T16:38Z | H56 m7×wZA r24 | n80 ~37/80 |
-| mine-h58-1 | eager-matrix-0d | 8×H200 | $31.92 | ~2026-08-08T17:22Z | H58 m7×wZA lr5.1e-6 | n80 ~31/80 |
-| mine-h59-1 | lunar-comet-0f | 8×H200 | $28.00 | ~2026-08-08T18:17Z | H59 m7×wZA lr5.75e-6 | train ~21/26 |
-| mine-h60-1 | swift-eagle-4e | 8×H200 | $31.92 | ~2026-08-08T18:27Z | H60 m7×wZA lr5.3e-6 | train launched |
+| mine-h54-1 | calm-matrix-9c | 8×H200 | $28.00 | ~2026-08-08T16:23Z | H54 m7×wZA lr8e-6 | n80 ~58/80 |
+| mine-h56-1 | swift-fox-1d | 8×H200 | $28.00 | ~2026-08-08T16:38Z | H56 m7×wZA r24 | n80 ~47/80 |
+| mine-h58-1 | eager-matrix-0d | 8×H200 | $31.92 | ~2026-08-08T17:22Z | H58 m7×wZA lr5.1e-6 | n80 ~41/80 |
+| mine-h59-1 | lunar-comet-0f | 8×H200 | $28.00 | ~2026-08-08T18:17Z | H59 m7×wZA lr5.75e-6 | merge |
+| mine-h60-1 | swift-eagle-4e | 8×H200 | $31.92 | ~2026-08-08T18:27Z | H60 m7×wZA lr5.3e-6 | train ~10/26 |
 
 SSH: h54 .236:40300 · h56 .237:40099 · h58 .21:20099 ·
 h59 .232:40300 · h60 .22:20100 · known_hosts `/tmp/mine-h{54,56,58,59,60}-1.known_hosts` ·
-**Free: 0**. Cap 5. Burn ~$147.8/h mining. Next: H61 staged (lr=5.15e-6).
+**Free: 0**. Cap 5. Burn ~$147.8/h mining. Next: H61 or H62 (r=20 if H56 first).
 
 ## Dead
 
@@ -31,6 +31,6 @@ h59 .232:40300 · h60 .22:20100 · known_hosts `/tmp/mine-h{54,56,58,59,60}-1.kn
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T06:35Z | h54,56,58–60 match | no rm; H62 staged (r=20); n80/train/merge OK |
 | 2026-08-08T06:30Z | h54,56,58–60 match | no rm; H61 staged; H60 train up; n80 progressing |
 | 2026-08-08T06:27Z | h54,56,58–60 match | H57 REFUTE→rm; H60 rented+bootstrap; no other rm |
-| 2026-08-08T06:17Z | h54,56–59 match | H55 REFUTE→rm; H59 rented (2nd try); no other rm |
