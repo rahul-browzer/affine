@@ -8,7 +8,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (train) |
-| 2 | H99/F2 | high | high-Λ2 z_A SFT → m>+0.015 | **open** (merge) |
+| 2 | H99/F2 | high | high-Λ2 z_A SFT → m>+0.015 | **open** (n80) |
 | 3 | H98/F1 | high | REINFORCE self-L1lift → m>+0.015 | **open** (train) |
 | 4 | H97/F3 | high | r=256 breaks LoRA ceiling → m>+0.015 | **open** (n80) |
 | 5 | H95 | med | Tok-init r10 → m>0.04 | **open** (n80 live + mid304) |
@@ -27,8 +27,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H99 / F2 — Target Λ2 via high-Λ2 z_A — open
 - **Claim:** Select z_A by Λ2≥0.02 (1059 ex; 65% not in clip-L1 set) → m>+0.015.
-- **Status:** merge DONE; chall health200 @19:58 → diverse warmups (recover264); T/K 200; await DONE→n80.
-- `experiments/s4-h99-f2-target-l2/` · `results/pass361_teacher_recover.md`.
+- **Status:** recover264 DONE; **n80 live** b203 (~1/80) + mid304 armed (p368).
+- `experiments/s4-h99-f2-target-l2/` · `results/pass368_n80_mid304.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
@@ -42,7 +42,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- H95 n80~60/80 + mid304; H96 n80~22/80 b203 + mid304.
+- H95 n80~72/80 + mid304; H96 n80~32/80 b203 + mid304.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
