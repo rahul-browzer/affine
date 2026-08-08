@@ -9,7 +9,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 |---|---|---|---|---|
 | 1 | H48 | med | H42 cell @ **lr=1e-6** → m>0.04 | **open** (n80 a203) |
 | 2 | H46 | med | H42 cell @ **lr=2.5e-6** → m>0.04 | **open** (n80 ~45/80) |
-| 3 | H49 | med | H28 cell @ **α=4 r16** → m>0.04 | **open** (chall recover p229) |
+| 3 | H49 | med | H28 cell @ **α=4 r16** → m>0.04 | **open** (chall recover p230) |
 | 4 | H47 | med | H28 cell @ **α=8 r16** → m>0.04 | **open** (n80 ~55/80) |
 | 5 | H45 | med | H28 cell @ **lora r=8** → m>0.04 | **open** (n80 b203) |
 | — | H44 | was med | H28 @ clipL1≥0.08 data | **refuted** m=−0.00017 |
@@ -31,8 +31,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H49 — H28 @ LoRA α=4 @ r16 (non-α)
 - **Claim:** α÷8 at fixed r16 (gentler than H47 α8) → m>0.04.
-- **Status:** n80 a203 FALSE_PROBE (chall Triton.so); recover p229 loading.
-  `s4-h49-…/results/pass229_chall_recover.md`.
+- **Status:** p229 ABORT warmup#1 Triton.so; p230 recover (outer×3+45s settle).
+  `s4-h49-…/results/pass230_chall_recover.md`.
 
 ### H48 — H28 @ lr=1e-6 (non-α)
 - **Claim:** half H46 LR → continues gentler-LR gain → m>0.04.

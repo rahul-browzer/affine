@@ -78,11 +78,11 @@ Format: `- <finding> — <the number or error that proves it>`
   GPU index never `pkill -f "vllm serve"`. MoE wait ≥120×15s; settle ≥30s
   after wipe. Health=200 ≠ alive — gate on `/v1/completions` 200 **twice**
   20s apart. Isolated TCACHE survives mid-init (H40 p216) but TP still
-  race-deletes `__triton_launcher.so` ~40s after first completions — freeze
-  with `chmod -R a-w $TCACHE` after warmup (H40 p217). CUDA-graph hang:
-  shm_broadcast >5m after "Registering N addresses" → kill + clear
-  `/root/.cache/vllm/torch_compile_cache` + relaunch. Orphans =
-  `VLLM::Worker` **ppid=1**. `FALSE_PROBE_*` ≠ REFUTE — never `lium rm`.
+  race-deletes `__triton_launcher.so` on **first** warmup too (H49 p229:
+  health→warmup in 0s → 500/4s) — settle ≥45s after health, freeze a-w after
+  w1, outer×3 fresh TCACHE (p230). CUDA-graph hang: shm_broadcast >5m after
+  "Registering N addresses" → kill + clear torch_compile_cache + relaunch.
+  Orphans = `VLLM::Worker` **ppid=1**. `FALSE_PROBE_*` ≠ REFUTE — never rm.
 - `pgrep -f` false-matches SSH/watcher argv — use
   `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
   from `watch_n80_retry` (self-deadlock H32 pass198).
