@@ -25,8 +25,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** CPU merge DONE; Tok Range-resume (hub1.27 no-resume) p383.
-- `experiments/s4-h100-f4-genesis-base/` · `results/pass383_tok_range_resume.md`.
+- **Status:** Range shard1 ~54%; post_train killed (abort race); tokwatch p388.
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass388_tok_abort_race.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
@@ -42,7 +42,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** salvage :8002=200; killed a203 (H32) → **b203 n80 live** p387.
+- **Status:** b203 n80 live ~4/80 @21:49Z (engines 200).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass387_b203_n80.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
@@ -53,7 +53,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** kevin LoRA train live; teacher.done; Tok DL incomplete.
+- **Status:** LoRA step~26/60 (1 parent+torch kids, not triple); loss~0.43.
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass379_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
