@@ -30,4 +30,3 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 | 2026-08-08T08:51Z | 187799.09 | rented mine-h67-1 eager-hawk-f5 8×H200 @$28/h ttl12h (H67 r=19) |
 | 2026-08-08T08:51Z | 187799.09 | rm mine-h64-1 gentle-wolf-eb (~$44) H64 REFUTE m=+0.02509 |
 | 2026-08-08T08:27Z | 187891.26 | rented mine-h66-1 swift-eagle-f0 8×H200 @$28/h ttl12h (H66 lr5.08e-6) |
-| 2026-08-08T08:26Z | 187891.26 | rm mine-h62-1 golden-matrix-66 (~$40) H62 REFUTE band×1.273 |
