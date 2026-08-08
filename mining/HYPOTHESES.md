@@ -7,11 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H88 | med | **Tok-init** × winner-zA@r30 → m>0.04 | **open** (n80+mid304 ~66/80) |
-| 2 | H89 | med | **Tok-init** × winner-zA@r31 → m>0.04 | **open** (n80+mid304 ~71/80) |
-| 3 | H90 | med | **Tok-init** × winner-zA@r14 → m>0.04 | **open** (king340+retry120) |
-| 4 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (king DONE+merge) |
-| 5 | H92 | med | **Tok-init** × winner-zA@r13 → m>0.04 | **open** (bootstrap) |
+| 1 | H88 | med | **Tok-init** × winner-zA@r30 → m>0.04 | **open** (n80+mid304 ~71/80) |
+| 2 | H90 | med | **Tok-init** × winner-zA@r14 → m>0.04 | **open** (n80+mid304) |
+| 3 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (chall loading) |
+| 4 | H92 | med | **Tok-init** × winner-zA@r13 → m>0.04 | **open** (train) |
+| 5 | H93 | med | **Tok-init** × winner-zA@r15 → m>0.04 | **open** (bootstrap) |
+| — | H89 | was med | **Tok-init** × winner-zA@r31 vs Tok | **refuted** m=−0.007241 |
 | — | H87 | was med | **Tok-init** × winner-zA@r29 vs Tok | **refuted** m=+0.005075 |
 | — | H86 | was med | **Tok-init** × winner-zA@r28 vs Tok | **refuted** m=−0.000341 |
 | — | H85 | was med | **Tok-init** × winner-zA@r27 vs Tok | **refuted** m=−0.008170 |
@@ -28,28 +29,32 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H88 — Tok-init × winner-zA @ r=30 (non-α) — open
 - **Claim:** after H84@r26 REFUTE, r=30 → m>0.04.
-- **Status:** n80 a203 ~66/80 + mid304. `…/pass336_n80_mid304.md`.
-
-### H89 — Tok-init × winner-zA @ r=31 (non-α) — open
-- **Claim:** after H83@r25 REFUTE, r=31 → m>0.04.
 - **Status:** n80 a203 ~71/80 + mid304. `…/pass336_n80_mid304.md`.
 
 ### H90 — Tok-init × winner-zA @ r=14 (non-α) — open
 - **Claim:** ≥8 from H81@r22; untested r=14 → m>0.04.
-- **Status:** king340 loading; n80 retry rearmed `_wait_engines 120` (p341). `…/pass341_retry_rearm.md`.
+- **Status:** n80 a203 + mid304 rearmed (p342). `…/pass342_n80_mid304.md`.
 
 ### H91 — Tok-init × winner-zA @ r=12 (non-α) — open
 - **Claim:** ≥8 from H81@r22; untested r=12 → m>0.04.
-- **Status:** king340 DONE `:8001=200`; merge writing shard2. `…/pass340_king_recover.md`.
+- **Status:** merge DONE; chall loading :8002. `…/pass340_king_recover.md`.
 
 ### H92 — Tok-init × winner-zA @ r=13 (non-α) — open
 - **Claim:** between H91@r12 and H90@r14; untested r=13 → m>0.04.
-- **Status:** mine-h92-1 calm-lion-f6 @$28 bootstrap. `experiments/s4-h92-tok-winner-za-r13/`.
+- **Status:** train live 0/26. `experiments/s4-h92-tok-winner-za-r13/`.
+
+### H93 — Tok-init × winner-zA @ r=15 (non-α) — open
+- **Claim:** between live r14 and dead 16–24; untested r=15 → m>0.04.
+- **Status:** mine-h93-1 eager-raven-1e @$31.92 bootstrap. `…/pass342_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
+
+### H89 — Tok-init × winner-zA @ r=31
+- m=−0.007241 z=−1.282 base×0.982 r=0.659 vs Tok. Gates OK. m≤0.
+  **Tok-init r=31 dead vs Tok.** `…/pass342_n80_refute.md`.
 
 ### H87 — Tok-init × winner-zA @ r=29
 - m=+0.005075 z=0.692 base×0.968 r=0.638 vs Tok. Gates OK. m≈0.
@@ -104,4 +109,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - See archive + LESSONS. Dead: α-merge / plmk / leary / **TP×ks** / **m7×ks** /
   m7×union / **lr micro-steps** / **ep≥2** / **r≤8∨=16–24∨≥32** /
   **α≤8∨=16∨≥64** / **clip≥0.08** / king-self / **Tok-init
-  r17∨r18∨r22∨r23∨r25∨r26∨r27∨r28∨r29**. Open: **H88–H92**.
+  r17∨r18∨r22∨r23∨r25∨r26∨r27∨r28∨r29∨r31**. Open: **H88/H90–H93**.
