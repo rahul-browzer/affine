@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h45-1 | lunar-fox-40 | 8×H200 | $28.00 | ~2026-08-08T13:13Z | H45 m7×wZA r8 | n80 running |
-| mine-h46-1 | cosmic-fox-ea | 8×H200 | $31.92 | ~2026-08-08T13:28Z | H46 m7×wZA lr2.5e-6 | merge.done→chall |
-| mine-h47-1 | golden-comet-01 | 8×H200 | $31.92 | ~2026-08-08T13:33Z | H47 m7×wZA α8 | merging |
-| mine-h48-1 | zesty-raven-35 | 8×H200 | $31.92 | ~2026-08-08T13:33Z | H48 m7×wZA lr1e-6 | merging |
-| mine-h49-1 | zesty-shark-45 | 8×H200 | $33.81 | ~2026-08-08T13:59Z | H49 m7×wZA α4 | bootstrap m7 dl |
+| mine-h45-1 | lunar-fox-40 | 8×H200 | $28.00 | ~2026-08-08T13:13Z | H45 m7×wZA r8 | n80 ~2/80 |
+| mine-h46-1 | cosmic-fox-ea | 8×H200 | $31.92 | ~2026-08-08T13:28Z | H46 m7×wZA lr2.5e-6 | recover p224 |
+| mine-h47-1 | golden-comet-01 | 8×H200 | $31.92 | ~2026-08-08T13:33Z | H47 m7×wZA α8 | chall loading |
+| mine-h48-1 | zesty-raven-35 | 8×H200 | $31.92 | ~2026-08-08T13:33Z | H48 m7×wZA lr1e-6 | merge shard2 |
+| mine-h49-1 | zesty-shark-45 | 8×H200 | $33.81 | ~2026-08-08T13:59Z | H49 m7×wZA α4 | training |
 
 SSH: h45 .236:40299 · h46 .19:20100 · h47 .21:20099 · h48 .22:20100 ·
 h49 .54:40300 · known_hosts `/tmp/mine-h{45,46,47,48,49}-1.known_hosts` ·
@@ -31,6 +31,6 @@ h49 .54:40300 · known_hosts `/tmp/mine-h{45,46,47,48,49}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T02:11Z | h45–h49 match | H46 shm_broadcast → recover p224; H45 n80 2/80 |
 | 2026-08-08T02:07Z | h45–h49 match | H45 recover DONE→n80; H46 merge.done |
 | 2026-08-08T02:01Z | h45–h49 match | H44 rm+H49 rent; H45 chall recover |
-| 2026-08-08T01:34Z | h44–h48 match | H43/H40 rm; H47/H48 rent+launch |
