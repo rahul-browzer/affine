@@ -337,11 +337,19 @@ for attempt in 1 2 3; do
   # absent after king_recover_pass332 — H91/p382/p384 "no king TCACHE" → cold JIT.
   n_seed=0
   SEED_SRC=""
-  for pid in $(ps -eo pid,cmd | awk '/vllm serve/ && /--port 8001/ {print $1}'); do
-    SEED_SRC=$(tr '\0' '\n' < /proc/$pid/environ 2>/dev/null | awk -F= '/^TRITON_CACHE_DIR=/{print $2; exit}')
-    [[ -n "$SEED_SRC" && -d "$SEED_SRC" ]] && break
-    SEED_SRC=""
-  done
+  # Prefer pathfile written by king_recover_pass332 (ps/environ race missed it p395).
+  if [[ -f /root/logs/h104_king_tcache_pass332.path ]]; then
+    SEED_SRC=$(cat /root/logs/h104_king_tcache_pass332.path 2>/dev/null || true)
+    [[ -n "$SEED_SRC" && -d "$SEED_SRC" ]] || SEED_SRC=""
+  fi
+  if [[ -z "$SEED_SRC" ]]; then
+    # Use args (not cmd) + split match — ps truncation can drop "--port 8001".
+    for pid in $(ps -eo pid,args | awk '/\/vllm/ && /serve/ && /--port 8001/ {print $1}'); do
+      SEED_SRC=$(tr '\0' '\n' < /proc/$pid/environ 2>/dev/null | awk -F= '/^TRITON_CACHE_DIR=/{print $2; exit}')
+      [[ -n "$SEED_SRC" && -d "$SEED_SRC" ]] && break
+      SEED_SRC=""
+    done
+  fi
   if [[ -z "$SEED_SRC" ]]; then
     SEED_SRC=$(ls -1dt /root/.triton/isolated/*king* 2>/dev/null | head -1 || true)
   fi

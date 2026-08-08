@@ -25,30 +25,30 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** king util0.72 loading (~37 GiB); longwait awaiting king+chall.
-- `experiments/s4-h100-f4-genesis-base/` · `results/pass392_longwait_dedupe.md`.
+- **Status:** king:8001=200; chall loading after p395 peer-seed (19.so).
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass395_peer_seed.md`.
 
 ### H101 / F6 — Ultrashort≤80 thought format — open
 - **Claim:** Rewrite high-Λ2 z to ≤80-char first-sentence targets; Tok LoRA
   teaches short emit format → m>+0.015 (format axis ≠ F2 selection).
-- **Status:** n80 a203 ~33/80 @22:14Z.
+- **Status:** n80 a203 **45/80** @22:20Z.
 - `experiments/s4-h101-f6-short-format/` · `results/pass385_midload_seed.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** single b203 n80 (p394 killed c203 twin); engines 200.
+- **Status:** b203 n80 **13/80**; engines 200.
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass390_b203first_arm.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
-- **Status:** `mine-f8-1` RL train live; retarget king util0.72 before n80.
+- **Status:** `merge_lora --device-map auto` live GPUs6–7; watch for hang→CPU.
 - `experiments/s4-h103-f8-genesis-rl/` · `results/pass377_rent.md`.
 
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** CPU merge DONE + OK_NON_IDENTICAL; king shm-hang → king332 p394.
+- **Status:** king332 loading ~102 GiB; relaunch seed pathfile-patched p395.
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass393_merge_recover.md`.
 
 ### H3 — clip-L1 lever (supported)
