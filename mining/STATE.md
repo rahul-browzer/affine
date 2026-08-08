@@ -4,8 +4,8 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H51/H54–H57 live (5/5).** H53 REFUTED this pass (m=−0.00885).
-No submit. Best family still **H42 lr5e-6 m=+0.01613** (<0.04).
+**Stage 4 — H51/H54–H57 live (5/5).** No submit.
+Best family still **H42 lr5e-6 m=+0.01613** (<0.04).
 
 ## Live facts
 
@@ -13,14 +13,13 @@ No submit. Best family still **H42 lr5e-6 m=+0.01613** (<0.04).
 |---|---|
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
-| Lium / spend | **~$188,700** · cum mining ~$6,300 · **avail ~$178.7k** |
+| Lium / spend | **~$188,700** · cum mining ~$6,400 · **avail ~$178.7k** |
 | miner | τ10.000 free · 0 submissions |
-| H53 | **REFUTE m=−0.00885** (lr4e-6 dead; Λ2_c<0) |
-| H51 | n80 b203 **~30/80** |
-| H54 | merge after soft-abort recover |
-| H55 | train + post_train relaunch (was soft-abort) |
-| H56 | train + post_train relaunch (was soft-abort) |
-| H57 | bootstrap→train lr5.25e-6 |
+| H51 | n80 b203 **~37/80** (engines 200; form+retry armed) |
+| H54 | merge writing shards (~50GB .tmp; GPUs 6–7) |
+| H55 | train **~18/26** lr5.5e-6 |
+| H56 | train **~11/26** r=24 |
+| H57 | train launched lr5.25e-6 (bootstrap done 04:47Z) |
 
 ## What's running
 
@@ -46,13 +45,14 @@ No submit until some n80 margin > 0.04. **Do not requeue** plmk / H21–H36
 Never tear down on ConnectError/unpromptable — quarantine + recover.
 Reject catalog pods with nvidia-smi COUNT≠8 or $/h<$20.
 `FALSE_PROBE_*` ≠ REFUTE — do not `lium rm`.
-Cloned post_train SOFT defaults at 04:30Z are poison after that wall-clock —
-always export SOFT≥TTL−1h (H54/H55/H56 aborted; recovered this pass).
+SOFT/DEADMAN file defaults on h54–h56 patched this pass to 15:30Z /
+16:20–16:30Z (env was already set; file `:-` was still poison).
 
 ## Next action
 
-1. Poll H51 (~30/80) → `h51_decision.json`.
-2. Confirm H54 merge→chall→n80; H55/H56 train→merge (relaunch watchers if needed).
-3. H57 bootstrap→train; verify post_train waiting (SOFT 15:30Z).
+1. Poll H51 → `h51_decision.json` (ETA ~25–35m @ ~2 turns/min).
+2. H54: wait merge.done → chall serve → n80; if .tmp stuck >20m w/ no
+   RSS/IO change, kill merge + relaunch post_train (SOFT already patched).
+3. H55/H56/H57: train→merge→n80; confirm post_train watchers alive.
 4. REFUTE → `lium rm mine-hN-1` only; fill non-α peak neighbour (not dead).
 5. lr curve: **5e-6 (+0.016) > 6e-6 (+0.013) > 7.5e-6 (+0.003) > 4e-6 (−0.009)**.

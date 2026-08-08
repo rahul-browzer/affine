@@ -143,7 +143,8 @@ Format: `- <finding> — <the number or error that proves it>`
   reap by GPU index first). Concurrent prewarm still races — recover dead role.
 - Default `block_hash=0*64` n80 dies teacher **400** @~40/80 (H32/H34). Rotate
   a203/b203/c203 on every retry. Bare post_train **races** retry (H42/H43) —
-  skip if retry armed. Soft-deadline: cloned SOFT=`04:30Z` aborts once past
-  (`<60m to soft`); H53/H54/H55/H56 all hit this — set SOFT≥TTL−1h at launch;
+  skip if retry armed. Soft-deadline: cloned SOFT/DEADMAN=`04:30Z`/`05:30Z`
+  aborts once past (`<60m to soft`); H53–H56 hit this — export **and** patch
+  script `:-` defaults to ≥TTL−1h (env alone dies on restart; pass245);
   relaunch post_train, never tear down. `watch_n80_retry` must **not** `exec`
   retry (pass203); retry must **wait** engines; sim-alive needs `python` in argv.
