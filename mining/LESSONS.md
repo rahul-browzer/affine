@@ -119,11 +119,10 @@ Format: `- <finding> — <the number or error that proves it>`
   `turns.jsonl.tmp→turns.jsonl` rename → ENOENT → prewarm `set -e` dies
   before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
   never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
-- Winner-zA LoRA m7-init m=+0.01095 (H28); **TP×king-self family dead** —
-  H29/H32/H33. **m7×king-self family dead** — H30–H35. **m7×union** H36
-  m=+0.00052. **H28 intensity up kills signal** — H37@lr1e-4 m=−0.00088,
-  H39@lr3e-5 m=+0.00544 (<H28), H38@ep2 m=−0.00037 — never requeue
-  lr≥3e-5 or ep≥2 on m7×winner-zA; prefer gentler/data/α (H42–H44).
+- Winner-zA LoRA m7-init m=+0.01095 (H28); **TP×ks + m7×ks + m7×union dead**.
+  **H28 intensity/capacity up kills signal** — H37@lr1e-4 −0.00088,
+  H39@lr3e-5 +0.00544, H38@ep2 −0.00037, **H41@r32 +0.00533** — never
+  requeue lr≥3e-5 / ep≥2 / r≥32; prefer gentler (r↓/lr↓/α/data).
 - Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always
   `nvidia-smi -L|wc -l`=8 after rent; reject <$20/h (was 2-GPU@$5.66; now 4 too).
 - `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up

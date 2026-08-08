@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2693.7025604248047,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h41/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h41",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.00532716317407219,
+    "se": 0.006852358233301055,
+    "z": 0.7774204139216292,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.020118224902750573,
+      "gate_pass_rate": 0.8459119496855346,
+      "bank_frac": 0.496875,
+      "calib_ratio": 0.7557944257689679,
+      "baseline_abs": 0.11891616355441507,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": -0.005679167038531593,
+      "mean_mix": 0.020118224902750573
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.02531885385627693,
+      "gate_pass_rate": 0.8170347003154574,
+      "bank_frac": 0.5625,
+      "calib_ratio": 0.6736255508159537,
+      "baseline_abs": 0.13762045656352162,
+      "n_turns": 80,
+      "n_pairs": 317,
+      "mean_lambda2": -0.006890976655055387,
+      "mean_mix": 0.02531885385627693
+    },
+    "slice": {
+      "seed": 5419546087995910903,
+      "n": 80,
+      "digest": "d29109faf3f9db630c5c19be6a82b29300dde12925375d433aeeadb1d863d0f4",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6736255508159537,
+    "chall_baseline_abs": 0.13762045656352162,
+    "king_baseline_abs": 0.11891616355441507,
+    "base_x": 1.1572897447246322
+  }
+}
