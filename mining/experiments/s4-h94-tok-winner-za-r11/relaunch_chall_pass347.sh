@@ -488,7 +488,7 @@ echo $! >/root/logs/h94_form_decision.pid
 log "rearmed form pid=$(cat /root/logs/h94_form_decision.pid)"
 
 nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h94 \
-  /root/mining_src/s4-h94-tok-winner-za-r12/retry_h94_n80.sh \
+  /root/mining_src/s4-h94-tok-winner-za-r11/retry_h94_n80.sh \
   >/root/logs/h94_watch_retry.launch.nohup 2>&1 &
 echo $! >/root/logs/h94_watch_retry.pid
 log "rearmed watcher pid=$(cat /root/logs/h94_watch_retry.pid)"

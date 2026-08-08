@@ -7,10 +7,10 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (n80 ~20/80) |
-| 2 | H92 | med | **Tok-init** × winner-zA@r13 → m>0.04 | **open** (n80 ~3/80) |
-| 3 | H94 | med | **Tok-init** × winner-zA@r11 → m>0.04 | **open** (recover347) |
-| 4 | H93 | med | **Tok-init** × winner-zA@r15 → m>0.04 | **open** (train ~26) |
+| 1 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (n80 ~46/80) |
+| 2 | H92 | med | **Tok-init** × winner-zA@r13 → m>0.04 | **open** (n80 ~27/80) |
+| 3 | H94 | med | **Tok-init** × winner-zA@r11 → m>0.04 | **open** (n80+mid304) |
+| 4 | H93 | med | **Tok-init** × winner-zA@r15 → m>0.04 | **open** (chall load) |
 | 5 | H95 | med | **Tok-init** × winner-zA@r10 → m>0.04 | **open** (bootstrap) |
 | — | H90 | was med | **Tok-init** × winner-zA@r14 vs Tok | **refuted** m=−0.008472 |
 | — | H88 | was med | **Tok-init** × winner-zA@r30 vs Tok | **refuted** m=+0.001358 |
@@ -25,25 +25,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H91 — Tok-init × winner-zA @ r=12 (non-α) — open
 - **Claim:** ≥8 from H81@r22; untested r=12 → m>0.04.
-- **Status:** n80 a203 ~20/80 + mid304. `…/pass345_n80_mid304.md`.
+- **Status:** n80 a203 ~46/80 + mid304. `…/pass345_n80_mid304.md`.
 
 ### H92 — Tok-init × winner-zA @ r=13 (non-α) — open
 - **Claim:** between H91@r12 and dead r14; untested r=13 → m>0.04.
-- **Status:** salvage n_so=23 mode=555; n80 a203 + mid304.
-  `…/pass346_n80_mid304.md`.
+- **Status:** n80 a203 ~27/80 + mid304. `…/pass346_n80_mid304.md`.
 
 ### H93 — Tok-init × winner-zA @ r=15 (non-α) — open
 - **Claim:** between dead r14 and dead 16–24; untested r=15 → m>0.04.
-- **Status:** train_lora r15 ~step26. `…/pass342_rent.md`.
+- **Status:** merge.done; chall :8002 loading. `…/pass342_rent.md`.
 
 ### H94 — Tok-init × winner-zA @ r=11 (non-α) — open
 - **Claim:** between dead ≤8 and live r12; untested r=11 → m>0.04.
-- **Status:** bare chall ENOENT → recover347 (seed king n_so=16).
-  `…/pass347_chall_recover.md`.
+- **Status:** recover347 freeze n_so=22 → n80 a203 + mid304.
+  `…/pass348_n80_mid304.md`.
 
 ### H95 — Tok-init × winner-zA @ r=10 (non-α) — open
 - **Claim:** gap dead ≤8 ↔ live r11; untested r=10 → m>0.04.
-- **Status:** mine-h95-1 bootstrap. `…/pass346_rent.md`.
+- **Status:** bootstrap tok-init DL ~91%. `…/pass346_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

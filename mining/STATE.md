@@ -15,13 +15,13 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$185,363** · cum ~$11,500 · **avail ~$175.4k** |
+| Lium / spend | **~$185,316** · cum ~$11,550 · **avail ~$175.3k** |
 | miner | τ10.000 free · 0 submissions |
-| H91 | n80 a203 ~33/80 · mid304 |
-| H92 | n80 a203 ~14/80 · mid304 |
-| H93 | merge_lora r15 (shard write) |
-| H94 | recover347 chall load (seed king n_so=16) |
-| H95 | bootstrap DL tok-init |
+| H91 | n80 a203 ~46/80 · mid304 |
+| H92 | n80 a203 ~27/80 · mid304 |
+| H93 | merge.done · chall loading :8002 |
+| H94 | n80 a203 just started · mid304 armed |
+| H95 | bootstrap DL tok-init ~91% |
 
 ## What's running
 
@@ -29,8 +29,8 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 |---|---|---|---|---|
 | mine-h91-1 | brave-shark-d2 | 38.255.28.18:20099 | ~04:31Z+1d | n80+mid304 |
 | mine-h92-1 | calm-lion-f6 | 152.236.142.236:40300 | ~05:12Z+1d | n80+mid304 |
-| mine-h93-1 | eager-raven-1e | 38.255.28.22:20099 | ~05:21Z+1d | merge r15 |
-| mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | recover347 |
+| mine-h93-1 | eager-raven-1e | 38.255.28.22:20099 | ~05:21Z+1d | chall load |
+| mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | n80+mid304 |
 | mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | bootstrap |
 
 known_hosts `/tmp/mine-h{91,92,93,94,95}-1.known_hosts`. **Free: 0.** ~$152/h.
@@ -52,6 +52,6 @@ recover344/347 rearms form+n80 only — **arm mid304 when n80 starts**.
 
 ## Next action
 
-1. **H94** await recover347 health→warm/freeze→n80; **arm mid304 at n80 start**.
-2. **H91/H92** await n80 → `h9{1,2}_decision.json` (keep mid304).
-3. **H93** await merge→serve; **H95** await train_launched.
+1. **H91/H92/H94** await n80 → `h{91,92,94}_decision.json` (keep mid304).
+2. **H93** await chall health→warm/freeze→n80; **arm mid304 at n80 start**.
+3. **H95** await train_launched.
