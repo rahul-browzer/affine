@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2607.1120414733887,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h71/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h71",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.01365488598210241,
+    "se": 0.005824744572153249,
+    "z": -2.344289232421152,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.04376493667621438,
+      "gate_pass_rate": 0.8427672955974843,
+      "bank_frac": 0.5375,
+      "calib_ratio": 0.6306658713114159,
+      "baseline_abs": 0.13498411731945814,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": 0.003309565324605589,
+      "mean_mix": 0.04376493667621438
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.030288788992517707,
+      "gate_pass_rate": 0.8119122257053292,
+      "bank_frac": 0.5572916666666667,
+      "calib_ratio": 0.6094092580925938,
+      "baseline_abs": 0.14843005017442173,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.007636150944294822,
+      "mean_mix": 0.030288788992517707
+    },
+    "slice": {
+      "seed": 6514264189359438196,
+      "n": 80,
+      "digest": "deb68b2c10ca9e38eba90eecea129ed21c934145117687603dbdf68c24082cc9",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6094092580925938,
+    "chall_baseline_abs": 0.14843005017442173,
+    "king_baseline_abs": 0.13498411731945814,
+    "base_x": 1.0996112218383587
+  }
+}
