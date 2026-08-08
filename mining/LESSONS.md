@@ -46,7 +46,8 @@ Format: `- <finding> — <the number or error that proves it>`
   pair clipL1≥0.04 from high-c_clipL1 duels (+ crown), y=teacher y_C,
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 ## Recipes already tried (do not repeat)
-- SFT/LoRA near-zero + α-merges dead (H1–H26): see archive. No plain distill-on-refs; stop α lottery / leary / plmk / m7-as-B / kkk.
+- SFT/LoRA near-zero + α-merges dead (H1–H26): archive. No plain distill-on-refs; stop α/leary/plmk/m7-as-B/kkk.
+- **F1 Tok REINFORCE-L1 REFUTED (H98 p394):** m=+0.00229 z=0.42; mean_λ2_c≈king (−0.00304). Clip-L1 RL on Tok-init does not move Λ2 — same freeze as winner-zA/F2/F3. F8 Genesis-RL still open.
 
 ## Serving / VLM
 - King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` + preprocessor + visual safetensors (333–352 keys). **Tok ships `processor_config.json` not `preprocessor_config.json`** — derive from `image_processor` or chall dies at MultiModalBudget (H79 p307).
@@ -115,7 +116,6 @@ Format: `- <finding> — <the number or error that proves it>`
   at r=256 still cannot move Λ2. Do not retry higher rank / full-FT-as-LoRA.
 - H66 king mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe cache/king, serve_three (p271).
   `serve_three` (p271); don't wait for post_train abort.
-- mid304 exits on `sim gone` — rearm via file `arm_mid304_hN.sh` when n80
   relaunches after king recover (H90 p342: prior exit@17:08 → rearm@17:19).
 - Teacher Triton ENOENT mid-inductor (`triton_poi_fused_*.json` ghost) → wipe
   teacher* + unique TCACHE re-fire (H89 p334). Orphan `VLLM::Worker` with

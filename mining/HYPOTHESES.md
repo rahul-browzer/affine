@@ -7,12 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (merge) |
-| 2 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (king↑) |
+| 2 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (king332) |
 | 3 | H103/F8 | high | Genesis-init × REINFORCE-L1 → m>+0.015 | **open** (RL) |
-| 4 | H98/F1 | high | Tok REINFORCE self-L1lift → m>+0.015 | **open** (merge) |
-| 5 | H101/F6 | high | ultrashort≤80 format → m>+0.015 | **open** (merge) |
-| 6 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (merge) |
+| 4 | H101/F6 | high | ultrashort≤80 format → m>+0.015 | **open** (n80) |
+| 5 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80) |
+| — | H98/F1 | — | Tok REINFORCE self-L1lift → m>+0.015 | **refuted** m=+0.00229 |
 | — | H97/F3 | — | r=256 breaks LoRA ceiling | **refuted** m=−0.01506 |
 | — | H96 | — | Tok-init r9 → m>0.04 | **refuted** m=+0.00913 |
 | — | H99/F2 | — | high-Λ2 z_A SFT → m>+0.015 | **refuted** m=−0.00199 |
@@ -25,35 +25,30 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** Tok done @22:06Z; king_recover util0.72 loading; tokwatch→chall; 1 longwait.
+- **Status:** king util0.72 loading (~37 GiB); longwait awaiting king+chall.
 - `experiments/s4-h100-f4-genesis-base/` · `results/pass392_longwait_dedupe.md`.
-
-### H98 / F1 — Direct RL on self-L1lift — open
-- **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** n80 attempt1 vs Tok live @21:30Z (engines 200; sampling).
-- `experiments/s4-h98-f1-rl-l1/` · `results/pass382_recover264_enoent.md`.
 
 ### H101 / F6 — Ultrashort≤80 thought format — open
 - **Claim:** Rewrite high-Λ2 z to ≤80-char first-sentence targets; Tok LoRA
   teaches short emit format → m>+0.015 (format axis ≠ F2 selection).
-- **Status:** a1 ghost ENOENT; a2 peer-seeded 19so from F7 (p385).
+- **Status:** n80 a203 ~33/80 @22:14Z.
 - `experiments/s4-h101-f6-short-format/` · `results/pass385_midload_seed.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** b203 n80 ~4/80; watcher→`retry_h102_n80_b203first.sh` (p390).
+- **Status:** single b203 n80 (p394 killed c203 twin); engines 200.
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass390_b203first_arm.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
-- **Status:** `mine-f8-1` RL train live; teacher/Tok DL bg.
+- **Status:** `mine-f8-1` RL train live; retarget king util0.72 before n80.
 - `experiments/s4-h103-f8-genesis-rl/` · `results/pass377_rent.md`.
 
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** GPU merge hung @49.7 GiB → CPU merge recover393 live; then n80.
+- **Status:** CPU merge DONE + OK_NON_IDENTICAL; king shm-hang → king332 p394.
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass393_merge_recover.md`.
 
 ### H3 — clip-L1 lever (supported)
@@ -63,10 +58,14 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | F | family | next |
 |---|---|---|
-| F9 | kevin954 × high-Λ2 (H104) | **live** mine-f9-1 bootstrap |
 | F5 | Correctness-grounded z | needs verified trajectories first |
 
 ## Refuted (keep)
+
+### H98 / F1 — Tok REINFORCE self-L1lift
+- m=+0.002291 z=0.42 vs Tok (gates OK). mean_λ2_c −0.003044 ≈ king −0.003036.
+- Clip-L1 RL on Tok-init cannot move Λ2; screen ≪ +0.015. **F1 closed.**
+- `s4-h98-f1-rl-l1/results/result.md`.
 
 ### H97 / F3 — LoRA r=256 ceiling break
 - m=−0.015058 z=−1.84 vs Tok (gates OK). mean_λ2_c −0.00013 ≈0; king +0.00120.
@@ -104,4 +103,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
   m7×union / lr micro / ep≥2 / **winner-zA as a family (mean −0.004)** /
   **F2 high-Λ2-zA data remix** / **F3 r=256 LoRA ceiling** / r≤8∨=9–15∨=16–24∨≥32 /
   α≤8∨=16∨≥64 / clip≥0.08 / king-self.
-  **F1 RL, F4 Genesis-SFT, F6 format, F7 teacher-z_C, F8 Genesis-RL, F9 kevin-base are family screens, not cells.**
+  **F4 Genesis-SFT, F6 format, F7 teacher-z_C, F8 Genesis-RL, F9 kevin-base are family screens, not cells.** **F1 Tok-RL closed.**
