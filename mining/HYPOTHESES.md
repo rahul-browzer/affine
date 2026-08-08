@@ -37,13 +37,13 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H79 — Tok-init × winner-zA @ r=18 (non-α) — open
 - **Claim:** after H72+H74+H75 m≈≤0 on m7-init, Tok-init same hyps clears Tok.
-- **Status:** p310 visual phantom restored (333 keys); recover264 a1 loading
-  (36 GiB/GPU). `…/pass310_visual_phantom_fix.md`.
+- **Status:** recover264 DONE; **n80 a203 LIVE** ~1/80 @13:14Z.
+  `…/pass311_n80_live.md` · `…/pass310_visual_phantom_fix.md`.
 
 ### H80 — Tok-init × winner-zA @ r=17 (non-α) — open
 - **Claim:** Tok-init neighbor of H79 at H69 shortlist rank → m>0.04.
-- **Status:** same p310 visual restore; recover264 a1 loading (36 GiB/GPU).
-  `…/pass310_visual_phantom_fix.md`.
+- **Status:** recover264 DONE; n80#1 king Triton ENOENT → **king311** loading;
+  chall untouched; retry+mid304 rearmed. `…/pass311_king_recover.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
