@@ -6,7 +6,8 @@ Rewritten every pass. Do not append.
 
 **Stage 4 — H54/H56/H58–H60 live (5/5).** No submit.
 Best family still **H42 lr5e-6 m=+0.01613** (<0.04).
-**H57 REFUTE** m=+0.01537 @ lr=5.25e-6 (pass255).
+**H57 REFUTE** m=+0.01537 @ lr=5.25e-6.
+**H61 staged** (lr=5.15e-6) for next free slot.
 
 ## Live facts
 
@@ -14,14 +15,13 @@ Best family still **H42 lr5e-6 m=+0.01613** (<0.04).
 |---|---|
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
-| Lium / spend | **~$188,333** · cum mining ~$6,860 · **avail ~$178.3k** |
+| Lium / spend | **~$188,333** · cum mining ~$6,900 · **avail ~$178.3k** |
 | miner | τ10.000 free · 0 submissions |
-| H54 | n80 **c203** @ **~21**/80 |
-| H56 | n80 a203 @ **~18**/80 |
-| H57 | **REFUTE** m=+0.01537 · rm eager-shark-95 (~$55) |
-| H58 | n80 a203 @ **~13**/80 |
-| H59 | bootstrap (lr=5.75e-6) · lunar-comet-0f |
-| H60 | bootstrap (lr=5.3e-6) · swift-eagle-4e |
+| H54 | n80 **c203** @ **~47**/80 |
+| H56 | n80 a203 @ **~37**/80 |
+| H58 | n80 a203 @ **~31**/80 |
+| H59 | train **~21**/26 @ lr=5.75e-6 · lunar-comet-0f |
+| H60 | train launched @ lr=5.3e-6 · swift-eagle-4e |
 
 ## What's running
 
@@ -30,8 +30,8 @@ Best family still **H42 lr5e-6 m=+0.01613** (<0.04).
 | mine-h54-1 | calm-matrix-9c | 152.236.142.236:40300 | ~16:23Z | n80 c203 |
 | mine-h56-1 | swift-fox-1d | 152.236.142.237:40099 | ~16:38Z | n80 a203 |
 | mine-h58-1 | eager-matrix-0d | 38.255.28.21:20099 | ~17:22Z | n80 a203 |
-| mine-h59-1 | lunar-comet-0f | 152.236.142.232:40300 | ~18:17Z | bootstrap→train |
-| mine-h60-1 | swift-eagle-4e | 38.255.28.22:20100 | ~18:27Z | bootstrap→train |
+| mine-h59-1 | lunar-comet-0f | 152.236.142.232:40300 | ~18:17Z | train→merge→n80 |
+| mine-h60-1 | swift-eagle-4e | 38.255.28.22:20100 | ~18:27Z | train→merge→n80 |
 
 known_hosts `/tmp/mine-h{54,56,58,59,60}-1.known_hosts`.
 **Free slots: 0.** Burn ~$148/h mining.
@@ -53,6 +53,7 @@ Reject catalog pods with nvidia-smi COUNT≠8 or $/h<$20.
 ## Next action
 
 1. H54/H56/H58: wait n80 → decision.json; REFUTE/teardown if m≤0.04.
-2. H59/H60: wait train→merge→n80; stall → `bootstrap_h*.log`.
-3. Next free slot → **r=20** (if H56 reports) else **lr=5.15e-6**
-   (between H58 5.1 open and dead H57 5.25).
+2. H59/H60: wait train→merge→n80; stall → `bootstrap_h*.log` / train.nohup.
+3. First free slot → launch **H61** (`experiments/s4-h61-m7-winner-za-lr515e6/`,
+   lr=5.15e-6) via `upload_and_launch.sh` — unless H56 reports first, then
+   prefer **r=20**. Patch SOFT/DEADMAN to TTL−1h at rent.
