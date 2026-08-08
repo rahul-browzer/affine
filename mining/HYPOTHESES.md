@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H58 | med | H42 cell @ **lr=5.1e-6** → m>0.04 | **open** (bootstrap) |
-| 2 | H57 | med | H42 cell @ **lr=5.25e-6** → m>0.04 | **open** (n80 a203 after p249) |
-| 3 | H55 | med | H42 cell @ **lr=5.5e-6** → m>0.04 | **open** (king recover→n80) |
-| 4 | H56 | med | H42 cell @ **r=24** → m>0.04 | **open** (n80 a203 after p251) |
-| 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (king recover→n80) |
+| 1 | H58 | med | H42 cell @ **lr=5.1e-6** → m>0.04 | **open** (p253 chall recover) |
+| 2 | H57 | med | H42 cell @ **lr=5.25e-6** → m>0.04 | **open** (n80 a203 @37/80) |
+| 3 | H55 | med | H42 cell @ **lr=5.5e-6** → m>0.04 | **open** (n80 b203 @52/80) |
+| 4 | H56 | med | H42 cell @ **r=24** → m>0.04 | **open** (p253 chall recover) |
+| 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (n80 b203 @42/80) |
 | — | H51 | was med | H28 cell @ α=16 | **refuted** m=+0.00855 |
 | — | H53 | was med | H42 cell @ lr=4e-6 | **refuted** m=−0.00885 |
 | — | H52 | was med | H42 cell @ lr=6e-6 | **refuted** m=+0.01280 |
@@ -36,25 +36,25 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H58 — H28 @ lr=5.1e-6 (non-α)
 - **Claim:** between H42 5e-6 (+0.016) and H57 5.25e-6 → m>0.04.
-- **Status:** mine-h58-1 eager-matrix-0d bootstrap. `pass246_launch.md`.
+- **Status:** n80 died OV4T43 on default chall cache → p253 recover.
+  `pass253_chall_diverse_recover.md`.
 
 ### H57 — H28 @ lr=5.25e-6 (non-α)
 - **Claim:** ridge between H42 5e-6 and H55 5.5e-6 → m>0.04.
-- **Status:** p249 freeze a1 OK (w1–w3=200) → n80 a203 started.
-  `pass250_king_freeze_n80.md`.
+- **Status:** n80 a203 @37/80 healthy. `pass250_king_freeze_n80.md`.
 
 ### H55 — H28 @ lr=5.5e-6 (non-α)
 - **Claim:** between H42 5e-6 and dead H52 6e-6 → m>0.04.
-- **Status:** king die @16/80 ConnectError → p248 recover. `pass248_king_recover.md`.
+- **Status:** n80 b203 @52/80. `pass248_king_recover.md`.
 
 ### H56 — H42 @ LoRA r=24 (non-α)
 - **Claim:** open r gap (r≤8∧r≥32 dead) @ lr=5e-6 → m>0.04.
-- **Status:** p251 writable-w1→freeze OK a1 → n80 a203.
-  `pass252_chall_freeze_n80.md`.
+- **Status:** p251 freeze OK then n80 OV4T43 ENOENT → p253 diverse recover.
+  `pass253_chall_diverse_recover.md`.
 
 ### H54 — H28 @ lr=8e-6 (non-α)
 - **Claim:** above dead 7.5e-6 → m>0.04 (**low prior** — H50 collapsed).
-- **Status:** king :8001 down @ n80 start → p248 recover. `pass248_king_recover.md`.
+- **Status:** n80 b203 @42/80. `pass248_king_recover.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

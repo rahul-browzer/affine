@@ -72,60 +72,38 @@ Format: `- <finding> — <the number or error that proves it>`
   profile_run (`Only SM 10.x and 11.x are supported`). Patch upper bound to
   `sm_121f` via `s3-duel-sim/patch_b300_sm103_flash_attn.sh` after venv install
   (H23 pass170). H200 unaffected.
-- Triton races: per-role `TRITON_CACHE_DIR` + wipe + stagger; kill orphans by
-  GPU index never `pkill -f "vllm serve"`. MoE wait ≥120×15s; settle ≥30s
-  after wipe. Health=200 ≠ alive — gate on `/v1/completions` 200 **twice**
-  20s apart. TP race-deletes `__triton_launcher.so` on **first** warmup even
-  after 45s settle with n_pre=16 (H51 p240 a1_w1 ENOENT) — **king-seed+
-  prefreeze-before-w1 is DEAD for chall** (H56 p247 a1–a3 500/ENOENT
-  mode=555); **writable-w1 then freeze WORKS** (H56 p251 a1: w1→freeze
-  →w2/w3=200, +6 launcher.so, n80 a203). Keep outer×3, never `lium rm`.
-  CUDA-graph hang (shm_broadcast >5m after "Registering N addresses") →
-  kill + clear torch_compile_cache + relaunch. Orphans=`VLLM::Worker`
-  ppid=1. `FALSE_PROBE_*`≠REFUTE. `serve_three` "already running"≠healthy.
+- Triton races: isolate `TRITON_CACHE_DIR` + wipe + stagger; never bare
+  `/root/.triton/cache/chall` for n80. Prefreeze-before-w1 DEAD (H56 p247).
+  Short-only post-w1 freeze clears w1–w3 then n80 ENOENT hash `OV4T43AL…`
+  (H56 p251→FALSE_PROBE; H58 same hash). **p253: diverse writable warmups
+  then freeze.** Completions 200×2; outer×3; orphans=`VLLM::Worker` ppid=1;
+  `FALSE_PROBE_*`≠REFUTE; never `lium rm`.
 - `pgrep -f` false-matches SSH/watcher argv — use
   `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
   from `watch_n80_retry` (self-deadlock H32 pass198).
 - Parent-duel base× ≠ merge base× (H12: 1.000→2.017). Null-margin: check
   `rejection_reason` first — false probe → quarantine + relaunch engines/
   form+retry sidecars, never `lium rm` (H25@61/80, H37 pass204).
-- Ghost dentry: `ls` lists script but `open`→ENOENT — `rm` + re-scp; `test -x`.
-- B300 flashinfer sampling JIT can still die under concurrent launch — clear
-  `cached_ops/sampling`, relaunch with `SERVE_STAGGER_S≥45` (H23).
-- After engine relaunch: reset `start_*_n80` wait (orphan clock); recover-wait
-  must exit if king APIServer pid dies; never embed start path in `bash -c`
-  (self-SIGKILL via awk match — kill only `$0 ~ /\/start_…\.sh/`).
-- Form/retry watchers die mid-n80 or false-match SSH cmdlines — poll with
-  `awk '/[w]atch_form_decision\.sh/ && / hN /'` / `watch_n80_retry\.sh hN `;
-  relaunch if 0 (pass179/182).
-- Winner-zA thought LoRA on **TalentPigs init** loses (H27 m=−0.00792, gates
-  OK) — shaping data alone ≠ crown; do not retry TP-init + same 406 ex.
-- King/chall mid-n80 die: orphan `VLLM::Worker` ppid=1 (H55 p248) — reap
-  those + stale nvidia `[Not Found]` PIDs; Triton `__triton_launcher.so`
-  ENOENT can leave health=200 + shm_broadcast hang (H57 p249 @4/80) →
-  chall-seed+prefreeze on :8001, not bare unique-TCACHE (p248); never `lium rm`.
-- Thought-LoRA `max_len=8192` + long chat prefixes → empty supervised span
-  (H29 raw row0 msg_chars=41524 → `supervised_tokens=0/8192` SystemExit).
-  Fit-filter msg_chars≤max_len×2.5 + sort short-first (368/686 kept;
-  sample0 59/1513) before train — `train_lora.py` now does this.
-- Do not idle free `mine-*` slots waiting on another hyp's verdict (GOAL
-  2026-08-07). Fill with non-α variants of the live direction; H30 =
-  m7×king-self launched while H28 n80 + H29 train still open (pass186).
-- Catalog 8×H200 @$23.20/h can 400 "Provider doesn't allow GPU splitting"
-  on `lium up` (index/uuid); fallback 8×B200 @$40/h works (SM10.0 — no
-  sm103 flash patch; pass188 H32).
-- Concurrent `sync_corpus` (extra_dl + prewarm) races on
-  `turns.jsonl.tmp→turns.jsonl` rename → ENOENT → prewarm `set -e` dies
-  before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
-  never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
+- Ghost dentry: `ls` lists but `open`→ENOENT — `rm` + re-scp; `test -x`.
+- After engine relaunch: reset `start_*_n80` wait; recover-wait exits if king
+  APIServer dies; kill only `$0 ~ /\/start_…\.sh/` (never embed in `bash -c`).
+- Form/retry watchers: poll `awk '/[w]atch_form_decision\.sh/ && / hN /'`;
+  relaunch if 0. King/chall mid-n80: reap `VLLM::Worker` ppid=1 (H55 p248).
+- Thought-LoRA `max_len=8192` + long prefixes → `supervised_tokens=0` — fit-
+  filter msg_chars≤max_len×2.5 + sort short-first (`train_lora.py`).
+- Do not idle free `mine-*` slots (GOAL 2026-08-07); fill non-α variants.
+- Catalog 8×H200 @$23.20/h can 400 "GPU splitting"; fallback 8×B200 @$40/h
+  (SM10.0; pass188). `$11.6/h` can be **4 GPUs** — always `nvidia-smi -L|=8`.
+- `sync_corpus` flocks + adopts existing `turns.jsonl` (rename race H29/H30).
+- H27 TP-init+same 406ex m=−0.00792 — do not retry TalentPigs-init shaping.
 - Winner-zA LoRA m7-init: H28 +0.01095; **H42@5e-6 +0.01613 best**; H52@6e-6
   +0.01280; H50@7.5e-6 +0.00322; H53@4e-6 **−0.00885**; H46@2.5e-6 +0.00802;
   H45@r8 +0.00819; H47@α8 +0.00463; H49@α4 +0.01174; H48@1e-6 **band×1.269**.
   lr **5e-6 > 6e-6 > 7.5e-6 > 4e-6(neg)**; α16=+0.00855. Dead: TP/m7×ks/union /
   lr≤2.5e-6∨=4e-6∨=6e-6∨=7.5e-6∨≥3e-5 / ep≥2 / r≤8∨≥32 / α≤8∨=16∨≥64 /
   clip≥0.08. Open: H58@5.1 H57@5.25 H55@5.5 H54@8 H56@r24.
-- Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed, else
-  path becomes `…-lr2e6` and upload `cp` fails silently on wrong glob.
+- B300 flashinfer sampling JIT: clear `cached_ops/sampling`, `SERVE_STAGGER_S≥45`.
+- Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed.
 - Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always
   `nvidia-smi -L|wc -l`=8 after rent; reject <$20/h (was 2-GPU@$5.66; now 4 too).
 - `lium up` prompts confirm — always pass `-y` (bare `yes|` floods the post-up
