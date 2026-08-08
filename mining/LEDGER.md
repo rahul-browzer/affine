@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $183,467.29 | 2026-08-08T23:01Z |
-| cumulative mining spend | ~$13,945 (4 pods ~$151.5/h accruing) | 2026-08-08T23:01Z |
-| **available for mining** | **~$173,467** (balance − $10,000 floor) | 2026-08-08T23:01Z |
+| Lium balance | $183,406.94 | 2026-08-08T23:07Z |
+| cumulative mining spend | ~$14,005 (4 pods ~$151.5/h accruing) | 2026-08-08T23:07Z |
+| **available for mining** | **~$173,407** (balance − $10,000 floor) | 2026-08-08T23:07Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (4 pods) | ~$151.5/h | 2026-08-08T23:01Z |
+| miner burn (4 pods) | ~$151.5/h | 2026-08-08T23:07Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-08T23:07Z | 183406.94 | accrual (F4 cuda404 cudart relaunch; no rm/rent; burn ~$151.5/h) |
 | 2026-08-08T23:01Z | 183467.29 | accrual (F4 CCCL/cuda403; no rm/rent; burn ~$151.5/h) |
 | 2026-08-08T22:54Z | 183497.34 | accrual (F8 recover264; no rm/rent; burn ~$151.5/h) |
 | 2026-08-08T22:50Z | 183497.34 | accrual (F9 n80 start + F4 cuda401; no rm/rent; burn ~$151.5/h) |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-08T22:30Z | 183623.19 | accrual (F8 king332 Tok + F4 frozen chall; no rm/rent; burn ~$179.5/h) |
 | 2026-08-08T22:25Z | 183688.02 | accrual (F7 watcher fix + F9 reseed; no rm/rent; burn ~$179.5/h) |
 | 2026-08-08T22:20Z | 183720.55 | accrual (F4 peer-seed; no rm/rent; burn ~$179.5/h) |
-| 2026-08-08T22:14Z | 183753.05 | rm mine-f1-1 (H98 REFUTE); burn ~$179.5/h |
