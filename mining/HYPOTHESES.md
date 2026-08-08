@@ -10,7 +10,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 1 | H67 | med | H42 cell @ **r=19** → m>0.04 | **open** (n80 ~65/80 old king) |
 | 2 | H69 | med | H42 cell @ **r=17** → m>0.04 | **open** (n80 ~25/80 old king) |
 | 3 | H71 | med | H42 cell @ **r=16** → m>0.04 vs **Tok** | **open** (train) |
-| 4 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 vs **Tok** | **open** (chall recover→Tok n80) |
+| 4 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 vs **Tok** | **open** (recover17064→Tok n80) |
 | 5 | H68 | med | H42 cell @ **lr=4.95e-6** → m>0.04 | **open** (n80 ~66/80 old king) |
 | — | H66 | was med | H42 cell @ lr=5.08e-6 | **refuted** m=+0.00976 |
 | — | H65 | was med | H42 cell @ lr=5.02e-6 | **refuted** m=+0.01829 |
@@ -42,7 +42,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H70 — H28 @ lr=5.01e-6 (non-α) — open
 - **Claim:** between H42@5e-6 +0.016 and H65@5.02 +0.018 → m>0.04.
-- **Status:** merge OK; p282 chall recover + retarget waits. `…/pass282_merge_resume.md`.
+- **Status:** p283 killed orphan double-recover; recover17064 reloading
+  chall; retarget waits. `…/pass283_preempt_race.md`.
 
 ### H68 — H28 @ lr=4.95e-6 (non-α)
 - **Claim:** just under H42@5e-6 peak (H53@4e-6 dead) → m>0.04.
