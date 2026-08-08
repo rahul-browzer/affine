@@ -37,12 +37,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H97 / F3 — LoRA r=256 ceiling break — open
 - **Claim:** r=256/α512 Tok-init × winner-zA can move Λ2.
-- **Status:** p332 cold-JIT ABORT ENOENT; **king366** seeded from H95 (n_so=23) util0.72 — loading @20:00Z → await promptable→n80; rearm mid304.
-- `experiments/s4-h97-f3-r256/` · `results/pass366_king366_seeded.md`.
+- **Status:** king366 PROMPTABLE @20:04Z; **n80 live** a203 + mid304 armed (p367).
+- `experiments/s4-h97-f3-r256/` · `results/pass367_n80_mid304.md`.
 
 ### H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- H95 n80~50/80 + mid304; H96 n80~15/80 b203 + mid304.
+- H95 n80~60/80 + mid304; H96 n80~22/80 b203 + mid304.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
