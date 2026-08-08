@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (n80 ~30/80) |
-| 2 | H75 | med | H64@r18 **rep#3** vs Tok → m>0.04 | **open** (n80 ~2/80) |
-| 3 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (training) |
-| 4 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (bootstrap) |
-| 5 | H78 | med | r=21 untested vs Tok → m>0.04 | **open** (bootstrap) |
+| 1 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (n80 ~57/80) |
+| 2 | H75 | med | H64@r18 **rep#3** vs Tok → m>0.04 | **open** (n80 ~45/80) |
+| 3 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (chall serve) |
+| 4 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (merging) |
+| 5 | H78 | med | r=21 untested vs Tok → m>0.04 | **open** (merging) |
 | — | H73 | was med | H67@r19 replicate vs Tok | **refuted** m=−0.005810 |
 | — | H72 | was med | H64@r18 replicate vs Tok | **refuted** m=−0.009356 |
 | — | H71 | was med | H42 cell @ r=16 | **refuted** m=−0.013655 |
@@ -26,23 +26,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H74 — H64@r18 replicate #2 vs Tok (non-α) — open
 - **Claim:** second independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** n80 vs Tok a203 ~30/80. `…/pass294_salvage_n80.md`.
+- **Status:** n80 vs Tok a203 ~57/80. `…/pass294_salvage_n80.md`.
 
 ### H75 — H64@r18 replicate #3 vs Tok (non-α) — open
 - **Claim:** third independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** n80 vs Tok a203 ~2/80 (recover264 DONE). `…/pass291_launch.md`.
+- **Status:** n80 vs Tok a203 ~45/80. `…/pass291_launch.md`.
 
 ### H76 — H64@r18 replicate #4 vs Tok (non-α) — open
 - **Claim:** fourth independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** training. `…/pass295_launch.md`.
+- **Status:** merge DONE, OK_NON_IDENTICAL, chall :8002 loading.
+  `…/pass297_train_merge.md`.
 
 ### H77 — H69@r17 Tok-retarget (non-α) — open
 - **Claim:** r17 shortlist (+0.01641 vs TalentPigs) clears Tok → m>0.04.
-- **Status:** bootstrap on mine-h77-1. `…/pass296_launch.md`.
+- **Status:** train.done; merging; teacher/king 200. `…/pass296_launch.md`.
 
 ### H78 — m7×winner-zA @ r=21 vs Tok (non-α) — open
 - **Claim:** untested rank between shortlist and band-fail ranks → m>0.04.
-- **Status:** bootstrap on mine-h78-1. `…/pass296_launch.md`.
+- **Status:** train.done; merging shards. `…/pass296_launch.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

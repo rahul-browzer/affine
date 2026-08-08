@@ -7,32 +7,29 @@ Rewritten every pass. Do not append.
 **Stage 4 — H74–H78 live (5/5).** No submit.
 Best n80 (vs old TalentPigs): **H64 r18 m=+0.02509**.
 **Live king:** Tok331102 S=0.04456 (reign 4).
-H72@r18 / H73@r19 both **m<0 vs Tok** this pass.
 
 ## Live facts
 
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$187,135** · cum ~$9,000 · **avail ~$177.1k** |
+| Lium / spend | **~$187,070** · cum ~$9,065 · **avail ~$177.1k** |
 | miner | τ10.000 free · 0 submissions |
-| H72 | **REFUTE** m=−0.009356 vs Tok → tore |
-| H73 | **REFUTE** m=−0.005810 vs Tok → **r=19 dead** · tore |
-| H74 | n80 vs Tok a203 **~30/80** |
-| H75 | n80 vs Tok a203 **~2/80** (recover264 done) |
-| H76 | **training** r18-rep#4 |
-| H77 | **bootstrap** r17 vs Tok just launched |
-| H78 | **bootstrap** r21 vs Tok just launched |
+| H74 | n80 vs Tok a203 **~57/80** |
+| H75 | n80 vs Tok a203 **~45/80** |
+| H76 | **merge DONE** · chall :8002 loading · teacher/king 200 |
+| H77 | **merging** (train.done; teacher/king prewarm 200) |
+| H78 | **merging** (train.done; teacher/king loading) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h74-1 | brave-orbit-28 | 152.236.142.236:40300 | ~22:42Z | **n80 vs Tok** ~30/80 |
-| mine-h75-1 | cosmic-hawk-20 | 38.255.28.21:20100 | ~23:07Z | **n80 vs Tok** ~2/80 |
-| mine-h76-1 | gentle-raven-df | 38.255.28.18:20100 | ~23:38Z | **train** r18 |
-| mine-h77-1 | eager-shark-64 | 152.236.142.237:40306 | ~23:45Z | **bootstrap** r17 |
-| mine-h78-1 | eager-comet-a4 | 38.255.28.22:20100 | ~23:45Z | **bootstrap** r21 |
+| mine-h74-1 | brave-orbit-28 | 152.236.142.236:40300 | ~22:42Z | **n80 vs Tok** ~57/80 |
+| mine-h75-1 | cosmic-hawk-20 | 38.255.28.21:20100 | ~23:07Z | **n80 vs Tok** ~45/80 |
+| mine-h76-1 | gentle-raven-df | 38.255.28.18:20100 | ~23:38Z | **chall serve→n80** |
+| mine-h77-1 | eager-shark-64 | 152.236.142.237:40306 | ~23:45Z | **merge** r17 |
+| mine-h78-1 | eager-comet-a4 | 38.255.28.22:20100 | ~23:45Z | **merge** r21 |
 
 known_hosts `/tmp/mine-h{74,75,76,77,78}-1.known_hosts`.
 **Free slots: 0.** Burn ~$152/h mining.
@@ -51,7 +48,7 @@ Stale retry poll≳100 before chall up → kill retry PID (watcher relaunches).
 ## Next action
 
 1. H74/H75: await n80 `decision.json` vs Tok → tear / shortlist / submit-gate.
-2. H76: await train→merge→chall→n80 vs Tok.
-3. H77/H78: await bootstrap→train→n80 vs Tok.
+2. H76: await :8002 promptable → n80 vs Tok; tear if m≤0.
+3. H77/H78: await merge→chall→n80 vs Tok.
 4. Free slot → non-α neighbor **KING=Tok331102 from rent** (if H72+H74 both
    m≤0, prefer new init/data axis over more r18).
