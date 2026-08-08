@@ -8,10 +8,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (merge) |
-| 2 | H103/F8 | high | Genesis-init × REINFORCE-L1 → m>+0.015 | **open** (bootstrap) |
-| 3 | H98/F1 | high | Tok REINFORCE self-L1lift → m>+0.015 | **open** (merge) |
-| 4 | H101/F6 | high | ultrashort≤80 format → m>+0.015 | **open** (train) |
-| 5 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (train) |
+| 2 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 3 | H103/F8 | high | Genesis-init × REINFORCE-L1 → m>+0.015 | **open** (RL) |
+| 4 | H98/F1 | high | Tok REINFORCE self-L1lift → m>+0.015 | **open** (merge) |
+| 5 | H101/F6 | high | ultrashort≤80 format → m>+0.015 | **open** (merge) |
+| 6 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (merge) |
 | — | H97/F3 | — | r=256 breaks LoRA ceiling | **refuted** m=−0.01506 |
 | — | H96 | — | Tok-init r9 → m>0.04 | **refuted** m=+0.00913 |
 | — | H99/F2 | — | high-Λ2 z_A SFT → m>+0.015 | **refuted** m=−0.00199 |
@@ -35,19 +36,25 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H101 / F6 — Ultrashort≤80 thought format — open
 - **Claim:** Rewrite high-Λ2 z to ≤80-char first-sentence targets; Tok LoRA
   teaches short emit format → m>+0.015 (format axis ≠ F2 selection).
-- **Status:** `mine-f6-1` TRAIN ~57/60 loss≈0.52; T/K done; post_train armed.
+- **Status:** TRAIN DONE 60/60 loss≈0.50; **merge** loading; T/K live.
 - `experiments/s4-h101-f6-short-format/` · `results/pass372_rent.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** `mine-f7-1` TRAIN ~8/29 + teacher/Tok DL.
+- **Status:** TRAIN DONE 29/29; **merge** started 21:10Z; teacher live.
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass375_rent.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
-- **Status:** `mine-f8-1` pip OK; Genesis DL in progress; RL after snapshot.
+- **Status:** `mine-f8-1` RL train live; teacher/Tok DL bg.
 - `experiments/s4-h103-f8-genesis-rl/` · `results/pass377_rent.md`.
+
+### H104 / F9 — kevin954 past-crown × high-Λ2 — open
+- **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
+  Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
+- **Status:** `mine-f9-1` bootstrap→kevin DL (rented p379).
+- `experiments/s4-h104-f9-kevin-base/` · `results/pass379_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -56,7 +63,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | F | family | next |
 |---|---|---|
-| F8 | Genesis × REINFORCE-L1 (H103) | **live** mine-f8-1 bootstrap |
+| F9 | kevin954 × high-Λ2 (H104) | **live** mine-f9-1 bootstrap |
 | F5 | Correctness-grounded z | needs verified trajectories first |
 
 ## Refuted (keep)
@@ -97,4 +104,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
   m7×union / lr micro / ep≥2 / **winner-zA as a family (mean −0.004)** /
   **F2 high-Λ2-zA data remix** / **F3 r=256 LoRA ceiling** / r≤8∨=9–15∨=16–24∨≥32 /
   α≤8∨=16∨≥64 / clip≥0.08 / king-self.
-  **F1 RL, F4 Genesis-SFT, F6 format, F7 teacher-z_C, F8 Genesis-RL are family screens, not cells.**
+  **F1 RL, F4 Genesis-SFT, F6 format, F7 teacher-z_C, F8 Genesis-RL, F9 kevin-base are family screens, not cells.**
