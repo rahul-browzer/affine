@@ -8,7 +8,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H72 | med | H64@r18 **replicate** vs Tok → m>0.04 | **open** (n80 ~16/80) |
-| 2 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (merge DONE; chall→n80) |
+| 2 | H74 | med | H64@r18 **rep#2** vs Tok → m>0.04 | **open** (recover264 isolated load) |
 | 3 | H75 | med | H64@r18 **rep#3** vs Tok → m>0.04 | **open** (train live) |
 | 4 | H73 | med | H67@r19 **replicate** vs Tok → m>0.04 | **open** (n80 ~16/80) |
 | 5 | H71 | med | H42 cell @ **r=16** → m>0.04 vs Tok | **open** (n80 ~29/80) |
@@ -34,8 +34,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H74 — H64@r18 replicate #2 vs Tok (non-α) — open
 - **Claim:** second independent redraw of H64 cell vs Tok → m>0.04.
-- **Status:** merge DONE; chall loading; retry refreshed poll=0 (p292).
-  `…/pass292_retry_refresh.md`.
+- **Status:** bare chall 200 → preempt→recover264 isolated chall loading
+  (p293). `…/pass293_recover264.md`.
 
 ### H75 — H64@r18 replicate #3 vs Tok (non-α) — open
 - **Claim:** third independent redraw of H64 cell vs Tok → m>0.04.

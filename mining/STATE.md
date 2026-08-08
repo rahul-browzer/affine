@@ -13,28 +13,28 @@ Best n80 (vs old TalentPigs): **H64 r18 m=+0.02509**.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$187,287** · cum ~$8,720 · **avail ~$177.3k** |
+| Lium / spend | **~$187,287** · cum ~$8,750 · **avail ~$177.3k** |
 | miner | τ10.000 free · 0 submissions |
 | H70 | **REFUTE** m=−0.000525 vs Tok → tore; **lr=5.01e-6 dead** |
-| H71 | n80 vs Tok a203 **~29/80** |
-| H72 | n80 vs Tok a203 **~16/80** |
-| H73 | n80 vs Tok a203 **~16/80** |
-| H74 | merge DONE; chall loading; **retry refreshed poll=0** |
-| H75 | **train live** (bootstrap→train r18) |
+| H71 | n80 vs Tok a203 **~31/80** |
+| H72 | n80 vs Tok a203 **~21/80** |
+| H73 | n80 vs Tok a203 **~25/80** |
+| H74 | **recover264** isolated chall loading (seed+wait health) |
+| H75 | **train live** (r18; early, no trainer_state yet) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h71-1 | eager-fox-be | 152.236.142.237:40311 | ~22:05Z | **n80 vs Tok** ~29/80 |
-| mine-h72-1 | golden-comet-7a | 152.236.142.232:40299 | ~22:20Z | **n80 vs Tok** ~16/80 |
-| mine-h73-1 | eager-matrix-9a | 38.255.28.19:20100 | ~22:21Z | **n80 vs Tok** ~16/80 |
-| mine-h74-1 | brave-orbit-28 | 152.236.142.236:40300 | ~22:42Z | chall load→recover→n80 |
+| mine-h71-1 | eager-fox-be | 152.236.142.237:40311 | ~22:05Z | **n80 vs Tok** ~31/80 |
+| mine-h72-1 | golden-comet-7a | 152.236.142.232:40299 | ~22:20Z | **n80 vs Tok** ~21/80 |
+| mine-h73-1 | eager-matrix-9a | 38.255.28.19:20100 | ~22:21Z | **n80 vs Tok** ~25/80 |
+| mine-h74-1 | brave-orbit-28 | 152.236.142.236:40300 | ~22:42Z | recover264→warm→n80 |
 | mine-h75-1 | cosmic-hawk-20 | 38.255.28.21:20100 | ~23:07Z | **train** r18 |
 
 known_hosts `/tmp/mine-h{71,72,73,74,75}-1.known_hosts`.
 **Free slots: 0.** Burn ~$148/h mining.
-Non-mine `wan-lora-train` on account — **do not touch**.
+Non-mine `wan-lora-train` / `affine-*` — **do not touch**.
 
 ## Blocked
 
@@ -49,7 +49,7 @@ Stale retry poll≳100 before chall up → kill retry PID (watcher relaunches).
 ## Next action
 
 1. H71/H72/H73: await n80 `decision.json` vs Tok → tear / shortlist / submit-gate.
-2. H74: await chall up → preempt/recover264 → n80 vs Tok (retry poll fresh).
+2. H74: await recover264 warm+freeze+rearm → n80 vs Tok a203.
 3. H75: await train→merge→chall→n80 vs Tok.
 4. Free slot → non-α neighbor **KING=Tok331102 from rent** (prefer
    replicate best shortlist cell, not 1% lr step).
