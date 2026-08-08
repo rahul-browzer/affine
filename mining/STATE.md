@@ -14,23 +14,23 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$185,527** · cum ~$11,300 · **avail ~$175.5k** |
+| Lium / spend | **~$185,527** · cum ~$11,350 · **avail ~$175.5k** |
 | miner | τ10.000 free · 0 submissions |
-| H90 | n80 a203 ~30/80 · mid304 · t/k/c=200 |
-| H91 | chall recover344 loading · seeded king n_so=16 |
-| H92 | merge_lora live · t/k=200 · post_train |
-| H93 | bootstrap DOWNLOAD tok-init (~35G) |
-| H94 | bootstrap DOWNLOAD tok-init (~33G) |
+| H90 | n80 a203 ~42/80 · mid304 · t/k/c=200 |
+| H91 | **n80 a203 live** · mid304 · freeze344 salvage n_so=22 |
+| H92 | merge.done · chall loading :8002 · t/k=200 |
+| H93 | bootstrap DOWNLOAD tok-init (~10/11 files) |
+| H94 | train_lora r11 live · stamp present |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
 | mine-h90-1 | noble-shark-3c | 152.236.142.232:40310 | ~04:23Z+1d | n80+mid304 |
-| mine-h91-1 | brave-shark-d2 | 38.255.28.18:20099 | ~04:31Z+1d | chall recover344 |
-| mine-h92-1 | calm-lion-f6 | 152.236.142.236:40300 | ~05:12Z+1d | merge r13 |
+| mine-h91-1 | brave-shark-d2 | 38.255.28.18:20099 | ~04:31Z+1d | n80+mid304 |
+| mine-h92-1 | calm-lion-f6 | 152.236.142.236:40300 | ~05:12Z+1d | chall load |
 | mine-h93-1 | eager-raven-1e | 38.255.28.22:20099 | ~05:21Z+1d | bootstrap DL |
-| mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | bootstrap DL |
+| mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | train r11 |
 
 known_hosts `/tmp/mine-h{90,91,92,93,94}-1.known_hosts`. **Free: 0.** ~$148/h.
 Non-mine `wan-lora-*` / `affine-*` — **do not touch**.
@@ -47,12 +47,10 @@ mid304 for mid-n80 bare; preempt exits on isolated TCACHE.
 Tok-init: `preprocessor_config` + real visual shard (index≠disk).
 King Triton ENOENT → isolated TCACHE; OOM@util=0.80 → **0.72**.
 Seed chall from **live king isolated TCACHE** (not bare `cache/king`).
-H91: await freeze344 → n80+mid304.
-H90: keep mid304; await `h90_decision.json`.
+recover344 rearms form+n80 only — **arm mid304 when n80 starts**.
 
 ## Next action
 
-1. **H91** await recover344 health→warm→freeze → n80+mid304.
-2. **H90** await n80 → `h90_decision.json` (keep mid304).
-3. **H92** await merge→chall serve→n80 (king util=0.80 — watch OOM).
-4. **H93/H94** await train_launched stamps.
+1. **H90/H91** await n80 → `h9{0,1}_decision.json` (keep mid304).
+2. **H92** await chall health→warm/freeze→n80+mid304 (king util=0.80 — watch OOM).
+3. **H93** await train_launched; **H94** await merge→serve→n80.

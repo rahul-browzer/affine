@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h90-1 | noble-shark-3c | 8×H200 | $28.00 | ~2026-08-09T04:23Z | H90 Tok-init r14 | n80+mid304 ~30/80 |
-| mine-h91-1 | brave-shark-d2 | 8×H200 | $31.92 | ~2026-08-09T04:31Z | H91 Tok-init r12 | chall recover344 |
-| mine-h92-1 | calm-lion-f6 | 8×H200 | $28.00 | ~2026-08-09T05:12Z | H92 Tok-init r13 | merge live |
+| mine-h90-1 | noble-shark-3c | 8×H200 | $28.00 | ~2026-08-09T04:23Z | H90 Tok-init r14 | n80+mid304 ~42/80 |
+| mine-h91-1 | brave-shark-d2 | 8×H200 | $31.92 | ~2026-08-09T04:31Z | H91 Tok-init r12 | n80+mid304 just started |
+| mine-h92-1 | calm-lion-f6 | 8×H200 | $28.00 | ~2026-08-09T05:12Z | H92 Tok-init r13 | chall loading |
 | mine-h93-1 | eager-raven-1e | 8×H200 | $31.92 | ~2026-08-09T05:21Z | H93 Tok-init r15 | bootstrap DL |
-| mine-h94-1 | cosmic-fox-43 | 8×H200 | $28.00 | ~2026-08-09T05:27Z | H94 Tok-init r11 | bootstrap DL |
+| mine-h94-1 | cosmic-fox-43 | 8×H200 | $28.00 | ~2026-08-09T05:27Z | H94 Tok-init r11 | train live |
 
 SSH: h90 .232:40310 · h91 .18:20099 · h92 .236:40300 ·
 h93 .22:20099 · h94 .237:40311 ·
@@ -33,6 +33,6 @@ Account also has non-mine `wan-lora-*` / `affine-*` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T17:45Z | h90/91/92/93/94 | H91 freeze344+n80+mid304; H90~42/80 |
 | 2026-08-08T17:33Z | h90/91/92/93/94 | H91 chall NODUTTS4 → recover344 king-seed |
 | 2026-08-08T17:28Z | h90/91/92/93/94 | H88 REFUTE+rm; rent+launch H94 r11 |
-| 2026-08-08T17:22Z | h88/90/91/92/93 | H89 REFUTE+rm; H90 mid304; rent H93 |
