@@ -8,7 +8,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H76 | med | H64@r18 **rep#4** vs Tok → m>0.04 | **open** (n80 a203) |
-| 2 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (n80 a203) |
+| 2 | H77 | med | H69@r17 **Tok-retarget** → m>0.04 | **open** (king306→n80) |
 | 3 | H78 | med | r=21 untested vs Tok → m>0.04 | **open** (n80 a203) |
 | 4 | H79 | med | **Tok-init** × winner-zA@r18 → m>0.04 | **open** (merge) |
 | 5 | H80 | med | **Tok-init** × winner-zA@r17 → m>0.04 | **open** (training) |
@@ -27,7 +27,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H77 — H69@r17 Tok-retarget (non-α) — open
 - **Claim:** r17 shortlist (+0.01641 vs TalentPigs) clears Tok → m>0.04.
-- **Status:** king302 PROMPTABLE@12:38:16 → n80 a203 pid24423 + mid304.
+- **Status:** n80 died EngineDead@chall15; **king306** loading → retry 0/120.
+  `…/pass306_king_recover.md`.
 
 ### H78 — m7×winner-zA @ r=21 vs Tok (non-α) — open
 - **Claim:** untested rank between shortlist and band-fail ranks → m>0.04.
@@ -36,13 +37,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H79 — Tok-init × winner-zA @ r=18 (non-α) — open
 - **Claim:** after H72+H74+H75 m≈≤0 on m7-init, Tok-init same hyps clears Tok.
-- **Status:** merge DONE non-id; king loading; retry reset poll0 (p305); mid304.
-  `…/pass305_retry_reset.md`.
+- **Status:** merge DONE non-id + HF `…-h79-merged`; king ~113 GiB load; chall pending.
 
 ### H80 — Tok-init × winner-zA @ r=17 (non-α) — open
 - **Claim:** Tok-init neighbor of H79 at H69 shortlist rank → m>0.04.
-- **Status:** train DONE → merge_lora; retry reset poll0 (p305); mid304.
-  `…/pass305_retry_reset.md`.
+- **Status:** merge_lora saving; teacher up; chall/king not yet.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

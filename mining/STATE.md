@@ -13,49 +13,42 @@ Best n80 (vs old TalentPigs): **H64 r18 m=+0.02509**.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$186,885** · cum ~$9,390 · **avail ~$176.9k** |
+| Lium / spend | **~$186,861** · cum ~$9,415 · **avail ~$176.9k** |
 | miner | τ10.000 free · 0 submissions |
-| H75 | **REFUTE** m=+0.000550 z=0.101 vs Tok (torn) |
-| H76 | **n80 LIVE** a203 chall≈14/80 + mid304 |
-| H77 | **n80 LIVE** a203 chall≈11/80 + mid304 |
-| H78 | **n80 LIVE** a203 chall≈20/80 + mid304 |
-| H79 | merge DONE → king loading; retry reset poll0; mid304 |
-| H80 | train DONE → **merge_lora**; retry reset poll0; mid304 |
+| H76 | **n80 LIVE** a203 ~21/80 + mid304 |
+| H77 | **king306 LOADING** → retry 0/120 + mid304 |
+| H78 | **n80 LIVE** a203 ~29/80 + mid304 |
+| H79 | merge+HF done; king ~113 GiB load; chall pending |
+| H80 | **merge_lora** saving; teacher up |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h76-1 | gentle-raven-df | 38.255.28.18:20100 | ~23:38Z | **n80 a203** + mid304 |
-| mine-h77-1 | eager-shark-64 | 152.236.142.237:40306 | ~23:44Z | **n80 a203** + mid304 |
-| mine-h78-1 | eager-comet-a4 | 38.255.28.22:20100 | ~23:44Z | **n80 a203** + mid304 |
-| mine-h79-1 | lunar-shark-be | 152.236.142.232:40100 | ~00:18Z+1d | merge→king→chall→n80 |
+| mine-h76-1 | gentle-raven-df | 38.255.28.18:20100 | ~23:38Z | n80 a203 + mid304 |
+| mine-h77-1 | eager-shark-64 | 152.236.142.237:40306 | ~23:44Z | king306 → n80 |
+| mine-h78-1 | eager-comet-a4 | 38.255.28.22:20100 | ~23:44Z | n80 a203 + mid304 |
+| mine-h79-1 | lunar-shark-be | 152.236.142.232:40100 | ~00:18Z+1d | king→chall→n80 |
 | mine-h80-1 | eager-shark-18 | 152.236.142.236:40311 | ~00:26Z+1d | merge→chall→n80 |
 
-known_hosts `/tmp/mine-h{76,77,78,79,80}-1.known_hosts`.
-**Free slots: 0.** Burn ~$148/h mining.
+known_hosts `/tmp/mine-h{76,77,78,79,80}-1.known_hosts`. **Free: 0.** ~$148/h.
 Non-mine `wan-lora-train` / `affine-*` — **do not touch**.
-**mid304:** continuous bare-TCACHE guard while sim alive.
-**p305:** H79/H80 stale retry killed (poll84/56) → watcher relaunch poll0.
+**p306:** H77 EngineDead (sample_tokens timeout @chall15) → king306 pid26103;
+retry 0/120; chall untouched. mid304 rearmed.
 
 ## Blocked
 
 No submit until n80 margin > 0.04 **vs Tok331102**.
-Dead: plmk/α/TP×ks/m7×ks/union/lr∈{≤2.5e-6,4e-6,4.95,5.01,5.02,5.05,5.08,5.1,5.15,5.25,5.3,5.5,5.75,6,7.5,8,≥3e-5}/ep≥2/r≤8∨=**16**∨=**19**∨=20∨=24∨≥32/α≤8∨=16∨≥64/clip≥0.08/H42@5e-6/king-self.
-**m7×r18 closed for new rents** (H72/H74/H75 m≈≤0; H76 last draw).
-**r=17 open** (H77 m7; H80 Tok-init). **r=21 open** (H78 n80). **Tok-init open** (H79/H80).
-FALSE_PROBE≠REFUTE; never rm non-mine. Reject COUNT≠8 or $/h<$20.
-Never `pkill -f`; kill by PID / argv1 via `/proc/*/cmdline`.
-recover264 owns chall → king-only relaunch.
-Never sed live post_train. Preempt: skip isolated TCACHE / if recover alive.
-Stale retry poll≳100 (or ≪ budget before chall up) → kill retry PID (watcher relaunches).
-**p298/p300/p302:** match `$0` via `/proc/*/cmdline`. King recover stuck orphan → re-fire.
-**p303/p304:** recover264 DONE rearms form+n80 only — one-shot preempt exits on
-isolated; use **mid304** continuous guard for mid-n80 bare.
+Dead: plmk/α/TP×ks/m7×ks/union/lr micro-steps/ep≥2/r≤8∨=16∨=19∨=20∨=24∨≥32/α≤8∨=16∨≥64/clip≥0.08/king-self.
+**m7×r18 closed** (H72/H74/H75; H76 last). Open: r17/r21/Tok-init.
+FALSE_PROBE≠REFUTE; never rm non-mine; COUNT=8 & $/h≥28.
+Never `pkill -f`; match `$0` via `/proc/*/cmdline` (not watcher argv).
+recover264=chall; king-only relaunch. Never sed live post_train.
+mid304 for mid-n80 bare; one-shot preempt exits on isolated TCACHE.
 
 ## Next action
 
-1. H76/H77/H78: await n80 → `decision.json`. FAIL×3 → quarantine, not REFUTE.
-2. H79: await king+merged-chall promptable → n80 vs Tok (retry@poll0; mid304).
-3. H80: await merge→chall serve→n80 vs Tok (retry@poll0).
-4. Free slot → non-α neighbor; **no m7×r18**; prefer Tok-init / data / r∉{18,16,19,20}.
+1. H77: await king306 PROMPTABLE → fresh a203 n80 + mid304.
+2. H76/H78: await n80 → `decision.json` (FAIL×3=quarantine≠REFUTE).
+3. H79/H80: await merged-chall promptable → n80 vs Tok.
+4. Free slot → non-α; **no m7×r18**; Tok-init / data / r∉{18,16,19,20}.
