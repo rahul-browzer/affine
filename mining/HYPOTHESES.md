@@ -36,13 +36,13 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H101 / F6 — Ultrashort≤80 thought format — open
 - **Claim:** Rewrite high-Λ2 z to ≤80-char first-sentence targets; Tok LoRA
   teaches short emit format → m>+0.015 (format axis ≠ F2 selection).
-- **Status:** merge DONE; bare chall ENOENT → recover264 a1 (p383).
-- `experiments/s4-h101-f6-short-format/` · `results/pass383_recover264.md`.
+- **Status:** a1 ghost ENOENT; a2 peer-seeded 19so from F7 (p385).
+- `experiments/s4-h101-f6-short-format/` · `results/pass385_midload_seed.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** recover a1 mid-load king-seeded (p384); await :8002→n80.
+- **Status:** recover DONE; n80 vs Tok live @21:36Z (engines 200).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass384_midload_seed.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
