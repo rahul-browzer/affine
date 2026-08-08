@@ -10,8 +10,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 1 | H72 | med | H64@r18 **replicate** vs Tok → m>0.04 | **open** (train) |
 | 2 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 vs Tok | **open** (n80 vs Tok) |
 | 3 | H73 | med | H67@r19 **replicate** vs Tok → m>0.04 | **open** (train) |
-| 4 | H71 | med | H42 cell @ **r=16** → m>0.04 vs Tok | **open** (train) |
-| 5 | H69 | med | H42 cell @ **r=17** → m>0.04 | **open** (n80 ~44/80 old king) |
+| 4 | H71 | med | H42 cell @ **r=16** → m>0.04 vs Tok | **open** (recover264) |
+| 5 | H69 | med | H42 cell @ **r=17** → m>0.04 | **open** (n80 ~68/80 old king) |
 | — | H68 | was med | H42 cell @ lr=4.95e-6 | **refuted** band×1.257 |
 | — | H67 | was med | H42 cell @ r=19 | **refuted** m=+0.01835 (shortlist→H73) |
 | — | H66 | was med | H42 cell @ lr=5.08e-6 | **refuted** m=+0.00976 |
@@ -40,11 +40,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H71 — H42 @ LoRA r=16 (non-α) — open
 - **Claim:** below H69@r17 → m>0.04 vs Tok.
-- **Status:** merge.done → chall serve; preempt rearmed p283. `…/pass286_preempt_rearm.md`.
+- **Status:** bare chall→preempt→recover264 isolated TCACHE loading.
+  `…/pass287_recover264.md`.
 
 ### H69 — H42 @ LoRA r=17 (non-α) — open
 - **Claim:** below H64@r18 → m>0.04 (r≤8 dead).
-- **Status:** n80 ~58/80 vs TalentPigs (ranking only).
+- **Status:** n80 ~68/80 vs TalentPigs (ranking only).
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
