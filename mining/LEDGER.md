@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $185,291.61 | 2026-08-08T18:21Z |
-| cumulative mining spend | ~$11,575 (5 pods ~$152/h accruing) | 2026-08-08T18:21Z |
-| **available for mining** | **~$175,292** (balance − $10,000 floor) | 2026-08-08T18:21Z |
+| Lium balance | $185,220.48 | 2026-08-08T18:36Z |
+| cumulative mining spend | ~$11,646 (5 pods ~$152/h accruing) | 2026-08-08T18:36Z |
+| **available for mining** | **~$175,220** (balance − $10,000 floor) | 2026-08-08T18:36Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (5 pods) | ~$152/h (h91/93/95 $31.92×3 + h92/94 $28×2) | 2026-08-08T18:21Z |
+| miner burn (5 pods) | ~$152/h (h91/93/95 $31.92×3 + h92/94 $28×2) | 2026-08-08T18:36Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -20,6 +20,7 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-08T18:36Z | 185220.48 | burn accrual; H94 king re-fire+n80; H93 mid304 (no rent/rm) |
 | 2026-08-08T18:21Z | 185291.61 | burn accrual; H94 king recover + H93 chall recover (no rent/rm) |
 | 2026-08-08T18:17Z | 185315.57 | burn accrual; H94 n80+mid304 (no rent/rm) |
 | 2026-08-08T18:05Z | 185363.21 | rent mine-h95-1 calm-raven-0f @$31.92/h ttl12h (H95 r10) |
@@ -29,4 +30,3 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 | 2026-08-08T17:27Z | 185549.85 | rm mine-h88-1 (spent ~$60; H88 REFUTE m=+0.001358) |
 | 2026-08-08T17:21Z | 185573.68 | rent mine-h93-1 eager-raven-1e @$31.92/h ttl12h (H93 r15) |
 | 2026-08-08T17:20Z | 185573.68 | rm mine-h89-1 (spent ~$48; H89 REFUTE m=−0.007241) |
-| 2026-08-08T17:16Z | 185597.46 | burn accrual; H90 retry rearm (no rent/rm) |

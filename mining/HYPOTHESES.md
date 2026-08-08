@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (n80 ~51/80) |
-| 2 | H92 | med | **Tok-init** × winner-zA@r13 → m>0.04 | **open** (n80 ~33/80) |
-| 3 | H94 | med | **Tok-init** × winner-zA@r11 → m>0.04 | **open** (king recover) |
-| 4 | H93 | med | **Tok-init** × winner-zA@r15 → m>0.04 | **open** (chall recover264) |
-| 5 | H95 | med | **Tok-init** × winner-zA@r10 → m>0.04 | **open** (bootstrap) |
+| 1 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (n80 b203 att2) |
+| 2 | H92 | med | **Tok-init** × winner-zA@r13 → m>0.04 | **open** (n80 ~54/80) |
+| 3 | H94 | med | **Tok-init** × winner-zA@r11 → m>0.04 | **open** (n80 a203+mid304) |
+| 4 | H93 | med | **Tok-init** × winner-zA@r15 → m>0.04 | **open** (n80 ~16/80) |
+| 5 | H95 | med | **Tok-init** × winner-zA@r10 → m>0.04 | **open** (TRAIN_LAUNCHED) |
 | — | H90 | was med | **Tok-init** × winner-zA@r14 vs Tok | **refuted** m=−0.008472 |
 | — | H88 | was med | **Tok-init** × winner-zA@r30 vs Tok | **refuted** m=+0.001358 |
 | — | H89 | was med | **Tok-init** × winner-zA@r31 vs Tok | **refuted** m=−0.007241 |
@@ -25,24 +25,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H91 — Tok-init × winner-zA @ r=12 (non-α) — open
 - **Claim:** ≥8 from H81@r22; untested r=12 → m>0.04.
-- **Status:** n80 a203 ~51/80 + mid304. `…/pass345_n80_mid304.md`.
+- **Status:** a203 died king 400; n80 b203 att2 + mid304 rearms.
 
 ### H92 — Tok-init × winner-zA @ r=13 (non-α) — open
 - **Claim:** between H91@r12 and dead r14; untested r=13 → m>0.04.
-- **Status:** n80 a203 ~33/80 + mid304. `…/pass346_n80_mid304.md`.
+- **Status:** n80 a203 ~54/80 + mid304.
 
 ### H93 — Tok-init × winner-zA @ r=15 (non-α) — open
 - **Claim:** between dead r14 and dead 16–24; untested r=15 → m>0.04.
-- **Status:** n80 hit bare chall → mid304→recover264. `…/pass349_mid304_recover.md`.
+- **Status:** recover264 DONE; n80 ~16/80 + mid304 armed p350.
 
 ### H94 — Tok-init × winner-zA @ r=11 (non-α) — open
 - **Claim:** between dead ≤8 and live r12; untested r=11 → m>0.04.
-- **Status:** king OOM mid-n80 → recover332 util0.72 loading.
-  `…/pass349_king_recover.md`.
+- **Status:** king ENOENT→re-fire→PROMPTABLE; n80 a203+mid304.
+  `…/pass350_king_recover_n80.md`.
 
 ### H95 — Tok-init × winner-zA @ r=10 (non-α) — open
 - **Claim:** gap dead ≤8 ↔ live r11; untested r=10 → m>0.04.
-- **Status:** bootstrap tok-init DL ~91%. `…/pass346_rent.md`.
+- **Status:** TRAIN_LAUNCHED @18:26Z. `…/pass346_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
