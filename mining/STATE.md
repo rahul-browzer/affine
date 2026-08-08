@@ -12,12 +12,12 @@ King Tok331102 S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$183,164** · cum ~$14,202 · **avail ~$173.2k** |
+| Lium / spend | **~$183,136** · cum ~$14,230 · **avail ~$173.1k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$123.5/h** (3 mine-*) ≪ $833/h · free slots **17** |
-| F4 | n80 **b203** ~9/11 (rotated off a203) |
-| F7 | n80 **e203** ~6/8 (d203 rotated; d203first armed) |
-| F9 | n80 **c203** ~47/80; watcher → **d203first** (p409) |
+| F4 | n80 **b203** ~17/80; watcher → **d203first** (p410) |
+| F7 | n80 **e203** ~12/80 (d203first armed) |
+| F9 | n80 **c203** ~52/80; watcher → **d203first** (p409) |
 
 ## What's running
 
@@ -43,6 +43,7 @@ recover264=chall; king-only relaunch; seed chall from **pathfile** then live kin
 + diverse-warm before freeze — **validated p405**.
 **H32:** drop a203+c203; use `retry_*_d203first`. Kill watchers via scp'd script
 matching `$0`, never `bash -c` containing watcher path (p409 self-kill).
+**All three screens now d203first-armed** (F4 p410; F7 p408; F9 p409).
 
 ## Operator directive 2026-08-08T18:55Z
 
@@ -50,7 +51,7 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 ## Next action
 
-1. **Await F9 margin** (~47/80 c203) — nearest finish; on H32→d203 auto.
+1. **Await F9 margin** (~52/80 c203) — nearest finish; on H32→d203 auto.
 2. On m>+0.015 → rent CONFIRM k=4 immediately.
 3. On REFUTE (m≤0 or gate fail) → tear that pod; no F5 yet — leave slot open
    or design next structural family (not another LoRA-on-king cell).

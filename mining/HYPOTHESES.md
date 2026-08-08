@@ -7,8 +7,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 ~47/80 c203) |
-| 2 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 b203) |
+| 1 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 ~52/80 c203) |
+| 2 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 b203; d203first) |
 | 3 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203) |
 | — | H103/F8 | — | Genesis-init × REINFORCE-L1 → m>+0.015 | **refuted** m=−0.04829 |
 | — | H101/F6 | — | ultrashort≤80 format → m>+0.015 | **refuted** m=−0.00453 |
@@ -26,13 +26,13 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7) and Tok (F1/F6); past crown outside both basins.
-- **Status:** n80 c203 ~47/80; watcher armed **d203first** (p409).
+- **Status:** n80 c203 ~52/80; watcher armed **d203first** (p409).
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass409_d203first.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** n80 **b203** ~9/11 (rotated; engines healthy).
-- `experiments/s4-h100-f4-genesis-base/` · `results/pass407_teacher_promptable.md`.
+- **Status:** n80 **b203** ~17/80; watcher armed **d203first** (p410).
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass410_d203first.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.

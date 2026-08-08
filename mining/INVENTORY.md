@@ -8,9 +8,9 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | n80 b203 ~9/11 |
-| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | n80 e203 ~6/8 |
-| mine-f9-1 | lunar-fox-0a | 8×H200 | $31.92 | 2026-08-09T09:12Z | H104 F9 kevin-base | n80 c203 ~47/80 |
+| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | n80 b203 ~17/80; d203first |
+| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | n80 e203 ~12/80 |
+| mine-f9-1 | lunar-fox-0a | 8×H200 | $31.92 | 2026-08-09T09:12Z | H104 F9 kevin-base | n80 c203 ~52/80 |
 
 SSH: f4 204.9.206.243:40099 · f7 .232:40311 ·
 f9 38.255.28.18:20099 · kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
@@ -30,6 +30,6 @@ f9 38.255.28.18:20099 · kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T23:52Z | 3 live | F4 d203first armed (p410); no rm/rent |
 | 2026-08-08T23:49Z | 3 live | rm mine-f8-1 (H103 REFUTE); F9 d203first armed |
 | 2026-08-08T23:29Z | 4 live | F7 d203first armed (H32); no rm/rent |
-| 2026-08-08T23:25Z | 4 live | F4 teacher promptable+n80 a203; no rm/rent |
