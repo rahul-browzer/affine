@@ -27,18 +27,18 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H99 / F2 — Target Λ2 via high-Λ2 z_A — open
 - **Claim:** Select z_A by Λ2≥0.02 (1059 ex; 65% not in clip-L1 set) → m>+0.015.
-- **Status:** merge_lora live (merged/config present); T/K 200; await merge.done→chall.
+- **Status:** merge DONE (`/root/h99/merged`+visual); chall :8002 loading; T/K 200; retry armed.
 - `experiments/s4-h99-f2-target-l2/` · `results/pass361_teacher_recover.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** TRAIN ~step55/200; king332 loading util0.72 TCACHE h98_king_p332_*.
+- **Status:** TRAIN live; T/K 200 (king promptable); await train→merge→n80.
 - `experiments/s4-h98-f1-rl-l1/` · `results/pass362_king332_refire.md`.
 
 ### H97 / F3 — LoRA r=256 ceiling break — open
 - **Claim:** r=256/α512 Tok-init × winner-zA can move Λ2.
-- **Status:** n80 LIVE a203 + mid304; salvage DONE n_so=22 frozen.
-- `experiments/s4-h97-f3-r256/` · `results/pass363_n80_armed.md`.
+- **Status:** king bare-cache ENOENT@19:47 killed n80; **king332 re-fire** util0.72 isolated TCACHE; await promptable→n80; rearm mid304.
+- `experiments/s4-h97-f3-r256/` · `results/pass364_king332_refire.md`.
 
 ### H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
