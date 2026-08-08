@@ -25,24 +25,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** train DONE; GPU save hung → **CPU merge recover p376** (Tok paused).
-- `experiments/s4-h100-f4-genesis-base/` · `results/pass376_merge_recover.md`.
+- **Status:** CPU merge DONE; Tok Range-resume (hub1.27 no-resume) p383.
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass383_tok_range_resume.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** recover264 a1 after bare Triton ENOENT; mid-load seed n_so 0→19.
+- **Status:** chall :8002=200 + completions200; recover diverse warm→freeze.
 - `experiments/s4-h98-f1-rl-l1/` · `results/pass382_recover264_enoent.md`.
 
 ### H101 / F6 — Ultrashort≤80 thought format — open
 - **Claim:** Rewrite high-Λ2 z to ≤80-char first-sentence targets; Tok LoRA
   teaches short emit format → m>+0.015 (format axis ≠ F2 selection).
-- **Status:** TRAIN DONE; GPU merge hung → **CPU recover p380** (T/K live).
-- `experiments/s4-h101-f6-short-format/` · `results/pass380_merge_recover.md`.
+- **Status:** merge DONE; bare chall ENOENT → recover264 a1 (p383).
+- `experiments/s4-h101-f6-short-format/` · `results/pass383_recover264.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** merge shard1 done; **king recover p380** after bare-cache ENOENT.
+- **Status:** merge DONE; recover264 a1 after chall cycle (p383).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass375_rent.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
