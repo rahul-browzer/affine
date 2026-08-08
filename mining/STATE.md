@@ -1,5 +1,4 @@
 # STATE — mining run snapshot
-
 Rewritten every pass. Do not append.
 
 ## Stage
