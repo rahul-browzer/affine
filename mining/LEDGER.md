@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $189,421.73 | 2026-08-08T01:34Z |
-| cumulative mining spend | ~$5,000 (h43~$46 + h40~$93 closed; h47/h48 accruing) | 2026-08-08T01:34Z |
-| **available for mining** | **~$179,422** (balance − $10,000 floor) | 2026-08-08T01:34Z |
-| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T01:34Z |
-| miner burn (5 pods) | ~$152/h (h44/45 $28×2 + h46/47/48 $31.92×3) | 2026-08-08T01:34Z |
+| Lium balance | $189,313.41 | 2026-08-08T02:01Z |
+| cumulative mining spend | ~$5,050 (h44~$34 closed; h49 accruing) | 2026-08-08T02:01Z |
+| **available for mining** | **~$179,313** (balance − $10,000 floor) | 2026-08-08T02:01Z |
+| validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T02:01Z |
+| miner burn (5 pods) | ~$158/h (h45 $28 + h46/47/48 $31.92×3 + h49 $33.81) | 2026-08-08T02:01Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -20,6 +20,8 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-08T02:00Z | 189313.41 | rented mine-h49-1 zesty-shark-45 8×H200 @$33.81/h ttl12h (H49 α4) |
+| 2026-08-08T01:58Z | 189330.94 | rm mine-h44-1 zesty-lion-e0 (~$34) H44 REFUTE m=−0.00017 |
 | 2026-08-08T01:33Z | 189421.73 | rented mine-h48-1 zesty-raven-35 8×H200 @$31.92/h ttl12h (H48 lr1e-6) |
 | 2026-08-08T01:33Z | 189421.73 | rented mine-h47-1 golden-comet-01 8×H200 @$31.92/h ttl12h (H47 α8) |
 | 2026-08-08T01:32Z | 189421.73 | rm mine-h40-1 gentle-eagle-c9 (~$93) H40 REFUTE-by-ops |
@@ -28,5 +30,3 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 | 2026-08-08T01:28Z | 189441.86 | rm mine-h42-1 cosmic-matrix-bb (~$44) H42 REFUTE m=+0.01613 |
 | 2026-08-08T01:13Z | 189499.23 | rented mine-h45-1 lunar-fox-40 8×H200 @$28/h ttl12h (H45 r8) |
 | 2026-08-08T01:13Z | 189499.23 | rm mine-h41-1 zesty-lion-26 (~$64) H41 REFUTE m=+0.00533 |
-| 2026-08-08T00:45Z | 189597.75 | rented mine-h44-1 zesty-lion-e0 8×H200 @$28/h ttl12h (H44 clip08) |
-| 2026-08-08T00:44Z | 189615.17 | rm mine-h44-1 brave-fox-27 (~$0.1) REJECT 4GPU @$11.60 |

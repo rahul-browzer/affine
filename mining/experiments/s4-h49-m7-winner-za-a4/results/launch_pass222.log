@@ -1,0 +1,26 @@
+-rw-rw-r-- 1 const const 362K Aug  8 02:00 /tmp/mine-h49-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-h49-lora
+HF_OK unconst/Affine-5czsc2fc98-h49-merged
+STACK_UPLOAD_OK
+PIPELINE_PID=877
+[bootstrap-h49] 2026-08-08T02:01:05Z start host=786cde520e40
+GPU 0: NVIDIA H200 (UUID: GPU-630b1a88-81ff-477d-4ab4-8ff4e7c48325)
+GPU 1: NVIDIA H200 (UUID: GPU-ab817413-92f5-ced9-48ff-54753f52344f)
+GPU 2: NVIDIA H200 (UUID: GPU-b4a66f65-a4d1-d057-d246-9d1bdda75284)
+GPU 3: NVIDIA H200 (UUID: GPU-cbd5a9dc-1a6b-370c-d36b-26fda488fb28)
+GPU 4: NVIDIA H200 (UUID: GPU-c56c9511-b02e-0ef6-12ce-55845c6b5147)
+GPU 5: NVIDIA H200 (UUID: GPU-eb401820-5641-aefd-5b26-acac9353c80e)
+GPU 6: NVIDIA H200 (UUID: GPU-06442483-8474-d293-c200-cb0077bdebd9)
+GPU 7: NVIDIA H200 (UUID: GPU-8a46b3af-4f2c-83b1-3859-bce21b1fa1e9)
+[bootstrap-h49] GPU_COUNT=8
+downloading uv 0.12.3 x86_64-unknown-linux-gnu
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: venv
+Activate with: source venv/bin/activate
+    PID     ELAPSED CMD
+    877 441077233-20:33:04 bash /root/mining_src/s4-h49-m7-winner-za-a4/bootstrap_h49.sh
+UPLOAD_AND_LAUNCH_OK 2026-08-08T02:01:08Z
