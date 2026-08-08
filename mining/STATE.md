@@ -14,27 +14,28 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$185,927** · cum ~$10,620 · **avail ~$175.9k** |
+| Lium / spend | **~$185,927** · cum ~$10,660 · **avail ~$175.9k** |
 | miner | τ10.000 free · 0 submissions |
-| H85 | **n80** a203 **58/80** · mid304 |
-| H86 | **n80** a203 **17/80** · mid304 |
-| H87 | **train** step~15/26 |
-| H88 | **train** step~10/26 (DL→train @15:53Z) |
-| H89 | **merge DONE** · chall loading :8002 · form+n80 armed |
+| H85 | **n80** a203 **61/80** · mid304 |
+| H86 | **n80** a203 **37/80** · mid304 |
+| H87 | **merge** + teacher recover331 loading :8000 |
+| H88 | **merge** (train DONE loss0.415) |
+| H89 | **recover264** chall (bare TCACHE after ALL_READY) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h85-1 | eager-fox-a3 | 152.236.142.232:40300 | ~02:34Z+1d | n80 58/80 |
-| mine-h86-1 | calm-wolf-21 | 152.236.142.236:40300 | ~02:59Z+1d | n80 17/80 |
-| mine-h87-1 | swift-shark-4f | 38.255.28.22:20100 | ~03:31Z+1d | train r29 |
-| mine-h88-1 | zesty-hawk-be | 38.255.28.19:20100 | ~03:32Z+1d | train r30 |
-| mine-h89-1 | gentle-fox-06 | 152.236.142.237:40309 | ~03:38Z+1d | chall load→n80 |
+| mine-h85-1 | eager-fox-a3 | 152.236.142.232:40300 | ~02:34Z+1d | n80 61/80 |
+| mine-h86-1 | calm-wolf-21 | 152.236.142.236:40300 | ~02:59Z+1d | n80 37/80 |
+| mine-h87-1 | swift-shark-4f | 38.255.28.22:20100 | ~03:31Z+1d | merge+tchr recover |
+| mine-h88-1 | zesty-hawk-be | 38.255.28.19:20100 | ~03:32Z+1d | merge r30 |
+| mine-h89-1 | gentle-fox-06 | 152.236.142.237:40309 | ~03:38Z+1d | recover264 chall |
 
 known_hosts `/tmp/mine-h{85,86,87,88,89}-1.known_hosts`. **Free: 0.** ~$148/h.
 Non-mine `wan-lora-*` / `affine-*` — **do not touch**.
-**p330:** H89 train→merge→chall launch; H88 DOWNLOAD→train.
+**p331:** H87 teacher Triton ENOENT → recover331 isolated TCACHE launched
+(pid14571); H89 bare-chall → recover314; H85/H86 n80 progressing.
 
 ## Blocked
 
@@ -53,6 +54,7 @@ mid304 detect: `$0` arg1=`…/watch_mid_n80…sh` only — SSH `-c` text is fals
 
 ## Next action
 
-1. H85 n80 → `decision.json`; tear if REFUTE; fill slot.
-2. H89 :8002=200 → n80+mid304; H86 finish n80; H87/H88 train→merge→n80.
-3. Free slot → Tok-init r∉{16–26,29–31} / data variant; no m7×r17/r18.
+1. H87 `:8000=200` + merge DONE → chall serve → arm mid304 with n80.
+2. H85 n80 → `decision.json`; tear if REFUTE; fill slot.
+3. H89 recover264 DONE → n80+mid304; H86 finish n80; H88 merge→chall→n80.
+4. Free slot → Tok-init r∉{16–26,29–31} / data variant; no m7×r17/r18.
