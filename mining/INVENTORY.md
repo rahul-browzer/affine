@@ -8,7 +8,7 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h95-1 | calm-raven-0f | 8×H200 | $31.92 | ~2026-08-09T06:05Z | H95 Tok r10 | n80 ~18/80 |
+| mine-h95-1 | calm-raven-0f | 8×H200 | $31.92 | ~2026-08-09T06:05Z | H95 Tok r10 | recover264 |
 | mine-h96-1 | golden-matrix-af | 8×H200 | $28.00 | ~2026-08-09T06:52Z | H96 Tok r9 | chall→n80 |
 | mine-f3-1 | noble-raven-ff | 8×H200 | $28.00 | ~2026-08-09T07:01Z | H97 F3 r256 | merge |
 | mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | ~2026-08-09T07:06Z | H98 F1 RL | train |
@@ -17,7 +17,7 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 SSH: h95 .19:20100 · h96 .232:40299 · f3 .236:40311 ·
 f1 .54:40099 · f2 150.136.71.147:20295 · f4 204.9.206.243:40099 ·
-kh `/tmp/mine-h{95,96}-1` + `mine-f{1,2,3,4}-1`.
+kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 **Free: 14**. Burn ~$225.3/h. Non-mine — **never rm**.
 
 ## Dead
@@ -33,6 +33,6 @@ kh `/tmp/mine-h{95,96}-1` + `mine-f{1,2,3,4}-1`.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T19:24Z | 6 live match inv | H95 mid304→bare→recover264; no rm/rent |
 | 2026-08-08T19:22Z | −h91 −h94 | H91/H94 REFUTE; rm both; 6 live |
 | 2026-08-08T19:19Z | −h93 +f4 B300 | H93 REFUTE; rent mine-f4-1 F4 Genesis |
-| 2026-08-08T19:13Z | +f2 B200 | rm bad H200 COUNT=7; rent f2 B200; H99 bootstrap |
