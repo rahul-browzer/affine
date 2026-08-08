@@ -44,8 +44,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H62 — H42 @ LoRA r=20 (non-α)
 - **Claim:** between r16 and dead r24 → m>0.04.
-- **Status:** p262 preempt recover (bare TCACHE→isolated).
-  `s4-h62-…/results/pass262_chall_preempt_recover.md`.
+- **Status:** n80 a203 armed (p263 freeze n_so=22).
+  `s4-h62-…/results/pass263_n80_armed.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
