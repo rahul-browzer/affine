@@ -65,10 +65,13 @@ while true; do
   # Wait out a real start/retry process. Do NOT use pgrep -f on the script
   # path: this watcher's own argv embeds retry_*.sh and would match forever
   # (H32 pass198 deadlock after pipeline abort).
+  # Match retry_${hyp}_n80.sh AND variants (…_longwait.sh, …_b203first.sh).
+  # Exact `retry_X_n80\.sh` missed longwait → watcher respawned every POLL,
+  # resetting engine-wait counters (F4 p392: 4 concurrent longwaits @ poll=0).
   if ps -eo pid,cmd | awk -v hyp="$HYP" '
       /watch_n80_retry/ { next }
-      $0 ~ ("bash[[:space:]].*/retry_" hyp "_n80\\.sh") { found=1 }
-      $0 ~ ("bash[[:space:]].*/start_" hyp "_n80\\.sh") { found=1 }
+      $0 ~ ("bash[[:space:]].*/retry_" hyp "_n80") { found=1 }
+      $0 ~ ("bash[[:space:]].*/start_" hyp "_n80") { found=1 }
       END { exit !found }
     '; then
     sleep "$POLL"

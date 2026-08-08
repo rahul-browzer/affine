@@ -66,9 +66,10 @@ Format: `- <finding> — <the number or error that proves it>`
 - Independent hyps on separate `mine-*` pods; after REFUTE kill idle :8002
   workers (orphan EngineCore holds ~117 GiB → relaunch OOM). Chall util **0.72**.
 - Nested decisions only: `write_merge_decision.py` (flat `margin` false-REFUTEs).
-  Sidecar `watch_fix_decision.sh` / `watch_n80_retry.sh`; never edit live start_*.
+  Sidecar `watch_form_decision.sh` / `watch_n80_retry.sh`; never edit live start_*.
+  Match `retry_${hyp}_n80*` not only `…_n80.sh` — `_longwait`/`_b203first` invisible → 30s respawn resets poll (F4 p392).
 - Teacher timeouts: need outer 3× retry even at 480s×5 (H9@60/80).
-- Parent HF often 404/gated. Mirrors: m7→`Radiant28/5eqdtdzqle-ckpt1000-m7`@f766293; plmk→`bluecolor777/plmk`@b2cc7b9f; kkk→`bluecolor777/kkk-af`@7426296b. Pin duel SHA.
+- Parent HF gated: m7→Radiant28/…-m7@f766293; plmk/kkk mirrors; pin duel SHA.
 - Lium catalog lies: after rent `nvidia-smi -L|wc -l`=8; reject $/h<28. Prefer `lium up --gpu H200 -c 8`.
 - **B300 SM10.3 + vllm 0.22.1:** cutlass aliases `Arch.sm_110f→sm_101f`, so
   `flash_fwd_sm100` assert `≤sm_110f` rejects sm_103 → all engines die at
@@ -112,8 +113,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F3 r=256 LoRA ceiling REFUTED (H97 p374):** Tok-init r256/α512 winner-zA →
   m=−0.01506 z=−1.84; mean_λ2_c −0.00013 vs king +0.00120. Rank≠base — LoRA
   at r=256 still cannot move Λ2. Do not retry higher rank / full-FT-as-LoRA.
-- H66 king
-  mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe `cache/king`,
+- H66 king mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe cache/king, serve_three (p271).
   `serve_three` (p271); don't wait for post_train abort.
 - mid304 exits on `sim gone` — rearm via file `arm_mid304_hN.sh` when n80
   relaunches after king recover (H90 p342: prior exit@17:08 → rearm@17:19).

@@ -25,8 +25,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** Range ~85%; tokwatch alive; n80 longwait360 armed (p391).
-- `experiments/s4-h100-f4-genesis-base/` · `results/pass391_longwait.md`.
+- **Status:** Range ~96%; tokwatch alive; longwait deduped (p392).
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass392_longwait_dedupe.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
@@ -53,7 +53,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** LoRA step~26/60 (1 parent+torch kids, not triple); loss~0.43.
+- **Status:** LoRA done; `merge_lora` live @22:03Z (`device-map auto`).
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass379_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
