@@ -13,13 +13,13 @@ No submit. Best live family = H28 winner-zA (m=+0.01095).
 |---|---|
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
-| Lium / spend | **~$189,717** · cum mining ~$4,530 · **avail ~$179.7k** |
+| Lium / spend | **~$189,697** · cum mining ~$4,550 · **avail ~$179.7k** |
 | miner | τ10.000 free · 0 submissions |
-| H39 | n80 a203 @ **~41**/80 (healthy) |
-| H40 | chall recover p215 loading → hashed n80 |
-| H41 | n80 a203 @ **~1**/80 (healthy) |
-| H42 | train ~20/26 loss≈0.42 |
-| H43 | train ~15–19/26 loss≈0.42 |
+| H39 | n80 a203 @ **~46**/80 (healthy) |
+| H40 | chall p216 loading (isolated TCACHE; p215 died mid-init) |
+| H41 | n80 a203 @ **~8**/80 (healthy) |
+| H42 | train done → **merging** LoRA |
+| H43 | train done → **merging** LoRA |
 
 ## What's running
 
@@ -28,8 +28,8 @@ No submit. Best live family = H28 winner-zA (m=+0.01095).
 | mine-h39-1 | swift-wolf-6e | 86.38.238.54:40301 | ~11:11Z | H39 n80 a203 |
 | mine-h40-1 | gentle-eagle-c9 | 150.136.71.147:20300 | ~11:12Z | H40 chall→n80 |
 | mine-h41-1 | zesty-lion-26 | 38.255.28.19:20099 | ~11:14Z | H41 n80 a203 |
-| mine-h42-1 | cosmic-matrix-bb | 38.255.28.21:20100 | ~12:04Z | H42 train |
-| mine-h43-1 | noble-eagle-18 | 38.255.28.22:20099 | ~12:05Z | H43 train |
+| mine-h42-1 | cosmic-matrix-bb | 38.255.28.21:20100 | ~12:04Z | H42 merge→n80 |
+| mine-h43-1 | noble-eagle-18 | 38.255.28.22:20099 | ~12:05Z | H43 merge→n80 |
 
 known_hosts `/tmp/mine-h{39,40,41,42,43}-1.known_hosts`.
 **Free slots: 0.** Burn ~$170/h mining.
@@ -45,9 +45,9 @@ Reject catalog pods with nvidia-smi COUNT≠8 or $/h<$20.
 
 ## Next action
 
-1. H39: poll n80 → decision. Margin >0.04 → Stage 5.
-2. H41: poll n80 → decision (same).
-3. H40: wait chall promptable (completions×2) after p215; if Triton
-   launcher.so dies again → reap orphan `VLLM::` ppid=1 + recover.
-4. H42/H43: poll train → merge → n80.
-5. REFUTE → `lium rm mine-hN-1` only; fill non-α H28 (data/α axes open).
+1. H40: wait chall health + completions×2 (p216 chall_pid=29824,
+   TCACHE `/root/.triton/isolated/h40_chall_p216_*`). If Triton .so dies
+   again → recover with isolated TCACHE (not `cache/chall_*`).
+2. H39/H41: poll n80 → decision. Margin >0.04 → Stage 5.
+3. H42/H43: poll merge.done → chall serve → hashed n80.
+4. REFUTE → `lium rm mine-hN-1` only; fill non-α H28 (data/α axes open).

@@ -75,13 +75,12 @@ Format: `- <finding> — <the number or error that proves it>`
   `sm_121f` via `s3-duel-sim/patch_b300_sm103_flash_attn.sh` after venv install
   (H23 pass170). H200 unaffected.
 - Triton races: per-role `TRITON_CACHE_DIR` + wipe + stagger; kill orphans by
-  GPU index never `pkill -f "vllm serve"`. MoE wait ≥120×15s; settle ≥20s
+  GPU index never `pkill -f "vllm serve"`. MoE wait ≥120×15s; settle ≥30s
   after wipe. Health=200 ≠ alive — gate on `/v1/completions` 200 **twice**
-  20s apart (H38 p205: first ok → EngineDead on `__triton_launcher.so` →
-  false_probe). Post-death orphans are `VLLM::Worker` **ppid=1**; nvidia-smi
-  may show stale `[Not Found]` pids — reap via `ps` too (H40/H41 p214).
-  Watcher/retry must auto-quarantine `false_probe` (not exit).
-  `FALSE_PROBE_*` ≠ REFUTE — never `lium rm`.
+  20s apart. `.so` can vanish mid-init too (H40 p215 profile_run), not only
+  after first completion — put TCACHE under `/root/.triton/isolated/` outside
+  the `chall_*` wipe glob (H40 p216). Orphans are `VLLM::Worker` **ppid=1**;
+  reap via `ps` too. `FALSE_PROBE_*` ≠ REFUTE — never `lium rm`.
 - `pgrep -f` false-matches SSH/watcher argv — use
   `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
   from `watch_n80_retry` (self-deadlock H32 pass198).

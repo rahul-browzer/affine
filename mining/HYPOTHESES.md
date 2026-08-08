@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H39 | high | H28 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~41/80) |
-| 2 | H40 | high | H28 cell @ **epochs=3** → m>0.04 | **open** (chall p215) |
-| 3 | H41 | med | H28 cell @ **lora r=32** → m>0.04 | **open** (n80 ~1/80) |
-| 4 | H42 | med | H28 cell @ **lr=5e-6** → m>0.04 | **open** (train ~20/26) |
-| 5 | H43 | med | H28 cell @ **α=64 r16** → m>0.04 | **open** (train ~15/26) |
+| 1 | H39 | high | H28 cell @ **lr=3e-5** → m>0.04 | **open** (n80 ~46/80) |
+| 2 | H40 | high | H28 cell @ **epochs=3** → m>0.04 | **open** (chall p216) |
+| 3 | H41 | med | H28 cell @ **lora r=32** → m>0.04 | **open** (n80 ~8/80) |
+| 4 | H42 | med | H28 cell @ **lr=5e-6** → m>0.04 | **open** (merging) |
+| 5 | H43 | med | H28 cell @ **α=64 r16** → m>0.04 | **open** (merging) |
 | — | H38 | was high | H28 @ epochs=2 | **refuted** m=−0.00037 |
 | — | H37 | was high | H28 @ lr=1e-4 | **refuted** m=−0.00088 |
 | — | H36…H29 | — | union / ks / TP×ks | **refuted** |
@@ -25,25 +25,25 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H39 — H28 @ lr=3e-5 (non-α)
 - **Claim:** mid-LR between H28 1e-5 and H37 1e-4 → m>0.04.
-- **Status:** n80 a203 ~41/80 healthy. `s4-h39-m7-winner-za-lr3e5/`.
+- **Status:** n80 a203 ~46/80 healthy. `s4-h39-m7-winner-za-lr3e5/`.
 
 ### H40 — H28 @ epochs=3 (non-α)
 - **Claim:** 3× epochs on m7×winner-zA@lr1e-5 → m>0.04.
-- **Status:** chall recover p215 loading (p214 died again on first
-  completion — `__triton_launcher.so`). `s4-h40-m7-winner-za-ep3/`.
+- **Status:** chall p216 loading (isolated TCACHE; p215 died mid-init on
+  missing `__triton_launcher.so`). `s4-h40-m7-winner-za-ep3/`.
 - Note: H38@ep2 already null — ep3 likely weak; let finish.
 
 ### H41 — H28 @ LoRA r=32 (non-α)
 - **Claim:** 2× LoRA rank (r32/α64) → m>0.04.
-- **Status:** n80 a203 ~1/80 healthy (p214 recover held). `s4-h41-m7-winner-za-r32/`.
+- **Status:** n80 a203 ~8/80 healthy. `s4-h41-m7-winner-za-r32/`.
 
 ### H42 — H28 @ lr=5e-6 (non-α)
 - **Claim:** half H28 LR → less overwrite → m>0.04 (H37 10×LR killed signal).
-- **Status:** train ~20/26 loss≈0.42 (205 fit ex). `s4-h42-m7-winner-za-lr5e6/`.
+- **Status:** train done (26/26, 205 ex) → merging. `s4-h42-m7-winner-za-lr5e6/`.
 
 ### H43 — H28 @ LoRA α=64 @ r=16 (non-α)
 - **Claim:** α×2 at fixed r16 (≠ H41 r32) → m>0.04.
-- **Status:** train ~15/26 loss≈0.42 (205 fit ex). `s4-h43-m7-winner-za-a64/`.
+- **Status:** train done (26/26, 205 ex) → merging. `s4-h43-m7-winner-za-a64/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
