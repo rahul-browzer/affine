@@ -42,8 +42,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** recover DONE; n80 vs Tok live @21:36Z (engines 200).
-- `experiments/s4-h102-f7-teacher-zc/` · `results/pass384_midload_seed.md`.
+- **Status:** FALSE_PROBE (H32 overflow) quarantined; salvage 555 hang
+  unfrozen p386; chall reloading → n80 retry.
+- `experiments/s4-h102-f7-teacher-zc/` · `results/pass386_unfreeze_salvage.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
@@ -53,7 +54,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** `mine-f9-1` bootstrap→kevin DL (rented p379).
+- **Status:** kevin LoRA train live; teacher.done; Tok DL incomplete.
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass379_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
