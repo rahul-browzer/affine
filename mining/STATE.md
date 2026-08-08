@@ -14,27 +14,27 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$185,810** · cum ~$10,870 · **avail ~$175.8k** |
+| Lium / spend | **~$185,764** · cum ~$10,920 · **avail ~$175.8k** |
 | miner | τ10.000 free · 0 submissions |
-| H87 | n80 a203 ~8/80 · mid304 pid25109 · t/k/c=200 frozen |
-| H88 | king311+recover264 live · teacher=200 · was bare chall |
-| H89 | king=200 · teacher+chall loading (mem mid) |
-| H90 | train_lora r14 + post_train |
-| H91 | bootstrap DOWNLOAD tok-init |
+| H87 | n80 a203 ~20/80 · mid304 pid25109 · t/k/c=200 |
+| H88 | n80 a203 + mid304 pid26188 · t/k/c=200 |
+| H89 | n80 a203 + mid304 pid30719 · t/k/c=200 |
+| H90 | train DONE step26 · merge ~60% · t+k serving |
+| H91 | bootstrap DL tok-init ~91% · hf 51G |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
 | mine-h87-1 | swift-shark-4f | 38.255.28.22:20100 | ~03:31Z+1d | n80+mid304 |
-| mine-h88-1 | zesty-hawk-be | 38.255.28.19:20100 | ~03:32Z+1d | king+chall recover |
-| mine-h89-1 | gentle-fox-06 | 152.236.142.237:40309 | ~03:38Z+1d | tchr+chall load |
-| mine-h90-1 | noble-shark-3c | 152.236.142.232:40310 | ~04:23Z+1d | train r14 |
+| mine-h88-1 | zesty-hawk-be | 38.255.28.19:20100 | ~03:32Z+1d | n80+mid304 |
+| mine-h89-1 | gentle-fox-06 | 152.236.142.237:40309 | ~03:38Z+1d | n80+mid304 |
+| mine-h90-1 | noble-shark-3c | 152.236.142.232:40310 | ~04:23Z+1d | merge→chall |
 | mine-h91-1 | brave-shark-d2 | 38.255.28.18:20099 | ~04:31Z+1d | DL tok-init |
 
 known_hosts `/tmp/mine-h{87,88,89,90,91}-1.known_hosts`. **Free: 0.** ~$152/h.
 Non-mine `wan-lora-*` / `affine-*` — **do not touch**.
-**p335:** H87 mid304 armed; H88 king311+recover264 launched.
+**p336:** H88+H89 recover DONE → n80 a203 + mid304 armed.
 
 ## Blocked
 
@@ -51,10 +51,10 @@ recover264 rearms form+n80 **not** mid304 — arm mid304 when n80 starts.
 Do **not** probe completions during recover settle (CUDA illegal-access).
 mid304 detect: `$0` arg1=`…/watch_mid_n80…sh` only — SSH `-c` text is false positive.
 Orphan `VLLM::Worker` fds on 0–3: kill carefully (H89 p334 EngineDead).
+H88 king recover used util=0.80 — watch first-turn OOM.
 
 ## Next action
 
-1. **H87** await n80 → `h87_decision.json` (mid304 stays).
-2. H88 both recovers DONE → promptable → n80+mid304.
-3. H89 teacher+chall 200 → n80+mid304.
-4. H90/H91 train→merge→n80.
+1. **H87/H88/H89** await n80 → `h*_decision.json` (keep mid304).
+2. H90 merge→chall serve → n80+mid304.
+3. H91 DL→train→merge→n80.
