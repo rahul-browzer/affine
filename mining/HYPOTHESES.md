@@ -8,10 +8,10 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H58 | med | H42 cell @ **lr=5.1e-6** → m>0.04 | **open** (bootstrap) |
-| 2 | H57 | med | H42 cell @ **lr=5.25e-6** → m>0.04 | **open** (merge) |
-| 3 | H55 | med | H42 cell @ **lr=5.5e-6** → m>0.04 | **open** (chall serve) |
-| 4 | H56 | med | H42 cell @ **r=24** → m>0.04 | **open** (chall serve) |
-| 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (chall recover) |
+| 2 | H57 | med | H42 cell @ **lr=5.25e-6** → m>0.04 | **open** (chall re-serve) |
+| 3 | H55 | med | H42 cell @ **lr=5.5e-6** → m>0.04 | **open** (n80 ~13/80) |
+| 4 | H56 | med | H42 cell @ **r=24** → m>0.04 | **open** (chall prefreeze) |
+| 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (a2 w1) |
 | — | H51 | was med | H28 cell @ α=16 | **refuted** m=+0.00855 |
 | — | H53 | was med | H42 cell @ lr=4e-6 | **refuted** m=−0.00885 |
 | — | H52 | was med | H42 cell @ lr=6e-6 | **refuted** m=+0.01280 |
@@ -40,19 +40,20 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H57 — H28 @ lr=5.25e-6 (non-α)
 - **Claim:** ridge between H42 5e-6 and H55 5.5e-6 → m>0.04.
-- **Status:** merge writing. `pass244_launch.md`.
+- **Status:** merge OK_NON_IDENTICAL → chall re-serve. `pass244_launch.md`.
 
 ### H55 — H28 @ lr=5.5e-6 (non-α)
 - **Claim:** between H42 5e-6 and dead H52 6e-6 → m>0.04.
-- **Status:** merge done → chall re-serve. `pass243_launch.md`.
+- **Status:** n80 live ~13/80 (a203). `pass243_launch.md`.
 
 ### H56 — H42 @ LoRA r=24 (non-α)
 - **Claim:** open r gap (r≤8∧r≥32 dead) @ lr=5e-6 → m>0.04.
-- **Status:** merge done → chall re-serve. `pass243_launch.md`.
+- **Status:** chall `__triton_launcher` ENOENT → pass247 prefreeze recover.
+  `pass247_chall_prefreeze.md`.
 
 ### H54 — H28 @ lr=8e-6 (non-α)
 - **Claim:** above dead 7.5e-6 → m>0.04 (**low prior** — H50 collapsed).
-- **Status:** chall prefreeze a2 after post-merge ENOENT. `pass246_chall_prefreeze.md`.
+- **Status:** chall a2 health=200 + prefreeze → w1. `pass246_chall_prefreeze.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
