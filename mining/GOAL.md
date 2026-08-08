@@ -95,16 +95,23 @@ just as bad as touching it directly.
 - Fund Lium only from the `miner` wallet: `lium fund -w miner -a <TAO>`.
   Never `-w default` — that is the validator's wallet.
 - **τ786 was converted to Lium credit on 2026-08-07 (operator authorized).**
-  Lium balance is now **~$191,300**. The τ10.0067 left in the coldkey is the
-  **registration reserve** — it exists to pay SN120 hotkey burns (~τ0.7 each) and
-  is not spending money. Do not send it to Lium; if you convert it you cannot
-  register, and registering is how you get paid.
+  Lium balance is now **~$191,300**.
+- **The coldkey balance is NOT your budget.** It holds **~τ1,290 as of
+  2026-08-08T19:00Z** — an operator deposit that passes through this wallet for
+  operator payments, plus a ~τ10 **registration reserve** for SN120 hotkey burns
+  (~τ0.7 each). Convert **none** of it. Your budget is the Lium credit above the
+  floor, and that is already ~$175k; you have no reason to touch TAO. A coldkey
+  top-up of Lium requires an explicit dated per-amount operator instruction in
+  this file. Absent that, if you ever hit the Lium floor, **stop and record that
+  you are blocked** — never top up on your own initiative. TAO→Lium is one-way.
 - Money is no longer your binding constraint. **The 20-pod cap is.** Do not
   interpret a large balance as licence to run sloppy experiments — at $180/hour
   the cost of a pass is unchanged, and a pod left idle still wastes the same
   dollars it always did. Spend on distinguishable hypotheses, not repeats.
-- The only permitted outflows from the `miner` coldkey are: registration
-  burns, Lium top-ups, and staking. Nothing else, to nobody.
+- The only permitted outflows from the `miner` coldkey are registration burns.
+  Lium top-ups, staking and transfers are **operator-only** actions now that the
+  coldkey carries an operator balance: each needs a dated per-amount instruction
+  here. Nothing else, to nobody.
 - Record every dollar and every TAO in `LEDGER.md`, in the same pass it moves.
 
 **5. Keep the heavy work off this machine.**
