@@ -10,7 +10,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (merge) |
 | 2 | H98/F1 | high | REINFORCE self-L1lift → m>+0.015 | **open** (train) |
 | 3 | H101/F6 | high | ultrashort≤80 format → m>+0.015 | **open** (train) |
-| 4 | H102/F7 | high | teacher z_C SFT → m>+0.015 | **queued** (rent next) |
+| 4 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (bootstrap) |
 | — | H97/F3 | — | r=256 breaks LoRA ceiling | **refuted** m=−0.01506 |
 | — | H96 | — | Tok-init r9 → m>0.04 | **refuted** m=+0.00913 |
 | — | H99/F2 | — | high-Λ2 z_A SFT → m>+0.015 | **refuted** m=−0.00199 |
@@ -37,11 +37,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Status:** `mine-f6-1` TRAIN 0/60 (fit-filter 477/1058); data mean z 59.9.
 - `experiments/s4-h101-f6-short-format/` · `results/pass372_rent.md`.
 
-### H102 / F7 — Teacher z_C SFT (queued)
-- **Claim:** SFT on published teacher_refs `z_C` (frontier thoughts on D),
-  not harvested z_A — different data axis; can move Λ2 where z_A LoRA cannot.
-- **Status:** queued; rent `mine-f7-1` next pass. Not r-neighbour.
-- `experiments/s4-h102-f7-teacher-zc/` (create on rent).
+### H102 / F7 — Teacher z_C SFT on Genesis — open
+- **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
+  King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
+- **Status:** `mine-f7-1` bootstrap (uv/venv); Genesis DL→train next.
+- `experiments/s4-h102-f7-teacher-zc/` · `results/pass375_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -50,7 +50,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | F | family | next |
 |---|---|---|
-| F7 | Teacher z_C SFT (H102) | **rent next** — free slot after F3 rm |
+| F7 | Teacher z_C × Genesis (H102) | **live** mine-f7-1 bootstrap |
 | F5 | Correctness-grounded z | needs verified trajectories first |
 
 ## Refuted (keep)
