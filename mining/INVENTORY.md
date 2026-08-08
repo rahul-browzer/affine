@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h60-1 | swift-eagle-4e | 8×H200 | $31.92 | ~2026-08-08T18:27Z | H60 m7×wZA lr5.3e-6 | n80 ~42/80 |
-| mine-h61-1 | golden-matrix-4b | 8×H200 | $31.92 | ~2026-08-08T18:47Z | H61 m7×wZA lr5.15e-6 | n80 ~24/80 bare TCACHE |
-| mine-h62-1 | golden-matrix-66 | 8×H200 | $28.00 | ~2026-08-08T19:01Z | H62 m7×wZA r20 | n80 ~3/80 isolated |
-| mine-h63-1 | noble-eagle-3f | 8×H200 | $31.92 | ~2026-08-08T19:28Z | H63 m7×wZA lr5.05e-6 | merge + preempt264 |
-| mine-h64-1 | gentle-wolf-eb | 8×H200 | $31.92 | ~2026-08-08T19:28Z | H64 m7×wZA r18 | merge + preempt264 |
+| mine-h60-1 | swift-eagle-4e | 8×H200 | $31.92 | ~2026-08-08T18:27Z | H60 m7×wZA lr5.3e-6 | n80 ~60/80 |
+| mine-h61-1 | golden-matrix-4b | 8×H200 | $31.92 | ~2026-08-08T18:47Z | H61 m7×wZA lr5.15e-6 | n80 b203 ~12/80 bare |
+| mine-h62-1 | golden-matrix-66 | 8×H200 | $28.00 | ~2026-08-08T19:01Z | H62 m7×wZA r20 | n80 ~27/80 |
+| mine-h63-1 | noble-eagle-3f | 8×H200 | $31.92 | ~2026-08-08T19:28Z | H63 m7×wZA lr5.05e-6 | merge + preempt wait |
+| mine-h64-1 | gentle-wolf-eb | 8×H200 | $31.92 | ~2026-08-08T19:28Z | H64 m7×wZA r18 | recover264 fired |
 
 SSH: h60 .22:20100 · h61 .18:20100 · h62 .236:40310 ·
 h63 .19:20100 · h64 .21:20099 ·
@@ -32,6 +32,6 @@ known_hosts `/tmp/mine-h{60,61,62,63,64}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T07:57Z | h60–64 match | no rm; H64 p264 recover armed |
 | 2026-08-08T07:43Z | h60–64 match | no rm; H63/H64 p264 preempt armed |
 | 2026-08-08T07:40Z | h60–64 match | no rm; H62 freeze→n80 armed |
-| 2026-08-08T07:32Z | h60–64 match | no rm; H62 p262 preempt recover launched |
