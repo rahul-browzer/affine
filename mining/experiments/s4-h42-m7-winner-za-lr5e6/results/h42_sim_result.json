@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2217.137107372284,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h42/merged",
+  "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+  "hotkey": "local-h42",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.016126211447330806,
+    "se": 0.009066185992069802,
+    "z": 1.7787205624764826,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.01575246414284944,
+      "gate_pass_rate": 0.871875,
+      "bank_frac": 0.478125,
+      "calib_ratio": 0.7738171540655553,
+      "baseline_abs": 0.12387915818329333,
+      "n_turns": 80,
+      "n_pairs": 320,
+      "mean_lambda2": -0.007196103140398015,
+      "mean_mix": 0.01575246414284944
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.032037325681488246,
+      "gate_pass_rate": 0.8401253918495298,
+      "bank_frac": 0.5729166666666667,
+      "calib_ratio": 0.6138514595067552,
+      "baseline_abs": 0.1506237758556563,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.00676122612697352,
+      "mean_mix": 0.032037325681488246
+    },
+    "slice": {
+      "seed": 17585366514250391128,
+      "n": 80,
+      "digest": "bbee46473aff49ebe17d8b8607d0432a71fbec724c517862d08df095244cce85",
+      "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6138514595067552,
+    "chall_baseline_abs": 0.1506237758556563,
+    "king_baseline_abs": 0.12387915818329333,
+    "base_x": 1.2158927947572205
+  }
+}
