@@ -102,7 +102,8 @@ Format: `- <finding> — <the number or error that proves it>`
   Swept r9–r31 and lr 4.95–8e-6 on m7- and Tok-init; every cell vs Tok landed in
   −0.022…+0.009. The two 'best' (H64 r18 +0.02509, H67 r19 +0.01835) were vs the
   *dead* TalentPigs king and their r18 replicates came back −0.009/−0.011/+0.0005.
-  H93 r15=−0.007; H91 r12=−0.0056; H94 r11=−0.0137; H95 r10=+0.0015 (p369). Do not resume.
+  H96 r9=+0.00913 (p373); H95 r10=+0.0015; H94 r11=−0.0137; H91 r12=−0.0056;
+  H93 r15=−0.007. Do not resume.
 - **F2 high-Λ2 z_A remix REFUTED (H99 p371):** Tok-LoRA on 1059 Λ2≥0.02 ex →
   m=−0.001994; mean_λ2_c −0.00154 ≈ king −0.00095. Selecting teacher-Λ2 winners
   as SFT data does not move Λ2 under king-init LoRA — same frozen-Λ2 failure mode
@@ -146,5 +147,4 @@ Format: `- <finding> — <the number or error that proves it>`
 - Bare post_train chall can hit :8002=200 with mid-load Triton ghost WARNING then still finish; preempt264→recover264 is correct (H71 p287). Stale `retry_h*_n80` wait started before chall existed burns the 120×15s budget — recover kills+rearms; if no recover, kill retry PID near poll≳100 so watcher refreshes wait.
 - recover264 DONE rearms form+watch_n80 only — **not** preempt/mid304. Arm mid304 when n80 starts; mid304 exits on `sim gone` → re-arm after recover. Detect live scripts via `/proc/*/cmdline` `$0` (SSH/`bash -c` argv is a false positive — H82/H93 p349: mid304 `recover_alive` skipped while check script argv held `relaunch_chall_pass264.sh`).
 - Chall recover must seed from **live king isolated TCACHE** (`:8001` `TRITON_CACHE_DIR`), not bare `/root/.triton/cache/king` — H91 p344: "no king TCACHE" → cold JIT → NODUTTS4 ImportError; seed king n_so=16 fixed path. Early-abort wait_health on launcher ImportError (don't burn 120×10s).
-- Clone recover scripts can leave wrong hyp dirname in rearm path (H94 p348: `…-r12/retry_h94` on r11 pod). Before DONE: `test -x` the rearm target; if missing, symlink correct EXP dir (never sed the live recover).
-- King cold-JIT isolated TCACHE can still die load-time launcher ENOENT (F3 p332 ABORT@19:54 NODUTTS4); seed from a **live peer king** TCACHE (H95 n_so=23 ghosts=0) into fresh isolated util=0.72 — p366 cleared past abort, shards loading.
+- Clone recover: wrong hyp dirname in rearm path (H94 p348) → `test -x` before DONE; symlink correct EXP (never sed live recover). King cold-JIT isolated TCACHE can still die load-time ENOENT (F3 p332 NODUTTS4); seed from **live peer king** TCACHE (H95 n_so=23) into fresh isolated util=0.72 — p366 OK.
