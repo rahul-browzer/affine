@@ -50,6 +50,34 @@ King Triton ENOENT → isolated TCACHE; OOM@util=0.80 → **0.72**.
 Seed chall from **live king isolated TCACHE** (not bare `cache/king`).
 recover264/king-recover rearm form+n80 only — **arm mid304 when n80 starts**.
 
+## Operator directive 2026-08-08T18:55Z — PARALLELIZE ACROSS FAMILIES
+
+Budget raised to **$20,000/day ($833/h)**, pod cap **5 → 20**. See GOAL
+"Use the compute" — the unit of parallelism is now the **family**, not the cell,
+and **SCREEN → CONFIRM (k=4) → SWEEP** is mandatory.
+
+Stop all lr/rank micro-sweeps. The winner-zA family mean is **−0.004 vs Tok**;
+more cells cannot fix a negative mean. Retire H91–H95 cells as they resolve and
+do not launch further neighbours of them.
+
+**Seed family queue — each is structurally distinct and untried. One pod each,
+screen at k=1, confirm any hit >+0.015 at k=4 before sweeping:**
+
+| F | family | why it could move the mean >+0.03 |
+|---|---|---|
+| F1 | **Direct RL on S** (GRPO/REINFORCE; reward = Λ2 + clip-L1 from the teacher) | the objective has *never* been in a loss — every recipe so far imitates traces and hopes |
+| F2 | **Target Λ2, not clip-L1** (train z to raise teacher-help) | Λ2 has the larger honest spread (0.0072 vs 0.0045) and is where the headroom is; LoRA-on-king pins it |
+| F3 | **Break the LoRA ceiling** — full FT or rank ≥256 | Λ2 is a base-model property; a rank-18 adapter structurally cannot move it |
+| F4 | **Non-king base model** (strong coder, not a king/near-miss) | every init so far was the incumbent or its neighbour — never left the basin |
+| F5 | **Correctness-grounded thoughts** (z from test-passing trajectories) | only family with a mechanism to raise Λ2 honestly |
+| F6 | **Thought format/length as a designed axis** | z≤300 was inherited from a harvest filter, never chosen |
+
+Priority F1, F3, F2 first (largest plausible mean shift, all runnable today).
+F5 needs verified trajectories — scaffold the data before renting.
+
+**Before scaling past ~8 pods:** bake watchdogs into bootstrap and write
+`fleet_status.sh` (parallel poll, one table). Reliability, not money, is the cap.
+
 ## Next action
 
 1. **H91/H93/H94** await n80 → `h{91,93,94}_decision.json` (keep mid304).

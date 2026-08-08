@@ -85,10 +85,13 @@ just as bad as touching it directly.
   before renting. If renting would cross the floor, do not rent — record it and
   stop. This floor is the validator's reserve. It is the one money limit left,
   so treat it as hard, however far away it currently looks.
-- Report the balance and both burn rates in `LEDGER.md` every pass. At 5 mining
-  pods you are spending roughly $180/hour on top of the validator's $70/hour —
-  the pool drains in days, not weeks. A pass that leaves an idle pod running is
-  now expensive.
+- **Daily mining budget: $20,000/day = $833/hour** (operator 2026-08-08). This
+  is a *rate* cap, not a total. Compute your current burn every pass as the sum
+  of `$/h` over live `mine-*` pods and put it in `LEDGER.md`. If burn exceeds
+  $833/h, do not rent — tear down the least informative pod first.
+- Reconcile cumulative spend from `lium balance` deltas, **never** by summing
+  teardown costs; summing rm events double-counts and overstated spend ~2× on
+  2026-08-08.
 - Fund Lium only from the `miner` wallet: `lium fund -w miner -a <TAO>`.
   Never `-w default` — that is the validator's wallet.
 - **τ786 was converted to Lium credit on 2026-08-07 (operator authorized).**
@@ -96,7 +99,7 @@ just as bad as touching it directly.
   **registration reserve** — it exists to pay SN120 hotkey burns (~τ0.7 each) and
   is not spending money. Do not send it to Lium; if you convert it you cannot
   register, and registering is how you get paid.
-- Money is no longer your binding constraint. **The 5-pod cap is.** Do not
+- Money is no longer your binding constraint. **The 20-pod cap is.** Do not
   interpret a large balance as licence to run sloppy experiments — at $180/hour
   the cost of a pass is unchanged, and a pod left idle still wastes the same
   dollars it always did. Spend on distinguishable hypotheses, not repeats.
@@ -126,7 +129,13 @@ operator's uncommitted work in it. Your commits must never pick that up.
 - Only ever `git add mining/` (or specific paths under it). Never `git add -A`,
   never `git add .`, never `git commit -a`.
 - Never `push`, `pull`, `fetch`, `merge`, `rebase`, `reset`, `checkout`,
-  `stash`, or `clean`. Local commits under `mining/` only.
+  `restore`, `stash`, or `clean`. Local commits under `mining/` only.
+- **`GOAL.md` is the operator's file, not yours. Never edit it and never revert
+  it.** If you find it changed mid-pass, that is the operator giving you a new
+  instruction — read it and follow it. On 2026-08-08 a pass restored `GOAL.md`
+  to HEAD and silently destroyed an operator directive. If your working tree
+  shows `GOAL.md` modified, **leave it alone**; do not `git restore` it, do not
+  `git add` it, do not "clean up" the diff.
 - Never commit a secret or a model weight. `mining/.env`, `mining/wallets/`,
   `.ralph/`, and weight files are gitignored — keep it that way.
 - Commit at the end of any pass that produced a result worth keeping.
@@ -309,11 +318,24 @@ whatever it is. Reinvest earnings into Lium credit.
 Testing one hypothesis at a time on one pod is the main thing slowing this run
 down. Serial hypothesis testing is the failure mode to avoid.
 
-- **Whenever you have two or more independent hypotheses, run them on separate
-  pods at the same time.** Default to 3–5 live `mine-*` pods, not 1.
-- A pod is cheap relative to a wasted night. Five 8×H200 is roughly $150–180/hour,
-  and the pool above the floor now allows on the order of five days at that rate.
-  Spend it — but on distinguishable hypotheses, not repeats.
+- **The unit of parallelism is the FAMILY, not the cell.** (operator 2026-08-08)
+  A family is a structurally different *method*. A cell is one hyperparameter
+  setting inside a family. Ninety-five experiments produced only two families —
+  weight-merging and SFT-on-harvested-traces, 100% LoRA, always initialised from
+  the incumbent king. That is one idea explored ninety-five times, and its mean
+  is **−0.004 versus the live king**. No amount of cell sweeping fixes a
+  negative mean.
+- **Run up to 20 live `mine-*` pods**, budget permitting ($833/h cap). Each one
+  should be a *different family* until you have a confirmed hit.
+- A family is worth a slot only if it could plausibly move the mean by
+  **> +0.03** (from −0.004 to past the ~0.025 bar). That is ~3.5 SE, so only
+  structural change qualifies. If you cannot say *why* an idea could move the
+  mean that far, it is a cell, not a family — do not give it a slot.
+- **Why this is worth doing:** the bar is not high in absolute terms. On the
+  honest panel genesis beats the king field by **+0.16**, six times the bar.
+  The field is bunched only because everyone submits the same kind of distill.
+  Leaving that basin is the whole game; out-sweeping other people inside it is
+  not.
 - Independent means: different base model, different data, different training
   recipe, different merge — anything whose result does not depend on another
   running experiment's output. Those go on their own pods, immediately.
@@ -322,35 +344,56 @@ down. Serial hypothesis testing is the failure mode to avoid.
   H-x to report before renting" is the serial failure mode wearing a budget
   disguise, and money is no longer the constraint. If a slot is free, fill it
   in the same pass.
-- **Fill free slots with variants of your current best direction.** When one
-  recipe looks more promising than the rest, do not run it alone and wait —
-  run its neighbours beside it. A variant means one axis moved: different
-  init model, different learning rate, different data threshold, different
-  step count. Variants are independent by construction (nothing depends on
-  another's output), so they are exactly what the parallel slots are for, and
-  a spread of four tells you the *shape* of the response where one tells you
-  a single point.
-- Variants must be **non-α**. Weight-merge α sweeps are refuted (n=9, mean
-  −0.0014, best +0.0097, never half the bar) — do not spend a free slot on one.
-- **One n80 duel cannot resolve a small hyperparameter step. SE ≈ 0.0084.**
-  Two configs whose margins differ by less than ~0.017 (2·SE) are
-  indistinguishable from one draw each. So:
-  - Do **not** blacklist an individual lr or rank on the strength of one n80.
-    Sweeping lr at 1% steps (5.01 vs 5.02 vs 5.05e-6) and killing each on a
-    single draw is fitting noise, not finding a response curve.
-  - When a cell lands near the bar, **replicate that same cell** before moving
-    on. A second n80 on your best config is worth more than a new cell one
-    percent away, because the bar is `3·SE` and a re-draw is a fresh shot at it.
-  - Prefer axes that plausibly move the mean by **more than 0.017** (init model,
-    data source, rank in steps of ≥8, epochs) over micro-steps that cannot.
+### SCREEN → CONFIRM → SWEEP. Never skip a step.
+
+The past failure was not screening. It was **95 screens and zero confirmations**.
+With SE ≈ 0.0084, the best of 95 single draws is **+0.021 of pure luck** even if
+every cell is identical. That is exactly what H64 was: family mean +0.015, and
+the max of 11 draws lands at +0.028 by arithmetic. Its three replicates came
+back −0.009, −0.011, +0.0005. **Any single result you have not replicated is a
+rumour.**
+
+1. **SCREEN** — one n80 per family, k=1. False positives are expected and fine
+   at this stage. Screen as many *different families* as slots allow.
+2. **CONFIRM** — the moment a screen lands above +0.015, spend **k=4 replicates
+   of that exact cell** before anything else. Four replicates give SE 0.0042 and
+   resolve real effects down to 0.0084. Rank families by **mean of k**, never by
+   max of one.
+3. **SWEEP** — only after a family is confirmed do you explore cells inside it.
+   Sweeping an unconfirmed family is how the last three days were spent.
+
+Budget the fleet roughly **15 screening slots + 5 confirmation slots**, rotating.
+Never let a screen graduate to a sweep without passing step 2.
+- Do **not** blacklist a cell on one draw, and do not call a cell dead for
+  landing under 0.04 — 0.04 is the submit gate, the crowning bar is ~0.025.
+- Weight-merge α sweeps are refuted (n=9, mean −0.0014). Never spend a slot.
 - Keep each pod single-purpose and name it for its hypothesis
   (`mine-h7-1`, `mine-h8-1`), so a pass reading `INVENTORY.md` cold can tell
   what each one is for and kill the ones whose experiment is finished.
 - Tear a pod down the moment its experiment resolves. Parallel breadth is
   worth paying for; idle pods are not.
 
-The hard rules still bind: 5 pods maximum, `mine-*` names only, a TTL on every
-pod, `INVENTORY.md` updated before renting, and the balance floor.
+The hard rules still bind: **20 pods maximum**, `$833/h` burn cap, `mine-*`
+names only, a TTL on every pod, `INVENTORY.md` updated before renting, and the
+$10,000 balance floor.
+
+### Reliability is the real cap on fleet size
+
+At five pods a third of your capacity already goes to Triton `.so` faults and
+king OOMs, handled reactively one pass at a time. That overhead **multiplies**
+with pod count: twenty pods recovered by hand means a pass never finishes and
+throughput goes *down*. Before scaling past ~8 pods:
+
+- **Bake every recovery watchdog into `bootstrap`, armed at launch** — the
+  isolated-TCACHE seed, `util=0.72` chall, `recover264`, `watch_n80_retry`,
+  `watch_form_decision`, the preempt. Arming them reactively after a crash is
+  what costs you passes. A pod must be able to recover itself with no pass.
+- **Write and maintain one `fleet_status.sh`** that polls every pod *in
+  parallel* and prints a single table (pod, family, stage, n80 progress, engine
+  health, $/h). Do not SSH to pods one at a time inside a pass — at twenty pods
+  that alone exceeds the pass budget.
+- Treat a pod that has needed three manual recoveries as hardware-bad: tear it
+  down and rent a replacement rather than nursing it.
 
 ---
 

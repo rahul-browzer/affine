@@ -1,7 +1,8 @@
 # LEDGER — money in / money out
 
 **Cap: 40 lines.** Totals + last 10 movements. Older → `archive/`.
-Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
+Floor ≥ **$10,000**. No total spend cap; **rate cap $20,000/day = $833/h**
+(operator 2026-08-08). Report live burn = Σ $/h over `mine-*` pods every pass.
 
 ## Totals
 

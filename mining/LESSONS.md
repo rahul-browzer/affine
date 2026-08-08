@@ -1,37 +1,46 @@
 # LESSONS — durable findings
 Hard-won knowledge, one line each. **Cap 150 lines.** Detail → `experiments/`.
 Format: `- <finding> — <the number or error that proves it>`
+## Method search — read before spending a slot
+- **95 experiments = 2 families, not 95 ideas.** All were weight-merge or
+  SFT-on-harvested-traces, 100% LoRA, ~always init from the incumbent king.
+  Family mean vs live king **−0.004**. Cells cannot fix a negative mean; only a
+  structurally different family can. Unit of parallelism is the **family**.
+- **Best-of-N is a mirage: max of 95 draws at SE 0.0084 = +0.021 of pure luck.**
+  H64 proved it — family mean +0.015, screen +0.0251, three replicates −0.009,
+  −0.011, +0.0005. **An unreplicated result is a rumour.** Rank by mean of k=4,
+  never by max of one. SCREEN → CONFIRM(k=4) → SWEEP; never skip the middle.
+- **The bar is low; the basin is the problem.** Genesis beats the king field by
+  **+0.16 = 6× the crowning bar** on the honest panel. The field is bunched only
+  because everyone ships the same distill. Leave the basin, don't out-sweep it.
+- Λ2 has more honest spread than clip-L1 (0.0072 vs 0.0045) and is a **base-model
+  property** — a low-rank adapter on the king structurally cannot move it. That
+  is the mechanical reason 95 LoRA-on-king runs all landed at ~0.
 ## Scoring / what actually moves S
 - All `lp*` are echo+logprob **forced** scores normalized per byte (`lp_per_byte`).
 - `S` is only comparable **within one duel** (slice = reveal-block seed). Never
   cross-duel compare absolute S or absolute clip-L1; use within-slice Δ.
 - Crown needs margin > max(3·SE, 0.02) ≈ **0.025** at SE≈0.0084. We lose on
   margin, not gates.
-- **0.04 is our SUBMIT gate (slice-variance headroom), NOT the crowning bar and
-  NOT a kill threshold.** Conflating them nearly binned our best work: H64 r=18
-  m=+0.02509 z=2.993 missed 3·SE=0.02515 by **0.000059 (0.23%)** and was written
-  into the dead list. A cell in 0.015–0.04 is a **shortlist to replicate**.
-- **SE≈0.0084 ⇒ one n80 cannot separate cells <0.017 apart.** Sweeping lr at 1%
-  steps (5.01/5.02/5.05e-6) and blacklisting each on one draw is fitting noise:
-  the same family gave +0.0135, +0.0098, +0.0042, +0.0183, +0.0161 with no
-  order. **Replicate the best cell instead of stepping 1% sideways** — a re-draw
-  is a fresh shot at 3·SE; a neighbour cell is a coin flip already flipped.
-- Clip-L1 is the lever (H3): Spearman 0.936 vs outcome; Λ2 only 0.711.
+- **0.04 is our SUBMIT gate, NOT the crowning bar (~0.025) and NOT a kill
+  threshold.** A cell in 0.015–0.04 is a shortlist to replicate, never dead.
+- **SE≈0.0084 ⇒ one n80 cannot separate cells <0.017 apart.** The same family
+  gave +0.0135/+0.0098/+0.0042/+0.0183/+0.0161 with no order — 1% lr steps are
+  noise, not a response curve. Replicate the best cell; never step sideways.
+- Clip-L1 correlates with duel outcome (H3: Spearman 0.936 vs Λ2 0.711) **among
+  our own LoRA-on-king runs** — where Λ2 is frozen by construction, so it cannot
+  correlate. This does **not** mean Λ2 is the smaller lever: on the honest panel
+  Λ2 has the larger spread (0.0072 vs 0.0045). H3 is conditional on the dead
+  family; do not cite it to veto a Λ2-targeting family (F2/F3).
 - r ∈ [0.3, 4.0] (not our invented [0.70,0.85]); baseline band chall ≤1.25× king.
   Low r is a faithful-distill symptom, never a training target.
-- **α-merge is refuted as a class: ~1 in 1,200** — n=9 merges mean **−0.00143**
-  sd 0.00809 best +0.00970, never half the bar; +0.024 is 3.1σ out. Odds got
-  *worse* with data (was 1-in-260 at n=4). More partners B cannot help: the mean
-  is the problem, not the draw count. Never spend a slot on an α sweep.
-- **The band was never the blocker.** H21 ran α0.75 and *cleared* it at
-  base×**1.001** (vs ×1.85–2.21 for H7–H15/H18) and still lost −0.00682. So
-  "α squeezed between band-fail and king-similarity" is wrong — merges miss on
-  margin wherever α sits.
-- **Selecting B by clip-L1 fails too — only shaping works.** Best available
-  clip-L1 parent m7 (+0.0435) → H25 m=+0.00662; plmk +0.0389 → H16 +0.0097;
-  kkk +0.0288 mid-pack. Clip-L1 rank ≠ duel margin, exactly as parent margin
-  ≠ duel margin (H20). **Selection has never moved the mean; train for clip-L1
-  instead of shopping for it.** Do not requeue plmk/m7/kkk.
+- **α-merge refuted as a class** — n=9 mean **−0.00143** sd 0.00809 best +0.00970,
+  never half the bar (3.1σ out). Odds worsened with data. The mean is the problem,
+  not the draw count; more partners B cannot help. Never spend a slot on α.
+  Band was never the blocker either (H21 α0.75 cleared at ×1.001, still −0.00682).
+- **Selection has never moved the mean — only shaping can.** Best clip-L1 parent
+  m7 (+0.0435) → H25 +0.00662; plmk +0.0389 → H16 +0.0097. Parent rank ≠ duel
+  margin (H20). Do not requeue plmk/m7/kkk or shop for candidates.
 - Clip-L1 shaping data ≠ teacher_refs: harvest challenger `z_A` with
   pair clipL1≥0.04 from high-c_clipL1 duels (+ crown), y=teacher y_C,
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
@@ -94,22 +103,12 @@ Format: `- <finding> — <the number or error that proves it>`
   Rent by UUID $/h≥28 + `nvidia-smi -L|=8` (catalog lies; $11.6/h can be 4 GPUs).
 - `sync_corpus` flocks + adopts existing `turns.jsonl` (rename race H29/H30).
   H27 TP-init shaping m=−0.00792 — do not retry.
-- Winner-zA LoRA m7-init: **H64@r18 +0.02509 best vs TalentPigs** (z=2.993);
-  **H65@5.02e-6 +0.01829**; **H67@r19 +0.01835** (→H73); H42@5e-6 +0.01613;
-  H57@5.25 +0.01537; H58@5.1 +0.01466; H54@8 +0.01380; H60@5.3 +0.01350;
-  H66@5.08 +0.00976; H63@5.05 +0.00424; H61@5.15 band×1.262; H62@r20
-  band×1.273; **H68@4.95 band×1.257**; H69@r17 +0.01641 vs TalentPigs
-  (→H77 Tok / H80 Tok-init); **H70@5.01 −0.000525 vs Tok dead**; **H71@r16
-  −0.01366 vs Tok dead**; **H72/H74/H75@r18 vs Tok** m=−0.009/−0.011/+0.00055
-  (**H76@r18 −0.01974** closes m7×r18); **H73@r19 −0.00581 dead**;
-  **H78@r21 −0.00741 dead**; **H77@r17 −0.02176 dead** (closes m7×r17);
-  **H79 Tok-init@r18 −0.00784 dead**; **H80 Tok-init@r17 −0.000821 dead**;
-  **H81 Tok-init@r22 +0.008811** (<0.015); **H82@r23 −0.00439 dead**;
-  **H83@r25 +0.00101 dead**; **H84@r26 −0.00242 dead**;   **H85@r27
-  −0.00817 dead**; **H86@r28 −0.000341 dead**; **H87@r29 +0.005075
-  dead**;   **H88@r30 +0.001358 dead**; **H89@r31 −0.007241 dead**;   **H90@r14
-  −0.008472 dead**; **H92@r13 +0.000618 dead**. Open: **H91/H93–H96**
-  (r12/r15/r11/r10/r9). H66 king
+- **Winner-zA LoRA family: CLOSED, n=30+ cells, mean −0.004 vs live king.**
+  Swept r9–r31 and lr 4.95–8e-6 on m7- and Tok-init; every cell vs Tok landed in
+  −0.022…+0.009. The two 'best' (H64 r18 +0.02509, H67 r19 +0.01835) were vs the
+  *dead* TalentPigs king and their r18 replicates came back −0.009/−0.011/+0.0005.
+  Do not resume this family or any cell in it. Full per-cell table → archive.
+- H66 king
   mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe `cache/king`,
   `serve_three` (p271); don't wait for post_train abort.
 - mid304 exits on `sim gone` — rearm via file `arm_mid304_hN.sh` when n80
