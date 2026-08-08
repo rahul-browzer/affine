@@ -27,8 +27,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H99 / F2 — Target Λ2 via high-Λ2 z_A — open
 - **Claim:** Select z_A by Λ2≥0.02 (1059 ex; 65% not in clip-L1 set) → m>+0.015.
-- **Status:** TRAIN on mine-f2-1 (B200 @$40). Screen +0.015 → CONFIRM k=4.
-- `experiments/s4-h99-f2-target-l2/`.
+- **Status:** TRAIN 50/60 on mine-f2-1; teacher recover332 @19:39Z (bare TCACHE ENOENT).
+- `experiments/s4-h99-f2-target-l2/` · `results/pass361_teacher_recover.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
@@ -37,12 +37,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H97 / F3 — LoRA r=256 ceiling break — open
 - **Claim:** r=256/α512 Tok-init × winner-zA can move Λ2.
-- **Status:** chall recover264 mid-load (merge.done) on mine-f3-1.
+- **Status:** chall salvage n_so 16→22 prefreeze relaunch @19:40Z (merge.done).
 - `experiments/s4-h97-f3-r256/`.
 
 ### H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- H95 n80~4/80 a203+mid304; H96 n80 a203+mid304 @19:36Z.
+- H95 n80~14/80 + mid304; H96 n80~3/80 + mid304.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

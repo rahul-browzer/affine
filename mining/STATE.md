@@ -12,15 +12,15 @@ No submit. Best vs Tok: H81 +0.0088 (REFUTE). King Tok331102 S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$184,820** · cum ~$12,296 · **avail ~$174.8k** |
+| Lium / spend | **~$184,820** · cum ~$12,330 · **avail ~$174.8k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$225/h** (6 mine-*) ≪ $833/h · free slots **14** |
-| H95 | **n80 ~4/80** a203 + mid304; eng 200/200/200 |
-| H96 | **n80 live** a203 + mid304 armed @19:36Z; eng 200/200/200 |
-| F3 | chall recover264 mid-load (merge.done) |
-| F1 | RL train ~step35/200; **king332 isolated loading** |
-| F2 | LoRA train; teacher unhealthy (000) — defer until train ends |
-| F4 | bootstrap pip/vllm on B300 |
+| H95 | **n80 ~14/80** a203 + mid304 live; eng 200/200/200 |
+| H96 | **n80 ~3/80** a203 + mid304 live; eng 200/200/200 |
+| F3 | chall recover salvage n_so 16→22 prefreeze relaunch @19:40Z |
+| F1 | RL train; king332 isolated loading (`:8001=000`) |
+| F2 | train **50/60**; teacher recover332 launched @19:39Z (was Triton ENOENT) |
+| F4 | bootstrap DL genesis @abe89194 (venv+vllm OK, B300 patched) |
 
 ## What's running
 
@@ -28,10 +28,10 @@ No submit. Best vs Tok: H81 +0.0088 (REFUTE). King Tok331102 S=0.04456.
 |---|---|---|---|---|
 | mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | **n80+mid304** |
 | mine-h96-1 | golden-matrix-af | 152.236.142.232:40299 | ~06:52Z+1d | **n80+mid304** |
-| mine-f3-1 | noble-raven-ff | 152.236.142.236:40311 | ~07:01Z+1d | F3 chall load |
+| mine-f3-1 | noble-raven-ff | 152.236.142.236:40311 | ~07:01Z+1d | F3 chall salvage |
 | mine-f1-1 | brave-hawk-5a | 86.38.238.54:40099 | ~07:06Z+1d | F1 train+king332 |
-| mine-f2-1 | zesty-orbit-85 | 150.136.71.147:20295 | ~07:13Z+1d | F2 train |
-| mine-f4-1 | calm-wolf-30 | 204.9.206.243:40099 | ~07:18Z+1d | F4 bootstrap |
+| mine-f2-1 | zesty-orbit-85 | 150.136.71.147:20295 | ~07:13Z+1d | F2 train+teacher332 |
+| mine-f4-1 | calm-wolf-30 | 204.9.206.243:40099 | ~07:18Z+1d | F4 genesis DL |
 
 kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 Non-mine `wan-lora-*` / `affine-*` / `glm52-*` — **do not touch**.
@@ -52,8 +52,8 @@ Retire winner-zA on resolve; no more r-neighbours. F1–F4 rented.
 
 ## Next action
 
-1. **H95/H96** await n80 → `h*_decision.json` (mid304 armed; leave alone).
-2. **F1** await king332 PROMPTABLE + train→merge→n80; arm mid304 when n80 starts.
-3. **F3** await chall recover DONE → n80; arm mid304.
-4. **F2** train; fix teacher (relaunch_teacher_pass332) only if still 000 when train ends.
-5. **F4** await bootstrap→train. Free slots → **new family only** (F5 if traj ready).
+1. **F2** await teacher `:8000=200` (recover332 TCACHE `teacher_p332_*`); train→merge→n80; arm mid304.
+2. **F3** await chall salvage health+freeze DONE → n80; arm mid304.
+3. **H95/H96** await n80 → `h*_decision.json` (mid304 armed; leave alone).
+4. **F1** await king332 PROMPTABLE + train→merge→n80.
+5. **F4** await genesis DL→train. Free slots → **new family only** (F5 if traj ready).
