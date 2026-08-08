@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h45-1 | lunar-fox-40 | 8×H200 | $28.00 | ~2026-08-08T13:13Z | H45 m7×wZA r8 | n80 ~32/80 |
-| mine-h46-1 | cosmic-fox-ea | 8×H200 | $31.92 | ~2026-08-08T13:28Z | H46 m7×wZA lr2.5e-6 | n80 ~14/80 |
-| mine-h47-1 | golden-comet-01 | 8×H200 | $31.92 | ~2026-08-08T13:33Z | H47 m7×wZA α8 | n80 ~20/80 |
-| mine-h48-1 | zesty-raven-35 | 8×H200 | $31.92 | ~2026-08-08T13:33Z | H48 m7×wZA lr1e-6 | n80 a203 |
-| mine-h49-1 | zesty-shark-45 | 8×H200 | $33.81 | ~2026-08-08T13:59Z | H49 m7×wZA α4 | merging |
+| mine-h45-1 | lunar-fox-40 | 8×H200 | $28.00 | ~2026-08-08T13:13Z | H45 m7×wZA r8 | n80 ~34/80 |
+| mine-h46-1 | cosmic-fox-ea | 8×H200 | $31.92 | ~2026-08-08T13:28Z | H46 m7×wZA lr2.5e-6 | n80 ~15/80 |
+| mine-h47-1 | golden-comet-01 | 8×H200 | $31.92 | ~2026-08-08T13:33Z | H47 m7×wZA α8 | n80 ~23/80 |
+| mine-h48-1 | zesty-raven-35 | 8×H200 | $31.92 | ~2026-08-08T13:33Z | H48 m7×wZA lr1e-6 | n80 ~1/80 |
+| mine-h49-1 | zesty-shark-45 | 8×H200 | $33.81 | ~2026-08-08T13:59Z | H49 m7×wZA α4 | merge+teacher↑ |
 
 SSH: h45 .236:40299 · h46 .19:20100 · h47 .21:20099 · h48 .22:20100 ·
 h49 .54:40300 · known_hosts `/tmp/mine-h{45,46,47,48,49}-1.known_hosts` ·
@@ -31,6 +31,6 @@ h49 .54:40300 · known_hosts `/tmp/mine-h{45,46,47,48,49}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T02:28Z | h45–h49 match | H49 teacher Triton-dead→relaunch p227 |
 | 2026-08-08T02:25Z | h45–h49 match | H48 DONE→n80; H49 train.done→merge |
 | 2026-08-08T02:17Z | h45–h49 match | H48 chall dead→recover p225; H46 DONE→n80 |
-| 2026-08-08T02:11Z | h45–h49 match | H46 shm_broadcast → recover p224; H45 n80 2/80 |

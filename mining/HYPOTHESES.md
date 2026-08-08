@@ -31,8 +31,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H49 — H28 @ LoRA α=4 @ r16 (non-α)
 - **Claim:** α÷8 at fixed r16 (gentler than H47 α8) → m>0.04.
-- **Status:** train.done 02:23Z step26 loss≈0.48 → merge LoRA in flight.
-  `s4-h49-m7-winner-za-a4/`.
+- **Status:** merge writing shard; teacher relaunched p227 (Triton race).
+  `s4-h49-…/results/pass227_teacher_recover.md`.
 
 ### H48 — H28 @ lr=1e-6 (non-α)
 - **Claim:** half H46 LR → continues gentler-LR gain → m>0.04.
