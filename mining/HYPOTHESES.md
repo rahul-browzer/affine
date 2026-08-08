@@ -25,8 +25,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** Range shard1 ~54%; post_train killed (abort race); tokwatch p388.
-- `experiments/s4-h100-f4-genesis-base/` · `results/pass388_tok_abort_race.md`.
+- **Status:** Range ~85%; tokwatch alive; n80 longwait360 armed (p391).
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass391_longwait.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
