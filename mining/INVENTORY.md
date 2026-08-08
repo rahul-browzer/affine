@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h49-1 | zesty-shark-45 | 8×H200 | $33.81 | ~2026-08-08T13:59Z | H49 m7×wZA α4 | n80 b203 ~46/80 |
-| mine-h50-1 | eager-hawk-5b | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H50 m7×wZA lr7.5e-6 | n80 a203 ~23/80 |
-| mine-h51-1 | brave-lion-47 | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H51 m7×wZA α16 | chall relaunch→n80 |
-| mine-h52-1 | noble-wolf-4b | 8×H200 | $31.92 | ~2026-08-08T15:05Z | H52 m7×wZA lr6e-6 | n80 a203 ~14/80 |
-| mine-h53-1 | zesty-raven-e1 | 8×H200 | $31.92 | ~2026-08-08T15:20Z | H53 m7×wZA lr4e-6 | chall graph→n80 |
+| mine-h49-1 | zesty-shark-45 | 8×H200 | $33.81 | ~2026-08-08T13:59Z | H49 m7×wZA α4 | n80 b203 ~57/80 |
+| mine-h50-1 | eager-hawk-5b | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H50 m7×wZA lr7.5e-6 | n80 a203 ~37/80 |
+| mine-h51-1 | brave-lion-47 | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H51 m7×wZA α16 | freeze recover→n80 |
+| mine-h52-1 | noble-wolf-4b | 8×H200 | $31.92 | ~2026-08-08T15:05Z | H52 m7×wZA lr6e-6 | n80 a203 ~31/80 |
+| mine-h53-1 | zesty-raven-e1 | 8×H200 | $31.92 | ~2026-08-08T15:20Z | H53 m7×wZA lr4e-6 | n80 a203 ~15/80 |
 
 SSH: h49 .54:40300 · h50 .237:40499 · h51 .232:40300 · h52 .18:20099 ·
 h53 .22:20100 · known_hosts `/tmp/mine-h{49,50,51,52,53}-1.known_hosts` ·
@@ -31,6 +31,6 @@ h53 .22:20100 · known_hosts `/tmp/mine-h{49,50,51,52,53}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T04:09Z | h49–h53 match | H51 Triton→freeze recover 28472; H49~57 H50~37 H52~31 H53~15 |
 | 2026-08-08T04:02Z | h49–h53 match | H51 chall Triton-dead→relaunch 25276; H49~46 H50~23 H52~14 |
 | 2026-08-08T03:59Z | h49–h53 match | H51 n80 a203; H53 merge→chall; H49~45 H50~21 H52~11 |
-| 2026-08-08T03:52Z | h49–h53 match | H52 n80 a203; H51 chall EngineDead→relaunch |

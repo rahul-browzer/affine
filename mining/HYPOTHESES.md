@@ -10,7 +10,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 1 | H53 | med | H42 cell @ **lr=4e-6** → m>0.04 | **open** (chall load→n80) |
 | 2 | H52 | med | H42 cell @ **lr=6e-6** → m>0.04 | **open** (n80 a203 ~11/80) |
 | 3 | H50 | med | H42 cell @ **lr=7.5e-6** → m>0.04 | **open** (n80 a203 ~21/80) |
-| 4 | H51 | med | H28 cell @ **α=16 r16** → m>0.04 | **open** (n80 a203 started) |
+| 4 | H51 | med | H28 cell @ **α=16 r16** → m>0.04 | **open** (freeze recover→n80) |
 | 5 | H49 | low | H28 cell @ **α=4 r16** → m>0.04 | **open** (n80 b203 ~45/80) |
 | — | H45 | was med | H28 cell @ lora r=8 | **refuted** m=+0.00819 |
 | — | H48 | was med | H42 cell @ lr=1e-6 | **refuted** band×1.269 |
@@ -43,7 +43,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H51 — H28 @ LoRA α=16 @ r16 (non-α)
 - **Claim:** α÷2 vs H28 α32 (between dead α8 and α32) → m>0.04.
-- **Status:** n80 a203 FALSE_PROBE (Triton) → chall relaunch pid=25276 @04:01Z; retry wait. `pass239_chall_recover.md`.
+- **Status:** pass239 chall died again on 1st warmup Triton.so; pass240
+  freeze recover (H49 recipe) pid=28472/28548. `pass240_chall_freeze_recover.md`.
 
 ### H49 — H28 @ LoRA α=4 @ r16 (non-α)
 - **Claim:** α÷8 → m>0.04. (H47 α8 already weak; low prior.)
