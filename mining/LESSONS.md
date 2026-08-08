@@ -99,11 +99,10 @@ Format: `- <finding> — <the number or error that proves it>`
   relaunch if 0 (pass179/182).
 - Winner-zA thought LoRA on **TalentPigs init** loses (H27 m=−0.00792, gates
   OK) — shaping data alone ≠ crown; do not retry TP-init + same 406 ex.
-- King/chall mid-n80 die → orphan `VLLM::Worker` ppid=1 (H55 p248 king@16/80;
-  H28/H51). `nvidia-smi` compute-apps can show stale `[Not Found]` PIDs —
-  also `awk '$2==1 && /VLLM::Worker/'` kill -9 before relaunch; never `lium rm`.
-- King-self harvest (TalentPigs `king_rows` @ dbfbb + crown chall) → **686**
-  ex mean clipL1 0.0885 — larger/cleaner than mixed winner-zA 406 (H29).
+- King/chall mid-n80 die: orphan `VLLM::Worker` ppid=1 (H55 p248) — reap
+  those + stale nvidia `[Not Found]` PIDs; Triton `__triton_launcher.so`
+  ENOENT can leave health=200 + shm_broadcast hang (H57 p249 @4/80) →
+  chall-seed+prefreeze on :8001, not bare unique-TCACHE (p248); never `lium rm`.
 - Thought-LoRA `max_len=8192` + long chat prefixes → empty supervised span
   (H29 raw row0 msg_chars=41524 → `supervised_tokens=0/8192` SystemExit).
   Fit-filter msg_chars≤max_len×2.5 + sort short-first (368/686 kept;
