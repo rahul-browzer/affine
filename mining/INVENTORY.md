@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h65-1 | calm-wolf-24 | 8×H200 | $28.00 | ~2026-08-08T20:11Z | H65 m7×wZA lr5.02e-6 | n80 b203 51/80 |
-| mine-h66-1 | swift-eagle-f0 | 8×H200 | $28.00 | ~2026-08-08T20:26Z | H66 m7×wZA lr5.08e-6 | n80 a203 5/80 |
-| mine-h67-1 | eager-hawk-f5 | 8×H200 | $28.00 | ~2026-08-08T20:51Z | H67 m7×wZA r=19 | king/chall load |
-| mine-h68-1 | cosmic-shark-68 | 8×H200 | $31.92 | ~2026-08-08T20:58Z | H68 m7×wZA lr4.95e-6 | post_train |
-| mine-h69-1 | noble-eagle-06 | 8×H200 | $31.92 | ~2026-08-08T21:08Z | H69 m7×wZA r=17 | train done |
+| mine-h65-1 | calm-wolf-24 | 8×H200 | $28.00 | ~2026-08-08T20:11Z | H65 m7×wZA lr5.02e-6 | n80 b203 61/80 |
+| mine-h66-1 | swift-eagle-f0 | 8×H200 | $28.00 | ~2026-08-08T20:26Z | H66 m7×wZA lr5.08e-6 | n80 a203 9/80 |
+| mine-h67-1 | eager-hawk-f5 | 8×H200 | $28.00 | ~2026-08-08T20:51Z | H67 m7×wZA r=19 | recover264+king275 |
+| mine-h68-1 | cosmic-shark-68 | 8×H200 | $31.92 | ~2026-08-08T20:58Z | H68 m7×wZA lr4.95e-6 | merge |
+| mine-h69-1 | noble-eagle-06 | 8×H200 | $31.92 | ~2026-08-08T21:08Z | H69 m7×wZA r=17 | merge |
 
 SSH: h65 .237:40099 · h66 .232:40300 · h67 .236:40300 ·
 h68 .21:20100 · h69 .22:20100 ·
@@ -32,6 +32,6 @@ known_hosts `/tmp/mine-h{65,66,67,68,69}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T09:32Z | h65–69 match | H67 king ENOENT→king275; recover264 chall |
 | 2026-08-08T09:25Z | h65–69 match | H66 salvage→n80; H67 king relaunch |
 | 2026-08-08T09:09Z | h65–69 match | rm h61; rent h69 @$31.92 |
-| 2026-08-08T08:58Z | h61/65–68 match | rm h63; rent h68 @$31.92 |

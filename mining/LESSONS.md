@@ -146,3 +146,4 @@ Format: `- <finding> — <the number or error that proves it>`
 - Bare mid-n80 → fire recover264 **immediately** (H61 p266 @21/80); waiting for FALSE_PROBE wastes the slice. Arm preempt scripts on every hyp at rent (H61 lacked them).
 - recover264 **salvage** after writable-w1 ghost ENOENT: if n_so grew (H66 16→22) prefreeze same TCACHE + relaunch → triple-promptable; n80 a203 started (p274).
 - Never `pkill -f PATTERN` over SSH when the remote argv contains PATTERN — kills the session (p274 H67); kill by PID only.
+- When recover264 owns chall (GPUs 4,5), relaunch king **alone** — `serve_three` fights chall and races Triton (H67 p275: king ENOENT `NPCWTIH3…/__triton_launcher.so` after pass274 serve_three; king_recover_pass275.sh).

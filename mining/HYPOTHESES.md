@@ -7,7 +7,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H67 | med | H42 cell @ **r=19** → m>0.04 | **open** (king/chall load) |
+| 1 | H67 | med | H42 cell @ **r=19** → m>0.04 | **open** (recover264+king275) |
 | 2 | H69 | med | H42 cell @ **r=17** → m>0.04 | **open** (train done) |
 | 3 | H65 | med | H42 cell @ **lr=5.02e-6** → m>0.04 | **open** (n80 51/80) |
 | 4 | H66 | med | H42 cell @ **lr=5.08e-6** → m>0.04 | **open** (n80 5/80) |
@@ -33,8 +33,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H67 — H42 @ LoRA r=19 (non-α) — open
 - **Claim:** between H64@r18 best-short and H62@r20 band-dead → m>0.04.
-- **Status:** merge OK; king EngineCore cancel @09:18 → pass274 relaunch
-  loading. `s4-h67-…/results/pass274_king_recover.md`.
+- **Status:** pass274 king died Triton ENOENT @09:28; preempt→recover264
+  + king-only pass275. `s4-h67-…/results/pass275_king_recover.md`.
 
 ### H69 — H42 @ LoRA r=17 (non-α) — open
 - **Claim:** below H64@r18 best → m>0.04 (r≤8 dead).
