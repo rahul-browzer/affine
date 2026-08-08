@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2792.4826316833496,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h74/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h74",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.011002896996243258,
+    "se": 0.013295248353296232,
+    "z": -0.8275811556025096,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.031149681624313724,
+      "gate_pass_rate": 0.886435331230284,
+      "bank_frac": 0.4541666666666667,
+      "calib_ratio": 0.6672995055942305,
+      "baseline_abs": 0.1379661616350937,
+      "n_turns": 80,
+      "n_pairs": 317,
+      "mean_lambda2": -0.0077693025552602836,
+      "mean_mix": 0.031149681624313724
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.01997916180768822,
+      "gate_pass_rate": 0.85625,
+      "bank_frac": 0.546875,
+      "calib_ratio": 0.6562540021510225,
+      "baseline_abs": 0.15118440871707495,
+      "n_turns": 80,
+      "n_pairs": 320,
+      "mean_lambda2": -0.018441302776714217,
+      "mean_mix": 0.01997916180768822
+    },
+    "slice": {
+      "seed": 9944904896781434376,
+      "n": 80,
+      "digest": "2fc582f3edf3787b4452164afd3bda37fbc6bf0e8350f9e5b83e9dab92250bdf",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6562540021510225,
+    "chall_baseline_abs": 0.15118440871707495,
+    "king_baseline_abs": 0.1379661616350937,
+    "base_x": 1.0958078917708978
+  }
+}

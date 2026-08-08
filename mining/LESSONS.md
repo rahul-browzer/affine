@@ -111,8 +111,9 @@ Format: `- <finding> — <the number or error that proves it>`
   H66@5.08 +0.00976; H63@5.05 +0.00424; H61@5.15 band×1.262; H62@r20
   band×1.273; **H68@4.95 band×1.257**; H69@r17 +0.01641 vs TalentPigs
   (→H77 Tok); **H70@5.01 −0.000525 vs Tok dead**; **H71@r16 −0.01366 vs Tok
-  dead**; **H72@r18 −0.00936 vs Tok** (1 draw; H74–76 continue); **H73@r19
-  −0.00581 vs Tok dead**. Open: H74–76@r18 H77@r17 H78@r21.
+  dead**; **H72@r18 −0.00936** + **H74@r18 −0.01100 vs Tok** (no more m7×r18
+  rents; H75/H76 finish); **H73@r19 −0.00581 dead**. Open: H75–76@r18
+  H77@r17 H78@r21 **H79 Tok-init**.
 - H66 king mid-pipeline Triton ENOENT (`__triton_launcher.so` ghost) hung
   :8001 while APIServer alive — reap GPU 2/3 workers, wipe `cache/king`,
   relaunch via `serve_three` (pass271); do not wait for post_train abort.
@@ -140,8 +141,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - Arm watch_preempt_bare_tcache before post_train chall serve; recover after chall_serve.done or :8002=200 (H61/H62 bare-cache race).
 - p264 preempt validated H64: bare cache/chall → recover264 seed+warm+freeze; rearms form+n80 (pass265). Mid-n80 bare → fire recover264 immediately (H61@21/80).
 - recover264 salvage after writable-w1 ghost ENOENT: n_so grew → prefreeze same TCACHE + relaunch (H66 16→22; p274).
-- Never `pkill -f` over SSH (kills session if argv matches; p274); kill by PID only.
-- recover264 owns chall (GPUs 4,5) → relaunch king **alone** (H67 p275 serve_three raced Triton).
+- Never `pkill -f` over SSH (p274); kill by PID. recover264 owns chall (GPUs 4,5) → king-only relaunch (H67 p275).
 - Preempt 240×~10s≈40m: late merge→serve poll≳200 → **rearm preempt by PID** before TIMEOUT (H69 p277@216).
 - Live king can flip mid-flight (p279 TalentPigs→Tok331102 S=0.04456); mid-n80 vs old king is ranking-only — retarget before n80; submit needs margin vs **current** king.
 - `awk '/retry_hN_n80/'` matches watcher argv (p279/p298) — even `/[r]etry_hN_n80\.sh/` hits `watch_n80_retry …/retry_….sh`; exclude `watch_n80_retry` or match `$0` only.

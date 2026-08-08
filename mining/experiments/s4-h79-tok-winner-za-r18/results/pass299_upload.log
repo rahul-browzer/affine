@@ -1,0 +1,27 @@
+-rw-rw-r-- 1 const const 367K Aug  8 12:19 /tmp/mine-h79-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-h79-lora
+HF_OK unconst/Affine-5czsc2fc98-h79-merged
+STACK_UPLOAD_OK
+PREEMPT_PID=891
+PIPELINE_PID=888
+[bootstrap-h79] 2026-08-08T12:19:12Z start host=eac7d53175a7
+GPU 0: NVIDIA H200 (UUID: GPU-35cbb42a-80c4-3ad5-12e8-0e8b4e2854a9)
+GPU 1: NVIDIA H200 (UUID: GPU-0e25bb96-852f-0682-dfb8-127dc16699c8)
+GPU 2: NVIDIA H200 (UUID: GPU-d2c525fd-bad5-8899-8c17-ac34b5da3f5e)
+GPU 3: NVIDIA H200 (UUID: GPU-2926faa8-2281-79d7-a201-bfdeed36d249)
+GPU 4: NVIDIA H200 (UUID: GPU-7f0028b7-2363-e567-f651-5383290a9e9d)
+GPU 5: NVIDIA H200 (UUID: GPU-0792e9a1-f8a5-2b75-ed31-48890382ddea)
+GPU 6: NVIDIA H200 (UUID: GPU-a82b6c63-d101-9f3e-1236-ad088a4b70d6)
+GPU 7: NVIDIA H200 (UUID: GPU-e77dc931-c1d7-6c00-df94-318bde17f16c)
+[bootstrap-h79] GPU_COUNT=8
+downloading uv 0.12.3 x86_64-unknown-linux-gnu
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: venv
+Activate with: source venv/bin/activate
+    PID     ELAPSED CMD
+    888 441077230-03:05:36 bash /root/mining_src/s4-h79-tok-winner-za-r18/bootstrap_h79.sh
+UPLOAD_AND_LAUNCH_OK 2026-08-08T12:19:15Z
