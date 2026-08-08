@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2416.984178543091,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h5c/merged",
+  "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "hotkey": "local-h5c",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.016399722179927936,
+    "se": 0.007303114198882802,
+    "z": -2.2455793149772587,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.03040255805075394,
+      "gate_pass_rate": 0.81875,
+      "bank_frac": 0.48125,
+      "calib_ratio": 0.726407672283943,
+      "baseline_abs": 0.13299058760372937,
+      "n_turns": 80,
+      "n_pairs": 320,
+      "mean_lambda2": 0.002378601428596518,
+      "mean_mix": 0.03040255805075394
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.014002835870826003,
+      "gate_pass_rate": 0.878125,
+      "bank_frac": 0.440625,
+      "calib_ratio": 0.8833507494778445,
+      "baseline_abs": 0.1407245934564444,
+      "n_turns": 80,
+      "n_pairs": 320,
+      "mean_lambda2": -0.0027516957453568463,
+      "mean_mix": 0.014002835870826003
+    },
+    "slice": {
+      "seed": 17008781343948496405,
+      "n": 80,
+      "digest": "5157ce1de034d35fbfc45ca06059d01a3c148408c96193a790128bfeb7223499",
+      "block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.8833507494778445,
+    "chall_baseline_abs": 0.1407245934564444,
+    "king_baseline_abs": 0.13299058760372937,
+    "base_x": 1.0581545355357025
+  }
+}

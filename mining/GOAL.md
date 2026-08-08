@@ -78,13 +78,28 @@ The Lium balance is **shared with the validator** and is its operating runway
 (the validator burns roughly $70/hour on its own two pods). Starving it is
 just as bad as touching it directly.
 
-- **Never let the Lium balance fall below $28,000.** Check `lium balance`
+- **The pre-crown spend cap is lifted (operator decision 2026-08-07).** There is
+  no longer a $4,000 ceiling. The whole credit pool above the floor below is
+  yours to spend on mining. Spend it deliberately, not quickly.
+- **Never let the Lium balance fall below $10,000.** Check `lium balance`
   before renting. If renting would cross the floor, do not rent — record it and
-  stop.
-- **Cap cumulative mining spend at $4,000 until our first crown.** After a
-  crown, you may reinvest earnings above that.
+  stop. This floor is the validator's reserve. It is the one money limit left,
+  so treat it as hard, however far away it currently looks.
+- Report the balance and both burn rates in `LEDGER.md` every pass. At 5 mining
+  pods you are spending roughly $180/hour on top of the validator's $70/hour —
+  the pool drains in days, not weeks. A pass that leaves an idle pod running is
+  now expensive.
 - Fund Lium only from the `miner` wallet: `lium fund -w miner -a <TAO>`.
   Never `-w default` — that is the validator's wallet.
+- **τ786 was converted to Lium credit on 2026-08-07 (operator authorized).**
+  Lium balance is now **~$191,300**. The τ10.0067 left in the coldkey is the
+  **registration reserve** — it exists to pay SN120 hotkey burns (~τ0.7 each) and
+  is not spending money. Do not send it to Lium; if you convert it you cannot
+  register, and registering is how you get paid.
+- Money is no longer your binding constraint. **The 5-pod cap is.** Do not
+  interpret a large balance as licence to run sloppy experiments — at $180/hour
+  the cost of a pass is unchanged, and a pod left idle still wastes the same
+  dollars it always did. Spend on distinguishable hypotheses, not repeats.
 - The only permitted outflows from the `miner` coldkey are: registration
   burns, Lium top-ups, and staking. Nothing else, to nobody.
 - Record every dollar and every TAO in `LEDGER.md`, in the same pass it moves.
@@ -143,11 +158,17 @@ memory. Before doing anything else, in this order:
    else.** Any `mine-*` pod not in the inventory is an orphan from a crashed
    pass: kill it (it is yours, the prefix proves it) and log it. Any inventory
    entry with no live pod: mark it dead. Never touch non-`mine-*` pods.
-4. `HYPOTHESES.md` — what we believe, what is open, what has been refuted.
-5. `NOTES.md` (tail) — the recent narrative.
+4. `LESSONS.md` — durable findings. Read every line; it is short on purpose.
+5. `HYPOTHESES.md` — what we believe, what is open, what has been refuted.
 6. `LEDGER.md` — money in, money out, current balances.
 7. `SUBMISSIONS.md` — every hotkey we have registered and burned. **Check this
    before ever submitting.**
+
+Those six files are your working memory and are capped (see below) so you can
+read all of them and still have room to work. Everything else —
+`experiments/<id>/`, `archive/`, `.ralph/status.log` — is reference. **Do not
+read reference material unless a specific question requires it**, and then read
+only the file that answers it.
 
 Then check the live contract, which can change under you:
 `https://affine.io/llms.txt`, `https://affine.io/api/v1/snapshot` (current
@@ -182,27 +203,53 @@ Never leave a pass with an unrecorded pod, an unrecorded spend, or a stale
 
 The notes are not paperwork, they are the only thing that compounds across
 passes. A pass that learns something and fails to write it down has wasted
-money.
+money. But a note nobody can afford to read is not memory either — see the
+caps below.
 
-- `HYPOTHESES.md` — one entry per hypothesis: an id, a falsifiable claim, the
-  experiment that would settle it, a **prediction written before you run it**,
-  and the verdict (open / supported / refuted) with the number that decided it.
-  **Record refuted hypotheses and keep them.** Knowing an approach is dead is
-  worth as much as knowing one works, and the next agent cannot tell without
-  you.
+- `LESSONS.md` — durable findings, **one line each**, with the number or error
+  that proves it. Anything a future pass would otherwise rediscover the
+  expensive way goes here: gate thresholds that bind, library landmines, ops
+  mistakes, recipes already dead. This is the highest-value file in the repo.
+- `HYPOTHESES.md` — the index: a ranked table plus at most four lines per
+  hypothesis (claim, prediction made *before* running, verdict, pointer to the
+  experiment directory). **Keep refuted entries.** Knowing an approach is dead
+  is worth as much as knowing one works, and the next agent cannot tell
+  without you.
 - `experiments/<id>/` — one directory per experiment: `plan.md` (hypothesis,
   method, pre-registered decision rule), the actual command lines, raw results,
-  and `result.md` with the conclusion. An experiment nobody can rerun from the
-  directory alone is not finished.
-- `NOTES.md` — append-only narrative journal, newest at the bottom, dated. What
-  you tried, what surprised you, what you would do differently.
-- `STATE.md` — the opposite: always rewritten, never appended. A short snapshot
-  of current stage, what is running, what is blocked, and the single next
-  action.
+  and `result.md` with the conclusion. This is where detail belongs. An
+  experiment nobody can rerun from the directory alone is not finished.
+- `STATE.md` — always rewritten, never appended. Current stage, what is
+  running, what is blocked, and the single next action.
 - Write down the numbers, not impressions. "S went from 0.021 to 0.038 on a
   40-turn slice, king was 0.0396" beats "looked better".
 - When something works, write down *why you think* it works, then design the
   experiment that would prove you wrong.
+
+**Do not keep a per-pass journal.** The loop already writes one line per pass
+to `.ralph/status.log`, and per-experiment detail already lives in
+`experiments/<id>/`. A dated narrative entry per pass is pure duplication and
+it is what bloated this run's memory to 60k tokens by pass 108.
+
+### Working-memory caps — enforce these at the end of every pass
+
+| file | cap | contents |
+|---|---|---|
+| `STATE.md` | 60 lines | stage, live facts, what's running, blocked, next action |
+| `LESSONS.md` | 150 lines | durable findings, one line each |
+| `HYPOTHESES.md` | 120 lines | ranked table + ≤4 lines per hypothesis |
+| `INVENTORY.md` | 40 lines | live pod table + last 3 reconciles |
+| `LEDGER.md` | 40 lines | running totals + last 10 movements |
+| `SUBMISSIONS.md` | 40 lines | one row per hotkey |
+
+Compaction is part of the pass, not a chore for later. If a file is over cap,
+fix it in that same pass: distil what still matters, move the overflow to
+`archive/<file>-<date>.md`, and leave a pointer. Log a row only when something
+actually changed — `LEDGER.md` gets a row when money moves, not once per pass.
+
+Writing rule: claim, number, decision. No recap of what you just did, no
+restating the goal, no narrating the tooling. If you cannot say it in a line,
+it belongs in `experiments/<id>/result.md`.
 
 ---
 
@@ -239,13 +286,52 @@ ever submit.
 
 **Stage 4 — train candidates and beat the king in simulation.**
 Iterate. Every candidate is measured by simulated margin over the current king.
+Run hypotheses **in parallel**, one pod each — see below.
 *Gate: simulated margin > 0.04, gates all passing, checkpoint loads under stock
 `vllm serve`.*
 
 **Stage 5 — submit, then scale.**
 Register a fresh hotkey, submit, watch the verdict, write up the outcome
-whatever it is. Then parallelize: independent hypotheses on separate pods, up
-to 5, and reinvest earnings into Lium credit.
+whatever it is. Reinvest earnings into Lium credit.
+
+---
+
+## Use the compute. Parallelize now.
+
+Testing one hypothesis at a time on one pod is the main thing slowing this run
+down. Serial hypothesis testing is the failure mode to avoid.
+
+- **Whenever you have two or more independent hypotheses, run them on separate
+  pods at the same time.** Default to 3–5 live `mine-*` pods, not 1.
+- A pod is cheap relative to a wasted night. Five 8×H200 is roughly $150–180/hour,
+  and the pool above the floor now allows on the order of five days at that rate.
+  Spend it — but on distinguishable hypotheses, not repeats.
+- Independent means: different base model, different data, different training
+  recipe, different merge — anything whose result does not depend on another
+  running experiment's output. Those go on their own pods, immediately.
+- Do not serialize on a pod that is busy training. Rent another.
+- **Never hold a slot idle waiting for another experiment's result.** "Wait for
+  H-x to report before renting" is the serial failure mode wearing a budget
+  disguise, and money is no longer the constraint. If a slot is free, fill it
+  in the same pass.
+- **Fill free slots with variants of your current best direction.** When one
+  recipe looks more promising than the rest, do not run it alone and wait —
+  run its neighbours beside it. A variant means one axis moved: different
+  init model, different learning rate, different data threshold, different
+  step count. Variants are independent by construction (nothing depends on
+  another's output), so they are exactly what the parallel slots are for, and
+  a spread of four tells you the *shape* of the response where one tells you
+  a single point.
+- Variants must be **non-α**. Weight-merge α sweeps are refuted (n=9, mean
+  −0.0014, best +0.0097, never half the bar) — do not spend a free slot on one.
+- Keep each pod single-purpose and name it for its hypothesis
+  (`mine-h7-1`, `mine-h8-1`), so a pass reading `INVENTORY.md` cold can tell
+  what each one is for and kill the ones whose experiment is finished.
+- Tear a pod down the moment its experiment resolves. Parallel breadth is
+  worth paying for; idle pods are not.
+
+The hard rules still bind: 5 pods maximum, `mine-*` names only, a TTL on every
+pod, `INVENTORY.md` updated before renting, and the balance floor.
 
 ---
 
@@ -323,13 +409,16 @@ is visible rather than remembered.
 ```
 mining/
   GOAL.md          this file — the standing brief (do not edit it)
+  # working memory — read in full every pass, all capped
   STATE.md         rewritten every pass: stage, what's running, next action
-  NOTES.md         append-only dated journal
-  HYPOTHESES.md    hypothesis ledger with predictions and verdicts
-  INVENTORY.md     every mine-* pod: name, huid, gpu, $/hr, ttl, purpose, status
-  LEDGER.md        every TAO and dollar in or out, with running balances
+  LESSONS.md       durable findings, one line each
+  HYPOTHESES.md    ranked table + short entries pointing at experiments/
+  INVENTORY.md     live mine-* pods + last 3 reconciles
+  LEDGER.md        running totals + last 10 money movements
   SUBMISSIONS.md   every hotkey: registered, repo, revision, verdict, slot state
+  # reference — read only when a specific question needs it
   experiments/<id>/  plan.md, commands, raw results, result.md
+  archive/         compacted overflow, dated
   wallets/         the mining wallet (gitignored)
   .env             HF token (gitignored)
 ```

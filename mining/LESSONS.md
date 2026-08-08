@@ -119,10 +119,10 @@ Format: `- <finding> — <the number or error that proves it>`
   `turns.jsonl.tmp→turns.jsonl` rename → ENOENT → prewarm `set -e` dies
   before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
   never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
-- Winner-zA LoRA m7-init: H28 +0.01095; **H42@5e-6 +0.01613 best**; H43@α64
-  +0.01123; H44 clip≥0.08 **null m=−0.00017** (data-up dead); H40 ep3 ops-dead.
-  Dead: TP/m7×ks/union / lr≥3e-5 / ep≥2 / r≥32 / α≥64 / clip≥0.08.
-  Open: H46@2.5e-6 H47@α8 H48@1e-6 H45@r8 H49@α4.
+- Winner-zA LoRA m7-init: H28 +0.01095; **H42@5e-6 +0.01613 best**; H46@2.5e-6
+  +0.00802; H47@α8 +0.00463; H48@1e-6 **band×1.269**; H43/H44 dead.
+  Dead: TP/m7×ks/union / lr≤2.5e-6∨≥3e-5 / ep≥2 / r≥32 / α≤8∨≥64 / clip≥0.08.
+  Open: H50@7.5e-6 H51@α16 H52@6e-6 H45@r8 H49@α4.
 - Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed, else
   path becomes `…-lr2e6` and upload `cp` fails silently on wrong glob.
 - Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always

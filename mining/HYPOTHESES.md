@@ -7,19 +7,18 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H48 | med | H42 cell @ **lr=1e-6** → m>0.04 | **open** (n80 a203) |
-| 2 | H46 | med | H42 cell @ **lr=2.5e-6** → m>0.04 | **open** (n80 ~45/80) |
-| 3 | H49 | med | H28 cell @ **α=4 r16** → m>0.04 | **open** (chall recover p230) |
-| 4 | H47 | med | H28 cell @ **α=8 r16** → m>0.04 | **open** (n80 ~55/80) |
-| 5 | H45 | med | H28 cell @ **lora r=8** → m>0.04 | **open** (n80 b203) |
+| 1 | H52 | med | H42 cell @ **lr=6e-6** → m>0.04 | **open** (bootstrap) |
+| 2 | H50 | med | H42 cell @ **lr=7.5e-6** → m>0.04 | **open** (bootstrap) |
+| 3 | H51 | med | H28 cell @ **α=16 r16** → m>0.04 | **open** (bootstrap) |
+| 4 | H45 | med | H28 cell @ **lora r=8** → m>0.04 | **open** (n80 ~48/80) |
+| 5 | H49 | low | H28 cell @ **α=4 r16** → m>0.04 | **open** (n80; α≤8 weak) |
+| — | H48 | was med | H42 cell @ lr=1e-6 | **refuted** band×1.269 |
+| — | H47 | was med | H28 cell @ α=8 | **refuted** m=+0.00463 |
+| — | H46 | was med | H42 cell @ lr=2.5e-6 | **refuted** m=+0.00802 |
 | — | H44 | was med | H28 @ clipL1≥0.08 data | **refuted** m=−0.00017 |
 | — | H43 | was med | H28 @ α=64 | **refuted** m=+0.01123 |
 | — | H42 | was med | H28 @ lr=5e-6 | **refuted** m=+0.01613 |
-| — | H41 | was med | H28 @ r=32 | **refuted** m=+0.00533 |
-| — | H40 | was low | H28 @ epochs=3 | **refuted** (ops; ep≥2 dead) |
-| — | H39 | was high | H28 @ lr=3e-5 | **refuted** m=+0.00544 |
-| — | H38 | was high | H28 @ epochs=2 | **refuted** m=−0.00037 |
-| — | H37 | was high | H28 @ lr=1e-4 | **refuted** m=−0.00088 |
+| — | H41…H37 | — | r32 / ep / lr↑ | **refuted** |
 | — | H36…H29 | — | union / ks / TP×ks | **refuted** |
 | — | H28 | was high | winner-zA LoRA (m7-init) | **refuted** m=+0.01095 |
 | — | H27…H1 | — | α/LoRA/SFT | **refuted** |
@@ -29,79 +28,56 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Open
 
-### H49 — H28 @ LoRA α=4 @ r16 (non-α)
-- **Claim:** α÷8 at fixed r16 (gentler than H47 α8) → m>0.04.
-- **Status:** p229 ABORT warmup#1 Triton.so; p230 recover (outer×3+45s settle).
-  `s4-h49-…/results/pass230_chall_recover.md`.
+### H52 — H28 @ lr=6e-6 (non-α)
+- **Claim:** just above H42 5e-6 → m>0.04.
+- **Status:** mine-h52-1 bootstrap. `s4-h52-m7-winner-za-lr6e6/`.
 
-### H48 — H28 @ lr=1e-6 (non-α)
-- **Claim:** half H46 LR → continues gentler-LR gain → m>0.04.
-- **Status:** recover p225 DONE_LAUNCH 02:23Z → n80 a203. 
-  `s4-h48-…/results/pass226_chall_recover_done.md`.
+### H50 — H28 @ lr=7.5e-6 (non-α)
+- **Claim:** 1.5× H42 → m>0.04 (above-peak after lr↓ failed).
+- **Status:** mine-h50-1 bootstrap. `s4-h50-m7-winner-za-lr75e6/`.
 
-### H46 — H28 @ lr=2.5e-6 (non-α)
-- **Claim:** half H42 LR → continues gentler-LR gain → m>0.04.
-- **Status:** n80 a203 ~45/80. `s4-h46-…/results/`.
-
-### H47 — H28 @ LoRA α=8 @ r16 (non-α)
-- **Claim:** α÷4 at fixed r16 (opposite H43 α64) → m>0.04.
-- **Status:** n80 a203 ~55/80; TCACHE frozen. `s4-h47-m7-winner-za-a8/`.
+### H51 — H28 @ LoRA α=16 @ r16 (non-α)
+- **Claim:** α÷2 vs H28 α32 (between dead α8 and α32) → m>0.04.
+- **Status:** mine-h51-1 bootstrap. `s4-h51-m7-winner-za-a16/`.
 
 ### H45 — H28 @ LoRA r=8 (non-α)
 - **Claim:** ½ LoRA rank (r8/α16) opposite of H41 → m>0.04.
-- **Status:** n80 b203 attempt 2 (a203 teacher 400). `s4-h45-…/results/`.
+- **Status:** n80 b203 ~48/80. `s4-h45-…/results/`.
+
+### H49 — H28 @ LoRA α=4 @ r16 (non-α)
+- **Claim:** α÷8 → m>0.04. (H47 α8 already weak; low prior.)
+- **Status:** p231 DONE_LAUNCH → n80 a203. `s4-h49-…/results/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
 
+### H48 — m7×winner-zA @ lr=1e-6
+- INVALID base×**1.269** > 1.25. **lr≤1e-6 dead (band).**
+  `s4-h48-m7-winner-za-lr1e6/results/`.
+
+### H47 — m7×winner-zA @ LoRA α=8
+- m=+0.00463 z=0.64 base×1.209 r=0.642. Weaker than H28; **α≤8 dead.**
+  `s4-h47-m7-winner-za-a8/results/`.
+
+### H46 — m7×winner-zA @ lr=2.5e-6
+- m=+0.00802 z=1.04 base×1.182 r=0.727. Below H42; **lr≤2.5e-6 dead.**
+  `s4-h46-m7-winner-za-lr2e6/results/`.
+
 ### H44 — m7×winner-zA @ clipL1≥0.08 data
-- m=−0.00017 z=−0.02 base×1.206 r=0.614. Gates OK; **null**.
-  Data-up kills signal. `s4-h44-m7-winner-za-clip08/results/`.
+- m=−0.00017. Data-up kills signal. `s4-h44-…/results/`.
 
 ### H43 — m7×winner-zA @ LoRA α=64
-- m=+0.01123 z=1.42 base×1.160 r=0.642. Below H42; α↑ no help.
-  `s4-h43-m7-winner-za-a64/results/`.
+- m=+0.01123. Below H42; α↑ no help. `s4-h43-…/results/`.
 
 ### H42 — m7×winner-zA @ lr=5e-6
-- m=+0.01613 z=1.78 base×1.216 r=0.614. **Best H28-family so far** but <0.04.
-  Gentler LR helps vs H28; continue lr↓ (H46/H48). `s4-h42-…/results/`.
+- m=+0.01613 z=1.78. **Best H28-family** but <0.04. `s4-h42-…/results/`.
 
-### H41 — m7×winner-zA @ LoRA r=32
-- m=+0.00533 z=0.78 base×1.157 r=0.674. Below H28; capacity-up no help.
-  `s4-h41-m7-winner-za-r32/results/`.
+### H41 / H40 / H39 / H38 / H37
+- r32 / ep3 / lr3e-5 / ep2 / lr1e-4 all ≤ H28 or ops-dead.
 
-### H40 — m7×winner-zA @ epochs=3
-- REFUTE-by-ops: chall never promptable (recover 212–219 Triton races).
-  Class already dead via H38 ep2 m=−0.00037. `s4-h40-…/results/`.
-
-### H39 — m7×winner-zA @ lr=3e-5
-- m=+0.00544 z=0.85 base×1.105 r=0.584. Below H28; mid-LR no help.
-  `s4-h39-m7-winner-za-lr3e5/results/`.
-
-### H38 — m7×winner-zA @ epochs=2
-- m=−0.00037 z=−0.06 base×1.145 r=0.672. Near-null; ep≥2 kills H28.
-  `s4-h38-m7-winner-za-ep2/results/`.
-
-### H37 — m7×winner-zA @ lr=1e-4
-- m=−0.00088 z=−0.14 base×1.040 r=0.744. Near-null; 10×LR kills H28.
-  `s4-h37-m7-winner-za-lr1e4/results/`.
-
-### H36 — m7 × UNION(winner-zA ∪ king-self)
-- m=+0.00052. `s4-h36-m7-union-za/results/`.
-
-### H35 / H34 / H33…H30 — king-self family
-- Best H35 m=+0.01602 still < bar. **m7×ks + TP×ks dead.**
-
-### H29 — king-self LoRA on TalentPigs init
-- m=−0.01527. `s4-h29-king-self-clip-l1/results/`.
-
-### H28 — winner-zA LoRA on m7 init
-- m=+0.01095 z=1.35 base×1.131 r=0.679. Beat by H42 lr↓; H45–H49 variants.
-  `s4-h28-m7-clip-l1-shape/results/`.
-
-### H27 / H23…H1
-- See archive + LESSONS. No α / plmk / leary / **any TP×king-self** /
-  **any m7×king-self** / m7×union / **H28@lr≥3e-5** / **H28@ep≥2** /
-  **H28@r≥32** / **H42@lr=5e-6** / **H43@α≥64** / **H44@clip≥0.08**.
+### H36…H29 / H28 / H27…H1
+- See archive + LESSONS. No α-merge / plmk / leary / **TP×ks** /
+  **m7×ks** / m7×union / **lr≤2.5e-6** / **lr≥3e-5** / **ep≥2** /
+  **r≥32** / **α≤8** / **α≥64** / **clip≥0.08**. H51 α16 still open.
