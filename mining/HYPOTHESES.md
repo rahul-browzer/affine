@@ -8,7 +8,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H61 | med | H42 cell @ **lr=5.15e-6** → m>0.04 | **open** (merge) |
-| 2 | H60 | med | H42 cell @ **lr=5.3e-6** → m>0.04 | **open** (merge) |
+| 2 | H60 | med | H42 cell @ **lr=5.3e-6** → m>0.04 | **open** (chall recover p260) |
 | 3 | H62 | med | H42 cell @ **r=20** → m>0.04 | **open** (bootstrap) |
 | 4 | H59 | med | H42 cell @ **lr=5.75e-6** → m>0.04 | **open** (n80 ~26/80) |
 | 5 | H56 | med | H42 cell @ **r=24** → m>0.04 | **open** (n80 ~31/80) |
@@ -44,7 +44,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H60 — H28 @ lr=5.3e-6 (non-α)
 - **Claim:** between dead 5.25 and open 5.75 → m>0.04.
-- **Status:** mine-h60-1 merge save. `s4-h60-…/plan.md`.
+- **Status:** merge OK; chall FALSE_PROBE (4UYR2LE4) → p260 recover.
+  `s4-h60-…/results/pass260_chall_diverse_recover.md`.
 
 ### H62 — H42 @ LoRA r=20 (non-α)
 - **Claim:** open r gap denser probe (r16 best / r24 open / r≤8∧r≥32 dead).
