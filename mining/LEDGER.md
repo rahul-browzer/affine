@@ -7,11 +7,11 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $186,908.38 | 2026-08-08T12:38Z |
-| cumulative mining spend | ~$9,365 (5 pods ~$148/h accruing) | 2026-08-08T12:38Z |
-| **available for mining** | **~$176,908** (balance − $10,000 floor) | 2026-08-08T12:38Z |
+| Lium balance | $186,884.79 | 2026-08-08T12:43Z |
+| cumulative mining spend | ~$9,390 (5 pods ~$148/h accruing) | 2026-08-08T12:43Z |
+| **available for mining** | **~$176,885** (balance − $10,000 floor) | 2026-08-08T12:43Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (5 pods) | ~$148/h (h77/79/80 $28×3 + h76/78 $31.92×2) | 2026-08-08T12:38Z |
+| miner burn (5 pods) | ~$148/h (h77/79/80 $28×3 + h76/78 $31.92×2) | 2026-08-08T12:43Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -20,6 +20,7 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-08T12:43Z | 186884.79 | burn accrual; H79/H80 retry reset (no rent/rm) |
 | 2026-08-08T12:38Z | 186908.38 | burn accrual; mid304 deploy + H77 n80 (no rent/rm) |
 | 2026-08-08T12:34Z | 186931.25 | burn accrual; H78 n80 start (no rent/rm) |
 | 2026-08-08T12:31Z | 186931.25 | burn accrual; H76/H77 king302 recover (no rent/rm) |
@@ -29,4 +30,3 @@ Floor ≥ **$10,000**. No pre-crown spend cap (operator 2026-08-07).
 | 2026-08-08T12:18Z | 187000.88 | rent mine-h79-1 lunar-shark-be @$28.00/h ttl12h |
 | 2026-08-08T12:17Z | 187000.88 | rm mine-h74-1 (~$44) H74 m=−0.011003 vs Tok |
 | 2026-08-08T12:12Z | 187025.84 | burn accrual; H76 n80 start (no rent/rm) |
-| 2026-08-08T12:03Z | 187069.96 | burn accrual; H76 merge→chall (no rent/rm) |

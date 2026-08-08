@@ -36,11 +36,13 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H79 — Tok-init × winner-zA @ r=18 (non-α) — open
 - **Claim:** after H72+H74+H75 m≈≤0 on m7-init, Tok-init same hyps clears Tok.
-- **Status:** merge_lora live (merged/config.json); mid304 waiting sim.
+- **Status:** merge DONE non-id; king loading; retry reset poll0 (p305); mid304.
+  `…/pass305_retry_reset.md`.
 
 ### H80 — Tok-init × winner-zA @ r=17 (non-α) — open
 - **Claim:** Tok-init neighbor of H79 at H69 shortlist rank → m>0.04.
-- **Status:** train_lora live; mid304 waiting sim. `…/pass301_launch.md`.
+- **Status:** train DONE → merge_lora; retry reset poll0 (p305); mid304.
+  `…/pass305_retry_reset.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

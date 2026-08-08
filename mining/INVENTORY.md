@@ -10,8 +10,8 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 | mine-h76-1 | gentle-raven-df | 8×H200 | $31.92 | ~2026-08-08T23:38Z | H76 r18-rep#4 vs Tok | **n80 a203** + mid304 |
 | mine-h77-1 | eager-shark-64 | 8×H200 | $28.00 | ~2026-08-08T23:44Z | H77 r17 vs Tok | **n80 a203** + mid304 |
 | mine-h78-1 | eager-comet-a4 | 8×H200 | $31.92 | ~2026-08-08T23:44Z | H78 r21 vs Tok | **n80 a203** + mid304 |
-| mine-h79-1 | lunar-shark-be | 8×H200 | $28.00 | ~2026-08-09T00:18Z | H79 Tok-init r18 | merge_lora |
-| mine-h80-1 | eager-shark-18 | 8×H200 | $28.00 | ~2026-08-09T00:26Z | H80 Tok-init r17 | training |
+| mine-h79-1 | lunar-shark-be | 8×H200 | $28.00 | ~2026-08-09T00:18Z | H79 Tok-init r18 | merge→king→chall |
+| mine-h80-1 | eager-shark-18 | 8×H200 | $28.00 | ~2026-08-09T00:26Z | H80 Tok-init r17 | **merge_lora** |
 
 SSH: h76 .18:20100 · h77 .237:40306 · h78 .22:20100 ·
 h79 .232:40100 · h80 .236:40311 ·
@@ -33,6 +33,6 @@ Account also has non-mine `wan-lora-train` / `affine-*` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T12:43Z | h76–80 match | H79/H80 stale retry→poll0; no rent/rm |
 | 2026-08-08T12:38Z | h76–80 match | mid304 bare guard on all 5; H77 n80 start |
 | 2026-08-08T12:34Z | h76–80 match | H78 recover264 DONE → n80; rearm preempt |
-| 2026-08-08T12:31Z | h76–80 match | H76/H77 king302 recover; no rent/rm |
