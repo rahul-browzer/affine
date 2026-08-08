@@ -1,0 +1,11 @@
+{
+  "rows_in": 1059,
+  "rows_out": 1058,
+  "z_orig_mean": 176.6,
+  "z_new_mean": 59.9,
+  "z_new_p50": 65,
+  "z_new_max": 80,
+  "z_new_min": 16,
+  "max_chars": 80,
+  "drop_lt15": 1
+}

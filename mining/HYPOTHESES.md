@@ -10,7 +10,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (merge) |
 | 2 | H98/F1 | high | REINFORCE self-L1lift → m>+0.015 | **open** (train) |
 | 3 | H97/F3 | high | r=256 breaks LoRA ceiling → m>+0.015 | **open** (n80) |
-| 4 | H96 | med | Tok-init r9 → m>0.04 | **open** (n80 live) |
+| 4 | H101/F6 | high | ultrashort≤80 format → m>+0.015 | **open** (bootstrap) |
+| 5 | H96 | med | Tok-init r9 → m>0.04 | **open** (n80 ~79/80) |
 | — | H99/F2 | — | high-Λ2 z_A SFT → m>+0.015 | **refuted** m=−0.00199 |
 | — | H95/H94…H1 | — | winner-zA / α / merges | **refuted** (see below) |
 | — | H3 | instrumental | clip-L1 lever | **supported** (+rank) |
@@ -21,22 +22,28 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** train DONE; **merge writing** (~23 GiB); Tok DL ~16 GiB.
+- **Status:** train DONE; **merge writing** (~26 GiB); Tok DL ~21 GiB.
 - `experiments/s4-h100-f4-genesis-base/` · `results/pass370_train_merge.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** TRAIN ~step140/200; T/K 200; await train→merge→n80.
+- **Status:** TRAIN ~step150/200; T/K 200; await train→merge→n80.
 - `experiments/s4-h98-f1-rl-l1/` · `results/pass362_king332_refire.md`.
 
 ### H97 / F3 — LoRA r=256 ceiling break — open
 - **Claim:** r=256/α512 Tok-init × winner-zA can move Λ2.
-- **Status:** **n80 ~54/80** a203 + mid304.
+- **Status:** **n80 ~69/80** a203 + mid304.
 - `experiments/s4-h97-f3-r256/` · `results/pass367_n80_mid304.md`.
+
+### H101 / F6 — Ultrashort≤80 thought format — open
+- **Claim:** Rewrite high-Λ2 z to ≤80-char first-sentence targets; Tok LoRA
+  teaches short emit format → m>+0.015 (format axis ≠ F2 selection).
+- **Status:** `mine-f6-1` bootstrap; data 1058 ex mean z 59.9 chars.
+- `experiments/s4-h101-f6-short-format/` · `results/pass372_rent.md`.
 
 ### H96 — Tok-init r9 — open (draining)
 - Last winner-zA cell; retire on resolve; **do not** launch more r-neighbours.
-- H96 n80~70/80 b203 + mid304.
+- H96 n80~79/80 b203.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -46,7 +53,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified trajectories first |
-| F6 | Thought format/length axis | **next rent** (F5 blocked) |
+| F7 | (unnamed) | after F6 screen; not r-neighbour |
 
 ## Refuted (keep)
 
@@ -77,4 +84,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
   m7×union / lr micro / ep≥2 / **winner-zA as a family (mean −0.004)** /
   **F2 high-Λ2-zA data remix** / r≤8∨=11–15∨=16–24∨≥32-as-cell / α≤8∨=16∨≥64 /
   clip≥0.08 / king-self.
-  **F3 r=256 and F1 RL are new family screens, not neighbour cells.**
+  **F3 r=256, F1 RL, F4 Genesis, F6 format are family screens, not neighbour cells.**
