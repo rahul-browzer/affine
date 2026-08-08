@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h80-1 | eager-shark-18 | 8×H200 | $28.00 | ~2026-08-09T00:26Z | H80 Tok-init r17 | **n80 b203** ~12/80 |
-| mine-h81-1 | golden-orbit-da | 8×H200 | $31.92 | ~2026-08-09T01:19Z | H81 Tok-init r22 | **merge** |
-| mine-h82-1 | golden-comet-74 | 8×H200 | $31.92 | ~2026-08-09T01:29Z | H82 Tok-init r23 | **train** |
-| mine-h83-1 | cosmic-matrix-be | 8×H200 | $31.92 | ~2026-08-09T01:44Z | H83 Tok-init r25 | **bootstrap** |
-| mine-h84-1 | gentle-lion-26 | 8×H200 | $28.00 | ~2026-08-09T01:56Z | H84 Tok-init r26 | **bootstrap** |
+| mine-h80-1 | eager-shark-18 | 8×H200 | $28.00 | ~2026-08-09T00:26Z | H80 Tok-init r17 | **n80** ~22/80 |
+| mine-h81-1 | golden-orbit-da | 8×H200 | $31.92 | ~2026-08-09T01:19Z | H81 Tok-init r22 | **merge** ~50G |
+| mine-h82-1 | golden-comet-74 | 8×H200 | $31.92 | ~2026-08-09T01:29Z | H82 Tok-init r23 | **merge** (train DONE) |
+| mine-h83-1 | cosmic-matrix-be | 8×H200 | $31.92 | ~2026-08-09T01:44Z | H83 Tok-init r25 | **Tok dl** last shard |
+| mine-h84-1 | gentle-lion-26 | 8×H200 | $28.00 | ~2026-08-09T01:56Z | H84 Tok-init r26 | **train** |
 
 SSH: h80 .236:40311 · h81 .19:20100 · h82 .21:20100 ·
 h83 .18:20098 · h84 .237:40311 ·
@@ -33,6 +33,6 @@ Account also has non-mine `wan-lora-*` / `affine-*` — **never rm**.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T14:03Z | h80/81/82/83/84 | H82 train→merge; H84 train; no rent/rm |
 | 2026-08-08T13:56Z | h80/81/82/83/84 | rm h79; rent h84; H80 n80+mid304 |
 | 2026-08-08T13:44Z | h79/80/81/82/83 | rm h77; rent h83; H80 king315 util0.72 |
-| 2026-08-08T13:33Z | h77/79/80/81/82 | H80 king314 isolated re-fire; no rent/rm |
