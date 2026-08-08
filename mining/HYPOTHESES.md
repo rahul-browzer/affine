@@ -10,7 +10,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 1 | H87 | med | **Tok-init** × winner-zA@r29 → m>0.04 | **open** (n80+mid304 ~20/80) |
 | 2 | H88 | med | **Tok-init** × winner-zA@r30 → m>0.04 | **open** (n80+mid304) |
 | 3 | H89 | med | **Tok-init** × winner-zA@r31 → m>0.04 | **open** (n80+mid304) |
-| 4 | H90 | med | **Tok-init** × winner-zA@r14 → m>0.04 | **open** (merge after train) |
+| 4 | H90 | med | **Tok-init** × winner-zA@r14 → m>0.04 | **open** (merge+mid304 armed) |
 | 5 | H91 | med | **Tok-init** × winner-zA@r12 → m>0.04 | **open** (DL tok-init) |
 | — | H86 | was med | **Tok-init** × winner-zA@r28 vs Tok | **refuted** m=−0.000341 |
 | — | H85 | was med | **Tok-init** × winner-zA@r27 vs Tok | **refuted** m=−0.008170 |
@@ -39,7 +39,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H90 — Tok-init × winner-zA @ r=14 (non-α) — open
 - **Claim:** ≥8 from H81@r22; untested r=14 → m>0.04.
-- **Status:** train DONE step26; merge live; t+k serving. `…/pass333_launch.md`.
+- **Status:** merge writing; mid304 pid12615 waits sim. `…/pass337_mid304_armed.md`.
 
 ### H91 — Tok-init × winner-zA @ r=12 (non-α) — open
 - **Claim:** ≥8 from H81@r22; untested r=12 → m>0.04.
