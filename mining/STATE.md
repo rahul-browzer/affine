@@ -12,25 +12,25 @@ No submit. Best vs Tok: H81 +0.0088 (REFUTE). King Tok331102 S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$184,711** · cum ~$12,440 · **avail ~$174.7k** |
+| Lium / spend | **~$184,711** · cum ~$12,450 · **avail ~$174.7k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$225/h** (6 mine-*) ≪ $833/h · free slots **14** |
-| H95 | **n80 ~37/80** a203 + mid304; eng 200/200/200 |
-| H96 | **n80 live** b203; eng 200/200/200 (no progress file yet) |
-| F3 | **king332 loading** (bare-cache ENOENT@19:47); T/C 200; mid304 needs rearm |
-| F1 | RL train live; T/K 200; C idle |
-| F2 | merge DONE → chall :8002 loading (C000); T/K 200; retry armed |
-| F4 | genesis train live GPUs6,7 |
+| H95 | **n80 ~39/80** a203 + mid304; eng 200/200/200 |
+| H96 | **n80 ~3/80** b203 + **mid304 rearmed p365**; eng 200/200/200 |
+| F3 | **king332 loading** (shard 1/2 @19:54; health000); T/C 200 |
+| F1 | RL train ~step65+; T/K 200; C idle |
+| F2 | chall recover264 seeding TCACHE (cp live); T/K 200 |
+| F4 | genesis train ~8/60 GPUs6,7 |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | **n80~37/80+mid304** |
-| mine-h96-1 | golden-matrix-af | 152.236.142.232:40299 | ~06:52Z+1d | **n80 live+mid304** |
+| mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | **n80~39/80+mid304** |
+| mine-h96-1 | golden-matrix-af | 152.236.142.232:40299 | ~06:52Z+1d | **n80~3/80+mid304** |
 | mine-f3-1 | noble-raven-ff | 152.236.142.236:40311 | ~07:01Z+1d | **king332→n80** |
 | mine-f1-1 | brave-hawk-5a | 86.38.238.54:40099 | ~07:06Z+1d | F1 train+T/K200 |
-| mine-f2-1 | zesty-orbit-85 | 150.136.71.147:20295 | ~07:13Z+1d | F2 chall load |
+| mine-f2-1 | zesty-orbit-85 | 150.136.71.147:20295 | ~07:13Z+1d | F2 chall recover |
 | mine-f4-1 | calm-wolf-30 | 204.9.206.243:40099 | ~07:18Z+1d | F4 train live |
 
 kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
@@ -52,8 +52,8 @@ Retire winner-zA on resolve; no more r-neighbours. F1–F4 rented.
 
 ## Next action
 
-1. **F3** await `h97_king_recover_pass332.done` + `:8001` promptable → n80 retry; **rearm mid304** when sim alive.
-2. **F2** await `:8002=200` + promptable → n80; arm mid304.
+1. **F3** await `h97_king_recover_pass332.done` + `:8001` promptable → n80; **rearm mid304** when sim alive.
+2. **F2** await recover264 DONE + `:8002=200` promptable → n80; arm mid304.
 3. **F1** train→merge→n80 (king already 200).
-4. **H95/H96** await n80 → `h*_decision.json`.
+4. **H95/H96** await n80 → `h*_decision.json` (mid304 armed both).
 5. **F4** await train→merge→n80. Free slots → **new family only** (F5 if traj ready).

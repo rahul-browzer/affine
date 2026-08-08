@@ -42,7 +42,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- H95 n80~30/80 + mid304; H96 n80~16/80 + mid304.
+- H95 n80~39/80 + mid304; H96 n80~3/80 b203 + mid304 rearmed p365.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
