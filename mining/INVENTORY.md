@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h39-1 | swift-wolf-6e | 8×H200 | $33.81 | ~2026-08-08T11:11Z | H39 m7×wZA lr3e5 | n80 @~26/80 |
-| mine-h40-1 | gentle-eagle-c9 | 8×B200 | $40.00 | ~2026-08-08T11:12Z | H40 m7×wZA ep3 | chall load |
-| mine-h41-1 | zesty-lion-26 | 8×H200 | $31.92 | ~2026-08-08T11:14Z | H41 m7×wZA r32 | chall load |
-| mine-h42-1 | cosmic-matrix-bb | 8×H200 | $31.92 | ~2026-08-08T12:04Z | H42 m7×wZA lr5e6 | bootstrap |
-| mine-h43-1 | noble-eagle-18 | 8×H200 | $31.92 | ~2026-08-08T12:05Z | H43 m7×wZA α64 | bootstrap |
+| mine-h39-1 | swift-wolf-6e | 8×H200 | $33.81 | ~2026-08-08T11:11Z | H39 m7×wZA lr3e5 | n80 @~30/80 |
+| mine-h40-1 | gentle-eagle-c9 | 8×B200 | $40.00 | ~2026-08-08T11:12Z | H40 m7×wZA ep3 | chall p214 load |
+| mine-h41-1 | zesty-lion-26 | 8×H200 | $31.92 | ~2026-08-08T11:14Z | H41 m7×wZA r32 | chall p214 load |
+| mine-h42-1 | cosmic-matrix-bb | 8×H200 | $31.92 | ~2026-08-08T12:04Z | H42 m7×wZA lr5e6 | training |
+| mine-h43-1 | noble-eagle-18 | 8×H200 | $31.92 | ~2026-08-08T12:05Z | H43 m7×wZA α64 | training |
 
 SSH: h39 .54:40301 · h40 .147:20300 · h41 .19:20099 · h42 .21:20100 ·
 h43 .22:20099 · known_hosts `/tmp/mine-h{39,40,41,42,43}-1.known_hosts` ·
@@ -32,6 +32,6 @@ h43 .22:20099 · known_hosts `/tmp/mine-h{39,40,41,42,43}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T00:08Z | h39–h43 match | H40/H41 chall recover p214 (triton) |
 | 2026-08-08T00:05Z | h39–h43 match | H37/H38 REFUTE+rm; rented h42/h43 |
 | 2026-08-07T23:56Z | h37–h41 match | H40 chall recover p212 (triton) |
-| 2026-08-07T23:52Z | h37–h41 match | H39 bare-n80 kill; H40/H41 disarm |

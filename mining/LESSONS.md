@@ -78,8 +78,10 @@ Format: `- <finding> — <the number or error that proves it>`
   GPU index never `pkill -f "vllm serve"`. MoE wait ≥120×15s; settle ≥20s
   after wipe. Health=200 ≠ alive — gate on `/v1/completions` 200 **twice**
   20s apart (H38 p205: first ok → EngineDead on `__triton_launcher.so` →
-  false_probe). Watcher/retry must auto-quarantine `false_probe` decisions
-  (not exit). `FALSE_PROBE_*` ≠ REFUTE — never `lium rm`.
+  false_probe). Post-death orphans are `VLLM::Worker` **ppid=1**; nvidia-smi
+  may show stale `[Not Found]` pids — reap via `ps` too (H40/H41 p214).
+  Watcher/retry must auto-quarantine `false_probe` (not exit).
+  `FALSE_PROBE_*` ≠ REFUTE — never `lium rm`.
 - `pgrep -f` false-matches SSH/watcher argv — use
   `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
   from `watch_n80_retry` (self-deadlock H32 pass198).

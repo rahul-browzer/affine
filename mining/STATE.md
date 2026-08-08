@@ -13,15 +13,13 @@ No submit. Best live family = H28 winner-zA (m=+0.01095).
 |---|---|
 | king | `TalentPigs/affine-5ekxlcg3fx-abc` @ `dbfbb3e2…` S≈0.0315 |
 | eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
-| Lium / spend | **~$189,757** · cum mining ~$4,440 · **avail ~$179.8k** |
+| Lium / spend | **~$189,757** · cum mining ~$4,490 · **avail ~$179.8k** |
 | miner | τ10.000 free · 0 submissions |
-| H37 | **REFUTE** m=−0.00088 · pod rm (~$61) |
-| H38 | **REFUTE** m=−0.00037 · pod rm (~$61) |
-| H39 | n80 a203 @ **~26**/80 |
-| H40 | chall load poll~12/120 (VRAM 4/5 ~135GiB) |
-| H41 | chall load poll~20/120; disarm done |
-| H42 | bootstrap live (lr=5e-6) |
-| H43 | bootstrap live (r16/α64) |
+| H39 | n80 a203 @ **~30**/80 (healthy) |
+| H40 | chall relaunch p214 loading → hashed n80 |
+| H41 | chall relaunch p214 loading → hashed n80 |
+| H42 | TRAIN_LAUNCHED (lr=5e-6) |
+| H43 | TRAIN_LAUNCHED (r16/α64) |
 
 ## What's running
 
@@ -30,8 +28,8 @@ No submit. Best live family = H28 winner-zA (m=+0.01095).
 | mine-h39-1 | swift-wolf-6e | 86.38.238.54:40301 | ~11:11Z | H39 n80 a203 |
 | mine-h40-1 | gentle-eagle-c9 | 150.136.71.147:20300 | ~11:12Z | H40 chall→n80 |
 | mine-h41-1 | zesty-lion-26 | 38.255.28.19:20099 | ~11:14Z | H41 chall→n80 |
-| mine-h42-1 | cosmic-matrix-bb | 38.255.28.21:20100 | ~12:04Z | H42 bootstrap |
-| mine-h43-1 | noble-eagle-18 | 38.255.28.22:20099 | ~12:05Z | H43 bootstrap |
+| mine-h42-1 | cosmic-matrix-bb | 38.255.28.21:20100 | ~12:04Z | H42 train |
+| mine-h43-1 | noble-eagle-18 | 38.255.28.22:20099 | ~12:05Z | H43 train |
 
 known_hosts `/tmp/mine-h{39,40,41,42,43}-1.known_hosts`.
 **Free slots: 0.** Burn ~$170/h mining.
@@ -48,6 +46,7 @@ Reject catalog pods with nvidia-smi COUNT≠8 or $/h<$20.
 ## Next action
 
 1. H39: poll n80 → decision. Margin >0.04 → Stage 5.
-2. H40/H41: wait chall promptable → hashed n80; if stuck >~30m recover.
-3. H42/H43: poll bootstrap → train → merge → n80.
+2. H40/H41: wait chall promptable (completions×2) → hashed n80; if Triton
+   launcher.so dies again → reap orphan `VLLM::` ppid=1 + recover.
+3. H42/H43: poll train → merge → n80.
 4. REFUTE → `lium rm mine-hN-1` only; fill non-α H28 (data/α axes open).
