@@ -7,30 +7,30 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h49-1 | zesty-shark-45 | 8×H200 | $33.81 | ~2026-08-08T13:59Z | H49 m7×wZA α4 | n80 b203 ~57/80 |
-| mine-h50-1 | eager-hawk-5b | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H50 m7×wZA lr7.5e-6 | n80 a203 ~37/80 |
-| mine-h51-1 | brave-lion-47 | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H51 m7×wZA α16 | freeze recover→n80 |
-| mine-h52-1 | noble-wolf-4b | 8×H200 | $31.92 | ~2026-08-08T15:05Z | H52 m7×wZA lr6e-6 | n80 a203 ~31/80 |
-| mine-h53-1 | zesty-raven-e1 | 8×H200 | $31.92 | ~2026-08-08T15:20Z | H53 m7×wZA lr4e-6 | n80 a203 ~15/80 |
+| mine-h50-1 | eager-hawk-5b | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H50 m7×wZA lr7.5e-6 | n80 a203 ~60/80 |
+| mine-h51-1 | brave-lion-47 | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H51 m7×wZA α16 | p241 pre-freeze→n80 |
+| mine-h52-1 | noble-wolf-4b | 8×H200 | $31.92 | ~2026-08-08T15:05Z | H52 m7×wZA lr6e-6 | n80 a203 ~54/80 |
+| mine-h53-1 | zesty-raven-e1 | 8×H200 | $31.92 | ~2026-08-08T15:20Z | H53 m7×wZA lr4e-6 | n80 a203 ~44/80 |
+| mine-h54-1 | calm-matrix-9c | 8×H200 | $28.00 | ~2026-08-08T16:23Z | H54 m7×wZA lr8e-6 | bootstrap→train |
 
-SSH: h49 .54:40300 · h50 .237:40499 · h51 .232:40300 · h52 .18:20099 ·
-h53 .22:20100 · known_hosts `/tmp/mine-h{49,50,51,52,53}-1.known_hosts` ·
-**Free: 0**. Cap 5. Burn ~$153.7/h mining.
+SSH: h50 .237:40499 · h51 .232:40300 · h52 .18:20099 · h53 .22:20100 ·
+h54 .236:40300 · known_hosts `/tmp/mine-h{50,51,52,53,54}-1.known_hosts` ·
+**Free: 0**. Cap 5. Burn ~$147.8/h mining.
 
 ## Dead
 
 | name | final spent | removed UTC | reason |
 |---|---|---|---|
+| mine-h49-1 | ~$80 | 2026-08-08T04:22Z | H49 REFUTE m=+0.01174 |
 | mine-h45-1 | ~$55 | 2026-08-08T03:20Z | H45 REFUTE m=+0.00819 |
 | mine-h46-1 | ~$52 | 2026-08-08T03:04Z | H46 REFUTE m=+0.00802 |
 | mine-h48-1 | ~$45 | 2026-08-08T03:01Z | H48 REFUTE band×1.269 |
 | mine-h47-1 | ~$46 | 2026-08-08T03:01Z | H47 REFUTE m=+0.00463 |
-| mine-h44-1 | ~$34 | 2026-08-08T01:58Z | H44 REFUTE m=−0.00017 |
 
 ## Recent reconciles (last 3)
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
-| 2026-08-08T04:09Z | h49–h53 match | H51 Triton→freeze recover 28472; H49~57 H50~37 H52~31 H53~15 |
-| 2026-08-08T04:02Z | h49–h53 match | H51 chall Triton-dead→relaunch 25276; H49~46 H50~23 H52~14 |
-| 2026-08-08T03:59Z | h49–h53 match | H51 n80 a203; H53 merge→chall; H49~45 H50~21 H52~11 |
+| 2026-08-08T04:23Z | h50–h54 match | H49 REFUTE rm; rent h54; H51 p241 recover |
+| 2026-08-08T04:09Z | h49–h53 match | H51 Triton→freeze recover 28472; H49~57 |
+| 2026-08-08T04:02Z | h49–h53 match | H51 chall Triton-dead→relaunch 25276 |

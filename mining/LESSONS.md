@@ -77,12 +77,12 @@ Format: `- <finding> — <the number or error that proves it>`
 - Triton races: per-role `TRITON_CACHE_DIR` + wipe + stagger; kill orphans by
   GPU index never `pkill -f "vllm serve"`. MoE wait ≥120×15s; settle ≥30s
   after wipe. Health=200 ≠ alive — gate on `/v1/completions` 200 **twice**
-  20s apart. Isolated TCACHE survives mid-init (H40 p216) but TP still
-  race-deletes `__triton_launcher.so` on **first** warmup too (H49 p229:
-  health→warmup in 0s → 500/4s) — settle ≥45s after health, freeze a-w after
-  w1, outer×3 fresh TCACHE (p230). CUDA-graph hang: shm_broadcast >5m after
-  "Registering N addresses" → kill + clear torch_compile_cache + relaunch.
-  Orphans=`VLLM::Worker` ppid=1. `FALSE_PROBE_*`≠REFUTE. `serve_three` "already running"≠healthy (H50/51 p234 t=000→reap 0,1).
+  20s apart. TP race-deletes `__triton_launcher.so` on **first** warmup even
+  after 45s settle with n_pre=16 (H51 p240 a1_w1 ENOENT) — **pre-freeze**
+  `chmod -R a-w` before w1 when n_pre≥1 + seed from king TCACHE (p241);
+  outer×3. CUDA-graph hang: shm_broadcast >5m after "Registering N addresses"
+  → kill + clear torch_compile_cache + relaunch. Orphans=`VLLM::Worker`
+  ppid=1. `FALSE_PROBE_*`≠REFUTE. `serve_three` "already running"≠healthy.
 - `pgrep -f` false-matches SSH/watcher argv — use
 
   `ps|awk '/[r]un_sim_duel.py/ && /local-hN/'`; never `pgrep -f retry_*.sh`
@@ -121,9 +121,10 @@ Format: `- <finding> — <the number or error that proves it>`
   before serve (H29/H30 pass189: corpus.done+turns.jsonl present, :8000/:8001
   never launched). `sync_corpus.sh` now flocks + adopts existing turns.jsonl.
 - Winner-zA LoRA m7-init: H28 +0.01095; **H42@5e-6 +0.01613 best**; H46@2.5e-6
-  +0.00802; H45@r8 +0.00819; H47@α8 +0.00463; H48@1e-6 **band×1.269**;
-  H43/H44 dead. Dead: TP/m7×ks/union / lr≤2.5e-6∨≥3e-5 / ep≥2 / r≤8∨≥32 /
-  α≤8∨≥64 / clip≥0.08. Open: H50@7.5e-6 H51@α16 H52@6e-6 H53@4e-6 H49@α4.
+  +0.00802; H45@r8 +0.00819; H47@α8 +0.00463; H49@α4 +0.01174; H48@1e-6
+  **band×1.269**; H43/H44 dead. Dead: TP/m7×ks/union / lr≤2.5e-6∨≥3e-5 /
+  ep≥2 / r≤8∨≥32 / α≤8∨≥64 / clip≥0.08. Open: H50@7.5e-6 H51@α16 H52@6e-6
+  H53@4e-6 H54@8e-6.
 - Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed, else
   path becomes `…-lr2e6` and upload `cp` fails silently on wrong glob.
 - Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always
@@ -146,5 +147,4 @@ Format: `- <finding> — <the number or error that proves it>`
   skip-if-sim-alive (H42/H43 p218) — kill both; skip if retry armed. Soft-deadline
   can abort wait-for-train before train.done (H53: abort 03:30, done 03:35) —
   relaunch post_train with extended SOFT/DEADMAN; do not tear down.
-- `watch_n80_retry` must **not** `exec` the retry (pass203); retry must **wait**
-  engines (not abort-spam — pass205); sim-alive needs `python` in argv.
+- `watch_n80_retry` must **not** `exec` the retry (pass203); retry must **wait** engines (not abort-spam — pass205); sim-alive needs `python` in argv.
