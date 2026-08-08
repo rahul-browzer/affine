@@ -4,24 +4,24 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4 — H91/H93/H94/H95/H96 live (5/5).** No submit.
-Best n80 (vs old TalentPigs): **H64 r18 m=+0.02509**.
-Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
+**Stage 4 — family pivot.** Winner-zA cells H91/93–96 draining; **F3 H97 live**.
+No submit. Best vs Tok: H81 r22 m=+0.008811 (REFUTE).
 **Live king:** Tok331102 S=0.04456 (reign 4).
-**H92 REFUTE** m=+0.000618 (Tok-init r13 null).
 
 ## Live facts
 
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$185,133** · cum ~$11,740 · **avail ~$175.1k** |
+| Lium / spend | **~$185,072** · cum ~$11,800 · **avail ~$175.1k** |
 | miner | τ10.000 free · 0 submissions |
-| H91 | n80 b203 ~31/80 + mid304 |
-| H93 | n80 a203 ~46/80 + mid304 |
-| H94 | n80 a203 ~28/80 + mid304 |
-| H95 | post_train waiting train@step26; :8002 down |
-| H96 | **BOOTSTRAP** pid=900 (r9) |
+| burn | **~$180/h** (6 mine-*) ≪ $833/h · free slots **14** (cap 20) |
+| H91 | n80 b203 ~45/80 + mid304 |
+| H93 | n80 a203 ~57/80 + mid304 |
+| H94 | n80 a203 ~42/80 + mid304 |
+| H95 | CPU merge writing shards (recover352) |
+| H96 | train r9 running; engines down (expected) |
+| H97/F3 | **BOOTSTRAP** pid=917 (r256/α512) |
 
 ## What's running
 
@@ -30,57 +30,31 @@ Best vs Tok: **H81 r22 m=+0.008811** (REFUTE; first Tok-init +).
 | mine-h91-1 | brave-shark-d2 | 38.255.28.18:20099 | ~04:31Z+1d | n80 b203+mid304 |
 | mine-h93-1 | eager-raven-1e | 38.255.28.22:20099 | ~05:21Z+1d | n80+mid304 |
 | mine-h94-1 | cosmic-fox-43 | 152.236.142.237:40311 | ~05:27Z+1d | n80+mid304 |
-| mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | post_train/train |
-| mine-h96-1 | golden-matrix-af | 152.236.142.232:40299 | ~06:52Z+1d | bootstrap r9 |
+| mine-h95-1 | calm-raven-0f | 38.255.28.19:20100 | ~06:05Z+1d | merge→post_train |
+| mine-h96-1 | golden-matrix-af | 152.236.142.232:40299 | ~06:52Z+1d | train r9 |
+| mine-f3-1 | noble-raven-ff | 152.236.142.236:40311 | ~07:01Z+1d | F3 r256 bootstrap |
 
-known_hosts `/tmp/mine-h{91,93,94,95,96}-1.known_hosts`. **Free: 0.** ~$152/h.
-Non-mine `wan-lora-*` / `affine-*` — **do not touch**.
+known_hosts `/tmp/mine-h{91,93,94,95,96}-1.known_hosts` + `/tmp/mine-f3-1.known_hosts`.
+Non-mine `wan-lora-*` / `affine-*` / `glm52-*` — **do not touch**.
 
 ## Blocked
 
 No submit until n80 margin > 0.04 **vs Tok331102**.
-Dead: plmk/α/TP×ks/m7×ks/union/lr micro/ep≥2/r≤8∨=13∨=14∨=16–24∨≥32/α≤8∨=16∨≥64/clip≥0.08/king-self.
-**m7×r17/r18 + Tok-init r13/r14/r17/r18/r22/r23/r25–r31 closed.** Open: H91/H93–H96.
-FALSE_PROBE≠REFUTE; never rm non-mine; COUNT=8 & $/h≥28.
-Never `pkill -f`; match `$0` via `/proc/*/cmdline` (not SSH argv).
-recover264=chall; king-only relaunch. Never sed live post_train.
-mid304 for mid-n80 bare; preempt exits on isolated TCACHE.
-Tok-init: `preprocessor_config` + real visual shard (index≠disk).
-King Triton ENOENT → isolated TCACHE; OOM@util=0.80 → **0.72**.
-Seed chall from **live king isolated TCACHE** (not bare `cache/king`).
-recover264/king-recover rearm form+n80 only — **arm mid304 when n80 starts**.
+Dead: α/plmk/TP×ks/m7×ks/union/lr micro/ep≥2/winner-zA mean−0.004/Tok r13–31 gaps.
+Open cells draining: H91/H93–H96. **Open family: H97/F3.** Next: F1,F2,F4.
+FALSE_PROBE≠REFUTE; never rm non-mine; COUNT=8 & $/h≥28; never `pkill -f`.
+recover264=chall; king-only relaunch; seed chall from live king isolated TCACHE; arm mid304 w/ n80.
 
-## Operator directive 2026-08-08T18:55Z — PARALLELIZE ACROSS FAMILIES
+## Operator directive 2026-08-08T18:55Z
 
-Budget raised to **$20,000/day ($833/h)**, pod cap **5 → 20**. See GOAL
-"Use the compute" — the unit of parallelism is now the **family**, not the cell,
-and **SCREEN → CONFIRM (k=4) → SWEEP** is mandatory.
-
-Stop all lr/rank micro-sweeps. The winner-zA family mean is **−0.004 vs Tok**;
-more cells cannot fix a negative mean. Retire H91–H95 cells as they resolve and
-do not launch further neighbours of them.
-
-**Seed family queue — each is structurally distinct and untried. One pod each,
-screen at k=1, confirm any hit >+0.015 at k=4 before sweeping:**
-
-| F | family | why it could move the mean >+0.03 |
-|---|---|---|
-| F1 | **Direct RL on S** (GRPO/REINFORCE; reward = Λ2 + clip-L1 from the teacher) | the objective has *never* been in a loss — every recipe so far imitates traces and hopes |
-| F2 | **Target Λ2, not clip-L1** (train z to raise teacher-help) | Λ2 has the larger honest spread (0.0072 vs 0.0045) and is where the headroom is; LoRA-on-king pins it |
-| F3 | **Break the LoRA ceiling** — full FT or rank ≥256 | Λ2 is a base-model property; a rank-18 adapter structurally cannot move it |
-| F4 | **Non-king base model** (strong coder, not a king/near-miss) | every init so far was the incumbent or its neighbour — never left the basin |
-| F5 | **Correctness-grounded thoughts** (z from test-passing trajectories) | only family with a mechanism to raise Λ2 honestly |
-| F6 | **Thought format/length as a designed axis** | z≤300 was inherited from a harvest filter, never chosen |
-
-Priority F1, F3, F2 first (largest plausible mean shift, all runnable today).
-F5 needs verified trajectories — scaffold the data before renting.
-
-**Before scaling past ~8 pods:** bake watchdogs into bootstrap and write
-`fleet_status.sh` (parallel poll, one table). Reliability, not money, is the cap.
+Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
+Retire winner-zA cells on resolve; do **not** launch more r-neighbours.
+Priority fill: **F1 Direct-RL-on-S**, F2 target-Λ2, F4 non-king base.
+Before >~8 pods: bake watchdogs into bootstrap + `fleet_status.sh`.
 
 ## Next action
 
-1. **H91/H93/H94** await n80 → `h{91,93,94}_decision.json` (keep mid304).
-2. **H95** await train→merge→n80; arm mid304 when n80 starts.
-3. **H96** await bootstrap→train→merge→n80.
-4. On any REFUTE: `lium rm` that `mine-*` only, fill slot with next open r.
+1. **H93** (~57/80) first to finish → read decision; REFUTE→`lium rm mine-h93-1` only.
+2. **H91/H94** same; **H95** await merge.done→resume_post_merge→n80+mid304.
+3. **H96** await train→merge→n80; **H97/F3** await bootstrap→train.
+4. Free slot → rent **F1** (not another r-cell). Write `fleet_status.sh` before 8+.
