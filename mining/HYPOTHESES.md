@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H48 | med | H42 cell @ **lr=1e-6** → m>0.04 | **open** (train.done) |
-| 2 | H46 | med | H42 cell @ **lr=2.5e-6** → m>0.04 | **open** (recover p224) |
-| 3 | H49 | med | H28 cell @ **α=4 r16** → m>0.04 | **open** (bootstrap) |
-| 4 | H47 | med | H28 cell @ **α=8 r16** → m>0.04 | **open** (train.done) |
-| 5 | H45 | med | H28 cell @ **lora r=8** → m>0.04 | **open** (n80 running) |
+| 1 | H48 | med | H42 cell @ **lr=1e-6** → m>0.04 | **open** (recover p225) |
+| 2 | H46 | med | H42 cell @ **lr=2.5e-6** → m>0.04 | **open** (n80 a203) |
+| 3 | H49 | med | H28 cell @ **α=4 r16** → m>0.04 | **open** (training) |
+| 4 | H47 | med | H28 cell @ **α=8 r16** → m>0.04 | **open** (n80 ~10/80) |
+| 5 | H45 | med | H28 cell @ **lora r=8** → m>0.04 | **open** (n80 ~18/80) |
 | — | H44 | was med | H28 @ clipL1≥0.08 data | **refuted** m=−0.00017 |
 | — | H43 | was med | H28 @ α=64 | **refuted** m=+0.01123 |
 | — | H42 | was med | H28 @ lr=5e-6 | **refuted** m=+0.01613 |
@@ -31,25 +31,25 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H49 — H28 @ LoRA α=4 @ r16 (non-α)
 - **Claim:** α÷8 at fixed r16 (gentler than H47 α8) → m>0.04.
-- **Status:** training (BOOTSTRAP_DONE 02:07Z). `s4-h49-m7-winner-za-a4/`.
+- **Status:** training on GPUs 6–7 (no trainer_state yet).
+  `s4-h49-m7-winner-za-a4/`.
 
 ### H48 — H28 @ lr=1e-6 (non-α)
 - **Claim:** half H46 LR → continues gentler-LR gain → m>0.04.
-- **Status:** merge writing shard2. `s4-h48-m7-winner-za-lr1e6/`.
+- **Status:** chall died post-merge → recover p225 launched 02:17Z.
+  `s4-h48-…/results/pass225_chall_recover.md`.
 
 ### H46 — H28 @ lr=2.5e-6 (non-α)
 - **Claim:** half H42 LR → continues gentler-LR gain → m>0.04.
-- **Status:** shm_broadcast hang → recover p224 (chall_pid=16831;
-  freeze→n80). `s4-h46-…/results/pass224_chall_recover.md`.
+- **Status:** DONE_LAUNCH 02:16Z → n80 a203. `s4-h46-…/results/`.
 
 ### H47 — H28 @ LoRA α=8 @ r16 (non-α)
 - **Claim:** α÷4 at fixed r16 (opposite H43 α64) → m>0.04.
-- **Status:** merge.done; chall loading :8002. `s4-h47-m7-winner-za-a8/`.
+- **Status:** n80 a203 ~10/80; TCACHE frozen. `s4-h47-m7-winner-za-a8/`.
 
 ### H45 — H28 @ LoRA r=8 (non-α)
 - **Claim:** ½ LoRA rank (r8/α16) opposite of H41 → m>0.04.
-- **Status:** n80 a203 running @ 02:11Z chall 2/80 king 6/80.
-  `s4-h45-…/results/`.
+- **Status:** n80 a203 ~18/80. `s4-h45-…/results/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
