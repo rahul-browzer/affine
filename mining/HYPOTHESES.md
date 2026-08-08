@@ -11,7 +11,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 2 | H57 | med | H42 cell @ **lr=5.25e-6** → m>0.04 | **open** (chall re-serve) |
 | 3 | H55 | med | H42 cell @ **lr=5.5e-6** → m>0.04 | **open** (n80 ~13/80) |
 | 4 | H56 | med | H42 cell @ **r=24** → m>0.04 | **open** (chall prefreeze) |
-| 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (a2 w1) |
+| 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (n80 armed) |
 | — | H51 | was med | H28 cell @ α=16 | **refuted** m=+0.00855 |
 | — | H53 | was med | H42 cell @ lr=4e-6 | **refuted** m=−0.00885 |
 | — | H52 | was med | H42 cell @ lr=6e-6 | **refuted** m=+0.01280 |
@@ -53,7 +53,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H54 — H28 @ lr=8e-6 (non-α)
 - **Claim:** above dead 7.5e-6 → m>0.04 (**low prior** — H50 collapsed).
-- **Status:** chall a2 health=200 + prefreeze → w1. `pass246_chall_prefreeze.md`.
+- **Status:** a2 triple-promptable; freeze.done; n80 armed. `pass246_chall_prefreeze.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
