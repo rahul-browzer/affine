@@ -1,0 +1,68 @@
+{
+  "elapsed_s": 2387.366674900055,
+  "king_repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "king_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "chall_repo": "/root/h55/merged",
+  "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+  "hotkey": "local-h55",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0,
+    "se": null,
+    "z": 0.0,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.018166978353194783,
+      "gate_pass_rate": 0.7924528301886793,
+      "bank_frac": 0.4895833333333333,
+      "calib_ratio": 0.7595909132962971,
+      "baseline_abs": 0.11740897731287522,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": -0.006004203276216835,
+      "mean_mix": 0.018166978353194783
+    },
+    "challenger": {
+      "valid": false,
+      "S": null,
+      "gate_pass_rate": 0.8369905956112853,
+      "bank_frac": 0.5302083333333333,
+      "calib_ratio": 0.6299437595116549,
+      "baseline_abs": 0.14746771952297738,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.008431325681818614,
+      "mean_mix": 0.025654971074783522,
+      "baseline_band_exceeded": true
+    },
+    "slice": {
+      "seed": 17558664510283475998,
+      "n": 80,
+      "digest": "d3d6a525e6a13bdf5d08aa88c552a6b9b462fcfad8665b0c953563be249ed701",
+      "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.6299437595116549,
+    "chall_baseline_abs": 0.14746771952297738,
+    "king_baseline_abs": 0.11740897731287522,
+    "base_x": 1.2560174093842982
+  }
+}

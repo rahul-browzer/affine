@@ -98,10 +98,16 @@ Format: `- <finding> — <the number or error that proves it>`
 - H27 TP-init+same 406ex m=−0.00792 — do not retry TalentPigs-init shaping.
 - Winner-zA LoRA m7-init: H28 +0.01095; **H42@5e-6 +0.01613 best**; H52@6e-6
   +0.01280; H50@7.5e-6 +0.00322; H53@4e-6 **−0.00885**; H46@2.5e-6 +0.00802;
-  H45@r8 +0.00819; H47@α8 +0.00463; H49@α4 +0.01174; H48@1e-6 **band×1.269**.
-  lr **5e-6 > 6e-6 > 7.5e-6 > 4e-6(neg)**; α16=+0.00855. Dead: TP/m7×ks/union /
-  lr≤2.5e-6∨=4e-6∨=6e-6∨=7.5e-6∨≥3e-5 / ep≥2 / r≤8∨≥32 / α≤8∨=16∨≥64 /
-  clip≥0.08. Open: H58@5.1 H57@5.25 H55@5.5 H54@8 H56@r24.
+  H45@r8 +0.00819; H47@α8 +0.00463; H49@α4 +0.01174; H48@1e-6 **band×1.269**;
+  H55@5.5e-6 **band×1.256** (INVALID). lr **5e-6 > 6e-6 > 7.5e-6 > 4e-6(neg)**;
+  α16=+0.00855. Dead: TP/m7×ks/union / lr≤2.5e-6∨=4e-6∨=5.5e-6∨=6e-6∨=7.5e-6∨≥3e-5
+  / ep≥2 / r≤8∨≥32 / α≤8∨=16∨≥64 / clip≥0.08. Open: H58@5.1 H57@5.25 H59@5.75
+  H54@8 H56@r24.
+- `lium up --gpu H200 -c 8` can pick **$14.5/h** labeled 8×H200 with
+  nvidia-smi COUNT=**5** (golden-comet-7a p254) — always rent by UUID from
+  `lium ls --count 8` with **$/h≥28**, then verify COUNT=8 before upload.
+- p253 diverse writable warmups→freeze: H56+H58 both reached triple-promptable
+  and n80 start (n_so 16→22); prefer over short-only post-w1 freeze.
 - B300 flashinfer sampling JIT: clear `cached_ops/sampling`, `SERVE_STAGGER_S≥45`.
 - Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed.
 - Catalog `8×H200` @$11.6/h can be **4 GPUs** (eager-lion-11 pass199) — always

@@ -7,11 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H58 | med | H42 cell @ **lr=5.1e-6** → m>0.04 | **open** (p253 chall recover) |
-| 2 | H57 | med | H42 cell @ **lr=5.25e-6** → m>0.04 | **open** (n80 a203 @37/80) |
-| 3 | H55 | med | H42 cell @ **lr=5.5e-6** → m>0.04 | **open** (n80 b203 @52/80) |
-| 4 | H56 | med | H42 cell @ **r=24** → m>0.04 | **open** (p253 chall recover) |
-| 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (n80 b203 @42/80) |
+| 1 | H58 | med | H42 cell @ **lr=5.1e-6** → m>0.04 | **open** (n80 a203 @1/80) |
+| 2 | H57 | med | H42 cell @ **lr=5.25e-6** → m>0.04 | **open** (n80 a203 @63/80) |
+| 3 | H59 | med | H42 cell @ **lr=5.75e-6** → m>0.04 | **open** (bootstrap) |
+| 4 | H56 | med | H42 cell @ **r=24** → m>0.04 | **open** (n80 a203 @16/80) |
+| 5 | H54 | low | H42 cell @ **lr=8e-6** → m>0.04 | **open** (n80 c203 @16/80) |
+| — | H55 | was med | H42 cell @ lr=5.5e-6 | **refuted** band×1.256 |
 | — | H51 | was med | H28 cell @ α=16 | **refuted** m=+0.00855 |
 | — | H53 | was med | H42 cell @ lr=4e-6 | **refuted** m=−0.00885 |
 | — | H52 | was med | H42 cell @ lr=6e-6 | **refuted** m=+0.01280 |
@@ -36,30 +37,32 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H58 — H28 @ lr=5.1e-6 (non-α)
 - **Claim:** between H42 5e-6 (+0.016) and H57 5.25e-6 → m>0.04.
-- **Status:** n80 died OV4T43 on default chall cache → p253 recover.
-  `pass253_chall_diverse_recover.md`.
+- **Status:** p253 diverse-freeze OK → n80 a203. `pass253_chall_diverse_recover.md`.
 
 ### H57 — H28 @ lr=5.25e-6 (non-α)
 - **Claim:** ridge between H42 5e-6 and H55 5.5e-6 → m>0.04.
-- **Status:** n80 a203 @37/80 healthy. `pass250_king_freeze_n80.md`.
+- **Status:** n80 a203 @63/80. `pass250_king_freeze_n80.md`.
 
-### H55 — H28 @ lr=5.5e-6 (non-α)
-- **Claim:** between H42 5e-6 and dead H52 6e-6 → m>0.04.
-- **Status:** n80 b203 @52/80. `pass248_king_recover.md`.
+### H59 — H28 @ lr=5.75e-6 (non-α)
+- **Claim:** between band-dead H55 5.5e-6 and dead H52 6e-6 → m>0.04.
+- **Status:** mine-h59-1 lunar-comet-0f bootstrap. `s4-h59-…/plan.md`.
 
 ### H56 — H42 @ LoRA r=24 (non-α)
 - **Claim:** open r gap (r≤8∧r≥32 dead) @ lr=5e-6 → m>0.04.
-- **Status:** p251 freeze OK then n80 OV4T43 ENOENT → p253 diverse recover.
-  `pass253_chall_diverse_recover.md`.
+- **Status:** p253 diverse-freeze OK → n80 a203 @16/80.
 
 ### H54 — H28 @ lr=8e-6 (non-α)
-- **Claim:** above dead 7.5e-6 → m>0.04 (**low prior** — H50 collapsed).
-- **Status:** n80 b203 @42/80. `pass248_king_recover.md`.
+- **Claim:** above dead 7.5e-6 → m>0.04 (**low prior**).
+- **Status:** n80 c203 retry @16/80. `pass248_king_recover.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
 ## Refuted (keep)
+
+### H55 — m7×winner-zA @ lr=5.5e-6
+- chall INVALID band×**1.256** (baseline_abs 0.147 vs king 0.117); r=0.630.
+- margin forced 0. **lr=5.5e-6 dead.** `s4-h55-…/results/pass254_n80_refute.md`.
 
 ### H51 — H28 @ LoRA α=16 @ r16
 - m=+0.00855 z=0.86 base×1.189 r=0.661. Gates OK. **α=16 dead.**
@@ -74,6 +77,6 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H41…H29 / H28 / H27…H1
 - See archive + LESSONS. Dead: α-merge / plmk / leary / **TP×ks** /
-  **m7×ks** / m7×union / **lr≤2.5e-6∨=4e-6** / **lr=6e-6∨7.5e-6** /
+  **m7×ks** / m7×union / **lr≤2.5e-6∨=4e-6∨=5.5e-6** / **lr=6e-6∨7.5e-6** /
   **lr≥3e-5** / **ep≥2** / **r≤8∨r≥32** / **α≤8∨=16** / **α≥64** /
-  **clip≥0.08**. Open: H58@5.1e-6 H57@5.25e-6 H55@5.5e-6 H54@8e-6 H56@r24.
+  **clip≥0.08**. Open: H58@5.1 H57@5.25 H59@5.75 H54@8 H56@r24.
