@@ -145,3 +145,5 @@ Format: `- <finding> — <the number or error that proves it>`
 - **king_recover_pass332 must serve live Tok on :8001**, not Genesis — F8 p397 script still had Genesis REPO; patched before launch (would have scored vs wrong king).
 - **Post-freeze chall death + missing turns.jsonl:** F4 p397 n80 `FileNotFoundError` turns.jsonl; recover264 after triple-promptable hit `il: command not found` then reaped healthy chall — prefer frozen-TCACHE relaunch (no wipe) + `sync_corpus` before n80.
 - **Diverse-warm d4 quoting:** `python3 -c \'print(\\"x\\"...` → SyntaxError (empty pad still often 200); fixed to `python3 -c "print('x' * 4096)"` on F4–F9 scripts.
+- **Frozen chall relaunch needs CUDA_HOME=cu13** — p397 omitted it → Worker `Could not find nvcc` / `cuda_home='/usr/local/cuda'` (F4 p401). Copy pass264 cu13 export; leave TCACHE writable until promptable then freeze.
+- **F9 king332→n80:** CUDA-graph finish ⇒ health200 ⇒ longwait double-probe ⇒ n80; a203 can still die fast → b203 (p401).

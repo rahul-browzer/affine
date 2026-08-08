@@ -12,22 +12,22 @@ King Tok331102 S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$183,527** · cum ~$13,885 · **avail ~$173.5k** |
+| Lium / spend | **~$183,497** · cum ~$13,915 · **avail ~$173.5k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$151.5/h** (4 mine-*) ≪ $833/h · free slots **16** |
-| F4 | frozen chall↑ poll~90/120 health=000 (GPUs 4–7 empty) |
-| F7 | b203 n80 **15/80** both sides |
-| F8 | health 000/200/200 but longwait poll~32/360 (chall completions stall) |
-| F9 | king332 loading :8001=000; **longwait n80 armed p400** poll0/360 |
+| F4 | CUDA_HOME relaunch p401 chall↑ poll~6/180 (was nvcc-dead) |
+| F7 | c203 n80 **king3/chall2** of 80 |
+| F8 | longwait poll~44/360 — chall completions still not 200×2 |
+| F9 | n80 **attempt 2/3 b203** (a203 failed fast) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-f4-1 | calm-wolf-30 | 204.9.206.243:40099 | ~07:18Z+1d | F4 frozen chall↑ |
-| mine-f7-1 | lunar-shark-87 | 152.236.142.232:40311 | ~08:52Z+1d | F7 b203 n80 15/80 |
-| mine-f8-1 | brave-matrix-d8 | 152.236.142.236:40309 | ~09:04Z+1d | H103 longwait n80 |
-| mine-f9-1 | lunar-fox-0a | 38.255.28.18:20099 | ~09:12Z+1d | H104 longwait←king332 |
+| mine-f4-1 | calm-wolf-30 | 204.9.206.243:40099 | ~07:18Z+1d | F4 cuda401 chall↑ |
+| mine-f7-1 | lunar-shark-87 | 152.236.142.232:40311 | ~08:52Z+1d | F7 c203 n80 early |
+| mine-f8-1 | brave-matrix-d8 | 152.236.142.236:40309 | ~09:04Z+1d | H103 longwait stall |
+| mine-f9-1 | lunar-fox-0a | 38.255.28.18:20099 | ~09:12Z+1d | H104 n80 b203 |
 
 kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 Non-mine — **do not touch**.
@@ -41,9 +41,9 @@ FALSE_PROBE≠REFUTE; never rm non-mine; COUNT=8 & $/h≥28; never `pkill -f`.
 recover264=chall; king-only relaunch; seed chall from **pathfile** then live king TCACHE.
 **Pods must carry fixed `watch_n80_retry`** (match `retry_${hyp}_n80*`).
 **king_recover REPO must be live Tok**, not Genesis.
-**F8:** health≠promptable — completions stall at poll32/360 with :8002=200.
-**F9:** longwait armed; await :8001 promptable → n80.
-**F4:** frozen relaunch poll≳90/120 — may need rearm before ABORT.
+**Frozen chall relaunch needs CUDA_HOME=cu13** (p397 missed → nvcc fail).
+**F8:** health≠promptable — diagnose chall completions.
+**F9:** n80 live b203 — await margin / rotate if teacher-400.
 
 ## Operator directive 2026-08-08T18:55Z
 
@@ -51,6 +51,6 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 ## Next action
 
-1. **F9** await :8001 promptable → n80 start (longwait already armed).
-2. **F8** diagnose chall completions stall (health200 ≠ promptable).
-3. **F4** if frozen poll→ABORT, rearm chall serve; **F7** await margin.
+1. **F9** await n80 margin (b203); if teacher-400 rotate hashes.
+2. **F4** await cuda401 chall promptable → longwait n80.
+3. **F7** await c203 margin; **F8** fix chall completions stall.

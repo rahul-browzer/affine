@@ -25,13 +25,13 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** turns synced; frozen TCACHE chall↑ (p397) → longwait n80.
-- `experiments/s4-h100-f4-genesis-base/` · `results/pass397_frozen_relaunch.md`.
+- **Status:** p397 nvcc-dead; **cuda401 relaunch** chall↑ (CUDA_HOME=cu13).
+- `experiments/s4-h100-f4-genesis-base/` · `results/pass401_cuda_relaunch.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** c203 n80 **4/80** (b203 att1 failed).
+- **Status:** c203 n80 **king3/chall2** of 80 (p401).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass396_dedupe_watcher.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
@@ -42,8 +42,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7/F8) and Tok (F1/F6); past crown outside both basins.
-- **Status:** king332 loading; **longwait n80 armed p400** (short poll40 killed @32/40).
-- `experiments/s4-h104-f9-kevin-base/` · `results/pass400_longwait.md`.
+- **Status:** n80 **attempt 2/3 b203** (a203 failed fast @22:49Z).
+- `experiments/s4-h104-f9-kevin-base/` · `results/pass401_n80_start.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
