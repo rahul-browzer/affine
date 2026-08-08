@@ -13,48 +13,43 @@ Best n80 (vs old TalentPigs): **H64 r18 m=+0.02509**.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| prev king | TalentPigs @ dbfbb3e2 S≈0.0315 (crowned-over 09:49Z) |
-| eval | GLM-4.5-Air-FP8 · vllm 0.22.1 / tf 5.14.1 / torch 2.11.0 |
-| Lium / spend | **~$187,526** · cum mining ~$8,280 · **avail ~$177.5k** |
+| Lium / spend | **~$187,526** · cum ~$8,320 · **avail ~$177.5k** |
 | miner | τ10.000 free · 0 submissions |
-| H66 | **REFUTE** m=+0.00976 z=1.72 base×1.187 (vs TalentPigs) · **torn down** |
-| H67 | n80 a203 @ **~54**/80 vs TalentPigs (ranking only) |
-| H68 | n80 a203 @ **~55**/80 vs TalentPigs (ranking only) |
-| H69 | n80 a203 @ **~17**/80 vs TalentPigs (ranking only) |
-| H70 | merge→Tok retarget DL (~57G) → n80 vs **Tok331102** |
-| H71 | **NEW** r=16 vs Tok · bootstrap pip on mine-h71-1 |
+| H67 | n80 a203 @ **58**/80 vs TalentPigs (ranking only) |
+| H68 | n80 a203 @ **60**/80 vs TalentPigs (ranking only) |
+| H69 | n80 a203 @ **22**/80 vs TalentPigs (ranking only) |
+| H70 | merge shard2 + Tok DL; **preempt rearmed** p281 |
+| H71 | KING=Tok ✓; uv pip finishing → train |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-h67-1 | eager-hawk-f5 | 152.236.142.236:40300 | ~20:51Z | n80 vs old king ~54/80 |
-| mine-h68-1 | cosmic-shark-68 | 38.255.28.21:20100 | ~20:58Z | n80 vs old king ~55/80 |
-| mine-h69-1 | noble-eagle-06 | 38.255.28.22:20100 | ~21:08Z | n80 vs old king ~17/80 |
-| mine-h70-1 | cosmic-raven-9e | 38.255.28.18:20100 | ~21:42Z | merge+Tok retarget→n80 |
-| mine-h71-1 | eager-fox-be | 152.236.142.237:40311 | ~22:05Z | H71 r=16 vs Tok bootstrap |
+| mine-h67-1 | eager-hawk-f5 | 152.236.142.236:40300 | ~20:51Z | n80 ~58/80 old king |
+| mine-h68-1 | cosmic-shark-68 | 38.255.28.21:20100 | ~20:58Z | n80 ~60/80 old king |
+| mine-h69-1 | noble-eagle-06 | 38.255.28.22:20100 | ~21:08Z | n80 ~22/80 old king |
+| mine-h70-1 | cosmic-raven-9e | 38.255.28.18:20100 | ~21:42Z | merge+Tok→n80; preempt 13587 |
+| mine-h71-1 | eager-fox-be | 152.236.142.237:40311 | ~22:05Z | bootstrap pip→train vs Tok |
 
 known_hosts `/tmp/mine-h{67,68,69,70,71}-1.known_hosts`.
 **Free slots: 0.** Burn ~$152/h mining.
 
 ## Blocked
 
-No submit until n80 margin > 0.04 **vs Tok331102**. H67–H69 margins
-vs TalentPigs are ranking-only. Dead: plmk / α-merges / TP×ks /
-m7×ks/union / **lr≤2.5e-6∨=4e-6∨=5.02e-6∨=5.05e-6∨=5.08e-6∨=5.1e-6∨=5.15e-6∨=5.25e-6∨=5.3e-6∨=5.5e-6∨=5.75e-6∨=6e-6∨=7.5e-6∨=8e-6∨≥3e-5** /
+No submit until n80 margin > 0.04 **vs Tok331102**. H67–H69 vs
+TalentPigs = ranking-only. Dead: plmk / α-merges / TP×ks / m7×ks/union /
+**lr≤2.5e-6∨=4e-6∨=5.02∨=5.05∨=5.08∨=5.1∨=5.15∨=5.25∨=5.3∨=5.5∨=5.75∨=6∨=7.5∨=8∨≥3e-5** /
 ep≥2 / r≤8∨=**18**∨=**20**∨=24∨≥32 / α≤8∨=16∨≥64 / clip≥0.08 / **H42@5e-6**.
 Never tear down on ConnectError/unpromptable — quarantine + recover.
 `FALSE_PROBE_*` ≠ REFUTE — do not `lium rm`.
 Reject COUNT≠8 or $/h<$20. Prefer UUID ≥$28/h.
-**Never `pkill -f` from SSH**; never kill by argv substring that matches
-watchers (`watch_n80_retry … retry_hN` — kill retry PID only).
+**Never `pkill -f` from SSH**; kill retry by exact PID only.
 If recover264 owns chall, **king-only relaunch**.
-**Late merge→serve:** rearm preempt if poll ≳200/240 before chall 200.
+**Late merge→serve:** rearm preempt if poll ≳200/240 (H70 @144 p281).
 
 ## Next action
 
-1. H70: wait merge+retarget done → n80 vs Tok; read `decision.json`.
-2. H67/H68/H69: on decision vs TalentPigs — REFUTE/teardown if m≤0.04;
-   if m>0.04 queue **re-sim vs Tok** (or tear if far below).
-3. H71: confirm train launched after bootstrap; keep preempt armed.
-4. Free slot → non-α neighbor **with KING=Tok331102 from rent**.
+1. H70: merge.done → chall serve → Tok :8001 → n80 vs Tok → `decision.json`.
+2. H67/H68 (~58–60/80): decision vs TalentPigs — tear if m≤0.04; else re-sim vs Tok.
+3. H69 (~22/80): same. H71: confirm train after pip.
+4. Free slot → non-α neighbor **KING=Tok331102 from rent**.

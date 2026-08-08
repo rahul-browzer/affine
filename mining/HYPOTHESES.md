@@ -10,7 +10,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 1 | H67 | med | H42 cell @ **r=19** → m>0.04 | **open** (n80 ~54/80 old king) |
 | 2 | H69 | med | H42 cell @ **r=17** → m>0.04 | **open** (n80 ~17/80 old king) |
 | 3 | H71 | med | H42 cell @ **r=16** → m>0.04 vs **Tok** | **open** (bootstrap) |
-| 4 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 vs **Tok** | **open** (merge+retarget) |
+| 4 | H70 | med | H42 cell @ **lr=5.01e-6** → m>0.04 vs **Tok** | **open** (merge+Tok DL; preempt↗) |
 | 5 | H68 | med | H42 cell @ **lr=4.95e-6** → m>0.04 | **open** (n80 ~55/80 old king) |
 | — | H66 | was med | H42 cell @ lr=5.08e-6 | **refuted** m=+0.00976 |
 | — | H65 | was med | H42 cell @ lr=5.02e-6 | **refuted** m=+0.01829 |
@@ -42,7 +42,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H70 — H28 @ lr=5.01e-6 (non-α) — open
 - **Claim:** between H42@5e-6 +0.016 and H65@5.02 +0.018 → m>0.04.
-- **Status:** merge + Tok retarget DL → n80 vs Tok. `…/pass279_king_retarget.md`.
+- **Status:** merge shard2 + Tok DL; preempt rearmed p281. `…/pass281_preempt_rearm.md`.
 
 ### H68 — H28 @ lr=4.95e-6 (non-α)
 - **Claim:** just under H42@5e-6 peak (H53@4e-6 dead) → m>0.04.
