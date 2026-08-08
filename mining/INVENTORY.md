@@ -8,14 +8,15 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | 2026-08-09T07:05Z | H98 F1 RL | train~170/200 |
-| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | CPU merge p376 |
-| mine-f6-1 | noble-shark-14 | 8×H200 | $28.00 | 2026-08-09T08:42Z | H101 F6 shortfmt | train ~15/60 |
-| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | Genesis DL |
+| mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | 2026-08-09T07:05Z | H98 F1 RL | train~175/200 |
+| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | CPU merge ~36% |
+| mine-f6-1 | noble-shark-14 | 8×H200 | $28.00 | 2026-08-09T08:42Z | H101 F6 shortfmt | train ~35/60 |
+| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | train ~8/29 |
+| mine-f8-1 | brave-matrix-d8 | 8×H200 | $28.00 | 2026-08-09T09:04Z | H103 F8 Genesis-RL | bootstrap |
 
 SSH: f1 .54:40099 · f4 204.9.206.243:40099 · f6 .237:40300 · f7 .232:40311 ·
-kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
-**Free: 16**. Burn ~$153.4/h. Non-mine — **never rm**.
+f8 .236:40309 · kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
+**Free: 15**. Burn ~$181.4/h. Non-mine — **never rm**.
 
 ## Dead
 
@@ -30,6 +31,6 @@ kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T21:05Z | 5 live (+f8) | rent mine-f8-1 H200@$28; H103/F8 bootstrap |
 | 2026-08-08T20:58Z | 4 live | F4 GPU merge hung → CPU recover p376; no rm/rent |
 | 2026-08-08T20:53Z | 4 live (+f7) | rent mine-f7-1 H200@$28; H102/F7 bootstrap |
-| 2026-08-08T20:50Z | 3 live after rm f3 | H97 REFUTE m=−0.015; rm mine-f3-1 |

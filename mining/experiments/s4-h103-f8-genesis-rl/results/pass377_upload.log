@@ -1,0 +1,27 @@
+-rw-rw-r-- 1 const const 375K Aug  8 21:05 /tmp/mine-h103-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-h103-lora
+HF_OK unconst/Affine-5czsc2fc98-h103-merged
+STACK_UPLOAD_OK
+PREEMPT_PID=878
+PIPELINE_PID=875
+[bootstrap-h103] 2026-08-08T21:05:50Z start host=f2a8c5f5380d
+GPU 0: NVIDIA H200 (UUID: GPU-d7b6c488-ed5f-2ee6-dc42-469d754cb03c)
+GPU 1: NVIDIA H200 (UUID: GPU-77ad669d-1b8b-37c8-9430-3de5ba8e01fc)
+GPU 2: NVIDIA H200 (UUID: GPU-b36506ff-2fc5-5385-abbb-75088e554cb1)
+GPU 3: NVIDIA H200 (UUID: GPU-b8cc4c50-9044-9655-02f0-7086fc7ecb5f)
+GPU 4: NVIDIA H200 (UUID: GPU-37d29b2c-db64-6ecf-3da9-59d43da3fe20)
+GPU 5: NVIDIA H200 (UUID: GPU-cded0f22-a0df-374a-b531-274884da6a6d)
+GPU 6: NVIDIA H200 (UUID: GPU-8d4b0cb5-145f-5d0c-b8d3-2f1361ceb3b9)
+GPU 7: NVIDIA H200 (UUID: GPU-b409e926-0d29-36ad-5f19-8567a399f5f5)
+[bootstrap-h103] GPU_COUNT=8
+downloading uv 0.12.3 x86_64-unknown-linux-gnu
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: venv
+Activate with: source venv/bin/activate
+    PID     ELAPSED CMD
+    875 441077229-17:42:24 bash /root/mining_src/s4-h103-f8-genesis-rl/bootstrap_h103.sh
+UPLOAD_AND_LAUNCH_OK 2026-08-08T21:05:53Z

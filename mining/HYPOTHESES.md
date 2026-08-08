@@ -8,9 +8,10 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (merge) |
-| 2 | H98/F1 | high | REINFORCE self-L1lift → m>+0.015 | **open** (train) |
-| 3 | H101/F6 | high | ultrashort≤80 format → m>+0.015 | **open** (train) |
-| 4 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (bootstrap) |
+| 2 | H103/F8 | high | Genesis-init × REINFORCE-L1 → m>+0.015 | **open** (bootstrap) |
+| 3 | H98/F1 | high | Tok REINFORCE self-L1lift → m>+0.015 | **open** (train) |
+| 4 | H101/F6 | high | ultrashort≤80 format → m>+0.015 | **open** (train) |
+| 5 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (train) |
 | — | H97/F3 | — | r=256 breaks LoRA ceiling | **refuted** m=−0.01506 |
 | — | H96 | — | Tok-init r9 → m>0.04 | **refuted** m=+0.00913 |
 | — | H99/F2 | — | high-Λ2 z_A SFT → m>+0.015 | **refuted** m=−0.00199 |
@@ -40,8 +41,13 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** `mine-f7-1` Genesis DL ~10 GiB; train next.
+- **Status:** `mine-f7-1` TRAIN ~8/29 + teacher/Tok DL.
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass375_rent.md`.
+
+### H103 / F8 — Genesis-init REINFORCE-L1lift — open
+- **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.
+- **Status:** `mine-f8-1` bootstrap (uv pip) p377; train next after Genesis DL.
+- `experiments/s4-h103-f8-genesis-rl/` · `results/pass377_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -50,7 +56,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | F | family | next |
 |---|---|---|
-| F7 | Teacher z_C × Genesis (H102) | **live** mine-f7-1 bootstrap |
+| F8 | Genesis × REINFORCE-L1 (H103) | **live** mine-f8-1 bootstrap |
 | F5 | Correctness-grounded z | needs verified trajectories first |
 
 ## Refuted (keep)
@@ -91,4 +97,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
   m7×union / lr micro / ep≥2 / **winner-zA as a family (mean −0.004)** /
   **F2 high-Λ2-zA data remix** / **F3 r=256 LoRA ceiling** / r≤8∨=9–15∨=16–24∨≥32 /
   α≤8∨=16∨≥64 / clip≥0.08 / king-self.
-  **F1 RL, F4 Genesis, F6 format, F7 teacher-z_C are family screens, not cells.**
+  **F1 RL, F4 Genesis-SFT, F6 format, F7 teacher-z_C, F8 Genesis-RL are family screens, not cells.**
