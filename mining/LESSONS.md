@@ -107,7 +107,7 @@ Format: `- <finding> — <the number or error that proves it>`
   Swept r9–r31 and lr 4.95–8e-6 on m7- and Tok-init; every cell vs Tok landed in
   −0.022…+0.009. The two 'best' (H64 r18 +0.02509, H67 r19 +0.01835) were vs the
   *dead* TalentPigs king and their r18 replicates came back −0.009/−0.011/+0.0005.
-  H93 r15 = −0.007210 (p356). Do not resume. Full per-cell table → archive.
+  H93 r15=−0.007; H91 r12=−0.0056; H94 r11=−0.0137 (p357). Do not resume.
 - H66 king
   mid-pipeline Triton ENOENT hung :8001 — reap GPU 2/3, wipe `cache/king`,
   `serve_three` (p271); don't wait for post_train abort.

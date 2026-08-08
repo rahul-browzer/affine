@@ -11,11 +11,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 2 | H99/F2 | high | high-Λ2 z_A SFT → m>+0.015 | **open** (train) |
 | 3 | H98/F1 | high | REINFORCE self-L1lift → m>+0.015 | **open** (train) |
 | 4 | H97/F3 | high | r=256 breaks LoRA ceiling → m>+0.015 | **open** (merge) |
-| 5 | H91 | med | Tok-init r12 → m>0.04 | **open** (n80 ~77/80) |
-| 6 | H94 | med | Tok-init r11 → m>0.04 | **open** (n80 ~73/80) |
-| 7 | H95 | med | Tok-init r10 → m>0.04 | **open** (n80 ~16/80) |
-| 8 | H96 | med | Tok-init r9 → m>0.04 | **open** (post-merge?) |
-| — | H93…H1 | — | winner-zA / α / merges | **refuted** (see below) |
+| 5 | H95 | med | Tok-init r10 → m>0.04 | **open** (n80 ~18/80) |
+| 6 | H96 | med | Tok-init r9 → m>0.04 | **open** (chall→n80) |
+| — | H94/H91…H1 | — | winner-zA / α / merges | **refuted** (see below) |
 | — | H3 | instrumental | clip-L1 lever | **supported** (+rank) |
 
 ---
@@ -42,9 +40,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - **Status:** MERGE on mine-f3-1. Screen +0.015 → CONFIRM k=4.
 - `experiments/s4-h97-f3-r256/`.
 
-### H91 / H94 / H95 / H96 — Tok-init r-cells — open (draining)
+### H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- n80 ~77/73/16; H96 post-merge.
+- H95 n80 ~18/80; H96 chall→n80.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -58,14 +56,17 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Refuted (keep)
 
+### H94 — Tok-init × winner-zA @ r=11
+- m=−0.013746 z=−1.59 vs Tok. **r=11 dead.** `s4-h94-…/results/result.md`.
+
+### H91 — Tok-init × winner-zA @ r=12
+- m=−0.005604 z=−0.69 vs Tok. **r=12 dead.** `s4-h91-…/results/result.md`.
+
 ### H93 — Tok-init × winner-zA @ r=15
-- m=−0.007210 z=−1.44 vs Tok. **r=15 dead.** `s4-h93-…/results/result.md`.
+- m=−0.007210 z=−1.44 vs Tok. **r=15 dead.**
 
-### H92 — Tok-init × winner-zA @ r=13
-- m=+0.000618 z=0.087 vs Tok. **r=13 dead.**
-
-### H90 / H88 / H89 / H87 / H86 / H85
-- r14 −0.0085; r30 +0.0014; r31 −0.0072; r29 +0.0051; r28 −0.0003; r27 −0.0082.
+### H92 / H90 / H88 / H89 / H87 / H86 / H85
+- r13 +0.0006; r14 −0.0085; r30 +0.0014; r31 −0.0072; r29 +0.0051; r28 −0.0003; r27 −0.0082.
 
 ### H83 / H84 / H82 / H81 / H80 / H79 / H77 / H76 / H78
 - r25…r17 / m7×r17–21 all dead vs Tok (best H81 +0.0088 <0.015).
@@ -73,5 +74,5 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H75…H1
 - See archive + LESSONS. Dead: α-merge / plmk / leary / TP×ks / m7×ks /
   m7×union / lr micro / ep≥2 / **winner-zA as a family (mean −0.004)** /
-  r≤8∨=13∨=14∨=16–24∨≥32-as-cell / α≤8∨=16∨≥64 / clip≥0.08 / king-self.
+  r≤8∨=11–15∨=16–24∨≥32-as-cell / α≤8∨=16∨≥64 / clip≥0.08 / king-self.
   **F3 r=256 and F1 RL are new family screens, not neighbour cells.**

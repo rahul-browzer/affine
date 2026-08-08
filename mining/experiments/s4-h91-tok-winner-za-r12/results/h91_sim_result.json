@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2773.544062614441,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h91/merged",
+  "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+  "hotkey": "local-h91",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.005603914852667007,
+    "se": 0.00816212473982795,
+    "z": -0.6865754973483942,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.03230827961742373,
+      "gate_pass_rate": 0.8620689655172413,
+      "bank_frac": 0.4447916666666667,
+      "calib_ratio": 0.6692614459793478,
+      "baseline_abs": 0.13783524583698623,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.0022051225372711454,
+      "mean_mix": 0.03230827961742373
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.0264791414805157,
+      "gate_pass_rate": 0.8793650793650793,
+      "bank_frac": 0.453125,
+      "calib_ratio": 0.7087054610882912,
+      "baseline_abs": 0.13371400813494455,
+      "n_turns": 80,
+      "n_pairs": 315,
+      "mean_lambda2": -0.004078614084978169,
+      "mean_mix": 0.0264791414805157
+    },
+    "slice": {
+      "seed": 2238457202814913417,
+      "n": 80,
+      "digest": "d83a5f69c2a866e66f5a8c1e71d92920e7f61bdb23d97c3409617799d7e22216",
+      "block_hash": "b203000000000000000000000000000000000000000000000000000000000002",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.7087054610882912,
+    "chall_baseline_abs": 0.13371400813494455,
+    "king_baseline_abs": 0.13783524583698623,
+    "base_x": 0.9701002622586407
+  }
+}
