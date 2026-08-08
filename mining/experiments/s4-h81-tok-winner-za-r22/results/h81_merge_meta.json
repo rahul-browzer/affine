@@ -1,0 +1,35 @@
+{
+  "base": "/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "adapter": "/root/h81/train/adapter",
+  "out": "/root/h81/merged",
+  "device_map": "auto",
+  "cuda_visible": "6,7",
+  "base_first_shard": "/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53/model-00001-of-00002.safetensors",
+  "out_first_shard": "/root/h81/merged/model-00001-of-00002.safetensors",
+  "base_first_1MiB_sha256": "42db50ac4d20d0ac5e4e5d2a52488f00dca30b012b21f3a7f6d929c30d2fc5e0",
+  "out_first_1MiB_sha256": "194097aeed1a1cbf9a58b89a58e0d2fc9b7a2c0627a50ac6438aacf34c6a92fb",
+  "first_1MiB_identical": false,
+  "shard_windows": {
+    "model-00001-of-00002.safetensors": {
+      "size_base": 35101763136,
+      "size_out": 49739502312,
+      "equal": {
+        "head": false,
+        "mid": false,
+        "tail": false
+      }
+    },
+    "model-00002-of-00002.safetensors": {
+      "size_base": 35112732728,
+      "size_out": 19581812712,
+      "equal": {
+        "head": false,
+        "mid": false,
+        "tail": false
+      }
+    }
+  },
+  "weight_identical": false,
+  "elapsed_s": 1061.9896864891052,
+  "finished_utc": "2026-08-08T14:09:48Z"
+}
