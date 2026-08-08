@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H53 | med | H42 cell @ **lr=4e-6** → m>0.04 | **open** (merge shard2) |
-| 2 | H52 | med | H42 cell @ **lr=6e-6** → m>0.04 | **open** (n80 a203) |
-| 3 | H50 | med | H42 cell @ **lr=7.5e-6** → m>0.04 | **open** (n80 a203 ~11/80) |
-| 4 | H51 | med | H28 cell @ **α=16 r16** → m>0.04 | **open** (chall relaunch) |
-| 5 | H49 | low | H28 cell @ **α=4 r16** → m>0.04 | **open** (n80 b203 ~29/80) |
+| 1 | H53 | med | H42 cell @ **lr=4e-6** → m>0.04 | **open** (chall load→n80) |
+| 2 | H52 | med | H42 cell @ **lr=6e-6** → m>0.04 | **open** (n80 a203 ~11/80) |
+| 3 | H50 | med | H42 cell @ **lr=7.5e-6** → m>0.04 | **open** (n80 a203 ~21/80) |
+| 4 | H51 | med | H28 cell @ **α=16 r16** → m>0.04 | **open** (n80 a203 started) |
+| 5 | H49 | low | H28 cell @ **α=4 r16** → m>0.04 | **open** (n80 b203 ~45/80) |
 | — | H45 | was med | H28 cell @ lora r=8 | **refuted** m=+0.00819 |
 | — | H48 | was med | H42 cell @ lr=1e-6 | **refuted** band×1.269 |
 | — | H47 | was med | H28 cell @ α=8 | **refuted** m=+0.00463 |
@@ -31,24 +31,23 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H53 — H28 @ lr=4e-6 (non-α)
 - **Claim:** between H46 2.5e-6 (+0.008) and H42 5e-6 (+0.016) → m>0.04.
-- **Status:** merge shard1 done (47G), writing shard2. `s4-h53-…/`.
+- **Status:** merge OK_NON_IDENT @03:56Z; chall :8002 loading. `s4-h53-…/results/pass238_merge_chall.md`.
 
 ### H52 — H28 @ lr=6e-6 (non-α)
 - **Claim:** just above H42 5e-6 → m>0.04.
-- **Status:** n80 a203 attempt1 started. `s4-h52-…/results/pass237_n80_started.md`.
+- **Status:** n80 a203 ~11/80. `s4-h52-…/results/pass237_n80_started.md`.
 
 ### H50 — H28 @ lr=7.5e-6 (non-α)
 - **Claim:** 1.5× H42 → m>0.04 (above-peak after lr↓ failed).
-- **Status:** n80 a203 ~11/80. `s4-h50-…/results/`.
+- **Status:** n80 a203 ~21/80. `s4-h50-…/results/`.
 
 ### H51 — H28 @ LoRA α=16 @ r16 (non-α)
 - **Claim:** α÷2 vs H28 α32 (between dead α8 and α32) → m>0.04.
-- **Status:** chall EngineDead mid-n80 → relaunch_chall_072 (p237); retry waiting.
-  `s4-h51-…/results/pass237_chall_recover.md`.
+- **Status:** n80 a203 started @03:58Z after chall recover. `s4-h51-…/results/pass238_n80_started.md`.
 
 ### H49 — H28 @ LoRA α=4 @ r16 (non-α)
 - **Claim:** α÷8 → m>0.04. (H47 α8 already weak; low prior.)
-- **Status:** n80 retry#2 b203 ~29/80. `s4-h49-…/results/`.
+- **Status:** n80 retry#2 b203 ~45/80. `s4-h49-…/results/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

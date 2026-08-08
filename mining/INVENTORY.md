@@ -7,11 +7,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-h49-1 | zesty-shark-45 | 8×H200 | $33.81 | ~2026-08-08T13:59Z | H49 m7×wZA α4 | n80 b203 ~29/80 |
-| mine-h50-1 | eager-hawk-5b | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H50 m7×wZA lr7.5e-6 | n80 a203 ~11/80 |
-| mine-h51-1 | brave-lion-47 | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H51 m7×wZA α16 | chall relaunch p237 |
-| mine-h52-1 | noble-wolf-4b | 8×H200 | $31.92 | ~2026-08-08T15:05Z | H52 m7×wZA lr6e-6 | n80 a203 started |
-| mine-h53-1 | zesty-raven-e1 | 8×H200 | $31.92 | ~2026-08-08T15:20Z | H53 m7×wZA lr4e-6 | merge shard2 |
+| mine-h49-1 | zesty-shark-45 | 8×H200 | $33.81 | ~2026-08-08T13:59Z | H49 m7×wZA α4 | n80 b203 ~45/80 |
+| mine-h50-1 | eager-hawk-5b | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H50 m7×wZA lr7.5e-6 | n80 a203 ~21/80 |
+| mine-h51-1 | brave-lion-47 | 8×H200 | $28.00 | ~2026-08-08T15:03Z | H51 m7×wZA α16 | n80 a203 started |
+| mine-h52-1 | noble-wolf-4b | 8×H200 | $31.92 | ~2026-08-08T15:05Z | H52 m7×wZA lr6e-6 | n80 a203 ~11/80 |
+| mine-h53-1 | zesty-raven-e1 | 8×H200 | $31.92 | ~2026-08-08T15:20Z | H53 m7×wZA lr4e-6 | chall load→n80 |
 
 SSH: h49 .54:40300 · h50 .237:40499 · h51 .232:40300 · h52 .18:20099 ·
 h53 .22:20100 · known_hosts `/tmp/mine-h{49,50,51,52,53}-1.known_hosts` ·
@@ -31,6 +31,6 @@ h53 .22:20100 · known_hosts `/tmp/mine-h{49,50,51,52,53}-1.known_hosts` ·
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T03:59Z | h49–h53 match | H51 n80 a203; H53 merge→chall; H49~45 H50~21 H52~11 |
 | 2026-08-08T03:52Z | h49–h53 match | H52 n80 a203; H51 chall EngineDead→relaunch |
 | 2026-08-08T03:44Z | h49–h53 match | H50/H51 chall→n80 a203; H49~17/80 |
-| 2026-08-08T03:41Z | h49–h53 match | relaunch H53 post_train (soft-abort) |
