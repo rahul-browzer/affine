@@ -30,7 +30,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H98 / F1 — Direct RL on self-L1lift — open
 - **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
-- **Status:** chall :8002=200 + completions200; recover diverse warm→freeze.
+- **Status:** n80 attempt1 vs Tok live @21:30Z (engines 200; sampling).
 - `experiments/s4-h98-f1-rl-l1/` · `results/pass382_recover264_enoent.md`.
 
 ### H101 / F6 — Ultrashort≤80 thought format — open
@@ -42,8 +42,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** merge DONE; recover264 a1 after chall cycle (p383).
-- `experiments/s4-h102-f7-teacher-zc/` · `results/pass375_rent.md`.
+- **Status:** recover a1 mid-load king-seeded (p384); await :8002→n80.
+- `experiments/s4-h102-f7-teacher-zc/` · `results/pass384_midload_seed.md`.
 
 ### H103 / F8 — Genesis-init REINFORCE-L1lift — open
 - **Claim:** F1 RL recipe on Genesis (not Tok) → m>+0.015; Λ2 can move + L1 shaping.

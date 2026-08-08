@@ -333,11 +333,25 @@ for attempt in 1 2 3; do
   TAG=h101_chall_p260_a${attempt}_$(date +%s)_$$
   TCACHE=/root/.triton/isolated/$TAG
   mkdir -p "$TCACHE" /root/.cache/torchinductor_$TAG
+  # Prefer live king isolated TCACHE (:8001 env). Bare cache/king is often
+  # absent after king_recover_pass332 — H91/p382/p384 "no king TCACHE" → cold JIT.
   n_seed=0
-  if [[ -d /root/.triton/cache/king ]]; then
-    n_seed=$(find /root/.triton/cache/king -name '__triton_launcher*.so' 2>/dev/null | wc -l)
-    log "seed TCACHE from /root/.triton/cache/king (launcher.so=$n_seed) — leave WRITABLE"
-    cp -a /root/.triton/cache/king/. "$TCACHE/" 2>/dev/null || true
+  SEED_SRC=""
+  for pid in $(ps -eo pid,cmd | awk '/vllm serve/ && /--port 8001/ {print $1}'); do
+    SEED_SRC=$(tr '\0' '\n' < /proc/$pid/environ 2>/dev/null | awk -F= '/^TRITON_CACHE_DIR=/{print $2; exit}')
+    [[ -n "$SEED_SRC" && -d "$SEED_SRC" ]] && break
+    SEED_SRC=""
+  done
+  if [[ -z "$SEED_SRC" ]]; then
+    SEED_SRC=$(ls -1dt /root/.triton/isolated/*king* 2>/dev/null | head -1 || true)
+  fi
+  if [[ -z "$SEED_SRC" && -d /root/.triton/cache/king ]]; then
+    SEED_SRC=/root/.triton/cache/king
+  fi
+  if [[ -n "$SEED_SRC" && -d "$SEED_SRC" ]]; then
+    n_seed=$(find "$SEED_SRC" -name '__triton_launcher*.so' 2>/dev/null | wc -l)
+    log "seed TCACHE from $SEED_SRC (launcher.so=$n_seed) — leave WRITABLE"
+    cp -a "$SEED_SRC"/. "$TCACHE/" 2>/dev/null || true
   else
     log "no king TCACHE to seed"
   fi

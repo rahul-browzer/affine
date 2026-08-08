@@ -8,12 +8,12 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | 2026-08-09T07:05Z | H98 F1 RL | chall200 warm→n80 |
-| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | Tok Range-resume |
+| mine-f1-1 | brave-hawk-5a | 8×H200 | $33.81 | 2026-08-09T07:05Z | H98 F1 RL | n80 vs Tok live |
+| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | Tok Range ~60% |
 | mine-f6-1 | noble-shark-14 | 8×H200 | $28.00 | 2026-08-09T08:42Z | H101 F6 shortfmt | recover264 a1 |
-| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | recover264 a1 |
-| mine-f8-1 | brave-matrix-d8 | 8×H200 | $28.00 | 2026-08-09T09:04Z | H103 F8 Genesis-RL | RL train |
-| mine-f9-1 | lunar-fox-0a | 8×H200 | $31.92 | 2026-08-09T09:12Z | H104 F9 kevin-base | kevin DL ~37G |
+| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | midload seed→n80 |
+| mine-f8-1 | brave-matrix-d8 | 8×H200 | $28.00 | 2026-08-09T09:04Z | H103 F8 Genesis-RL | RL ~step60/200 |
+| mine-f9-1 | lunar-fox-0a | 8×H200 | $31.92 | 2026-08-09T09:12Z | H104 F9 kevin-base | kevin DL ~53G |
 
 SSH: f1 .54:40099 · f4 204.9.206.243:40099 · f6 .237:40300 · f7 .232:40311 ·
 f8 .236:40309 · f9 38.255.28.18:20099 · kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
@@ -32,6 +32,6 @@ f8 .236:40309 · f9 38.255.28.18:20099 · kh `~/.ssh/id_ed25519` + `/tmp/mine-*-
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-08T21:33Z | 6 live | F7 midload seed; F1 n80; no rm/rent |
 | 2026-08-08T21:30Z | 6 live | F4 Tok Range; F6/F7 recover264; F1 chall200; no rm/rent |
 | 2026-08-08T21:24Z | 6 live | F1 recover264+mid-load seed; no rm/rent |
-| 2026-08-08T21:19Z | 6 live | F1 preempt rearm after TIMEOUT; no rm/rent |
