@@ -119,9 +119,9 @@ Format: `- <finding> — <the number or error that proves it>`
   with chall EngineDead on GPUs 4,5 → recover264 immediately.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
   `/root/venv/bin/activate` ≤10m (H60/H61/H62).
-- Rent by UUID from `lium ls --count 8` $/h≥28 + verify COUNT=8 (`lium up
-  --gpu H200 -c 8` can yield COUNT=5 @$14.5/h). Always `-y` (bare `yes|`
-  floods SSH with `y: command not found`).
+- Rent by UUID from `lium ls --count 8` $/h≥28 + verify COUNT=8 on the pod
+  (`nvidia-smi -L|wc -l`; catalog can lie — COUNT=5@$14.5 or COUNT=7@$31.92
+  H99 p355). Always `-y` (bare `yes|` floods SSH with `y: command not found`).
 - p253/p260 diverse writable warmups→freeze beats short-only post-w1 freeze.
 - B300 flashinfer JIT: clear `cached_ops/sampling`, `SERVE_STAGGER_S≥45`.
 - Clone hyp scripts: replace full EXP dirname **before** `h46→hN` sed.

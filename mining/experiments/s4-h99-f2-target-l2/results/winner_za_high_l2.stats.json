@@ -1,0 +1,57 @@
+{
+  "n_examples": 1059,
+  "n_pairs_scanned": 29865,
+  "n_pass_min_l2": 9471,
+  "n_no_yc": 0,
+  "n_no_corpus": 26,
+  "n_z_long": 2858,
+  "n_listy": 9,
+  "min_lambda2": 0.02,
+  "max_z_chars": 300,
+  "src_hits_top": [
+    [
+      "chal-00161.json.gz",
+      64
+    ],
+    [
+      "chal-00258.json.gz",
+      55
+    ],
+    [
+      "chal-00238.json.gz",
+      53
+    ],
+    [
+      "chal-00233.json.gz",
+      52
+    ],
+    [
+      "chal-00239.json.gz",
+      50
+    ],
+    [
+      "chal-00254.json.gz",
+      47
+    ],
+    [
+      "chal-00235.json.gz",
+      46
+    ],
+    [
+      "chal-00262.json.gz",
+      45
+    ],
+    [
+      "chal-00234.json.gz",
+      42
+    ],
+    [
+      "chal-00243.json.gz",
+      40
+    ]
+  ],
+  "z_chars_p50": 182,
+  "z_chars_mean": 176.6317280453258,
+  "lambda2_mean": 0.08621898917005232,
+  "lambda2_p90": 0.16640960884218364
+}

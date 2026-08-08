@@ -7,13 +7,14 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H98/F1 | high | REINFORCE self-L1lift → m>+0.015 | **open** (bootstrap) |
-| 2 | H97/F3 | high | r=256 breaks LoRA ceiling → m>+0.015 | **open** (bootstrap) |
-| 3 | H93 | med | Tok-init r15 → m>0.04 | **open** (n80 ~65/80) |
-| 4 | H91 | med | Tok-init r12 → m>0.04 | **open** (n80 ~54/80) |
-| 5 | H94 | med | Tok-init r11 → m>0.04 | **open** (n80 ~46/80) |
-| 6 | H95 | med | Tok-init r10 → m>0.04 | **open** (chall serve) |
-| 7 | H96 | med | Tok-init r9 → m>0.04 | **open** (train) |
+| 1 | H99/F2 | high | high-Λ2 z_A SFT → m>+0.015 | **open** (bootstrap) |
+| 2 | H98/F1 | high | REINFORCE self-L1lift → m>+0.015 | **open** (bootstrap) |
+| 3 | H97/F3 | high | r=256 breaks LoRA ceiling → m>+0.015 | **open** (train) |
+| 4 | H93 | med | Tok-init r15 → m>0.04 | **open** (n80 ~75/80) |
+| 5 | H91 | med | Tok-init r12 → m>0.04 | **open** (n80 ~66/80) |
+| 6 | H94 | med | Tok-init r11 → m>0.04 | **open** (n80 ~62/80) |
+| 7 | H95 | med | Tok-init r10 → m>0.04 | **open** (n80 ~1/80) |
+| 8 | H96 | med | Tok-init r9 → m>0.04 | **open** (merge) |
 | — | H92…H1 | — | winner-zA / α / merges | **refuted** (see below) |
 | — | H3 | instrumental | clip-L1 lever | **supported** (+rank) |
 
@@ -21,23 +22,24 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Open
 
+### H99 / F2 — Target Λ2 via high-Λ2 z_A — open
+- **Claim:** Select z_A by Λ2≥0.02 (1059 ex; 65% not in clip-L1 set) → m>+0.015.
+- **Status:** BOOTSTRAP on mine-f2-1 (B200 @$40). Screen +0.015 → CONFIRM k=4.
+- `experiments/s4-h99-f2-target-l2/`.
+
 ### H98 / F1 — Direct RL on self-L1lift — open
-- **Claim:** CE-on-harvested-z is the dead basin; REINFORCE with reward=
-  `clip(lpθ(y|z)−lpθ(y|∅),±0.1)` on thought tokens can move S.
-- **Status:** BOOTSTRAP on mine-f1-1. Screen bar +0.015 → CONFIRM k=4.
+- **Claim:** REINFORCE reward=`clip(self L1lift,±0.1)` on thought tokens.
+- **Status:** BOOTSTRAP on mine-f1-1 (tok DL). Screen +0.015 → CONFIRM k=4.
 - `experiments/s4-h98-f1-rl-l1/`.
 
 ### H97 / F3 — LoRA r=256 ceiling break — open
-- **Claim:** r≈18 cannot move Λ2; r=256/α512 Tok-init × winner-zA can (family F3).
-- **Status:** BOOTSTRAP on mine-f3-1. Screen bar +0.015 → CONFIRM k=4.
+- **Claim:** r=256/α512 Tok-init × winner-zA can move Λ2.
+- **Status:** TRAIN on mine-f3-1. Screen +0.015 → CONFIRM k=4.
 - `experiments/s4-h97-f3-r256/`.
 
-### H91 / H93 / H94 — Tok-init r12/r15/r11 — open (draining)
+### H91 / H93 / H94 / H95 / H96 — Tok-init r-cells — open (draining)
 - Winner-zA cells; retire on resolve; **do not** launch more r-neighbours.
-- n80 ~54/65/46 of 80. mid304 armed.
-
-### H95 / H96 — Tok-init r10/r9 — open (draining)
-- H95: chall re-serve after SKIP_MERGE. H96: train. Retire-on-resolve.
+- n80 ~66/75/62/1; H96 merging.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -46,8 +48,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | F | family | next |
 |---|---|---|
-| F2 | Target Λ2 not clip-L1 | scaffold+rent on next free slot / after H93 rm |
-| F4 | Non-king base model | after F2 or parallel if slot free |
+| F4 | Non-king base model | next free slot / after H93 rm |
 | F5 | Correctness-grounded z | needs verified trajectories first |
 | F6 | Thought format/length axis | later |
 
