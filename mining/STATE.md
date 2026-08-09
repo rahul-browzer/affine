@@ -15,23 +15,23 @@ King Tok331102 S=0.04456.
 | Lium / spend | **~$183,014** · cum ~$14,343 · **avail ~$173.0k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$207.5/h** (6 mine-*) ≪ $833/h · free slots **14** |
-| F4 | n80 **b203** ~55–58/80; watcher → **d203first** |
-| F7 | n80 **e203** ~35/80 (d203first) |
-| F9 | n80 **d203** ~15/80 (engines 200) |
-| F10 | train ~25/60 GPUs6,7; post waits train.done |
-| F11 | train live pandora; king DL af10 mid |
-| F12 | bootstrap→golden-crown DL→train (p416 rent) |
+| F4 | n80 **d203** just launched (p417 killed stale longwait c203) |
+| F7 | n80 **e203** ~47–48/80 |
+| F9 | n80 **d203** ~20–22/80 |
+| F10 | train live (pre-ckpt; GPU6 util~57%) |
+| F11 | train live (pre-ckpt; GPU7 util~51%); af10 DL done |
+| F12 | golden-crown HF DL mid → train |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-f4-1 | calm-wolf-30 | 204.9.206.243:40099 | ~07:18Z+1d | F4 n80 b203 |
+| mine-f4-1 | calm-wolf-30 | 204.9.206.243:40099 | ~07:18Z+1d | F4 n80 d203 |
 | mine-f7-1 | lunar-shark-87 | 152.236.142.232:40311 | ~08:52Z+1d | F7 n80 e203 |
 | mine-f9-1 | lunar-fox-0a | 38.255.28.18:20099 | ~09:12Z+1d | F9 n80 d203 |
 | mine-f10-1 | eager-wolf-42 | 152.236.142.234:40300 | ~11:54Z+1d | F10 train LoRA |
-| mine-f11-1 | swift-eagle-51 | 152.236.142.237:40300 | ~12:02Z+1d | F11 train+kingDL |
-| mine-f12-1 | lunar-wolf-a5 | 152.236.142.236:40300 | ~12:10Z+1d | F12 bootstrap |
+| mine-f11-1 | swift-eagle-51 | 152.236.142.237:40300 | ~12:02Z+1d | F11 train |
+| mine-f12-1 | lunar-wolf-a5 | 152.236.142.236:40300 | ~12:10Z+1d | F12 DL→train |
 
 kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`. Non-mine — **do not touch**.
 
@@ -45,6 +45,7 @@ recover264=chall; king-only relaunch; seed chall from **pathfile** then king TCA
 **Fixed `watch_n80_retry`** (`retry_${hyp}_n80*`). **king_recover = live Tok af10**.
 **B300 cu13:** CCCL + `libcudart.so`→`.so.13` + diverse-warm (p405).
 **H32:** drop a203+c203; `retry_*_d203first`. Kill watchers via `$0` match only.
+**p417:** arming d203first ≠ kill stale longwait — kill longwait PID first.
 
 ## Operator directive 2026-08-08T18:55Z
 
@@ -52,8 +53,8 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 ## Next action
 
-1. **Await nearest screen** — F4 (~55/80) then F7 (~35/80); F9 ~15/80.
+1. **Await nearest screen** — F7 (~48/80) then F4 d203 / F9 (~22/80).
 2. m>+0.015 → CONFIRM k=4; m≤0/gate fail → tear; no F5 yet.
-3. F10/F11/F12: train→merge→n80 (F12 golden-crown DL first).
-4. Free slot: next unused earner base (diane613 / Bittob / …) only after a
-   screen resolves or burn headroom + distinct family still open.
+3. F10/F11/F12: train→merge→n80 (F12 train after golden-crown DL).
+4. Free slot: next unused earner base only after a screen resolves or burn
+   headroom + distinct family still open.

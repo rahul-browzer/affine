@@ -28,7 +28,7 @@ SIM=/root/affine_data/h100_sim_result.json
 PROG=/root/affine_data/h100_sim_progress.json
 DEC=/root/affine_data/h100_decision.json
 LOG=/root/logs/h100_n80_retry.nohup
-MAX_ATTEMPTS=${MAX_ATTEMPTS:-3}
+MAX_ATTEMPTS=${MAX_ATTEMPTS:-6}
 
 log() { echo "[h100-n80-retry] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
@@ -121,12 +121,14 @@ fi
 test -d "$MERGED"
 test -f /root/logs/h100_merge.done
 
-# Fresh block_hash per outer retry (H32/H34): default 0*64 slice hits a turn
-# with prompt+max_tokens > 32768 → teacher 400 → whole n80 dies.
+# p410/p417: drop a203+c203 (H32 teacher 400). Same order as d203first.
+# Stale longwait with a/b/c poisoned F4 p417 — do not reintroduce.
 BLOCK_HASHES=(
-  "a203000000000000000000000000000000000000000000000000000000000001"
+  "d203000000000000000000000000000000000000000000000000000000000004"
+  "e203000000000000000000000000000000000000000000000000000000000005"
+  "f203000000000000000000000000000000000000000000000000000000000006"
+  "g203000000000000000000000000000000000000000000000000000000000007"
   "b203000000000000000000000000000000000000000000000000000000000002"
-  "c203000000000000000000000000000000000000000000000000000000000003"
 )
 
 for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
