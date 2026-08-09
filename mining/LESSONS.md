@@ -145,6 +145,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F43 offline DPO REFUTED** m=−0.00966; empty idle `mine-*`=orphan→rm (F48). **F39/F40/F41 RL REFUTED** +0.0027/−0.023/−0.012 — earner RL ≠ crown.
 - **F42 Tok BoN-CE REFUTED** m=+0.00508 z=0.78; λ2_c−0.0043 > king−0.0071 but margin noise < +0.015 screen bar (p534).
 - **unconst HF public storage full** (p528) — merged push BadRequest; local `/tmp/*_full_ft_save` still serves. Free space/Pro before submit uploads.
-- **F44/F45/F46 p529:** misnamed `*_d203first` still a203 + no nested FP guard → chall-down ConnectError wrote FALSE_PROBE+`N80_DONE`. Fix = `*_p529.sh` (d203-first+`_is_false_probe_sim`); patch relaunch rearm too (F45 p535). Never tear on FP.
+- **F44/F45/F46 p529:** misnamed `*_d203first` still a203 + no nested FP → ConnectError wrote FALSE_PROBE+`N80_DONE`. Fix=`*_p529.sh` (d203+`_is_false_probe_sim`); patch relaunch rearm (F45 p535). **Watcher→p529 ≠ cutover** — kill live `$0`+sim + quarantine progress (F45 p536 b203@19). Never tear on FP.
 - **Raw non-Albedo base fails baseline band** — F47 Qwen3-Coder n80: base_x=**2.244** (abs 0.301 vs king 0.134), valid_c=false; ungated mix also loses (0.027<0.036). Do not re-screen unmodified foreign bases vs Tok.
 - **recover264/relaunch rearm path must match live p529 retry** — F46/F44 p531: DONE_LAUNCH rearmed `watch_n80_retry` to misnamed a203 `*_d203first.sh`, undoing p529. Patch `relaunch_chall_pass264.sh` + rearm after DONE; never edit the running relaunch script.

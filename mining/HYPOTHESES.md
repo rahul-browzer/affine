@@ -9,7 +9,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 d203 @33/80) |
-| 2 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 b203 @17/80; watch p529) |
+| 2 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 d203 p529 @0/80; p536) |
 | 3 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (n80 d203 @29/80) |
 | — | H137/F42 | — | Tok BoN-CE teacher-Λ2 → m>+0.015 | **refuted** m=+0.00508 |
 | — | H135/F40 | — | kevin RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.02343 |
@@ -64,7 +64,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - n80 d203 @~33/80; watcher+relaunch→p529 (p531). mine-f46-1.
 
 ### H140/F45 — Tok last-N full-rank REINFORCE on teacher Λ2
-- a203 died king-400@40; attempt2 b203 @~17/80; watcher+relaunch→p529 (p535). mine-f45-1.
+- p536: killed mid-flight a203-first retry (b203@19/80); live p529 d203 attempt1. Engines 200. mine-f45-1.
 
 ### H139/F44 — Tok online DPO on teacher Λ2
 - n80 d203 p529 @~29/80; engines 200. mine-f44-1.
@@ -94,7 +94,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F46/F45 | last-N full-rank RL-Λ2 | F46@33 F45@17+p529 |
+| F46/F45 | last-N full-rank RL-Λ2 | F46@39 F45 d203 p529 |
 | F44 | Tok online DPO teacher-Λ2 | n80 d203 @29/80 |
 | — | F42 Tok BoN-CE / F40 kevin RL / F41 TalentPigs / F47 / F39 / F38 / F43 | **CLOSED** |
 | — | full-FT×Λ2 F26–F36 · earner×Λ2 F9–F16 · raw earners | **CLOSED** |

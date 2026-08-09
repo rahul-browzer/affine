@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $177,993.63 | 2026-08-09T11:46Z |
-| cumulative mining spend | ~$19,741 (Δ bal from p526 baseline) | 2026-08-09T11:46Z |
-| **available for mining** | **~$167,994** (balance − $10,000 floor) | 2026-08-09T11:46Z |
+| Lium balance | $177,974.56 | 2026-08-09T11:52Z |
+| cumulative mining spend | ~$19,760 (Δ bal from p526 baseline) | 2026-08-09T11:52Z |
+| **available for mining** | **~$167,975** (balance − $10,000 floor) | 2026-08-09T11:52Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | ~$83/h | 2026-08-09T11:46Z |
+| miner burn (3 pods) | ~$83/h | 2026-08-09T11:52Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
