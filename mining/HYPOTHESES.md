@@ -8,10 +8,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (serve T+K) |
+| 1 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (chall load p446) |
 | 2 | H113/F18 | high | raw TalentPigs (no LoRA) → m>+0.015 | **open** (bootstrap) |
-| 3 | H114/F19 | high | raw kevin954 (no LoRA) → m>+0.015 | **open** (n80) |
-| 4 | H115/F20 | high | raw pandora (no LoRA) → m>+0.015 | **open** (serve T+K) |
+| 3 | H114/F19 | high | raw kevin954 (no LoRA) → m>+0.015 | **open** (n80 ~1/80) |
+| 4 | H115/F20 | high | raw pandora (no LoRA) → m>+0.015 | **open** (chall load p446) |
 | 5 | H116/F21 | high | raw diane613 (no LoRA) → m>+0.015 | **open** (bootstrap B200) |
 | 6 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (bootstrap B300) |
 | 7 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (bootstrap B300 p445) |
@@ -37,16 +37,16 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 ## Open
 
 ### H112/F17 — raw genesis (no LoRA)
-- Unmodified genesis @abe89194 vs Tok → m>+0.015. Bootstrap. `s4-h112-f17-raw-genesis/`.
+- Unmodified genesis @abe89194 vs Tok → m>+0.015. p446: Triton ENOENT hang → king-seed+relaunch. `s4-h112-f17-raw-genesis/`.
 
 ### H113/F18 — raw TalentPigs (no LoRA)
 - Unmodified TalentPigs @dbfbb3e2 vs Tok → m>+0.015 (≠F10 LoRA). Bootstrap. `s4-h113-f18-raw-talentpigs/`.
 
 ### H114/F19 — raw kevin954 (no LoRA)
-- Unmodified kevin954 @3fb79cfb vs Tok → m>+0.015 (≠F9 LoRA). n80 starting. `s4-h114-f19-raw-kevin/`.
+- Unmodified kevin954 @3fb79cfb vs Tok → m>+0.015 (≠F9 LoRA). n80 ~1/80. `s4-h114-f19-raw-kevin/`.
 
 ### H115/F20 — raw pandora (no LoRA)
-- Unmodified pandora @5218b138 vs Tok → m>+0.015 (≠F11 LoRA). Serve T+K. `s4-h115-f20-raw-pandora/`.
+- Unmodified pandora @5218b138 vs Tok → m>+0.015 (≠F11 LoRA). p446: FALSE_PROBE ConnectError → relaunch_072. `s4-h115-f20-raw-pandora/`.
 
 ### H116/F21 — raw diane613 (no LoRA)
 - Unmodified diane613 @ad0f3f11 vs Tok → m>+0.015 (≠F13 LoRA). Bootstrap on B200. `s4-h116-f21-raw-diane/`.
