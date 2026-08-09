@@ -15,7 +15,7 @@ Fleet = **1** warm pod. No submit. Trigger: king **S < 0.035** → re-screen H64
 | Lium / spend | **~$176,750** · cum ~$20,995 · **avail ~$166.8k** |
 | miner burn | **~$28.00/h** (1) ≪$833 · free **19** |
 | watch | `mine-watch-1` / golden-wolf-bd · TTL **2026-08-10T03:38Z** (~5.9h) |
-| restore | **IN PROGRESS** pid=901 · **HF DL** teacher+king+h64 · triton n_so 8/24/24 · no ready.done |
+| restore | **IN PROGRESS** pid=901 · **HF DL** ~111G hub (teacher+king+h64 locks) · triton n_so 8/24/24 · engines 000 · no ready.done |
 | HF | unconst **public storage full** — H64 still **downloadable** |
 | warm-stack | Triton tar on pod; `restore_warm_stack.sh` stages: pip→triton→DL→serve |
 
