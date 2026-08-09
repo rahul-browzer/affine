@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2798.9286258220673,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h138/merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-h138",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.009661180346239483,
+    "se": 0.007361474071471925,
+    "z": -1.3123975242512445,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.024441391753823982,
+      "gate_pass_rate": 0.7652733118971061,
+      "bank_frac": 0.4604166666666667,
+      "calib_ratio": 0.740530583460657,
+      "baseline_abs": 0.13667418051211894,
+      "n_turns": 80,
+      "n_pairs": 311,
+      "mean_lambda2": -0.006174730462621033,
+      "mean_mix": 0.024441391753823982
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.015072534888218568,
+      "gate_pass_rate": 0.8,
+      "bank_frac": 0.434375,
+      "calib_ratio": 0.7713993030980913,
+      "baseline_abs": 0.13751075884382954,
+      "n_turns": 80,
+      "n_pairs": 315,
+      "mean_lambda2": -0.011516887657034024,
+      "mean_mix": 0.015072534888218568
+    },
+    "slice": {
+      "seed": 5796712557862131003,
+      "n": 80,
+      "digest": "06b08aa7604af8a2b862641376c30be8f1c75e54cba0f6aec0b56d51b59a5b69",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.7713993030980913,
+    "chall_baseline_abs": 0.13751075884382954,
+    "king_baseline_abs": 0.13667418051211894,
+    "base_x": 1.0061209683392718
+  }
+}

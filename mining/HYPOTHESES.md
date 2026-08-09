@@ -8,16 +8,16 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H142/F47 | high | raw Qwen3-Coder-30B vs Tok → m>+0.015 | **open** (bootstrap) |
-| 2 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 1 | H142/F47 | high | raw Qwen3-Coder-30B vs Tok → m>+0.015 | **open** (eng→n80) |
+| 2 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (lastN RL train) |
 | 3 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (lastN RL) |
 | 4 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (online-DPO train) |
-| 5 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (n80 @73/80) |
-| 6 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN train) |
-| 7 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (n80 d203 p523) |
-| 8 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 b203 p521) |
-| 9 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL ~180/200) |
-| 10 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (n80 @48/80) |
+| 5 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN train) |
+| 6 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (n80 @11/80 d203) |
+| 7 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 @30/80 b203) |
+| 8 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (n80 @1/80) |
+| 9 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (n80 @59/80) |
+| — | H138/F43 | — | Tok offline DPO duel-Λ2 → m>+0.015 | **refuted** m=−0.00966 |
 | — | H132/F37 | — | Tok RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.00047 |
 | — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
@@ -72,23 +72,23 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - Tok-init LoRA; G=2; teacher-Λ2 labels; DPO β=0.1 → m>+0.015.
 - train live. mine-f44-1.
 
-### H138/F43 — Tok offline DPO on duel Λ2 prefs
-- n80 @73/80 (a203). mine-f43-1.
+### H138/F43 — Tok offline DPO on duel Λ2 prefs — REFUTED
+- m=−0.00966 z=−1.31; λ2_c −0.0115 vs king −0.0062; gates clear. `s4-h138-f43-tok-dpo-l2/`.
 
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
 - BoN train. mine-f42-1.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
-- n80 d203 live (p523; a203 FP loop fixed). mine-f41-1.
+- n80 @11/80 d203. mine-f41-1.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
-- n80 b203 live post salvage (p521). mine-f40-1.
+- n80 @30/80 b203. mine-f40-1.
 
 ### H134/F39 — Tok REINFORCE on full S* mix
-- RL ~180/200. mine-f39-1.
+- n80 @1/80 a203. mine-f39-1.
 
 ### H133/F38 — Genesis REINFORCE on teacher Λ2
-- n80 @19/80 a203. mine-f38-1.
+- n80 @59/80 a203. mine-f38-1.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -101,7 +101,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F46 | Genesis last-N full-rank RL-Λ2 | **live** bootstrap |
 | F45 | Tok last-N full-rank RL-Λ2 | **live** train |
 | F44 | Tok online DPO teacher-Λ2 | **live** train |
-| F43–F38 | DPO/BoN/RL screens | n80 or train |
+| F42–F38 | BoN/RL screens | n80 or train |
+| — | Tok offline DPO duel-Λ2 | **CLOSED** F43 m=−0.00966 |
 | — | Tok LoRA RL teacher-Λ2 | **CLOSED** F37 m=−0.00047 |
 | — | past-king full-FT×Λ2 | **CLOSED** F26–F36 all ≤0 |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
@@ -109,7 +110,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
 
-- **H132/F37** Tok LoRA RL teacher-Λ2 −0.00047 · **H131/F36** af-k1 FT −0.067 · **H127/F32** TalentPigs FT −0.026
+- **H138/F43** offline DPO duel-Λ2 −0.00966 · **H132/F37** Tok LoRA RL −0.00047 · **H131/F36** af-k1 FT −0.067
 - **H117/F22** raw everest −0.063 · **H124/F29** golden FT −0.093 · **H130/F35** everest FT −0.084
 - **H121–H126/H123/H125** full-FT class ≤0 · **H118/F23** raw Bittob −0.084
 - **H120/F25** raw golden −0.063 · **H112/F17** genesis −0.055 · **H113/F18** TalentPigs −0.030
