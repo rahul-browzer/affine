@@ -39,36 +39,36 @@ if [[ -x "${_CU13}/bin/nvcc" && -f "${_CU13}/include/cuda_fp16.h" ]]; then
   export LIBRARY_PATH="${CUDA_HOME}/lib:${CUDA_HOME}/lib64:${LIBRARY_PATH:-}"
 fi
 
-LOG=/root/logs/h126_chall_recover_pass264.log
+LOG=/root/logs/h117_chall_recover_pass264.log
 CHALL_LOG=/root/logs/vllm_chall.log
 PIDF=/root/logs/vllm_chall.pid
-MERGE=/root/h126/merged
-export HYP=h126
+MERGE=/root/h117/chall
+export HYP=h117
 export GPUS=4,5
 UTIL=0.72
 QDIR=/root/affine_data/false_probes
 mkdir -p /root/logs /root/affine_data "$QDIR"
 : >"$LOG"
 
-log() { echo "[recover144-h126-chall] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
+log() { echo "[recover144-h117-chall] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
 log "START chall relaunch (outer×3 + king-seed WRITABLE diverse-warm + post-diverse freeze; p247 prefreeze-before-w1 dead)"
 
 ts=$(date -u +%Y%m%dT%H%M%SZ)
-for f in h126_decision.json h126_sim_result.json h126_sim_result_artifact.json \
-         h126_sim_progress.json; do
+for f in h117_decision.json h117_sim_result.json h117_sim_result_artifact.json \
+         h117_sim_progress.json; do
   if [[ -f "/root/affine_data/$f" ]]; then
     mv "/root/affine_data/$f" "$QDIR/${f%.json}_pass264_${ts}.json"
     log "quarantine $f → $QDIR"
   fi
 done
-rm -f /root/logs/h126_n80.done /root/logs/h126_n80_retry.aborted \
-  /root/logs/h126_pipeline.aborted /root/logs/h126_chall_serve.done \
-  /root/logs/h126_sim_n80.done /root/logs/h126_chall_freeze_pass247.done \
-  /root/logs/h126_chall_freeze_pass251.done \
-  /root/logs/h126_chall_freeze_pass237.done \
-  /root/logs/h126_chall_freeze_pass239.done \
-  /root/logs/h126_chall_freeze_pass240.done
+rm -f /root/logs/h117_n80.done /root/logs/h117_n80_retry.aborted \
+  /root/logs/h117_pipeline.aborted /root/logs/h117_chall_serve.done \
+  /root/logs/h117_sim_n80.done /root/logs/h117_chall_freeze_pass247.done \
+  /root/logs/h117_chall_freeze_pass251.done \
+  /root/logs/h117_chall_freeze_pass237.done \
+  /root/logs/h117_chall_freeze_pass239.done \
+  /root/logs/h117_chall_freeze_pass240.done
 
 # Stop post_train / wait_ready / bare sim — retry owns hashed n80.
 while read -r pid; do
@@ -81,8 +81,8 @@ done < <(ps -eo pid,cmd | awk '
   /[p]ost_train_pipeline\.sh/ {print $1}
   /[w]ait_ready\.sh/ {print $1}
   /[r]estart_for_h2\.sh/ {print $1}
-  /[r]un_sim_duel\.py/ && /local-h126/ {print $1}
-  /[r]etry_h126_n80\.sh/ {print $1}
+  /[r]un_sim_duel\.py/ && /local-h117/ {print $1}
+  /[r]etry_h117_n80\.sh/ {print $1}
 ')
 
 reap_gpus() {
@@ -139,7 +139,7 @@ for pid in list(parents):
     except Exception:
         pass
 kill_set = pids | parents | grandparents
-print(f"[recover144-h126-chall] reap gpu={sorted(want)} workers={sorted(pids)} parents={sorted(parents)} grandparents={sorted(grandparents)}")
+print(f"[recover144-h117-chall] reap gpu={sorted(want)} workers={sorted(pids)} parents={sorted(parents)} grandparents={sorted(grandparents)}")
 for pid in kill_set:
     try:
         os.kill(pid, signal.SIGTERM)
@@ -193,12 +193,12 @@ wait_gpus_free() {
 wipe_caches() {
   log "wipe role chall caches (default + prior isolated)"
   chmod -R u+w /root/.triton/cache/chall /root/.triton/cache/chall_* 2>/dev/null || true
-  chmod -R u+w /root/.triton/isolated/h126_chall_* 2>/dev/null || true
+  chmod -R u+w /root/.triton/isolated/h117_chall_* 2>/dev/null || true
   rm -rf /root/.triton/cache/chall /root/.triton/cache/chall_* || true
-  rm -rf /root/.triton/isolated/h126_chall_* || true
+  rm -rf /root/.triton/isolated/h117_chall_* || true
   rm -rf /root/.cache/flashinfer/cached_ops/sampling || true
   rm -rf /root/.cache/vllm/torch_compile_cache || true
-  rm -rf /tmp/torchinductor_* /root/.cache/torch/inductor /root/.cache/torchinductor_chall_* /root/.cache/torchinductor_h126_* || true
+  rm -rf /tmp/torchinductor_* /root/.cache/torch/inductor /root/.cache/torchinductor_chall_* /root/.cache/torchinductor_h117_* || true
   log "settle 30s after wipe"
   sleep 30
 }
@@ -330,7 +330,7 @@ ok=0
 for attempt in 1 2 3; do
   log "=== attempt $attempt/3 (writable w1; freeze only post-w1) ==="
   wipe_caches
-  TAG=h126_chall_p260_a${attempt}_$(date +%s)_$$
+  TAG=h117_chall_p260_a${attempt}_$(date +%s)_$$
   TCACHE=/root/.triton/isolated/$TAG
   mkdir -p "$TCACHE" /root/.cache/torchinductor_$TAG
   # Prefer live king isolated TCACHE (:8001 env). Bare cache/king is often
@@ -338,7 +338,7 @@ for attempt in 1 2 3; do
   n_seed=0
   SEED_SRC=""
   # Prefer pathfile written by king_recover_pass332 (ps/environ race missed it p395).
-  # Glob hyp-agnostic: h100/h126/…_king_tcache_pass332.path (p396).
+  # Glob hyp-agnostic: h100/h117/…_king_tcache_pass332.path (p396).
   for _pf in /root/logs/*_king_tcache_pass332.path; do
     [[ -f "$_pf" ]] || continue
     SEED_SRC=$(cat "$_pf" 2>/dev/null || true)
@@ -444,21 +444,21 @@ while read -r pid; do
   kill "$pid" 2>/dev/null || true
   sleep 1
   kill -9 "$pid" 2>/dev/null || true
-done < <(ps -eo pid,args | awk '/[w]atch_n80_retry\.sh/ && / h126 / {print $1}')
+done < <(ps -eo pid,args | awk '/[w]atch_n80_retry\.sh/ && / h117 / {print $1}')
 while read -r pid; do
   [[ -n "${pid:-}" ]] || continue
   log "kill old retry pid=$pid"
   kill "$pid" 2>/dev/null || true
   sleep 1
   kill -9 "$pid" 2>/dev/null || true
-done < <(ps -eo pid,args | awk '/[r]etry_h126_n80\.sh/ {print $1}')
+done < <(ps -eo pid,args | awk '/[r]etry_h117_n80\.sh/ {print $1}')
 while read -r pid; do
   [[ -n "${pid:-}" ]] || continue
   log "kill old form pid=$pid"
   kill "$pid" 2>/dev/null || true
   sleep 1
   kill -9 "$pid" 2>/dev/null || true
-done < <(ps -eo pid,args | awk '/[w]atch_form_decision\.sh/ && / h126 / {print $1}')
+done < <(ps -eo pid,args | awk '/[w]atch_form_decision\.sh/ && / h117 / {print $1}')
 # Also kill any leftover p247 recover (should already be dead)
 while read -r pid; do
   [[ -n "${pid:-}" ]] || continue
@@ -476,21 +476,21 @@ while read -r pid; do
 done < <(ps -eo pid,args | awk '/[r]elaunch_chall_pass251\.sh/ {print $1}')
 sleep 1
 
-nohup bash /root/mining_src/s4-h2-merge/watch_form_decision.sh h126 \
-  /root/affine_data/h126_sim_result.json \
-  /root/affine_data/h126_decision.json \
-  /root/logs/h126_form_decision.nohup \
-  >/root/logs/h126_form_decision.launch.nohup 2>&1 &
-echo $! >/root/logs/h126_form_decision.pid
-log "rearmed form pid=$(cat /root/logs/h126_form_decision.pid)"
+nohup bash /root/mining_src/s4-h2-merge/watch_form_decision.sh h117 \
+  /root/affine_data/h117_sim_result.json \
+  /root/affine_data/h117_decision.json \
+  /root/logs/h117_form_decision.nohup \
+  >/root/logs/h117_form_decision.launch.nohup 2>&1 &
+echo $! >/root/logs/h117_form_decision.pid
+log "rearmed form pid=$(cat /root/logs/h117_form_decision.pid)"
 
 # After recover264 DONE always re-point to d203first (bare a203 overflows; LESSON p425/p436)
-nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h126 \
-  /root/mining_src/s4-h126-f31-bittob-full-ft/retry_h126_n80_d203first.sh \
-  >/root/logs/h126_watch_retry.launch.nohup 2>&1 &
-echo $! >/root/logs/h126_watch_retry.pid
-log "rearmed watcher pid=$(cat /root/logs/h126_watch_retry.pid)"
-date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h126_chall_serve.done
+nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h117 \
+  /root/mining_src/s4-h117-f22-raw-everest12/retry_h117_n80_d203first.sh \
+  >/root/logs/h117_watch_retry.launch.nohup 2>&1 &
+echo $! >/root/logs/h117_watch_retry.pid
+log "rearmed watcher pid=$(cat /root/logs/h117_watch_retry.pid)"
+date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h117_chall_serve.done
 echo "TCACHE=$TCACHE mode=$(stat -c %a $TCACHE) probe=200 attempts_ok post_diverse_freeze=1 king_seed=1" \
-  > /root/logs/h126_chall_freeze_pass264.done
+  > /root/logs/h117_chall_freeze_pass264.done
 log "DONE_LAUNCH (TCACHE frozen post-diverse; n80 should see double-promptable immediately)"
