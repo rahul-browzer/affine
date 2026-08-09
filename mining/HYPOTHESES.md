@@ -9,13 +9,13 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H142/F47 | high | raw Qwen3-Coder-30B vs Tok → m>+0.015 | **open** (n80 d203 @18/80) |
-| 2 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (lastN ~90) |
-| 3 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (lastN ~105) |
-| 4 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (odpo ~75) |
-| 5 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN ~145/150) |
+| 2 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (train150→merge) |
+| 3 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (train150→merge) |
+| 4 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (odpo ~100) |
+| 5 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (n80 d203 started) |
 | 6 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (n80 @22/80 d203) |
-| 7 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 @47/80 b203) |
-| 8 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (n80 @19/80) |
+| 7 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 c203 @15/80) |
+| 8 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (n80 a203 @60/80) |
 | — | H133/F38 | — | Genesis RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.05342 |
 | — | H138/F43 | — | Tok offline DPO duel-Λ2 → m>+0.015 | **refuted** m=−0.00966 |
 | — | H132/F37 | — | Tok RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.00047 |
@@ -62,30 +62,31 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H141/F46 — Genesis last-N full-rank REINFORCE on teacher Λ2
 - Cross F38×F45: Genesis init, last-N=8 full-rank + lm_head, teacher-Λ2.
-- mine-f46-1 lastN ~90/150. `s4-h141-f46-genesis-lastn-rl-l2/`.
+- mine-f46-1 train step150 done → merge. `s4-h141-f46-genesis-lastn-rl-l2/`.
 
 ### H140/F45 — Tok last-N full-rank REINFORCE on teacher Λ2
 - Unfreeze last 8 layers + lm_head; SGD lr=1e-6; same Λ2 reward as F37.
-- lastN ~105/150. mine-f45-1. `s4-h140-f45-tok-lastn-rl-l2/`.
+- train step150 done → merge. mine-f45-1. `s4-h140-f45-tok-lastn-rl-l2/`.
 
 ### H139/F44 — Tok online DPO on teacher Λ2
 - Tok-init LoRA; G=2; teacher-Λ2 labels; DPO β=0.1 → m>+0.015.
-- odpo ~75/150. mine-f44-1.
+- odpo ~100/150. mine-f44-1.
 
 ### H138/F43 — Tok offline DPO on duel Λ2 prefs — REFUTED
 - m=−0.00966 z=−1.31; λ2_c −0.0115 vs king −0.0062; gates clear. `s4-h138-f43-tok-dpo-l2/`.
 
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
-- BoN ~145/150. mine-f42-1.
+- Merged OK_NON_IDENT; n80 d203 via `*_p527.sh` (misnamed d203first was a203).
+- mine-f42-1. `s4-h137-f42-tok-bon-l2/results/pass527_merge_n80.md`.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
-- n80 @22/80 d203. mine-f41-1.
+- n80 e203 @25/80. mine-f41-1.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
-- n80 @47/80 b203. mine-f40-1.
+- n80 c203 @15/80 (retried). mine-f40-1.
 
 ### H134/F39 — Tok REINFORCE on full S* mix
-- n80 @19/80 a203. mine-f39-1.
+- n80 a203 @60/80. mine-f39-1.
 
 ### H133/F38 — Genesis REINFORCE on teacher Λ2 — REFUTED
 - m=−0.05342 z=−5.30; λ2_c −0.0175 vs king −0.0024; gates clear. `s4-h133-f38-genesis-rl-l2/`.
@@ -97,17 +98,13 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F47 | raw Qwen3-Coder (non-Albedo) | **live** n80 d203 |
-| F46 | Genesis last-N full-rank RL-Λ2 | **live** train |
-| F45 | Tok last-N full-rank RL-Λ2 | **live** train |
-| F44 | Tok online DPO teacher-Λ2 | **live** train |
-| F42–F39 | BoN/RL screens | n80 or train |
-| — | Genesis RL teacher-Λ2 | **CLOSED** F38 m=−0.05342 |
-| — | Tok offline DPO duel-Λ2 | **CLOSED** F43 m=−0.00966 |
-| — | Tok LoRA RL teacher-Λ2 | **CLOSED** F37 m=−0.00047 |
-| — | past-king full-FT×Λ2 | **CLOSED** F26–F36 all ≤0 |
-| — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
-| — | raw past-earner/genesis | **CLOSED** |
+| F47 | raw Qwen3-Coder (non-Albedo) | **live** n80 f203 |
+| F46/F45 | last-N full-rank RL-Λ2 | train150→merge |
+| F44 | Tok online DPO teacher-Λ2 | odpo ~100 |
+| F42 | Tok BoN-CE | **live** n80 d203 |
+| F39–F41 | RL screens | n80 |
+| — | F38 Genesis RL / F43 offline DPO / F37 Tok LoRA RL | **CLOSED** |
+| — | full-FT×Λ2 F26–F36 · earner×Λ2 F9–F16 · raw earners | **CLOSED** |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
 
