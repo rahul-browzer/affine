@@ -12,12 +12,12 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 2 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (bootstrap) |
 | 3 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (lastN RL) |
 | 4 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (online-DPO train) |
-| 5 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (n80 @38/80) |
+| 5 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (n80 @73/80) |
 | 6 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN train) |
-| 7 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
+| 7 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (n80 d203 p523) |
 | 8 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 b203 p521) |
 | 9 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL ~180/200) |
-| 10 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (n80 @19/80) |
+| 10 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (n80 @48/80) |
 | — | H132/F37 | — | Tok RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.00047 |
 | — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
@@ -73,13 +73,13 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - train live. mine-f44-1.
 
 ### H138/F43 — Tok offline DPO on duel Λ2 prefs
-- n80 @38/80 (a203). mine-f43-1.
+- n80 @73/80 (a203). mine-f43-1.
 
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
 - BoN train. mine-f42-1.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
-- RL train mean_r≠0. mine-f41-1.
+- n80 d203 live (p523; a203 FP loop fixed). mine-f41-1.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
 - n80 b203 live post salvage (p521). mine-f40-1.
