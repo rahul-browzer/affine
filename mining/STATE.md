@@ -28,7 +28,7 @@ Chall: `/tmp/h64_merged` ← `unconst/Affine-5czsc2fc98-h64-merged@4ebe10443f7f`
 King: Tok af10 @ eb8bf9a. Teacher: GLM-4.5-Air-FP8. chall n_so=24.
 
 SSH: `~/.ssh/id_ed25519` (`IdentitiesOnly=yes`). `/tmp/mine-f45.kh` libcrypto-broken — ignore.
-Non-mine pods — **do not touch** (incl. `minimax-h3-puppy` / zesty-wolf-32).
+Non-mine pods — **do not touch** (incl. `minimax-h3-puppy` / calm-comet-33).
 
 ## Blocked
 
