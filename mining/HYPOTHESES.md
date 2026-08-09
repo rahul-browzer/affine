@@ -8,7 +8,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H142/F47 | high | raw Qwen3-Coder-30B vs Tok → m>+0.015 | **open** (eng→n80) |
+| 1 | H142/F47 | high | raw Qwen3-Coder-30B vs Tok → m>+0.015 | **open** (n80 d203 @1/80) |
 | 2 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (lastN RL train) |
 | 3 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (lastN RL) |
 | 4 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (online-DPO train) |
@@ -58,7 +58,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H142/F47 — raw Qwen3-Coder-30B-A3B-Instruct
 - Unmodified Coder @ `b2cff646…` vs Tok; no train. First non-Albedo base.
-- mine-f47-1 bootstrap. `s4-h142-f47-raw-qwen3-coder/`.
+- mine-f47-1 n80 d203 LIVE @1/80 (p525 king health after shm hang). `s4-h142-f47-raw-qwen3-coder/`.
 
 ### H141/F46 — Genesis last-N full-rank REINFORCE on teacher Λ2
 - Cross F38×F45: Genesis init, last-N=8 full-rank + lm_head, teacher-Λ2.
@@ -97,7 +97,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F47 | raw Qwen3-Coder (non-Albedo) | **live** bootstrap |
+| F47 | raw Qwen3-Coder (non-Albedo) | **live** n80 d203 |
 | F46 | Genesis last-N full-rank RL-Λ2 | **live** bootstrap |
 | F45 | Tok last-N full-rank RL-Λ2 | **live** train |
 | F44 | Tok online DPO teacher-Λ2 | **live** train |
