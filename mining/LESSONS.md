@@ -51,7 +51,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
 - **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
 - **F9–F16 earner×high-Λ2 REFUTED (class closed):** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob−0.058; everest−0.083; diane−0.073; **af-k1 F16 m=−0.07623** z=−7.28 λ2_c=−0.019 (p459). Every earner×Λ2 LoRA ≤0. Do not rent more of this class.
-- **Raw past-king/genesis CLOSED:** F19−0.006…F23−0.084 + **F22 everest m=−0.06273** z=−7.07 (p499; λ2≈king, mix S collapses). **Full-FT×Λ2 dying:** Tok/Genesis/Bittob/refs/kevin/pandora/everest/golden all ≤0; screens left TalentPigs/diane/af-k1 (F32/F34/F36) only — do not rent more of either class.
+- **Raw past-king/genesis CLOSED:** F19−0.006…F23−0.084 + **F22 everest m=−0.06273** z=−7.07 (p499; λ2≈king, mix S collapses). **Full-FT×Λ2 dying:** Tok/Genesis/Bittob/refs/kevin/pandora/everest/golden/**diane F34 m=−0.06281** z=−6.99 (p500) all ≤0; screens left TalentPigs/af-k1 (F32/F36) only — do not rent more of either class.
 - **shm_broadcast / bare-king:** seed king n_so≥16 util=0.72 (p448). Bare king EngineDead with incomplete n_so → **seed-from-chall king478**, not cold p332 (F32 p486: bare n_so=15 failed; chall n_so=22 → PROMPTABLE+n80).
 
 ## Serving / VLM

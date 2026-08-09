@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2995.173449754715,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h129/merged",
+  "block_hash": "e203000000000000000000000000000000000000000000000000000000000005",
+  "hotkey": "local-h129",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.06280996384286376,
+    "se": 0.008984839477324051,
+    "z": -6.990660656919205,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.021293658640036597,
+      "gate_pass_rate": 0.8333333333333334,
+      "bank_frac": 0.4416666666666667,
+      "calib_ratio": 0.6993133435228464,
+      "baseline_abs": 0.1338024868142815,
+      "n_turns": 80,
+      "n_pairs": 312,
+      "mean_lambda2": -0.009782687592488291,
+      "mean_mix": 0.021293658640036597
+    },
+    "challenger": {
+      "valid": true,
+      "S": -0.0425642476495765,
+      "gate_pass_rate": 0.7142857142857143,
+      "bank_frac": 0.38958333333333334,
+      "calib_ratio": 1.2984789588420447,
+      "baseline_abs": 0.11868389157902061,
+      "n_turns": 80,
+      "n_pairs": 315,
+      "mean_lambda2": -0.024435946073228465,
+      "mean_mix": -0.0425642476495765
+    },
+    "slice": {
+      "seed": 10960658519061475386,
+      "n": 80,
+      "digest": "8aaf80a18a0cc767846915c37789fbdc7a1fa18332d06123aff692169a4ee9c1",
+      "block_hash": "e203000000000000000000000000000000000000000000000000000000000005",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 1.2984789588420447,
+    "chall_baseline_abs": 0.11868389157902061,
+    "king_baseline_abs": 0.1338024868142815,
+    "base_x": 0.8870081147576458
+  }
+}

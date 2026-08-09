@@ -8,10 +8,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL step≥50) |
-| 2 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (n80 ~76/80) |
-| 3 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (n80 ~18/80) |
-| 4 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (n80 ~43/80) |
+| 1 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL step≥60) |
+| 2 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (n80 ~29/80) |
+| 3 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (n80 ~52/80) |
+| — | H129/F34 | — | diane full-FT → m>+0.015 | **refuted** m=−0.06281 |
 | — | H117/F22 | — | raw everest12 (no LoRA) → m>+0.015 | **refuted** m=−0.06273 |
 | — | H124/F29 | — | golden full-FT → m>+0.015 | **refuted** m=−0.09256 |
 | — | H130/F35 | — | everest full-FT → m>+0.015 | **refuted** m=−0.08429 |
@@ -48,14 +48,14 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H132/F37 — Tok REINFORCE on teacher Λ2
 - Tok-init LoRA; reward = lpC(y|z)−lpC(y|∅) via live teacher :8000 → m>+0.015.
-- mine-f37-1: step≥50/200; soft=18:06Z OK. `s4-h132-f37-tok-rl-l2/`.
+- mine-f37-1: step≥60/200; soft=18:06Z OK. `s4-h132-f37-tok-rl-l2/`.
 
-### H117/F22 — raw everest12 (no LoRA) REFUTED
-- m=**−0.06273** z=−7.07 λ2_c≈king; mix S collapses. `s4-h117-f22-raw-everest12/results/`.
+### H129/F34 — diane full-FT REFUTED
+- m=**−0.06281** z=−6.99 λ2_c=−0.024≪king; gates ok. `s4-h129-f34-diane-full-ft/results/`.
 
-### H127/H129/H131 — past-king full-FT screens (dying class)
-- TalentPigs/diane/af-k1 n80 live. **H124/F29 REFUTE** m=−0.09256 λ2_c=−0.029 (p498).
-- Detail: `s4-h127…` / `s4-h129…` / `s4-h131…` / `s4-h124-f29-golden-full-ft/results/`.
+### H127/H131 — past-king full-FT screens (dying class)
+- TalentPigs/af-k1 n80 live. **H129/F34 REFUTE** m=−0.06281 (p500); H124/F29 −0.093.
+- Detail: `s4-h127…` / `s4-h131…` / `s4-h129-f34-diane-full-ft/results/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -65,14 +65,14 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
 | F37 | Tok RL teacher-Λ2 | **live** train |
-| F32/F34/F36 | past-king FT screens | **live** |
+| F32/F36 | past-king FT screens | **live** |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
 | — | raw past-earner/genesis | **CLOSED** (F22 everest −0.063 last) |
-| — | Tok/past-king full-FT×Λ2 | **DYING** F26–F35+F29 ≤0; F32/F34/F36 only |
+| — | Tok/past-king full-FT×Λ2 | **DYING** F26–F35+F29+F34 ≤0; F32/F36 only |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
 
-- **H117/F22** raw everest m=−0.06273 · **H124/F29** golden FT −0.093 · **H130/F35** everest FT −0.084
+- **H129/F34** diane FT −0.063 · **H117/F22** raw everest −0.063 · **H124/F29** golden FT −0.093 · **H130/F35** everest FT −0.084
 - **H128/F33** pandora −0.022
 - **H121/F26** Tok −0.000 · **H122/F27** Genesis −0.071 · **H126/F31** Bittob −0.077
 - **H123/F28** Tok×refs −0.010 · **H125/F30** kevin −0.019

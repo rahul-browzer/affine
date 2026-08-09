@@ -1,0 +1,50 @@
+[sim] challenger 5/80
+[sim] king 5/80
+[sim] challenger 10/80
+[sim] king 10/80
+[sim] king 15/80
+[sim] challenger 15/80
+[sim] challenger 20/80
+[sim] king 20/80
+[sim] challenger 25/80
+[sim] king 25/80
+[sim] challenger 30/80
+[sim] king 30/80
+[sim] challenger 35/80
+[sim] king 35/80
+[sim] challenger 40/80
+[sim] king 40/80
+[sim] challenger 45/80
+[sim] king 45/80
+[sim] challenger 50/80
+[sim] king 50/80
+[sim] challenger 55/80
+[sim] king 55/80
+[sim] challenger 60/80
+[sim] king 60/80
+[sim] king 65/80
+[sim] challenger 65/80
+[sim] king 70/80
+[sim] challenger 70/80
+[sim] challenger 75/80
+[sim] king 75/80
+[sim] king 80/80
+[sim] challenger 80/80
+[sim] artifact -> /root/affine_data/h129_sim_result_artifact.json
+{
+  "wins": false,
+  "margin": -0.06280996384286376,
+  "z": -6.990660656919205,
+  "se": 0.008984839477324051,
+  "king_S": 0.021293658640036597,
+  "chall_S": -0.0425642476495765,
+  "chall_valid": true,
+  "king_valid": true,
+  "h4": {
+    "chall_r": 1.2984789588420447,
+    "chall_baseline_abs": 0.11868389157902061,
+    "king_baseline_abs": 0.1338024868142815,
+    "base_x": 0.8870081147576458
+  },
+  "out": "/root/affine_data/h129_sim_result.json"
+}
