@@ -8,14 +8,15 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (bootstrap) |
-| 2 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (merge→n80) |
-| 3 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN train) |
-| 4 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL retrain) |
-| 5 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL~120; king332) |
-| 6 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL train) |
-| 7 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (chall load) |
-| 8 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (n80 @60/80) |
+| 1 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 2 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (teacher DL) |
+| 3 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (merge→n80) |
+| 4 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN ~45/150) |
+| 5 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL retrain) |
+| 6 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
+| 7 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL ~135/200) |
+| 8 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (n80 live) |
+| 9 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (n80 ~69/80) |
 | — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
 | — | H129/F34 | — | diane full-FT → m>+0.015 | **refuted** m=−0.06281 |
@@ -53,31 +54,34 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Open
 
+### H140/F45 — Tok last-N full-rank REINFORCE on teacher Λ2
+- Unfreeze last 8 layers + lm_head; SGD lr=1e-6; same Λ2 reward as F37.
+- p514: rented mine-f45-1; bootstrap/pip. `s4-h140-f45-tok-lastn-rl-l2/`.
+
 ### H139/F44 — Tok online DPO on teacher Λ2
-- Tok-init LoRA; sample G=2; teacher-Λ2 labels; DPO β=0.1 vs frozen base → m>+0.015.
-- p513: rented mine-f44-1; bootstrap/pip live. `s4-h139-f44-tok-online-dpo-l2/`.
+- Tok-init LoRA; G=2; teacher-Λ2 labels; DPO β=0.1 → m>+0.015.
+- tok-init done; teacher DL. mine-f44-1.
 
 ### H138/F43 — Tok offline DPO on duel Λ2 prefs
-- Tok-init LoRA; chosen=higher-Λ2 duel z, rejected=lower; β=0.1 → m>+0.015.
-- DPO 200 steps done; merge LoRA live → n80. mine-f43-1.
+- DPO done; merge LoRA live → n80. mine-f43-1.
 
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
-- Sample G=4; CE on argmax teacher-Λ2 z → m>+0.015. BoN ~30/150. mine-f42-1.
+- BoN ~45/150. mine-f42-1.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
-- Retrain live ~35/200 mean_r≠0. mine-f41-1.
+- Retrain live mean_r≠0. mine-f41-1.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
-- RL ~120/200; king332 recover live. mine-f40-1.
+- RL train; king :8001=200. mine-f40-1.
 
 ### H134/F39 — Tok REINFORCE on full S* mix
-- RL ~120/200. mine-f39-1. `s4-h134-f39-tok-rl-sstar/`.
+- RL ~135/200. mine-f39-1.
 
 ### H133/F38 — Genesis REINFORCE on teacher Λ2
-- Train done; merge.done; chall :8002 loading → n80. mine-f38-1.
+- **n80 live** a203. mine-f38-1.
 
 ### H132/F37 — Tok REINFORCE on teacher Λ2
-- Train done; **n80 @60/80** (bh=a203). mine-f37-1.
+- **n80 ~69/80** a203. mine-f37-1.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -86,10 +90,11 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F44 | Tok online DPO teacher-Λ2 | **live** bootstrap |
+| F45 | Tok last-N full-rank RL-Λ2 | **live** bootstrap |
+| F44 | Tok online DPO teacher-Λ2 | **live** teacher DL |
 | F43 | Tok offline DPO duel-Λ2 | **live** merge→n80 |
 | F42 | Tok BoN-CE teacher-Λ2 | **live** BoN train |
-| F41–F37 | RL / S* screens | F37 n80; F38 chall; F39–41 train |
+| F41–F37 | RL / S* screens | F37/F38 n80; F39–41 train |
 | — | past-king full-FT×Λ2 | **CLOSED** F26–F36 all ≤0 |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
 | — | raw past-earner/genesis | **CLOSED** |
