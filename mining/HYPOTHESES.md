@@ -18,7 +18,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 8 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (train.done→post) |
 | 9 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (train) |
 | 10 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (engines→n80) |
-| 11 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (train) |
+| 11 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (train 0/60 p487) |
 | 12 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (n80 ~24/80) |
 | — | H118/F23 | — | raw Bittob (no LoRA) → m>+0.015 | **refuted** m=−0.08436 |
 | — | H120/F25 | — | raw golden-crown (no LoRA) → m>+0.015 | **refuted** m=−0.06343 |
@@ -91,7 +91,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H131/F36 — af-k1 full-FT × high-Λ2 z_A
 - Dense FT af-k1@ff6eb4bc × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f36-1 TRAIN_LAUNCHED @06:32Z. `s4-h131-f36-af-k1-full-ft/`.
+- p487: `tf36` TypeError → fixed tf32; train relaunch @0/60. `s4-h131-f36-af-k1-full-ft/`.
 
 ### H117/F22 — raw everest12 (no LoRA)
 - Unmodified everest12 @a5ac5311 vs Tok → m>+0.015.
