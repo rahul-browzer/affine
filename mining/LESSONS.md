@@ -47,9 +47,10 @@ Format: `- <finding> — <the number or error that proves it>`
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 ## Recipes already tried (do not repeat)
 - SFT/LoRA near-zero + α-merges dead (H1–H26): archive. No plain distill-on-refs; stop α/leary/plmk/m7-as-B/kkk.
-- **F1+F8 REINFORCE-L1 REFUTED:** Tok-RL H98 m=+0.00229 (λ2 frozen); Genesis-RL H103 p409 m=**−0.0483** z=−5.0, mean_λ2_c −0.021 ≪ king −0.005. Clip-L1 RL does not help Λ2 on either base — **worse** on Genesis. Do not retry RL-L1.
-- **F6 ultrashort≤80 format REFUTED (H101 p399):** m=−0.00453 z=−0.57; mean_λ2_c −0.00967 ≈ king −0.00895. Format rewrite ≠ Λ2 move under Tok-LoRA; do not sweep length cells.
-- **F7 teacher-zC on Genesis REFUTED (H102 p419):** m=−0.05194 z=−5.72; mean_λ2_c −0.0198 ≪ king −0.0042. Frontier z_C distill on Genesis worsens Λ2 (same failure mode as F8 Genesis-RL). Do not retry teacher-refs / shortz cells on Genesis.
+- **F1+F8 REINFORCE-L1 REFUTED:** Tok-RL H98 m=+0.00229 (λ2 frozen); Genesis-RL H103 m=**−0.0483** z=−5.0, mean_λ2_c −0.021≪king. Clip-L1 RL ≠ Λ2; worse on Genesis. No RL-L1.
+- **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
+- **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
+- **F9 kevin954×high-Λ2 REFUTED (H104 p423):** m=**−0.01417** z=−1.14; mean_λ2_c −0.0135≪king −0.0023. Past-crown base still worsens Λ2 under same LoRA recipe. No kevin954 cells.
 
 ## Serving / VLM
 - King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` + preprocessor + visual safetensors (333–352 keys). **Tok ships `processor_config.json` not `preprocessor_config.json`** — derive from `image_processor` or chall dies at MultiModalBudget (H79 p307).
@@ -141,7 +142,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - **watch_preempt must not relaunch on isolated writable TCACHE** (H70 p283: chall health=200 @10:14:48Z settle→w1; preempt saw mode=755 n_so=16 “not frozen” → 2nd recover reaped healthy chall @10:14:49Z). Isolated path = leave alone; skip if `relaunch_chall` already alive; only bare `/root/.triton/cache/chall` launches recover.
 - Bare chall :8002=200 can still die mid-load Triton ghost — preempt264→recover264 (H71). Stale n80 wait burns 120×15s — recover kills+rearms; else kill retry near poll≳100.
 - recover264 DONE rearms form+n80 only (not preempt/mid304). Match `$0` via `/proc/*/cmdline` (H82/H93). Seed chall from **`*_king_tcache_pass332.path` first**, then live :8001 environ, then `isolated/*king*` — never bare `cache/king` alone. F4 p395: pathfile+19 .so present yet relaunch logged `no king TCACHE`; mid-load rsync 0→19 .so unblocked. clone: `test -x` rearm (H94).
-- Peer-seed mid-load when seed misses (F4 p395). **Bare peer-seed then preempt kills healthy chall** (F9 p396: 200→recover); prefer isolated from first launch. Salvage 555 hang: `chmod 755` TCACHE+torchinductor (F7 p386).
 - **huggingface_hub≥1.27 never resumes** `.incomplete`: unique `{etag}.{uuid}.incomplete` opened `"wb"`, deleted on fail (PR#4228). Orphan large incompletes need HTTP `Range` resume (H100/F4 p383). **post_train/n80 120×15s races Range/king+chall load** — kill waiter + arm tok.done→king→chall; n80 needs `retry_*_longwait` ≥360×15s (F4 p388/p391; F8 p398 poll108/120 with `:8001/:8002=000`).
 - **king_recover_pass332 must serve live Tok on :8001**, not Genesis — F8 p397 script still had Genesis REPO; patched before launch (would have scored vs wrong king).
 - **Post-freeze chall death + missing turns.jsonl:** F4 p397 n80 `FileNotFoundError` turns.jsonl; recover264 after triple-promptable hit `il: command not found` then reaped healthy chall — prefer frozen-TCACHE relaunch (no wipe) + `sync_corpus` before n80.
