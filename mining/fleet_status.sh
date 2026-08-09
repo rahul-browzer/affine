@@ -5,11 +5,8 @@ PODS=(
   "f16|152.236.142.236|40311|/tmp/mine-f16-1.known_hosts|h111"
   "f17|38.255.28.18|20099|/tmp/mine-f17-1.known_hosts|h112"
   "f18|86.38.238.54|40300|/tmp/mine-f18-1.known_hosts|h113"
-  "f20|152.236.142.235|40301|/tmp/mine-f20-1.known_hosts|h115"
-  "f21|150.136.71.147|20300|/tmp/mine-f21-1.known_hosts|h116"
   "f22|204.9.206.243|40300|/tmp/mine-f22-1.known_hosts|h117"
   "f23|204.9.206.244|40301|/tmp/mine-f23-1.known_hosts|h118"
-  "f24|152.236.142.237|40299|/tmp/mine-f24-1.known_hosts|h119"
   "f25|3.135.191.208|20126|/tmp/mine-f25-1.known_hosts|h120"
 )
 OUT=$(mktemp -d /tmp/fleet_status.XXXXXX)

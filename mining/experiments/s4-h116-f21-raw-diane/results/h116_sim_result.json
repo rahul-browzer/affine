@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 1251.098803281784,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h116/chall",
+  "block_hash": "e203000000000000000000000000000000000000000000000000000000000005",
+  "hotkey": "local-h116",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.07226096507526461,
+    "se": 0.008978421051460054,
+    "z": -8.048293197779321,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.033975622031753396,
+      "gate_pass_rate": 0.834920634920635,
+      "bank_frac": 0.4822916666666667,
+      "calib_ratio": 0.6844794084586119,
+      "baseline_abs": 0.13617975706873336,
+      "n_turns": 80,
+      "n_pairs": 315,
+      "mean_lambda2": -0.0016054710371688743,
+      "mean_mix": 0.033975622031753396
+    },
+    "challenger": {
+      "valid": true,
+      "S": -0.036977057335013476,
+      "gate_pass_rate": 0.7468354430379747,
+      "bank_frac": 0.415625,
+      "calib_ratio": 1.3254159947943032,
+      "baseline_abs": 0.15473156958700837,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": -0.01602866988512906,
+      "mean_mix": -0.036977057335013476
+    },
+    "slice": {
+      "seed": 14366334988004469055,
+      "n": 80,
+      "digest": "0b4965d429c476943b4f2a97b497493b3820ed84145e547b18e98203c0138289",
+      "block_hash": "e203000000000000000000000000000000000000000000000000000000000005",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 1.3254159947943032,
+    "chall_baseline_abs": 0.15473156958700837,
+    "king_baseline_abs": 0.13617975706873336,
+    "base_x": 1.1362303246650047
+  }
+}
