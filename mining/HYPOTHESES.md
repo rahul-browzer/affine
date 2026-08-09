@@ -9,8 +9,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (bootstrap) |
-| 2 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (teacher recover→train) |
-| 3 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (n80 @1/80) |
+| 2 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (online-DPO train live) |
+| 3 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (n80 @16/80) |
 | 4 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN ~45/150) |
 | 5 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL retrain) |
 | 6 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
@@ -60,10 +60,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H139/F44 — Tok online DPO on teacher Λ2
 - Tok-init LoRA; G=2; teacher-Λ2 labels; DPO β=0.1 → m>+0.015.
-- Teacher bare-TCACHE ENOENT → recover332 isolated; king OK. mine-f44-1.
+- Teacher↑; train pid15018 GPUs6,7; DEADMAN→20:58Z (p517). mine-f44-1.
 
 ### H138/F43 — Tok offline DPO on duel Λ2 prefs
-- n80 @1/80 (a203). Pipe aborted stale DEADMAN; retry saved. mine-f43-1.
+- n80 @16/80 (a203). Pipe aborted stale DEADMAN; retry saved. mine-f43-1.
 
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
 - BoN ~45/150. mine-f42-1.
@@ -88,8 +88,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
 | F45 | Tok last-N full-rank RL-Λ2 | **live** tok DL |
-| F44 | Tok online DPO teacher-Λ2 | **live** teacher recover→train |
-| F43 | Tok offline DPO duel-Λ2 | **live** n80 @1/80 |
+| F44 | Tok online DPO teacher-Λ2 | **live** online-DPO train |
+| F43 | Tok offline DPO duel-Λ2 | **live** n80 @16/80 |
 | F42 | Tok BoN-CE teacher-Λ2 | **live** BoN train |
 | F41–F38 | RL / S* / Genesis-RL | F38 recover→n80; F39–41 train |
 | — | Tok LoRA RL teacher-Λ2 | **CLOSED** F37 m=−0.00047 |
