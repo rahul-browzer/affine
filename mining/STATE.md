@@ -57,5 +57,4 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 1. **F22 + F32**: king478 seed-from-chall (util=0.72) → rearm n80; leave chall.
 2. **F26–F31,F28,F30,F33**: poll n80 → decision (screen +0.015 → CONFIRM k=4).
-3. **F34**: train→post_train; **F35**: ensure king healthy→n80; **F36**: train→post.
-4. Free slot → next orthogonal family (or F5 if traj ready).
+3. **F34**: train→post_train; **F35**: king healthy→n80; **F36**: train→post; free slot → F5/new family.
