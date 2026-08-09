@@ -8,14 +8,15 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H115/F20 | high | raw pandora (no LoRA) → m>+0.015 | **open** (n80 ~60) |
-| 2 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (n80 ~48) |
-| 3 | H116/F21 | high | raw diane613 (no LoRA) → m>+0.015 | **open** (n80 ~47) |
-| 4 | H113/F18 | high | raw TalentPigs (no LoRA) → m>+0.015 | **open** (n80 up) |
-| 5 | H119/F24 | high | raw af-k1 (no LoRA) → m>+0.015 | **open** (n80 ~15) |
-| 6 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (n80 ~11) |
-| 7 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (everest DL) |
-| 8 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (king DL) |
+| 1 | H115/F20 | high | raw pandora (no LoRA) → m>+0.015 | **open** (n80 ~69) |
+| 2 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (n80 ~54) |
+| 3 | H116/F21 | high | raw diane613 (no LoRA) → m>+0.015 | **open** (n80 ~54) |
+| 4 | H113/F18 | high | raw TalentPigs (no LoRA) → m>+0.015 | **open** (n80 ~1) |
+| 5 | H119/F24 | high | raw af-k1 (no LoRA) → m>+0.015 | **open** (n80 ~16) |
+| 6 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (n80 ~14) |
+| 7 | H120/F25 | high | raw golden-crown (no LoRA) → m>+0.015 | **open** (golden DL) |
+| 8 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (everest DL) |
+| 9 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (king DL) |
 | — | H114/F19 | — | raw kevin954 (no LoRA) → m>+0.015 | **refuted** m=−0.00611 |
 | — | H108/F13 | — | diane613 × high-Λ2 → m>+0.015 | **refuted** m=−0.07293 |
 | — | H109/F14 | — | Bittob × high-Λ2 → m>+0.015 | **refuted** m=−0.05784 |
@@ -61,6 +62,9 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 ### H111/F16 — af-k1 × high-Λ2
 - af-k1 @ff6eb4bc + high-Λ2 → m>+0.015. n80 ~11/80 post teacher453. `s4-h111-f16-af-k1/`.
 
+### H120/F25 — raw golden-crown (no LoRA)
+- Unmodified golden-crown @ee37f4f0 vs Tok → m>+0.015 (≠F12 LoRA). p456: mine-f25-1 rented; bootstrap DL. `s4-h120-f25-raw-golden/`.
+
 ### H114/F19 — raw kevin954 — REFUTED
 - kevin954 @3fb79cfb raw → m=**−0.00611** z=−0.62 S_c=0.015≪S_k valid_c (p455). Tear mine-f19-1. `s4-h114-f19-raw-kevin/`.
 
@@ -74,8 +78,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F16–F18/F20–F24 | screens | **live** |
-| F25 | raw golden-crown (earning) | **rent next** — 12 free |
+| F16–F18/F20–F25 | screens | **live** (9 pods) |
 | — | earner×high-Λ2 LoRA | F9–F15/F19 dead; F16 open |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
@@ -85,4 +88,4 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - **H100/F4** Genesis×Λ2 m=−0.055 · **H102/F7** teacher-zC m=−0.052 · **H103/F8** Genesis-RL m=−0.048
 - **H101/F6** ultrashort m=−0.005 · **H98/F1** Tok-RL m=+0.002 · **H97/F3** r256 m=−0.015
 - **H96** winner-zA r9 m=+0.009 · **H99/F2** remix m=−0.002 · **H95…H1** α/winner-zA dead
-- Screens live: **F16–F18, F20–F24**.
+- Screens live: **F16–F18, F20–F25**.

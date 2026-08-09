@@ -1,0 +1,25 @@
+-rw-rw-r-- 1 const const 344K Aug  9 03:21 /tmp/mine-h120-stack.tar.gz
+STACK_UPLOAD_OK
+PIPELINE_PID=932
+[bootstrap-h120] 2026-08-09T03:21:32Z start host=de83f0530216
+GPU 0: NVIDIA H200 (UUID: GPU-2092ea4d-b80f-3fd9-52f2-847d2f1c1fdd)
+GPU 1: NVIDIA H200 (UUID: GPU-4328dcb8-7411-9df7-c731-f2df065616e8)
+GPU 2: NVIDIA H200 (UUID: GPU-0343f98e-25fa-fd83-4601-88170170f873)
+GPU 3: NVIDIA H200 (UUID: GPU-9e678a38-9779-7f95-6b8f-3b02b02e9b1a)
+GPU 4: NVIDIA H200 (UUID: GPU-e73ba561-e489-7f8a-7fe5-8074fed66370)
+GPU 5: NVIDIA H200 (UUID: GPU-f0e6fa06-d3d8-3f91-8c98-9a4805adbf43)
+GPU 6: NVIDIA H200 (UUID: GPU-f36fd99f-5f96-5882-c22e-bad2d2e4beae)
+GPU 7: NVIDIA H200 (UUID: GPU-2d11be1d-5a79-31fe-f8e3-258b45ac015d)
+[bootstrap-h120] GPU_COUNT=8
+downloading uv 0.12.3 x86_64-unknown-linux-gnu
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: venv
+Activate with: source venv/bin/activate
+    PID     ELAPSED CMD
+    932 441077228-14:05:52 bash /root/mining_src/s4-h120-f25-raw-golden/bootstrap_h120.sh
+8
+UPLOAD_AND_LAUNCH_OK 2026-08-09T03:21:36Z
