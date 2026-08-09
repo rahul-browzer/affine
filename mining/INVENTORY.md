@@ -9,7 +9,7 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-watch-1 | golden-wolf-bd | 8×H200 | $28.00 | 2026-08-10T03:38Z | warm duel | restore: king+h64 done; teacher DL |
+| mine-watch-1 | golden-wolf-bd | 8×H200 | $28.00 | 2026-08-10T03:38Z | warm duel | engines launching (DL done) |
 
 SSH: 152.236.142.236:40301 · key `~/.ssh/id_ed25519` · id `c1f09303-bda8-419a-894e-d31763734766`
 Catalog: `37b3ea5c-d447-41ab-aac2-730437842243` lunar-eagle-9e · COUNT=8 verified.
@@ -24,6 +24,6 @@ mine-f47-1/band 2.24×; mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T21:46Z | 1 | p1120 ok; teacher DL done; vllm launched 8000/1/2; king S=0.04456 idle; TTL~5.9h |
 | 2026-08-09T21:45Z | 1 | p1119 ok; king+h64 DL done; teacher~71G; king S=0.04456 idle; TTL~5.9h |
 | 2026-08-09T21:44Z | 1 | p1118 ok; restore HF~111G (triton 8/24/24); king S=0.04456 idle; TTL~5.9h |
-| 2026-08-09T21:43Z | 1 | p1117 ok; restore HF DL (triton ok); king S=0.04456 idle; TTL~5.9h |
