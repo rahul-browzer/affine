@@ -59,7 +59,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
 - Tok-init LoRA; sample G=4; CE on argmax teacher-Λ2 z → m>+0.015.
-- mine-f42-1 Tok DL; soft=19:25Z. `s4-h137-f42-tok-bon-l2/`.
+- p509: bare-Triton ENOENT → recover332; **BoN train live** (max_steps=150).
+- mine-f42-1. `s4-h137-f42-tok-bon-l2/results/pass509_teacher_recover.md`.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
 - TalentPigs-init LoRA; reward = teacher Λ2 → m>+0.015.
