@@ -116,7 +116,7 @@ Format: `- <finding> — <the number or error that proves it>`
   at r=256 still cannot move Λ2. Do not retry higher rank / full-FT-as-LoRA.
 - H66/H90: king Triton ENOENT → reap GPU 2/3, wipe cache/king, `serve_three`; rearm n80 after king recover (don't wait for post_train abort).
 - Teacher Triton ENOENT mid-inductor → wipe teacher* + unique TCACHE (H89). Orphan `VLLM::Worker` ppid=1 on nvidia0–3 — kill carefully; concurrent reap can kill chall → recover264.
-- Mid-n80 king NCCL collective timeout → king API dies, orphan Workers hold GPUs 2,3 at util100; reap orphans then king332 (F9 p399); leave chall.
+- Mid-n80 king NCCL → orphans on GPUs2,3; king332 (F9 p399). Cold empty isolated TCACHE also ENOENT mid-load (F11 p434 n_so=10 CQWZC55M) → seed from frozen chall n_so≥16 then util=0.72 (p435); leave chall.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
   `/root/venv/bin/activate` ≤10m (H60/H61/H62).
 - Rent by UUID from `lium ls --count 8` $/h≥28 + verify COUNT=8 on the pod

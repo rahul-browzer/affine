@@ -7,12 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 e203 ~8/80) |
-| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (king332 loading → e203) |
-| 3 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (n80 d203 ~54/80) |
-| 4 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~34/80) |
-| 5 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (n80 e203 ~8/80) |
-| 6 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (chall load post-visual433) |
+| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 e203 ~11/80) |
+| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (king435 seed→e203) |
+| 3 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (n80 d203 ~67/80) |
+| 4 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~40/80) |
+| 5 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (n80 e203 ~11/80) |
+| 6 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (chall recover264) |
 | — | H104/F9 | — | kevin954 × high-Λ2 → m>+0.015 | **refuted** m=−0.01417 |
 | — | H100/F4 | — | Genesis-init × high-Λ2 → m>+0.015 | **refuted** m=−0.05488 |
 | — | H102/F7 | — | Genesis × teacher z_C → m>+0.015 | **refuted** m=−0.05194 |
@@ -31,28 +31,28 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H105 / F10 — TalentPigs × high-Λ2 — open
 - **Claim:** TalentPigs @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 e203 ~3/80 vs Tok. `experiments/s4-h105-f10-talentpigs-base/`.
+- **Status:** n80 e203 ~11/80 vs Tok. `experiments/s4-h105-f10-talentpigs-base/`.
 
 ### H106 / F11 — pandora-box × high-Λ2 — open
 - **Claim:** pandora @5218b138 + 1059 high-Λ2 → m>+0.015.
-- **Status:** p434 king332 armed (Tok af10 util0.72); chall OK; e203 waits.
+- **Status:** p435 king435 seeded-from-chall (p434 ENOENT); e203 waits.
   `experiments/s4-h106-f11-pandora-base/`.
 
 ### H107 / F12 — golden-crown × high-Λ2 — open
 - **Claim:** golden-crown @ee37f4f0 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 d203 ~53/80. `experiments/s4-h107-f12-golden-crown/`.
+- **Status:** n80 d203 ~67/80. `experiments/s4-h107-f12-golden-crown/`.
 
 ### H108 / F13 — diane613 × high-Λ2 — open
 - **Claim:** diane613 @ad0f3f11 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 d203 ~28/80. `experiments/s4-h108-f13-diane613/`.
+- **Status:** n80 d203 ~40/80. `experiments/s4-h108-f13-diane613/`.
 
 ### H109 / F14 — Bittob11040 × high-Λ2 — open
 - **Claim:** Bittob11040 @0c04fe92 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 e203 ~1/80. `experiments/s4-h109-f14-bittob/`.
+- **Status:** n80 e203 ~11/80. `experiments/s4-h109-f14-bittob/`.
 
 ### H110 / F15 — everest12 × high-Λ2 — open
 - **Claim:** everest12 @a5ac5311 + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** visual433 OK (333 keys); chall loading → freeze → n80 d203.
+- **Status:** recover264 salvage pre-frozen → :8002 → n80 d203.
   `experiments/s4-h110-f15-everest12/`.
 
 ### H3 — clip-L1 lever (supported)
