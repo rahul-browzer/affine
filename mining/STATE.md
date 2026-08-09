@@ -12,24 +12,24 @@ King Tok S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$180,260** · cum ~$17,435 · **avail ~$170.3k** |
+| Lium / spend | **~$180,218** · cum ~$17,477 · **avail ~$170.2k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$359.0/h** (11 mine-*) ≪ $833/h · free slots **9** |
-| n80 | **F27 12/80** (`/tmp/h122_merged`) |
-| other | F28 **king435** loading (seeded n_so=23); F26 chall264 :8002=200; F29–F31 engines; F32–F35 train; F22 tok |
+| n80 | F27 king478 loading (mid-n80 bare ENOENT @16/80); F28 king435 loading |
+| other | F26 t:8000 down k+c=200; F29 k=200 t+c down; F32 train; F22/F33–F35 |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
 | mine-f22-1 | calm-hawk-98 | 204.9.206.243:40300 | ~14:27Z | F22 t+k up; tok→chall→n80 |
-| mine-f26-1 | gentle-fox-2c | 152.236.142.235:40300 | ~16:12Z | F26 chall264 :8002=200; freeze→n80 |
-| mine-f27-1 | eager-orbit-15 | 152.236.142.237:40299 | ~16:16Z | F27 **n80 12/80** d203 |
-| mine-f28-1 | eager-eagle-b1 | 152.236.142.232:40300 | ~16:20Z | F28 **king435** load (p477) |
-| mine-f29-1 | gentle-shark-9c | 152.236.142.234:40300 | ~16:26Z | F29 engines incomplete |
-| mine-f30-1 | lunar-wolf-aa | 152.236.142.236:40300 | ~16:31Z | F30 teacher only |
-| mine-f31-1 | golden-hawk-bb | 38.255.28.21:20099 | ~16:39Z | F31 engines down |
-| mine-f32-1 | noble-wolf-e8 | 38.255.28.22:20099 | ~16:49Z | F32 train/save |
+| mine-f26-1 | gentle-fox-2c | 152.236.142.235:40300 | ~16:12Z | F26 k+c=200; **teacher down** |
+| mine-f27-1 | eager-orbit-15 | 152.236.142.237:40299 | ~16:16Z | F27 **king478** load (p478) |
+| mine-f28-1 | eager-eagle-b1 | 152.236.142.232:40300 | ~16:20Z | F28 **king435** load (~36GB) |
+| mine-f29-1 | gentle-shark-9c | 152.236.142.234:40300 | ~16:26Z | F29 king only |
+| mine-f30-1 | lunar-wolf-aa | 152.236.142.236:40300 | ~16:31Z | F30 engines? |
+| mine-f31-1 | golden-hawk-bb | 38.255.28.21:20099 | ~16:39Z | F31 engines? |
+| mine-f32-1 | noble-wolf-e8 | 38.255.28.22:20099 | ~16:49Z | F32 train_full live |
 | mine-f33-1 | golden-matrix-f1 | 3.135.191.208:20127 | ~17:07Z | F33 full-FT train |
 | mine-f34-1 | brave-eagle-b1 | 38.255.28.18:20099 | ~17:10Z | F34 full-FT train |
 | mine-f35-1 | zesty-matrix-04 | 150.136.71.147:20294 | ~17:19Z | F35 full-FT train |
@@ -42,7 +42,7 @@ No submit until n80 margin > 0.04 **vs Tok331102**.
 Dead: α/plmk/TP/m7/union/lr/ep≥2/winner-zA/**F1–F18**/F19–**F21**/F24/**F17**/**F25**/**F23**/king-init LoRA.
 Open: H117/F22 + H121–**H130**/F26–**F35**. F5 needs traj.
 FALSE_PROBE≠REFUTE; never rm non-mine; COUNT>=8 gate (API lies).
-`--chall-repo` = `/v1/models` id (not blind realpath). King cold ENOENT → `king_recover_pass435` seed chall n_so≥16.
+`--chall-repo` = `/v1/models` id (not blind realpath). King cold ENOENT → seed chall n_so≥16.
 
 ## Operator directive 2026-08-08T18:55Z
 
@@ -50,8 +50,8 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 ## Next action
 
-1. **F28**: poll king435 → KING PROMPTABLE → n80 (chall id `/root/h123/merged`).
-2. **F27**: poll n80 → `h122_decision.json` (screen ±0.015). Tear if ≤0.
-3. F26: chall264 freeze DONE → n80 (served id `/root/h121/merged`).
-4. F29/F30/F31 engines→n80; F32 save→post_train /tmp; F22/F33–F35.
+1. **F27**: poll king478 → KING PROMPTABLE → n80 d203 (`/tmp/h122_merged`); watcher armed.
+2. **F28**: poll king435 → PROMPTABLE → n80 (`/root/h123/merged`).
+3. **F26**: teacher down — relaunch teacher (leave k+c); then n80.
+4. F29 teacher+chall; F30/F31 engines→n80; F32 save→post_train; F22/F33–F35.
 5. Free slot → af-k1 dense-FT (only if a pod tears).
