@@ -10,6 +10,7 @@ PODS=(
   "f27|152.236.142.237|40299|/tmp/mine-f27-1.known_hosts|h122"
   "f28|152.236.142.232|40300|/tmp/mine-f28-1.known_hosts|h123"
   "f29|152.236.142.234|40300|/tmp/mine-f29-1.known_hosts|h124"
+  "f30|152.236.142.236|40300|/tmp/mine-f30-1.known_hosts|h125"
 )
 OUT=$(mktemp -d /tmp/fleet_status.XXXXXX)
 trap 'rm -rf "$OUT"' EXIT
