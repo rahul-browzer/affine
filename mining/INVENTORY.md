@@ -19,9 +19,10 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 | mine-f21-1 | lunar-comet-f7 | 8×B200 | $40.00 | 2026-08-09T14:19Z | H116 F21 raw-diane | **k/c down** |
 | mine-f22-1 | calm-hawk-98 | 8×B300 | $63.60 | 2026-08-09T14:27Z | H117 F22 raw-everest12 | bootstrap |
 | mine-f23-1 | lunar-matrix-eb | 8×B300 | $63.60 | 2026-08-09T14:31Z | H118 F23 raw-Bittob | bootstrap |
+| mine-f24-1 | calm-raven-15 | 8×H200 | $28.00 | 2026-08-09T14:54Z | H119 F24 raw-af-k1 | **boot** |
 
-SSH: f13/f15/f17:20099 f19:20127 f14:40309 f16:40311 f18/f22:40300 f20/f23:40301 f21:20300 · kh `/tmp/mine-*-1.known_hosts`.
-**Free: 9**. Burn ~$400.4/h. Non-mine — **never rm**.
+SSH: f13/f15/f17:20099 f19:20127 f14:40309 f16:40311 f18/f22:40300 f20/f23:40301 f21:20300 f24:40299 · kh `/tmp/mine-*-1.known_hosts`.
+**Free: 8**. Burn ~$428.4/h. Non-mine — **never rm**.
 
 ## Dead (recent)
 mine-f10-1 REFUTE m=−0.03095 (p450); mine-f11-1 −0.034; mine-f12-1 −0.059.
@@ -30,6 +31,6 @@ mine-f10-1 REFUTE m=−0.03095 (p450); mine-f11-1 −0.034; mine-f12-1 −0.059.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T02:54Z | 12 live | rent mine-f24-1 H200@$28 COUNT=8; boot H119 |
 | 2026-08-09T02:51Z | 11 live | F10 REFUTE−0.03095 tear mine-f10-1; no rent |
 | 2026-08-09T02:49Z | 12 live | F17 king449 recover; F21 wait probe; no rent |
-| 2026-08-09T02:42Z | 12 live | F21 chall recover448; F11 REFUTE tear; no rent |

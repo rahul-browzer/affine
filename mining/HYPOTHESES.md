@@ -15,10 +15,11 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 5 | H116/F21 | high | raw diane613 (no LoRA) → m>+0.015 | **open** (k/c down) |
 | 6 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (bootstrap B300) |
 | 7 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (bootstrap B300) |
-| 8 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 ~53) |
-| 9 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (n80 ~62) |
-| 10 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (n80 ~61) |
-| 11 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (tchr000) |
+| 8 | H119/F24 | high | raw af-k1 (no LoRA) → m>+0.015 | **open** (boot) |
+| 9 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 ~53) |
+| 10 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (n80 ~62) |
+| 11 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (n80 ~61) |
+| 12 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (tchr000) |
 | — | H105/F10 | — | TalentPigs × high-Λ2 → m>+0.015 | **refuted** m=−0.03095 |
 | — | H106/F11 | — | pandora × high-Λ2 → m>+0.015 | **refuted** m=−0.03414 |
 | — | H107/F12 | — | golden-crown × high-Λ2 → m>+0.015 | **refuted** m=−0.05941 |
@@ -57,6 +58,9 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 ### H118/F23 — raw Bittob11040 (no LoRA)
 - Unmodified Bittob @0c04fe92 vs Tok → m>+0.015 (≠F14 LoRA). Bootstrap on B300. `s4-h118-f23-raw-bittob/`.
 
+### H119/F24 — raw af-k1 (no LoRA)
+- Unmodified af-k1 @ff6eb4bc vs Tok → m>+0.015 (≠F16 LoRA). p451: mine-f24-1 boot. `s4-h119-f24-raw-af-k1/`.
+
 ### H105/F10 — TalentPigs × high-Λ2 — REFUTED
 - TalentPigs + high-Λ2 → m=**−0.03095** z=−3.20 mean_λ2_c=−0.0176 (p450). Tear mine-f10-1. `s4-h105-f10-talentpigs-base/`.
 
@@ -82,8 +86,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F17–F23 | raw no-LoRA screens | **screening** |
-| F24 | raw af-k1 unmodified (H119) | **next rent** (9 free slots) |
+| F17–F24 | raw no-LoRA screens | **screening** (F24 rented p451) |
+| F25 | next structural family | rent when slot/burn allows |
 | — | earner×high-Λ2 LoRA | F9–F12 dead; F13–F16 still open |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
@@ -94,4 +98,4 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - **H98/F1** Tok-RL m=+0.00229 · **H97/F3** r256 m=−0.01506
 - **H96** winner-zA r9 m=+0.00913 · **H99/F2** remix m=−0.00199
 - **H95…H1** α/plmk/TP/m7/winner-zA (−0.004)/F1–F4/F6–F12 dead
-- Screens live: **F13–F23**.
+- Screens live: **F13–F24**.
