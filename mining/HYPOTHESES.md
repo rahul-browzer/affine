@@ -9,7 +9,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 |---|---|---|---|---|
 | 1 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~65/80) |
 | 2 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 d203 ~60/80) |
-| 3 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 d203) |
+| 3 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (recover264→n80) |
 | 4 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (merge live) |
 | 5 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (train) |
 | 6 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (train) |
@@ -41,7 +41,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H105 / F10 — TalentPigs × high-Λ2 — open
 - **Claim:** TalentPigs @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 **d203** live. `experiments/s4-h105-f10-talentpigs-base/`.
+- **Status:** recover264 after Triton ENOENT FALSE_PROBE (p422). `experiments/s4-h105-f10-talentpigs-base/`.
 
 ### H106 / F11 — pandora-box × high-Λ2 — open
 - **Claim:** pandora @5218b138 + 1059 high-Λ2 → m>+0.015.
