@@ -11,7 +11,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (n80 d203 p437) |
 | 3 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 sim alive) |
 | 4 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~8/80) |
-| 5 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (n80 sim alive) |
+| 5 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (n80 f203 ~4/80) |
+| 6 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (bootstrap p438) |
 | — | H107/F12 | — | golden-crown × high-Λ2 → m>+0.015 | **refuted** m=−0.05941 |
 | — | H104/F9 | — | kevin954 × high-Λ2 → m>+0.015 | **refuted** m=−0.01417 |
 | — | H100/F4 | — | Genesis-init × high-Λ2 → m>+0.015 | **refuted** m=−0.05488 |
@@ -47,7 +48,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H110 / F15 — everest12 × high-Λ2 — open
 - **Claim:** everest12 @a5ac5311 + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** n80 sim alive. `s4-h110-f15-everest12/`.
+- **Status:** n80 f203 ~4/80. `s4-h110-f15-everest12/`.
+
+### H111 / F16 — af-k1 × high-Λ2 — open
+- **Claim:** af-k1 @ff6eb4bc + 1059 high-Λ2 → m>+0.015 vs Tok.
+- **Status:** bootstrap (p438 rent). `experiments/s4-h111-f16-af-k1/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -56,7 +61,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F16 | af-k1 @ff6eb4bc | **rent next** (slot free) |
+| F16 | af-k1 @ff6eb4bc | **screening** (mine-f16-1) |
 
 ## Refuted (keep)
 
@@ -104,4 +109,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H95…H1
 - Dead: α/plmk/TP/m7/union/lr/ep≥2/**winner-zA (−0.004)**/F1–F4/F6–F9/F12.
-  Screens live: **F10–F11/F13–F15**. Archive + LESSONS.
+  Screens live: **F10–F11/F13–F16**. Archive + LESSONS.
