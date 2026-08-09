@@ -8,13 +8,13 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (n80 1/80) |
-| 2 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (engines→n80) |
-| 3 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (serve→n80) |
+| 1 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (**n80 running**) |
+| 2 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (king332 recover) |
+| 3 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (chall264 recover) |
 | 4 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (serve) |
 | 5 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (serve) |
-| 6 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (finalize /tmp) |
-| 7 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (saving) |
+| 6 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (serve→n80) |
+| 7 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (ckpt-60 save) |
 | 8 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (train p474) |
 | 9 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (train p474) |
 | 10 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (train p474) |
@@ -48,17 +48,17 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Open
 
+### H122/F27 — Genesis full-FT (no LoRA)
+- Dense FT genesis@abe89194 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
+- mine-f27-1 **n80 running** d203 (p475). `s4-h122-f27-genesis-full-ft/`.
+
 ### H123/F28 — Tok full-FT × teacher_refs z_C
 - Dense FT Tok × 791 teacher_refs_shortz lr=1e-6 → m>+0.015 vs Tok.
-- mine-f28-1 **n80 1/80** d203 (p474). `s4-h123-f28-teacher-refs-ft/`.
+- mine-f28-1 king EngineDead@~1/80 → king332 recover (p475). `s4-h123-f28-teacher-refs-ft/`.
 
 ### H121/F26 — Tok full-FT (no LoRA)
 - Dense FT Tok@eb8bf9a × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015.
-- mine-f26-1 engines→n80. `s4-h121-f26-full-ft/`.
-
-### H122/F27 — Genesis full-FT (no LoRA)
-- Dense FT genesis@abe89194 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f27-1 finalize 32s OK → serve→n80 (p474). `s4-h122-f27-genesis-full-ft/`.
+- mine-f26-1 bare-TCACHE ENOENT → chall264 (p475). `s4-h121-f26-full-ft/`.
 
 ### H124/F29 — golden-crown full-FT × high-Λ2 z_A
 - Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
@@ -70,11 +70,11 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H126/F31 — Bittob11040 full-FT × high-Λ2 z_A
 - Dense FT Bittob@0c04fe92 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f31-1 finalize from checkpoint-60 → /tmp (p474). `s4-h126-f31-bittob-full-ft/`.
+- mine-f31-1 finalize+/tmp serve launched (p475). `s4-h126-f31-bittob-full-ft/`.
 
 ### H127/F32 — TalentPigs full-FT × high-Λ2 z_A
 - Dense FT TalentPigs@dbfbb3e2 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f32-1 saving; post_train /tmp MERGED on pod. `s4-h127-f32-talentpigs-full-ft/`.
+- mine-f32-1 ckpt-60 present; train/save→post_train /tmp. `s4-h127-f32-talentpigs-full-ft/`.
 
 ### H128/F33 — pandora-box full-FT × high-Λ2 z_A
 - Dense FT pandora@5218b138 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
