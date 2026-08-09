@@ -1,0 +1,25 @@
+-rw-rw-r-- 1 const const 345K Aug  9 02:31 /tmp/mine-h118-stack.tar.gz
+STACK_UPLOAD_OK
+PIPELINE_PID=1244
+[bootstrap-h118] 2026-08-09T02:32:01Z start host=c15d7319a128
+GPU 0: NVIDIA B300 SXM6 AC (UUID: GPU-0de493a9-df3f-50b7-19ca-91dc4c430dbf)
+GPU 1: NVIDIA B300 SXM6 AC (UUID: GPU-83628aee-d397-8bc8-67da-945bdde0f9f4)
+GPU 2: NVIDIA B300 SXM6 AC (UUID: GPU-db90cf2b-ab51-53c3-76bf-9f8ad4ca4521)
+GPU 3: NVIDIA B300 SXM6 AC (UUID: GPU-b21a0db7-3c98-40ef-3aa8-93d143ef1f6d)
+GPU 4: NVIDIA B300 SXM6 AC (UUID: GPU-c201efed-b183-0408-1c22-9d189a65dff0)
+GPU 5: NVIDIA B300 SXM6 AC (UUID: GPU-687e3be1-7771-e195-b55f-a8652a445e81)
+GPU 6: NVIDIA B300 SXM6 AC (UUID: GPU-cfe30c39-a2e6-b3a3-0ac6-93a18254bc01)
+GPU 7: NVIDIA B300 SXM6 AC (UUID: GPU-80ae2e42-8f5d-87b2-035f-94b71367e716)
+[bootstrap-h118] GPU_COUNT=8
+downloading uv 0.12.3 x86_64-unknown-linux-gnu
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: venv
+Activate with: source venv/bin/activate
+    PID     ELAPSED CMD
+   1244 441077229-10:20:16 bash /root/mining_src/s4-h118-f23-raw-bittob/bootstrap_h118.sh
+8
+UPLOAD_AND_LAUNCH_OK 2026-08-09T02:32:04Z
