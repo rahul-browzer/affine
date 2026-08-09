@@ -14,10 +14,9 @@ King Tok S=0.04456. Operator: finish live screens, **do not replace**, drift bur
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
 | Lium / spend | **~$177,994** · cum ~$19,741 · **avail ~$168.0k** |
 | miner / burn | τ10 free · 0 sub · **~$83/h** (3) ≪$833 · free **17** |
-| F44 | n80 d203 p529 @~23/80 |
-| F45 | n80 b203 attempt2 @~14/80 (a203 died king-400@40) |
-| F46 | n80 d203 p529 @~31/80 |
-| F42 | **REFUTE** m=+0.00508 z=0.78; `mine-f42-1` rm (p534) |
+| F44 | n80 d203 p529 @~29/80 |
+| F45 | n80 b203 attempt2 @~17/80; **watcher+relaunch→p529** (p535) |
+| F46 | n80 d203 p529 @~33/80 |
 | HF | unconst **public storage full** — local MERGED ok; push blocked |
 
 ## What's running
@@ -25,7 +24,7 @@ King Tok S=0.04456. Operator: finish live screens, **do not replace**, drift bur
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
 | mine-f44-1 | swift-matrix-65 | 152.236.142.237:40300 | ~21:28Z | F44 n80 d203 p529 |
-| mine-f45-1 | lunar-matrix-d4 | 38.255.28.21:20099 | ~21:35Z | F45 n80 b203 @14/80 |
+| mine-f45-1 | lunar-matrix-d4 | 38.255.28.21:20099 | ~21:35Z | F45 n80 b203; watch→p529 |
 | mine-f46-1 | swift-comet-18 | 152.236.142.241:40061 | ~22:02Z | F46 n80 d203 p529 |
 
 kh: `/tmp/mine-fNN.kh`. SSH key `~/.ssh/id_ed25519`. Non-mine — **do not touch**.
@@ -39,7 +38,7 @@ Raw non-Albedo bases fail baseline band (F47 2.24×) — not a crown path alone.
 
 ## Next action
 
-1. **F46** (~31/80) → decision; m>+0.015 → CONFIRM k=4; else REFUTE/tear.
-2. **F44** (~23/80) → decision.
-3. **F45**: b203 attempt2; if dies, arm d203 (retry is a203-first misname; FP≠REFUTE).
+1. **F46** (~33/80) → decision; m>+0.015 → CONFIRM k=4; else REFUTE/tear.
+2. **F44** (~29/80) → decision.
+3. **F45**: b203 continues under old retry wrap; next FP/retry → p529. Decision when done.
 4. No backfill; free slots idle (operator).
