@@ -8,11 +8,12 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (bootstrap) |
-| 2 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (Tok DL) |
-| 3 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (teacher DL) |
-| 4 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL step≥115) |
-| 5 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (n80 ~67/80) |
+| 1 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 2 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (teacher serve) |
+| 3 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL train) |
+| 4 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
+| 5 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL step≥140) |
+| — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
 | — | H129/F34 | — | diane full-FT → m>+0.015 | **refuted** m=−0.06281 |
 | — | H117/F22 | — | raw everest12 (no LoRA) → m>+0.015 | **refuted** m=−0.06273 |
@@ -49,23 +50,24 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Open
 
+### H136/F41 — TalentPigs REINFORCE on teacher Λ2
+- TalentPigs-init LoRA; reward = teacher Λ2 → m>+0.015. Isolates reign-3 base vs F10/F18/F32 CE fails.
+- mine-f41-1 bootstrap; soft=19:19Z. `s4-h136-f41-talentpigs-rl-l2/`.
+
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
-- kevin954-init LoRA; reward = teacher Λ2 → m>+0.015. Isolates earner base vs F9/F30 CE fails.
-- mine-f40-1 bootstrap; soft=19:11Z. `s4-h135-f40-kevin-rl-l2/`.
+- kevin954-init LoRA; reward = teacher Λ2 → m>+0.015.
+- mine-f40-1 teacher serve; soft=19:11Z. `s4-h135-f40-kevin-rl-l2/`.
 
 ### H134/F39 — Tok REINFORCE on full S* mix
 - Tok-init LoRA; reward = Λ2 + clip(L1lift, ±0.1) → m>+0.015.
-- mine-f39-1 Tok DL; soft=19:06Z. `s4-h134-f39-tok-rl-sstar/`.
+- mine-f39-1 RL train; soft=19:06Z. `s4-h134-f39-tok-rl-sstar/`.
 
 ### H133/F38 — Genesis REINFORCE on teacher Λ2
 - Genesis-init LoRA; reward = teacher Λ2 → m>+0.015.
-- mine-f38-1 teacher DL. `s4-h133-f38-genesis-rl-l2/`.
+- mine-f38-1 RL train. `s4-h133-f38-genesis-rl-l2/`.
 
 ### H132/F37 — Tok REINFORCE on teacher Λ2
-- Tok-init LoRA; teacher-Λ2 reward → m>+0.015. step≥115/200. `s4-h132-f37-tok-rl-l2/`.
-
-### H131/F36 — af-k1 full-FT (last past-king FT screen)
-- n80 ~67/80. No new rents in this class. `s4-h131-f36-af-k1-full-ft/`.
+- Tok-init LoRA; teacher-Λ2 reward → m>+0.015. step≥140/200. `s4-h132-f37-tok-rl-l2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -74,19 +76,19 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F40 | kevin RL teacher-Λ2 | **live** bootstrap |
-| F39 | Tok RL full S* mix | **live** Tok DL |
-| F38 | Genesis RL teacher-Λ2 | **live** teacher DL |
+| F41 | TalentPigs RL teacher-Λ2 | **live** bootstrap |
+| F40 | kevin RL teacher-Λ2 | **live** teacher serve |
+| F39 | Tok RL full S* mix | **live** train |
+| F38 | Genesis RL teacher-Λ2 | **live** train |
 | F37 | Tok RL teacher-Λ2 | **live** train |
-| F36 | af-k1 full-FT screen | **live** (dying class; no new) |
-| — | past-king full-FT×Λ2 | **CLOSED** F26–F35+F29+F34+**F32** ≤0 |
+| — | past-king full-FT×Λ2 | **CLOSED** F26–F36 all ≤0 |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
 | — | raw past-earner/genesis | **CLOSED** |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
 
-- **H127/F32** TalentPigs FT −0.026 · **H129/F34** diane −0.063 · **H117/F22** raw everest −0.063
-- **H124/F29** golden FT −0.093 · **H130/F35** everest FT −0.084 · **H128/F33** pandora −0.022
+- **H131/F36** af-k1 FT −0.067 · **H127/F32** TalentPigs FT −0.026 · **H129/F34** diane −0.063
+- **H117/F22** raw everest −0.063 · **H124/F29** golden FT −0.093 · **H130/F35** everest FT −0.084
 - **H121–H126/H123/H125** full-FT class ≤0 · **H118/F23** raw Bittob −0.084
 - **H120/F25** raw golden −0.063 · **H112/F17** genesis −0.055 · **H113/F18** TalentPigs −0.030
 - **H111/F16** af-k1×Λ2 −0.076 · **H119/F24** raw af-k1 −0.087 · **H116/F21** diane −0.072
