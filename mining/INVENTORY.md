@@ -8,15 +8,16 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f10-1 | eager-wolf-42 | 8×H200 | $28.00 | 2026-08-09T11:54Z | H105 F10 TalentPigs | **n80 e203 ~34/80** |
-| mine-f11-1 | swift-eagle-51 | 8×H200 | $28.00 | 2026-08-09T12:02Z | H106 F11 pandora | **n80 d203** early |
-| mine-f13-1 | zesty-hawk-1f | 8×H200 | $31.92 | 2026-08-09T12:17Z | H108 F13 diane613 | **n80 e203 ~7/80** |
-| mine-f14-1 | eager-comet-be | 8×H200 | $28.00 | 2026-08-09T12:34Z | H109 F14 Bittob | **n80 d203** early |
-| mine-f15-1 | calm-wolf-f7 | 8×H200 | $31.92 | 2026-08-09T12:37Z | H110 F15 everest12 | **n80 f203 ~4/80** |
+| mine-f10-1 | eager-wolf-42 | 8×H200 | $28.00 | 2026-08-09T11:54Z | H105 F10 TalentPigs | **n80 f203 ~3/80** |
+| mine-f11-1 | swift-eagle-51 | 8×H200 | $28.00 | 2026-08-09T12:02Z | H106 F11 pandora | **n80 d203 ~14/80** |
+| mine-f13-1 | zesty-hawk-1f | 8×H200 | $31.92 | 2026-08-09T12:17Z | H108 F13 diane613 | **n80 ~26/80** |
+| mine-f14-1 | eager-comet-be | 8×H200 | $28.00 | 2026-08-09T12:34Z | H109 F14 Bittob | **n80 d203 ~11/80** |
+| mine-f15-1 | calm-wolf-f7 | 8×H200 | $31.92 | 2026-08-09T12:37Z | H110 F15 everest12 | **n80 ~15/80** |
 | mine-f16-1 | calm-wolf-2f | 8×H200 | $28.00 | 2026-08-09T13:57Z | H111 F16 af-k1 | **bootstrap** |
+| mine-f17-1 | eager-eagle-f3 | 8×H200 | $31.92 | 2026-08-09T14:02Z | H112 F17 raw-genesis | **bootstrap** |
 
-SSH: f13/f15:20099 f10–11:40300 f14:40309 f16:40311 · kh `/tmp/mine-*-1.known_hosts`.
-**Free: 14**. Burn ~$175.8/h. Non-mine — **never rm**.
+SSH: f13/f15/f17:20099 f10–11:40300 f14:40309 f16:40311 · kh `/tmp/mine-*-1.known_hosts`.
+**Free: 13**. Burn ~$207.7/h. Non-mine — **never rm**.
 
 ## Dead
 
@@ -32,6 +33,6 @@ SSH: f13/f15:20099 f10–11:40300 f14:40309 f16:40311 · kh `/tmp/mine-*-1.known
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T02:03Z | 7 live | rented mine-f17-1 F17 raw-genesis; burn ~$207.7/h |
 | 2026-08-09T01:58Z | 6 live | rented mine-f16-1 F16; burn ~$175.8/h |
 | 2026-08-09T01:53Z | 5 live | F12 REFUTE+rm; F11 a203→d203; burn ~$147.8/h |
-| 2026-08-09T01:48Z | 6 live | F15→d203first; F11→longwait; burn ~$175.8/h |

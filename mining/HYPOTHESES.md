@@ -7,12 +7,13 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 e203 ~30/80) |
-| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (n80 d203 p437) |
-| 3 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 sim alive) |
-| 4 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~8/80) |
-| 5 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (n80 f203 ~4/80) |
-| 6 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (bootstrap p438) |
+| 1 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (bootstrap p439) |
+| 2 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 f203 ~3/80) |
+| 3 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (n80 d203 ~14/80) |
+| 4 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 ~26/80) |
+| 5 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~11/80) |
+| 6 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (n80 ~15/80) |
+| 7 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (bootstrap) |
 | — | H107/F12 | — | golden-crown × high-Λ2 → m>+0.015 | **refuted** m=−0.05941 |
 | — | H104/F9 | — | kevin954 × high-Λ2 → m>+0.015 | **refuted** m=−0.01417 |
 | — | H100/F4 | — | Genesis-init × high-Λ2 → m>+0.015 | **refuted** m=−0.05488 |
@@ -32,7 +33,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H105 / F10 — TalentPigs × high-Λ2 — open
 - **Claim:** TalentPigs @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 e203 ~30/80 vs Tok. `experiments/s4-h105-f10-talentpigs-base/`.
+- **Status:** n80 f203 ~3/80 vs Tok. `experiments/s4-h105-f10-talentpigs-base/`.
 
 ### H106 / F11 — pandora-box × high-Λ2 — open
 - **Claim:** pandora @5218b138 + 1059 high-Λ2 → m>+0.015.
@@ -52,7 +53,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H111 / F16 — af-k1 × high-Λ2 — open
 - **Claim:** af-k1 @ff6eb4bc + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** bootstrap (p438 rent). `experiments/s4-h111-f16-af-k1/`.
+- **Status:** bootstrap. `experiments/s4-h111-f16-af-k1/`.
+
+### H112 / F17 — raw genesis (no LoRA) — open
+- **Claim:** unmodified genesis @abe89194 vs Tok → m>+0.015 (honest panel +0.16).
+- **Status:** bootstrap (p439 rent). `experiments/s4-h112-f17-raw-genesis/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -61,7 +66,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F16 | af-k1 @ff6eb4bc | **screening** (mine-f16-1) |
+| F17 | raw genesis no-LoRA | **screening** (mine-f17-1) |
+| — | earner×high-Λ2 LoRA | **queue exhausted** (reign set done) |
 
 ## Refuted (keep)
 
@@ -109,4 +115,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H95…H1
 - Dead: α/plmk/TP/m7/union/lr/ep≥2/**winner-zA (−0.004)**/F1–F4/F6–F9/F12.
-  Screens live: **F10–F11/F13–F16**. Archive + LESSONS.
+  Screens live: **F10–F11/F13–F17**. Archive + LESSONS.
