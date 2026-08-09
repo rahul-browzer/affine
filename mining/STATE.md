@@ -36,9 +36,15 @@ Dead: α/plmk/TP/m7/union/lr/ep≥2/winner-zA/**F1–F43**/F47/king-init LoRA.
 HF Hub push of merged ckpts blocked until storage freed/Pro.
 Raw non-Albedo bases fail baseline band (F47 2.24×) — not a crown path alone.
 
-## Next action
+## Next action — KING-WATCH MODE (operator 2026-08-09T10:45Z, see GOAL)
 
-1. **F46** (~39/80) → decision; m>+0.015 → CONFIRM k=4; else REFUTE/tear.
-2. **F44** (~34/80) → decision.
-3. **F45** d203 p529 just restarted (p536); wait for decision.
-4. No backfill; free slots idle (operator).
+1. **Wind down to one pod this pass.** Keep the healthiest of F44/F45/F46 as
+   `mine-watch-1` (warm duel stack, ≤$32/h); `rm` the other two now — do not
+   wait for their n80s, the class is closed and the answer is ≈−0.05.
+2. **Snapshot the warm stack** to `experiments/warm-stack/` (Triton cache tar +
+   exact serve/merge commands) so a fresh pod is one pass from PROMPTABLE.
+3. Merge the best Tok-init winner-zA artifact (H64 r=18) on the watch pod and
+   leave it ready. HF push is blocked (storage full) — keep it local, that is
+   fine for a warm stack.
+4. Then every pass: record live king S, check watch pod, renew TTL, stop.
+   **Idle is correct.** Trigger: king with **S < 0.035** → re-screen immediately.

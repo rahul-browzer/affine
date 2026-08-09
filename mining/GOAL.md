@@ -320,7 +320,37 @@ whatever it is. Reinvest earnings into Lium credit.
 
 ---
 
-## Use the compute. Parallelize now.
+## MODE: KING-WATCH (operator 2026-08-09T10:45Z) — read this before the section below
+
+**The exploration phase is over and the section that follows is SUSPENDED.**
+140 experiments and 45 families produced no crown, and the search space is now
+mapped: only king-init perturbations sit near the bar, and they are ~zero-mean.
+More spending buys more −0.05s. So the run switches from searching to waiting.
+
+1. **One pod, `mine-watch-1`, ≤$32/h. That is the whole fleet.** Tear down every
+   other `mine-*`. Do not wait for in-flight n80s in a closed class — record the
+   margin if it is there, otherwise `rm` and move on.
+2. **That pod is the warm duel stack**, not an experiment: king + challenger +
+   teacher able to reach an n80 quickly, with the best Tok-init winner-zA
+   artifact (H64 r=18 recipe) merged and ready. Renew its TTL every pass.
+3. **Snapshot the warm stack** into `experiments/warm-stack/`: tar the working
+   Triton caches, record the exact serve and merge commands. The Triton cache is
+   the expensive part, not the GPU — with it saved, a fresh pod reaches
+   PROMPTABLE in one pass instead of twenty, and we can drop to zero pods.
+4. **A normal pass is now: read the live king's S, record it, check the watch pod,
+   renew TTL, stop. An idle pass is the correct output.** Do not invent
+   experiments to fill it. You are being paid to wait cheaply.
+5. **The one trigger — the crown, not the recipe.** Our same cells scored +0.025
+   against TalentPigs (S=0.0315) and ≈0 against Tok (S=0.04456); the bar tracks
+   the king's strength. **If a king with S < 0.035 takes the crown, immediately
+   re-screen the best Tok-init cell against it**, and if the margin clears 0.04,
+   follow the submit path. Until that fires, there is nothing to do.
+6. **Do not rent a second pod for any reason** without a new dated operator
+   directive in this file. Not for a promising idea, not for a free slot.
+
+---
+
+## Use the compute. Parallelize now.  [SUSPENDED — see KING-WATCH above]
 
 Testing one hypothesis at a time on one pod is the main thing slowing this run
 down. Serial hypothesis testing is the failure mode to avoid.
