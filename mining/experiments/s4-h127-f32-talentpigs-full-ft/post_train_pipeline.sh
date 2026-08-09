@@ -19,8 +19,13 @@ KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
 KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 TRAIN_DIR=${TRAIN_DIR:-/root/h127/train}
-FULL_FT=${FULL_FT:-$TRAIN_DIR/full_ft}
-MERGED=${MERGED:-/root/h127/merged}
+# Prefer /tmp staging — gocryptfs /root copytree hangs (WCHAN=request_wait_answer; p472).
+FULL_FT=${FULL_FT:-/tmp/h127_full_ft_save}
+if [[ ! -d "$FULL_FT" ]]; then
+  FULL_FT=$TRAIN_DIR/full_ft
+fi
+MERGED=${MERGED:-/tmp/h127_merged}
+MERGED_LINK=${MERGED_LINK:-/root/h127/merged}
 SIM_N80=/root/affine_data/h127_sim_result.json
 PROG=/root/affine_data/h127_sim_progress.json
 LOG=/root/logs/h127_pipeline.nohup
@@ -122,6 +127,9 @@ else
     --king "$KING_LOCAL" \
     | tee -a "$LOG"
 fi
+mkdir -p "$(dirname "$MERGED_LINK")"
+ln -sfn "$MERGED" "$MERGED_LINK"
+log "merged link $MERGED_LINK → $MERGED"
 cp -f "$MERGED/finalize_meta.json" /root/affine_data/h127_finalize_meta.json 2>/dev/null || true
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h127_merge.done
 

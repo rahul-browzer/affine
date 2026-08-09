@@ -17,7 +17,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 7 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (train) |
 | 8 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (pip/boot) |
 | 9 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (pip/boot) |
-| 10 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (finalize) |
+| 10 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (serve→n80) |
 | 11 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (Tok Range) |
 | — | H118/F23 | — | raw Bittob (no LoRA) → m>+0.015 | **refuted** m=−0.08436 |
 | — | H120/F25 | — | raw golden-crown (no LoRA) → m>+0.015 | **refuted** m=−0.06343 |
@@ -58,7 +58,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H123/F28 — Tok full-FT × teacher_refs z_C
 - Dense FT Tok × 791 teacher_refs_shortz lr=1e-6 → m>+0.015 vs Tok.
-- mine-f28-1 eager-eagle-b1 **train**. `s4-h123-f28-teacher-refs-ft/`.
+- mine-f28-1 eager-eagle-b1 **serve→n80** (p472 finalize /tmp 36s OK). `s4-h123-f28-teacher-refs-ft/`.
 
 ### H124/F29 — golden-crown full-FT × high-Λ2 z_A
 - Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
