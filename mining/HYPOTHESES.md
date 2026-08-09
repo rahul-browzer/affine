@@ -8,13 +8,14 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (n80 e203 a2) |
-| 2 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (n80 ~31/80) |
-| 3 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (n80 ~28/80) |
-| 4 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (n80 ~29/80) |
-| 5 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (n80 ~7/80) |
-| 6 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (n80 ~14/80) |
-| 7 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (train ~38/60) |
+| 1 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 2 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (n80 e203) |
+| 3 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (n80 ~38/80) |
+| 4 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (n80 ~47/80) |
+| 5 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (n80 ~36/80) |
+| 6 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (n80 ~16/80) |
+| 7 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (n80 ~28/80) |
+| 8 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (train ~45/60) |
 | — | H121/F26 | — | Tok full-FT → m>+0.015 | **refuted** m=−0.00031 |
 | — | H122/F27 | — | Genesis full-FT → m>+0.015 | **refuted** m=−0.07068 |
 | — | H126/F31 | — | Bittob full-FT → m>+0.015 | **refuted** m=−0.07651 |
@@ -45,33 +46,25 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Open
 
+### H132/F37 — Tok REINFORCE on teacher Λ2
+- Tok-init LoRA; reward = lpC(y|z)−lpC(y|∅) via live teacher :8000 → m>+0.015.
+- mine-f37-1 bootstrap. `s4-h132-f37-tok-rl-l2/`. F1 deferred this variant.
+
 ### H124/F29 — golden-crown full-FT × high-Λ2 z_A
 - Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f29-1: d203 died@79 king400; e203 a2 running. `s4-h124-f29-golden-full-ft/`.
+- mine-f29-1 n80 e203. `s4-h124-f29-golden-full-ft/`.
 
 ### H127/F32 — TalentPigs full-FT × high-Λ2 z_A
-- Dense FT TalentPigs@dbfbb3e2 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f32-1 n80 ~31/80. `s4-h127-f32-talentpigs-full-ft/`.
+- Dense FT TalentPigs@dbfbb3e2 × 1059 high-Λ2 → m>+0.015. mine-f32-1 n80.
+- `s4-h127-f32-talentpigs-full-ft/`.
 
 ### H117/F22 — raw everest12 (no LoRA)
-- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015.
-- mine-f22-1 n80 ~28/80. `s4-h117-f22-raw-everest12/`.
+- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. mine-f22-1 n80.
+- `s4-h117-f22-raw-everest12/`.
 
-### H128/F33 — pandora-box full-FT × high-Λ2 z_A
-- Dense FT pandora@5218b138 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f33-1 n80 ~29/80. `s4-h128-f33-pandora-full-ft/`.
-
-### H129/F34 — diane613 full-FT × high-Λ2 z_A
-- Dense FT diane@ad0f3f11 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f34-1 n80 ~7/80. `s4-h129-f34-diane-full-ft/`.
-
-### H130/F35 — everest12 full-FT × high-Λ2 z_A
-- Dense FT everest@a5ac5311 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f35-1 n80 ~14/80. `s4-h130-f35-everest-full-ft/`.
-
-### H131/F36 — af-k1 full-FT × high-Λ2 z_A
-- Dense FT af-k1@ff6eb4bc × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f36-1 train ~38/60. `s4-h131-f36-af-k1-full-ft/`.
+### H128–H131 / F33–F36 — past-king full-FT screens
+- pandora/diane/everest/af-k1 dense FT × high-Λ2. Live n80/train.
+- Detail: `s4-h128…` … `s4-h131-f36-af-k1-full-ft/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -80,10 +73,11 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F22/F29/F32–F36 | screens | **live** (7 pods) |
+| F37 | Tok RL teacher-Λ2 | **live** bootstrap |
+| F22/F29/F32–F36 | screens | **live** |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
 | — | raw past-earner/genesis | **CLOSED** (everest F22 open) |
-| — | Tok/past-king full-FT×Λ2 | **DYING** F26/F27/F28/F30/F31 ≤0; remaining F29/F32–F36 screens only |
+| — | Tok/past-king full-FT×Λ2 | **DYING** F26–F31 ≤0; F29/F32–F36 screens only |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
 
