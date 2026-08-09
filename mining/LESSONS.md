@@ -74,7 +74,6 @@ Format: `- <finding> — <the number or error that proves it>`
   Match `retry_${hyp}_n80*` not only `…_n80.sh` — `_longwait`/`_b203first` invisible → 30s respawn (F4 p392; F7 p396 dual c203+b203). **SCP watcher to pods** — local fix ≠ live.
 - Teacher timeouts: need outer 3× retry even at 480s×5 (H9@60/80).
 - Parent HF gated: m7→Radiant28/…-m7@f766293; plmk/kkk mirrors; pin duel SHA.
-- Lium catalog lies: after rent `nvidia-smi -L|wc -l`=8; reject $/h<28. Prefer `lium up --gpu H200 -c 8`.
 - **B300 SM10.3 + vllm 0.22.1:** cutlass aliases `Arch.sm_110f→sm_101f`, so
   `flash_fwd_sm100` assert `≤sm_110f` rejects sm_103 → all engines die at
   profile_run (`Only SM 10.x and 11.x are supported`). Patch upper bound to
