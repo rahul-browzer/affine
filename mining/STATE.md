@@ -40,7 +40,7 @@ Do **not** rent a second `mine-*` without a new dated operator directive.
 ## Next action
 
 1. If `mine-f45-1` still up: KING-WATCH idle — record king S; confirm engines 8000/8001/8002=200 + `:8002`=/tmp/h64_merged; **do not** rent a second pod.
-2. If pod **gone** after 21:35Z → rent **one** `mine-watch-1` 8×H200 ≤$32/h `--ttl 6h` by UUID (p1100 catalog still live):
+2. If pod **gone** after 21:35Z → rent **one** `mine-watch-1` 8×H200 ≤$32/h `--ttl 6h` by UUID (p1103 catalog still live):
    - **1st** `37b3ea5c-d447-41ab-aac2-730437842243` lunar-eagle-9e **$28.00** (7TB, dl 1025) — prefer for H64 66G DL
    - **2nd** `4e66b752-a3f6-45c6-9c39-0d274c74bed8` lunar-shark-33 **$23.20** (1.7TB, dl 299)
    - alts: `646dcae7…` noble-wolf-32 $24.40 / `ea473ae7…` golden-raven-d3 $28
