@@ -109,7 +109,7 @@ PY
     >/root/logs/h135_form_decision.launch.out 2>&1 &
   echo $! > /root/logs/h135_form_decision.pid
   nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h135 \
-    /root/mining_src/s4-h135-f40-kevin-rl-l2/retry_h135_n80_d203first.sh \
+    /root/mining_src/s4-h135-f40-kevin-rl-l2/retry_h135_n80_d203first_p533.sh \
     >/root/logs/h135_watch_retry.launch.nohup 2>&1 &
   echo $! > /root/logs/h135_watch_retry.pid
   nohup bash /root/mining_src/s4-h135-f40-kevin-rl-l2/watch_preempt_bare_tcache_pass264.sh \

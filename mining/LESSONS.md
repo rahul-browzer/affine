@@ -143,7 +143,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - **RL `mean_r=0`**: (1) dead teacher — F40 p507 refuse / **F41 p510 bare-TCACHE ENOENT on 1st score → 140× mean_r=0** (abort on first `teacher score fail`, kill+wipe+recover332); (2) kevin/albedo `</think>\nTHOUGHT:` collapses z→"" (p508; fix leading-close+```bash → mean_r 0.016/0.022/0.005). Offline-decode once before blaming teacher.
 - **Family-clone `retry_*_d203first` may still be a203-first** and treat FP as N80_DONE (exit 0) → watcher restarts attempt1 forever. F41 p523: a203 chall-400 FP loop; fix = new-name script with d203-first + `_is_false_probe_sim` (h143 pattern), kill live retry/$0, re-point watcher.
 - **F43 offline DPO REFUTED** m=−0.00966; BT prefs under Tok-LoRA collapse Λ2. Empty idle `mine-*` = orphan → rm (F48 p524).
-- **F39/F41 RL screens REFUTED** F39 Tok S* mix m=+0.00267; F41 TalentPigs teacher-Λ2 m=−0.01159 (λ2_c−0.012 vs k−0.0095, gates clear). Earner RL ≠ crown (p528/p532).
+- **F39/F40/F41 RL screens REFUTED** F39 Tok S* mix m=+0.00267; F40 kevin teacher-Λ2 m=−0.02343 (λ2_c−0.021 vs k−0.0095); F41 TalentPigs m=−0.01159. Earner RL ≠ crown (p528/p532/p533).
 - **unconst HF public storage full** (p528) — merged push BadRequest; local `/tmp/*_full_ft_save` still serves. Free space/Pro before submit uploads.
 - **F44/F46 p529:** misnamed `*_d203first` still a203 + no nested FP guard → chall-down ConnectError wrote FALSE_PROBE+`N80_DONE`. Fix = `*_p529.sh` (d203-first+`_is_false_probe_sim`), quarantine, recover264; never tear on FP.
 - **Raw non-Albedo base fails baseline band** — F47 Qwen3-Coder n80: base_x=**2.244** (abs 0.301 vs king 0.134), valid_c=false; ungated mix also loses (0.027<0.036). Do not re-screen unmodified foreign bases vs Tok.

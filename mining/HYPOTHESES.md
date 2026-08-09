@@ -9,10 +9,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 d203 @15/80) |
-| 2 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 a203 @37/80) |
-| 3 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (n80 d203 @1/80) |
-| 4 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (n80 d203 @54/80) |
-| 5 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 c203 @67/80) |
+| 2 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 a203 @40/80) |
+| 3 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (n80 d203 @10/80) |
+| 4 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (n80 d203 @60/80) |
+| — | H135/F40 | — | kevin RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.02343 |
 | — | H136/F41 | — | TalentPigs RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.01159 |
 | — | H142/F47 | — | raw Qwen3-Coder-30B vs Tok → m>+0.015 | **refuted** band 2.24× |
 | — | H134/F39 | — | Tok RL full S* mix → m>+0.015 | **refuted** m=+0.00267 |
@@ -78,8 +78,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2 — REFUTED
 - m=−0.01159 z=−1.15; λ2_c −0.0123 vs king −0.0095; gates clear. `results/pass532_refute.md`.
 
-### H135/F40 — kevin954 REINFORCE on teacher Λ2
-- n80 c203 @~67/80. mine-f40-1.
+### H135/F40 — kevin954 REINFORCE on teacher Λ2 — REFUTED
+- m=−0.02343 z=−1.91; λ2_c −0.0211 vs king −0.0095; gates clear. `results/pass533_refute.md`.
 
 ### H134/F39 — Tok REINFORCE on full S* mix — REFUTED
 - m=+0.00267 z=0.41; λ2_c 0.00622 > king 0.00272; gates clear. `results/pass528_refute.md`.
@@ -95,15 +95,14 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
 | F46/F45 | last-N full-rank RL-Λ2 | F45/F46 n80 |
-| F44 | Tok online DPO teacher-Λ2 | n80 d203 @1/80 |
-| F42 | Tok BoN-CE | **live** n80 d203 |
-| F40 | kevin RL screen | n80 @67/80 |
-| — | F41 TalentPigs RL / F47 raw Coder / F39 / F38 / F43 | **CLOSED** |
+| F44 | Tok online DPO teacher-Λ2 | n80 d203 @10/80 |
+| F42 | Tok BoN-CE | **live** n80 d203 @60/80 |
+| — | F40 kevin RL / F41 TalentPigs RL / F47 raw Coder / F39 / F38 / F43 | **CLOSED** |
 | — | full-FT×Λ2 F26–F36 · earner×Λ2 F9–F16 · raw earners | **CLOSED** |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
 
-- **H136/F41** −0.0116 · **H142/F47** band 2.24× · **H134/F39** +0.00267 · **H133/F38** −0.053 · **H138/F43** −0.0097 · **H132/F37** −0.0005 · **H131/F36** −0.067
+- **H135/F40** −0.0234 · **H136/F41** −0.0116 · **H142/F47** band 2.24× · **H134/F39** +0.00267 · **H133/F38** −0.053 · **H138/F43** −0.0097 · **H132/F37** −0.0005 · **H131/F36** −0.067
 - **H117/F22** raw everest −0.063 · **H124/F29** golden FT −0.093 · **H130/F35** everest FT −0.084
 - **H121–H126/H123/H125** full-FT class ≤0 · **H118/F23** raw Bittob −0.084
 - **H120/F25** raw golden −0.063 · **H112/F17** genesis −0.055 · **H113/F18** TalentPigs −0.030
