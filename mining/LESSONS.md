@@ -122,7 +122,8 @@ Format: `- <finding> — <the number or error that proves it>`
   `/root/venv/bin/activate` ≤10m (H60/H61/H62).
 - Rent by UUID + **post-rent COUNT=8** (catalog+API `gpu_count` lie). p441
   zesty-fox-fc=4; p442 zesty-hawk=2; p443 B200@$40=8; p444 calm-shark hung;
-  **p471** ecf0d9d5/lunar-lion API 8×H200→nvidia-smi=4 (tore). SSH COUNT before upload.
+  **p471** lunar-lion 8→4; **p506** dd87f25e/golden-wolf-48 API 8→nvidia-smi=3
+  (rm before upload). SSH COUNT before upload.
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
   → n80 → `__triton_launcher.so` → ConnectError false REFUTE in ~6m; quarantine
   + GPU-index chall relaunch + completions probe before retry.

@@ -8,12 +8,13 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (bootstrap) |
-| 2 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (DL) |
-| 3 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (teacher serve) |
-| 4 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL train) |
-| 5 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
-| 6 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL ~155/200) |
+| 1 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 2 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (Tok DL) |
+| 3 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (teacher) |
+| 4 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
+| 5 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL train) |
+| 6 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
+| 7 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL ~165/200) |
 | — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
 | — | H129/F34 | — | diane full-FT → m>+0.015 | **refuted** m=−0.06281 |
@@ -51,29 +52,33 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Open
 
+### H138/F43 — Tok offline DPO on duel Λ2 prefs
+- Tok-init LoRA; chosen=higher-Λ2 duel z, rejected=lower; β=0.1 → m>+0.015.
+- No teacher at train; 604 pairs mean gap≈0.125. ≠ F37 RL / F42 BoN.
+- mine-f43-1 bootstrap; soft=19:34Z. `s4-h138-f43-tok-dpo-l2/`.
+
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
 - Tok-init LoRA; sample G=4; CE on argmax teacher-Λ2 z → m>+0.015.
-- Orthogonal to F37 REINFORCE (same reward, winner-take-all CE).
-- mine-f42-1 bootstrap; soft=19:25Z. `s4-h137-f42-tok-bon-l2/`.
+- mine-f42-1 Tok DL; soft=19:25Z. `s4-h137-f42-tok-bon-l2/`.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
 - TalentPigs-init LoRA; reward = teacher Λ2 → m>+0.015.
-- mine-f41-1 base DL; soft=19:19Z. `s4-h136-f41-talentpigs-rl-l2/`.
+- mine-f41-1 teacher serve; soft=19:19Z. `s4-h136-f41-talentpigs-rl-l2/`.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
 - kevin954-init LoRA; reward = teacher Λ2 → m>+0.015.
-- mine-f40-1 teacher serve; soft=19:11Z. `s4-h135-f40-kevin-rl-l2/`.
+- mine-f40-1 RL train; soft=19:11Z. `s4-h135-f40-kevin-rl-l2/`.
 
 ### H134/F39 — Tok REINFORCE on full S* mix
 - Tok-init LoRA; reward = Λ2 + clip(L1lift, ±0.1) → m>+0.015.
-- mine-f39-1 RL train; soft=19:06Z. `s4-h134-f39-tok-rl-sstar/`.
+- mine-f39-1 RL train. `s4-h134-f39-tok-rl-sstar/`.
 
 ### H133/F38 — Genesis REINFORCE on teacher Λ2
 - Genesis-init LoRA; reward = teacher Λ2 → m>+0.015.
 - mine-f38-1 RL train. `s4-h133-f38-genesis-rl-l2/`.
 
 ### H132/F37 — Tok REINFORCE on teacher Λ2
-- Tok-init LoRA; teacher-Λ2 reward → m>+0.015. ~155/200. `s4-h132-f37-tok-rl-l2/`.
+- Tok-init LoRA; teacher-Λ2 reward → m>+0.015. ~165/200. `s4-h132-f37-tok-rl-l2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -82,12 +87,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F42 | Tok BoN-CE teacher-Λ2 | **live** bootstrap |
-| F41 | TalentPigs RL teacher-Λ2 | **live** DL |
-| F40 | kevin RL teacher-Λ2 | **live** teacher serve |
-| F39 | Tok RL full S* mix | **live** train |
-| F38 | Genesis RL teacher-Λ2 | **live** train |
-| F37 | Tok RL teacher-Λ2 | **live** train |
+| F43 | Tok offline DPO duel-Λ2 | **live** bootstrap |
+| F42 | Tok BoN-CE teacher-Λ2 | **live** Tok DL |
+| F41 | TalentPigs RL teacher-Λ2 | **live** teacher |
+| F40–F37 | RL screens | **live** train |
 | — | past-king full-FT×Λ2 | **CLOSED** F26–F36 all ≤0 |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
 | — | raw past-earner/genesis | **CLOSED** |
