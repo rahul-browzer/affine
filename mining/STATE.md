@@ -12,14 +12,14 @@ King Tok331102 S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$183,076** · cum ~$14,280 · **avail ~$173.1k** |
+| Lium / spend | **~$183,047** · cum ~$14,310 · **avail ~$173.0k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$179.5/h** (5 mine-*) ≪ $833/h · free slots **15** |
-| F4 | n80 **b203** ~35/80; watcher → **d203first** |
-| F7 | n80 **e203** ~28/80 (d203first) |
-| F9 | n80 **d203** ~4/80 (engines 200) |
-| F10 | train ~2/60 GPUs6,7; post waits train.done |
-| F11 | **bootstrap** pandora DL (rented p414) |
+| F4 | n80 **b203** ~50/80; watcher → **d203first** |
+| F7 | n80 **e203** ~37/80 (d203first) |
+| F9 | n80 **d203** ~16/80 (engines 200) |
+| F10 | train ~20/60 GPUs6,7; post waits train.done |
+| F11 | train live pandora; **king DL fixed af10** (p415) |
 
 ## What's running
 
@@ -29,7 +29,7 @@ King Tok331102 S=0.04456.
 | mine-f7-1 | lunar-shark-87 | 152.236.142.232:40311 | ~08:52Z+1d | F7 n80 e203 |
 | mine-f9-1 | lunar-fox-0a | 38.255.28.18:20099 | ~09:12Z+1d | F9 n80 d203 |
 | mine-f10-1 | eager-wolf-42 | 152.236.142.234:40300 | ~11:54Z+1d | F10 train LoRA |
-| mine-f11-1 | swift-eagle-51 | 152.236.142.237:40300 | ~12:02Z+1d | F11 boot→train |
+| mine-f11-1 | swift-eagle-51 | 152.236.142.237:40300 | ~12:02Z+1d | F11 train+kingDL |
 
 kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`. Non-mine — **do not touch**.
 
@@ -38,9 +38,10 @@ kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`. Non-mine — **do not tou
 No submit until n80 margin > 0.04 **vs Tok331102**.
 Dead: α/plmk/TP/m7/union/lr/ep≥2/winner-zA/**F1–F3/F6/F8**/king-init refs.
 Open: H100/F4, H102/F7, H104/F9, H105/F10, **H106/F11**. F5 needs traj.
+Next unused reign base: `golden-crown/Affine-5Epvn…` @ `ee37f4f0` (F12).
 FALSE_PROBE≠REFUTE; never rm non-mine; COUNT=8 & $/h≥28; never `pkill -f`.
 recover264=chall; king-only relaunch; seed chall from **pathfile** then king TCACHE.
-**Fixed `watch_n80_retry`** (`retry_${hyp}_n80*`). **king_recover = live Tok**.
+**Fixed `watch_n80_retry`** (`retry_${hyp}_n80*`). **king_recover = live Tok af10**.
 **B300 cu13:** CCCL + `libcudart.so`→`.so.13` + diverse-warm (p405).
 **H32:** drop a203+c203; `retry_*_d203first`. Kill watchers via `$0` match only.
 
@@ -50,7 +51,7 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 ## Next action
 
-1. **Await nearest screen** — F4 (~35/80) then F7 (~28/80); F9 ~4/80.
+1. **Await nearest screen** — F4 (~50/80) then F7 (~37/80); F9 ~16/80.
 2. m>+0.015 → CONFIRM k=4; m≤0/gate fail → tear; no F5 yet.
-3. F10 train→merge→n80; F11 pandora DL→train→n80.
-4. Free slots: next distinct family only; F8 RL-L1 closed.
+3. F10 train→merge→n80; F11 wait teacher+af10 done→prewarm→merge→n80.
+4. Free slot: rent **F12 golden-crown×high-Λ2** (reign earner unused as LoRA base).

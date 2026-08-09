@@ -18,9 +18,9 @@ export PYTHONPATH=/root/mining_src/affine_pkg:${PYTHONPATH:-}
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-6,7}
 
 BASE=${BASE:-/root/hf/hub/models--pandora-box--Affine-5eqdtdzqle-ckpt300-m4/snapshots/5218b1383952ff7a8d49b1d7b82acfe5e1bd448d}
-KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af11}
+KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
 KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
-KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af11/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
+KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 TRAIN_DIR=${TRAIN_DIR:-/root/h106/train}
 ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
 CKPT_ROOT=${CKPT_ROOT:-$TRAIN_DIR/checkpoints}

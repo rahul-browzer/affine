@@ -8,11 +8,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | n80 b203 ~35/80 |
-| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | n80 e203 ~28/80 |
-| mine-f9-1 | lunar-fox-0a | 8×H200 | $31.92 | 2026-08-09T09:12Z | H104 F9 kevin-base | n80 d203 ~4/80 |
-| mine-f10-1 | eager-wolf-42 | 8×H200 | $28.00 | 2026-08-09T11:54Z | H105 F10 TalentPigs | train ~2/60 |
-| mine-f11-1 | swift-eagle-51 | 8×H200 | $28.00 | 2026-08-09T12:02Z | H106 F11 pandora | bootstrap |
+| mine-f4-1 | calm-wolf-30 | 8×B300 | $63.60 | 2026-08-09T07:18Z | H100 F4 Genesis | n80 b203 ~50/80 |
+| mine-f7-1 | lunar-shark-87 | 8×H200 | $28.00 | 2026-08-09T08:52Z | H102 F7 teacher-zC | n80 e203 ~37/80 |
+| mine-f9-1 | lunar-fox-0a | 8×H200 | $31.92 | 2026-08-09T09:12Z | H104 F9 kevin-base | n80 d203 ~16/80 |
+| mine-f10-1 | eager-wolf-42 | 8×H200 | $28.00 | 2026-08-09T11:54Z | H105 F10 TalentPigs | train ~20/60 |
+| mine-f11-1 | swift-eagle-51 | 8×H200 | $28.00 | 2026-08-09T12:02Z | H106 F11 pandora | train+af10 kingDL |
 
 SSH: f4 204.9.206.243:40099 · f7 .232:40311 ·
 f9 38.255.28.18:20099 · f10 .234:40300 · f11 .237:40300 ·
@@ -33,6 +33,6 @@ kh `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T00:08Z | 5 live | F11 af11→af10 fix; no rm/rent; burn ~$179.5/h |
 | 2026-08-09T00:03Z | 5 live | rent mine-f11-1 (H106/F11); burn ~$179.5/h |
 | 2026-08-08T23:59Z | 4 live | F10 train confirmed (p413); no rm/rent |
-| 2026-08-08T23:57Z | 4 live | F9 c203 H32@62→d203 1/6; no rm/rent |

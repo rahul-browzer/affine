@@ -123,7 +123,7 @@ if ok < 2:
     sys.exit(1)
 PY
 
-REPO=Tok331102/affine-5EqYW8McUc-af11
+REPO=Tok331102/affine-5EqYW8McUc-af10
 REV=eb8bf9a356a254f71faaa439e8abc3cfba572c53
 LOG=/root/logs/vllm_king.log
 : >"$LOG"

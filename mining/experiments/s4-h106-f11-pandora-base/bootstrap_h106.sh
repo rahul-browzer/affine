@@ -132,7 +132,7 @@ print(f"[bootstrap-h106] DOWNLOAD teacher done -> {path}", flush=True)
 open("/root/logs/teacher.done", "w").write(path + "\n")
 print("[bootstrap-h106] DOWNLOAD tok331102 king start", flush=True)
 kpath = snapshot_download(
-    "Tok331102/affine-5EqYW8McUc-af11",
+    "Tok331102/affine-5EqYW8McUc-af10",
     revision="eb8bf9a356a254f71faaa439e8abc3cfba572c53",
     token=token,
 )

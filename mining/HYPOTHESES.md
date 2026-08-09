@@ -11,7 +11,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 2 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203 ~28/80) |
 | 3 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~4/80) |
 | 4 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (train ~2/60) |
-| 5 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 5 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (train; kingDL af10) |
 | — | H103/F8 | — | Genesis-init × REINFORCE-L1 → m>+0.015 | **refuted** m=−0.04829 |
 | — | H101/F6 | — | ultrashort≤80 format → m>+0.015 | **refuted** m=−0.00453 |
 | — | H98/F1 | — | Tok REINFORCE self-L1lift → m>+0.015 | **refuted** m=+0.00229 |
@@ -51,17 +51,17 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H106 / F11 — pandora-box past-crown × high-Λ2 — open
 - **Claim:** `pandora-box/Affine-5eqdtdzqle-ckpt300-m4` @5218b138 + 1059 high-Λ2 → m>+0.015.
   Reign-1 crown; unused as LoRA train base (H2 only α-merged it).
-- **Status:** rented p414; bootstrap pandora DL → train.
-- `experiments/s4-h106-f11-pandora-base/` · `results/pass414_rent.md`.
+- **Status:** train live; p415 fixed king `…-af10` (was 404 `…-af11`); teacher+king DL relaunched.
+- `experiments/s4-h106-f11-pandora-base/` · `results/pass415_af10_fix.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
 
-## Seed family queue (not yet rented)
-
+## Seed family queue
 | F | family | next |
 |---|---|---|
-| F5 | Correctness-grounded z | needs verified trajectories first |
+| F5 | Correctness-grounded z | needs verified traj |
+| F12 | golden-crown × high-Λ2 | next free-slot (reign earner) |
 
 ## Refuted (keep)
 
