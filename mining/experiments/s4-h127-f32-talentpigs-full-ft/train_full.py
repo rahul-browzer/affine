@@ -294,14 +294,15 @@ def main() -> None:
         max_shard_size=args.max_shard_size,
     )
     tok.save_pretrained(str(tmp_out))
-    if full_dir.exists():
-        import shutil
-
-        shutil.rmtree(full_dir)
+    # Never copytree onto gocryptfs /root — hangs (WCHAN=request_wait_answer; p472/p473).
     import shutil
 
-    shutil.copytree(tmp_out, full_dir)
-    print(f"[train] copied save → {full_dir}", flush=True)
+    if full_dir.is_symlink():
+        full_dir.unlink()
+    elif full_dir.exists():
+        shutil.rmtree(full_dir)
+    full_dir.symlink_to(tmp_out)
+    print(f"[train] symlinked save → {full_dir} -> {tmp_out}", flush=True)
 
     meta["elapsed_s"] = time.time() - t0
     meta["finished_utc"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())

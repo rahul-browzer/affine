@@ -8,7 +8,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (train) |
+| 1 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (serve→n80) |
 | 2 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (train) |
 | 3 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (train) |
 | 4 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (train) |
@@ -50,7 +50,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H121/F26 — Tok full-FT (no LoRA)
 - Dense FT Tok@eb8bf9a × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015.
-- mine-f26-1 gentle-fox-2c **train**. `s4-h121-f26-full-ft/`.
+- mine-f26-1 gentle-fox-2c **serve→n80** (p473: copytree hang salvaged; finalize 36s OK_NON_IDENTICAL). `s4-h121-f26-full-ft/`.
 
 ### H122/F27 — Genesis full-FT (no LoRA)
 - Dense FT genesis@abe89194 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.

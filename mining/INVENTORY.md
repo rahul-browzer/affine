@@ -8,10 +8,10 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f22-1 | calm-hawk-98 | 8×B300 | $63.60 | 2026-08-09T14:27Z | H117 F22 raw-everest12 | Tok Range ~70% |
-| mine-f26-1 | gentle-fox-2c | 8×H200 | $23.20 | 2026-08-09T16:12Z | H121 F26 full-FT | **train** |
+| mine-f22-1 | calm-hawk-98 | 8×B300 | $63.60 | 2026-08-09T14:27Z | H117 F22 raw-everest12 | Tok Range ~95% |
+| mine-f26-1 | gentle-fox-2c | 8×H200 | $23.20 | 2026-08-09T16:12Z | H121 F26 full-FT | **serve_three** |
 | mine-f27-1 | eager-orbit-15 | 8×H200 | $28.00 | 2026-08-09T16:16Z | H122 F27 gen-FT | **train** |
-| mine-f28-1 | eager-eagle-b1 | 8×H200 | $28.00 | 2026-08-09T16:20Z | H123 F28 trefs-FT | **serve_three** |
+| mine-f28-1 | eager-eagle-b1 | 8×H200 | $28.00 | 2026-08-09T16:20Z | H123 F28 trefs-FT | engines→n80 |
 | mine-f29-1 | gentle-shark-9c | 8×H200 | $28.00 | 2026-08-09T16:26Z | H124 F29 gold-FT | **train** |
 | mine-f30-1 | lunar-wolf-aa | 8×H200 | $28.00 | 2026-08-09T16:31Z | H125 F30 kevin-FT | **train** |
 | mine-f31-1 | golden-hawk-bb | 8×H200 | $31.92 | 2026-08-09T16:39Z | H126 F31 bittob-FT | **train** |
@@ -31,6 +31,6 @@ mine-f25-1 −0.06343; mine-f17-1 −0.05489; mine-f18-1 −0.03010; mine-f16-1 
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T05:30Z | 11 live | F26 kill hung copytree; symlink+/tmp finalize 36s; serve; patch train_full F27–F35 |
 | 2026-08-09T05:26Z | 11 live | F28 finalize→/tmp (36s OK); serve_three; no rent/rm |
 | 2026-08-09T05:20Z | 11 live | tear COUNT=4 H200; rent mine-f35-1 B200@$40 COUNT=8; F35 boot |
-| 2026-08-09T05:14Z | 10 live | F22 Tok Range-resume (HTTP206); no rent/rm |

@@ -62,7 +62,7 @@ Format: `- <finding> — <the number or error that proves it>`
 ## Training ops
 - Under `nohup`, scrape `trainer_state.json` (tqdm.write never hits the log). Always venv python; salvage mid-ckpts (best loss ≠ last).
 - LoRA r16/α32 ≈1h45m/110 steps on 2 GPUs. HF private uploads hard-fail — keep merges public. Never kill live HF DL for slower peer-rsync (p370: HF≪rsync).
-- Merge/finalize on gocryptfs `/root`: GPU *or* CPU hang (`WCHAN=request_wait_answer`; p472 F28 `finalize` copytree→`/root/h123/merged` stalled ~13m). Fix: stage on `/tmp` (`*_full_ft_save`→`*_merged`) + `ln -sfn` into `/root/hN/`; post_train defaults patched F26–F35. Contig-clone + `max_shard_size=5GB` (H109/H110); visual EFAULT if mmap'd from gocryptfs — clone before `save_file` (`finish_visual_pass429c/433`).
+- Merge/finalize **and** `train_full` copytree on gocryptfs `/root` hang (`WCHAN=request_wait_answer`; p472 F28 finalize; **p473 F26** `shutil.copytree(/tmp→/root/.../full_ft)` after /tmp save OK — kill+symlink+`train.done`). Fix: save `/tmp/*_full_ft_save`, **symlink** not copytree into `/root/hN/`; finalize `/tmp/*_merged` + `ln -sfn`. `train_full.py` patched F26–F35. Contig-clone + `max_shard_size=5GB`; visual EFAULT if mmap'd from gocryptfs.
 
 ## Shell / pod ops
 - Never `lium exec -e HF_TOKEN=...` (prints secret). `/root/mine.env` +
