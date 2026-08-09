@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $180,641.85 | 2026-08-09T05:07Z |
-| cumulative mining spend | ~$17,098 (9 pods ~$287.0/h accruing) | 2026-08-09T05:07Z |
-| **available for mining** | **~$170,642** (balance − $10,000 floor) | 2026-08-09T05:07Z |
+| Lium balance | $180,601.10 | 2026-08-09T05:11Z |
+| cumulative mining spend | ~$17,138 (10 pods ~$318.9/h accruing) | 2026-08-09T05:11Z |
+| **available for mining** | **~$170,601** (balance − $10,000 floor) | 2026-08-09T05:11Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (9 pods) | ~$287.0/h | 2026-08-09T05:07Z |
+| miner burn (10 pods) | ~$318.9/h | 2026-08-09T05:11Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-09T05:11Z | 180601.10 | rent mine-f34-1 H200@$31.92/h TTL12h COUNT=8; burn →~$318.9/h |
 | 2026-08-09T05:07Z | 180641.85 | tear mine-f23-1 (F23 REFUTE m=−0.08436; ~$164 accrued); rent mine-f33-1 H200@$24.40/h TTL12h COUNT=8; burn →~$287.0/h |
 | 2026-08-09T04:50Z | 180777.25 | tear mine-f25-1 (F25 REFUTE m=−0.06343; ~$36 accrued); rent mine-f32-1 H200@$31.92/h TTL12h COUNT=8; burn →~$326.2/h |
 | 2026-08-09T04:39Z | 180907.42 | tear mine-f17-1 (F17 REFUTE m=−0.05489; ~$83 accrued); rent mine-f31-1 H200@$31.92/h TTL12h COUNT=8; burn stays ~$318.7/h |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-09T04:17Z | 181069.29 | rent mine-f27-1 H200@$28.00/h TTL12h COUNT=8; burn →~$234.7/h |
 | 2026-08-09T04:12Z | 181104.16 | rent mine-f26-1 H200@$23.20/h TTL12h COUNT=8; burn →~$206.7/h |
 | 2026-08-09T04:08Z | 181137.02 | tear mine-f18-1 (F18 REFUTE m=−0.03010; ~$69 accrued); burn →~$183.5/h |
-| 2026-08-09T04:01Z | 181172.33 | tear mine-f16-1 (F16 REFUTE m=−0.07623; ~$58 accrued); burn →~$217.3/h |
