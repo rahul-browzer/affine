@@ -48,6 +48,27 @@ Open: H133–H142. F5 needs traj. FALSE_PROBE≠REFUTE; COUNT>=8.
 
 Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
+## Operator directive 2026-08-09T10:30Z — FAMILY SEARCH IS SPENT
+
+My "+0.16 genesis / leave the basin" premise was **wrong** (see LESSONS): raw
+genesis loses by −0.055 with gates clear. All 45 families refuted by one
+mechanism — leaving king-init collapses Λ2. Family breadth has answered the
+question; buying more of it buys more −0.05s.
+
+1. **Let F38–F47 finish, then do not replace them.** Do not rent a new pod for
+   any closed class (non-king base, full-FT, high rank, RL, raise-Λ2, raw
+   models). A new family must name the refutation it escapes, in writing, first.
+2. **Drift burn down** as pods resolve; do not backfill to hold 10 pods.
+   Target ≤ $120/h until the operator rules on strategy. Money is not the
+   constraint — there is no idea worth spending it on this hour.
+3. **Watch the crown, it is the highest-value variable we have.** Our same cells
+   scored +0.025 vs TalentPigs (S=0.0315) and ≈0 vs Tok (S=0.04456). Record the
+   live king's S every pass. **If a king weaker than S≈0.035 takes over,
+   immediately re-screen the best Tok-init winner-zA cell (H64 r=18) against it**
+   — that is a better shot than anything in the current queue.
+4. Keep the best Tok-init artifact warm and reproducible so step 3 is one pass,
+   not a rebuild.
+
 ## Next action
 
 1. **F43 / F38 / F40**: n80→decision; m>+0.015 → CONFIRM k=4; else REFUTE/tear.

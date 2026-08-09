@@ -338,11 +338,16 @@ down. Serial hypothesis testing is the failure mode to avoid.
   **> +0.03** (from −0.004 to past the ~0.025 bar). That is ~3.5 SE, so only
   structural change qualifies. If you cannot say *why* an idea could move the
   mean that far, it is a cell, not a family — do not give it a slot.
-- **Why this is worth doing:** the bar is not high in absolute terms. On the
-  honest panel genesis beats the king field by **+0.16**, six times the bar.
-  The field is bunched only because everyone submits the same kind of distill.
-  Leaving that basin is the whole game; out-sweeping other people inside it is
-  not.
+- **CORRECTION 2026-08-09: the "+0.16 genesis / leave the basin" premise above
+  was the operator's error and is now refuted.** It compared absolute S across
+  different panels, which is invalid. Measured: raw genesis loses to the king by
+  **−0.055** (F17, z=−6.05, all gates clear). 45 families have been screened and
+  **all 45 were refuted**, every one by the same mechanism — leaving king-init
+  collapses Λ2. Family breadth has been *spent*, and it answered the question.
+- Therefore **do not open new families whose mechanism is "different base model",
+  "full fine-tune", "higher rank", or "raise Λ2"** — those classes are closed by
+  measurement, not by opinion. A new family now needs a mechanism no refuted
+  class shares, and you must name which refutation it escapes before renting.
 - Independent means: different base model, different data, different training
   recipe, different merge — anything whose result does not depend on another
   running experiment's output. Those go on their own pods, immediately.

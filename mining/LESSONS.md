@@ -11,12 +11,9 @@ Format: `- <finding> — <the number or error that proves it>`
   H64 proved it — family mean +0.015, screen +0.0251, three replicates −0.009,
   −0.011, +0.0005. **An unreplicated result is a rumour.** Rank by mean of k=4,
   never by max of one. SCREEN → CONFIRM(k=4) → SWEEP; never skip the middle.
-- **The bar is low; the basin is the problem.** Genesis beats the king field by
-  **+0.16 = 6× the crowning bar** on the honest panel. The field is bunched only
-  because everyone ships the same distill. Leave the basin, don't out-sweep it.
-- Λ2 has more honest spread than clip-L1 (0.0072 vs 0.0045) and is a **base-model
-  property** — a low-rank adapter on the king structurally cannot move it. That
-  is the mechanical reason 95 LoRA-on-king runs all landed at ~0.
+- **"Leave the basin" REFUTED — the operator's +0.16-genesis premise was wrong and cost 45 families.** It compared absolute S across panels, which this file forbids. Measured: **raw genesis loses by −0.05489** (F17 z=−6.05, gates clear: r=0.977 base_x=1.009 λ2_c=−0.0189 vs king +0.00506). Never act on a cross-panel S comparison.
+- **King-init is a strong local optimum and Λ2 is why.** 45 families, 45 refutations, one mechanism: leaving king-init collapses Λ2 (λ2_c −0.017…−0.029 vs king +0.005) → margins −0.03…−0.093. Λ2 = how much *your* z helps *the teacher*; the incumbent is king because it maxes that, so anything unlike it scores worse. **Λ2 is a penalty for being unlike the king, not a lever you can raise** — F2/F3 left it frozen, everything that moved it moved it down. Stop proposing "raise Λ2" families.
+- **The bar is set by the king's strength, not our recipe.** Same winner-zA cells: **+0.025/+0.018/+0.016 vs TalentPigs (S=0.0315)** but **≈0…−0.020 vs Tok (S=0.04456)**. We did not get worse; the king got stronger. **A weaker king is worth more than any recipe we have.** When the crown changes hands, re-screen the best Tok-init cell first.
 ## Scoring / what actually moves S
 - All `lp*` are echo+logprob **forced** scores normalized per byte (`lp_per_byte`).
 - `S` is only comparable **within one duel** (slice = reveal-block seed). Never
@@ -47,11 +44,12 @@ Format: `- <finding> — <the number or error that proves it>`
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 ## Recipes already tried (do not repeat)
 - SFT/LoRA near-zero + α-merges dead (H1–H26): archive. No plain distill-on-refs; stop α/leary/plmk/m7-as-B/kkk.
-- **F1+F8 REINFORCE-L1 + F37 teacher-Λ2 LoRA REFUTED:** Tok-self-L1 H98 m=+0.00229; Genesis-L1 H103 m=**−0.0483**; **F37 Tok×teacher-Λ2 H132 m=−0.00047** λ2_c≈king (−0.0049 vs −0.0055). LoRA RL cannot move Λ2 regardless of reward.
-- **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
-- **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
-- **F9–F16 earner×high-Λ2 REFUTED (class closed):** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob−0.058; everest−0.083; diane−0.073; **af-k1 F16 m=−0.07623** z=−7.28 λ2_c=−0.019 (p459). Every earner×Λ2 LoRA ≤0. Do not rent more of this class.
-- **Raw past-king/genesis CLOSED:** F19−0.006…F23−0.084 + **F22 everest m=−0.06273** z=−7.07 (p499). **Full-FT×Λ2 CLOSED:** Tok/Genesis/Bittob/refs/kevin/pandora/everest/golden/diane/TalentPigs F32−0.026 + **af-k1 F36 m=−0.06667** z=−7.97 λ2_c=−0.017 (p504) all ≤0 — do not rent this class.
+- **All 45 family screens REFUTED — closed classes, do not re-rent any:**
+  RL/REINFORCE on L1 or Λ2 (F1 +0.0023, F8 −0.048, F37 −0.0005); format (F6
+  −0.0045); Genesis-init (F4 −0.055, F7 −0.052); earner×high-Λ2 LoRA (F9–F16,
+  −0.014…−0.076); raw published models (F17–F25, −0.006…−0.087); full-FT×Λ2
+  (F26–F36, −0.026…−0.093). Every one that moved Λ2 moved it **down**
+  (λ2_c −0.017…−0.029 vs king +0.005). LoRA RL cannot move Λ2 at any reward.
 - **shm_broadcast / bare-king:** seed king n_so≥16 util=0.72 (p448). Bare king EngineDead with incomplete n_so → **seed-from-chall king478**, not cold p332 (F32 p486: bare n_so=15 failed; chall n_so=22 → PROMPTABLE+n80).
 
 ## Serving / VLM
