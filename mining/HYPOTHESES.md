@@ -8,7 +8,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 d203 ~42/80) |
-| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (FP loop; hash rotate) |
+| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (n80 e203 p431) |
 | 3 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (n80 d203 ~33/80) |
 | 4 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~12/80) |
 | 5 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (recover264 p430) |
@@ -35,7 +35,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H106 / F11 — pandora-box × high-Λ2 — open
 - **Claim:** pandora @5218b138 + 1059 high-Λ2 → m>+0.015.
-- **Status:** short probe OK; inject 400 (30977+1792) on d203 — rotating e/f/g/b203.
+- **Status:** p431 nested-verdict FP detect fixed; **n80 e203** live (d203 inject-400).
   `experiments/s4-h106-f11-pandora-base/`.
 
 ### H107 / F12 — golden-crown × high-Λ2 — open

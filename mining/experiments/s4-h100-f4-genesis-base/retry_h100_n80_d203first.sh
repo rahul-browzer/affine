@@ -128,14 +128,19 @@ BLOCK_HASHES=(
 )
 
 _is_false_probe_sim() {
+  # p431: run_sim_duel nests rejection_reason under verdict — top-level-only
+  # check mistook FALSE_PROBE for success → N80_DONE → watcher restarts d203 forever.
   local f=$1
   [[ -f "$f" ]] || return 1
   python3 -c '
 import json,sys
 d=json.load(open(sys.argv[1]))
-rr=str(d.get("rejection_reason") or "")
-sys.exit(0 if (d.get("false_probe") or "unpromptable" in rr or "ConnectError" in rr
-               or d.get("margin") is None and rr) else 1)
+v=d.get("verdict") if isinstance(d.get("verdict"), dict) else {}
+rr=str(d.get("rejection_reason") or v.get("rejection_reason") or "")
+fp=bool(d.get("false_probe") or v.get("false_probe"))
+sys.exit(0 if (fp or "unpromptable" in rr or "ConnectError" in rr
+               or (d.get("margin") is None and rr)
+               or (v and rr and v.get("challenger_wins") is False)) else 1)
 ' "$f" 2>/dev/null
 }
 

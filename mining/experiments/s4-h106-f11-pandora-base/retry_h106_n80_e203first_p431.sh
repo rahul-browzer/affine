@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# Restart H102 n80 after crash. Engines must already be up.
+# Restart H106 n80 after crash. Engines must already be up.
+# p409: preemptively drop a203+c203 (H32 overflow on F7 p408 c203@~7/80;
+# p431: e203-first — d203 inject-400 loop on this chall; nested-verdict FP detect.
 # 3× retry (LESSON: dual-side n80 can stall teacher sample even at 480s×5).
 set -euo pipefail
 
@@ -21,14 +23,14 @@ export HF_HOME=${HF_HOME:-/root/hf}
 
 KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
 KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
-MERGED=${MERGED:-/root/h102/merged}
-SIM=/root/affine_data/h102_sim_result.json
-PROG=/root/affine_data/h102_sim_progress.json
-DEC=/root/affine_data/h102_decision.json
-LOG=/root/logs/h102_n80_retry.nohup
+MERGED=${MERGED:-/root/h106/merged}
+SIM=/root/affine_data/h106_sim_result.json
+PROG=/root/affine_data/h106_sim_progress.json
+DEC=/root/affine_data/h106_decision.json
+LOG=/root/logs/h106_n80_retry.nohup
 MAX_ATTEMPTS=${MAX_ATTEMPTS:-6}
 
-log() { echo "[h102-n80-retry] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
+log() { echo "[h106-n80-e203-p431] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
 _promptable() {
   # health=200 ≠ alive (H30/H100 Triton __triton_launcher.so → ConnectError false REFUTE)
@@ -55,7 +57,7 @@ _engines_ok() {
 # MoE chall load is 10–20m; abort-immediately → watcher spam every 30s (pass205).
 # Wait for health+completions before starting n80 (LESSON: ≥120×15s MoE wait).
 _wait_engines() {
-  local max=${1:-120} i=0
+  local max=${1:-360} i=0
   while (( i < max )); do
     if _engines_ok; then
       # Double-probe: first completions can EngineDead on missing
@@ -64,7 +66,7 @@ _wait_engines() {
       sleep 20
       if _engines_ok; then
         log "engines double-promptable after ${i} polls"
-        rm -f /root/logs/h102_n80_retry.aborted
+        rm -f /root/logs/h106_n80_retry.aborted
         return 0
       fi
       log "WARN re-probe failed after settle — keep waiting"
@@ -82,9 +84,9 @@ if [[ -f "$DEC" ]]; then
   if python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); sys.exit(0 if d.get("false_probe") else 1)' "$DEC" 2>/dev/null; then
     ts=$(date -u +%Y%m%dT%H%M%SZ)
     mkdir -p /root/affine_data/false_probes
-    mv "$DEC" "/root/affine_data/false_probes/h102_decision_retryQ_${ts}.json"
-    [[ -f "$SIM" ]] && mv "$SIM" "/root/affine_data/false_probes/h102_sim_retryQ_${ts}.json"
-    rm -f /root/logs/h102_n80.done
+    mv "$DEC" "/root/affine_data/false_probes/h106_decision_retryQ_${ts}.json"
+    [[ -f "$SIM" ]] && mv "$SIM" "/root/affine_data/false_probes/h106_sim_retryQ_${ts}.json"
+    rm -f /root/logs/h106_n80.done
     log "false_probe decision quarantined — continue to n80"
   else
     log "decision already present — noop"
@@ -95,29 +97,29 @@ if [[ -f "$SIM" ]]; then
   if python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); sys.exit(0 if (d.get("false_probe") or "unpromptable" in str(d.get("rejection_reason","")) or "ConnectError" in str(d.get("rejection_reason",""))) else 1)' "$SIM" 2>/dev/null; then
     ts=$(date -u +%Y%m%dT%H%M%SZ)
     mkdir -p /root/affine_data/false_probes
-    mv "$SIM" "/root/affine_data/false_probes/h102_sim_retryQ_${ts}.json"
+    mv "$SIM" "/root/affine_data/false_probes/h106_sim_retryQ_${ts}.json"
     log "false_probe sim quarantined — continue to n80"
   else
     log "sim result present — writing decision only"
     python3 /root/mining_src/s4-h2-merge/write_merge_decision.py \
-      --hyp h102 --sim-result "$SIM" --out "$DEC"
-    date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h102_n80.done
+      --hyp h106 --sim-result "$SIM" --out "$DEC"
+    date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h106_n80.done
     exit 0
   fi
 fi
 # Require python in argv — bare pgrep/awk patterns false-match (pass205).
-if ps -eo pid,cmd | awk '/python/ && /[r]un_sim_duel.py/ && /local-h102/ { found=1 } END { exit !found }'; then
+if ps -eo pid,cmd | awk '/python/ && /[r]un_sim_duel.py/ && /local-h106/ { found=1 } END { exit !found }'; then
   log "sim already running — noop"
   exit 0
 fi
-if ! _wait_engines 120; then
+if ! _wait_engines "${WAIT_ENGINE_POLLS:-360}"; then
   log "ABORT: engines not promptable after wait"
   echo "aborted_engines_unhealthy $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-    >/root/logs/h102_n80_retry.aborted
+    >/root/logs/h106_n80_retry.aborted
   exit 1
 fi
 test -d "$MERGED"
-test -f /root/logs/h102_merge.done
+test -f /root/logs/h106_merge.done
 
 # Fresh block_hash per outer retry (H32/H34): default 0*64 slice hits a turn
 # with prompt+max_tokens > 32768 → teacher 400 → whole n80 dies.
@@ -125,11 +127,11 @@ test -f /root/logs/h102_merge.done
 # Drop both. d203-first with fresh e/f/g + b203 fallback (b203 failed on
 # chall FALSE_PROBE, not teacher overflow).
 BLOCK_HASHES=(
-  "d203000000000000000000000000000000000000000000000000000000000004"
   "e203000000000000000000000000000000000000000000000000000000000005"
   "f203000000000000000000000000000000000000000000000000000000000006"
   "g203000000000000000000000000000000000000000000000000000000000007"
   "b203000000000000000000000000000000000000000000000000000000000002"
+  "d203000000000000000000000000000000000000000000000000000000000004"
 )
 
 _is_false_probe_sim() {
@@ -160,12 +162,12 @@ for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
     --chall-repo "$MERGED" \
     --chall-rev local \
     --n-turns 80 \
-    --hotkey local-h102 \
+    --hotkey local-h106 \
     --block-hash "$bh" \
     --out "$SIM" \
     --progress-out "$PROG" \
     --save-artifact \
-    2>&1 | tee /root/logs/h102_n80.log
+    2>&1 | tee /root/logs/h106_n80.log
   rc=${PIPESTATUS[0]}
   set -e
   if [[ $rc -eq 0 && -f "$SIM" ]]; then
@@ -174,30 +176,30 @@ for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
     if _is_false_probe_sim "$SIM"; then
       ts=$(date -u +%Y%m%dT%H%M%SZ)
       mkdir -p /root/affine_data/false_probes
-      mv "$SIM" "/root/affine_data/false_probes/h102_sim_retryQ_${ts}.json"
+      mv "$SIM" "/root/affine_data/false_probes/h106_sim_retryQ_${ts}.json"
       [[ -f "${SIM%.json}_artifact.json" ]] && \
         mv "${SIM%.json}_artifact.json" \
-          "/root/affine_data/false_probes/h102_artifact_retryQ_${ts}.json" || true
+          "/root/affine_data/false_probes/h106_artifact_retryQ_${ts}.json" || true
       log "WARN attempt $attempt FALSE_PROBE — continue to next block_hash"
       rc=42
     else
       python3 /root/mining_src/s4-h2-merge/write_merge_decision.py \
-        --hyp h102 --sim-result "$SIM" --out "$DEC"
-      date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h102_n80.done
+        --hyp h106 --sim-result "$SIM" --out "$DEC"
+      date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h106_n80.done
       log "N80_DONE"
       exit 0
     fi
   fi
   log "WARN attempt $attempt failed rc=$rc; wait engines then retry"
-  if ! _wait_engines 40; then
+  if ! _wait_engines "${WAIT_ENGINE_POLLS_MID:-120}"; then
     log "ABORT: engines unhealthy mid-retry"
     echo "aborted_engines_unhealthy $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-      >/root/logs/h102_n80_retry.aborted
+      >/root/logs/h106_n80_retry.aborted
     exit 1
   fi
 done
 
 log "ERROR: all $MAX_ATTEMPTS attempts failed"
 echo "aborted_n80_retry_failed $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-  >/root/logs/h102_n80_retry.aborted
+  >/root/logs/h106_n80_retry.aborted
 exit 1

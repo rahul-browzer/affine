@@ -125,12 +125,13 @@ Format: `- <finding> — <the number or error that proves it>`
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
   → n80 → `__triton_launcher.so` → ConnectError false REFUTE in ~6m; quarantine
   + GPU-index chall relaunch + completions probe before retry.
-- Teacher sample `400` when prompt_tokens+max_tokens(1792) > 32768 (H32:
-  30977+1792) kills whole n80; rotate `--block-hash` across retry attempts.
+- Inject/teacher `400` (H32 30977+1792) → rotate `--block-hash`. **p431:** `run_sim_duel`
+  nests `rejection_reason` under `verdict` — top-level `_is_false_probe_sim` wrote
+  `N80_DONE` on FP → watcher restarted d203 forever (F11). Read nested verdict.
 - `start_*.sh` JSON `note` must be a closed string; unterminated → SyntaxError
   after train nohup → bootstrap `set -e` skips extra_dl/post_train (H36 pass198).
 - Engine recover: wipe `role`+`role_*` Triton caches before new `TCACHE`, ≥20s settle (H35–H41; H40 cuda_utils ImportError → reap by GPU). Concurrent prewarm races — recover dead role.
-- Default `block_hash=0*64` n80 dies teacher **400** @~40/80 (H32: 30977+1792). **a203≠universally bad** (F8 a203@50/80 OK) but **c203** dies early (F7@~7) *or late* (F9 p412@**62/80**) — drop a203+c203; `retry_*_d203first` MAX=6. **Arming d203first does not replace a live longwait** — F4 p417 stale `retry_*_longwait` kept launching c203 (attempt3) while watcher idled; kill longwait+sim by PID first. Mid-n80: scp under **new name** + re-point watcher; never edit live retry. FALSE_PROBE must not N80_DONE. Soft-deadline ≥TTL−1h; watcher must not `exec` retry.
+- Default `0*64` / **c203** overflow (early or late); drop a203+c203; `retry_*_d203first` MAX=6. Arming d203first ≠ live longwait (F4 p417). Mid-n80: scp **new name** + re-point; never edit live retry. FALSE_PROBE≠N80_DONE. Soft-deadline ≥TTL−1h.
 - Arm watch_preempt_bare_tcache before post_train chall serve; recover after chall_serve.done or :8002=200 (H61/H62 bare-cache race).
 - p264 preempt validated H64: bare cache/chall → recover264 seed+warm+freeze; rearms form+n80 (pass265). Mid-n80 bare → fire recover264 immediately (H61@21/80).
 - recover264 salvage after writable-w1 ghost ENOENT: n_so grew → prefreeze same TCACHE + relaunch (H66 16→22; p274).
@@ -143,8 +144,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - Bare chall :8002=200 can still die mid-load Triton ghost — preempt264→recover264 (H71). Stale n80 wait burns 120×15s — recover kills+rearms; else kill retry near poll≳100.
 - recover264 DONE rearms form+n80 only (not preempt/mid304) and points at bare `retry_*_n80.sh` (**a203**) — after DONE always re-point watcher to `retry_*_d203first` (F10 p425). Kill premature n80 that starts on health=200 before freeze. Match `$0` via `/proc/*/cmdline` (H82/H93). Seed chall from **`*_king_tcache_pass332.path` first**, then live :8001 environ, then `isolated/*king*` — never bare `cache/king` alone. F4 p395: pathfile+19 .so present yet relaunch logged `no king TCACHE`; mid-load rsync 0→19 .so unblocked. clone: `test -x` rearm (H94).
 - **huggingface_hub≥1.27 never resumes** `.incomplete`: unique `{etag}.{uuid}.incomplete` opened `"wb"`, deleted on fail (PR#4228). Orphan large incompletes need HTTP `Range` resume (H100/F4 p383). **post_train/n80 120×15s races Range/king+chall load** — kill waiter + arm tok.done→king→chall; n80 needs `retry_*_longwait` ≥360×15s (F4 p388/p391; F8 p398 poll108/120 with `:8001/:8002=000`).
-- **king_recover_pass332 must serve live Tok on :8001**, not Genesis — F8 p397 script still had Genesis REPO; patched before launch (would have scored vs wrong king).
-- **Post-freeze chall death + missing turns.jsonl:** F4 p397 n80 `FileNotFoundError` turns.jsonl; recover264 after triple-promptable hit `il: command not found` then reaped healthy chall — prefer frozen-TCACHE relaunch (no wipe) + `sync_corpus` before n80.
+- **king_recover_pass332** must serve live Tok on :8001 (F8 p397 had Genesis). Post-freeze chall death + missing turns.jsonl (F4 p397): frozen-TCACHE relaunch + `sync_corpus` before n80; avoid recover264 wipe that reaps healthy chall.
 - **B300 cu13 = CUDA_HOME + CCCL + libcudart.so symlink:** p397 no CUDA_HOME→nvcc fail; p401/403 CCCL `nvcc13.3`≠`CTK13000` → define `CCCL_DISABLE_CTK_COMPATIBILITY_CHECK` in flashinfer `cuda_toolkit.h` + wipe `cached_ops/sampling`; p404 `ld: cannot find -lcudart` → `ln -sfn libcudart.so.13 $CUDA_HOME/lib/libcudart.so` + linktest; **p405 validated** (chall promptable, d1–d4 200, freeze555, n80 a203).
 - Kill stale relaunchers by **full cmdline** (`tr '\0' ' ' </proc/$pid/cmdline`), not `head -1` (arg0 is just `bash`). Stale p401/p403 can coexist with p404 and reap a healthy chall.
 - **King repo typo af11≠af10:** F11 p414 cloned `Tok331102/…-af11` (404); live king is `…-af10`. Grep new family scripts for king repo before arming. Kill-loops matching `af11` in cmdline will suicide a helper named `*af11*` (p415).

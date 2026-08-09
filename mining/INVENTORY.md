@@ -8,12 +8,12 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f10-1 | eager-wolf-42 | 8×H200 | $28.00 | 2026-08-09T11:54Z | H105 F10 TalentPigs | **n80 d203 ~42/80** |
-| mine-f11-1 | swift-eagle-51 | 8×H200 | $28.00 | 2026-08-09T12:02Z | H106 F11 pandora | FP loop; hash rotate |
-| mine-f12-1 | lunar-wolf-a5 | 8×H200 | $28.00 | 2026-08-09T12:10Z | H107 F12 golden | **n80 d203 ~33/80** |
-| mine-f13-1 | zesty-hawk-1f | 8×H200 | $31.92 | 2026-08-09T12:17Z | H108 F13 diane613 | **n80 d203 ~12/80** |
-| mine-f14-1 | eager-comet-be | 8×H200 | $28.00 | 2026-08-09T12:34Z | H109 F14 Bittob | recover264 + p430 d203 |
-| mine-f15-1 | calm-wolf-f7 | 8×H200 | $31.92 | 2026-08-09T12:37Z | H110 F15 everest12 | train (GPU7) |
+| mine-f10-1 | eager-wolf-42 | 8×H200 | $28.00 | 2026-08-09T11:54Z | H105 F10 TalentPigs | **n80 d203 ~47/80** |
+| mine-f11-1 | swift-eagle-51 | 8×H200 | $28.00 | 2026-08-09T12:02Z | H106 F11 pandora | **n80 e203** p431 |
+| mine-f12-1 | lunar-wolf-a5 | 8×H200 | $28.00 | 2026-08-09T12:10Z | H107 F12 golden | **n80 d203 ~39/80** |
+| mine-f13-1 | zesty-hawk-1f | 8×H200 | $31.92 | 2026-08-09T12:17Z | H108 F13 diane613 | **n80 d203 ~16/80** |
+| mine-f14-1 | eager-comet-be | 8×H200 | $28.00 | 2026-08-09T12:34Z | H109 F14 Bittob | recover264 a1 ENOENT |
+| mine-f15-1 | calm-wolf-f7 | 8×H200 | $31.92 | 2026-08-09T12:37Z | H110 F15 everest12 | train ~ckpt50 |
 
 SSH: f13/f15:20099 f10–12:40300 f14:40309 · kh `/tmp/mine-*-1.known_hosts`.
 **Free: 14**. Burn ~$175.8/h. Non-mine — **never rm**.
@@ -32,6 +32,6 @@ SSH: f13/f15:20099 f10–12:40300 f14:40309 · kh `/tmp/mine-*-1.known_hosts`.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T01:28Z | 6 live | F11 e203 nested-FP fix; F13 watcher→d203; burn ~$175.8/h |
 | 2026-08-09T01:23Z | 6 live | F14 recover264+d203 sidecar; burn ~$175.8/h |
 | 2026-08-09T01:19Z | 6 live | F14 contig+/tmp merge DONE+chall; burn ~$175.8/h |
-| 2026-08-09T01:07Z | 6 live | F14 GPU→CPU merge recover; F11 FP quarantine+n80; burn ~$175.8/h |
