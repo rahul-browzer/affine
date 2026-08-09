@@ -10,11 +10,11 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 |---|---|---|---|---|
 | 1 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (bootstrap) |
 | 2 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN train) |
-| 3 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (teacher) |
+| 3 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (recover→retrain) |
 | 4 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL after z-fix) |
 | 5 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL train) |
 | 6 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
-| 7 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (n80 @1/80) |
+| 7 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (n80 @28/80) |
 | — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
 | — | H129/F34 | — | diane full-FT → m>+0.015 | **refuted** m=−0.06281 |
@@ -64,7 +64,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
 - TalentPigs-init LoRA; reward = teacher Λ2 → m>+0.015.
-- mine-f41-1 teacher serve; soft=19:19Z. `s4-h136-f41-talentpigs-rl-l2/`.
+- p510: teacher bare-TCACHE ENOENT on 1st score → 140× mean_r=0; recover332+retrain.
+- mine-f41-1. `results/pass510_teacher_recover.md`.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
 - kevin954-init LoRA; reward = teacher Λ2 → m>+0.015.
@@ -81,7 +82,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H132/F37 — Tok REINFORCE on teacher Λ2
 - Tok-init LoRA; teacher-Λ2 reward → m>+0.015. Train done (189 steps, last20 −0.007).
-- mine-f37-1 **n80 @1/80** (bh=a203). `s4-h132-f37-tok-rl-l2/`.
+- mine-f37-1 **n80 @28/80** (bh=a203). `s4-h132-f37-tok-rl-l2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
