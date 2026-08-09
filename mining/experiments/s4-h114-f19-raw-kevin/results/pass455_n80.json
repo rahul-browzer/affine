@@ -1,0 +1,54 @@
+{
+  "pass": 455,
+  "utc": "2026-08-09T03:15:32Z",
+  "family": "F19",
+  "hyp": "H114",
+  "chall": "kevin954/Affine-5dfqbbh8ev-sft@3fb79cfb (raw, no LoRA)",
+  "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a",
+  "decision": {
+    "utc": "2026-08-09T03:15:32Z",
+    "margin": -0.00610831881915345,
+    "z": -0.6155214984189438,
+    "r_c": 0.7790314826516667,
+    "valid_c": true,
+    "S_c": 0.015123665361483674,
+    "S_k": 0.022285009693893416,
+    "se": 0.009923810678982866,
+    "base_x": 1.1481507955812276,
+    "decision": "REFUTE_H114",
+    "parser": "write_merge_decision.py#nested_verdict",
+    "signal_only": false,
+    "submit": false
+  },
+  "verdict_summary": {
+    "margin": -0.00610831881915345,
+    "se": 0.009923810678982866,
+    "z": -0.6155214984189438
+  },
+  "sim_top": {
+    "hotkey": "local-h114",
+    "block_hash": "d203000000000000000000000000000000000000000000000000000000000004"
+  },
+  "verdict_full_keys": [
+    "challenger",
+    "challenger_wins",
+    "gates",
+    "k_sigma",
+    "king",
+    "margin",
+    "n_paired_turns",
+    "ranking_formula",
+    "se",
+    "slice",
+    "z"
+  ],
+  "verdict_scalars": {
+    "challenger_wins": false,
+    "margin": -0.00610831881915345,
+    "se": 0.009923810678982866,
+    "z": -0.6155214984189438,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift"
+  }
+}
