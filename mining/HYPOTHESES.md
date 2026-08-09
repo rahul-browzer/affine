@@ -8,12 +8,12 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (king478 after mid-n80 ENOENT@16/80) |
-| 2 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (n80 e203 live) |
-| 3 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (k+c=200; teacher479 load) |
-| 4 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (t+c recover480) |
-| 5 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (c recover480) |
-| 6 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (t+c recover480) |
+| 1 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (n80 3/80) |
+| 2 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (n80 6/80) |
+| 3 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (n80 e203 live) |
+| 4 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (c=200; t load) |
+| 5 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (promptable→n80) |
+| 6 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (tok-fix p481 + recover481) |
 | 7 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (ckpt-60 save) |
 | 8 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (train p474) |
 | 9 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (train p474) |
@@ -50,27 +50,27 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H122/F27 — Genesis full-FT (no LoRA)
 - Dense FT genesis@abe89194 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f27-1 mid-n80 bare-king ENOENT@16/80 → **king478** seed chall n_so=23. `s4-h122-f27-genesis-full-ft/`.
+- mine-f27-1 n80 e203 **3/80** @06:06Z. `s4-h122-f27-genesis-full-ft/`.
 
 ### H123/F28 — Tok full-FT × teacher_refs z_C
 - Dense FT Tok × 791 teacher_refs_shortz lr=1e-6 → m>+0.015 vs Tok.
-- mine-f28-1 t+k+c=200; **n80 e203** live @06:00Z. `s4-h123-f28-teacher-refs-ft/`.
+- mine-f28-1 n80 e203 **6/80** @06:06Z. `s4-h123-f28-teacher-refs-ft/`.
 
 ### H121/F26 — Tok full-FT (no LoRA)
 - Dense FT Tok@eb8bf9a × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015.
-- mine-f26-1 k+c=200; teacher bare ENOENT→**teacher479** unique TCACHE (p479). `s4-h121-f26-full-ft/`.
+- mine-f26-1 teacher479→promptable; **n80 e203** attempt2 @06:06Z. `s4-h121-f26-full-ft/`.
 
 ### H124/F29 — golden-crown full-FT × high-Λ2 z_A
 - Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f29-1 bare-chall ENOENT + hung teacher → **t+c recover480** (preempt EXP bug). `s4-h124-f29-golden-full-ft/`.
+- mine-f29-1 c=200; teacher still loading; processor backfill p481. `s4-h124-f29-golden-full-ft/`.
 
 ### H125/F30 — kevin954 full-FT × high-Λ2 z_A
 - Dense FT kevin@3fb79cfb × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f30-1 t+k=200; **c recover480** after bare Triton ENOENT. `s4-h125-f30-kevin-full-ft/`.
+- mine-f30-1 t+k+c promptable @06:07Z → n80 settle. `s4-h125-f30-kevin-full-ft/`.
 
 ### H126/F31 — Bittob11040 full-FT × high-Λ2 z_A
 - Dense FT Bittob@0c04fe92 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f31-1 k=200; **t+c recover480**. `s4-h126-f31-bittob-full-ft/`.
+- mine-f31-1 finalize omitted tokenizer → Qwen3VLProcessor death; **p481** copied from base + recover481. `s4-h126-f31-bittob-full-ft/`.
 
 ### H127/F32 — TalentPigs full-FT × high-Λ2 z_A
 - Dense FT TalentPigs@dbfbb3e2 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
