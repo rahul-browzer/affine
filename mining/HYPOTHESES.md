@@ -7,10 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 teacher-samp) |
-| 2 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (train live) |
-| 3 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 b203 ~29/80) |
-| 4 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203 ~20/80) |
+| 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 b203 ~35/80) |
+| 2 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203 ~28/80) |
+| 3 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~4/80) |
+| 4 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (train ~2/60) |
+| 5 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (bootstrap) |
 | — | H103/F8 | — | Genesis-init × REINFORCE-L1 → m>+0.015 | **refuted** m=−0.04829 |
 | — | H101/F6 | — | ultrashort≤80 format → m>+0.015 | **refuted** m=−0.00453 |
 | — | H98/F1 | — | Tok REINFORCE self-L1lift → m>+0.015 | **refuted** m=+0.00229 |
@@ -24,28 +25,34 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ## Open
 
-### H104 / F9 — kevin954 past-crown × high-Λ2 — open
-- **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
-  Orthogonal to Genesis (F4/F7) and Tok (F1/F6); past crown outside both basins.
-- **Status:** c203 H32@62/80 (p412); **d203** 1/6 teacher-sampling (no progress yet).
-- `experiments/s4-h104-f9-kevin-base/` · `results/pass412_c203_h32_d203.md`.
-
-### H105 / F10 — TalentPigs past-crown × high-Λ2 — open
-- **Claim:** `TalentPigs/affine-5ekxlcg3fx-abc` @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
-  Reign-3 crown; orthogonal to Genesis/kevin/Tok basins.
-- **Status:** DL done; train pid=2729 on GPUs6,7 (loading); d203first armed.
-- `experiments/s4-h105-f10-talentpigs-base/` · `results/pass413_train_launched.md`.
-
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** n80 **b203** ~33/80; watcher armed **d203first** (p410).
+- **Status:** n80 **b203** ~35/80; watcher armed **d203first** (p410).
 - `experiments/s4-h100-f4-genesis-base/` · `results/pass410_d203first.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** n80 **e203** ~26/80 (d203first hash rotate).
+- **Status:** n80 **e203** ~28/80 (d203first hash rotate).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass408_d203first.md`.
+
+### H104 / F9 — kevin954 past-crown × high-Λ2 — open
+- **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
+  Orthogonal to Genesis (F4/F7) and Tok (F1/F6); past crown outside both basins.
+- **Status:** c203 H32@62/80 (p412); **d203** ~4/80 engines 200.
+- `experiments/s4-h104-f9-kevin-base/` · `results/pass412_c203_h32_d203.md`.
+
+### H105 / F10 — TalentPigs past-crown × high-Λ2 — open
+- **Claim:** `TalentPigs/affine-5ekxlcg3fx-abc` @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
+  Reign-3 crown; orthogonal to Genesis/kevin/Tok basins.
+- **Status:** train ~2/60 on GPUs6,7; d203first armed.
+- `experiments/s4-h105-f10-talentpigs-base/` · `results/pass413_train_launched.md`.
+
+### H106 / F11 — pandora-box past-crown × high-Λ2 — open
+- **Claim:** `pandora-box/Affine-5eqdtdzqle-ckpt300-m4` @5218b138 + 1059 high-Λ2 → m>+0.015.
+  Reign-1 crown; unused as LoRA train base (H2 only α-merged it).
+- **Status:** rented p414; bootstrap pandora DL → train.
+- `experiments/s4-h106-f11-pandora-base/` · `results/pass414_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -109,5 +116,5 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
   m7×union / lr micro / ep≥2 / **winner-zA as a family (mean −0.004)** /
   **F2 high-Λ2-zA data remix** / **F3 r=256 LoRA ceiling** / r≤8∨=9–15∨=16–24∨≥32 /
   α≤8∨=16∨≥64 / clip≥0.08 / king-self.
-  **F4 Genesis-SFT, F7 teacher-z_C, F9 kevin-base, F10 TalentPigs are family screens.**
+  **F4 Genesis-SFT, F7 teacher-z_C, F9 kevin, F10 TalentPigs, F11 pandora are screens.**
   **F1 Tok-RL / F6 format / F8 Genesis-RL closed.**
