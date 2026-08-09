@@ -15,8 +15,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 5 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL retrain) |
 | 6 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
 | 7 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL ~135/200) |
-| 8 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (n80 live) |
-| 9 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (n80 ~69/80) |
+| 8 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (chall recover264) |
+| — | H132/F37 | — | Tok RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.00047 |
 | — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
 | — | H129/F34 | — | diane full-FT → m>+0.015 | **refuted** m=−0.06281 |
@@ -56,14 +56,14 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H140/F45 — Tok last-N full-rank REINFORCE on teacher Λ2
 - Unfreeze last 8 layers + lm_head; SGD lr=1e-6; same Λ2 reward as F37.
-- p514: rented mine-f45-1; bootstrap/pip. `s4-h140-f45-tok-lastn-rl-l2/`.
+- tok-init DL. mine-f45-1. `s4-h140-f45-tok-lastn-rl-l2/`.
 
 ### H139/F44 — Tok online DPO on teacher Λ2
 - Tok-init LoRA; G=2; teacher-Λ2 labels; DPO β=0.1 → m>+0.015.
-- tok-init done; teacher DL. mine-f44-1.
+- teacher+king serving → train. mine-f44-1.
 
 ### H138/F43 — Tok offline DPO on duel Λ2 prefs
-- DPO done; merge LoRA live → n80. mine-f43-1.
+- Merge done; chall loading → n80. mine-f43-1.
 
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
 - BoN ~45/150. mine-f42-1.
@@ -78,10 +78,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - RL ~135/200. mine-f39-1.
 
 ### H133/F38 — Genesis REINFORCE on teacher Λ2
-- **n80 live** a203. mine-f38-1.
-
-### H132/F37 — Tok REINFORCE on teacher Λ2
-- **n80 ~69/80** a203. mine-f37-1.
+- FALSE_PROBE ConnectError@chall → recover264 armed. mine-f38-1.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -90,18 +87,19 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F45 | Tok last-N full-rank RL-Λ2 | **live** bootstrap |
-| F44 | Tok online DPO teacher-Λ2 | **live** teacher DL |
-| F43 | Tok offline DPO duel-Λ2 | **live** merge→n80 |
+| F45 | Tok last-N full-rank RL-Λ2 | **live** tok DL |
+| F44 | Tok online DPO teacher-Λ2 | **live** teacher+king serve |
+| F43 | Tok offline DPO duel-Λ2 | **live** chall load→n80 |
 | F42 | Tok BoN-CE teacher-Λ2 | **live** BoN train |
-| F41–F37 | RL / S* screens | F37/F38 n80; F39–41 train |
+| F41–F38 | RL / S* / Genesis-RL | F38 recover→n80; F39–41 train |
+| — | Tok LoRA RL teacher-Λ2 | **CLOSED** F37 m=−0.00047 |
 | — | past-king full-FT×Λ2 | **CLOSED** F26–F36 all ≤0 |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
 | — | raw past-earner/genesis | **CLOSED** |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
 
-- **H131/F36** af-k1 FT −0.067 · **H127/F32** TalentPigs FT −0.026 · **H129/F34** diane −0.063
+- **H132/F37** Tok LoRA RL teacher-Λ2 −0.00047 · **H131/F36** af-k1 FT −0.067 · **H127/F32** TalentPigs FT −0.026
 - **H117/F22** raw everest −0.063 · **H124/F29** golden FT −0.093 · **H130/F35** everest FT −0.084
 - **H121–H126/H123/H125** full-FT class ≤0 · **H118/F23** raw Bittob −0.084
 - **H120/F25** raw golden −0.063 · **H112/F17** genesis −0.055 · **H113/F18** TalentPigs −0.030

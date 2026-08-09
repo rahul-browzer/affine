@@ -47,7 +47,7 @@ Format: `- <finding> — <the number or error that proves it>`
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 ## Recipes already tried (do not repeat)
 - SFT/LoRA near-zero + α-merges dead (H1–H26): archive. No plain distill-on-refs; stop α/leary/plmk/m7-as-B/kkk.
-- **F1+F8 REINFORCE-L1 REFUTED:** Tok-RL H98 m=+0.00229 (λ2 frozen); Genesis-RL H103 m=**−0.0483** z=−5.0, mean_λ2_c −0.021≪king. Clip-L1 RL ≠ Λ2; worse on Genesis. No RL-L1.
+- **F1+F8 REINFORCE-L1 + F37 teacher-Λ2 LoRA REFUTED:** Tok-self-L1 H98 m=+0.00229; Genesis-L1 H103 m=**−0.0483**; **F37 Tok×teacher-Λ2 H132 m=−0.00047** λ2_c≈king (−0.0049 vs −0.0055). LoRA RL cannot move Λ2 regardless of reward.
 - **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
 - **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
 - **F9–F16 earner×high-Λ2 REFUTED (class closed):** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob−0.058; everest−0.083; diane−0.073; **af-k1 F16 m=−0.07623** z=−7.28 λ2_c=−0.019 (p459). Every earner×Λ2 LoRA ≤0. Do not rent more of this class.
