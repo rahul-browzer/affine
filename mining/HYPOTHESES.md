@@ -8,18 +8,18 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (n80 ~31/80) |
-| 2 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (n80 ~39/80) |
-| 3 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (n80 ~23/80) |
-| 4 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (n80 ~30/80) |
-| 5 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (n80 ~17/80) |
-| 6 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (n80 ~15/80) |
-| 7 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (n80 d203) |
-| 8 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (train.done→post) |
-| 9 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (train) |
-| 10 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (engines→n80) |
-| 11 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (train 0/60 p487) |
-| 12 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (n80 ~24/80) |
+| 1 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (n80 ~71/80) |
+| 2 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (n80 ~65/80) |
+| 3 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (n80 ~58/80) |
+| 4 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (n80 ~55/80) |
+| 5 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (n80 ~54/80) |
+| 6 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (n80 ~52/80) |
+| 7 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (n80 e203 p488) |
+| 8 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (n80 e203 p488) |
+| 9 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (n80 ~5/80) |
+| 10 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (train) |
+| 11 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (train) |
+| 12 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (kingDEAD need478) |
 | — | H118/F23 | — | raw Bittob (no LoRA) → m>+0.015 | **refuted** m=−0.08436 |
 | — | H120/F25 | — | raw golden-crown (no LoRA) → m>+0.015 | **refuted** m=−0.06343 |
 | — | H112/F17 | — | raw genesis (no LoRA) → m>+0.015 | **refuted** m=−0.05489 |
@@ -49,53 +49,53 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Open
 
-### H122/F27 — Genesis full-FT (no LoRA)
-- Dense FT genesis@abe89194 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f27-1 n80 e203 ~31/80. `s4-h122-f27-genesis-full-ft/`.
-
 ### H123/F28 — Tok full-FT × teacher_refs z_C
 - Dense FT Tok × 791 teacher_refs_shortz lr=1e-6 → m>+0.015 vs Tok.
-- mine-f28-1 n80 e203 ~39/80. `s4-h123-f28-teacher-refs-ft/`.
-
-### H121/F26 — Tok full-FT (no LoRA)
-- Dense FT Tok@eb8bf9a × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015.
-- mine-f26-1 n80 e203 ~23/80. `s4-h121-f26-full-ft/`.
-
-### H124/F29 — golden-crown full-FT × high-Λ2 z_A
-- Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f29-1 n80 d203 ~15/80. `s4-h124-f29-golden-full-ft/`.
+- mine-f28-1 n80 e203 ~71/80. `s4-h123-f28-teacher-refs-ft/`.
 
 ### H125/F30 — kevin954 full-FT × high-Λ2 z_A
 - Dense FT kevin@3fb79cfb × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f30-1 n80 d203 ~30/80. `s4-h125-f30-kevin-full-ft/`.
+- mine-f30-1 n80 d203 ~65/80. `s4-h125-f30-kevin-full-ft/`.
+
+### H122/F27 — Genesis full-FT (no LoRA)
+- Dense FT genesis@abe89194 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
+- mine-f27-1 n80 e203 ~58/80. `s4-h122-f27-genesis-full-ft/`.
+
+### H121/F26 — Tok full-FT (no LoRA)
+- Dense FT Tok@eb8bf9a × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015.
+- mine-f26-1 n80 e203 ~55/80. `s4-h121-f26-full-ft/`.
 
 ### H126/F31 — Bittob11040 full-FT × high-Λ2 z_A
 - Dense FT Bittob@0c04fe92 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f31-1 n80 d203 ~17/80. `s4-h126-f31-bittob-full-ft/`.
+- mine-f31-1 n80 d203 ~54/80. `s4-h126-f31-bittob-full-ft/`.
+
+### H124/F29 — golden-crown full-FT × high-Λ2 z_A
+- Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
+- mine-f29-1 n80 d203 ~52/80. `s4-h124-f29-golden-full-ft/`.
 
 ### H127/F32 — TalentPigs full-FT × high-Λ2 z_A
 - Dense FT TalentPigs@dbfbb3e2 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- p486 king478 seed-from-chall → n80 d203 @06:33Z. `s4-h127-f32-talentpigs-full-ft/`.
+- p488: king TimeoutError@13 → king478 re-fire → n80 e203. `s4-h127-f32-talentpigs-full-ft/`.
+
+### H117/F22 — raw everest12 (no LoRA)
+- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015.
+- p488: king EngineDead@24 → king478 → n80 e203. `s4-h117-f22-raw-everest12/`.
 
 ### H128/F33 — pandora-box full-FT × high-Λ2 z_A
 - Dense FT pandora@5218b138 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f33-1 train.done @p486 → post_train. `s4-h128-f33-pandora-full-ft/`.
+- mine-f33-1 n80 ~5/80. `s4-h128-f33-pandora-full-ft/`.
 
 ### H129/F34 — diane613 full-FT × high-Λ2 z_A
 - Dense FT diane@ad0f3f11 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
 - mine-f34-1 train. `s4-h129-f34-diane-full-ft/`.
 
-### H130/F35 — everest12 full-FT × high-Λ2 z_A
-- Dense FT everest@a5ac5311 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f35-1 pipeline.done; engines loading. `s4-h130-f35-everest-full-ft/`.
-
 ### H131/F36 — af-k1 full-FT × high-Λ2 z_A
 - Dense FT af-k1@ff6eb4bc × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- p487: `tf36` TypeError → fixed tf32; train relaunch @0/60. `s4-h131-f36-af-k1-full-ft/`.
+- mine-f36-1 train (p487 tf32 fix). `s4-h131-f36-af-k1-full-ft/`.
 
-### H117/F22 — raw everest12 (no LoRA)
-- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015.
-- mine-f22-1 n80 d203 ~24/80. `s4-h117-f22-raw-everest12/`.
+### H130/F35 — everest12 full-FT × high-Λ2 z_A
+- Dense FT everest@a5ac5311 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
+- mine-f35-1 kingDEAD (orphans GPUs2,3); need king478. `s4-h130-f35-everest-full-ft/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
