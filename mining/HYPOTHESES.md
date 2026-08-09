@@ -8,13 +8,13 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H142/F47 | high | raw Qwen3-Coder-30B vs Tok → m>+0.015 | **open** (n80 @53/80) |
-| 2 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (recover264→n80) |
-| 3 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 a203 @6/80) |
-| 4 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (n80 starting) |
-| 5 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (n80 d203 @20/80) |
-| 6 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (n80 @45/80) |
-| 7 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 c203 @34/80) |
+| 1 | H142/F47 | high | raw Qwen3-Coder-30B vs Tok → m>+0.015 | **open** (n80 @75/80) |
+| 2 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (recover264→p529 d203) |
+| 3 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 a203 @19/80) |
+| 4 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (recover264→p529 d203) |
+| 5 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (n80 d203 @32/80) |
+| 6 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (n80 @57/80) |
+| 7 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 c203 @46/80) |
 | — | H134/F39 | — | Tok RL full S* mix → m>+0.015 | **refuted** m=+0.00267 |
 | — | H133/F38 | — | Genesis RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.05342 |
 | — | H138/F43 | — | Tok offline DPO duel-Λ2 → m>+0.015 | **refuted** m=−0.00966 |
@@ -58,18 +58,19 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H142/F47 — raw Qwen3-Coder-30B-A3B-Instruct
 - Unmodified Coder @ `b2cff646…` vs Tok; no train. First non-Albedo base.
-- mine-f47-1 n80 LIVE @53/80. `s4-h142-f47-raw-qwen3-coder/`.
+- mine-f47-1 n80 LIVE @75/80. `s4-h142-f47-raw-qwen3-coder/`.
 
 ### H141/F46 — Genesis last-N full-rank REINFORCE on teacher Λ2
-- Visual restore OK; recover264 after bare-TCACHE ENOENT. `s4-h141-f46-genesis-lastn-rl-l2/`.
-- mine-f46-1 recover264→chall→n80. `results/pass528_visual_restore_recover.md`.
+- p529: a203 FP ConnectError quarantined; `*_p529.sh` d203 armed; chall salvage reload.
+- mine-f46-1. `results/pass529_fp_quarantine_d203.md`.
 
 ### H140/F45 — Tok last-N full-rank REINFORCE on teacher Λ2
-- Visual restore OK; n80 a203 @6/80. mine-f45-1.
+- Visual restore OK; n80 a203 @19/80. mine-f45-1.
 - `results/pass528_visual_restore_n80.md`.
 
 ### H139/F44 — Tok online DPO on teacher Λ2
-- Tok-init LoRA; merge done; chall :8002=200; n80 starting. mine-f44-1.
+- p529: killed a203; chall died → recover264; d203 retry waiting. mine-f44-1.
+- `results/pass529_d203_rearm.md`.
 
 ### H138/F43 — Tok offline DPO on duel Λ2 prefs — REFUTED
 - m=−0.00966 z=−1.31; λ2_c −0.0115 vs king −0.0062; gates clear. `s4-h138-f43-tok-dpo-l2/`.
@@ -79,10 +80,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - mine-f42-1. `s4-h137-f42-tok-bon-l2/results/pass527_merge_n80.md`.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
-- n80 e203 @25/80. mine-f41-1.
+- n80 e203 @57/80. mine-f41-1.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
-- n80 c203 @15/80 (retried). mine-f40-1.
+- n80 c203 @46/80. mine-f40-1.
 
 ### H134/F39 — Tok REINFORCE on full S* mix — REFUTED
 - m=+0.00267 z=0.41; λ2_c 0.00622 > king 0.00272; gates clear. `results/pass528_refute.md`.
@@ -97,9 +98,9 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F47 | raw Qwen3-Coder (non-Albedo) | **live** n80 @53/80 |
-| F46/F45 | last-N full-rank RL-Λ2 | F45 n80; F46 recover264 |
-| F44 | Tok online DPO teacher-Λ2 | n80 starting |
+| F47 | raw Qwen3-Coder (non-Albedo) | **live** n80 @75/80 |
+| F46/F45 | last-N full-rank RL-Λ2 | F45 n80; F46 p529 d203 |
+| F44 | Tok online DPO teacher-Λ2 | recover264→p529 d203 |
 | F42 | Tok BoN-CE | **live** n80 d203 |
 | F40–F41 | RL screens | n80 |
 | — | F39 Tok S* RL / F38 Genesis RL / F43 offline DPO | **CLOSED** |

@@ -145,3 +145,4 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F43 offline DPO REFUTED** m=−0.00966; BT prefs under Tok-LoRA collapse Λ2. Empty idle `mine-*` = orphan → rm (F48 p524).
 - **F39 Tok S\* RL REFUTED** m=+0.00267 z=0.41 — λ2_c>king but margin noise; S\* mix ≠ crown (p528).
 - **unconst HF public storage full** (p528) — merged push BadRequest; local `/tmp/*_full_ft_save` still serves. Free space/Pro before submit uploads.
+- **F44/F46 p529:** misnamed `*_d203first` still a203 + no nested FP guard → chall-down ConnectError wrote FALSE_PROBE+`N80_DONE`. Fix = `*_p529.sh` (d203-first+`_is_false_probe_sim`), quarantine, recover264; never tear on FP.
