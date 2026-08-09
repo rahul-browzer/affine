@@ -101,13 +101,11 @@ rev = "abe89194d6addf82e71f3f1ba9fef94b05404abf"
 print("[bootstrap-h133] DOWNLOAD genesis-init start", repo, rev, flush=True)
 path = snapshot_download(repo, revision=rev, token=token)
 print(f"[bootstrap-h133] DOWNLOAD genesis-init done -> {path}", flush=True)
-open("/root/logs/genesis_init.done", "w").write(path + "
-")
+open("/root/logs/genesis_init.done", "w").write(path + "\n")
 print("[bootstrap-h133] DOWNLOAD teacher start", flush=True)
 tpath = snapshot_download("zai-org/GLM-4.5-Air-FP8", token=token)
 print(f"[bootstrap-h133] DOWNLOAD teacher done -> {tpath}", flush=True)
-open("/root/logs/teacher.done", "w").write(tpath + "
-")
+open("/root/logs/teacher.done", "w").write(tpath + "\n")
 PY
 
 # Serve teacher only on 0,1 (chall placeholder stopped; king later).
