@@ -10,7 +10,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 |---|---|---|---|---|
 | 1 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (king478 after mid-n80 ENOENT@16/80) |
 | 2 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (king435 load ~36GB) |
-| 3 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (k+c=200; teacher down) |
+| 3 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (k+c=200; teacher479 load) |
 | 4 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (serve) |
 | 5 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (serve) |
 | 6 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (serve→n80) |
@@ -58,7 +58,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H121/F26 — Tok full-FT (no LoRA)
 - Dense FT Tok@eb8bf9a × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015.
-- mine-f26-1 k+c=200; **teacher :8000 down** (p478). `s4-h121-f26-full-ft/`.
+- mine-f26-1 k+c=200; teacher bare ENOENT→**teacher479** unique TCACHE (p479). `s4-h121-f26-full-ft/`.
 
 ### H124/F29 — golden-crown full-FT × high-Λ2 z_A
 - Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.

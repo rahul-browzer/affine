@@ -15,17 +15,17 @@ King Tok S=0.04456.
 | Lium / spend | **~$180,218** · cum ~$17,477 · **avail ~$170.2k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$359.0/h** (11 mine-*) ≪ $833/h · free slots **9** |
-| n80 | F27 king478 loading (mid-n80 bare ENOENT @16/80); F28 king435 loading |
-| other | F26 t:8000 down k+c=200; F29 k=200 t+c down; F32 train; F22/F33–F35 |
+| n80 | F27 king478 loading weights; F28 king435 loading; F26 teacher479 loading |
+| other | F29 k=200; F32 train; F22/F33–F35 |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
 | mine-f22-1 | calm-hawk-98 | 204.9.206.243:40300 | ~14:27Z | F22 t+k up; tok→chall→n80 |
-| mine-f26-1 | gentle-fox-2c | 152.236.142.235:40300 | ~16:12Z | F26 k+c=200; **teacher down** |
-| mine-f27-1 | eager-orbit-15 | 152.236.142.237:40299 | ~16:16Z | F27 **king478** load (p478) |
-| mine-f28-1 | eager-eagle-b1 | 152.236.142.232:40300 | ~16:20Z | F28 **king435** load (~36GB) |
+| mine-f26-1 | gentle-fox-2c | 152.236.142.235:40300 | ~16:12Z | F26 k+c=200; **teacher479 load** |
+| mine-f27-1 | eager-orbit-15 | 152.236.142.237:40299 | ~16:16Z | F27 **king478** weight load |
+| mine-f28-1 | eager-eagle-b1 | 152.236.142.232:40300 | ~16:20Z | F28 **king435** load |
 | mine-f29-1 | gentle-shark-9c | 152.236.142.234:40300 | ~16:26Z | F29 king only |
 | mine-f30-1 | lunar-wolf-aa | 152.236.142.236:40300 | ~16:31Z | F30 engines? |
 | mine-f31-1 | golden-hawk-bb | 38.255.28.21:20099 | ~16:39Z | F31 engines? |
@@ -50,8 +50,8 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 ## Next action
 
-1. **F27**: poll king478 → KING PROMPTABLE → n80 d203 (`/tmp/h122_merged`); watcher armed.
-2. **F28**: poll king435 → PROMPTABLE → n80 (`/root/h123/merged`).
-3. **F26**: teacher down — relaunch teacher (leave k+c); then n80.
+1. **F26**: poll teacher479 → :8000=200 + PROMPTABLE → n80 (k+c already 200; watcher→full-ft).
+2. **F27**: poll king478 → KING PROMPTABLE → n80 d203 (`/tmp/h122_merged`).
+3. **F28**: poll king435 → PROMPTABLE → n80 (`/root/h123/merged`).
 4. F29 teacher+chall; F30/F31 engines→n80; F32 save→post_train; F22/F33–F35.
 5. Free slot → af-k1 dense-FT (only if a pod tears).
