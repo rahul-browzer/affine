@@ -12,7 +12,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | 3 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~22/80) |
 | 4 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (train ~25/60) |
 | 5 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (train; kingDL af10) |
-| 6 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (bootstrap p416) |
+| 6 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (train) |
+| 7 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (bootstrap p418) |
 | — | H103/F8 | — | Genesis-init × REINFORCE-L1 → m>+0.015 | **refuted** m=−0.04829 |
 | — | H101/F6 | — | ultrashort≤80 format → m>+0.015 | **refuted** m=−0.00453 |
 | — | H98/F1 | — | Tok REINFORCE self-L1lift → m>+0.015 | **refuted** m=+0.00229 |
@@ -58,8 +59,14 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H107 / F12 — golden-crown reign-earner × high-Λ2 — open
 - **Claim:** `golden-crown/Affine-5Epvn…` @ee37f4f0 + 1059 high-Λ2 → m>+0.015.
   Rolling-set earner; unused as LoRA train base.
-- **Status:** golden-crown HF DL mid → train.
+- **Status:** train live (post golden-crown DL).
 - `experiments/s4-h107-f12-golden-crown/` · `results/pass416_rent.md`.
+
+### H108 / F13 — diane613 reign-earner × high-Λ2 — open
+- **Claim:** `diane613/Affine-5CQL…` @ad0f3f11 + 1059 high-Λ2 → m>+0.015.
+  Rolling-set earner; H9 only α-merged it (α dead); unused as LoRA train base.
+- **Status:** mine-f13-1 rented; bootstrap pip→diane613 DL (p418).
+- `experiments/s4-h108-f13-diane613/` · `results/pass418_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -68,7 +75,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F13 | diane613 / next earner | after a screen resolves |
+| F14 | Bittob11040 / everest12 / af-k1 | after screen or burn headroom |
 
 ## Refuted (keep)
 
@@ -110,4 +117,4 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H75…H1
 - Dead: α/plmk/leary/TP/m7/union/lr/ep≥2/**winner-zA family (−0.004)**/
   F2/F3/r-cells/α-cells/clip≥0.08/king-self. See archive + LESSONS.
-  **Screens live: F4/F7/F9/F10/F11/F12.** Closed: F1/F6/F8.
+  **Screens live: F4/F7/F9/F10/F11/F12/F13.** Closed: F1/F6/F8.
