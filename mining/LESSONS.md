@@ -52,7 +52,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
 - **F9–F16 earner×high-Λ2 REFUTED (class closed):** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob−0.058; everest−0.083; diane−0.073; **af-k1 F16 m=−0.07623** z=−7.28 λ2_c=−0.019 (p459). Every earner×Λ2 LoRA ≤0. Do not rent more of this class.
 - **Raw past-king/genesis REFUTED (kevin+pandora+diane+af-k1+TalentPigs+genesis+golden+Bittob):** F19−0.006…**F23−0.084**. Raw left: everest12 (F22). **Full-FT×high-Λ2 class dying:** Tok F26 m=−0.00031; Genesis F27 −0.07068; Bittob F31 −0.07651; Tok-refs F28−0.010; kevin F30−0.019; **pandora F33 m=−0.02161** λ2_c=−0.013 (p496). No more past-king/Tok FT clones.
-- **post_train SOFT_DEADLINE must be this rent's TTL−1h** — cloned defaults (F37 had `06:06Z` while remove_at=`19:06Z`) abort the waiter before train starts (p496). Set `SOFT_DEADLINE_UTC` explicitly on relaunch.
 - **shm_broadcast / bare-king:** seed king n_so≥16 util=0.72 (p448). Bare king EngineDead with incomplete n_so → **seed-from-chall king478**, not cold p332 (F32 p486: bare n_so=15 failed; chall n_so=22 → PROMPTABLE+n80).
 
 ## Serving / VLM
@@ -148,4 +147,4 @@ Format: `- <finding> — <the number or error that proves it>`
 - **king_recover_pass332** must serve live Tok on :8001 (F8 p397 had Genesis). Post-freeze chall death + missing turns.jsonl (F4 p397): frozen-TCACHE relaunch + `sync_corpus` before n80; avoid recover264 wipe that reaps healthy chall.
 - **B300 cu13 = CUDA_HOME + CCCL + libcudart.so symlink:** p397 no CUDA_HOME→nvcc fail; p401/403 CCCL `nvcc13.3`≠`CTK13000` → define `CCCL_DISABLE_CTK_COMPATIBILITY_CHECK` in flashinfer `cuda_toolkit.h` + wipe `cached_ops/sampling`; p404 `ld: cannot find -lcudart` → `ln -sfn libcudart.so.13 $CUDA_HOME/lib/libcudart.so` + linktest; **p405 validated** (chall promptable, d1–d4 200, freeze555, n80 a203).
 - **King repo typo af11≠af10:** F11 p414 cloned `Tok331102/…-af11` (404); live king is `…-af10`. Grep new family scripts for king repo before arming. Kill-loops matching `af11` in cmdline will suicide a helper named `*af11*` (p415).
-- **`--chall-repo` = `/v1/models` id; preempt EXP = real dir** (p480/p491 f26-af-k1). **Teacher-Λ2 RL needs teacher :8000 before train** (F37 p492) — F1 order (train then DL teacher) cannot score reward.
+- **`--chall-repo` = `/v1/models` id; preempt EXP = real dir** (p480/p491). **Teacher-Λ2 RL needs teacher :8000 before train** (F37 p492). **post_train SOFT_DEADLINE = this rent's TTL−1h** — F37 cloned `06:06Z` while remove_at=`19:06Z` aborted waiter (p496); set env explicitly.
