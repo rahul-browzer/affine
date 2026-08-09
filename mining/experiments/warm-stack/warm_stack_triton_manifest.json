@@ -1,0 +1,17 @@
+{
+  "teacher": {
+    "n_files": 520,
+    "n_so": 8,
+    "bytes": 21032600
+  },
+  "king": {
+    "n_files": 1654,
+    "n_so": 24,
+    "bytes": 82877613
+  },
+  "chall": {
+    "n_files": 1654,
+    "n_so": 24,
+    "bytes": 82878645
+  }
+}
