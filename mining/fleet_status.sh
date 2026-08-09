@@ -3,10 +3,13 @@
 set -euo pipefail
 PODS=(
   "f17|38.255.28.18|20099|/tmp/mine-f17-1.known_hosts|h112"
-  "f18|86.38.238.54|40300|/tmp/mine-f18-1.known_hosts|h113"
   "f22|204.9.206.243|40300|/tmp/mine-f22-1.known_hosts|h117"
   "f23|204.9.206.244|40301|/tmp/mine-f23-1.known_hosts|h118"
   "f25|3.135.191.208|20126|/tmp/mine-f25-1.known_hosts|h120"
+  "f26|152.236.142.235|40300|/tmp/mine-f26-1.known_hosts|h121"
+  "f27|152.236.142.237|40299|/tmp/mine-f27-1.known_hosts|h122"
+  "f28|152.236.142.232|40300|/tmp/mine-f28-1.known_hosts|h123"
+  "f29|152.236.142.234|40300|/tmp/mine-f29-1.known_hosts|h124"
 )
 OUT=$(mktemp -d /tmp/fleet_status.XXXXXX)
 trap 'rm -rf "$OUT"' EXIT
@@ -29,22 +32,40 @@ for p in 8000 8001 8002; do
   eng+="$c"
 done
 stage="idle"
-ps -eo args | grep -q '[t]rain_rl_l1\|[t]rain_lora' && stage=train
-ps -eo args | grep -q '[m]erge_lora' && stage=merge
+ps -eo args | grep -q '[t]rain_rl_l1\|[t]rain_lora\|[t]rain_full' && stage=train
+ps -eo args | grep -q '[m]erge_lora\|[f]inalize_full' && stage=merge
 ps -eo args | grep -q '[m]erge_recover' && stage=mrecover
 ps -eo args | grep -q '[k]ing_recover' && stage=krecover
 ps -eo args | grep -q '[r]un_sim_duel' && stage=n80
-ps -eo args | grep -q '[b]ootstrap_' && stage=boot
+ps -eo args | grep -q '[b]ootstrap_\|[p]ip install\|[h]uggingface-cli\|[h]f download' && stage=boot
 [[ -f /root/affine_data/${HYP}_decision.json ]] && stage=done
-echo "${TAG}|${stage}|n80=${n80}|eng=${eng}"
+# extra progress hints
+extra=""
+if [[ -f /root/affine_data/${HYP}_decision.json ]]; then
+  extra=$(python3 -c "import json;d=json.load(open('/root/affine_data/'+'$HYP'+'_decision.json'));print(d.get('verdict','?'), 'm='+str(d.get('margin',d.get('mean_margin','?')))[:12])" 2>/dev/null || echo dec)
+fi
+ts=""
+if [[ -f /root/ckpts/${HYP}/trainer_state.json ]]; then
+  ts=$(python3 -c "import json;d=json.load(open('/root/ckpts/'+'$HYP'+'/trainer_state.json'));print(f\"step={d.get('global_step','?')}/{d.get('max_steps',d.get('num_train_epochs','?'))} loss={d.get('log_history',[{}])[-1].get('loss','?')}\")" 2>/dev/null || echo "")
+fi
+# common alt paths
+for p in /root/affine_data/${HYP}/trainer_state.json /root/train/${HYP}/trainer_state.json /root/out/${HYP}/trainer_state.json; do
+  if [[ -z "$ts" && -f "$p" ]]; then
+    ts=$(python3 -c "import json;d=json.load(open('$p'));print(f\"step={d.get('global_step','?')}\")" 2>/dev/null || echo "")
+  fi
+done
+dl=""
+if [[ -d /root/models ]]; then
+  dl=$(du -sh /root/models 2>/dev/null | awk '{print $1}' || true)
+fi
+echo "${TAG}|${stage}|n80=${n80}|eng=${eng}|${extra}|${ts}|dl=${dl}"
 EOS
   ) &
 done
 wait
-printf '%-6s %-8s %-12s %-14s\n' POD STAGE N80 ENGINES
+printf '%-6s %-8s %-12s %-14s %s\n' POD STAGE N80 ENGINES EXTRA
 for spec in "${PODS[@]}"; do
   IFS='|' read -r tag _ <<<"$spec"
   line=$(tail -1 "$OUT/$tag.txt" 2>/dev/null || echo "$tag|?|-|-")
-  IFS='|' read -r a b c d <<<"$line"
-  printf '%-6s %-8s %-12s %-14s\n' "${a:-$tag}" "${b:--}" "${c:--}" "${d:--}"
+  echo "$line"
 done
