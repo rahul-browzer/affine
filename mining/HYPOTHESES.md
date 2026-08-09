@@ -16,8 +16,9 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 6 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (train) |
 | 7 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (train) |
 | 8 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (pip/boot) |
-| 9 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (train) |
-| 10 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (Tok Range p470) |
+| 9 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (pip/boot) |
+| 10 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (finalize) |
+| 11 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (Tok Range) |
 | — | H118/F23 | — | raw Bittob (no LoRA) → m>+0.015 | **refuted** m=−0.08436 |
 | — | H120/F25 | — | raw golden-crown (no LoRA) → m>+0.015 | **refuted** m=−0.06343 |
 | — | H112/F17 | — | raw genesis (no LoRA) → m>+0.015 | **refuted** m=−0.05489 |
@@ -83,8 +84,12 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - Dense FT diane@ad0f3f11 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
 - mine-f34-1 brave-eagle-b1 **pip/boot**. `s4-h129-f34-diane-full-ft/`.
 
+### H130/F35 — everest12 full-FT × high-Λ2 z_A
+- Dense FT everest@a5ac5311 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
+- mine-f35-1 zesty-matrix-04 **pip/boot** COUNT=8. `s4-h130-f35-everest-full-ft/`.
+
 ### H117/F22 — raw everest12 (no LoRA)
-- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. Everest done; Tok Range-resume p470 (HTTP206). `s4-h117-f22-raw-everest12/`.
+- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. Everest done; Tok Range ~43–50%. `s4-h117-f22-raw-everest12/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -93,7 +98,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F22/F26–F34 | screens | **live** (10 pods) |
+| F22/F26–F35 | screens | **live** (11 pods) |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
 | — | raw past-earner/genesis | **CLOSED** kevin/pandora/diane/af-k1/TalentPigs/genesis/golden/**Bittob** (everest open) |
 
@@ -106,4 +111,4 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - **H114/F19** raw kevin m=−0.00611 · **H108–H110/F13–F15** earner×Λ2
 - **H105/F10** TalentPigs-LoRA · **H106–H107/F11–F12** · **H104/F9**
 - **H100/F4** · **H102/F7** · **H103/F8** · **H101/F6** · **H98/F1** · **H97/F3**
-- Screens live: **F22,F26–F34**. Next free slot: everest/af-k1 dense-FT or **F5**.
+- Screens live: **F22,F26–F35**. Next free slot: af-k1 dense-FT or **F5**.

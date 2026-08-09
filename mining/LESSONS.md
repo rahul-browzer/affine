@@ -120,9 +120,9 @@ Format: `- <finding> — <the number or error that proves it>`
 - Mid-n80 king NCCL → orphans on GPUs2,3; king332 (F9 p399). Cold empty isolated TCACHE also ENOENT mid-load (F11 p434 n_so=10 CQWZC55M) → seed from frozen chall n_so≥16 then util=0.72 (p435); leave chall.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
   `/root/venv/bin/activate` ≤10m (H60/H61/H62).
-- Rent by UUID + **post-rent COUNT=8** (catalog lies). p441: zesty-fox-fc
-  COUNT=4; p442: zesty-hawk-ae COUNT=2; p443: B200 COUNT=8 @$40; p444: calm-shark
-  B200@$4.4 hung (no pod) → B300 COUNT=8 @$63.60. Capture COUNT on SSH stdout. `-y`.
+- Rent by UUID + **post-rent COUNT=8** (catalog+API `gpu_count` lie). p441
+  zesty-fox-fc=4; p442 zesty-hawk=2; p443 B200@$40=8; p444 calm-shark hung;
+  **p471** ecf0d9d5/lunar-lion API 8×H200→nvidia-smi=4 (tore). SSH COUNT before upload.
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
   → n80 → `__triton_launcher.so` → ConnectError false REFUTE in ~6m; quarantine
   + GPU-index chall relaunch + completions probe before retry.
