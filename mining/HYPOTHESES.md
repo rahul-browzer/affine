@@ -8,9 +8,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 d203 p417) |
-| 2 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203 ~48/80) |
-| 3 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~22/80) |
-| 4 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (train ~25/60) |
+| 2 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203 ~59/80) |
+| 3 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~32/80) |
+| 4 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (train ~52/60) |
 | 5 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (train; kingDL af10) |
 | 6 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (train) |
 | 7 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (bootstrap p418) |
@@ -35,19 +35,19 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** n80 **e203** ~47–48/80 (nearest screen).
+- **Status:** n80 **e203** ~59/80 (nearest screen).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass408_d203first.md`.
 
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7) and Tok (F1/F6); past crown outside both basins.
-- **Status:** n80 **d203** ~20–22/80 engines 200.
+- **Status:** n80 **d203** ~32/80 engines 200.
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass412_c203_h32_d203.md`.
 
 ### H105 / F10 — TalentPigs past-crown × high-Λ2 — open
 - **Claim:** `TalentPigs/affine-5ekxlcg3fx-abc` @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
   Reign-3 crown; orthogonal to Genesis/kevin/Tok basins.
-- **Status:** train live pre-ckpt (GPU6 util~57%); d203first armed.
+- **Status:** train ~52/60; d203first armed.
 - `experiments/s4-h105-f10-talentpigs-base/` · `results/pass413_train_launched.md`.
 
 ### H106 / F11 — pandora-box past-crown × high-Λ2 — open

@@ -41,8 +41,7 @@ kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`. Non-mine — **do not tou
 
 No submit until n80 margin > 0.04 **vs Tok331102**.
 Dead: α/plmk/TP/m7/union/lr/ep≥2/winner-zA/**F1–F3/F6/F8**/king-init refs.
-Open: H100/F4, H102/F7, H104/F9, H105/F10, H106/F11, H107/F12, **H108/F13**.
-F5 needs traj. FALSE_PROBE≠REFUTE; never rm non-mine; COUNT=8 & $/h≥28.
+Open: H100/F4–H108/F13. F5 needs traj. FALSE_PROBE≠REFUTE; never rm non-mine; COUNT=8 & $/h≥28.
 recover264=chall; king-only relaunch; seed chall from **pathfile** then king TCACHE.
 **Fixed `watch_n80_retry`** (`retry_${hyp}_n80*`). **king_recover = live Tok af10**.
 **H32:** drop a203+c203; `retry_*_d203first`. Kill longwait by PID before re-arm.
