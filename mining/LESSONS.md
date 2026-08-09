@@ -44,12 +44,12 @@ Format: `- <finding> — <the number or error that proves it>`
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 ## Recipes already tried (do not repeat)
 - SFT/LoRA near-zero + α-merges dead (H1–H26): archive. No plain distill-on-refs; stop α/leary/plmk/m7-as-B/kkk.
-- **All 45 family screens REFUTED — closed classes, do not re-rent any:**
+- **All 46 family screens REFUTED — closed classes, do not re-rent any:**
   RL/REINFORCE on L1 or Λ2 (F1 +0.0023, F8 −0.048, F37 −0.0005); format (F6
-  −0.0045); Genesis-init (F4 −0.055, F7 −0.052); earner×high-Λ2 LoRA (F9–F16,
-  −0.014…−0.076); raw published models (F17–F25, −0.006…−0.087); full-FT×Λ2
-  (F26–F36, −0.026…−0.093). Every one that moved Λ2 moved it **down**
-  (λ2_c −0.017…−0.029 vs king +0.005). LoRA RL cannot move Λ2 at any reward.
+  −0.0045); Genesis-init (F4 −0.055, F7 −0.052, **F38 −0.053**); earner×Λ2
+  LoRA (F9–F16, −0.014…−0.076); raw models (F17–F25); full-FT×Λ2 (F26–F36).
+  F38: Genesis RL teacher-Λ2 → λ2_c −0.0175 vs king −0.0024, gates clear.
+  Every move of Λ2 was **down**. LoRA/Genesis RL cannot raise Λ2.
 - **shm_broadcast / bare-king:** seed king n_so≥16 util=0.72 (p448). Bare king EngineDead with incomplete n_so → **seed-from-chall king478**, not cold p332 (F32 p486: bare n_so=15 failed; chall n_so=22 → PROMPTABLE+n80).
 
 ## Serving / VLM
