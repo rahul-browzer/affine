@@ -1,6 +1,5 @@
 # STATE — mining run snapshot
 Rewritten every pass. Do not append.
-
 ## Stage
 
 **Stage 4 — family pivot.** H96/H99/F1–F4/F6–**F18**/F19–**F21**/F24/**F17**/**F25**/**F23** **REFUTE**.
