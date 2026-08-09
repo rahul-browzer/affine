@@ -8,14 +8,15 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (bootstrap) |
-| 2 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (online-DPO train live) |
-| 3 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (n80 @20/80) |
-| 4 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN ~45/150) |
-| 5 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL retrain) |
-| 6 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (chall recover264) |
-| 7 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL ~135/200) |
-| 8 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (n80 live) |
+| 1 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 2 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (eng load) |
+| 3 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (online-DPO train) |
+| 4 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (n80 @28/80) |
+| 5 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN train) |
+| 6 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
+| 7 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (chall recover264) |
+| 8 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL ~175/200) |
+| 9 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (n80 @12/80) |
 | — | H132/F37 | — | Tok RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.00047 |
 | — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
@@ -54,31 +55,35 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Open
 
+### H141/F46 — Genesis last-N full-rank REINFORCE on teacher Λ2
+- Cross F38×F45: Genesis init, last-N=8 full-rank + lm_head, teacher-Λ2.
+- mine-f46-1 bootstrap. `s4-h141-f46-genesis-lastn-rl-l2/`.
+
 ### H140/F45 — Tok last-N full-rank REINFORCE on teacher Λ2
 - Unfreeze last 8 layers + lm_head; SGD lr=1e-6; same Λ2 reward as F37.
-- tok-init DL. mine-f45-1. `s4-h140-f45-tok-lastn-rl-l2/`.
+- teacher+king loading. mine-f45-1. `s4-h140-f45-tok-lastn-rl-l2/`.
 
 ### H139/F44 — Tok online DPO on teacher Λ2
 - Tok-init LoRA; G=2; teacher-Λ2 labels; DPO β=0.1 → m>+0.015.
-- Teacher↑; train pid15018 GPUs6,7; DEADMAN→20:58Z (p517). mine-f44-1.
+- train live; DEADMAN→20:58Z. mine-f44-1.
 
 ### H138/F43 — Tok offline DPO on duel Λ2 prefs
-- n80 @20/80 (a203). Pipe aborted stale DEADMAN; retry saved. mine-f43-1.
+- n80 @28/80 (a203). mine-f43-1.
 
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
-- BoN ~45/150. mine-f42-1.
+- BoN train. mine-f42-1.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
-- Retrain live mean_r≠0. mine-f41-1.
+- RL train mean_r≠0. mine-f41-1.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
-- Merge OK (189 steps); bare chall ENOENT → recover264 + DEADMAN 19:42Z (p518).
+- Merge OK; chall recover264 poll~24/120; DEADMAN 19:42Z. mine-f40-1.
 
 ### H134/F39 — Tok REINFORCE on full S* mix
-- RL ~135/200. mine-f39-1.
+- RL ~175/200. mine-f39-1.
 
 ### H133/F38 — Genesis REINFORCE on teacher Λ2
-- recover264 DONE; n80 a203 live (p518). mine-f38-1.
+- n80 @12/80 a203. mine-f38-1.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -87,11 +92,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F45 | Tok last-N full-rank RL-Λ2 | **live** tok DL |
-| F44 | Tok online DPO teacher-Λ2 | **live** online-DPO train |
-| F43 | Tok offline DPO duel-Λ2 | **live** n80 @16/80 |
-| F42 | Tok BoN-CE teacher-Λ2 | **live** BoN train |
-| F41–F38 | RL / S* / Genesis-RL | F38 recover→n80; F39–41 train |
+| F46 | Genesis last-N full-rank RL-Λ2 | **live** bootstrap |
+| F45 | Tok last-N full-rank RL-Λ2 | **live** eng load |
+| F44 | Tok online DPO teacher-Λ2 | **live** train |
+| F43–F38 | DPO/BoN/RL screens | n80 or train |
 | — | Tok LoRA RL teacher-Λ2 | **CLOSED** F37 m=−0.00047 |
 | — | past-king full-FT×Λ2 | **CLOSED** F26–F36 all ≤0 |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
