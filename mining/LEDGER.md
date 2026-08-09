@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $177,974.56 | 2026-08-09T11:52Z |
-| cumulative mining spend | ~$19,760 (Δ bal from p526 baseline) | 2026-08-09T11:52Z |
-| **available for mining** | **~$167,975** (balance − $10,000 floor) | 2026-08-09T11:52Z |
+| Lium balance | $177,953.89 | 2026-08-09T11:57Z |
+| cumulative mining spend | ~$19,781 (Δ bal from p526 baseline) | 2026-08-09T11:57Z |
+| **available for mining** | **~$167,954** (balance − $10,000 floor) | 2026-08-09T11:57Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | ~$83/h | 2026-08-09T11:52Z |
+| miner burn (1 pod) | ~$31.92/h | 2026-08-09T11:57Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,13 +21,13 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-09T11:57Z | 177953.89 | KING-WATCH rm mine-f44-1+mine-f46-1; burn ~$32/h (1 pod) |
+| 2026-08-09T11:52Z | 177974.56 | no rent/rm; F45 p529 cutover; burn ~$83/h |
 | 2026-08-09T11:46Z | 177993.63 | rm mine-f42-1 after REFUTE (spent ~$93); burn ~$83/h |
 | 2026-08-09T11:38Z | 178036.88 | rm mine-f40-1 after REFUTE (spent ~$97); burn ~$111/h |
 | 2026-08-09T11:33Z | 178062.02 | rm mine-f41-1 after REFUTE (spent ~$90); burn ~$139/h |
 | 2026-08-09T11:25Z | 178089.76 | rm mine-f47-1 after REFUTE (spent ~$41); burn ~$167/h |
 | 2026-08-09T11:21Z | 178118.47 | no rent/rm; F44/F46 recover+d203; burn ~$199/h |
 | 2026-08-09T11:15Z | 178176.04 | rm mine-f39-1 after REFUTE; burn ~$199/h |
-| 2026-08-09T11:01Z | 178238.13 | no rent/rm; F42 merge+n80; burn ~$223.4/h (Δ−$124 from 10:42) |
+| 2026-08-09T11:01Z | 178238.13 | no rent/rm; F42 merge+n80; burn ~$223.4/h |
 | 2026-08-09T10:42Z | 178362.62 | rm mine-f38-1 after REFUTE (spent ~$64); burn ~$223.4/h |
-| 2026-08-09T10:31Z | 178428.66 | rm mine-f43-1 (spent ~$62) after REFUTE; burn ~$246.6/h |
-| 2026-08-09T10:28Z | 178465.01 | rm orphan mine-f48-1 (spent ~$4.85); burn briefly ~$312→$279 |

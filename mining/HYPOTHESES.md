@@ -8,9 +8,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 d203 @33/80) |
-| 2 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 d203 p529 @0/80; p536) |
-| 3 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (n80 d203 @29/80) |
+| 1 | H64-watch | — | re-screen H64 r=18 when king S<0.035 | **armed** (KING-WATCH) |
+| — | H141/F46 | — | Genesis last-N RL-Λ2 → m>+0.015 | **abandoned** p538 mid-n80 |
+| — | H140/F45 | — | Tok last-N RL-Λ2 → m>+0.015 | **abandoned** p538 @13/80 |
+| — | H139/F44 | — | Tok online DPO teacher-Λ2 → m>+0.015 | **abandoned** p538 @42/80 |
 | — | H137/F42 | — | Tok BoN-CE teacher-Λ2 → m>+0.015 | **refuted** m=+0.00508 |
 | — | H135/F40 | — | kevin RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.02343 |
 | — | H136/F41 | — | TalentPigs RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.01159 |
@@ -54,38 +55,11 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | — | H95…H1 | — | winner-zA / α / merges | **refuted** |
 | — | H3 | instrumental | clip-L1 lever | **supported** (+rank) |
 
-## Open
+## Open / armed
 
-### H142/F47 — raw Qwen3-Coder-30B-A3B-Instruct — REFUTED
-- Invalid chall: baseline_band 2.244× (abs 0.301 vs king 0.134); ungated mix 0.027<0.036.
-- `s4-h142-f47-raw-qwen3-coder/results/pass530_refute.md`.
-
-### H141/F46 — Genesis last-N full-rank REINFORCE on teacher Λ2
-- n80 d203 @~33/80; watcher+relaunch→p529 (p531). mine-f46-1.
-
-### H140/F45 — Tok last-N full-rank REINFORCE on teacher Λ2
-- p536: killed mid-flight a203-first retry (b203@19/80); live p529 d203 attempt1. Engines 200. mine-f45-1.
-
-### H139/F44 — Tok online DPO on teacher Λ2
-- n80 d203 p529 @~29/80; engines 200. mine-f44-1.
-
-### H138/F43 — Tok offline DPO on duel Λ2 prefs — REFUTED
-- m=−0.00966 z=−1.31; λ2_c −0.0115 vs king −0.0062; gates clear. `s4-h138-f43-tok-dpo-l2/`.
-
-### H137/F42 — Tok Best-of-N CE on teacher Λ2 — REFUTED
-- m=+0.00508 z=0.78; λ2_c −0.0043 > king −0.0071; gates clear. `results/pass534_refute.md`.
-
-### H136/F41 — TalentPigs REINFORCE on teacher Λ2 — REFUTED
-- m=−0.01159 z=−1.15; λ2_c −0.0123 vs king −0.0095; gates clear. `results/pass532_refute.md`.
-
-### H135/F40 — kevin954 REINFORCE on teacher Λ2 — REFUTED
-- m=−0.02343 z=−1.91; λ2_c −0.0211 vs king −0.0095; gates clear. `results/pass533_refute.md`.
-
-### H134/F39 — Tok REINFORCE on full S* mix — REFUTED
-- m=+0.00267 z=0.41; λ2_c 0.00622 > king 0.00272; gates clear. `results/pass528_refute.md`.
-
-### H133/F38 — Genesis REINFORCE on teacher Λ2 — REFUTED
-- m=−0.05342 z=−5.30; λ2_c −0.0175 vs king −0.0024; gates clear. `s4-h133-f38-genesis-rl-l2/`.
+### H64-watch — Tok-init winner-zA r=18 re-screen (KING-WATCH)
+- Trigger: live king S < 0.035. Until then idle on `mine-f45-1` warm stack.
+- Artifact: H64 r=18 recipe; merge locally (HF push blocked).
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -93,11 +67,9 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 ## Seed family queue
 | F | family | next |
 |---|---|---|
-| F5 | Correctness-grounded z | needs verified traj |
-| F46/F45 | last-N full-rank RL-Λ2 | F46@39 F45 d203 p529 |
-| F44 | Tok online DPO teacher-Λ2 | n80 d203 @29/80 |
-| — | F42 Tok BoN-CE / F40 kevin RL / F41 TalentPigs / F47 / F39 / F38 / F43 | **CLOSED** |
-| — | full-FT×Λ2 F26–F36 · earner×Λ2 F9–F16 · raw earners | **CLOSED** |
+| — | KING-WATCH | idle until king S<0.035; then H64 r=18 n80 |
+| F5 | Correctness-grounded z | suspended (needs operator) |
+| — | F44/F45/F46 abandoned p538 · F1–F43/F47 CLOSED | **no new screens** |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
 
