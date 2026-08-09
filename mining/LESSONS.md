@@ -50,8 +50,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F1+F8 REINFORCE-L1 REFUTED:** Tok-RL H98 m=+0.00229 (λ2 frozen); Genesis-RL H103 m=**−0.0483** z=−5.0, mean_λ2_c −0.021≪king. Clip-L1 RL ≠ Λ2; worse on Genesis. No RL-L1.
 - **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
 - **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
-- **F9–F12+F14+F15 earner×high-Λ2 REFUTED:** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob H109 m=**−0.05784** z=−5.9; everest H110 m=**−0.08285** z=−9.1 (p452). F13/F16 still screening; prefer raw-base (F17+).
-- **F21 chall zombie = Triton ENOENT then shm_broadcast:** NODUTTS4…/__triton_launcher.so missing @02:28 → EngineCore hung 12m on GPUs 4,5; health:8002=000 while king lived. Fix: reap 4,5 + wipe chall TCACHE + seed king n_so=17 + util=0.72 (p448), not wait.
+- **F9–F15 earner×high-Λ2 REFUTED (class):** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob−0.058; everest−0.083; **diane613 H108 m=−0.07293 z=−6.59** (p454). Only F16 (af-k1) still screening; prefer raw-base (F17+). Do not rent more earner×Λ2 LoRA.
+- **shm_broadcast hang (F21 mid-n80 / F18 first-load):** EngineCore shm every 60s, :800x=000, king may live. F21: Triton ENOENT then hang on 4,5 — reap+wipe chall+seed king n_so≥16 util=0.72 (p448). F18: teacher+chall never promptable ~15m — reap 0,1+4,5 leave king; wipe role caches; unique TCACHE util=0.72 (`recover_teacher_chall_pass454.sh`); bare king n_so=0 still usable as cold seed.
 
 ## Serving / VLM
 - King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` + preprocessor + visual safetensors (333–352 keys). **Tok ships `processor_config.json` not `preprocessor_config.json`** — derive from `image_processor` or chall dies at MultiModalBudget (H79 p307).
