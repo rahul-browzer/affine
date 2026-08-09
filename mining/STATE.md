@@ -15,7 +15,7 @@ Fleet = **1** warm pod. No submit. Trigger: king **S < 0.035** → re-screen H64
 | Lium / spend | **~$176,750** · cum ~$20,995 · **avail ~$166.8k** |
 | miner burn | **~$28.00/h** (1) ≪$833 · free **19** |
 | watch | `mine-watch-1` / golden-wolf-bd · TTL **2026-08-10T03:38Z** (~5.9h) |
-| restore | **IN PROGRESS** pid=901 · **HF DL** ~111G hub (teacher+king+h64 locks) · triton n_so 8/24/24 · engines 000 · no ready.done |
+| restore | **IN PROGRESS** pid=901 · hub **~194G** · **king+h64 DONE** · teacher DL ~71G (36/55+) · triton 8/24/24 · engines 000 · no ready.done |
 | HF | unconst **public storage full** — H64 still **downloadable** |
 | warm-stack | Triton tar on pod; `restore_warm_stack.sh` stages: pip→triton→DL→serve |
 
@@ -39,7 +39,7 @@ Do **not** rent a second `mine-*` without a new dated operator directive.
 
 ## Next action
 
-1. Poll restore: `tail /root/logs/restore_warm_stack.log`; wait for `/root/logs/warm_stack_ready.done` + engines **200/200/200** and `:8002`=/tmp/h64_merged.
+1. Poll restore: `tail /root/logs/restore_warm_stack.log`; wait for teacher DL done → merge/serve → `/root/logs/warm_stack_ready.done` + engines **200/200/200** and `:8002`=/tmp/h64_merged.
 2. If restore dead/failed: read log, relaunch `/root/restore_warm_stack.sh` (do not rent a second pod).
 3. If ready: KING-WATCH idle — record king S; confirm engines; leave TTL (expires 03:38Z).
 4. If king S < 0.035 → H64 n80 re-screen on this single watch pod only.
