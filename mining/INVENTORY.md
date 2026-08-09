@@ -9,21 +9,21 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f45-1 | lunar-matrix-d4 | 8×H200 | $31.92 | 2026-08-09T21:35Z | **mine-watch-1** warm duel | H64 chall LIVE 200/200/200 |
+| mine-watch-1 | golden-wolf-bd | 8×H200 | $28.00 | 2026-08-10T03:38Z | warm duel | restore pid=901 (pip/DL/serve) |
 
-SSH: 38.255.28.21:20099 · key `~/.ssh/id_ed25519` (kh broken).
-**Free: 19**. Burn ~$31.92/h. Non-mine — **never rm** (seen: affine-*, glm52-*, minimax-*).
-Lium name stays `mine-f45-1` (no rename API); role = watch.
+SSH: 152.236.142.236:40301 · key `~/.ssh/id_ed25519` · id `c1f09303-bda8-419a-894e-d31763734766`
+Catalog: `37b3ea5c-d447-41ab-aac2-730437842243` lunar-eagle-9e · COUNT=8 verified.
+**Free: 19**. Burn ~$28.00/h. Non-mine — **never rm**.
 
 ## Dead (recent)
-mine-f44-1/p538 KING-WATCH rm (n80@42/80 no margin); mine-f46-1/p538 rm (no margin);
-mine-f42-1/+0.00508; mine-f40-1/−0.023; mine-f41-1/−0.012; mine-f47-1/band 2.24×;
-mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0.0097.
+mine-f45-1/lunar-matrix-d4 TTL 21:35Z natural rm (p1115); mine-f44-1/p538;
+mine-f46-1/p538; mine-f42-1/+0.00508; mine-f40-1/−0.023; mine-f41-1/−0.012;
+mine-f47-1/band 2.24×; mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0.0097.
 
 ## Recent reconciles (last 3)
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
-| 2026-08-09T21:21Z | 1 | p1114 ok; king S=0.04456 idle; engines 200 + :8002=/tmp/h64_merged; TTL~0.23h no renew; shortlist 4/4 ok; burn ~$32/h |
-| 2026-08-09T21:19Z | 1 | p1113 ok; king S=0.04456 idle; engines 200 + :8002=/tmp/h64_merged; TTL~0.25h no renew; shortlist 4/4 ok; burn ~$32/h |
-| 2026-08-09T21:18Z | 1 | p1112 ok; king S=0.04456 idle; engines 200 + :8002=/tmp/h64_merged; TTL~0.3h no renew; shortlist 4/4 ok; burn ~$32/h |
+| 2026-08-09T21:40Z | 1 | p1115 TTL expiry→rm f45; rented mine-watch-1 @$28; COUNT=8; restore nohup |
+| 2026-08-09T21:21Z | 1 | p1114 ok; king S=0.04456 idle; engines 200; TTL~0.23h |
+| 2026-08-09T21:19Z | 1 | p1113 ok; king S=0.04456 idle; engines 200; TTL~0.25h |

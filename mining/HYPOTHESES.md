@@ -58,7 +58,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 ## Open / armed
 
 ### H64-watch — Tok-init winner-zA r=18 re-screen (KING-WATCH)
-- Trigger: live king S < 0.035. Until then idle on `mine-f45-1` warm stack.
+- Trigger: live king S < 0.035. Until then idle on `mine-watch-1` warm stack.
 - Artifact: H64 r=18 recipe; merge locally (HF push blocked).
 
 ### H3 — clip-L1 lever (supported)
