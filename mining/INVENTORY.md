@@ -8,12 +8,12 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f10-1 | eager-wolf-42 | 8×H200 | $28.00 | 2026-08-09T11:54Z | H105 F10 TalentPigs | **n80 e203 ~11/80** |
-| mine-f11-1 | swift-eagle-51 | 8×H200 | $28.00 | 2026-08-09T12:02Z | H106 F11 pandora | **king435 loading** |
-| mine-f12-1 | lunar-wolf-a5 | 8×H200 | $28.00 | 2026-08-09T12:10Z | H107 F12 golden | **n80 d203 ~67/80** |
-| mine-f13-1 | zesty-hawk-1f | 8×H200 | $31.92 | 2026-08-09T12:17Z | H108 F13 diane613 | **n80 d203 ~40/80** |
-| mine-f14-1 | eager-comet-be | 8×H200 | $28.00 | 2026-08-09T12:34Z | H109 F14 Bittob | **n80 e203 ~11/80** |
-| mine-f15-1 | calm-wolf-f7 | 8×H200 | $31.92 | 2026-08-09T12:37Z | H110 F15 everest12 | **chall recover264** |
+| mine-f10-1 | eager-wolf-42 | 8×H200 | $28.00 | 2026-08-09T11:54Z | H105 F10 TalentPigs | **n80 e203 ~20/80** |
+| mine-f11-1 | swift-eagle-51 | 8×H200 | $28.00 | 2026-08-09T12:02Z | H106 F11 pandora | **king435 + longwait** |
+| mine-f12-1 | lunar-wolf-a5 | 8×H200 | $28.00 | 2026-08-09T12:10Z | H107 F12 golden | **n80 d203 ~71/80** |
+| mine-f13-1 | zesty-hawk-1f | 8×H200 | $31.92 | 2026-08-09T12:17Z | H108 F13 diane613 | **n80 d203 ~50/80** |
+| mine-f14-1 | eager-comet-be | 8×H200 | $28.00 | 2026-08-09T12:34Z | H109 F14 Bittob | **n80 d203 launched** |
+| mine-f15-1 | calm-wolf-f7 | 8×H200 | $31.92 | 2026-08-09T12:37Z | H110 F15 everest12 | **n80 e203 + d203 watcher** |
 
 SSH: f13/f15:20099 f10–12:40300 f14:40309 · kh `/tmp/mine-*-1.known_hosts`.
 **Free: 14**. Burn ~$175.8/h. Non-mine — **never rm**.
@@ -32,6 +32,6 @@ SSH: f13/f15:20099 f10–12:40300 f14:40309 · kh `/tmp/mine-*-1.known_hosts`.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T01:48Z | 6 live | F15→d203first; F11→longwait; burn ~$175.8/h |
 | 2026-08-09T01:45Z | 6 live | F11 king435 seeded+armed; burn ~$175.8/h |
 | 2026-08-09T01:37Z | 6 live | F11 king332 armed (orphans reaped); burn ~$175.8/h |
-| 2026-08-09T01:35Z | 6 live | F15 visual433+SKIP_MERGE; F11 king dead; burn ~$175.8/h |

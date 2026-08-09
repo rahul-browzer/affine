@@ -484,8 +484,9 @@ nohup bash /root/mining_src/s4-h2-merge/watch_form_decision.sh h105 \
 echo $! >/root/logs/h105_form_decision.pid
 log "rearmed form pid=$(cat /root/logs/h105_form_decision.pid)"
 
+# p436: rearm d203first (bare retry_h105_n80.sh = a203; LESSON recover264)
 nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h105 \
-  /root/mining_src/s4-h105-f10-talentpigs-base/retry_h105_n80.sh \
+  /root/mining_src/s4-h105-f10-talentpigs-base/retry_h105_n80_d203first.sh \
   >/root/logs/h105_watch_retry.launch.nohup 2>&1 &
 echo $! >/root/logs/h105_watch_retry.pid
 log "rearmed watcher pid=$(cat /root/logs/h105_watch_retry.pid)"

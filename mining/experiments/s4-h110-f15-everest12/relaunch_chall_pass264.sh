@@ -484,8 +484,9 @@ nohup bash /root/mining_src/s4-h2-merge/watch_form_decision.sh h110 \
 echo $! >/root/logs/h110_form_decision.pid
 log "rearmed form pid=$(cat /root/logs/h110_form_decision.pid)"
 
+# After recover264 DONE always re-point to d203first (bare a203 overflows; LESSON p425/p436)
 nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h110 \
-  /root/mining_src/s4-h110-f15-everest12/retry_h110_n80.sh \
+  /root/mining_src/s4-h110-f15-everest12/retry_h110_n80_d203first.sh \
   >/root/logs/h110_watch_retry.launch.nohup 2>&1 &
 echo $! >/root/logs/h110_watch_retry.pid
 log "rearmed watcher pid=$(cat /root/logs/h110_watch_retry.pid)"
