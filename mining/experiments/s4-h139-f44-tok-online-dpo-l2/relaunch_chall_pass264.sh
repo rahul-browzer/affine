@@ -474,7 +474,7 @@ echo $! >/root/logs/h139_form_decision.pid
 log "rearmed form pid=$(cat /root/logs/h139_form_decision.pid)"
 
 nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h139 \
-  /root/mining_src/s4-h139-f44-tok-online-dpo-l2/retry_h139_n80_d203first.sh \
+  /root/mining_src/s4-h139-f44-tok-online-dpo-l2/retry_h139_n80_d203first_p529.sh \
   >/root/logs/h139_watch_retry.launch.nohup 2>&1 &
 echo $! >/root/logs/h139_watch_retry.pid
 log "rearmed watcher pid=$(cat /root/logs/h139_watch_retry.pid)"

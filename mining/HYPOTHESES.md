@@ -8,12 +8,12 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 d203) |
-| 2 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 a203 @23/80) |
-| 3 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (recover264→p529) |
-| 4 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (n80 d203 @35/80) |
-| 5 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (n80 e203 @60/80) |
-| 6 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 c203 @48/80) |
+| 1 | H141/F46 | high | Genesis last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 d203 @10/80) |
+| 2 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (n80 a203 @34/80) |
+| 3 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (n80 d203 p529) |
+| 4 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (n80 d203 @50/80) |
+| 5 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (n80 e203 @73/80) |
+| 6 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 c203 @58/80) |
 | — | H142/F47 | — | raw Qwen3-Coder-30B vs Tok → m>+0.015 | **refuted** band 2.24× |
 | — | H134/F39 | — | Tok RL full S* mix → m>+0.015 | **refuted** m=+0.00267 |
 | — | H133/F38 | — | Genesis RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.05342 |
@@ -61,13 +61,13 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - `s4-h142-f47-raw-qwen3-coder/results/pass530_refute.md`.
 
 ### H141/F46 — Genesis last-N full-rank REINFORCE on teacher Λ2
-- p529 d203 n80 LIVE (engines 200). mine-f46-1.
+- n80 d203 @~10/80; watcher+relaunch→p529 (p531). mine-f46-1.
 
 ### H140/F45 — Tok last-N full-rank REINFORCE on teacher Λ2
-- n80 a203 @23/80. mine-f45-1.
+- n80 a203 @~34/80. mine-f45-1.
 
 ### H139/F44 — Tok online DPO on teacher Λ2
-- chall recover264 loading GPUs4,5; p529 d203 waiting :8002. mine-f44-1.
+- recover264 DONE; n80 d203 via p529; watcher→p529 (p531). mine-f44-1.
 
 ### H138/F43 — Tok offline DPO on duel Λ2 prefs — REFUTED
 - m=−0.00966 z=−1.31; λ2_c −0.0115 vs king −0.0062; gates clear. `s4-h138-f43-tok-dpo-l2/`.
@@ -77,10 +77,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - mine-f42-1. `s4-h137-f42-tok-bon-l2/results/pass527_merge_n80.md`.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
-- n80 e203 @57/80. mine-f41-1.
+- n80 e203 @~73/80. mine-f41-1.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
-- n80 c203 @46/80. mine-f40-1.
+- n80 c203 @~58/80. mine-f40-1.
 
 ### H134/F39 — Tok REINFORCE on full S* mix — REFUTED
 - m=+0.00267 z=0.41; λ2_c 0.00622 > king 0.00272; gates clear. `results/pass528_refute.md`.
@@ -96,7 +96,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
 | F46/F45 | last-N full-rank RL-Λ2 | F45/F46 n80 |
-| F44 | Tok online DPO teacher-Λ2 | recover264→p529 d203 |
+| F44 | Tok online DPO teacher-Λ2 | n80 d203 p529 |
 | F42 | Tok BoN-CE | **live** n80 d203 |
 | F40–F41 | RL screens | n80 |
 | — | F47 raw Coder / F39 S* RL / F38 Genesis RL / F43 DPO | **CLOSED** |
