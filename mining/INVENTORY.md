@@ -16,7 +16,7 @@ Catalog: `37b3ea5c-d447-41ab-aac2-730437842243` lunar-eagle-9e · COUNT=8 verifi
 **Free: 19**. Burn ~$28.00/h. Non-mine — **never rm**.
 
 ## Dead (recent)
-mine-f45-1/lunar-matrix-d4 TTL 21:35Z natural rm (p1115); mine-f44-1/p538;
+mine-f45-1/lunar-matrix-d4 TTL 21:35Z cava rm (p1115); mine-f44-1/p538;
 mine-f46-1/p538; mine-f42-1/+0.00508; mine-f40-1/−0.023; mine-f41-1/−0.012;
 mine-f47-1/band 2.24×; mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0.0097.
 
@@ -24,6 +24,6 @@ mine-f47-1/band 2.24×; mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T21:55Z | 1 | p1126 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~5.7h |
 | 2026-08-09T21:54Z | 1 | p1125 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~5.7h |
 | 2026-08-09T21:54Z | 1 | p1124 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~5.7h |
-| 2026-08-09T21:53Z | 1 | p1123 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~5.8h |
