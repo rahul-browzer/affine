@@ -12,23 +12,23 @@ King Tok331102 S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$182,722** · cum ~$15,042 · **avail ~$172.7k** |
+| Lium / spend | **~$182,690** · cum ~$15,074 · **avail ~$172.7k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$175.8/h** (6 mine-*) ≪ $833/h · free slots **14** |
-| F10 | recover264 a2/3 mid-load chall (GPUs4,5 ~36GiB @00:50Z) |
-| F11 | recover264 a1/3 fired p424 (EngineDead TimeoutError) |
-| F12 | merge.done; chall serve wait (c=0) |
-| F13 / F14 | train live · train live |
-| F15 | bootstrap |
+| F10 | recover264 a2 DONE freeze n_so=22; **n80 d203 live** (p425) |
+| F11 | recover264 a1 mid-load (~102 GiB GPUs4,5) |
+| F12 | recover264 a1 armed p425 (bare-cache chall dead; preempt TIMEOUT) |
+| F13 / F14 | merge_lora live · train live |
+| F15 | bootstrap HF DL everest-init |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-f10-1 | eager-wolf-42 | 152.236.142.234:40300 | ~11:54Z+1d | F10 recover264 a2→n80 |
-| mine-f11-1 | swift-eagle-51 | 152.236.142.237:40300 | ~12:02Z+1d | F11 recover264→n80 |
-| mine-f12-1 | lunar-wolf-a5 | 152.236.142.236:40300 | ~12:10Z+1d | F12 chall serve |
-| mine-f13-1 | zesty-hawk-1f | 38.255.28.21:20099 | ~12:17Z+1d | F13 train |
+| mine-f10-1 | eager-wolf-42 | 152.236.142.234:40300 | ~11:54Z+1d | F10 **n80 d203** |
+| mine-f11-1 | swift-eagle-51 | 152.236.142.237:40300 | ~12:02Z+1d | F11 recover264 a1 |
+| mine-f12-1 | lunar-wolf-a5 | 152.236.142.236:40300 | ~12:10Z+1d | F12 recover264 a1 |
+| mine-f13-1 | zesty-hawk-1f | 38.255.28.21:20099 | ~12:17Z+1d | F13 merge |
 | mine-f14-1 | eager-comet-be | 152.236.142.232:40309 | ~12:34Z+1d | F14 train |
 | mine-f15-1 | calm-wolf-f7 | 38.255.28.22:20099 | ~12:37Z+1d | F15 bootstrap |
 
@@ -43,6 +43,7 @@ FALSE_PROBE≠REFUTE; never rm non-mine; COUNT=8 & $/h≥28.
 recover264=chall; king-only relaunch; seed chall from **pathfile** then king TCACHE.
 **Fixed `watch_n80_retry`** (`retry_${hyp}_n80*`). **king_recover = live Tok af10**.
 **H32:** drop a203+c203; `retry_*_d203first`. Kill longwait by PID before re-arm.
+**p425:** recover264 DONE rearms bare `retry_*_n80.sh` (a203) — **re-point to d203first**.
 Next unused earner: **af-k1** → **F16**.
 
 ## Operator directive 2026-08-08T18:55Z
@@ -51,7 +52,6 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 ## Next action
 
-1. **Confirm F10** recover a2 → :8002=200 + completions×2 → freeze → n80 d203.
-2. **Confirm F11** recover264 → same → n80 d203 (watcher already armed).
-3. F12–F15→n80. Free slots: hold CONFIRM; scaffold `s4-h111-f16-*` only if
-   a screen clears a slot and burn≪833.
+1. **Poll F10 n80** → margin; if >+0.015 start CONFIRM k=4; if ≤0 REFUTE+tear.
+2. F11 recover → freeze → n80 d203 (kill a203 if recover rearms bare retry).
+3. F12 recover → same. F13–F15→n80. Hold CONFIRM slots; scaffold F16 only after a tear.

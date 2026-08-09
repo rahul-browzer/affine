@@ -7,9 +7,9 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (recover a2 mid-load) |
-| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (recover264 p424) |
-| 3 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (merge) |
+| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 d203 live) |
+| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (recover264 a1 load) |
+| 3 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (recover264 a1) |
 | 4 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (train) |
 | 5 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (train) |
 | 6 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (bootstrap) |
@@ -31,19 +31,19 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H105 / F10 — TalentPigs × high-Λ2 — open
 - **Claim:** TalentPigs @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
-- **Status:** recover a2/3 mid-load (a1 Triton ENOENT). `experiments/s4-h105-f10-talentpigs-base/`.
+- **Status:** n80 d203 vs Tok (p425 freeze a2 n_so=22). `experiments/s4-h105-f10-talentpigs-base/`.
 
 ### H106 / F11 — pandora-box × high-Λ2 — open
 - **Claim:** pandora @5218b138 + 1059 high-Λ2 → m>+0.015.
-- **Status:** recover264 a1 after EngineDead (p424). `experiments/s4-h106-f11-pandora-base/`.
+- **Status:** recover264 a1 mid-load. `experiments/s4-h106-f11-pandora-base/`.
 
 ### H107 / F12 — golden-crown × high-Λ2 — open
 - **Claim:** golden-crown @ee37f4f0 + 1059 high-Λ2 → m>+0.015.
-- **Status:** merge_lora live. `experiments/s4-h107-f12-golden-crown/`.
+- **Status:** recover264 a1 (p425; bare-cache serve died). `experiments/s4-h107-f12-golden-crown/`.
 
 ### H108 / F13 — diane613 × high-Λ2 — open
 - **Claim:** diane613 @ad0f3f11 + 1059 high-Λ2 → m>+0.015.
-- **Status:** train live. `experiments/s4-h108-f13-diane613/`.
+- **Status:** merge_lora live. `experiments/s4-h108-f13-diane613/`.
 
 ### H109 / F14 — Bittob11040 × high-Λ2 — open
 - **Claim:** Bittob11040 @0c04fe92 + 1059 high-Λ2 → m>+0.015.
