@@ -50,7 +50,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F1+F8 REINFORCE-L1 REFUTED:** Tok-RL H98 m=+0.00229 (λ2 frozen); Genesis-RL H103 m=**−0.0483** z=−5.0, mean_λ2_c −0.021≪king. Clip-L1 RL ≠ Λ2; worse on Genesis. No RL-L1.
 - **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
 - **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
-- **F9–F12 earner-base×high-Λ2 REFUTED (p439/p448/p450):** kevin H104 m=−0.014; golden H107 m=−0.059; pandora H106 m=−0.034; TalentPigs H105 m=**−0.03095** λ2_c=−0.0176 (p450). Four earners dead under LoRA; F13–F16 still screening. Prefer raw-base (F17+).
+- **F9–F12+F14+F15 earner×high-Λ2 REFUTED:** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob H109 m=**−0.05784** z=−5.9; everest H110 m=**−0.08285** z=−9.1 (p452). F13/F16 still screening; prefer raw-base (F17+).
 - **F21 chall zombie = Triton ENOENT then shm_broadcast:** NODUTTS4…/__triton_launcher.so missing @02:28 → EngineCore hung 12m on GPUs 4,5; health:8002=000 while king lived. Fix: reap 4,5 + wipe chall TCACHE + seed king n_so=17 + util=0.72 (p448), not wait.
 
 ## Serving / VLM

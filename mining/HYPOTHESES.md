@@ -16,10 +16,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 6 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (bootstrap B300) |
 | 7 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (bootstrap B300) |
 | 8 | H119/F24 | high | raw af-k1 (no LoRA) → m>+0.015 | **open** (boot) |
-| 9 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 ~53) |
-| 10 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (n80 ~62) |
-| 11 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (n80 ~61) |
-| 12 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (tchr000) |
+| 9 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 ~68) |
+| 10 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (post_train) |
+| — | H109/F14 | — | Bittob × high-Λ2 → m>+0.015 | **refuted** m=−0.05784 |
+| — | H110/F15 | — | everest12 × high-Λ2 → m>+0.015 | **refuted** m=−0.08285 |
 | — | H105/F10 | — | TalentPigs × high-Λ2 → m>+0.015 | **refuted** m=−0.03095 |
 | — | H106/F11 | — | pandora × high-Λ2 → m>+0.015 | **refuted** m=−0.03414 |
 | — | H107/F12 | — | golden-crown × high-Λ2 → m>+0.015 | **refuted** m=−0.05941 |
@@ -50,7 +50,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - Unmodified pandora @5218b138 vs Tok → m>+0.015 (≠F11 LoRA). n80 ~19/80. `s4-h115-f20-raw-pandora/`.
 
 ### H116/F21 — raw diane613 (no LoRA)
-- Unmodified diane613 @ad0f3f11 vs Tok → m>+0.015 (≠F13 LoRA). p450: health 200/000/000 — king+chall down. `s4-h116-f21-raw-diane/`.
+- Unmodified diane613 @ad0f3f11 vs Tok → m>+0.015 (≠F13 LoRA). p452: recover_king_chall armed (orphans reaped; k/c loading util=0.72). `s4-h116-f21-raw-diane/`.
 
 ### H117/F22 — raw everest12 (no LoRA)
 - Unmodified everest12 @a5ac5311 vs Tok → m>+0.015 (≠F15 LoRA). Bootstrap on B300. `s4-h117-f22-raw-everest12/`.
@@ -68,16 +68,16 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - pandora @5218b138 + high-Λ2 → m=**−0.03414** z=−5.06 S_c=0.0049≪S_k (p448). Tear mine-f11-1. `s4-h106-f11-pandora-base/`.
 
 ### H108/F13 — diane613 × high-Λ2
-- diane613 @ad0f3f11 + high-Λ2 → m>+0.015. n80 ~53. `s4-h108-f13-diane613/`.
+- diane613 @ad0f3f11 + high-Λ2 → m>+0.015. n80 ~68. `s4-h108-f13-diane613/`.
 
-### H109/F14 — Bittob × high-Λ2
-- Bittob11040 @0c04fe92 + high-Λ2 → m>+0.015. n80 ~62. `s4-h109-f14-bittob/`.
+### H109/F14 — Bittob × high-Λ2 — REFUTED
+- Bittob@0c04fe92 + high-Λ2 → m=**−0.05784** z=−5.91 S_c=−0.023≪S_k (p452). Tear mine-f14-1. `s4-h109-f14-bittob/`.
 
-### H110/F15 — everest12 × high-Λ2
-- everest12 @a5ac5311 + high-Λ2 → m>+0.015. n80 ~61. `s4-h110-f15-everest12/`.
+### H110/F15 — everest12 × high-Λ2 — REFUTED
+- everest12@a5ac5311 + high-Λ2 → m=**−0.08285** z=−9.11 mean_λ2_c=−0.0229 (p452). Tear mine-f15-1. `s4-h110-f15-everest12/`.
 
 ### H111/F16 — af-k1 × high-Λ2
-- af-k1 @ff6eb4bc + high-Λ2 → m>+0.015. post_train; teacher :8000=000. `s4-h111-f16-af-k1/`.
+- af-k1 @ff6eb4bc + high-Λ2 → m>+0.015. post_train. `s4-h111-f16-af-k1/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -86,16 +86,15 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F17–F24 | raw no-LoRA screens | **screening** (F24 rented p451) |
-| F25 | next structural family | rent when slot/burn allows |
-| — | earner×high-Λ2 LoRA | F9–F12 dead; F13–F16 still open |
+| F17–F24 | raw no-LoRA screens | **screening** |
+| F25 | next structural family | rent — 10 free slots |
+| — | earner×high-Λ2 LoRA | F9–F12/F14/F15 dead; F13/F16 open |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
 
-- **H105/F10** TalentPigs×Λ2 m=−0.03095 · **H106/F11** pandora m=−0.034 · **H107/F12** golden m=−0.059 · **H104/F9** kevin m=−0.014
-- **H100/F4** Genesis×Λ2 m=−0.05489 · **H102/F7** teacher-zC m=−0.05194
-- **H103/F8** Genesis-RL m=−0.04829 · **H101/F6** ultrashort m=−0.00453
-- **H98/F1** Tok-RL m=+0.00229 · **H97/F3** r256 m=−0.01506
-- **H96** winner-zA r9 m=+0.00913 · **H99/F2** remix m=−0.00199
-- **H95…H1** α/plmk/TP/m7/winner-zA (−0.004)/F1–F4/F6–F12 dead
-- Screens live: **F13–F24**.
+- **H109/F14** Bittob m=−0.05784 · **H110/F15** everest m=−0.08285 (p452)
+- **H105/F10** TalentPigs m=−0.031 · **H106/F11** pandora m=−0.034 · **H107/F12** golden m=−0.059 · **H104/F9** kevin m=−0.014
+- **H100/F4** Genesis×Λ2 m=−0.055 · **H102/F7** teacher-zC m=−0.052 · **H103/F8** Genesis-RL m=−0.048
+- **H101/F6** ultrashort m=−0.005 · **H98/F1** Tok-RL m=+0.002 · **H97/F3** r256 m=−0.015
+- **H96** winner-zA r9 m=+0.009 · **H99/F2** remix m=−0.002 · **H95…H1** α/winner-zA dead
+- Screens live: **F13/F16–F24**.
