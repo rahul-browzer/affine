@@ -44,18 +44,13 @@ Format: `- <finding> — <the number or error that proves it>`
   z≤300 → 406 ex mean clipL1 0.089 (`s4-h27-clip-l1-shape`).
 ## Recipes already tried (do not repeat)
 - SFT/LoRA near-zero + α-merges dead (H1–H26): archive. No plain distill-on-refs; stop α/leary/plmk/m7-as-B/kkk.
-- **All 46 family screens REFUTED — closed classes, do not re-rent any:**
-  RL/REINFORCE on L1 or Λ2 (F1 +0.0023, F8 −0.048, F37 −0.0005); format (F6
-  −0.0045); Genesis-init (F4 −0.055, F7 −0.052, **F38 −0.053**); earner×Λ2
-  LoRA (F9–F16, −0.014…−0.076); raw models (F17–F25); full-FT×Λ2 (F26–F36).
-  F38: Genesis RL teacher-Λ2 → λ2_c −0.0175 vs king −0.0024, gates clear.
-  Every move of Λ2 was **down**. LoRA/Genesis RL cannot raise Λ2.
-- **shm_broadcast / bare-king:** seed king n_so≥16 util=0.72 (p448). Bare king EngineDead with incomplete n_so → **seed-from-chall king478**, not cold p332 (F32 p486: bare n_so=15 failed; chall n_so=22 → PROMPTABLE+n80).
+- **All 47 family screens REFUTED as classes** (do not re-rent): RL L1/Λ2 F1/F8/F37/F39(+0.0027); format F6; Genesis F4/F7/F38; earner×Λ2 F9–F16; raw F17–F25; full-FT×Λ2 F26–F36. Λ2 moves were down except F39 noise. LoRA/Genesis RL cannot raise Λ2.
+- **shm_broadcast / bare-king:** seed king n_so≥16 util=0.72; bare incomplete → seed-from-chall king478 (F32 p486).
 
 ## Serving / VLM
-- King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` + preprocessor + visual safetensors (333–352 keys). **Tok ships `processor_config.json` not `preprocessor_config.json`** — derive from `image_processor` or chall dies at MultiModalBudget (H79 p307).
-- **Tok phantom visual index:** CausalLM can leave 333 `model.visual.*` keys in `model.safetensors.index.json` pointing at language shards with **0** visual tensors — index count≠disk. `merge_lora` must verify keys exist in claimed shards and extract `model-visual-restored.safetensors` (H79/H80 p310: 852 MiB → GPUs 4,5 36 GiB).
-- Weight-identity: sample head/mid/tail shards. first_1MiB alone is false (embeds). `merge_linear.py` must track `max_abs_delta` over **all** keys (H12: first8 Δ=0 but shard08 max‖A−O‖=0.215).
+- King multimodal Qwen3.5-MoE. CausalLM `save_pretrained` → `qwen3_5_moe_text` + n_visual=0 → vLLM TypeError TextConfig. Restore wrapper config + preprocessor + visual (333–352 keys) via `merge_lora`/`finalize_full_ft`/`inplace_restore_visual.py` (F45/F46 p528). Tok: derive `preprocessor_config.json` from `processor_config.json` (H79).
+- **Tok phantom visual index:** index may list 333 `model.visual.*` pointing at language shards with 0 tensors — extract `model-visual-restored.safetensors` (H79/H80 p310).
+- Weight-identity: sample head/mid/tail shards; `max_abs_delta` over **all** keys (H12).
 
 ## Training ops
 - Under `nohup`, scrape `trainer_state.json` (tqdm.write never hits the log). Always venv python; salvage mid-ckpts (best loss ≠ last). **`tf32=True` only** — family sed `tf33`…`tf36` kills TrainingArguments (F33–F35 p474; **F36 p487** `tf36` → TypeError, idle GPUs until fix+relaunch).
@@ -147,4 +142,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - **King repo af11≠af10**; `--chall-repo`=`/v1/models` id; preempt EXP=real dir. Teacher-Λ2 RL needs :8000 (F37 p492). SOFT=TTL−1h; **DEADMAN=TTL−30m must match this rent** — F37 p508 default `06:36Z` (stale) → `aborted_no_n80_budget` at chall-ready; retry still saved n80. Family-clone `sed` breaks `"\\n"` in `python <<'PY'` → use python rewrite (F38 p502).
 - **RL `mean_r=0`**: (1) dead teacher — F40 p507 refuse / **F41 p510 bare-TCACHE ENOENT on 1st score → 140× mean_r=0** (abort on first `teacher score fail`, kill+wipe+recover332); (2) kevin/albedo `</think>\nTHOUGHT:` collapses z→"" (p508; fix leading-close+```bash → mean_r 0.016/0.022/0.005). Offline-decode once before blaming teacher.
 - **Family-clone `retry_*_d203first` may still be a203-first** and treat FP as N80_DONE (exit 0) → watcher restarts attempt1 forever. F41 p523: a203 chall-400 FP loop; fix = new-name script with d203-first + `_is_false_probe_sim` (h143 pattern), kill live retry/$0, re-point watcher.
-- **F43 offline DPO on duel-Λ2 prefs REFUTED** — m=−0.00966 z=−1.31; λ2_c −0.0115 vs king −0.0062; gates clear (r=0.77 base_x=1.006). BT preference labels under Tok-LoRA still collapse Λ2; do not retry offline-DPO cells. Empty `mine-*` with no `/root` work = orphan → rm (F48 p524).
+- **F43 offline DPO REFUTED** m=−0.00966; BT prefs under Tok-LoRA collapse Λ2. Empty idle `mine-*` = orphan → rm (F48 p524).
+- **F39 Tok S\* RL REFUTED** m=+0.00267 z=0.41 — λ2_c>king but margin noise; S\* mix ≠ crown (p528).
+- **unconst HF public storage full** (p528) — merged push BadRequest; local `/tmp/*_full_ft_save` still serves. Free space/Pro before submit uploads.
