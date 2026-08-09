@@ -7,13 +7,14 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~59/80) |
-| 2 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 d203 ~48/80) |
-| 3 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (chall→n80) |
+| 1 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~65/80) |
+| 2 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 d203 ~60/80) |
+| 3 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 d203) |
 | 4 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (merge live) |
 | 5 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (train) |
 | 6 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (train) |
 | 7 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 8 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (bootstrap) |
 | — | H102/F7 | — | Genesis × teacher z_C → m>+0.015 | **refuted** m=−0.05194 |
 | — | H103/F8 | — | Genesis-init × REINFORCE-L1 → m>+0.015 | **refuted** m=−0.04829 |
 | — | H101/F6 | — | ultrashort≤80 format → m>+0.015 | **refuted** m=−0.00453 |
@@ -30,18 +31,17 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** kevin954 @3fb79cfb + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** n80 **d203** ~59/80 engines 200 (nearest screen).
+- **Status:** n80 **d203** ~65/80 engines 200 (nearest screen).
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass412_c203_h32_d203.md`.
 
 ### H100 / F4 — Genesis-init × high-Λ2 — open
 - **Claim:** Genesis @abe89194 + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** n80 **d203** ~48/80 (d203first).
+- **Status:** n80 **d203** ~60/80 (d203first).
 - `experiments/s4-h100-f4-genesis-base/` · `results/pass417_kill_stale_c203.md`.
 
 ### H105 / F10 — TalentPigs × high-Λ2 — open
 - **Claim:** TalentPigs @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
-- **Status:** merge DONE; chall loading → n80.
-- `experiments/s4-h105-f10-talentpigs-base/`.
+- **Status:** n80 **d203** live. `experiments/s4-h105-f10-talentpigs-base/`.
 
 ### H106 / F11 — pandora-box × high-Λ2 — open
 - **Claim:** pandora @5218b138 + 1059 high-Λ2 → m>+0.015.
@@ -57,8 +57,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H109 / F14 — Bittob11040 × high-Λ2 — open
 - **Claim:** Bittob11040 @0c04fe92 + 1059 high-Λ2 → m>+0.015.
-  Rolling-set earner; unused as LoRA train base (`Affine_` underscore).
-- **Status:** rented p420; bootstrap→DL. `experiments/s4-h109-f14-bittob/`.
+- **Status:** bootstrap. `experiments/s4-h109-f14-bittob/`.
+
+### H110 / F15 — everest12 × high-Λ2 — open
+- **Claim:** everest12 @a5ac5311 + 1059 high-Λ2 → m>+0.015 vs Tok.
+  Reign-set member; unused as LoRA train base.
+- **Status:** rented p421; bootstrap→DL. `experiments/s4-h110-f15-everest12/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -67,7 +71,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F15 | everest12 / af-k1 | free slot after screen/tear |
+| F16 | af-k1 | free slot after screen/tear |
 
 ## Refuted (keep)
 
@@ -112,6 +116,5 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - All dead vs Tok (best H81 +0.0088 <0.015). Detail → archive.
 
 ### H75…H1
-- Dead: α/plmk/leary/TP/m7/union/lr/ep≥2/**winner-zA family (−0.004)**/
-  F2/F3/r-cells/α-cells/clip≥0.08/king-self. See archive + LESSONS.
-  **Screens live: F4/F9–F14.** Closed: F1–F3/F6–F8.
+- Dead: α/plmk/TP/m7/union/lr/ep≥2/**winner-zA (−0.004)**/F2/F3/α/clip≥0.08.
+  Screens live: **F4/F9–F15**. Closed: F1–F3/F6–F8. Archive + LESSONS.
