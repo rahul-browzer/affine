@@ -8,11 +8,11 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (chall load p446) |
-| 2 | H113/F18 | high | raw TalentPigs (no LoRA) → m>+0.015 | **open** (bootstrap) |
-| 3 | H114/F19 | high | raw kevin954 (no LoRA) → m>+0.015 | **open** (n80 ~1/80) |
-| 4 | H115/F20 | high | raw pandora (no LoRA) → m>+0.015 | **open** (chall load p446) |
-| 5 | H116/F21 | high | raw diane613 (no LoRA) → m>+0.015 | **open** (bootstrap B200) |
+| 1 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (n80 d203 p447) |
+| 2 | H113/F18 | high | raw TalentPigs (no LoRA) → m>+0.015 | **open** (chall load) |
+| 3 | H114/F19 | high | raw kevin954 (no LoRA) → m>+0.015 | **open** (n80 ~11/80) |
+| 4 | H115/F20 | high | raw pandora (no LoRA) → m>+0.015 | **open** (chall load) |
+| 5 | H116/F21 | high | raw diane613 (no LoRA) → m>+0.015 | **open** (teacher recover447) |
 | 6 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (bootstrap B300) |
 | 7 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (bootstrap B300 p445) |
 | 8 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 ~57/80) |
@@ -37,19 +37,19 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 ## Open
 
 ### H112/F17 — raw genesis (no LoRA)
-- Unmodified genesis @abe89194 vs Tok → m>+0.015. p446: Triton ENOENT hang → king-seed+relaunch. `s4-h112-f17-raw-genesis/`.
+- Unmodified genesis @abe89194 vs Tok → m>+0.015. p447: chall promptable → n80 d203 @02:37Z. `s4-h112-f17-raw-genesis/`.
 
 ### H113/F18 — raw TalentPigs (no LoRA)
-- Unmodified TalentPigs @dbfbb3e2 vs Tok → m>+0.015 (≠F10 LoRA). Bootstrap. `s4-h113-f18-raw-talentpigs/`.
+- Unmodified TalentPigs @dbfbb3e2 vs Tok → m>+0.015 (≠F10 LoRA). Chall mid-load. `s4-h113-f18-raw-talentpigs/`.
 
 ### H114/F19 — raw kevin954 (no LoRA)
-- Unmodified kevin954 @3fb79cfb vs Tok → m>+0.015 (≠F9 LoRA). n80 ~1/80. `s4-h114-f19-raw-kevin/`.
+- Unmodified kevin954 @3fb79cfb vs Tok → m>+0.015 (≠F9 LoRA). n80 ~11/80. `s4-h114-f19-raw-kevin/`.
 
 ### H115/F20 — raw pandora (no LoRA)
-- Unmodified pandora @5218b138 vs Tok → m>+0.015 (≠F11 LoRA). p446: FALSE_PROBE ConnectError → relaunch_072. `s4-h115-f20-raw-pandora/`.
+- Unmodified pandora @5218b138 vs Tok → m>+0.015 (≠F11 LoRA). Chall shard load after p446 relaunch. `s4-h115-f20-raw-pandora/`.
 
 ### H116/F21 — raw diane613 (no LoRA)
-- Unmodified diane613 @ad0f3f11 vs Tok → m>+0.015 (≠F13 LoRA). Bootstrap on B200. `s4-h116-f21-raw-diane/`.
+- Unmodified diane613 @ad0f3f11 vs Tok → m>+0.015 (≠F13 LoRA). p447: teacher Triton ENOENT → recover447. `s4-h116-f21-raw-diane/`.
 
 ### H117/F22 — raw everest12 (no LoRA)
 - Unmodified everest12 @a5ac5311 vs Tok → m>+0.015 (≠F15 LoRA). Bootstrap on B300. `s4-h117-f22-raw-everest12/`.
