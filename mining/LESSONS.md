@@ -60,7 +60,7 @@ Format: `- <finding> — <the number or error that proves it>`
 ## Training ops
 - Under `nohup`, scrape `trainer_state.json` (tqdm.write never hits the log). Always venv python; salvage mid-ckpts (best loss ≠ last).
 - LoRA r16/α32 ≈1h45m/110 steps on 2 GPUs. HF private uploads hard-fail — keep merges public. Never kill live HF DL for slower peer-rsync (p370: HF≪rsync).
-- GPU `merge_lora --device-map auto` save can hang mid-shard on gocryptfs (`WCHAN=request_wait_answer`, wchar flat, GPU util 0%) — kill merge+post_train by PID, `--device-map cpu`, resume post_train `SKIP_MERGE=1` (H95 p352; H100/F4 p376 tmp=49.7 GiB stuck).
+- Merge save on gocryptfs `/root`: GPU *or* CPU can hang (`write_bytes=4096`, WCHAN=request_wait_answer, tmp=49.7 GiB). On eager-comet F14 also `SafetensorError EFAULT` on save — fix: contiguous-clone state_dict + `max_shard_size=5GB` → `/tmp` overlay, symlink `/root/h*/merged`, clone visual restore too (H109 p429c); plain CPU→/root OK on zesty-hawk F13.
 
 ## Shell / pod ops
 - Never `lium exec -e HF_TOKEN=...` (prints secret). `/root/mine.env` +

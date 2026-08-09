@@ -8,11 +8,11 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f10-1 | eager-wolf-42 | 8×H200 | $28.00 | 2026-08-09T11:54Z | H105 F10 TalentPigs | **n80 d203 ~15/80** |
-| mine-f11-1 | swift-eagle-51 | 8×H200 | $28.00 | 2026-08-09T12:02Z | H106 F11 pandora | **n80 d203** (post-FP×2) |
-| mine-f12-1 | lunar-wolf-a5 | 8×H200 | $28.00 | 2026-08-09T12:10Z | H107 F12 golden | **n80 d203 ~5/80** |
-| mine-f13-1 | zesty-hawk-1f | 8×H200 | $31.92 | 2026-08-09T12:17Z | H108 F13 diane613 | CPU merge recover393 |
-| mine-f14-1 | eager-comet-be | 8×H200 | $28.00 | 2026-08-09T12:34Z | H109 F14 Bittob | CPU merge recover393 |
+| mine-f10-1 | eager-wolf-42 | 8×H200 | $28.00 | 2026-08-09T11:54Z | H105 F10 TalentPigs | **n80 d203 ~36/80** |
+| mine-f11-1 | swift-eagle-51 | 8×H200 | $28.00 | 2026-08-09T12:02Z | H106 F11 pandora | **n80 d203** (post-FP×3) |
+| mine-f12-1 | lunar-wolf-a5 | 8×H200 | $28.00 | 2026-08-09T12:10Z | H107 F12 golden | **n80 d203 ~29/80** |
+| mine-f13-1 | zesty-hawk-1f | 8×H200 | $31.92 | 2026-08-09T12:17Z | H108 F13 diane613 | **n80 d203** |
+| mine-f14-1 | eager-comet-be | 8×H200 | $28.00 | 2026-08-09T12:34Z | H109 F14 Bittob | chall load post-429c |
 | mine-f15-1 | calm-wolf-f7 | 8×H200 | $31.92 | 2026-08-09T12:37Z | H110 F15 everest12 | train early |
 
 SSH: f13/f15:20099 f10–12:40300 f14:40309 · kh `/tmp/mine-*-1.known_hosts`.
@@ -32,6 +32,6 @@ SSH: f13/f15:20099 f10–12:40300 f14:40309 · kh `/tmp/mine-*-1.known_hosts`.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T01:19Z | 6 live | F14 contig+/tmp merge DONE+chall; burn ~$175.8/h |
 | 2026-08-09T01:07Z | 6 live | F14 GPU→CPU merge recover; F11 FP quarantine+n80; burn ~$175.8/h |
 | 2026-08-09T01:02Z | 6 live | F13 CPU merge recover; F12 d203 re-point; burn ~$175.8/h |
-| 2026-08-09T00:59Z | 6 live | F11 FALSE_PROBE quarantine+sidecar; F10 n80 1/80; burn ~$175.8/h |

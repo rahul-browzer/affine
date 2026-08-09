@@ -44,11 +44,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H108 / F13 — diane613 × high-Λ2 — open
 - **Claim:** diane613 @ad0f3f11 + 1059 high-Λ2 → m>+0.015.
-- **Status:** CPU merge recover393 (shard write). `experiments/s4-h108-f13-diane613/`.
+- **Status:** CPU merge DONE → n80 d203 live. `experiments/s4-h108-f13-diane613/`.
 
 ### H109 / F14 — Bittob11040 × high-Λ2 — open
 - **Claim:** Bittob11040 @0c04fe92 + 1059 high-Λ2 → m>+0.015.
-- **Status:** train DONE; p428 GPU merge hang → CPU recover393 live.
+- **Status:** p429c merge DONE (contig+/tmp+visual); chall loading → n80.
   `experiments/s4-h109-f14-bittob/`.
 
 ### H110 / F15 — everest12 × high-Λ2 — open
