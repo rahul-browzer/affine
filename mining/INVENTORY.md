@@ -24,6 +24,6 @@ mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0.0097.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T20:02Z | 1 | p1039 ok; king S=0.04456 idle; engines 200 + :8002=/tmp/h64_merged; TTL~1.5h no renew (no re-add); burn ~$32/h |
 | 2026-08-09T20:01Z | 1 | p1038 ok; king S=0.04456 idle; engines 200 + :8002=/tmp/h64_merged; TTL~1.5h no renew (no re-add); burn ~$32/h |
 | 2026-08-09T20:00Z | 1 | p1037 ok; king S=0.04456 idle; engines 200 + :8002=/tmp/h64_merged; TTL~1.6h no renew (no re-add); burn ~$32/h |
-| 2026-08-09T19:59Z | 1 | p1036 ok; king S=0.04456 idle; engines 200 + :8002=/tmp/h64_merged; TTL~1.6h no renew (no re-add); burn ~$32/h |
