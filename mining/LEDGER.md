@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $179,135.81 | 2026-08-09T08:38Z |
-| cumulative mining spend | ~$18,560 (7 pods ~$186.7/h accruing) | 2026-08-09T08:38Z |
-| **available for mining** | **~$169,136** (balance − $10,000 floor) | 2026-08-09T08:38Z |
+| Lium balance | $179,024.90 | 2026-08-09T08:57Z |
+| cumulative mining spend | ~$18,670 (7 pods ~$186.7/h accruing) | 2026-08-09T08:57Z |
+| **available for mining** | **~$169,025** (balance − $10,000 floor) | 2026-08-09T08:57Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (7 pods) | ~$186.7/h | 2026-08-09T08:38Z |
+| miner burn (7 pods) | ~$186.7/h | 2026-08-09T08:57Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,13 +21,13 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-09T08:57Z | 179024.90 | no rent/rm; burn ~$186.7/h accruing (F37 n80 + F40 retrain) |
 | 2026-08-09T08:38Z | 179135.81 | F40 recover (no rent/rm); burn ~$186.7/h accruing |
-| 2026-08-09T08:34Z | 179161.05 | rm COUNT=3 f43 + rent mine-f43-1 8×H200 @$31.92/h TTL12h; burn ~$186.7/h |
+| 2026-08-09T08:34Z | 179161.05 | rm COUNT=3 f43 + rent mine-f43-1 8×H200 @$31.92/h TTL12h |
 | 2026-08-09T08:26Z | 179186.37 | rent mine-f42-1 8×H200 @$28.00/h TTL12h; burn ~$154.8/h |
-| 2026-08-09T08:21Z | 179208.98 | rm mine-f36-1 (REFUTE m=−0.06667) + rent mine-f41-1 @$28.00/h TTL12h; burn ~$126.8/h |
-| 2026-08-09T08:12Z | 179254.24 | rent mine-f40-1 8×H200 @$28.00/h TTL12h; burn ~$132.6/h |
-| 2026-08-09T08:08Z | 179274.58 | rm mine-f32-1 (REFUTE m=−0.02626) + rent mine-f39-1 @$24.40/h TTL12h; burn ~$104.6/h |
-| 2026-08-09T07:53Z | 179338.63 | rent mine-f38-1 8×H200 @$23.20/h TTL12h; burn ~$112.1/h |
-| 2026-08-09T07:48Z | 179358.19 | rm mine-f34-1 (REFUTE m=−0.06281); burn ~$88.9/h; no rent |
-| 2026-08-09T07:44Z | 179382.15 | rm mine-f22-1 (REFUTE m=−0.06273); burn ~$120.9/h; no rent |
-| 2026-08-09T07:40Z | 179385.81 | rm mine-f29-1 (REFUTE m=−0.09256); burn ~$184.5/h; no rent |
+| 2026-08-09T08:21Z | 179208.98 | rm mine-f36-1 + rent mine-f41-1 @$28.00/h TTL12h |
+| 2026-08-09T08:12Z | 179254.24 | rent mine-f40-1 8×H200 @$28.00/h TTL12h |
+| 2026-08-09T08:08Z | 179274.58 | rm mine-f32-1 + rent mine-f39-1 @$24.40/h TTL12h |
+| 2026-08-09T07:53Z | 179338.63 | rent mine-f38-1 8×H200 @$23.20/h TTL12h |
+| 2026-08-09T07:48Z | 179358.19 | rm mine-f34-1 (REFUTE m=−0.06281); burn ~$88.9/h |
+| 2026-08-09T07:44Z | 179382.15 | rm mine-f22-1 (REFUTE m=−0.06273); burn ~$120.9/h |

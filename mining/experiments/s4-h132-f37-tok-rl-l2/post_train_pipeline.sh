@@ -32,7 +32,9 @@ LOG=/root/logs/h132_pipeline.nohup
 # Pass312 rent ~13:19Z ttl12h → remove≈01:19Z+1d; soft=TTL−1h, deadman=TTL−30m
 # Pass354 rent ~19:06Z ttl12h → remove≈07:06Z+1d; soft=TTL−1h, deadman=TTL−30m
 SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-09T18:06:00Z}
-DEADMAN_UTC=${DEADMAN_UTC:-2026-08-09T06:36:00Z}
+# p508: prior default 06:36Z was already past at chall-ready → aborted_no_n80_budget.
+# Pod remove_at≈19:06Z → deadman=TTL−30m = 18:36Z.
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-09T18:36:00Z}
 
 log() { echo "[h132-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 

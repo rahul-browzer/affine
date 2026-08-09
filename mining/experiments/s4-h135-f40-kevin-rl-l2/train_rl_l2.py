@@ -37,7 +37,22 @@ def _msg_chars(row: dict) -> int:
 
 
 def _normalize_z(z_text: str) -> str:
-    """Sample started inside <think>; strip close-tag / bash for force_text z."""
+    """Extract latent thought for force_text.
+
+    Tok-style: body inside <think>…</think>.
+    Kevin/albedo-style: model emits </think> immediately then THOUGHT: … before
+    ```bash — leading-close must not collapse to empty (p508).
+    """
+    s = z_text.strip()
+    if s.startswith(THINK_CLOSE):
+        rest = s[len(THINK_CLOSE) :].lstrip("\n")
+        i_bash = rest.find("```bash")
+        if i_bash >= 0:
+            rest = rest[:i_bash]
+        rest = rest.strip()
+        if rest.startswith("THOUGHT:"):
+            rest = rest[len("THOUGHT:") :].strip()
+        return rest
     if THINK_CLOSE in z_text:
         latent, _, _rest = z_text.partition(THINK_CLOSE)
         return latent.strip()
@@ -117,13 +132,15 @@ def _sample_thought(
         )
     new_tokens = out[0, enc["input_ids"].shape[1] :]
     text = tok.decode(new_tokens, skip_special_tokens=True)
+    # Prefer ```bash. Only cut at </think> when it closes a non-empty latent;
+    # kevin emits </think> at offset 0 then THOUGHT: — keep that body (p508).
     cut = len(text)
-    for marker in ("```bash", THINK_CLOSE):
-        i = text.find(marker)
-        if i >= 0:
-            cut = min(
-                cut, i + (len(THINK_CLOSE) if marker == THINK_CLOSE else 0)
-            )
+    i_bash = text.find("```bash")
+    i_close = text.find(THINK_CLOSE)
+    if i_bash >= 0:
+        cut = i_bash
+    elif i_close > 0:
+        cut = i_close + len(THINK_CLOSE)
     text = text[:cut]
     forced = tok(prompt + text, add_special_tokens=False, return_tensors="pt")
     ids = forced["input_ids"].to(device)
