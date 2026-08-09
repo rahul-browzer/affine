@@ -35,9 +35,10 @@ Non-mine pods — **do not touch** (incl. `minimax-h3-puppy` / gentle-fox-fd).
 No submit until simulated margin > 0.04 **vs a king with S<0.035** (or live king if recipe clears).
 HF Hub push blocked until storage freed/Pro.
 Do **not** rent a second `mine-*` without a new dated operator directive.
+`lium schedules` has **no re-add** — leave Removal at intact; never `schedules rm` to "renew".
 
 ## Next action
 
 1. KING-WATCH idle: record live king S; confirm `mine-f45-1` engines 8000/8001/8002=200 and `:8002` id=`/tmp/h64_merged`.
-2. Renew TTL only if <6h remain (remove_at 21:35Z). Else stop.
+2. Renew TTL only if <6h remain **and** a re-add path exists (today: none — leave 21:35Z). Else stop.
 3. If king S < 0.035 → start H64 n80 re-screen on this pod (do not rent a second).
