@@ -8,20 +8,21 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f22-1 | calm-hawk-98 | 8×B300 | $63.60 | 2026-08-09T14:27Z | H117 F22 raw-everest12 | chall recover264 CUDA-graph |
-| mine-f26-1 | gentle-fox-2c | 8×H200 | $23.20 | 2026-08-09T16:12Z | H121 F26 full-FT | n80 e203 **20/80** |
-| mine-f27-1 | eager-orbit-15 | 8×H200 | $28.00 | 2026-08-09T16:16Z | H122 F27 gen-FT | n80 **26/80** |
-| mine-f28-1 | eager-eagle-b1 | 8×H200 | $28.00 | 2026-08-09T16:20Z | H123 F28 trefs-FT | n80 **32/80** |
-| mine-f29-1 | gentle-shark-9c | 8×H200 | $28.00 | 2026-08-09T16:26Z | H124 F29 gold-FT | n80 d203 **12/80** |
-| mine-f30-1 | lunar-wolf-aa | 8×H200 | $28.00 | 2026-08-09T16:31Z | H125 F30 kevin-FT | n80 d203 **27/80** |
-| mine-f31-1 | golden-hawk-bb | 8×H200 | $31.92 | 2026-08-09T16:39Z | H126 F31 bittob-FT | n80 d203 **15/80** |
-| mine-f32-1 | noble-wolf-e8 | 8×H200 | $31.92 | 2026-08-09T16:49Z | H127 F32 talent-FT | serve_three after finalize |
-| mine-f33-1 | golden-matrix-f1 | 8×H200 | $24.40 | 2026-08-09T17:07Z | H128 F33 pandora-FT | train ck50 |
-| mine-f34-1 | brave-eagle-b1 | 8×H200 | $31.92 | 2026-08-09T17:10Z | H129 F34 diane-FT | train ck50 |
-| mine-f35-1 | zesty-matrix-04 | 8×B200 | $40.00 | 2026-08-09T17:19Z | H130 F35 everest-FT | train ck60 |
+| mine-f22-1 | calm-hawk-98 | 8×B300 | $63.60 | 2026-08-09T14:27Z | H117 F22 raw-everest12 | n80 d203 **5/80** |
+| mine-f26-1 | gentle-fox-2c | 8×H200 | $23.20 | 2026-08-09T16:12Z | H121 F26 full-FT | n80 e203 |
+| mine-f27-1 | eager-orbit-15 | 8×H200 | $28.00 | 2026-08-09T16:16Z | H122 F27 gen-FT | n80 e203 |
+| mine-f28-1 | eager-eagle-b1 | 8×H200 | $28.00 | 2026-08-09T16:20Z | H123 F28 trefs-FT | n80 e203 |
+| mine-f29-1 | gentle-shark-9c | 8×H200 | $28.00 | 2026-08-09T16:26Z | H124 F29 gold-FT | n80 d203 |
+| mine-f30-1 | lunar-wolf-aa | 8×H200 | $28.00 | 2026-08-09T16:31Z | H125 F30 kevin-FT | n80 d203 |
+| mine-f31-1 | golden-hawk-bb | 8×H200 | $31.92 | 2026-08-09T16:39Z | H126 F31 bittob-FT | n80 d203 |
+| mine-f32-1 | noble-wolf-e8 | 8×H200 | $31.92 | 2026-08-09T16:49Z | H127 F32 talent-FT | engines→n80 |
+| mine-f33-1 | golden-matrix-f1 | 8×H200 | $24.40 | 2026-08-09T17:07Z | H128 F33 pandora-FT | train |
+| mine-f34-1 | brave-eagle-b1 | 8×H200 | $31.92 | 2026-08-09T17:10Z | H129 F34 diane-FT | train |
+| mine-f35-1 | zesty-matrix-04 | 8×B200 | $40.00 | 2026-08-09T17:19Z | H130 F35 everest-FT | train |
+| mine-f36-1 | zesty-orbit-ff | 8×H200 | $33.81 | 2026-08-09T18:25Z | H131 F36 af-k1-FT | bootstrap/pip |
 
-SSH: f22:40300 f26–f30:40300 (f27:40299) f31/f32/f34:20099 f33:20127 f35:20294 · kh `/tmp/mine-*-1.known_hosts`.
-**Free: 9**. Burn ~$359.0/h. Non-mine — **never rm**.
+SSH: f22/f26–f30/f36:40300 (f27:40299) f31/f32/f34:20099 f33:20127 f35:20294 · kh `/tmp/mine-*-1.known_hosts`.
+**Free: 8**. Burn ~$392.8/h. Non-mine — **never rm**.
 
 ## Dead (recent)
 mine-f35-1 lunar-lion-a0 COUNT=4 tear (p471); mine-f23-1 REFUTE m=−0.08436;
@@ -31,6 +32,6 @@ mine-f25-1 −0.06343; mine-f17-1 −0.05489; mine-f18-1 −0.03010; mine-f16-1 
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T06:26Z | 12 live | rented mine-f36-1 H200 COUNT=8; H131 upload+bootstrap; no rm |
 | 2026-08-09T06:22Z | 11 live | F32 post_train relaunch+finalize+serve; F33–F35 waiter restart; no rent/rm |
 | 2026-08-09T06:16Z | 11 live | F22 chall recover264; F29 n80 start; F31 watch EXP fix; no rent/rm |
-| 2026-08-09T06:12Z | 11 live | F31 recover481 freeze+n80 d203; F26/27/28/30 n80; no rent/rm |
