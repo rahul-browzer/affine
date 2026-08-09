@@ -14,7 +14,7 @@ Fleet = **1** warm pod. No submit. Trigger: king **S < 0.035** → re-screen H64
 | trigger | **idle** (need S < 0.035; live 0.04456) |
 | Lium / spend | **~$176,800** · cum ~$20,945 · **avail ~$166.8k** |
 | miner burn | **~$31.92/h** (1) ≪$833 · free **19** |
-| watch | `mine-f45-1` engines **200/200/200** · TTL **21:35Z (~0.4h)** |
+| watch | `mine-f45-1` engines **200/200/200** · TTL **21:35Z (~0.35h)** |
 | HF | unconst **public storage full** — H64 merged still **downloadable** |
 | warm-stack | Triton tar p539 sha e55237b1…; **H64 chall LIVE** `/tmp/h64_merged` |
 
@@ -39,10 +39,10 @@ Do **not** rent a second `mine-*` without a new dated operator directive.
 
 ## Next action
 
-1. If `mine-f45-1` **gone** (TTL **21:35Z**): rent **one** `mine-watch-1` 8×H200 ≤$32/h `--ttl 6h` by UUID (p1107 catalog verified):
+1. If `mine-f45-1` **gone** (TTL **21:35Z**): rent **one** `mine-watch-1` 8×H200 ≤$32/h `--ttl 6h` by UUID (p1108 catalog verified):
    - **1st** `37b3ea5c-d447-41ab-aac2-730437842243` lunar-eagle-9e **$28.00** (dl 1025) — prefer for H64 66G DL
-   - **2nd** `4e66b752-a3f6-45c6-9c39-0d274c74bed8` lunar-shark-33 **$23.20** (dl 299)
-   - alts: `646dcae7-d20f-47c2-828e-8dbaa0fc216d` noble-wolf-32 $24.40 / `ea473ae7-0110-4a64-8a02-a47c03812548` golden-raven-d3 $28
+   - **2nd** `ea473ae7-0110-4a64-8a02-a47c03812548` golden-raven-d3 **$28.00** (dl 553)
+   - alts: `646dcae7-d20f-47c2-828e-8dbaa0fc216d` noble-wolf-32 $24.40 (dl 340) / `4e66b752-a3f6-45c6-9c39-0d274c74bed8` lunar-shark-33 $23.20 (dl 299)
    - verify COUNT=8 post-rent. Restore `experiments/warm-stack/` (tar sha e55237b1…; `serve_commands.md`); re-DL H64 → `/tmp/h64_merged`.
 2. If pod still up: KING-WATCH idle — record king S; confirm engines 8000/8001/8002=200 + `:8002`=/tmp/h64_merged; **do not** rent a second pod.
 3. If king S < 0.035 → H64 n80 re-screen on the single watch pod (never a second).
