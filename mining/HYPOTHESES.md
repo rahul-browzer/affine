@@ -8,11 +8,12 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (bootstrap) |
-| 2 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (teacher serve) |
-| 3 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL train) |
-| 4 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
-| 5 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL step≥140) |
+| 1 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 2 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (DL) |
+| 3 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (teacher serve) |
+| 4 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL train) |
+| 5 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
+| 6 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL ~155/200) |
 | — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
 | — | H129/F34 | — | diane full-FT → m>+0.015 | **refuted** m=−0.06281 |
@@ -50,9 +51,14 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Open
 
+### H137/F42 — Tok Best-of-N CE on teacher Λ2
+- Tok-init LoRA; sample G=4; CE on argmax teacher-Λ2 z → m>+0.015.
+- Orthogonal to F37 REINFORCE (same reward, winner-take-all CE).
+- mine-f42-1 bootstrap; soft=19:25Z. `s4-h137-f42-tok-bon-l2/`.
+
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
-- TalentPigs-init LoRA; reward = teacher Λ2 → m>+0.015. Isolates reign-3 base vs F10/F18/F32 CE fails.
-- mine-f41-1 bootstrap; soft=19:19Z. `s4-h136-f41-talentpigs-rl-l2/`.
+- TalentPigs-init LoRA; reward = teacher Λ2 → m>+0.015.
+- mine-f41-1 base DL; soft=19:19Z. `s4-h136-f41-talentpigs-rl-l2/`.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
 - kevin954-init LoRA; reward = teacher Λ2 → m>+0.015.
@@ -67,7 +73,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - mine-f38-1 RL train. `s4-h133-f38-genesis-rl-l2/`.
 
 ### H132/F37 — Tok REINFORCE on teacher Λ2
-- Tok-init LoRA; teacher-Λ2 reward → m>+0.015. step≥140/200. `s4-h132-f37-tok-rl-l2/`.
+- Tok-init LoRA; teacher-Λ2 reward → m>+0.015. ~155/200. `s4-h132-f37-tok-rl-l2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -76,7 +82,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F41 | TalentPigs RL teacher-Λ2 | **live** bootstrap |
+| F42 | Tok BoN-CE teacher-Λ2 | **live** bootstrap |
+| F41 | TalentPigs RL teacher-Λ2 | **live** DL |
 | F40 | kevin RL teacher-Λ2 | **live** teacher serve |
 | F39 | Tok RL full S* mix | **live** train |
 | F38 | Genesis RL teacher-Λ2 | **live** train |
@@ -94,4 +101,4 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - **H111/F16** af-k1×Λ2 −0.076 · **H119/F24** raw af-k1 −0.087 · **H116/F21** diane −0.072
 - **H115/F20** pandora −0.030 · **H114/F19** kevin −0.006 · **H108–H110** · **H105–H107**
 - **H104/F9** · **H100/F4** · **H102/F7** · **H103/F8** · **H101/F6** · **H98/F1** · **H97/F3**
-- Free slots → **orthogonal** (not past-king FT/raw).
+- Free slots → **orthogonal** (not past-king FT/raw; not another RL-Λ2 base cell).
