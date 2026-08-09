@@ -42,4 +42,4 @@ Do **not** rent a second `mine-*` without a new dated operator directive.
 1. KING-WATCH idle: record live king S; confirm `mine-f45-1` engines 8000/8001/8002=200 and `:8002` id=`/tmp/h64_merged`.
 2. Renew TTL only if <6h remain **and** a re-add path exists (today: none — leave 21:35Z). Else stop.
 3. If king S < 0.035 → start H64 n80 re-screen on this pod (do not rent a second).
-4. If pod gone after 21:35Z → restore from `experiments/warm-stack/` (tar sha e55237b1…) on a fresh `mine-watch-*` ≤$32/h.
+4. If pod gone after 21:35Z → restore from `experiments/warm-stack/` (tar sha e55237b1…; `serve_commands.md`) on a fresh `mine-watch-*` ≤$32/h — re-DL H64 to `/tmp/h64_merged`.
