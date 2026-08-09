@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-09T16:46Z | 177250.47 | KING-WATCH idle p826; no rent/rm; burn ~$32/h |
 | 2026-08-09T16:46Z | 177250.47 | KING-WATCH idle p825; no rent/rm; burn ~$32/h |
 | 2026-08-09T16:45Z | 177258.97 | KING-WATCH idle p824; no rent/rm; burn ~$32/h |
 | 2026-08-09T16:44Z | 177258.97 | KING-WATCH idle p823; no rent/rm; burn ~$32/h |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-09T16:40Z | 177258.97 | KING-WATCH idle p819; no rent/rm; burn ~$32/h |
 | 2026-08-09T16:39Z | 177267.48 | KING-WATCH idle p818; no rent/rm; burn ~$32/h |
 | 2026-08-09T16:38Z | 177267.48 | KING-WATCH idle p817; no rent/rm; burn ~$32/h |
-| 2026-08-09T16:37Z | 177267.48 | KING-WATCH idle p816; no rent/rm; burn ~$32/h |
