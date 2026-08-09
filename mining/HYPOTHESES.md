@@ -8,7 +8,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (n80 d203 p447) |
+| 1 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (king449 recover → n80) |
 | 2 | H113/F18 | high | raw TalentPigs (no LoRA) → m>+0.015 | **open** (chall load) |
 | 3 | H114/F19 | high | raw kevin954 (no LoRA) → m>+0.015 | **open** (n80 ~11/80) |
 | 4 | H115/F20 | high | raw pandora (no LoRA) → m>+0.015 | **open** (chall load) |
@@ -37,7 +37,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 ## Open
 
 ### H112/F17 — raw genesis (no LoRA)
-- Unmodified genesis @abe89194 vs Tok → m>+0.015. p447: chall promptable → n80 d203 @02:37Z. `s4-h112-f17-raw-genesis/`.
+- Unmodified genesis @abe89194 vs Tok → m>+0.015. p449: king mid-n80 EngineDead@14/80 → king449 seed-from-chall n_so=23 util=0.72; retry armed. `s4-h112-f17-raw-genesis/`.
 
 ### H113/F18 — raw TalentPigs (no LoRA)
 - Unmodified TalentPigs @dbfbb3e2 vs Tok → m>+0.015 (≠F10 LoRA). Chall mid-load. `s4-h113-f18-raw-talentpigs/`.
@@ -49,7 +49,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - Unmodified pandora @5218b138 vs Tok → m>+0.015 (≠F11 LoRA). Chall shard load after p446 relaunch. `s4-h115-f20-raw-pandora/`.
 
 ### H116/F21 — raw diane613 (no LoRA)
-- Unmodified diane613 @ad0f3f11 vs Tok → m>+0.015 (≠F13 LoRA). p448: chall Triton ENOENT→recover448 king-seed; teacher p447 loading. `s4-h116-f21-raw-diane/`.
+- Unmodified diane613 @ad0f3f11 vs Tok → m>+0.015 (≠F13 LoRA). p449: :8000/:8001/:8002=200 but king+chall completions timeout; retry wait poll~104. `s4-h116-f21-raw-diane/`.
 
 ### H117/F22 — raw everest12 (no LoRA)
 - Unmodified everest12 @a5ac5311 vs Tok → m>+0.015 (≠F15 LoRA). Bootstrap on B300. `s4-h117-f22-raw-everest12/`.
