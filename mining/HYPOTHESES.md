@@ -7,11 +7,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 d203 ~15/80) |
-| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (n80 d203 post-FP×2) |
-| 3 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (n80 d203 ~5/80) |
-| 4 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (CPU merge) |
-| 5 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (CPU merge recover) |
+| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 d203 ~42/80) |
+| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (FP loop; hash rotate) |
+| 3 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (n80 d203 ~33/80) |
+| 4 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~12/80) |
+| 5 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (recover264 p430) |
 | 6 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (train) |
 | — | H104/F9 | — | kevin954 × high-Λ2 → m>+0.015 | **refuted** m=−0.01417 |
 | — | H100/F4 | — | Genesis-init × high-Λ2 → m>+0.015 | **refuted** m=−0.05488 |
@@ -31,29 +31,29 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H105 / F10 — TalentPigs × high-Λ2 — open
 - **Claim:** TalentPigs @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 d203 ~15/80 vs Tok. `experiments/s4-h105-f10-talentpigs-base/`.
+- **Status:** n80 d203 ~42/80 vs Tok. `experiments/s4-h105-f10-talentpigs-base/`.
 
 ### H106 / F11 — pandora-box × high-Λ2 — open
 - **Claim:** pandora @5218b138 + 1059 high-Λ2 → m>+0.015.
-- **Status:** FALSE_PROBE×2 (chall 400); quarantined; n80 d203 @01:07Z.
+- **Status:** short probe OK; inject 400 (30977+1792) on d203 — rotating e/f/g/b203.
   `experiments/s4-h106-f11-pandora-base/`.
 
 ### H107 / F12 — golden-crown × high-Λ2 — open
 - **Claim:** golden-crown @ee37f4f0 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 d203 ~5/80. `experiments/s4-h107-f12-golden-crown/`.
+- **Status:** n80 d203 ~33/80. `experiments/s4-h107-f12-golden-crown/`.
 
 ### H108 / F13 — diane613 × high-Λ2 — open
 - **Claim:** diane613 @ad0f3f11 + 1059 high-Λ2 → m>+0.015.
-- **Status:** CPU merge DONE → n80 d203 live. `experiments/s4-h108-f13-diane613/`.
+- **Status:** n80 d203 ~12/80. `experiments/s4-h108-f13-diane613/`.
 
 ### H109 / F14 — Bittob11040 × high-Λ2 — open
 - **Claim:** Bittob11040 @0c04fe92 + 1059 high-Λ2 → m>+0.015.
-- **Status:** p429c merge DONE (contig+/tmp+visual); chall loading → n80.
+- **Status:** merge HF@556796b; bare chall ENOENT → recover264 + p430 d203 sidecar.
   `experiments/s4-h109-f14-bittob/`.
 
 ### H110 / F15 — everest12 × high-Λ2 — open
 - **Claim:** everest12 @a5ac5311 + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** train early; teacher.done. `experiments/s4-h110-f15-everest12/`.
+- **Status:** train live (GPU7). `experiments/s4-h110-f15-everest12/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.

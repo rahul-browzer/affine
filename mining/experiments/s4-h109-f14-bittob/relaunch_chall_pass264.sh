@@ -484,11 +484,12 @@ nohup bash /root/mining_src/s4-h2-merge/watch_form_decision.sh h109 \
 echo $! >/root/logs/h109_form_decision.pid
 log "rearmed form pid=$(cat /root/logs/h109_form_decision.pid)"
 
+# p430: rearm d203first (bare retry_h109_n80.sh = a203; LESSON recover264 a203 trap)
 nohup bash /root/mining_src/s4-h2-merge/watch_n80_retry.sh h109 \
-  /root/mining_src/s4-h109-f14-bittob/retry_h109_n80.sh \
+  /root/mining_src/s4-h109-f14-bittob/retry_h109_n80_d203first.sh \
   >/root/logs/h109_watch_retry.launch.nohup 2>&1 &
 echo $! >/root/logs/h109_watch_retry.pid
-log "rearmed watcher pid=$(cat /root/logs/h109_watch_retry.pid)"
+log "rearmed watcher pid=$(cat /root/logs/h109_watch_retry.pid) → d203first"
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h109_chall_serve.done
 echo "TCACHE=$TCACHE mode=$(stat -c %a $TCACHE) probe=200 attempts_ok post_diverse_freeze=1 king_seed=1" \
   > /root/logs/h109_chall_freeze_pass264.done
