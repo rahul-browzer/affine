@@ -15,7 +15,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 5 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (n80 @38/80) |
 | 6 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN train) |
 | 7 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
-| 8 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 live) |
+| 8 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (n80 b203 p521) |
 | 9 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL ~180/200) |
 | 10 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (n80 @19/80) |
 | — | H132/F37 | — | Tok RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.00047 |
@@ -82,7 +82,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - RL train mean_r≠0. mine-f41-1.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
-- n80 live post recover264 (started 10:04Z). mine-f40-1.
+- n80 b203 live post salvage (p521). mine-f40-1.
 
 ### H134/F39 — Tok REINFORCE on full S* mix
 - RL ~180/200. mine-f39-1.
