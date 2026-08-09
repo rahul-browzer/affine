@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 1876.798422574997,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h117/chall",
+  "block_hash": "f203000000000000000000000000000000000000000000000000000000000006",
+  "hotkey": "local-h117",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.06273386519832963,
+    "se": 0.00887623062090053,
+    "z": -7.067624521901508,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.013391155938318362,
+      "gate_pass_rate": 0.8412698412698413,
+      "bank_frac": 0.3927083333333333,
+      "calib_ratio": 0.7401536370095839,
+      "baseline_abs": 0.13937999326538006,
+      "n_turns": 80,
+      "n_pairs": 315,
+      "mean_lambda2": -0.014893860479631697,
+      "mean_mix": 0.013391155938318362
+    },
+    "challenger": {
+      "valid": true,
+      "S": -0.05188927967048392,
+      "gate_pass_rate": 0.6246056782334385,
+      "bank_frac": 0.4041666666666667,
+      "calib_ratio": 1.4486803255070568,
+      "baseline_abs": 0.131023075047438,
+      "n_turns": 80,
+      "n_pairs": 317,
+      "mean_lambda2": -0.017050569311525383,
+      "mean_mix": -0.05188927967048392
+    },
+    "slice": {
+      "seed": 14896290451141983974,
+      "n": 80,
+      "digest": "758506ecd397d4849918358c2bbe5e9d5a890b3c17dfced131c252d23b6e563b",
+      "block_hash": "f203000000000000000000000000000000000000000000000000000000000006",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 1.4486803255070568,
+    "chall_baseline_abs": 0.131023075047438,
+    "king_baseline_abs": 0.13937999326538006,
+    "base_x": 0.9400421967159198
+  }
+}
