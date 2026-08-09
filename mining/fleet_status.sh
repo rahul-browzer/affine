@@ -8,8 +8,8 @@ PODS=(
   "f41|152.236.142.234|40300|/tmp/mine-f41.kh|h136"
   "f42|152.236.142.236|40300|/tmp/mine-f42.kh|h137"
   "f43|38.255.28.22|20099|/tmp/mine-f43.kh|h138"
-  "f44|152.236.142.237|40300|/tmp/mine-f44-1.known_hosts|h139"
-  "f45|38.255.28.21|20099|/tmp/mine-f45-1.known_hosts|h140"
+  "f44|152.236.142.237|40300|/tmp/mine-f44.kh|h139"
+  "f45|38.255.28.21|20099|/tmp/mine-f45.kh|h140"
 )
 OUT=$(mktemp -d /tmp/fleet_status.XXXXXX)
 trap 'rm -rf "$OUT"' EXIT

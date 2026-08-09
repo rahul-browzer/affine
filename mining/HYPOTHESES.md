@@ -10,12 +10,12 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 |---|---|---|---|---|
 | 1 | H140/F45 | high | Tok last-N full-rank RL-Λ2 → m>+0.015 | **open** (bootstrap) |
 | 2 | H139/F44 | high | Tok online DPO teacher-Λ2 → m>+0.015 | **open** (online-DPO train live) |
-| 3 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (n80 @16/80) |
+| 3 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (n80 @20/80) |
 | 4 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN ~45/150) |
 | 5 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL retrain) |
-| 6 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
+| 6 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (chall recover264) |
 | 7 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL ~135/200) |
-| 8 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (chall recover264) |
+| 8 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (n80 live) |
 | — | H132/F37 | — | Tok RL teacher-Λ2 → m>+0.015 | **refuted** m=−0.00047 |
 | — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
@@ -63,7 +63,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - Teacher↑; train pid15018 GPUs6,7; DEADMAN→20:58Z (p517). mine-f44-1.
 
 ### H138/F43 — Tok offline DPO on duel Λ2 prefs
-- n80 @16/80 (a203). Pipe aborted stale DEADMAN; retry saved. mine-f43-1.
+- n80 @20/80 (a203). Pipe aborted stale DEADMAN; retry saved. mine-f43-1.
 
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
 - BoN ~45/150. mine-f42-1.
@@ -72,13 +72,13 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - Retrain live mean_r≠0. mine-f41-1.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
-- RL train; king :8001=200. mine-f40-1.
+- Merge OK (189 steps); bare chall ENOENT → recover264 + DEADMAN 19:42Z (p518).
 
 ### H134/F39 — Tok REINFORCE on full S* mix
 - RL ~135/200. mine-f39-1.
 
 ### H133/F38 — Genesis REINFORCE on teacher Λ2
-- FALSE_PROBE ConnectError@chall → recover264 armed. mine-f38-1.
+- recover264 DONE; n80 a203 live (p518). mine-f38-1.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
