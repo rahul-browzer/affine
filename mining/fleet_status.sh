@@ -4,7 +4,7 @@ set -euo pipefail
 PODS=(
   "f31|38.255.28.21|20099|/tmp/mine-f31-1.known_hosts|h126"
   "f22|204.9.206.243|40300|/tmp/mine-f22-1.known_hosts|h117"
-  "f23|204.9.206.244|40301|/tmp/mine-f23-1.known_hosts|h118"
+  "f33|3.135.191.208|20127|/tmp/mine-f33-1.known_hosts|h128"
   "f32|38.255.28.22|20099|/tmp/mine-f32-1.known_hosts|h127"
   "f26|152.236.142.235|40300|/tmp/mine-f26-1.known_hosts|h121"
   "f27|152.236.142.237|40299|/tmp/mine-f27-1.known_hosts|h122"
