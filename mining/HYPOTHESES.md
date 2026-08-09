@@ -8,11 +8,12 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H121/F26 | high | full-FT (not LoRA) → m>+0.015 | **open** (bootstrap) |
-| 2 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (n80 ~30) |
-| 3 | H120/F25 | high | raw golden-crown (no LoRA) → m>+0.015 | **open** (n80 ~20) |
-| 4 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (everest DL) |
-| 5 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (Tok DL) |
+| 1 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (train) |
+| 2 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (bootstrap) |
+| 3 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (n80 ~43) |
+| 4 | H120/F25 | high | raw golden-crown (no LoRA) → m>+0.015 | **open** (n80 ~31) |
+| 5 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (everest DL) |
+| 6 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (engines) |
 | — | H113/F18 | — | raw TalentPigs (no LoRA) → m>+0.015 | **refuted** m=−0.03010 |
 | — | H111/F16 | — | af-k1 × high-Λ2 → m>+0.015 | **refuted** m=−0.07623 |
 | — | H119/F24 | — | raw af-k1 (no LoRA) → m>+0.015 | **refuted** m=−0.08673 |
@@ -41,19 +42,23 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H121/F26 — Tok full-FT (no LoRA)
 - Dense FT (freeze visual) Tok@eb8bf9a × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015.
-- mine-f26-1 gentle-fox-2c bootstrap/pip. `s4-h121-f26-full-ft/`.
+- mine-f26-1 gentle-fox-2c **train** pid=2343. `s4-h121-f26-full-ft/`.
+
+### H122/F27 — Genesis full-FT (no LoRA)
+- Dense FT genesis@abe89194 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
+- mine-f27-1 eager-orbit-15 bootstrap/pip. `s4-h122-f27-genesis-full-ft/`.
 
 ### H112/F17 — raw genesis (no LoRA)
-- Unmodified genesis @abe89194 vs Tok → m>+0.015. n80 ~30/80. `s4-h112-f17-raw-genesis/`.
+- Unmodified genesis @abe89194 vs Tok → m>+0.015. n80 ~43/80. `s4-h112-f17-raw-genesis/`.
 
 ### H120/F25 — raw golden-crown (no LoRA)
-- Unmodified golden-crown @ee37f4f0 vs Tok → m>+0.015. n80 ~20/80. `s4-h120-f25-raw-golden/`.
+- Unmodified golden-crown @ee37f4f0 vs Tok → m>+0.015. n80 ~31/80. `s4-h120-f25-raw-golden/`.
 
 ### H117/F22 — raw everest12 (no LoRA)
-- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. everest DL ~50G. `s4-h117-f22-raw-everest12/`.
+- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. everest DL ~51G. `s4-h117-f22-raw-everest12/`.
 
 ### H118/F23 — raw Bittob11040 (no LoRA)
-- Unmodified Bittob @0c04fe92 vs Tok → m>+0.015. Tok ~63G+inc. `s4-h118-f23-raw-bittob/`.
+- Unmodified Bittob @0c04fe92 vs Tok → m>+0.015. engines loading. `s4-h118-f23-raw-bittob/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -62,7 +67,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F17/F22/F23/F25/F26 | screens | **live** (5 pods) |
+| F17/F22/F23/F25/F26/F27 | screens | **live** (6 pods) |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
 | — | raw past-earner | **CLOSED** kevin/pandora/diane/af-k1/**TalentPigs** |
 
@@ -75,4 +80,4 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - **H106/F11** pandora-LoRA · **H107/F12** golden · **H104/F9** kevin-LoRA
 - **H100/F4** Genesis×Λ2 · **H102/F7** teacher-zC · **H103/F8** Genesis-RL
 - **H101/F6** ultrashort · **H98/F1** Tok-RL · **H97/F3** r256 · **H96/H99**
-- Screens live: **F17, F22, F23, F25, F26**. Next free slot: **F5** if traj ready.
+- Screens live: **F17, F22, F23, F25, F26, F27**. Next free slot: **F5** if traj ready.
