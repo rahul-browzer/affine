@@ -8,14 +8,14 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (train live) |
-| 2 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (n80 e203) |
-| 3 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (n80 ~38/80) |
-| 4 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (n80 ~47/80) |
-| 5 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (n80 ~36/80) |
-| 6 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (n80 ~16/80) |
-| 7 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (n80 ~28/80) |
-| 8 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (finalize after ckpt50 salvage) |
+| 1 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL steps live) |
+| 2 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (n80 e203 ~50) |
+| 3 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (n80 ~66/80) |
+| 4 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (n80 ~47/80) |
+| 5 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (n80 d203 a1) |
+| 6 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (n80 ~41/80) |
+| 7 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (n80 ~32/80) |
+| 8 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (n80 ~15/80) |
 | — | H121/F26 | — | Tok full-FT → m>+0.015 | **refuted** m=−0.00031 |
 | — | H122/F27 | — | Genesis full-FT → m>+0.015 | **refuted** m=−0.07068 |
 | — | H126/F31 | — | Bittob full-FT → m>+0.015 | **refuted** m=−0.07651 |
@@ -48,7 +48,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H132/F37 — Tok REINFORCE on teacher Λ2
 - Tok-init LoRA; reward = lpC(y|z)−lpC(y|∅) via live teacher :8000 → m>+0.015.
-- mine-f37-1 train pid11123 @07:21Z (189 ex). `s4-h132-f37-tok-rl-l2/`.
+- mine-f37-1 pid11123: steps 1–5 live mean_r≈0.02 (p495). `s4-h132-f37-tok-rl-l2/`.
 
 ### H124/F29 — golden-crown full-FT × high-Λ2 z_A
 - Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
@@ -63,8 +63,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - `s4-h117-f22-raw-everest12/`.
 
 ### H128–H131 / F33–F36 — past-king full-FT screens
-- pandora/diane/everest n80; af-k1 F36 salvaged @step50 (p493) → finalize.
-- Detail: `s4-h128…` … `s4-h131-f36-af-k1-full-ft/results/pass493_salvage.md`.
+- pandora/diane/everest n80 mid; af-k1 F36 n80 d203 launched (p495).
+- Detail: `s4-h128…` … `s4-h131-f36-af-k1-full-ft/results/pass495_n80_launched.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
