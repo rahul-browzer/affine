@@ -10,11 +10,11 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 |---|---|---|---|---|
 | 1 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (merge→n80) |
 | 2 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN train) |
-| 3 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL retrain OK) |
-| 4 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL after z-fix) |
+| 3 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL retrain) |
+| 4 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL~110; king p512) |
 | 5 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL train) |
-| 6 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
-| 7 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (n80 @28/80) |
+| 6 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (merge→n80) |
+| 7 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (n80 @50/80) |
 | — | H131/F36 | — | af-k1 full-FT → m>+0.015 | **refuted** m=−0.06667 |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
 | — | H129/F34 | — | diane full-FT → m>+0.015 | **refuted** m=−0.06281 |
@@ -69,8 +69,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
 - kevin954-init LoRA; reward = teacher Λ2 → m>+0.015.
-- p508: kevin `</think>\nTHOUGHT:` normalize fixed; retrain mean_r 0.016/0.022/0.005.
-- mine-f40-1 RL; soft=19:11Z. `results/pass508_kevin_z_normalize.md`.
+- p512: king shm-hang after ABORT → king332 re-fire; RL ~110/200 mean_r≠0.
+- mine-f40-1. `results/pass512_king_recover.md`.
 
 ### H134/F39 — Tok REINFORCE on full S* mix
 - Tok-init LoRA; reward = Λ2 + clip(L1lift, ±0.1) → m>+0.015.
@@ -78,11 +78,12 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H133/F38 — Genesis REINFORCE on teacher Λ2
 - Genesis-init LoRA; reward = teacher Λ2 → m>+0.015.
-- mine-f38-1 RL train. `s4-h133-f38-genesis-rl-l2/`.
+- p512: train DONE 189 steps (mean_r_last20=−0.061); merge save live.
+- mine-f38-1. `s4-h133-f38-genesis-rl-l2/`.
 
 ### H132/F37 — Tok REINFORCE on teacher Λ2
 - Tok-init LoRA; teacher-Λ2 reward → m>+0.015. Train done (189 steps, last20 −0.007).
-- mine-f37-1 **n80 @28/80** (bh=a203). `s4-h132-f37-tok-rl-l2/`.
+- mine-f37-1 **n80 @50/80** (bh=a203). `s4-h132-f37-tok-rl-l2/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
