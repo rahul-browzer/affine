@@ -67,7 +67,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
 - kevin954-init LoRA; reward = teacher Λ2 → m>+0.015.
-- mine-f40-1 RL train; soft=19:11Z. `s4-h135-f40-kevin-rl-l2/`.
+- mine-f40-1: p507 killed zero-reward train; teacher recover→retrain. soft=19:11Z.
+- `s4-h135-f40-kevin-rl-l2/` · `results/pass507_teacher_recover.md`.
 
 ### H134/F39 — Tok REINFORCE on full S* mix
 - Tok-init LoRA; reward = Λ2 + clip(L1lift, ±0.1) → m>+0.015.

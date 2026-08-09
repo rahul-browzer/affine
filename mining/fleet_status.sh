@@ -2,10 +2,13 @@
 # Parallel mine-* status table. Edit PODS when inventory changes.
 set -euo pipefail
 PODS=(
-  "f32|38.255.28.22|20099|/tmp/mine-f32-1.known_hosts|h127"
-  "f34|38.255.28.18|20099|/tmp/mine-f34-1.known_hosts|h129"
-  "f36|86.38.238.54|40300|/tmp/mine-f36-1.known_hosts|h131"
   "f37|152.236.142.241|40049|/tmp/mine-f37-1.known_hosts|h132"
+  "f38|152.236.142.235|40300|/tmp/mine-f38-1.known_hosts|h133"
+  "f39|3.135.191.208|20127|/tmp/mine-f39-1.known_hosts|h134"
+  "f40|152.236.142.232|40300|/tmp/mine-f40-1.known_hosts|h135"
+  "f41|152.236.142.234|40300|/tmp/mine-f41-1.known_hosts|h136"
+  "f42|152.236.142.236|40300|/tmp/mine-f42-1.known_hosts|h137"
+  "f43|38.255.28.22|20099|/tmp/mine-f43-1.known_hosts|h138"
 )
 OUT=$(mktemp -d /tmp/fleet_status.XXXXXX)
 trap 'rm -rf "$OUT"' EXIT

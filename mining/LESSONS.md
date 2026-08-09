@@ -115,7 +115,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F3 r=256 LoRA ceiling REFUTED (H97 p374):** Tok-init r256/α512 winner-zA →
   m=−0.01506 z=−1.84; mean_λ2_c −0.00013 vs king +0.00120. Rank≠base — LoRA
   at r=256 still cannot move Λ2. Do not retry higher rank / full-FT-as-LoRA.
-- H66/H90: king Triton ENOENT → reap GPU 2/3, wipe cache/king, `serve_three`; rearm n80 after king recover (don't wait for post_train abort).
 - Teacher Triton ENOENT mid-inductor → wipe teacher* + unique TCACHE (H89). Orphan `VLLM::Worker` ppid=1 on nvidia0–3 — kill carefully; concurrent reap can kill chall → recover264.
 - Mid-n80 king NCCL → orphans on GPUs2,3; king332 (F9 p399). Cold empty isolated TCACHE also ENOENT mid-load (F11 p434 n_so=10 CQWZC55M) → seed from frozen chall n_so≥16 then util=0.72 (p435); leave chall.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
@@ -146,5 +145,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - Bare chall :8002=200 can still die mid-load (H71) — preempt264→recover264; stale n80 wait→rearm. recover264 DONE rearms bare `retry_*_n80.sh` (**a203**) — re-point `*_d203first` (F10/F15). Seed chall from `*_king_tcache_pass332.path` first, never bare `cache/king`. clone: `test -x` rearm (H94).
 - **huggingface_hub≥1.27 never resumes** `.incomplete`: unique `{etag}.{uuid}.incomplete` opened `"wb"`, deleted on fail (PR#4228). Orphan large incompletes need HTTP `Range` resume (H100/F4 p383). **post_train/n80 120×15s races Range/king+chall load** — kill waiter + arm tok.done→king→chall; n80 needs `retry_*_longwait` ≥360×15s (F4 p388/p391; F8 p398 poll108/120 with `:8001/:8002=000`).
 - **king_recover_pass332** must serve live Tok on :8001 (F8 p397 had Genesis). Post-freeze chall death + missing turns.jsonl (F4 p397): frozen-TCACHE relaunch + `sync_corpus` before n80; avoid recover264 wipe that reaps healthy chall.
-- **B300 cu13 = CUDA_HOME + CCCL + libcudart.so symlink:** p397 no CUDA_HOME→nvcc fail; p401/403 CCCL `nvcc13.3`≠`CTK13000` → define `CCCL_DISABLE_CTK_COMPATIBILITY_CHECK` in flashinfer `cuda_toolkit.h` + wipe `cached_ops/sampling`; p404 `ld: cannot find -lcudart` → `ln -sfn libcudart.so.13 $CUDA_HOME/lib/libcudart.so` + linktest; **p405 validated** (chall promptable, d1–d4 200, freeze555, n80 a203).
+- **B300 cu13** = CUDA_HOME+CCCL+libcudart symlink (p397–p405); detail `archive/LESSONS-overflow-2026-08-08-p374.md`.
 - **King repo af11≠af10** (F11 p414); **`--chall-repo`=`/v1/models` id; preempt EXP=real dir** (p480/p491). Teacher-Λ2 RL needs :8000 before train (F37 p492). post_train SOFT=TTL−1h (p496). Family-clone `sed` breaks `"\\n"` in `python <<'PY'` heredocs → SyntaxError (F38 p502); use python rewrite.
+- **RL `mean_r=0` + empty `z0` = dead teacher** — F40 p507: 40 steps reward 0/`z=""` then `:8000` Connection refused. Kill train, wipe out-dir, `relaunch_teacher_pass332`, relaunch `start_*.sh`; do not burn to max_steps.
