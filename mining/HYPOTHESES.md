@@ -104,4 +104,4 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - **H111/F16** af-k1×Λ2 −0.076 · **H119/F24** raw af-k1 −0.087 · **H116/F21** diane −0.072
 - **H115/F20** pandora −0.030 · **H114/F19** kevin −0.006 · **H108–H110** · **H105–H107**
 - **H104/F9** · **H100/F4** · **H102/F7** · **H103/F8** · **H101/F6** · **H98/F1** · **H97/F3**
-- Free slots → **orthogonal** (not past-king FT/raw; not another RL-Λ2 base cell).
+- Free slots → **orthogonal** (not RL-Λ2 base/BoN cell; not past-king FT/raw).
