@@ -8,10 +8,11 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (bootstrap) |
-| 2 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (Genesis DL) |
-| 3 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL step≥110) |
-| 4 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (n80 ~61/80) |
+| 1 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 2 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (Tok DL) |
+| 3 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (teacher DL) |
+| 4 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (RL step≥115) |
+| 5 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (n80 ~67/80) |
 | — | H127/F32 | — | TalentPigs full-FT → m>+0.015 | **refuted** m=−0.02626 |
 | — | H129/F34 | — | diane full-FT → m>+0.015 | **refuted** m=−0.06281 |
 | — | H117/F22 | — | raw everest12 (no LoRA) → m>+0.015 | **refuted** m=−0.06273 |
@@ -48,19 +49,23 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Open
 
+### H135/F40 — kevin954 REINFORCE on teacher Λ2
+- kevin954-init LoRA; reward = teacher Λ2 → m>+0.015. Isolates earner base vs F9/F30 CE fails.
+- mine-f40-1 bootstrap; soft=19:11Z. `s4-h135-f40-kevin-rl-l2/`.
+
 ### H134/F39 — Tok REINFORCE on full S* mix
 - Tok-init LoRA; reward = Λ2 + clip(L1lift, ±0.1) → m>+0.015.
-- mine-f39-1 bootstrap; soft=19:06Z. `s4-h134-f39-tok-rl-sstar/`.
+- mine-f39-1 Tok DL; soft=19:06Z. `s4-h134-f39-tok-rl-sstar/`.
 
 ### H133/F38 — Genesis REINFORCE on teacher Λ2
 - Genesis-init LoRA; reward = teacher Λ2 → m>+0.015.
-- mine-f38-1 Genesis DL (heredoc fixed p502). `s4-h133-f38-genesis-rl-l2/`.
+- mine-f38-1 teacher DL. `s4-h133-f38-genesis-rl-l2/`.
 
 ### H132/F37 — Tok REINFORCE on teacher Λ2
-- Tok-init LoRA; teacher-Λ2 reward → m>+0.015. step≥110/200. `s4-h132-f37-tok-rl-l2/`.
+- Tok-init LoRA; teacher-Λ2 reward → m>+0.015. step≥115/200. `s4-h132-f37-tok-rl-l2/`.
 
 ### H131/F36 — af-k1 full-FT (last past-king FT screen)
-- n80 live. No new rents in this class. `s4-h131-f36-af-k1-full-ft/`.
+- n80 ~67/80. No new rents in this class. `s4-h131-f36-af-k1-full-ft/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -69,8 +74,9 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F39 | Tok RL full S* mix | **live** bootstrap |
-| F38 | Genesis RL teacher-Λ2 | **live** DL |
+| F40 | kevin RL teacher-Λ2 | **live** bootstrap |
+| F39 | Tok RL full S* mix | **live** Tok DL |
+| F38 | Genesis RL teacher-Λ2 | **live** teacher DL |
 | F37 | Tok RL teacher-Λ2 | **live** train |
 | F36 | af-k1 full-FT screen | **live** (dying class; no new) |
 | — | past-king full-FT×Λ2 | **CLOSED** F26–F35+F29+F34+**F32** ≤0 |
