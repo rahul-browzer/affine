@@ -12,11 +12,12 @@ King Tok331102 S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$182,754** · cum ~$15,010 · **avail ~$172.8k** |
+| Lium / spend | **~$182,722** · cum ~$15,042 · **avail ~$172.7k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$175.8/h** (6 mine-*) ≪ $833/h · free slots **14** |
-| F10 | recover264 mid-load chall :8002 (poll~18/120 @00:45Z) |
-| F11 / F12 | post_train · merge_lora live |
+| F10 | recover264 a2/3 mid-load chall (GPUs4,5 ~36GiB @00:50Z) |
+| F11 | recover264 a1/3 fired p424 (EngineDead TimeoutError) |
+| F12 | merge.done; chall serve wait (c=0) |
 | F13 / F14 | train live · train live |
 | F15 | bootstrap |
 
@@ -24,9 +25,9 @@ King Tok331102 S=0.04456.
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-f10-1 | eager-wolf-42 | 152.236.142.234:40300 | ~11:54Z+1d | F10 recover264→n80 |
-| mine-f11-1 | swift-eagle-51 | 152.236.142.237:40300 | ~12:02Z+1d | F11 post_train |
-| mine-f12-1 | lunar-wolf-a5 | 152.236.142.236:40300 | ~12:10Z+1d | F12 merge |
+| mine-f10-1 | eager-wolf-42 | 152.236.142.234:40300 | ~11:54Z+1d | F10 recover264 a2→n80 |
+| mine-f11-1 | swift-eagle-51 | 152.236.142.237:40300 | ~12:02Z+1d | F11 recover264→n80 |
+| mine-f12-1 | lunar-wolf-a5 | 152.236.142.236:40300 | ~12:10Z+1d | F12 chall serve |
 | mine-f13-1 | zesty-hawk-1f | 38.255.28.21:20099 | ~12:17Z+1d | F13 train |
 | mine-f14-1 | eager-comet-be | 152.236.142.232:40309 | ~12:34Z+1d | F14 train |
 | mine-f15-1 | calm-wolf-f7 | 38.255.28.22:20099 | ~12:37Z+1d | F15 bootstrap |
@@ -50,7 +51,7 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 ## Next action
 
-1. **Confirm F10** recover264 → chall :8002=200 → n80 d203.
-2. F11–F15→n80 (post_train/merge/train/boot).
-3. Free slots: rent **F16** (af-k1) if burn≪833 and no CONFIRM;
-   else hold CONFIRM slots. Scaffold `s4-h111-f16-*` first if missing.
+1. **Confirm F10** recover a2 → :8002=200 + completions×2 → freeze → n80 d203.
+2. **Confirm F11** recover264 → same → n80 d203 (watcher already armed).
+3. F12–F15→n80. Free slots: hold CONFIRM; scaffold `s4-h111-f16-*` only if
+   a screen clears a slot and burn≪833.

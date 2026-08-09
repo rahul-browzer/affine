@@ -7,8 +7,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (recover264→n80) |
-| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (post_train) |
+| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (recover a2 mid-load) |
+| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (recover264 p424) |
 | 3 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (merge) |
 | 4 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (train) |
 | 5 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (train) |
@@ -31,11 +31,11 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H105 / F10 — TalentPigs × high-Λ2 — open
 - **Claim:** TalentPigs @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
-- **Status:** recover264 mid-load chall :8002 (p423). `experiments/s4-h105-f10-talentpigs-base/`.
+- **Status:** recover a2/3 mid-load (a1 Triton ENOENT). `experiments/s4-h105-f10-talentpigs-base/`.
 
 ### H106 / F11 — pandora-box × high-Λ2 — open
 - **Claim:** pandora @5218b138 + 1059 high-Λ2 → m>+0.015.
-- **Status:** post_train (chall load). `experiments/s4-h106-f11-pandora-base/`.
+- **Status:** recover264 a1 after EngineDead (p424). `experiments/s4-h106-f11-pandora-base/`.
 
 ### H107 / F12 — golden-crown × high-Λ2 — open
 - **Claim:** golden-crown @ee37f4f0 + 1059 high-Λ2 → m>+0.015.

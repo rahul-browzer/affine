@@ -1,0 +1,1 @@
+2026-08-09T00:50Z p424: chall EngineDead (TimeoutError sample_tokens) after /v1/models=200; completions 500×2; GPUs4,5 free. Fired relaunch_chall_pass264 (pid19784) + rearmed preempt; n80 d203first watcher still armed. FALSE_PROBE≠REFUTE.
