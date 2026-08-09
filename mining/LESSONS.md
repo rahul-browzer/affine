@@ -50,7 +50,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F1+F8 REINFORCE-L1 REFUTED:** Tok-RL H98 m=+0.00229 (λ2 frozen); Genesis-RL H103 m=**−0.0483** z=−5.0, mean_λ2_c −0.021≪king. Clip-L1 RL ≠ Λ2; worse on Genesis. No RL-L1.
 - **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
 - **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
-- **F9 kevin954×high-Λ2 REFUTED (H104 p423):** m=**−0.01417** z=−1.14; mean_λ2_c −0.0135≪king −0.0023. Past-crown base still worsens Λ2 under same LoRA recipe. No kevin954 cells.
+- **F9+F12 earner-base×high-Λ2 REFUTED:** kevin954 H104 m=−0.01417; golden-crown H107 p437 m=**−0.05941** z=−6.64 mean_λ2_c −0.0109≪king. Same recipe worsens Λ2. No kevin954/golden-crown cells.
 
 ## Serving / VLM
 - King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` + preprocessor + visual safetensors (333–352 keys). **Tok ships `processor_config.json` not `preprocessor_config.json`** — derive from `image_processor` or chall dies at MultiModalBudget (H79 p307).
@@ -131,7 +131,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - `start_*.sh` JSON `note` must be a closed string; unterminated → SyntaxError
   after train nohup → bootstrap `set -e` skips extra_dl/post_train (H36 pass198).
 - Engine recover: wipe `role`+`role_*` Triton caches before new `TCACHE`, ≥20s settle (H35–H41; H40 cuda_utils ImportError → reap by GPU). Concurrent prewarm races — recover dead role.
-- Default `0*64` / **c203** overflow (early or late); drop a203+c203; `retry_*_d203first` MAX=6. Arming d203first ≠ live longwait (F4 p417). Mid-n80: scp **new name** + re-point; never edit live retry. FALSE_PROBE≠N80_DONE. Soft-deadline ≥TTL−1h.
+- Default/`longwait` start **a203** (known H32) — after king ready, kill+rearm `d203first` (F11 p437). Drop a203+c203; MAX=6. Mid-n80: scp **new name** + re-point; never edit live retry. FALSE_PROBE≠N80_DONE. Soft-deadline ≥TTL−1h.
 - Arm watch_preempt_bare_tcache before post_train chall serve; recover after chall_serve.done or :8002=200 (H61/H62 bare-cache race).
 - p264 preempt validated H64: bare cache/chall → recover264 seed+warm+freeze; rearms form+n80 (pass265). Mid-n80 bare → fire recover264 immediately (H61@21/80).
 - recover264 salvage after writable-w1 ghost ENOENT: n_so grew → prefreeze same TCACHE + relaunch (H66 16→22; p274).

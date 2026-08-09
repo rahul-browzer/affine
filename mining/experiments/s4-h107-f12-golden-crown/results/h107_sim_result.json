@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 3064.311713218689,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h107/merged",
+  "block_hash": "d203000000000000000000000000000000000000000000000000000000000004",
+  "hotkey": "local-h107",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.059410953908468594,
+    "se": 0.008953271045206768,
+    "z": -6.635670204609175,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.029924710194285567,
+      "gate_pass_rate": 0.7968253968253968,
+      "bank_frac": 0.5364583333333333,
+      "calib_ratio": 0.684142395396649,
+      "baseline_abs": 0.13728023702892925,
+      "n_turns": 80,
+      "n_pairs": 315,
+      "mean_lambda2": -0.00302691937174928,
+      "mean_mix": 0.029924710194285567
+    },
+    "challenger": {
+      "valid": true,
+      "S": -0.029174195950847734,
+      "gate_pass_rate": 0.7460815047021944,
+      "bank_frac": 0.4625,
+      "calib_ratio": 1.2228541652534277,
+      "baseline_abs": 0.1362893838877283,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "mean_lambda2": -0.010930770675976736,
+      "mean_mix": -0.029174195950847734
+    },
+    "slice": {
+      "seed": 16416063757054436092,
+      "n": 80,
+      "digest": "d6dba13f4cbb93029822b8cbfb7f88ab426b194d536dbd724e5c7765dc7bb914",
+      "block_hash": "d203000000000000000000000000000000000000000000000000000000000004",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 1.2228541652534277,
+    "chall_baseline_abs": 0.1362893838877283,
+    "king_baseline_abs": 0.13728023702892925,
+    "base_x": 0.9927822593940295
+  }
+}

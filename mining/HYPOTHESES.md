@@ -7,12 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 e203 ~20/80) |
-| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (king435 + longwait) |
-| 3 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (n80 d203 ~71/80) |
-| 4 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~50/80) |
-| 5 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (n80 d203 launched) |
-| 6 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (n80 e203; d203 watcher) |
+| 1 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (n80 e203 ~30/80) |
+| 2 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (n80 d203 p437) |
+| 3 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 sim alive) |
+| 4 | H109/F14 | high | Bittob11040 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~8/80) |
+| 5 | H110/F15 | high | everest12 × high-Λ2 → m>+0.015 | **open** (n80 sim alive) |
+| — | H107/F12 | — | golden-crown × high-Λ2 → m>+0.015 | **refuted** m=−0.05941 |
 | — | H104/F9 | — | kevin954 × high-Λ2 → m>+0.015 | **refuted** m=−0.01417 |
 | — | H100/F4 | — | Genesis-init × high-Λ2 → m>+0.015 | **refuted** m=−0.05488 |
 | — | H102/F7 | — | Genesis × teacher z_C → m>+0.015 | **refuted** m=−0.05194 |
@@ -31,27 +31,23 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H105 / F10 — TalentPigs × high-Λ2 — open
 - **Claim:** TalentPigs @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 e203 ~11/80 vs Tok. `experiments/s4-h105-f10-talentpigs-base/`.
+- **Status:** n80 e203 ~30/80 vs Tok. `experiments/s4-h105-f10-talentpigs-base/`.
 
 ### H106 / F11 — pandora-box × high-Λ2 — open
 - **Claim:** pandora @5218b138 + 1059 high-Λ2 → m>+0.015.
-- **Status:** p436 king435 loading + longwait (e203@56/120 killed). `s4-h106-f11-pandora-base/`.
-
-### H107 / F12 — golden-crown × high-Λ2 — open
-- **Claim:** golden-crown @ee37f4f0 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 d203 ~71/80. `experiments/s4-h107-f12-golden-crown/`.
+- **Status:** p437 n80 d203 (killed a203 longwait). `s4-h106-f11-pandora-base/`.
 
 ### H108 / F13 — diane613 × high-Λ2 — open
 - **Claim:** diane613 @ad0f3f11 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 d203 ~50/80. `experiments/s4-h108-f13-diane613/`.
+- **Status:** n80 sim alive. `experiments/s4-h108-f13-diane613/`.
 
 ### H109 / F14 — Bittob11040 × high-Λ2 — open
 - **Claim:** Bittob11040 @0c04fe92 + 1059 high-Λ2 → m>+0.015.
-- **Status:** n80 d203 launched @01:47Z. `experiments/s4-h109-f14-bittob/`.
+- **Status:** n80 d203 ~8/80. `experiments/s4-h109-f14-bittob/`.
 
 ### H110 / F15 — everest12 × high-Λ2 — open
 - **Claim:** everest12 @a5ac5311 + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** n80 e203 ~1/80; p436 watcher→d203first. `s4-h110-f15-everest12/`.
+- **Status:** n80 sim alive. `s4-h110-f15-everest12/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -60,9 +56,14 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F16 | af-k1 | free slot after screen/tear |
+| F16 | af-k1 @ff6eb4bc | **rent next** (slot free) |
 
 ## Refuted (keep)
+
+### H107 / F12 — golden-crown × high-Λ2
+- m=−0.059411 z=−6.64 vs Tok (gates OK). mean_λ2_c −0.01093 ≪ king −0.00303.
+- Earner-base under high-Λ2 LoRA worsens Λ2. **F12 closed.**
+- `s4-h107-f12-golden-crown/results/result.md`.
 
 ### H104 / F9 — kevin954 × high-Λ2
 - m=−0.014171 z=−1.14 vs Tok (gates OK). mean_λ2_c −0.01352 ≪ king −0.00228.
@@ -102,5 +103,5 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - m=−0.001994 z=−0.26. Data remix ≠ Λ2 under king-LoRA. **F2 closed.**
 
 ### H95…H1
-- Dead: α/plmk/TP/m7/union/lr/ep≥2/**winner-zA (−0.004)**/F1–F4/F6–F9.
-  Screens live: **F10–F15**. Archive + LESSONS.
+- Dead: α/plmk/TP/m7/union/lr/ep≥2/**winner-zA (−0.004)**/F1–F4/F6–F9/F12.
+  Screens live: **F10–F11/F13–F15**. Archive + LESSONS.
