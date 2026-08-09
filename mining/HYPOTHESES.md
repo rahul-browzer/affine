@@ -8,9 +8,9 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (**n80 2/80** p476) |
-| 2 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (king332 recover) |
-| 3 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (chall264 recover) |
+| 1 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (**n80 12/80**) |
+| 2 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (king435 load p477) |
+| 3 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (chall264 :8002=200) |
 | 4 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (serve) |
 | 5 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (serve) |
 | 6 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (serve→n80) |
@@ -50,15 +50,15 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H122/F27 — Genesis full-FT (no LoRA)
 - Dense FT genesis@abe89194 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f27-1 **n80 2/80** `--chall-repo /tmp/h122_merged` (p476; symlink path was 404). `s4-h122-f27-genesis-full-ft/`.
+- mine-f27-1 **n80 12/80** `--chall-repo /tmp/h122_merged`. `s4-h122-f27-genesis-full-ft/`.
 
 ### H123/F28 — Tok full-FT × teacher_refs z_C
 - Dense FT Tok × 791 teacher_refs_shortz lr=1e-6 → m>+0.015 vs Tok.
-- mine-f28-1 king EngineDead@~1/80 → king332 recover (p475). `s4-h123-f28-teacher-refs-ft/`.
+- mine-f28-1 king332 cold ENOENT → **king435** seeded n_so=23 (p477). `s4-h123-f28-teacher-refs-ft/`.
 
 ### H121/F26 — Tok full-FT (no LoRA)
 - Dense FT Tok@eb8bf9a × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015.
-- mine-f26-1 bare-TCACHE ENOENT → chall264 (p475). `s4-h121-f26-full-ft/`.
+- mine-f26-1 chall264 :8002=200 (p477). `s4-h121-f26-full-ft/`.
 
 ### H124/F29 — golden-crown full-FT × high-Λ2 z_A
 - Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.

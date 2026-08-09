@@ -24,8 +24,19 @@ export HF_HOME=${HF_HOME:-/root/hf}
 KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
 KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 MERGED=${MERGED:-/root/h123/merged}
-# p476: resolve symlink — vLLM model id is the real serve path (/tmp/hN_merged)
-if [[ -e "$MERGED" ]]; then MERGED=$(readlink -f "$MERGED"); fi
+# p477: chall-repo must equal vLLM /v1/models id (here serve used the symlink
+# path /root/h123/merged). Blind readlink→/tmp/h123_merged → completions 404.
+# Only realpath when the realpath itself is the registered model id.
+if [[ -e "$MERGED" ]]; then
+  _real=$(readlink -f "$MERGED")
+  _mid=$(curl -s --max-time 5 http://127.0.0.1:8002/v1/models \
+    | python3 -c 'import sys,json; d=json.load(sys.stdin); print(d["data"][0]["id"] if d.get("data") else "")' 2>/dev/null || true)
+  if [[ -n "$_mid" ]]; then
+    MERGED="$_mid"
+  elif [[ -d "$_real" ]]; then
+    MERGED="$_real"
+  fi
+fi
 SIM=/root/affine_data/h123_sim_result.json
 PROG=/root/affine_data/h123_sim_progress.json
 DEC=/root/affine_data/h123_decision.json
