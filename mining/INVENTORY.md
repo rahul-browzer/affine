@@ -9,7 +9,7 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-f45-1 | lunar-matrix-d4 | 8×H200 | $31.92 | 2026-08-09T21:35Z | **mine-watch-1** warm duel | H64 swap DL→chall |
+| mine-f45-1 | lunar-matrix-d4 | 8×H200 | $31.92 | 2026-08-09T21:35Z | **mine-watch-1** warm duel | H64 chall LIVE 200/200/200 |
 
 SSH: 38.255.28.21:20099 · kh `/tmp/mine-f45.kh`.
 **Free: 19**. Burn ~$31.92/h. Non-mine — **never rm**.
@@ -24,6 +24,6 @@ mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0.0097.
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T12:04Z | 1 | ok; H64 swap DONE :8002=/tmp/h64_merged; n_so=24; TTL~9.5h; burn ~$32/h |
 | 2026-08-09T12:00Z | 1 | ok; launch H64→/tmp/h64_merged+chall swap; TTL~9.6h; burn ~$32/h |
 | 2026-08-09T11:58Z | 1 | ok; engines 200; warm-stack tar; TTL~9.6h no renew; burn ~$32/h |
-| 2026-08-09T11:57Z | 3→1 | KING-WATCH: keep f45; rm f44+f46; kill h140 n80; burn ~$32/h |

@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $177,953.89 | 2026-08-09T12:00Z |
-| cumulative mining spend | ~$19,781 (Δ bal from p526 baseline) | 2026-08-09T12:00Z |
-| **available for mining** | **~$167,954** (balance − $10,000 floor) | 2026-08-09T12:00Z |
+| Lium balance | $177,938.41 | 2026-08-09T12:04Z |
+| cumulative mining spend | ~$19,797 (Δ bal from p526 baseline) | 2026-08-09T12:04Z |
+| **available for mining** | **~$167,938** (balance − $10,000 floor) | 2026-08-09T12:04Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | ~$31.92/h | 2026-08-09T12:00Z |
+| miner burn (1 pod) | ~$31.92/h | 2026-08-09T12:04Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-09T12:04Z | 177938.41 | no rent/rm; H64 chall swap confirmed; burn ~$32/h |
 | 2026-08-09T11:57Z | 177953.89 | KING-WATCH rm mine-f44-1+mine-f46-1; burn ~$32/h (1 pod) |
 | 2026-08-09T11:52Z | 177974.56 | no rent/rm; F45 p529 cutover; burn ~$83/h |
 | 2026-08-09T11:46Z | 177993.63 | rm mine-f42-1 after REFUTE (spent ~$93); burn ~$83/h |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-09T11:21Z | 178118.47 | no rent/rm; F44/F46 recover+d203; burn ~$199/h |
 | 2026-08-09T11:15Z | 178176.04 | rm mine-f39-1 after REFUTE; burn ~$199/h |
 | 2026-08-09T11:01Z | 178238.13 | no rent/rm; F42 merge+n80; burn ~$223.4/h |
-| 2026-08-09T10:42Z | 178362.62 | rm mine-f38-1 after REFUTE (spent ~$64); burn ~$223.4/h |
