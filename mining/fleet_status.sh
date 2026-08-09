@@ -2,7 +2,6 @@
 # Parallel mine-* status table. Edit PODS when inventory changes.
 set -euo pipefail
 PODS=(
-  "f16|152.236.142.236|40311|/tmp/mine-f16-1.known_hosts|h111"
   "f17|38.255.28.18|20099|/tmp/mine-f17-1.known_hosts|h112"
   "f18|86.38.238.54|40300|/tmp/mine-f18-1.known_hosts|h113"
   "f22|204.9.206.243|40300|/tmp/mine-f22-1.known_hosts|h117"

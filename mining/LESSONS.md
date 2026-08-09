@@ -50,8 +50,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F1+F8 REINFORCE-L1 REFUTED:** Tok-RL H98 m=+0.00229 (λ2 frozen); Genesis-RL H103 m=**−0.0483** z=−5.0, mean_λ2_c −0.021≪king. Clip-L1 RL ≠ Λ2; worse on Genesis. No RL-L1.
 - **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
 - **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
-- **F9–F15 earner×high-Λ2 REFUTED (class):** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob−0.058; everest−0.083; diane−0.073. Only F16 LoRA still screening. Do not rent more earner×Λ2 LoRA.
-- **Raw past-king REFUTED (kevin+pandora+diane+af-k1):** F19 kevin m=−0.00611; F20 pandora m=−0.02975; F21 diane m=**−0.07226** z=−8.05 λ2_c=−0.016 (p458); F24 af-k1 m=**−0.08673** z=−8.14 λ2_c=−0.021 (p458). Gates clear; ranking/Λ2 loss. Do not rent more unmodified past-earner screens — next slot = full-FT or F5, not another raw earner.
+- **F9–F16 earner×high-Λ2 REFUTED (class closed):** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob−0.058; everest−0.083; diane−0.073; **af-k1 F16 m=−0.07623** z=−7.28 λ2_c=−0.019 (p459). Every earner×Λ2 LoRA ≤0. Do not rent more of this class.
+- **Raw past-king REFUTED (kevin+pandora+diane+af-k1):** F19 kevin m=−0.00611; F20 pandora m=−0.02975; F21 diane m=**−0.07226** z=−8.05 λ2_c=−0.016 (p458); F24 af-k1 m=**−0.08673** z=−8.14 λ2_c=−0.021 (p458). Gates clear; ranking/Λ2 loss. Do not rent more unmodified past-earner screens — next slot = full-FT or F5, not another raw earner. F16 LoRA twin of F24 also dead → LoRA≠fix for bad bases.
 - **shm_broadcast hang:** F21 Triton/hang → seed king n_so≥16 util=0.72 (p448). F18 teacher+chall hang → recover454 (p454); p455: both promptable → n80. Bare king n_so=0 usable as cold seed.
 
 ## Serving / VLM
