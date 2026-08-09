@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-09T04:45:41Z",
+  "margin": -0.06342807557435304,
+  "z": -7.95659202322282,
+  "r_c": 1.194058580472803,
+  "valid_c": true,
+  "S_c": -0.035213792978188774,
+  "S_k": 0.028299634126647027,
+  "se": 0.007971764216290868,
+  "base_x": 1.0798601144981077,
+  "decision": "REFUTE_H120",
+  "parser": "write_merge_decision.py#nested_verdict",
+  "signal_only": false,
+  "submit": false,
+  "mean_lambda2_c": -0.017488534056650462,
+  "mean_lambda2_k": -0.002782722145050071,
+  "gate_pass_c": 0.7178683385579937,
+  "bank_c": 0.459375
+}
