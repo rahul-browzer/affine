@@ -9,7 +9,7 @@ Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
 
 | name | huid | gpu | $/hr | remove_at | purpose | status |
 |---|---|---|---|---|---|---|
-| mine-watch-1 | golden-wolf-bd | 8×H200 | $28.00 | 2026-08-10T03:38Z | warm duel | restore pid=901 (pip/DL/serve) |
+| mine-watch-1 | golden-wolf-bd | 8×H200 | $28.00 | 2026-08-10T03:38Z | warm duel | restore pid=901 (uv pip) |
 
 SSH: 152.236.142.236:40301 · key `~/.ssh/id_ed25519` · id `c1f09303-bda8-419a-894e-d31763734766`
 Catalog: `37b3ea5c-d447-41ab-aac2-730437842243` lunar-eagle-9e · COUNT=8 verified.
@@ -24,6 +24,6 @@ mine-f47-1/band 2.24×; mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-09T21:41Z | 1 | p1116 ok; restore uv-pip; king S=0.04456 idle; TTL~6.0h |
 | 2026-08-09T21:40Z | 1 | p1115 TTL expiry→rm f45; rented mine-watch-1 @$28; COUNT=8; restore nohup |
 | 2026-08-09T21:21Z | 1 | p1114 ok; king S=0.04456 idle; engines 200; TTL~0.23h |
-| 2026-08-09T21:19Z | 1 | p1113 ok; king S=0.04456 idle; engines 200; TTL~0.25h |
