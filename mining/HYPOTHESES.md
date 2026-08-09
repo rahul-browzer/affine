@@ -8,9 +8,9 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 1 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (merge→n80) |
 | 2 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN train) |
-| 3 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (recover→retrain) |
+| 3 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (RL retrain OK) |
 | 4 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL after z-fix) |
 | 5 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL train) |
 | 6 | H133/F38 | high | Genesis RL teacher-Λ2 → m>+0.015 | **open** (RL train) |
@@ -54,8 +54,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H138/F43 — Tok offline DPO on duel Λ2 prefs
 - Tok-init LoRA; chosen=higher-Λ2 duel z, rejected=lower; β=0.1 → m>+0.015.
-- No teacher at train; 604 pairs mean gap≈0.125. ≠ F37 RL / F42 BoN.
-- mine-f43-1 bootstrap; soft=19:34Z. `s4-h138-f43-tok-dpo-l2/`.
+- p511: DPO 200 steps done (mean_loss_last20≈0.691); merge LoRA live → n80.
+- mine-f43-1. `s4-h138-f43-tok-dpo-l2/`.
 
 ### H137/F42 — Tok Best-of-N CE on teacher Λ2
 - Tok-init LoRA; sample G=4; CE on argmax teacher-Λ2 z → m>+0.015.
@@ -64,8 +64,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H136/F41 — TalentPigs REINFORCE on teacher Λ2
 - TalentPigs-init LoRA; reward = teacher Λ2 → m>+0.015.
-- p510: teacher bare-TCACHE ENOENT on 1st score → 140× mean_r=0; recover332+retrain.
-- mine-f41-1. `results/pass510_teacher_recover.md`.
+- p511: teacher:200 + retrain mean_r 0.020/0.015/0.002/0.010 @steps1–5 (not tear).
+- mine-f41-1. `results/pass511_retrain_ok.md`.
 
 ### H135/F40 — kevin954 REINFORCE on teacher Λ2
 - kevin954-init LoRA; reward = teacher Λ2 → m>+0.015.
@@ -91,10 +91,10 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F43 | Tok offline DPO duel-Λ2 | **live** bootstrap |
-| F42 | Tok BoN-CE teacher-Λ2 | **live** Tok DL |
-| F41 | TalentPigs RL teacher-Λ2 | **live** teacher |
-| F40–F37 | RL screens | **live** train |
+| F43 | Tok offline DPO duel-Λ2 | **live** merge→n80 |
+| F42 | Tok BoN-CE teacher-Λ2 | **live** BoN train |
+| F41 | TalentPigs RL teacher-Λ2 | **live** RL retrain |
+| F40–F37 | RL screens | F37 n80; F38–40 train |
 | — | past-king full-FT×Λ2 | **CLOSED** F26–F36 all ≤0 |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
 | — | raw past-earner/genesis | **CLOSED** |
