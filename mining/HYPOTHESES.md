@@ -35,7 +35,8 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H106 / F11 — pandora-box × high-Λ2 — open
 - **Claim:** pandora @5218b138 + 1059 high-Λ2 → m>+0.015.
-- **Status:** recover264 a1 mid-load. `experiments/s4-h106-f11-pandora-base/`.
+- **Status:** p426 FALSE_PROBE quarantined; recover salvage + DONE→d203 sidecar.
+  `experiments/s4-h106-f11-pandora-base/`.
 
 ### H107 / F12 — golden-crown × high-Λ2 — open
 - **Claim:** golden-crown @ee37f4f0 + 1059 high-Λ2 → m>+0.015.
