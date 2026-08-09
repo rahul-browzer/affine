@@ -49,6 +49,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - SFT/LoRA near-zero + α-merges dead (H1–H26): archive. No plain distill-on-refs; stop α/leary/plmk/m7-as-B/kkk.
 - **F1+F8 REINFORCE-L1 REFUTED:** Tok-RL H98 m=+0.00229 (λ2 frozen); Genesis-RL H103 p409 m=**−0.0483** z=−5.0, mean_λ2_c −0.021 ≪ king −0.005. Clip-L1 RL does not help Λ2 on either base — **worse** on Genesis. Do not retry RL-L1.
 - **F6 ultrashort≤80 format REFUTED (H101 p399):** m=−0.00453 z=−0.57; mean_λ2_c −0.00967 ≈ king −0.00895. Format rewrite ≠ Λ2 move under Tok-LoRA; do not sweep length cells.
+- **F7 teacher-zC on Genesis REFUTED (H102 p419):** m=−0.05194 z=−5.72; mean_λ2_c −0.0198 ≪ king −0.0042. Frontier z_C distill on Genesis worsens Λ2 (same failure mode as F8 Genesis-RL). Do not retry teacher-refs / shortz cells on Genesis.
 
 ## Serving / VLM
 - King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` + preprocessor + visual safetensors (333–352 keys). **Tok ships `processor_config.json` not `preprocessor_config.json`** — derive from `image_processor` or chall dies at MultiModalBudget (H79 p307).
@@ -144,7 +145,6 @@ Format: `- <finding> — <the number or error that proves it>`
 - **huggingface_hub≥1.27 never resumes** `.incomplete`: unique `{etag}.{uuid}.incomplete` opened `"wb"`, deleted on fail (PR#4228). Orphan large incompletes need HTTP `Range` resume (H100/F4 p383). **post_train/n80 120×15s races Range/king+chall load** — kill waiter + arm tok.done→king→chall; n80 needs `retry_*_longwait` ≥360×15s (F4 p388/p391; F8 p398 poll108/120 with `:8001/:8002=000`).
 - **king_recover_pass332 must serve live Tok on :8001**, not Genesis — F8 p397 script still had Genesis REPO; patched before launch (would have scored vs wrong king).
 - **Post-freeze chall death + missing turns.jsonl:** F4 p397 n80 `FileNotFoundError` turns.jsonl; recover264 after triple-promptable hit `il: command not found` then reaped healthy chall — prefer frozen-TCACHE relaunch (no wipe) + `sync_corpus` before n80.
-- **Diverse-warm d4 quoting:** `python3 -c \'print(\\"x\\"...` → SyntaxError (empty pad still often 200); fixed to `python3 -c "print('x' * 4096)"` on F4–F9 scripts.
 - **B300 cu13 = CUDA_HOME + CCCL + libcudart.so symlink:** p397 no CUDA_HOME→nvcc fail; p401/403 CCCL `nvcc13.3`≠`CTK13000` → define `CCCL_DISABLE_CTK_COMPATIBILITY_CHECK` in flashinfer `cuda_toolkit.h` + wipe `cached_ops/sampling`; p404 `ld: cannot find -lcudart` → `ln -sfn libcudart.so.13 $CUDA_HOME/lib/libcudart.so` + linktest; **p405 validated** (chall promptable, d1–d4 200, freeze555, n80 a203).
 - Kill stale relaunchers by **full cmdline** (`tr '\0' ' ' </proc/$pid/cmdline`), not `head -1` (arg0 is just `bash`). Stale p401/p403 can coexist with p404 and reap a healthy chall.
 - **King repo typo af11≠af10:** F11 p414 cloned `Tok331102/…-af11` (404); live king is `…-af10`. Grep new family scripts for king repo before arming. Kill-loops matching `af11` in cmdline will suicide a helper named `*af11*` (p415).

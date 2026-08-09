@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $182,979.64 | 2026-08-09T00:18Z |
-| cumulative mining spend | ~$14,378 (7 pods ~$239.4/h accruing) | 2026-08-09T00:18Z |
-| **available for mining** | **~$172,980** (balance − $10,000 floor) | 2026-08-09T00:18Z |
+| Lium balance | $182,867.94 | 2026-08-09T00:31Z |
+| cumulative mining spend | ~$14,483 (6 pods ~$211.4/h accruing) | 2026-08-09T00:31Z |
+| **available for mining** | **~$172,868** (balance − $10,000 floor) | 2026-08-09T00:31Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (7 pods) | ~$239.4/h | 2026-08-09T00:18Z |
+| miner burn (6 pods) | ~$211.4/h | 2026-08-09T00:31Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-09T00:31Z | 182867.94 | rm mine-f7-1 (H102 REFUTE ~$105); burn ~$211.4/h |
 | 2026-08-09T00:18Z | 182979.64 | rent mine-f13-1 @$31.92/h (H108/F13); burn ~$239.4/h |
 | 2026-08-09T00:11Z | 183014.40 | rent mine-f12-1 @$28/h (H107/F12); burn ~$207.5/h |
 | 2026-08-09T00:08Z | 183047.02 | accrual (F11 af10 fix; no rm/rent; burn ~$179.5/h) |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-08T23:49Z | 183163.93 | rm mine-f8-1 (H103 REFUTE ~$77); burn ~$123.5/h |
 | 2026-08-08T23:29Z | 183286.61 | accrual (F7 d203first; no rm/rent; burn ~$151.5/h) |
 | 2026-08-08T23:24Z | 183316.64 | accrual (F4 teacher OK+n80; no rm/rent; burn ~$151.5/h) |
-| 2026-08-08T23:17Z | 183346.74 | accrual (F4 teacher recover332; no rm/rent; burn ~$151.5/h) |
