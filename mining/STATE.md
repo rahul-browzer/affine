@@ -14,7 +14,7 @@ Fleet = **1** warm pod. No submit. Trigger: king **S < 0.035** → re-screen H64
 | trigger | **idle** (need S < 0.035; live 0.04456) |
 | Lium / spend | **~$177,122** · cum ~$20,617 · **avail ~$167.1k** |
 | miner burn | **~$31.92/h** (1) ≪$833 · free **19** |
-| watch | `mine-f45-1` engines **200/200/200** · TTL 21:35Z (~3.6h) |
+| watch | `mine-f45-1` engines **200/200/200** · TTL 21:35Z (~3.5h) |
 | HF | unconst **public storage full** — H64 merged still **downloadable** |
 | warm-stack | Triton tar p539; **H64 chall LIVE** `/tmp/h64_merged` |
 
@@ -42,3 +42,4 @@ Do **not** rent a second `mine-*` without a new dated operator directive.
 1. KING-WATCH idle: record live king S; confirm `mine-f45-1` engines 8000/8001/8002=200 and `:8002` id=`/tmp/h64_merged`.
 2. Renew TTL only if <6h remain **and** a re-add path exists (today: none — leave 21:35Z). Else stop.
 3. If king S < 0.035 → start H64 n80 re-screen on this pod (do not rent a second).
+4. If pod gone after 21:35Z → restore from `experiments/warm-stack/` (tar sha e55237b1…) on a fresh `mine-watch-*` ≤$32/h.
