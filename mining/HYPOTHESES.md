@@ -8,15 +8,16 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (train ~30/60) |
-| 2 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (train ~20/60) |
-| 3 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (train ~0/60) |
-| 4 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (pip/boot) |
-| 5 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (train ~5/60) |
-| 6 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (n80 ~67) |
-| 7 | H120/F25 | high | raw golden-crown (no LoRA) → m>+0.015 | **open** (n80 ~58) |
-| 8 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (everest ~57G) |
-| 9 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (n80 ~21) |
+| 1 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (train) |
+| 2 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (train) |
+| 3 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (train) |
+| 4 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (train) |
+| 5 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (pip/boot) |
+| 6 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (train) |
+| 7 | H120/F25 | high | raw golden-crown (no LoRA) → m>+0.015 | **open** (n80 ~68) |
+| 8 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (everest ~40G) |
+| 9 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (n80 ~37) |
+| — | H112/F17 | — | raw genesis (no LoRA) → m>+0.015 | **refuted** m=−0.05489 |
 | — | H113/F18 | — | raw TalentPigs (no LoRA) → m>+0.015 | **refuted** m=−0.03010 |
 | — | H111/F16 | — | af-k1 × high-Λ2 → m>+0.015 | **refuted** m=−0.07623 |
 | — | H119/F24 | — | raw af-k1 (no LoRA) → m>+0.015 | **refuted** m=−0.08673 |
@@ -61,19 +62,20 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H125/F30 — kevin954 full-FT × high-Λ2 z_A
 - Dense FT kevin@3fb79cfb × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f30-1 lunar-wolf-aa **pip/boot**. `s4-h125-f30-kevin-full-ft/`.
+- mine-f30-1 lunar-wolf-aa **train**. `s4-h125-f30-kevin-full-ft/`.
 
-### H112/F17 — raw genesis (no LoRA)
-- Unmodified genesis @abe89194 vs Tok → m>+0.015. n80 ~67/80. `s4-h112-f17-raw-genesis/`.
+### H126/F31 — Bittob11040 full-FT × high-Λ2 z_A
+- Dense FT Bittob@0c04fe92 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
+- mine-f31-1 golden-hawk-bb **pip/boot**. `s4-h126-f31-bittob-full-ft/`.
 
 ### H120/F25 — raw golden-crown (no LoRA)
-- Unmodified golden-crown @ee37f4f0 vs Tok → m>+0.015. n80 ~58/80. `s4-h120-f25-raw-golden/`.
+- Unmodified golden-crown @ee37f4f0 vs Tok → m>+0.015. n80 ~68/80. `s4-h120-f25-raw-golden/`.
 
 ### H117/F22 — raw everest12 (no LoRA)
-- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. everest DL ~57G. `s4-h117-f22-raw-everest12/`.
+- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. everest ~40G incomplete (growing). `s4-h117-f22-raw-everest12/`.
 
 ### H118/F23 — raw Bittob11040 (no LoRA)
-- Unmodified Bittob @0c04fe92 vs Tok → m>+0.015. n80 ~21/80. `s4-h118-f23-raw-bittob/`.
+- Unmodified Bittob @0c04fe92 vs Tok → m>+0.015. n80 ~37/80. `s4-h118-f23-raw-bittob/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
@@ -82,17 +84,16 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F17/F22/F23/F25–F30 | screens | **live** (9 pods) |
+| F22/F23/F25–F31 | screens | **live** (9 pods) |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
-| — | raw past-earner | **CLOSED** kevin/pandora/diane/af-k1/**TalentPigs** |
+| — | raw past-earner/genesis | **CLOSED** kevin/pandora/diane/af-k1/TalentPigs/**genesis** |
 
 ## Refuted (keep) — detail `archive/HYPOTHESES-pre-p440.md`
 
-- **H113/F18** raw TalentPigs m=−0.03010 · **H111/F16** af-k1×Λ2 m=−0.07623
-- **H119/F24** raw af-k1 m=−0.08673 · **H116/F21** raw diane m=−0.07226
-- **H115/F20** raw pandora m=−0.02975 · **H114/F19** raw kevin m=−0.00611
-- **H108–H110/F13–F15** earner×Λ2 · **H105/F10** TalentPigs-LoRA m=−0.031
-- **H106/F11** pandora-LoRA · **H107/F12** golden-LoRA · **H104/F9** kevin-LoRA
-- **H100/F4** Genesis×Λ2 · **H102/F7** teacher-zC · **H103/F8** Genesis-RL
-- **H101/F6** ultrashort · **H98/F1** Tok-RL · **H97/F3** r256 · **H96/H99**
-- Screens live: **F17,F22,F23,F25–F30**. Next free slot: Bittob/TalentPigs full-FT or **F5** if traj.
+- **H112/F17** raw genesis m=−0.05489 · **H113/F18** raw TalentPigs m=−0.03010
+- **H111/F16** af-k1×Λ2 m=−0.07623 · **H119/F24** raw af-k1 m=−0.08673
+- **H116/F21** raw diane m=−0.07226 · **H115/F20** raw pandora m=−0.02975
+- **H114/F19** raw kevin m=−0.00611 · **H108–H110/F13–F15** earner×Λ2
+- **H105/F10** TalentPigs-LoRA · **H106–H107/F11–F12** · **H104/F9** kevin-LoRA
+- **H100/F4** Genesis×Λ2 · **H102/F7** · **H103/F8** · **H101/F6** · **H98/F1** · **H97/F3**
+- Screens live: **F22,F23,F25–F31**. Next free slot: TalentPigs full-FT or **F5** if traj.
