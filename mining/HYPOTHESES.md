@@ -9,7 +9,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
 | 1 | H138/F43 | high | Tok offline DPO duel-Λ2 → m>+0.015 | **open** (bootstrap) |
-| 2 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (Tok DL) |
+| 2 | H137/F42 | high | Tok BoN-CE teacher-Λ2 → m>+0.015 | **open** (BoN train) |
 | 3 | H136/F41 | high | TalentPigs RL teacher-Λ2 → m>+0.015 | **open** (teacher) |
 | 4 | H135/F40 | high | kevin RL teacher-Λ2 → m>+0.015 | **open** (RL after z-fix) |
 | 5 | H134/F39 | high | Tok RL full S* mix → m>+0.015 | **open** (RL train) |
