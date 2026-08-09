@@ -25,6 +25,8 @@ export HF_HOME=${HF_HOME:-/root/hf}
 KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
 KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 MERGED=${MERGED:-/root/h127/merged}
+# p476: resolve symlink — vLLM model id is the real serve path (/tmp/hN_merged)
+if [[ -e "$MERGED" ]]; then MERGED=$(readlink -f "$MERGED"); fi
 SIM=/root/affine_data/h127_sim_result.json
 PROG=/root/affine_data/h127_sim_progress.json
 DEC=/root/affine_data/h127_decision.json
