@@ -12,4 +12,4 @@ pod reaches PROMPTABLE in one pass (then we can drop to zero pods).
 ## Status (p539)
 - [x] Tar `/root/.triton/cache/{teacher,king,chall}` → `warm_stack_triton_cache_p539.tar.gz`
 - [x] Record exact `vllm serve` argv → `serve_commands.md`
-- [ ] Merge H64 r=18 onto local `/tmp` chall; leave ready (HF push blocked)
+- [x] Merge H64 r=18 onto local `/tmp/h64_merged` (p541; HF push blocked; still downloadable)
