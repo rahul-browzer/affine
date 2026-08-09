@@ -248,8 +248,11 @@ def main() -> None:
     if args.loss_on == "thought" and n_sup < 4:
         raise SystemExit("thought mask produced empty supervised span on row0")
 
+    # Mid-ckpts under /root hit /lium-cipher (gocryptfs): AdamW optimizer.pt
+    # for ~35B is ~200GB+ and WCHAN=request_wait_answer (p493 F36@step50).
+    # Final save already goes to /tmp; disable Trainer mid-saves entirely.
     targs = TrainingArguments(
-        output_dir=str(args.out_dir / "checkpoints"),
+        output_dir=str(Path("/tmp") / "h131_train_ckpt"),
         num_train_epochs=args.epochs,
         per_device_train_batch_size=args.batch,
         gradient_accumulation_steps=args.grad_accum,
@@ -257,8 +260,7 @@ def main() -> None:
         lr_scheduler_type="cosine",
         warmup_ratio=args.warmup_ratio,
         logging_steps=args.logging_steps,
-        save_steps=args.save_steps,
-        save_total_limit=2,
+        save_strategy="no",
         bf16=True,
         tf32=True,
         optim="adamw_torch",

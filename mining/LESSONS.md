@@ -62,7 +62,7 @@ Format: `- <finding> — <the number or error that proves it>`
 ## Training ops
 - Under `nohup`, scrape `trainer_state.json` (tqdm.write never hits the log). Always venv python; salvage mid-ckpts (best loss ≠ last). **`tf32=True` only** — family sed `tf33`…`tf36` kills TrainingArguments (F33–F35 p474; **F36 p487** `tf36` → TypeError, idle GPUs until fix+relaunch).
 - LoRA r16/α32 ≈1h45m/110 steps on 2 GPUs. HF private uploads hard-fail — keep merges public. Never kill live HF DL for slower peer-rsync (p370: HF≪rsync).
-- Merge/finalize **and** `train_full` copytree on gocryptfs `/root` hang (`WCHAN=request_wait_answer`; p472–**p474**). Fix: `/tmp/*_full_ft_save` + symlink; `MERGED=/tmp/*_merged` + `ln -sfn`. **p481:** finalize can omit `tokenizer.*` → chall dies at profile `Qwen3VLProcessor` (F31 a1/a2); copy tokenizer+vocab+merges+processor from base before serve. Contig-clone + `max_shard_size=5GB`.
+- Merge/finalize **and** Trainer mid-ckpt/`copytree` on gocryptfs `/root` hang (`WCHAN=request_wait_answer`; p472–**p493**). AdamW `optimizer.pt` @step50 for ~35B ≈200GB+ on `/lium-cipher` (F36 p493). Fix: `save_strategy=no`; final save `/tmp/*_full_ft_save` + symlink; `MERGED=/tmp/*_merged`. **p481/p493:** copy tokenizer via `cp -L` (HF symlinks break under `/tmp`). Contig-clone + `max_shard_size=5GB`.
 
 ## Shell / pod ops
 - Never `lium exec -e HF_TOKEN=...` (prints secret). `/root/mine.env` +

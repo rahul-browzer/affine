@@ -15,7 +15,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 5 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (n80 ~36/80) |
 | 6 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (n80 ~16/80) |
 | 7 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (n80 ~28/80) |
-| 8 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (train ~45/60) |
+| 8 | H131/F36 | high | af-k1 full-FT → m>+0.015 | **open** (finalize after ckpt50 salvage) |
 | — | H121/F26 | — | Tok full-FT → m>+0.015 | **refuted** m=−0.00031 |
 | — | H122/F27 | — | Genesis full-FT → m>+0.015 | **refuted** m=−0.07068 |
 | — | H126/F31 | — | Bittob full-FT → m>+0.015 | **refuted** m=−0.07651 |
@@ -63,8 +63,8 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - `s4-h117-f22-raw-everest12/`.
 
 ### H128–H131 / F33–F36 — past-king full-FT screens
-- pandora/diane/everest/af-k1 dense FT × high-Λ2. Live n80/train.
-- Detail: `s4-h128…` … `s4-h131-f36-af-k1-full-ft/`.
+- pandora/diane/everest n80; af-k1 F36 salvaged @step50 (p493) → finalize.
+- Detail: `s4-h128…` … `s4-h131-f36-af-k1-full-ft/results/pass493_salvage.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
