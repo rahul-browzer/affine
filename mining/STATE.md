@@ -12,28 +12,28 @@ King Tok S=0.04456.
 | item | value |
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| Lium / spend | **~$179,965** · cum ~$17,729 · **avail ~$170.0k** |
+| Lium / spend | **~$179,920** · cum ~$17,775 · **avail ~$169.9k** |
 | miner | τ10.000 free · 0 submissions |
 | burn | **~$392.8/h** (12 mine-*) ≪ $833/h · free slots **8** |
-| n80 | **F22** 5/80; **F26** ~23/80; **F27** ~31/80; **F28** ~39/80; **F29** ~15/80; **F30** ~30/80; **F31** ~17/80 |
-| recover | **F32** serve_three loading (n80 wait); **F36** pip→af-k1 DL→train |
+| n80 | **F22** ~24/80; **F26** ~39/80; **F27** ~46/80; **F28** ~54/80; **F29** ~36/80; **F30** ~49/80; **F31** ~40/80; **F32** d203 **started** |
+| recover | **F33** train.done → post_train; **F34** train; **F35** engines loading; **F36** train live |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-f22-1 | calm-hawk-98 | 204.9.206.243:40300 | ~14:27Z | F22 n80 d203 **5/80** |
-| mine-f26-1 | gentle-fox-2c | 152.236.142.235:40300 | ~16:12Z | F26 n80 e203 |
-| mine-f27-1 | eager-orbit-15 | 152.236.142.237:40299 | ~16:16Z | F27 n80 e203 |
-| mine-f28-1 | eager-eagle-b1 | 152.236.142.232:40300 | ~16:20Z | F28 n80 e203 |
-| mine-f29-1 | gentle-shark-9c | 152.236.142.234:40300 | ~16:26Z | F29 n80 d203 |
-| mine-f30-1 | lunar-wolf-aa | 152.236.142.236:40300 | ~16:31Z | F30 n80 d203 |
-| mine-f31-1 | golden-hawk-bb | 38.255.28.21:20099 | ~16:39Z | F31 n80 d203 |
-| mine-f32-1 | noble-wolf-e8 | 38.255.28.22:20099 | ~16:49Z | F32 engines→n80 |
-| mine-f33-1 | golden-matrix-f1 | 3.135.191.208:20127 | ~17:07Z | F33 full-FT train |
+| mine-f22-1 | calm-hawk-98 | 204.9.206.243:40300 | ~14:27Z | F22 n80 d203 ~24/80 |
+| mine-f26-1 | gentle-fox-2c | 152.236.142.235:40300 | ~16:12Z | F26 n80 e203 ~39/80 |
+| mine-f27-1 | eager-orbit-15 | 152.236.142.237:40299 | ~16:16Z | F27 n80 e203 ~46/80 |
+| mine-f28-1 | eager-eagle-b1 | 152.236.142.232:40300 | ~16:20Z | F28 n80 e203 ~54/80 |
+| mine-f29-1 | gentle-shark-9c | 152.236.142.234:40300 | ~16:26Z | F29 n80 d203 ~36/80 |
+| mine-f30-1 | lunar-wolf-aa | 152.236.142.236:40300 | ~16:31Z | F30 n80 d203 ~49/80 |
+| mine-f31-1 | golden-hawk-bb | 38.255.28.21:20099 | ~16:39Z | F31 n80 d203 ~40/80 |
+| mine-f32-1 | noble-wolf-e8 | 38.255.28.22:20099 | ~16:49Z | F32 n80 d203 (p486 king478) |
+| mine-f33-1 | golden-matrix-f1 | 3.135.191.208:20127 | ~17:07Z | F33 train.done→post_train |
 | mine-f34-1 | brave-eagle-b1 | 38.255.28.18:20099 | ~17:10Z | F34 full-FT train |
-| mine-f35-1 | zesty-matrix-04 | 150.136.71.147:20294 | ~17:19Z | F35 full-FT train |
-| mine-f36-1 | zesty-orbit-ff | 86.38.238.54:40300 | ~18:25Z | F36 af-k1 full-FT bootstrap |
+| mine-f35-1 | zesty-matrix-04 | 150.136.71.147:20294 | ~17:19Z | F35 engines→n80 |
+| mine-f36-1 | zesty-orbit-ff | 86.38.238.54:40300 | ~18:25Z | F36 full-FT train |
 
 kh: `~/.ssh/id_ed25519` + `/tmp/mine-*-1.known_hosts`. Non-mine — **do not touch**.
 
@@ -46,6 +46,7 @@ FALSE_PROBE≠REFUTE; never rm non-mine; COUNT>=8 gate (API lies).
 `--chall-repo` = `/v1/models` id. **preempt EXP must = real exp dir** (p480).
 **p481:** full-FT finalize can omit tokenizer → copy from base before chall serve.
 **p484:** never edit live `post_train_pipeline.sh` (bash-offset abort).
+**p486:** bare king EngineDead → seed-from-chall king478 (n_so≥16) not cold p332.
 
 ## Operator directive 2026-08-08T18:55Z
 
@@ -53,7 +54,7 @@ Unit = **family**. SCREEN→CONFIRM(k=4)→SWEEP. Cap **20**, burn **$833/h**.
 
 ## Next action
 
-1. **F26–F31 + F22**: poll n80 → decision (screen bar +0.015 → CONFIRM k=4).
-2. **F32**: wait engines health+promptable+freeze → n80.
-3. **F33–F35**: train→post_train; **F36**: wait bootstrap→train.
+1. **F22,F26–F32**: poll n80 → decision (screen bar +0.015 → CONFIRM k=4).
+2. **F33**: confirm post_train finalize→chall→n80 (train.done @p486).
+3. **F34**: train→post_train; **F35**: wait engines health+promptable→n80; **F36**: train.
 4. Free slot → next orthogonal family (or F5 if traj ready).
