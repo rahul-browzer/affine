@@ -51,7 +51,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
 - **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
 - **F9–F15 earner×high-Λ2 REFUTED (class):** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob−0.058; everest−0.083; diane−0.073. Only F16 LoRA still screening. Do not rent more earner×Λ2 LoRA.
-- **F19 raw kevin954 REFUTED (H114 p455):** m=**−0.00611** z=−0.62 valid_c r=0.78 — gates clear, ranking loss vs Tok. Raw past-king ≠ automatic Λ2 win; tear mine-f19-1.
+- **Raw past-king REFUTED (kevin+pandora):** F19 kevin m=−0.00611; F20 pandora m=**−0.02975** z=−3.90 λ2_c=−0.012≪king (p457). Gates clear; ranking/Λ2 loss. Do not rent more unmodified past-earner screens of this class without a new structural angle.
 - **shm_broadcast hang:** F21 Triton/hang → seed king n_so≥16 util=0.72 (p448). F18 teacher+chall hang → recover454 (p454); p455: both promptable → n80. Bare king n_so=0 usable as cold seed.
 
 ## Serving / VLM
