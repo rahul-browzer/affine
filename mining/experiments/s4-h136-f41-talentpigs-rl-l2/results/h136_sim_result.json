@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 2851.721718788147,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h136/merged",
+  "block_hash": "e203000000000000000000000000000000000000000000000000000000000005",
+  "hotkey": "local-h136",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.011594109556767835,
+    "se": 0.01011845719938015,
+    "z": -1.145837683384981,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.02719921653613163,
+      "gate_pass_rate": 0.7961783439490446,
+      "bank_frac": 0.4270833333333333,
+      "calib_ratio": 0.6667817768985409,
+      "baseline_abs": 0.1467296524113732,
+      "n_turns": 80,
+      "n_pairs": 314,
+      "mean_lambda2": -0.009548334678247242,
+      "mean_mix": 0.02719921653613163
+    },
+    "challenger": {
+      "valid": true,
+      "S": 0.015812675560797382,
+      "gate_pass_rate": 0.7767295597484277,
+      "bank_frac": 0.434375,
+      "calib_ratio": 0.7564838546332835,
+      "baseline_abs": 0.13122415731425505,
+      "n_turns": 80,
+      "n_pairs": 318,
+      "mean_lambda2": -0.012282086176149483,
+      "mean_mix": 0.015812675560797382
+    },
+    "slice": {
+      "seed": 8446800693116571054,
+      "n": 80,
+      "digest": "91e854719642694096f48861fa1bf5a5ad64322e106a508717dec50020d4e208",
+      "block_hash": "e203000000000000000000000000000000000000000000000000000000000005",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.7564838546332835,
+    "chall_baseline_abs": 0.13122415731425505,
+    "king_baseline_abs": 0.1467296524113732,
+    "base_x": 0.894326096720745
+  }
+}
