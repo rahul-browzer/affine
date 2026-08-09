@@ -8,7 +8,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (bootstrap) |
+| 1 | H132/F37 | high | Tok RL teacher-Λ2 → m>+0.015 | **open** (train live) |
 | 2 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (n80 e203) |
 | 3 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (n80 ~38/80) |
 | 4 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (n80 ~47/80) |
@@ -48,7 +48,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H132/F37 — Tok REINFORCE on teacher Λ2
 - Tok-init LoRA; reward = lpC(y|z)−lpC(y|∅) via live teacher :8000 → m>+0.015.
-- mine-f37-1 bootstrap. `s4-h132-f37-tok-rl-l2/`. F1 deferred this variant.
+- mine-f37-1 train pid11123 @07:21Z (189 ex). `s4-h132-f37-tok-rl-l2/`.
 
 ### H124/F29 — golden-crown full-FT × high-Λ2 z_A
 - Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
@@ -73,7 +73,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F37 | Tok RL teacher-Λ2 | **live** bootstrap |
+| F37 | Tok RL teacher-Λ2 | **live** train |
 | F22/F29/F32–F36 | screens | **live** |
 | — | earner×high-Λ2 LoRA | **CLOSED** F9–F16 all ≤0 |
 | — | raw past-earner/genesis | **CLOSED** (everest F22 open) |
