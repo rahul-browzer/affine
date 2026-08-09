@@ -119,9 +119,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - `watch_n80_retry` can launch before venv exists — retry must wait for
   `/root/venv/bin/activate` ≤10m (H60/H61/H62).
 - Rent by UUID + **post-rent COUNT=8** (catalog lies). p441: zesty-fox-fc
-  catalog $31.92→live $15.96 COUNT=4 (×2); noble-wolf COUNT=8 @$24.40 kept.
-  $/h≥28 preferred not hard when catalog exhausted. Capture COUNT on ssh
-  **stdout** (stderr redirect → empty → false tear). Always `-y`.
+  $31.92→$15.96 COUNT=4; p442: zesty-hawk-ae $22→$5.50 COUNT=2. Capture
+  COUNT on ssh **stdout** (stderr→empty→false tear). Always `-y`.
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
   → n80 → `__triton_launcher.so` → ConnectError false REFUTE in ~6m; quarantine
   + GPU-index chall relaunch + completions probe before retry.
