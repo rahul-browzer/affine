@@ -60,7 +60,7 @@ Format: `- <finding> — <the number or error that proves it>`
 ## Training ops
 - Under `nohup`, scrape `trainer_state.json` (tqdm.write never hits the log). Always venv python; salvage mid-ckpts (best loss ≠ last).
 - LoRA r16/α32 ≈1h45m/110 steps on 2 GPUs. HF private uploads hard-fail — keep merges public. Never kill live HF DL for slower peer-rsync (p370: HF≪rsync).
-- Merge save on gocryptfs `/root`: GPU *or* CPU can hang (`write_bytes=4096`, WCHAN=request_wait_answer, tmp=49.7 GiB). F14 eager-comet EFAULT + F15 calm-wolf p432 same 49.7 GiB `.tmp` hang mid-GPU-auto — fix: contiguous-clone + `max_shard_size=5GB` → `/tmp` overlay, symlink `/root/h*/merged` (H109 p429c / H110 p432); plain CPU→/root OK only on non-gocryptfs (zesty-hawk F13).
+- Merge save on gocryptfs `/root`: GPU *or* CPU can hang (`write_bytes=4096`, WCHAN=request_wait_answer, tmp=49.7 GiB). Fix: contig-clone + `max_shard_size=5GB` → `/tmp`, symlink (H109/H110). **Visual restore also EFAULT** on `/tmp` if tensors stay mmap'd from gocryptfs base — contig-clone before `save_file` (`finish_visual_pass429c/433`; H110 p432 wrote 16 lang shards then died on 333 visual keys).
 
 ## Shell / pod ops
 - Never `lium exec -e HF_TOKEN=...` (prints secret). `/root/mine.env` +
