@@ -14,7 +14,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 4 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (n80 16/80) |
 | 5 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (n80 7/80) |
 | 6 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (n80 1/80) |
-| 7 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (train) |
+| 7 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (serve→n80) |
 | 8 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (train) |
 | 9 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (train) |
 | 10 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (train) |
@@ -74,7 +74,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ### H127/F32 — TalentPigs full-FT × high-Λ2 z_A
 - Dense FT TalentPigs@dbfbb3e2 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f32-1 train_full. `s4-h127-f32-talentpigs-full-ft/`.
+- train DONE loss=0.487; finalize OK_NON_IDENTICAL; serve_three @06:21Z (p484). `s4-h127-f32-talentpigs-full-ft/`.
 
 ### H128/F33 — pandora-box full-FT × high-Λ2 z_A
 - Dense FT pandora@5218b138 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
