@@ -17,7 +17,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 | 7 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (train) |
 | 8 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (pip/boot) |
 | 9 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (train) |
-| 10 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (king DL) |
+| 10 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (Tok Range p470) |
 | — | H118/F23 | — | raw Bittob (no LoRA) → m>+0.015 | **refuted** m=−0.08436 |
 | — | H120/F25 | — | raw golden-crown (no LoRA) → m>+0.015 | **refuted** m=−0.06343 |
 | — | H112/F17 | — | raw genesis (no LoRA) → m>+0.015 | **refuted** m=−0.05489 |
@@ -84,7 +84,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - mine-f34-1 brave-eagle-b1 **pip/boot**. `s4-h129-f34-diane-full-ft/`.
 
 ### H117/F22 — raw everest12 (no LoRA)
-- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. Everest done; Tok king DL. `s4-h117-f22-raw-everest12/`.
+- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. Everest done; Tok Range-resume p470 (HTTP206). `s4-h117-f22-raw-everest12/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
