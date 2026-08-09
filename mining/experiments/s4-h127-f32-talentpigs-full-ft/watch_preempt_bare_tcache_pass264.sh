@@ -4,7 +4,7 @@
 # expected); do NOT launch if relaunch_chall already alive.
 set -euo pipefail
 H=h127
-EXP=s4-h127-f26-af-k1
+EXP=s4-h127-f32-talentpigs-full-ft
 LOG=/root/logs/${H}_preempt_bare_pass264.log
 RECOVER=/root/mining_src/${EXP}/relaunch_chall_pass264.sh
 mkdir -p /root/logs
