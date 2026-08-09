@@ -40,19 +40,19 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H107 / F12 — golden-crown × high-Λ2 — open
 - **Claim:** golden-crown @ee37f4f0 + 1059 high-Λ2 → m>+0.015.
-- **Status:** recover264 a1 (p425; bare-cache serve died). `experiments/s4-h107-f12-golden-crown/`.
+- **Status:** n80 d203 live (p427; watcher re-pointed off a203). `experiments/s4-h107-f12-golden-crown/`.
 
 ### H108 / F13 — diane613 × high-Λ2 — open
 - **Claim:** diane613 @ad0f3f11 + 1059 high-Λ2 → m>+0.015.
-- **Status:** merge_lora live. `experiments/s4-h108-f13-diane613/`.
+- **Status:** CPU merge recover after GPU hang (p427). `experiments/s4-h108-f13-diane613/`.
 
 ### H109 / F14 — Bittob11040 × high-Λ2 — open
 - **Claim:** Bittob11040 @0c04fe92 + 1059 high-Λ2 → m>+0.015.
-- **Status:** train live. `experiments/s4-h109-f14-bittob/`.
+- **Status:** train ~56/60. `experiments/s4-h109-f14-bittob/`.
 
 ### H110 / F15 — everest12 × high-Λ2 — open
 - **Claim:** everest12 @a5ac5311 + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** bootstrap. `experiments/s4-h110-f15-everest12/`.
+- **Status:** bootstrap HF DL ~59 GiB. `experiments/s4-h110-f15-everest12/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
