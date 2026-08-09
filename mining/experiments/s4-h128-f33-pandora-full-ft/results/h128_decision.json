@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-09T07:33:01Z",
+  "margin": -0.02160739918326397,
+  "z": -2.2128724058370155,
+  "r_c": 0.7770208631127934,
+  "valid_c": true,
+  "S_c": 0.0066451562541284676,
+  "S_k": 0.027962768116029522,
+  "se": 0.009764412591647372,
+  "base_x": 0.90216405796736,
+  "decision": "REFUTE_H128",
+  "parser": "write_merge_decision.py#nested_verdict",
+  "signal_only": false,
+  "submit": false
+}

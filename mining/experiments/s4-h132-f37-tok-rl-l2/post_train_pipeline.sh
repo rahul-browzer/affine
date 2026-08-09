@@ -31,7 +31,7 @@ LOG=/root/logs/h132_pipeline.nohup
 # Patched pass259: TTL remove_at=2026-08-08T19:01Z → soft=TTL−1h, deadman=TTL
 # Pass312 rent ~13:19Z ttl12h → remove≈01:19Z+1d; soft=TTL−1h, deadman=TTL−30m
 # Pass354 rent ~19:06Z ttl12h → remove≈07:06Z+1d; soft=TTL−1h, deadman=TTL−30m
-SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-09T06:06:00Z}
+SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-09T18:06:00Z}
 DEADMAN_UTC=${DEADMAN_UTC:-2026-08-09T06:36:00Z}
 
 log() { echo "[h132-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
