@@ -1,0 +1,67 @@
+{
+  "elapsed_s": 3160.434107065201,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/tmp/h122_merged",
+  "block_hash": "e203000000000000000000000000000000000000000000000000000000000005",
+  "hotkey": "local-h122",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.07068171456265158,
+    "se": 0.009643293813946555,
+    "z": -7.3296236665970484,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.034377701525189125,
+      "gate_pass_rate": 0.8365384615384616,
+      "bank_frac": 0.4875,
+      "calib_ratio": 0.682378733127511,
+      "baseline_abs": 0.12727660319214512,
+      "n_turns": 80,
+      "n_pairs": 312,
+      "mean_lambda2": 0.002232639541437822,
+      "mean_mix": 0.034377701525189125
+    },
+    "challenger": {
+      "valid": true,
+      "S": -0.0366884124818857,
+      "gate_pass_rate": 0.6392405063291139,
+      "bank_frac": 0.34270833333333334,
+      "calib_ratio": 1.1088178227841845,
+      "baseline_abs": 0.12024150897710444,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "mean_lambda2": -0.02703451679887668,
+      "mean_mix": -0.0366884124818857
+    },
+    "slice": {
+      "seed": 17358901404307638411,
+      "n": 80,
+      "digest": "b5aaf2aaf8b29eb613c38e292df6f6e25cf79f2804a629cbe2355fba50fefc91",
+      "block_hash": "e203000000000000000000000000000000000000000000000000000000000005",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 1.1088178227841845,
+    "chall_baseline_abs": 0.12024150897710444,
+    "king_baseline_abs": 0.12727660319214512,
+    "base_x": 0.9447259430358929
+  }
+}

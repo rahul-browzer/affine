@@ -1,7 +1,7 @@
-## Progress (p475)
-- Engines double-promptable @05:45:49Z; n80 attempt 1/6 block_hash=d203… started (run_sim_duel live).
-- Next: poll margin in /root/affine_data/h122_decision.json (screen gate ±0.015).
-## p476
-- Symptom: n80 FALSE_PROBE ~48s ×3; rejection `unpromptable:…404` on :8002/completions.
-- Cause: vLLM served id=/tmp/h122_merged; sim used symlink /root/h122/merged.
-- Fix: retry_h122_n80_d203first_p476.sh MERGED=$(readlink -f …); n80 progressed to 2/80.
+# H122/F27 — Genesis full-FT × high-Λ2 z_A — REFUTE
+
+- **n80 vs Tok331102@eb8bf9a** (block e203): margin **−0.07068** z=−7.33 SE=0.00964
+- S_c=−0.03669 S_k=0.03438 · valid_c=true · r_c=1.109 · base×=0.945
+- mean_λ2_c=**−0.02703** ≪ king +0.00223 — dense FT on genesis wrecks Λ2 vs Tok
+- Decision: REFUTE_H122. Pod mine-f27-1 rm'd p490.
+- Artifacts: `h122_decision.json`, `h122_sim_result.json`
