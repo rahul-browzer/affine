@@ -119,9 +119,10 @@ Format: `- <finding> — <the number or error that proves it>`
 - Mid-n80 king NCCL → orphans on GPUs2,3; king332 (F9 p399). Cold empty isolated TCACHE also ENOENT mid-load (F11 p434 n_so=10 CQWZC55M) → seed from frozen chall n_so≥16 then util=0.72 (p435); leave chall.
 - `watch_n80_retry` can launch before venv exists — retry must wait for
   `/root/venv/bin/activate` ≤10m (H60/H61/H62).
-- Rent by UUID from `lium ls --count 8` $/h≥28 + verify COUNT=8 on the pod
-  (`nvidia-smi -L|wc -l`; catalog can lie — COUNT=5@$14.5 or COUNT=7@$31.92
-  H99 p355). Always `-y` (bare `yes|` floods SSH with `y: command not found`).
+- Rent by UUID + **post-rent COUNT=8** (catalog lies). p441: zesty-fox-fc
+  catalog $31.92→live $15.96 COUNT=4 (×2); noble-wolf COUNT=8 @$24.40 kept.
+  $/h≥28 preferred not hard when catalog exhausted. Capture COUNT on ssh
+  **stdout** (stderr redirect → empty → false tear). Always `-y`.
 - `wait_ready` `/v1/models` alone ≠ promptable (H30 pass192): chall health=200
   → n80 → `__triton_launcher.so` → ConnectError false REFUTE in ~6m; quarantine
   + GPU-index chall relaunch + completions probe before retry.
