@@ -1,0 +1,68 @@
+{
+  "elapsed_s": 1670.9056956768036,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/root/h142/chall",
+  "block_hash": "f203000000000000000000000000000000000000000000000000000000000006",
+  "hotkey": "local-h142",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0,
+    "se": null,
+    "z": 0.0,
+    "k_sigma": 3.0,
+    "n_paired_turns": 44,
+    "ranking_formula": "\u039b2 + 1.0\u00b7L1lift",
+    "gates": {
+      "tau": 0.02,
+      "gamma": 0.3,
+      "gamma_bank": 0.08,
+      "l1_weight": 1.0,
+      "l1_clip": 0.1,
+      "r_lo": 0.3,
+      "r_hi": 4.0,
+      "baseline_band": 1.25,
+      "min_se": 0.005,
+      "min_margin": 0.02
+    },
+    "king": {
+      "valid": true,
+      "S": 0.035909063063376455,
+      "gate_pass_rate": 0.7714285714285715,
+      "bank_frac": 0.4375,
+      "calib_ratio": 0.6529913089628084,
+      "baseline_abs": 0.1343273980479796,
+      "n_turns": 80,
+      "n_pairs": 315,
+      "mean_lambda2": -0.0014085757556019701,
+      "mean_mix": 0.035909063063376455
+    },
+    "challenger": {
+      "valid": false,
+      "S": null,
+      "gate_pass_rate": 0.7288135593220338,
+      "bank_frac": 0.4564393939393939,
+      "calib_ratio": 0.7882082825636048,
+      "baseline_abs": 0.30136831840017536,
+      "n_turns": 80,
+      "n_pairs": 118,
+      "mean_lambda2": -0.004559258136736,
+      "mean_mix": 0.026889886712343457,
+      "baseline_band_exceeded": true
+    },
+    "slice": {
+      "seed": 16561600569877825113,
+      "n": 80,
+      "digest": "bfbaba4e8733b87bc35e84269e16229bc309d662b06661753eef3c01c73a6b4a",
+      "block_hash": "f203000000000000000000000000000000000000000000000000000000000006",
+      "corpus_epoch": 0,
+      "manifest_sha256": ""
+    }
+  },
+  "h4": {
+    "chall_r": 0.7882082825636048,
+    "chall_baseline_abs": 0.30136831840017536,
+    "king_baseline_abs": 0.1343273980479796,
+    "base_x": 2.2435357401364344
+  }
+}

@@ -1,6 +1,10 @@
-## p525 (2026-08-09T10:36:06Z)
-- Reconcile: 9 mine-* match inventory; burn ~$246.6/h; bal $178428.66.
-- F47 king :8001 hung on shm_broadcast mid-load (n_so_king incomplete); waited through warmup → health200 @10:34:16Z; n_so_king 16→23.
-- Dual-promptable t/k/c; retry launched n80 attempt1/6 block_hash=d203 @10:34:49Z; progress chall 1/80.
-- Chall bare TCACHE n_so≈7 (risk); leave alone mid-n80.
-- F38 @66/80 a203 still running; no decision yet.
+## Verdict — REFUTED (pass 530)
+
+Raw `Qwen/Qwen3-Coder-30B-A3B-Instruct` @ `b2cff646…` vs Tok n80:
+**invalid challenger** — `baseline_band_exceeded` at **base_x=2.244** (limit 1.25).
+margin=0; ungated mean_mix 0.0269 < king 0.0359; λ2_c −0.0046 vs king −0.0014.
+Family closed. Detail: `results/pass530_refute.md`.
+
+## Prior
+- p525: engines up; n80 started (later re-ran on f203).
+- p520: rent mine-f47-1.
