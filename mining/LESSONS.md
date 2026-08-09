@@ -51,7 +51,7 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
 - **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
 - **F9–F16 earner×high-Λ2 REFUTED (class closed):** kevin−0.014; golden−0.059; pandora−0.034; TalentPigs−0.031; Bittob−0.058; everest−0.083; diane−0.073; **af-k1 F16 m=−0.07623** z=−7.28 λ2_c=−0.019 (p459). Every earner×Λ2 LoRA ≤0. Do not rent more of this class.
-- **Raw past-king/genesis REFUTED (kevin+pandora+diane+af-k1+TalentPigs+genesis+golden+Bittob):** F19 kevin m=−0.00611; F20 pandora m=−0.02975; F21 diane m=**−0.07226**; F24 af-k1 m=**−0.08673**; F18 TalentPigs m=−0.03010; F17 genesis m=−0.05489; F25 golden m=−0.06343; **F23 Bittob m=−0.08436** z=−8.37 λ2_c=−0.020 (p468). Gates clear; ranking/Λ2 loss. Only raw left: everest12 (F22). Else full-FT or F5.
+- **Raw past-king/genesis REFUTED (kevin+pandora+diane+af-k1+TalentPigs+genesis+golden+Bittob):** F19−0.006; F20−0.030; F21−0.072; F24−0.087; F18−0.030; F17−0.055; F25−0.063; **F23−0.084**. Only raw left: everest12 (F22). **Tok×teacher_refs FT F28 m=−0.00982; kevin FT F30 m=−0.01918 (p489)** — no more Tok-refs/kevin-FT clones.
 - **shm_broadcast / bare-king:** seed king n_so≥16 util=0.72 (p448). Bare king EngineDead with incomplete n_so → **seed-from-chall king478**, not cold p332 (F32 p486: bare n_so=15 failed; chall n_so=22 → PROMPTABLE+n80).
 
 ## Serving / VLM
