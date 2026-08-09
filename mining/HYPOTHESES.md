@@ -8,16 +8,16 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (n80 ~1/80) |
+| 1 | H112/F17 | high | raw genesis (no LoRA) → m>+0.015 | **open** (n80 ~25) |
 | 2 | H113/F18 | high | raw TalentPigs (no LoRA) → m>+0.015 | **open** (king only) |
-| 3 | H114/F19 | high | raw kevin954 (no LoRA) → m>+0.015 | **open** (n80 ~37/80) |
-| 4 | H115/F20 | high | raw pandora (no LoRA) → m>+0.015 | **open** (n80 ~19/80) |
-| 5 | H116/F21 | high | raw diane613 (no LoRA) → m>+0.015 | **open** (k/c down) |
+| 3 | H114/F19 | high | raw kevin954 (no LoRA) → m>+0.015 | **open** (n80 ~55) |
+| 4 | H115/F20 | high | raw pandora (no LoRA) → m>+0.015 | **open** (n80 ~40) |
+| 5 | H116/F21 | high | raw diane613 (no LoRA) → m>+0.015 | **open** (n80 started) |
 | 6 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (bootstrap B300) |
 | 7 | H118/F23 | high | raw Bittob (no LoRA) → m>+0.015 | **open** (bootstrap B300) |
 | 8 | H119/F24 | high | raw af-k1 (no LoRA) → m>+0.015 | **open** (boot) |
-| 9 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 ~68) |
-| 10 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (post_train) |
+| 9 | H108/F13 | high | diane613 × high-Λ2 → m>+0.015 | **open** (n80 ~70) |
+| 10 | H111/F16 | high | af-k1 × high-Λ2 → m>+0.015 | **open** (teacher453) |
 | — | H109/F14 | — | Bittob × high-Λ2 → m>+0.015 | **refuted** m=−0.05784 |
 | — | H110/F15 | — | everest12 × high-Λ2 → m>+0.015 | **refuted** m=−0.08285 |
 | — | H105/F10 | — | TalentPigs × high-Λ2 → m>+0.015 | **refuted** m=−0.03095 |
@@ -50,7 +50,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - Unmodified pandora @5218b138 vs Tok → m>+0.015 (≠F11 LoRA). n80 ~19/80. `s4-h115-f20-raw-pandora/`.
 
 ### H116/F21 — raw diane613 (no LoRA)
-- Unmodified diane613 @ad0f3f11 vs Tok → m>+0.015 (≠F13 LoRA). p452: recover_king_chall armed (orphans reaped; k/c loading util=0.72). `s4-h116-f21-raw-diane/`.
+- Unmodified diane613 @ad0f3f11 vs Tok → m>+0.015 (≠F13 LoRA). p453: recover452 → engines double-promptable; n80 d203 started 03:03Z. `s4-h116-f21-raw-diane/`.
 
 ### H117/F22 — raw everest12 (no LoRA)
 - Unmodified everest12 @a5ac5311 vs Tok → m>+0.015 (≠F15 LoRA). Bootstrap on B300. `s4-h117-f22-raw-everest12/`.
@@ -68,7 +68,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - pandora @5218b138 + high-Λ2 → m=**−0.03414** z=−5.06 S_c=0.0049≪S_k (p448). Tear mine-f11-1. `s4-h106-f11-pandora-base/`.
 
 ### H108/F13 — diane613 × high-Λ2
-- diane613 @ad0f3f11 + high-Λ2 → m>+0.015. n80 ~68. `s4-h108-f13-diane613/`.
+- diane613 @ad0f3f11 + high-Λ2 → m>+0.015. n80 ~70. `s4-h108-f13-diane613/`.
 
 ### H109/F14 — Bittob × high-Λ2 — REFUTED
 - Bittob@0c04fe92 + high-Λ2 → m=**−0.05784** z=−5.91 S_c=−0.023≪S_k (p452). Tear mine-f14-1. `s4-h109-f14-bittob/`.
@@ -77,7 +77,7 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 - everest12@a5ac5311 + high-Λ2 → m=**−0.08285** z=−9.11 mean_λ2_c=−0.0229 (p452). Tear mine-f15-1. `s4-h110-f15-everest12/`.
 
 ### H111/F16 — af-k1 × high-Λ2
-- af-k1 @ff6eb4bc + high-Λ2 → m>+0.015. post_train. `s4-h111-f16-af-k1/`.
+- af-k1 @ff6eb4bc + high-Λ2 → m>+0.015. p453: teacher Triton ENOENT mid-n80 → recover453 loading; retry 0/360. `s4-h111-f16-af-k1/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.
