@@ -260,7 +260,7 @@ def main() -> None:
         save_steps=args.save_steps,
         save_total_limit=2,
         bf16=True,
-        tf34=True,
+        tf32=True,
         optim="adamw_torch",
         report_to=[],
         remove_unused_columns=False,

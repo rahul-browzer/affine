@@ -8,17 +8,17 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (serve→n80) |
-| 2 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (train) |
-| 3 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (train) |
-| 4 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (train) |
-| 5 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (train) |
-| 6 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (train) |
-| 7 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (train) |
-| 8 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (pip/boot) |
-| 9 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (pip/boot) |
-| 10 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (serve→n80) |
-| 11 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (Tok Range) |
+| 1 | H123/F28 | high | Tok full-FT × teacher_refs → m>+0.015 | **open** (n80 1/80) |
+| 2 | H121/F26 | high | Tok full-FT (not LoRA) → m>+0.015 | **open** (engines→n80) |
+| 3 | H122/F27 | high | Genesis full-FT → m>+0.015 | **open** (serve→n80) |
+| 4 | H124/F29 | high | golden full-FT → m>+0.015 | **open** (serve) |
+| 5 | H125/F30 | high | kevin full-FT → m>+0.015 | **open** (serve) |
+| 6 | H126/F31 | high | Bittob full-FT → m>+0.015 | **open** (finalize /tmp) |
+| 7 | H127/F32 | high | TalentPigs full-FT → m>+0.015 | **open** (saving) |
+| 8 | H128/F33 | high | pandora full-FT → m>+0.015 | **open** (train p474) |
+| 9 | H129/F34 | high | diane full-FT → m>+0.015 | **open** (train p474) |
+| 10 | H130/F35 | high | everest full-FT → m>+0.015 | **open** (train p474) |
+| 11 | H117/F22 | high | raw everest12 (no LoRA) → m>+0.015 | **open** (Tok ~92%) |
 | — | H118/F23 | — | raw Bittob (no LoRA) → m>+0.015 | **refuted** m=−0.08436 |
 | — | H120/F25 | — | raw golden-crown (no LoRA) → m>+0.015 | **refuted** m=−0.06343 |
 | — | H112/F17 | — | raw genesis (no LoRA) → m>+0.015 | **refuted** m=−0.05489 |
@@ -48,48 +48,48 @@ Pre-p440 refuted prose: `archive/HYPOTHESES-pre-p440.md`.
 
 ## Open
 
+### H123/F28 — Tok full-FT × teacher_refs z_C
+- Dense FT Tok × 791 teacher_refs_shortz lr=1e-6 → m>+0.015 vs Tok.
+- mine-f28-1 **n80 1/80** d203 (p474). `s4-h123-f28-teacher-refs-ft/`.
+
 ### H121/F26 — Tok full-FT (no LoRA)
 - Dense FT Tok@eb8bf9a × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015.
-- mine-f26-1 gentle-fox-2c **serve→n80** (p473: copytree hang salvaged; finalize 36s OK_NON_IDENTICAL). `s4-h121-f26-full-ft/`.
+- mine-f26-1 engines→n80. `s4-h121-f26-full-ft/`.
 
 ### H122/F27 — Genesis full-FT (no LoRA)
 - Dense FT genesis@abe89194 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f27-1 eager-orbit-15 **train**. `s4-h122-f27-genesis-full-ft/`.
-
-### H123/F28 — Tok full-FT × teacher_refs z_C
-- Dense FT Tok × 791 teacher_refs_shortz lr=1e-6 → m>+0.015 vs Tok.
-- mine-f28-1 eager-eagle-b1 **serve→n80** (p472 finalize /tmp 36s OK). `s4-h123-f28-teacher-refs-ft/`.
+- mine-f27-1 finalize 32s OK → serve→n80 (p474). `s4-h122-f27-genesis-full-ft/`.
 
 ### H124/F29 — golden-crown full-FT × high-Λ2 z_A
 - Dense FT golden@ee37f4f0 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f29-1 gentle-shark-9c **train**. `s4-h124-f29-golden-full-ft/`.
+- mine-f29-1 /tmp finalize+serve (pod MERGED was /root; fixed p474). `s4-h124-f29-golden-full-ft/`.
 
 ### H125/F30 — kevin954 full-FT × high-Λ2 z_A
 - Dense FT kevin@3fb79cfb × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f30-1 lunar-wolf-aa **train**. `s4-h125-f30-kevin-full-ft/`.
+- mine-f30-1 /tmp finalize+serve (p474). `s4-h125-f30-kevin-full-ft/`.
 
 ### H126/F31 — Bittob11040 full-FT × high-Λ2 z_A
 - Dense FT Bittob@0c04fe92 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f31-1 golden-hawk-bb **train**. `s4-h126-f31-bittob-full-ft/`.
+- mine-f31-1 finalize from checkpoint-60 → /tmp (p474). `s4-h126-f31-bittob-full-ft/`.
 
 ### H127/F32 — TalentPigs full-FT × high-Λ2 z_A
 - Dense FT TalentPigs@dbfbb3e2 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f32-1 noble-wolf-e8 **train**. `s4-h127-f32-talentpigs-full-ft/`.
+- mine-f32-1 saving; post_train /tmp MERGED on pod. `s4-h127-f32-talentpigs-full-ft/`.
 
 ### H128/F33 — pandora-box full-FT × high-Λ2 z_A
 - Dense FT pandora@5218b138 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f33-1 golden-matrix-f1 **train**. `s4-h128-f33-pandora-full-ft/`.
+- mine-f33-1 train relaunched after tf33→tf32 (p474). `s4-h128-f33-pandora-full-ft/`.
 
 ### H129/F34 — diane613 full-FT × high-Λ2 z_A
 - Dense FT diane@ad0f3f11 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f34-1 brave-eagle-b1 **pip/boot**. `s4-h129-f34-diane-full-ft/`.
+- mine-f34-1 train relaunched after tf34→tf32 (p474). `s4-h129-f34-diane-full-ft/`.
 
 ### H130/F35 — everest12 full-FT × high-Λ2 z_A
 - Dense FT everest@a5ac5311 × 1059 high-Λ2 z_A lr=1e-6 → m>+0.015 vs Tok.
-- mine-f35-1 zesty-matrix-04 **pip/boot** COUNT=8. `s4-h130-f35-everest-full-ft/`.
+- mine-f35-1 train relaunched after tf35→tf32 (p474). `s4-h130-f35-everest-full-ft/`.
 
 ### H117/F22 — raw everest12 (no LoRA)
-- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. Everest done; Tok Range ~43–50%. `s4-h117-f22-raw-everest12/`.
+- Unmodified everest12 @a5ac5311 vs Tok → m>+0.015. Tok Range ~92%. `s4-h117-f22-raw-everest12/`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. `experiments/s2-clip-l1-rank/`.

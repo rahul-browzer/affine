@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $180,428.05 | 2026-08-09T05:30Z |
-| cumulative mining spend | ~$17,267 (11 pods ~$359.0/h accruing) | 2026-08-09T05:30Z |
-| **available for mining** | **~$170,428** (balance − $10,000 floor) | 2026-08-09T05:30Z |
+| Lium balance | $180,344.35 | 2026-08-09T05:42Z |
+| cumulative mining spend | ~$17,351 (11 pods ~$359.0/h accruing) | 2026-08-09T05:42Z |
+| **available for mining** | **~$170,344** (balance − $10,000 floor) | 2026-08-09T05:42Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (11 pods) | ~$359.0/h | 2026-08-09T05:30Z |
+| miner burn (11 pods) | ~$359.0/h | 2026-08-09T05:42Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-09T05:42Z | 180344.35 | no rent/rm; burn ~$359.0/h (F28 n80 + F27/F29–F31 finalize unstick) |
 | 2026-08-09T05:30Z | 180428.05 | no rent/rm; burn ~$359.0/h (F26 copytree salvage + serve) |
 | 2026-08-09T05:26Z | 180470.67 | no rent/rm; burn stays ~$359.0/h (F28 finalize unstick only) |
 | 2026-08-09T05:20Z | 180512.50 | tear COUNT=4 lunar-lion-a0 (~$0.2); rent mine-f35-1 B200@$40.00/h TTL12h COUNT=8; burn →~$359.0/h |
@@ -30,5 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-09T04:39Z | 180907.42 | tear mine-f17-1 (F17 REFUTE m=−0.05489; ~$83 accrued); rent mine-f31-1 H200@$31.92/h TTL12h COUNT=8; burn stays ~$318.7/h |
 | 2026-08-09T04:31Z | 180951.74 | rent mine-f30-1 H200@$28.00/h TTL12h COUNT=8; burn →~$318.7/h |
 | 2026-08-09T04:26Z | 180994.03 | rent mine-f29-1 H200@$28.00/h TTL12h COUNT=8; burn →~$290.7/h |
-| 2026-08-09T04:21Z | 181032.86 | rent mine-f28-1 H200@$28.00/h TTL12h COUNT=8; burn →~$262.7/h |
-| 2026-08-09T04:17Z | 181069.29 | rent mine-f27-1 H200@$28.00/h TTL12h COUNT=8; burn →~$234.7/h |
