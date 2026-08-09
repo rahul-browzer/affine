@@ -50,7 +50,8 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F1+F8 REINFORCE-L1 REFUTED:** Tok-RL H98 m=+0.00229 (λ2 frozen); Genesis-RL H103 m=**−0.0483** z=−5.0, mean_λ2_c −0.021≪king. Clip-L1 RL ≠ Λ2; worse on Genesis. No RL-L1.
 - **F6 ultrashort≤80 REFUTED (H101):** m=−0.00453; mean_λ2_c≈king. Format≠Λ2 under Tok-LoRA.
 - **F4+F7 Genesis REFUTED:** high-Λ2 H100 p423 m=**−0.0549** z=−5.9 mean_λ2_c −0.0189; teacher-zC H102 m=−0.0519. Genesis-init LoRA worsens Λ2 vs Tok. No Genesis×SFT cells.
-- **F9+F12 earner-base×high-Λ2 REFUTED + queue exhausted (p439):** kevin954 H104 m=−0.01417; golden-crown H107 m=**−0.05941**; reign set now fully covered (king/F10/F11/F9/F12). No more earner×LoRA cells — pivot structural (F17 raw genesis).
+- **F9+F11+F12 earner-base×high-Λ2 REFUTED (p439/p448):** kevin954 H104 m=−0.01417; golden-crown H107 m=**−0.05941**; pandora H106 m=**−0.03414** z=−5.06 (p448). Three of five earners dead under LoRA; F10/F13–F16 still screening. Prefer raw-base screens (F17+).
+- **F21 chall zombie = Triton ENOENT then shm_broadcast:** NODUTTS4…/__triton_launcher.so missing @02:28 → EngineCore hung 12m on GPUs 4,5; health:8002=000 while king lived. Fix: reap 4,5 + wipe chall TCACHE + seed king n_so=17 + util=0.72 (p448), not wait.
 
 ## Serving / VLM
 - King is multimodal Qwen3.5-MoE. `AutoModelForCausalLM.save_pretrained` drops `model.visual.*` → vLLM TypeError/ValueError. Restore wrapper `config.json` + preprocessor + visual safetensors (333–352 keys). **Tok ships `processor_config.json` not `preprocessor_config.json`** — derive from `image_processor` or chall dies at MultiModalBudget (H79 p307).
