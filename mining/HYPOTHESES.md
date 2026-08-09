@@ -7,11 +7,12 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 | rank | id | expected α/$ | prediction | status |
 |---|---|---|---|---|
-| 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 b203 ~35/80) |
-| 2 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203 ~28/80) |
-| 3 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~4/80) |
-| 4 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (train ~2/60) |
+| 1 | H100/F4 | high | Genesis-init × high-Λ2 → m>+0.015 | **open** (n80 b203 ~55/80) |
+| 2 | H102/F7 | high | Genesis × teacher z_C → m>+0.015 | **open** (n80 e203 ~35/80) |
+| 3 | H104/F9 | high | kevin954 × high-Λ2 → m>+0.015 | **open** (n80 d203 ~15/80) |
+| 4 | H105/F10 | high | TalentPigs × high-Λ2 → m>+0.015 | **open** (train ~25/60) |
 | 5 | H106/F11 | high | pandora × high-Λ2 → m>+0.015 | **open** (train; kingDL af10) |
+| 6 | H107/F12 | high | golden-crown × high-Λ2 → m>+0.015 | **open** (bootstrap p416) |
 | — | H103/F8 | — | Genesis-init × REINFORCE-L1 → m>+0.015 | **refuted** m=−0.04829 |
 | — | H101/F6 | — | ultrashort≤80 format → m>+0.015 | **refuted** m=−0.00453 |
 | — | H98/F1 | — | Tok REINFORCE self-L1lift → m>+0.015 | **refuted** m=+0.00229 |
@@ -27,32 +28,38 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 
 ### H100 / F4 — Non-king base (Genesis-init × high-Λ2) — open
 - **Claim:** Genesis @abe89194 init + 1059 high-Λ2 → m>+0.015 vs Tok.
-- **Status:** n80 **b203** ~35/80; watcher armed **d203first** (p410).
+- **Status:** n80 **b203** ~55/80; watcher armed **d203first** (p410).
 - `experiments/s4-h100-f4-genesis-base/` · `results/pass410_d203first.md`.
 
 ### H102 / F7 — Teacher z_C SFT on Genesis — open
 - **Claim:** Genesis-init × 791 teacher_refs_shortz (z_C) → m>+0.015 vs Tok.
   King-init distill-on-refs already dead (H5c/H6); Genesis lets Λ2 move.
-- **Status:** n80 **e203** ~28/80 (d203first hash rotate).
+- **Status:** n80 **e203** ~35/80 (d203first hash rotate).
 - `experiments/s4-h102-f7-teacher-zc/` · `results/pass408_d203first.md`.
 
 ### H104 / F9 — kevin954 past-crown × high-Λ2 — open
 - **Claim:** `kevin954/Affine-5dfqbbh8ev-sft` @3fb79cfb + 1059 high-Λ2 → m>+0.015.
   Orthogonal to Genesis (F4/F7) and Tok (F1/F6); past crown outside both basins.
-- **Status:** c203 H32@62/80 (p412); **d203** ~4/80 engines 200.
+- **Status:** c203 H32@62/80 (p412); **d203** ~15/80 engines 200.
 - `experiments/s4-h104-f9-kevin-base/` · `results/pass412_c203_h32_d203.md`.
 
 ### H105 / F10 — TalentPigs past-crown × high-Λ2 — open
 - **Claim:** `TalentPigs/affine-5ekxlcg3fx-abc` @dbfbb3e2 + 1059 high-Λ2 → m>+0.015.
   Reign-3 crown; orthogonal to Genesis/kevin/Tok basins.
-- **Status:** train ~2/60 on GPUs6,7; d203first armed.
+- **Status:** train ~25/60 on GPUs6,7; d203first armed.
 - `experiments/s4-h105-f10-talentpigs-base/` · `results/pass413_train_launched.md`.
 
 ### H106 / F11 — pandora-box past-crown × high-Λ2 — open
 - **Claim:** `pandora-box/Affine-5eqdtdzqle-ckpt300-m4` @5218b138 + 1059 high-Λ2 → m>+0.015.
   Reign-1 crown; unused as LoRA train base (H2 only α-merged it).
-- **Status:** train live; p415 fixed king `…-af10` (was 404 `…-af11`); teacher+king DL relaunched.
+- **Status:** train live; p415 fixed king `…-af10` (was 404 `…-af11`); teacher+king DL mid.
 - `experiments/s4-h106-f11-pandora-base/` · `results/pass415_af10_fix.md`.
+
+### H107 / F12 — golden-crown reign-earner × high-Λ2 — open
+- **Claim:** `golden-crown/Affine-5Epvn…` @ee37f4f0 + 1059 high-Λ2 → m>+0.015.
+  Rolling-set earner; unused as LoRA train base.
+- **Status:** mine-f12-1 rented p416; bootstrap→golden-crown DL→train.
+- `experiments/s4-h107-f12-golden-crown/` · `results/pass416_rent.md`.
 
 ### H3 — clip-L1 lever (supported)
 - Spearman 0.936. Offline rank: `experiments/s2-clip-l1-rank/`.
@@ -61,7 +68,7 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 | F | family | next |
 |---|---|---|
 | F5 | Correctness-grounded z | needs verified traj |
-| F12 | golden-crown × high-Λ2 | next free-slot (reign earner) |
+| F13 | diane613 / next earner | after a screen resolves |
 
 ## Refuted (keep)
 
@@ -93,28 +100,14 @@ Full pre-compaction: `archive/HYPOTHESES-full-2026-08-07.md`.
 - m=−0.001994 z=−0.26 vs Tok (gates OK). mean_λ2_c −0.00154 ≈ king −0.00095.
 - Data-axis remix cannot move Λ2 under king-LoRA. **F2 closed.** `s4-h99-…/results/result.md`.
 
-### H95 — Tok-init × winner-zA @ r=10
-- m=+0.001489 z=0.24 vs Tok. **r=10 dead.** `s4-h95-…/results/result.md`.
+### H95…H85 — Tok-init winner-zA r cells (all dead)
+- r10 +0.0015; r11 −0.0137; r12 −0.0056; r15 −0.0072; r13 +0.0006; r14 −0.0085;
+  r30 +0.0014; r31 −0.0072; r29 +0.0051; r28 −0.0003; r27 −0.0082.
 
-### H94 — Tok-init × winner-zA @ r=11
-- m=−0.013746 z=−1.59 vs Tok. **r=11 dead.**
-
-### H91 — Tok-init × winner-zA @ r=12
-- m=−0.005604 z=−0.69 vs Tok. **r=12 dead.**
-
-### H93 — Tok-init × winner-zA @ r=15
-- m=−0.007210 z=−1.44 vs Tok. **r=15 dead.**
-
-### H92 / H90 / H88 / H89 / H87 / H86 / H85
-- r13 +0.0006; r14 −0.0085; r30 +0.0014; r31 −0.0072; r29 +0.0051; r28 −0.0003; r27 −0.0082.
-
-### H83 / H84 / H82 / H81 / H80 / H79 / H77 / H76 / H78
-- r25…r17 / m7×r17–21 all dead vs Tok (best H81 +0.0088 <0.015).
+### H83…H76 — m7×r17–21 / Tok r17–25
+- All dead vs Tok (best H81 +0.0088 <0.015). Detail → archive.
 
 ### H75…H1
-- See archive + LESSONS. Dead: α-merge / plmk / leary / TP×ks / m7×ks /
-  m7×union / lr micro / ep≥2 / **winner-zA as a family (mean −0.004)** /
-  **F2 high-Λ2-zA data remix** / **F3 r=256 LoRA ceiling** / r≤8∨=9–15∨=16–24∨≥32 /
-  α≤8∨=16∨≥64 / clip≥0.08 / king-self.
-  **F4 Genesis-SFT, F7 teacher-z_C, F9 kevin, F10 TalentPigs, F11 pandora are screens.**
-  **F1 Tok-RL / F6 format / F8 Genesis-RL closed.**
+- Dead: α/plmk/leary/TP/m7/union/lr/ep≥2/**winner-zA family (−0.004)**/
+  F2/F3/r-cells/α-cells/clip≥0.08/king-self. See archive + LESSONS.
+  **Screens live: F4/F7/F9/F10/F11/F12.** Closed: F1/F6/F8.
