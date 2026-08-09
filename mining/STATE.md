@@ -14,7 +14,7 @@ Fleet = **1** warm pod. No submit. Trigger: king **S < 0.035** → re-screen H64
 | trigger | **idle** (need S < 0.035; live 0.04456) |
 | Lium / spend | **~$176,868** · cum ~$20,876 · **avail ~$166.9k** |
 | miner burn | **~$31.92/h** (1) ≪$833 · free **19** |
-| watch | `mine-f45-1` engines **200/200/200** · TTL 21:35Z (~1.1h) |
+| watch | `mine-f45-1` engines **200/200/200** · TTL 21:35Z (~1.0h) |
 | HF | unconst **public storage full** — H64 merged still **downloadable** |
 | warm-stack | Triton tar p539 sha e55237b1…; **H64 chall LIVE** `/tmp/h64_merged` |
 
