@@ -33,7 +33,9 @@ done
 source /root/venv/bin/activate
 if [[ -f /root/mine.env ]]; then
   # shellcheck disable=SC1091
+  set -a
   source /root/mine.env
+  set +a
 fi
 # Fail closed: schema-v2 sim needs parquet readers before burning GPU time.
 python - <<'PY'

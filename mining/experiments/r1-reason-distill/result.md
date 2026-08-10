@@ -1,5 +1,11 @@
 # R1 result log
 
+## p1854 — n80 progressing; HF export fix
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,686.
+- Sim pid **20566** (watcher 17015): after tokenizer warm-up, progress **challenger 5/80, king 7/80** @16:38Z; teacher GPUs 0–1 saturated.
+- Root cause of unauth HF warn: `mine.env` had `HF_TOKEN=…` **without export** → absent from sim environ. Fixed pod `mine.env` exports + `set -a` in `launch_when_ready.sh` (left running sim alone).
+- H64 symlink OK (`4ebe104…`, 3 safetensors). Next: harvest `r1_decision.json`.
+
 ## p1853 — watcher dead → relaunch → n80 running
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,686.
 - Found `launch_when_ready` pid3045 **dead** (log stuck at iter=60 / 16:27Z); no process.

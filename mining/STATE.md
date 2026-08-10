@@ -23,9 +23,9 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 |---|---|---|---|---|
 | mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | engines **200/200/200**; H64 n80 Reason sim |
 
-- **p1853:** found watcher pid3045 **dead** (log froze at iter=60); relaunched → pid **17015**.
-- Engines PROMPTABLE @ 16:33:28Z → `warm_stack_ready.done=READY`.
-- n80 sim running: `run_reason_sim.py` pid **20566**, slice `block_hash=cff36ecb8d89050f…` → `/root/affine_data/r1_reason_sim.json` → `r1_decision.json`.
+- **p1854:** n80 H64 sim pid **20566** alive (watcher 17015). Progress @16:38Z: **challenger 5/80, king 7/80**. Teacher GPUs 0–1 ~100%.
+- Fixed ops landmine: `/root/mine.env` lacked `export` → sim child had **no HF_TOKEN** (unauth HF warn). Rewrote exports + `set -a` in `launch_when_ready.sh` (pod + local). Did **not** restart running sim.
+- H64: `/tmp/h64_merged` → `unconst/Affine-5czsc2fc98-h64-merged` @ `4ebe104…` (3 shards, GPUs 4–5 loaded).
 
 Poll: `cat /root/affine_data/r1_decision.json /root/affine_data/r1_reason_progress.json 2>/dev/null; tail -n 20 /root/logs/r1_reason_sim.log`
 
@@ -38,4 +38,4 @@ Poll: `cat /root/affine_data/r1_decision.json /root/affine_data/r1_reason_progre
 
 ## Next action
 
-**Harvest** `/root/affine_data/r1_decision.json` when n80 finishes. Decision: submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train/distill on same pod (GPUs 6–7 free).
+**Harvest** `/root/affine_data/r1_decision.json` when n80 finishes (~tens of min at current pace). Submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train/distill on same pod (GPUs 6–7 free).
