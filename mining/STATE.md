@@ -35,7 +35,7 @@ No submit until simulated margin > 0.04 **vs a king with S<0.035** (or live king
 HF Hub push blocked until storage freed/Pro.
 Do **not** rent a second `mine-*` without a new dated operator directive.
 `lium schedules` has **no re-add** — leave Removal intact; never `schedules rm` to "renew".
-p1440: `lium up` w/ same `--name` **did** reset Removal on golden-wolf-bd to +6h **and** spawned a second pod — immediately `rm` the empty duplicate (done).
+p1440: `lium up` w/ same `--name` **did** reset Removal on golden-wolf-bd to +6h **and** spawned a second pod — immediately revoke the empty duplicate (done).
 
 ## Next action
 
