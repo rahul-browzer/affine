@@ -12,7 +12,7 @@ Fleet = **1** warm pod. No submit. Trigger: king **S < 0.035** → re-screen H64
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
 | trigger | **idle** (need S < 0.035; live 0.04456) |
-| Lium / spend | **~$175,973** · cum ~$21,764 · **avail ~$166.0k** |
+| Lium / spend | **~$175,965** · cum ~$21,772 · **avail ~$166.0k** |
 | miner burn | **~$28.00/h** (1) <<$833 · free **19** |
 | watch | `mine-watch-1` / golden-wolf-bd · TTL **2026-08-10T08:50Z** (~3.2h) |
 | restore | **READY** · `:8000/:8001/:8002` = **200/200/200** · `warm_stack_ready.done` |
