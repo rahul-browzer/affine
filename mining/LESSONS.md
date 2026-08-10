@@ -83,3 +83,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1902: saysth chal-00440 HF snapshot cached in **~4.8 min** (~65 GiB); arm CPU `watch_chal00440_reason.sh` to stamp Reason hr from duel gzip so R2g does not wait on Ralph cadence.
 - Arm R2g Talent×saysth CPU premerge as a **gated waiter** (hr>0 on `chal00440_reason.json`) while R2e n80 runs — SKIP stamp if Reason−; avoids idle merge gap without blending a losing parent.
 - After R2g premerge is gated, also arm `launch_r2g_merge_reload_sim.sh` (wait premerge.done|skip + R2e decision/lane) so a Reason+ saysth blend auto-reloads chall→n80 without idle GPU after R2e.
+- p1893 `r2_alpha_decision.json` SKIP_WEAK was for **Tok×awesome** (Δ≈0.006–0.009) — it does **not** cover Tok×Talent×kevin (Δ=0.277). That blend was never n80'd; arm as R2h after R2e (take GPU while 440 pending) and make R2g wait on `r2h_ttk_reload.pid`.

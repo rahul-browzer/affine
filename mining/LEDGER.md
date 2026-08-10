@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $123,780.45 | 2026-08-10T23:17Z |
-| cumulative mining spend | ~$73,817 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T23:17Z |
-| **available for mining** | **~$113,780** (balance − $10,000 floor) | 2026-08-10T23:17Z |
+| Lium balance | $123,780.45 | 2026-08-10T23:20Z |
+| cumulative mining spend | ~$73,817 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T23:20Z |
+| **available for mining** | **~$113,780** (balance − $10,000 floor) | 2026-08-10T23:20Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T23:17Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T23:20Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T23:20Z | 123780.45 | p1905 R2h TTK n80 waiter armed + R2g rearmed (no new rent); burn$64/h; bal flat vs p1904 |
 | 2026-08-10T23:17Z | 123780.45 | p1904 R2g reload→n80 waiter armed (no new rent); burn$64/h; Δ−$11 vs p1903 (shared ok) |
 | 2026-08-10T23:14Z | 123791.64 | p1903 R2g Talent×saysth waiter armed (no new rent); burn$64/h; bal flat vs p1902 |
 | 2026-08-10T23:11Z | 123791.64 | p1902 saysth prefetch DONE + 440 watcher (no new rent); burn$64/h; Δ−$11 vs p1901 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T22:35Z | 123869.94 | p1898 R2f premerge DONE Δ=0.00899 → WEAK_SKIP n80 (no new rent); burn$64/h; Δ−$22 vs p1897 (shared ok) |
 | 2026-08-10T22:28Z | 123892.25 | p1897 armed R2f kevin×awesome CPU (no new rent); burn$64/h; Δ−$11 vs p1896 (shared ok) |
 | 2026-08-10T22:25Z | 123903.44 | p1896 near-miss rescan 438/439 (no new rent); R2d n80 mid; burn$64/h; bal flat vs p1895 |
-| 2026-08-10T22:20Z | 123903.44 | p1895 R1c REFUTE harvest; R2d chall reload (no new rent); burn$64/h; Δ−$123 vs p1893 (shared ok) |

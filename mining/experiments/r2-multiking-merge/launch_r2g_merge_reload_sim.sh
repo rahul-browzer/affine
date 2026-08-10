@@ -62,9 +62,13 @@ for i in $(seq 1 2880); do
   sleep 10
 done
 
-# 2) Wait R2e lane: skip if prior clears bar; else need R2e decision + reload dead.
+# 2) Wait R2e + R2h lanes: skip if prior clears bar; else need R2e decision +
+#    reload dead, and R2h (Tok×Talent×kevin) pidfile dead if it took the GPU
+#    while we were waiting on chal-00440 Reason.
+R2H_DEC=${R2H_DEC:-/root/affine_data/r2h_ttk_decision.json}
+R2H_DONE=${R2H_DONE:-/root/logs/r2h_ttk_reload.done}
 for i in $(seq 1 2880); do
-  for f in "$R2D_DEC" "$R2E_DEC"; do
+  for f in "$R2D_DEC" "$R2E_DEC" "$R2H_DEC"; do
     if [[ -f "$f" ]] && headroom_ok "$f"; then
       echo "SKIP_R2G_PRIOR_CLEARS file=$f $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
       exit 0
@@ -91,16 +95,23 @@ for i in $(seq 1 2880); do
         fi
       fi
     fi
-    if (( r2e_busy == 0 )); then
-      echo "[r2g-merge] R2e below bar; lane free at iter=$i"
+    r2h_busy=0
+    if [[ -f /root/logs/r2h_ttk_reload.pid ]]; then
+      hpid=$(cat /root/logs/r2h_ttk_reload.pid 2>/dev/null || true)
+      if [[ -n "${hpid:-}" ]] && kill -0 "$hpid" 2>/dev/null; then
+        r2h_busy=1
+      fi
+    fi
+    if (( r2e_busy == 0 && r2h_busy == 0 )); then
+      echo "[r2g-merge] R2e/R2h below bar; lane free at iter=$i"
       break
     fi
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2g-merge] wait-r2e-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2e_dec=$([[ -f $R2E_DEC ]] && echo y || echo n) r2e_done=$([[ -f $R2E_DONE ]] && echo y || echo n) premerge=$([[ -f $PREMERGE_DONE ]] && echo y || echo n) skip=$([[ -f $PREMERGE_SKIP ]] && echo y || echo n)"
+    echo "[r2g-merge] wait-r2e-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2e_dec=$([[ -f $R2E_DEC ]] && echo y || echo n) r2e_done=$([[ -f $R2E_DONE ]] && echo y || echo n) r2h_pid=$([[ -f /root/logs/r2h_ttk_reload.pid ]] && kill -0 "$(cat /root/logs/r2h_ttk_reload.pid)" 2>/dev/null && echo y || echo n) premerge=$([[ -f $PREMERGE_DONE ]] && echo y || echo n) skip=$([[ -f $PREMERGE_SKIP ]] && echo y || echo n)"
   fi
   if (( i == 2880 )); then
-    echo "[r2g-merge] TIMEOUT waiting R2e lane" >&2
+    echo "[r2g-merge] TIMEOUT waiting R2e/R2h lane" >&2
     exit 2
   fi
   sleep 10

@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1905 — R2h Tok×Talent×kevin n80 armed (never simulated)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,780.
+- R2e Talent×awesome n80 still **RUNNING** (~37/80 @23:20Z; sim 128291; no decision).
+- Found: `/root/r2_out/alpha_tok_talent_kevin` (Δ=**0.277**, 66 GiB) was premerged but **never n80'd** — p1893 stubbed `r2_alpha_decision` for Tok×awesome weak-Δ, not TTK.
+- Wrote+synced `launch_r2h_ttk_reload_sim.sh`; armed pid **130845** — after R2e below-bar, takes GPU if R2g still waiting 440 Reason (else after R2g) → `r2h_ttk_decision.json`.
+- Re-armed R2g reload **130835** (killed old 130365) with R2h pidfile gate so it won't yank chall mid-R2h.
+- chal-00440 still `load_challenger`; watcher 129745 + premerge 130003 intact.
+- Next: harvest `r2e_alpha_decision.json`; if <1.5× follow R2h/`r2h_ttk_decision.json` then R2g if saysth Reason+.
+
 ## p1904 — R2g reload→n80 waiter armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,780.
 - R2e Talent×awesome n80 still **RUNNING** (~32/80 @23:17Z; sim 128291; no decision).
