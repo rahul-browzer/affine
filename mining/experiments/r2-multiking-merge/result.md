@@ -1,5 +1,16 @@
 # R2 result log
 
+## p1885 — pure-Reason near-miss recompute + prefetch
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,105.
+- R1c still training (~52/132); decision not ready — used idle CPU/network.
+- Recomputed paired Reason from public duel `lpC_yc_za−lpC_yc_e` (ignore S\* pub margins):
+  - **chal-00425** `0pentensor/…-awesome-v6@f479a24d` — pub m=+0.0174 → **Reason m=+0.0108 z=+2.75 hr≈0.92×**.
+  - chal-00415 diane-cool — Reason m=+0.0106 z=+1.92 hr≈0.64×.
+  - chal-00436 (Reason formula stamp) tojointhecommunity — m=+0.0067 z=+1.36.
+- Launched `launch_prefetch_nearmiss.sh` pid **99742** → `/root/logs/r2_prefetch_nearmiss.log`.
+- Artifact: `artifacts/reason_nearmiss_p1885.json`.
+- Next: harvest R1c decision; if weak → R2 α→n80 then fuse 0pentensor parent.
+
 ## p1884 — R2 lane-free gate: pgrep → pidfile
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,116.
 - R1c train ~47/132 (pid96239); R1c merge waiter 97305; engines 200@65536.
