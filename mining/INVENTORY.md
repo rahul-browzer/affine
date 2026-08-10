@@ -6,7 +6,7 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 (`1c4255fa-…`) | 8×B300 | $64.00 | 2026-08-11T16:12Z | TK@65536 · R2d→R2e |
+| mine-crown-1 | lunar-orbit-50 (`1c4255fa-…`) | 8×B300 | $64.00 | 2026-08-11T16:12Z | TK@65536 · R2e chall load |
 
 SSH: `ssh root@86.38.182.50 -p 40300`
 
@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-10T22:57Z | p1899: fleet=1 · R2d DONE hr=0.22× SIGNAL_POS; R2e chall 124848 loading; burn$64/h; bal~$123825 |
 | 2026-08-10T22:35Z | p1898: fleet=1 · R2d ~32/80; R2f premerge Δ=0.00899 → WEAK_SKIP n80; R2e waits; burn$64/h; bal~$123870 |
 | 2026-08-10T22:28Z | p1897: fleet=1 · R2d ~15/80; armed R2f kevin×awesome CPU premerge+waiter; burn$64/h; bal~$123892 |
-| 2026-08-10T22:25Z | p1896: fleet=1 · R2d n80 ~7/80 ALIVE; R2e waits; near-miss 438/439 no better DL; burn$64/h; bal~$123903 |

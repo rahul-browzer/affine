@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-10T22:56:43Z",
+  "hyp": "R2d",
+  "contract": "Reason v3",
+  "decision": "SIGNAL_POS_BELOW_3SE",
+  "headroom_bar": 1.5,
+  "false_probe": null,
+  "margin": 0.0022270056179120815,
+  "se": 0.0033870054392149845,
+  "z": 0.6575146269703779,
+  "k_sigma": 3.0,
+  "threshold_3se": 0.010161016317644954,
+  "headroom_vs_3se": 0.21917154232345928,
+  "reason_c": -0.008554401225438501,
+  "reason_k": -0.010740907018004108,
+  "n_paired_turns": 80,
+  "challenger_wins": false,
+  "sim_result": "/root/affine_data/r2d_awesome_reason_sim.json"
+}

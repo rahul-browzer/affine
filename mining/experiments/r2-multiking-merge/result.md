@@ -1,5 +1,13 @@
 # R2 result log
 
+## p1899 — R2d pure awesome-v6 n80 DONE → SIGNAL_POS_BELOW_3SE
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,825.
+- Harvested `r2d_awesome_decision.json` (22:56:43Z): margin **+0.002227** · se=0.003387 · z=**0.658** · 3·SE=**0.01016** · headroom=**0.219×** · reason_c=−0.00855 · reason_k=−0.01074 · n_paired=80 · `challenger_wins=false`.
+- Decision **`SIGNAL_POS_BELOW_3SE`** — do **not** submit (bar 1.5×).
+- R2e waiter auto-freed lane at iter=535 → linked `/tmp/r2e_alpha_merged` → killed chall 117592 → launched chall **124848** on Talent×awesome (Δ=0.626); health still loading @22:57Z.
+- Artifacts: `artifacts/r2d_awesome_{decision,reason_sim}.json`, `r2d_awesome_reload.done`.
+- Next: wait R2e chall healthy + n80 → harvest `r2e_alpha_decision.json`.
+
 ## p1898 — R2f kevin×awesome PREMERGE DONE → WEAK_SKIP n80
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,870.
 - Harvested `/root/logs/r2f_premerge.done`: **OK** 22:35:17Z · w_kevin=0.25 w_awesome=0.75 · max_abs_delta=**0.008987** · n_keys=1045 · identical_frac=0.448 · 72 GiB @ `/root/r2_out/alpha_kevin_awesome_v6_skew`.
