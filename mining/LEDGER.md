@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $124,725.26 | 2026-08-10T16:14Z |
-| cumulative mining spend | ~$72,875 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T16:14Z |
-| **available for mining** | **~$114,725** (balance − $10,000 floor) | 2026-08-10T16:14Z |
+| Lium balance | $124,719.47 | 2026-08-10T16:18Z |
+| cumulative mining spend | ~$72,881 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T16:18Z |
+| **available for mining** | **~$114,719** (balance − $10,000 floor) | 2026-08-10T16:18Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T16:14Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T16:18Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T16:18Z | 124719.47 | p1849 Reason harness+corpus+watcher (no new rent); burn$64/h; Δ−$6 vs p1848 (shared ok) |
 | 2026-08-10T16:14Z | 124725.26 | p1848 mine-crown-1 bootstrap launched (no new rent); burn$64/h; bal flat vs p1847 |
 | 2026-08-10T16:13Z | 124725.26 | p1847 tore mine-watch-1; rented mine-crown-1 8×B300 @$64/h TTL24h; burn$64/h; Δ−$34 vs p1846 (shared ok) |
 | 2026-08-10T15:55Z | 124759.03 | p1846 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$25 vs p1845 (shared ok) |
@@ -31,5 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T14:48Z | 124890.64 | p1842 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$40 vs p1841 (shared ok) |
 | 2026-08-10T14:32Z | 124931.05 | p1841 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$41 vs p1840 (shared ok) |
 | 2026-08-10T14:16Z | 124971.57 | p1840 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$54 vs p1839 (shared ok) |
-| 2026-08-10T14:00Z | 125025.51 | p1839 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$40 vs p1838 (shared ok) |
-| 2026-08-10T13:44Z | 125065.89 | p1838 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$33 vs p1837 (shared ok) |

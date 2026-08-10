@@ -30,15 +30,29 @@ python -m evalsrv.corpus --sync 2>&1 | tee /root/logs/corpus_sync.log
 rc=${PIPESTATUS[0]}
 set -e
 if [[ $rc -ne 0 ]]; then
-  if [[ -s "$AFFINE_DATA_DIR/turns.jsonl" ]]; then
+  if [[ -s "$AFFINE_DATA_DIR/turns_index.parquet" ]]; then
+    echo "[corpus] WARN sync rc=$rc but adopting existing turns_index.parquet (schema v2)"
+  elif [[ -s "$AFFINE_DATA_DIR/turns.jsonl" ]]; then
     n=$(wc -l < "$AFFINE_DATA_DIR/turns.jsonl")
     echo "[corpus] WARN sync rc=$rc but adopting existing turns.jsonl lines=$n"
   else
-    echo "[corpus] FATAL: sync rc=$rc and no turns.jsonl" >&2
+    echo "[corpus] FATAL: sync rc=$rc and no corpus artifacts" >&2
     exit "$rc"
   fi
 fi
-test -s "$AFFINE_DATA_DIR/turns.jsonl"
-wc -l "$AFFINE_DATA_DIR/turns.jsonl"
+# schema v2: parquet index; schema v1: flat turns.jsonl
+if [[ -s "$AFFINE_DATA_DIR/turns_index.parquet" ]]; then
+  python - <<'PY'
+from pathlib import Path
+import pyarrow.parquet as pq
+p = Path("/root/affine_data/turns_index.parquet")
+print(f"[corpus] v2 index rows={pq.read_metadata(p).num_rows} path={p}")
+PY
+elif [[ -s "$AFFINE_DATA_DIR/turns.jsonl" ]]; then
+  wc -l "$AFFINE_DATA_DIR/turns.jsonl"
+else
+  echo "[corpus] FATAL: neither turns_index.parquet nor turns.jsonl present" >&2
+  exit 1
+fi
 echo "[corpus] $(date -u +%Y-%m-%dT%H:%M:%SZ) DONE"
 touch /root/logs/corpus.done
