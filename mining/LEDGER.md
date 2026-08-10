@@ -3,6 +3,8 @@
 **Cap: 40 lines.** Totals + last 10 movements. Older → `archive/`.
 Floor ≥ **$10,000**. Rate cap **$20,000/day = $833/h** (operator 2026-08-08).
 Live burn = Σ $/h over `mine-*` pods every pass.
+**2026-08-10:** Reason v3 crown push — expect tear `mine-watch-1` (~$28/h) then
+rent `mine-crown-1` 8×B300-class (~$60–76/h). Refresh totals from `lium balance`.
 
 ## Totals
 

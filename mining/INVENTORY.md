@@ -1,32 +1,17 @@
-# INVENTORY — mine-* pods only
+# INVENTORY — live mine-* pods
 
-**Cap: 40 lines.** Live table + last 3 reconciles. Never touch non-`mine-*`.
-Pre-compaction: `archive/INVENTORY-full-2026-08-07.md`.
-**Pod cap: 20** (operator 2026-08-08). Burn cap $833/h.
-**KING-WATCH: max 1 mine-* ≤$32/h.**
+**Cap: 40 lines.** Live table + last 3 reconciles. Older → `archive/`.
 
 ## Live
 
-| name | huid | gpu | $/hr | remove_at | purpose | status |
-|---|---|---|---|---|---|---|
-| mine-watch-1 | golden-wolf-bd | 8×H200 | $28.00 | 2026-08-10T19:12Z | warm duel | **READY** 200/200/200 |
+| name | huid | config | $/h | TTL | role |
+|---|---|---|---|---|---|
+| *(empty after watch tear — fill with mine-crown-1)* | | | | | |
 
-SSH: 152.236.142.236:40301 · key `~/.ssh/id_ed25519` · id `c1f09303-bda8-419a-894e-d31763734766`
-p1836 renew via `ea473ae7…` → TTL 13:59→19:12Z; dup `gentle-lion-75` rm same pass.
-**Free: 19**. Burn ~$28.00/h. Non-mine — **never rm**.
+Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
-## Dead (recent)
-p1836 gentle-lion-75 (dup mine-watch-1 @$28 PENDING, no schedule) rm same pass;
-p1726 eager-lion-ed (dup mine-watch-1 @$28 PENDING, no schedule) rm same pass;
-p1440 cosmic-matrix-e2 (dup mine-watch-1 @ $22, no schedule) rm same pass;
-mine-f45-1/lunar-matrix-d4 TTL 21:35Z natural rm (p1115); mine-f44-1/p538;
-mine-f46-1/p538; mine-f42-1/+0.00508; mine-f40-1/−0.023; mine-f41-1/−0.012;
-mine-f47-1/band 2.24×; mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0.0097.
+## Last reconciles
 
-## Recent reconciles (last 3)
-
-| UTC | lium ps mine-* | action |
-|---|---|---|
-| 2026-08-10T15:55Z | 1 | p1846 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~3.3h |
-| 2026-08-10T15:39Z | 1 | p1845 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~3.5h |
-| 2026-08-10T15:23Z | 1 | p1844 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~3.8h |
+| when | action |
+|---|---|
+| 2026-08-10 operator | Reason v3 reset: tear `mine-watch-1`, rent `mine-crown-1` 8×B300 |

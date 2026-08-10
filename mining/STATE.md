@@ -3,44 +3,41 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**KING-WATCH** (operator 2026-08-09T10:45Z). Exploration suspended.
-Fleet = **1** warm pod. No submit. Trigger: king **S < 0.035** → re-screen H64 r=18.
+**Reason v3 crown push** (operator 2026-08-10). King-watch **revoked**.
+S\* v2 memory archived → `archive/legacy-sstar-v2/`.
+`weight_version_key` must be **3**. Score = mean Reason (Λ2 only).
 
 ## Live facts
 
 | item | value |
 |---|---|
-| king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
-| trigger | **idle** (need S < 0.035; live 0.04456) |
-| Lium / spend | **~$124,759** · cum ~$72,841 · **avail ~$114.8k** |
-| miner burn | **~$28.00/h** (1) <<$833 · free **19** |
-| watch | `mine-watch-1` / golden-wolf-bd · TTL **2026-08-10T19:12Z** (~3.3h) |
-| restore | **READY** · `:8000/:8001/:8002` = **200/200/200** · `warm_stack_ready.done` |
-| HF | unconst **public storage full** — H64 still **downloadable** |
-| warm-stack | Triton tar on pod; `restore_warm_stack.sh` stages: pip→triton→DL→serve |
-| teacher | live contract `zai-org/GLM-4.5-Air-FP8` (matches warm :8000) |
+| contract | Reason v3 · `weight_version_key=3` · crown = margin > 3·SE |
+| king (verify) | check `api/v1/snapshot` every pass — Tok af10 was pre-fork king |
+| Lium floor | ≥ $10,000 · daily mining ≤ $833/h |
+| fleet | tear `mine-watch-1` → rent `mine-crown-1` 8×B300 (else 8×B200) |
+| submissions | 0 · hotkey `default` unused |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-watch-1 | golden-wolf-bd | 152.236.142.236:40301 | **19:12Z** | warm stack **READY** |
-
-Engines: teacher=`zai-org/GLM-4.5-Air-FP8` :8000; king=Tok af10@eb8bf9a :8001; chall=`/tmp/h64_merged` (H64@4ebe104) :8002.
-SSH: `~/.ssh/id_ed25519` (`IdentitiesOnly=yes`).
-Non-mine pods — **do not touch** (incl. `affine-*`, `minimax-*`).
+| *(reconcile `lium ps` — expect tear watch, then crown pod)* | | | | |
 
 ## Blocked
 
-No submit until simulated margin > 0.04 **vs a king with S<0.035** (or live king if recipe clears).
-HF Hub push blocked until storage freed/Pro.
-Do **not** rent a second `mine-*` without a new dated operator directive.
-`lium schedules` has **no re-add** — leave Removal intact; never `schedules rm` to "renew".
-p1440/p1726/p1836: `lium up` w/ same `--name` **resets Removal to +6h** *and* spawns empty dup — **rm dup same pass**; keep READY golden-wolf-bd.
+- Do **not** use S\* submit gate 0.04, clip-L1 shaping, or king-watch idle.
+- Do **not** treat telemetry gates (r, bank, baseline, causality) as crown blockers.
+- HF: `unconst` public storage may still be full — verify before push.
+- Coldkey TAO is not convertible without a dated instruction.
+
+## Operator directive 2026-08-10 (active)
+
+1. Confirm `api/v1/contract` → `weight_version_key == 3`.
+2. `lium rm` `mine-watch-1` only (name-check first).
+3. Rent `mine-crown-1` 8×B300-class, TTL 12–24h, COUNT=8, update INVENTORY+LEDGER.
+4. Bootstrap teacher+king+challenger; Reason-only sim from `score.py`.
+5. Stage 0→3 this run; chase crown. Parallel ≤5 only after sim works.
 
 ## Next action
 
-1. KING-WATCH: when TTL ≲45m (**≲18:27Z**), re-rent same-name path (`lium up ea473ae7-0110-4a64-8a02-a47c03812548 --name mine-watch-1 --ttl 6h --no-ssh -y`); expect TTL refresh + empty dup → rm dup by UUID; keep READY stack.
-2. Until then: idle OK — record king S; confirm 200/200/200. Only full restore if engines die or TTL did **not** refresh after re-rent.
-3. If any engine dies: relaunch `/root/restore_warm_stack.sh` on this pod only. King util=0.80 OOM → 0.72 + isolated TCACHE.
-4. If king S < 0.035 → H64 n80 re-screen on this single watch pod only.
+**Tear watch pod → rent `mine-crown-1` (8×B300 preferred) → Stage 0/3 Reason sim.**
