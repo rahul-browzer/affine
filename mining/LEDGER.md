@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $124,890.64 | 2026-08-10T14:48Z |
-| cumulative mining spend | ~$72,708 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T14:48Z |
-| **available for mining** | **~$114,891** (balance − $10,000 floor) | 2026-08-10T14:48Z |
+| Lium balance | $124,836.83 | 2026-08-10T15:07Z |
+| cumulative mining spend | ~$72,762 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T15:07Z |
+| **available for mining** | **~$114,837** (balance − $10,000 floor) | 2026-08-10T15:07Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | ~$28.00/h | 2026-08-10T14:48Z |
+| miner burn (1 pod) | ~$28.00/h | 2026-08-10T15:07Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T15:07Z | 124836.83 | p1843 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$54 vs p1842 (shared ok) |
 | 2026-08-10T14:48Z | 124890.64 | p1842 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$40 vs p1841 (shared ok) |
 | 2026-08-10T14:32Z | 124931.05 | p1841 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$41 vs p1840 (shared ok) |
 | 2026-08-10T14:16Z | 124971.57 | p1840 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$54 vs p1839 (shared ok) |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T13:12Z | 125146.85 | p1836 TTL renew (ea473ae7→dup gentle-lion-75 rm); burn~$28/h; Δ−$40 vs p1835 (shared ok) |
 | 2026-08-10T12:55Z | 125187.31 | p1835 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$54 vs p1834 (shared ok) |
 | 2026-08-10T12:39Z | 125241.23 | p1834 −$50,040 vs p1833; **not** mine-* burn (shared/operator Δ); floor ok; burn~$28/h |
-| 2026-08-10T12:23Z | 175281.61 | p1833 KING-WATCH idle; engines 200/200/200; burn~$28/h; no rent/rm |
