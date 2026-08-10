@@ -1,5 +1,12 @@
 # R2 result log
 
+## p1904 — R2g reload→n80 waiter armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,780.
+- R2e Talent×awesome n80 still **RUNNING** (~32/80 @23:17Z; sim 128291; no decision).
+- chal-00440 still `load_challenger` (no eval gzip yet); watcher 129745 + premerge 130003 waiting.
+- Wrote+synced `launch_r2g_merge_reload_sim.sh`; armed pid **130365** — waits `r2g_premerge.done|skip` then R2e below-bar lane → chall reload Talent×saysth → n80 (`r2g_alpha_decision.json`); SKIP if premerge skipped or prior clears 1.5×.
+- Next: harvest `r2e_alpha_decision.json`; if <1.5× follow R2g chain to `r2g_alpha_decision.json`.
+
 ## p1903 — R2g Talent×saysth gated waiter + near-miss rescan
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,792.
 - R2e Talent×awesome n80 still **RUNNING** (~28/80 @23:14Z; sim 128291; no decision).

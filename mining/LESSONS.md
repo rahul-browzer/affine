@@ -82,3 +82,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1901: chal-00433 `vera6/…-cc` Reason hr≈**−0.21×** (DL, not a parent); live chal-00440 `saysth/…-v9a@6e13f365…` **weights_ok** — prefetch while R2e runs; do not merge until post-verdict Reason+.
 - p1902: saysth chal-00440 HF snapshot cached in **~4.8 min** (~65 GiB); arm CPU `watch_chal00440_reason.sh` to stamp Reason hr from duel gzip so R2g does not wait on Ralph cadence.
 - Arm R2g Talent×saysth CPU premerge as a **gated waiter** (hr>0 on `chal00440_reason.json`) while R2e n80 runs — SKIP stamp if Reason−; avoids idle merge gap without blending a losing parent.
+- After R2g premerge is gated, also arm `launch_r2g_merge_reload_sim.sh` (wait premerge.done|skip + R2e decision/lane) so a Reason+ saysth blend auto-reloads chall→n80 without idle GPU after R2e.
