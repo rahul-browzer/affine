@@ -63,3 +63,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Best live Reason near-miss vs Tok af10: `0pentensor/Affine-5dflhtkufw-awesome-v6@f479a24d452f` (hr≈0.92×) — prefer as merge/SFT parent over older S\*-margin leaders.
 - Overlap Tok×near-miss CPU α-premerge (`launch_r2b_tok_awesome_premerge.sh`) with R1c train + nearmiss download — same pattern as R2 Talent/kevin premerge; stamp `r2b_premerge.done` before chall reload.
 - Prefetch scripts: mark optional HF parents non-fatal — `diane613/…-cool` is **gated 403** for unconst; a hard fail after awesome-v6 OK left `r2_prefetch_nearmiss.done` unstamped and stalled R2b (p1887).
+- Duel gzips store king under **`request.king_repo`** (no top-level `king`); filter near-misses on that field or you mix pre-Tok margins into the ranking.
+- HF `model_info`/API **200** and even public `config.json` ≠ weight access — probe `model.safetensors.index.json` before arming prefetch. Gated for unconst vs Tok: diane cool/new, nvidia, Tok af16/af8, aurora.
+- Among completed duels vs Tok af10, the **only downloadable Reason+ parent** is `0pentensor/…-awesome-v6` (hr≈0.92×). Tok×awesome equal-α premerge: max_abs_delta=**0.006** (tiny but >0; not weight-identical).

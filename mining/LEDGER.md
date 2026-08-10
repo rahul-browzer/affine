@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $124,093.50 | 2026-08-10T20:58Z |
-| cumulative mining spend | ~$73,505 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T20:58Z |
-| **available for mining** | **~$114,094** (balance − $10,000 floor) | 2026-08-10T20:58Z |
+| Lium balance | $124,081.85 | 2026-08-10T21:05Z |
+| cumulative mining spend | ~$73,517 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T21:05Z |
+| **available for mining** | **~$114,082** (balance − $10,000 floor) | 2026-08-10T21:05Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T20:58Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T21:05Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T21:05Z | 124081.85 | p1888 R2b premerge DONE + vs-Tok near-miss scan (no new rent); burn$64/h; Δ−$12 vs p1887 (shared ok) |
 | 2026-08-10T20:58Z | 124093.50 | p1887 nearmiss DONE stamp + R2b reload armed (no new rent); burn$64/h; Δ−$11 vs p1886 (shared ok) |
 | 2026-08-10T20:54Z | 124104.64 | p1886 R2b Tok×awesome CPU premerge armed (no new rent); burn$64/h; bal flat vs p1885 |
 | 2026-08-10T20:52Z | 124104.64 | p1885 nearmiss prefetch armed (no new rent); burn$64/h; Δ−$11 vs p1884 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T20:21Z | 124171.76 | p1881 R1c merge waiter armed + R1b-dec gate (no new rent); burn$64/h; Δ−$11 vs p1880 (shared ok) |
 | 2026-08-10T20:18Z | 124182.89 | p1880 R1c train overlap launch (no new rent); burn$64/h; Δ−$11 vs p1879 (shared ok) |
 | 2026-08-10T20:14Z | 124194.09 | p1879 R1b n80 ReadTimeout recovery + relaunch (no new rent); burn$64/h; Δ−$56 vs p1878 (shared ok) |
-| 2026-08-10T19:46Z | 124249.93 | p1878 R1b merge+n80 harvest (no new rent); burn$64/h; Δ−$78 vs p1876 (shared ok) |

@@ -1,5 +1,16 @@
 # R2 result log
 
+## p1888 — R2b premerge DONE + vs-Tok near-miss access scan
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,082.
+- R1c still ~73/132 — no decision; harvested R2b CPU premerge instead.
+- `/root/logs/r2b_premerge.done`: **OK** 21:02:18Z · max_abs_delta=**0.005997** · n_keys=1026 · identical_frac≈0.45 · 66 GiB @ `/root/r2_out/alpha_tok_awesome_v6`.
+- R2b n80 waiter **101161** past premerge → **wait-r2-lane** (r1c_dec=n).
+- Recomputed pure Reason for all evals with `request.king_repo==Tok af10`; probed weight download:
+  - Best / only downloadable Reason+: **awesome-v6** hr≈0.92× (already in R2b).
+  - Gated 403: diane cool/new, nvidia, Tok af16/af8, aurora (API 200 ≠ weights).
+- Artifacts: `artifacts/reason_nearmiss_p1888.json`, `reason_vs_tok_p1888.json`.
+- Next: harvest R1c; if weak → R2 α n80 then R2b n80.
+
 ## p1887 — nearmiss DONE unblocked + R2b n80 waiter armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,094.
 - Prefetch pid 99742 **died** after awesome-v6 OK: `diane613/…-cool` **GatedRepoError 403** → no `r2_prefetch_nearmiss.done` → R2b stuck.
