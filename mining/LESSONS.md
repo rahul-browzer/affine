@@ -22,5 +22,8 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Pods: `mine-*` only; never `rm` non-mine; always `--ttl`; reconcile `lium ps` first every pass.
 - Heavy work on pods; push to HF `unconst` with `source mining/.env` → `export HF_TOKEN`.
 - King is multimodal Qwen MoE — CausalLM save can drop `model.visual.*`; restore before vLLM.
+- Tok af10 ships visual tensors inside language shards (index→lang is OK) but **no** `preprocessor_config.json` — derive from `processor_config.json` before vLLM.
+- B300 SM10.3 + vllm 0.22.1: patch `flash_fwd_sm100` upper bound to `Arch.sm_121f` before serve or every engine dies at profile_run.
 - Prefer COUNT=8 verified from `lium ls`; bare `yes|` floods SSH — use `-y`.
 - Never `pkill -f` over SSH (matches your session). Kill by PID. Seed chall Triton from live king TCACHE when recovering.
+- Never edit a running `restore_warm_stack.sh` on the pod (bash re-reads mid-file); write `.new` and swap after exit.

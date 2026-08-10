@@ -1,5 +1,13 @@
 # R1 result log
 
+## p1851 — pre-serve B300 + Tok hygiene
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 mine-crown-1 @$64/h.
+- King + H64 downloads done; teacher GLM still ~52G / 55 files mid-flight.
+- **Tok:** visual tensors live in language shards (333/333 resolved); derived missing `preprocessor_config.json` from `processor_config.json`.
+- **B300:** applied `flash_fwd_sm100` upper-bound patch (`sm_110f`→`sm_121f`); stamped `/root/logs/b300_flash_patch.done`.
+- Staged `/root/restore_warm_stack.sh.new` (patch+Tok bake-in); did **not** overwrite running restore pid1305.
+- Watcher pid3045 still waiting for 200/200/200 → n80 → `r1_decision.json`.
+
 ## p1850 — unblock schema-v2 sim deps
 - Contract still `weight_version_key=3`; king Tok af10 unchanged.
 - HF DL healthy: `/root/hf` ~78→103G in ~2m (~550MB/s); restore pid1305 + watcher pid3045 alive.

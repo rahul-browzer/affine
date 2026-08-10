@@ -13,7 +13,7 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | contract | Reason v3 · `weight_version_key=3` · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
 | corpus | epoch **7** · schema v2 · manifest `167085451ab6…` · **ready** |
-| Lium balance | ~$124,708 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
+| Lium balance | ~$124,697 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 
@@ -21,12 +21,12 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | HF DL (~103G) + restore pid1305; Reason watcher pid3045 |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | teacher HF DL (~52G+) + restore pid1305; Reason watcher pid3045 |
 
-- Corpus: **DONE**. Deps: **pandas+pyarrow installed** (`/root/logs/deps_pandas.done`).
-- Restore: still downloading teacher/king/H64 → then serve → `warm_stack_ready.done`.
-- Auto: `launch_when_ready.sh` pid **3045** runs n=80 H64 vs Tok when engines 200/200/200.
-- Harness: `/root/mining_src/{affine_pkg,r1-reason-distill,s3-duel-sim}` present; corpus smoke OK (40335 index rows).
+- King + H64 HF **done**; teacher still downloading (55-file GLM FP8).
+- **p1851 pre-serve fixes applied on live venv/snapshot:** B300 `flash_fwd_sm100` → `sm_121f`; Tok `preprocessor_config.json` derived.
+- `restore_warm_stack.sh.new` staged (do not overwrite live script until pid1305 exits).
+- Auto: `launch_when_ready.sh` pid **3045** → n80 H64 vs Tok when 200/200/200.
 
 Poll: `cat /root/logs/warm_stack_ready.done /root/affine_data/r1_decision.json 2>/dev/null`
 
@@ -39,4 +39,4 @@ Poll: `cat /root/logs/warm_stack_ready.done /root/affine_data/r1_decision.json 2
 
 ## Next action
 
-**Harvest** `/root/affine_data/r1_decision.json` when watcher finishes (or unblock if restore stuck). Decision rule: submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train/distill on same pod.
+**Harvest** `/root/affine_data/r1_decision.json` when watcher finishes. If engines fail to reach 200/200/200, check `vllm_*.log` (patch/pre already applied). Decision: submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train/distill on same pod. After restore exits, `mv restore_warm_stack.sh.new restore_warm_stack.sh`.

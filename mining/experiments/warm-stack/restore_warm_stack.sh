@@ -81,6 +81,31 @@ assert vllm.__version__.startswith("0.22.1"), vllm.__version__
 assert transformers.__version__.startswith("5.14"), transformers.__version__
 PY
 
+# B300 = SM 10.3: unpatched flash_fwd_sm100 rejects sm_103 at profile_run.
+if [[ -x /root/mining_src/s3-duel-sim/patch_b300_sm103_flash_attn.sh ]]; then
+  bash /root/mining_src/s3-duel-sim/patch_b300_sm103_flash_attn.sh
+else
+  FA=/root/venv/lib/python3.12/site-packages/vllm/vllm_flash_attn/cute/flash_fwd_sm100.py
+  if [[ -f "$FA" ]] && ! grep -q 'pass170 patch for B300 sm_103' "$FA"; then
+    cp -a "$FA" "${FA}.bak-b300-sm103"
+    python3 - "$FA" <<'PY'
+from pathlib import Path
+import sys
+p = Path(sys.argv[1])
+t = p.read_text()
+old = 'assert self.arch >= Arch.sm_100 and self.arch <= Arch.sm_110f, "Only SM 10.x and 11.x are supported"'
+new = 'assert self.arch >= Arch.sm_100 and self.arch <= Arch.sm_121f, "Only SM 10.x/11.x/12.x are supported (pass170 patch for B300 sm_103)"'
+if old not in t:
+    raise SystemExit(f"assert line not found in {p}")
+p.write_text(t.replace(old, new, 1))
+print(f"[patch-b300] patched {p}")
+PY
+  else
+    echo "[patch-b300] already patched or FA missing"
+  fi
+fi
+date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/b300_flash_patch.done
+
 # Triton caches (expensive part) — restore before serve
 if [[ ! -d /root/.triton/cache/chall ]]; then
   echo "[restore] extracting Triton tar"
@@ -129,6 +154,23 @@ if [[ ! -e /tmp/h64_merged ]]; then
 fi
 ls -la /tmp/h64_merged | head -3
 echo "[restore] h64_merged -> $(readlink -f /tmp/h64_merged)"
+
+# Tok ships processor_config.json but not preprocessor_config.json — vLLM needs the latter.
+python - <<'PY'
+import json
+from pathlib import Path
+king = Path(open("/root/logs/tok331102.done").read().strip())
+pre, proc = king / "preprocessor_config.json", king / "processor_config.json"
+if not pre.is_file() and proc.is_file():
+    data = json.loads(proc.read_text())
+    img = data.get("image_processor", data)
+    pre.write_text(json.dumps(img, indent=2) + "\n")
+    print(f"[restore] derived {pre}", flush=True)
+elif pre.is_file():
+    print(f"[restore] tok preprocessor ok {pre}", flush=True)
+else:
+    print("[restore] WARN: no tok preprocessor/processor_config", flush=True)
+PY
 
 COMMON=(
   --tensor-parallel-size 2
