@@ -56,3 +56,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Overlap next LoRA train on **GPUs 6–7** while n80 gather uses vLLM on 0–5 — saves an idle hour; merge waiter may arm early **only if** it waits for `r1b_lora_decision.json` (and SKIPs when headroom≥1.5×) before killing chall:8002.
 - `launch_r1c_merge_reload_sim.sh` without an R1b-dec gate will yank `:8002` the moment train finishes — fatal if n80 is still gathering; always gate merge/reload on the prior lane’s decision file.
 - Guard “already training” with **pidfile `kill -0`**, not `pgrep|grep r1c` — SSH/`bash -c` command lines contain the needle and false-positive skip the launch.
+- R1b LoRA@16384 on 1006 high-Reason rows **hurt** Reason vs Tok: margin **−0.0135** (z=−2.45, n_paired=75); chall mean_len_z 569 vs king 406 — longer/noisier thoughts, fewer scored pairs (195 vs 311). Char-keep ≠ teacher-helpful.
+- R1b→R1c chain correctly LAUNCHed on negative headroom and skipped double-train via pidfile while merge waiter stayed armed for post-train reload.

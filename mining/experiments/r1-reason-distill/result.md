@@ -1,5 +1,15 @@
 # R1 result log
 
+## p1882 — R1b n80#2 harvest: REFUTE
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,127.
+- Slice `b99bfc9c…` / digest `cb5e6b7a…` · elapsed **1729s** · engines stayed 200@65536.
+- `r1b_lora_decision.json` @20:42:17Z: **REFUTE_R1_H64_BASELINE** (no submit).
+- margin **−0.013490** · SE **0.005515** · z **−2.446** · 3·SE **0.016545** · headroom_vs_3se **−0.815**.
+- reason_c **−0.012900** vs reason_k **−0.000856** (n_paired=75/80); chall n_pairs 195 vs king 311; chall mean_len_z 569 vs king 406.
+- Artifacts: `artifacts/r1b_lora_{decision,reason_sim}.json`.
+- Chain stamped LAUNCHED_R1C (train already pid96239 @37/132); merge waiter continues; R2 waits R1c dec.
+- Next: harvest `r1c_lora_decision.json`; Stage-5 only if headroom ≥ 1.5×(3·SE).
+
 ## p1880 — R1c train overlapped with R1b n80 gather
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,183.
 - R1b n80#2 healthy @**16/80** (pid95336, 600s×5); engines 200/200/200; GPUs 6–7 were idle.
