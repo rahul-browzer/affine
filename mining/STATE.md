@@ -13,7 +13,7 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | contract | Reason v3 · `weight_version_key=3` · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
 | corpus | epoch **7** · schema v2 · manifest `167085451ab6…` · **ready** |
-| Lium balance | ~$124,563 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
+| Lium balance | ~$124,552 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 
@@ -21,12 +21,13 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | teacher+king **200@65536**; LoRA chall loading; n80 armed |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK **200@65536**; grafted LoRA chall loading→200 |
 
-- **R1 LoRA train DONE** 17:10Z · adapter `/root/r1_out/lora_tok_high_reason/adapter` · merged `/tmp/r1_lora_merged`.
-- **Engines:** teacher:8000 + king:8001 **200**, `max_model_len=65536`. Chall:8002 relaunched after multimodal `config.json` restore (CausalLM merge had written text-only).
-- **Waiters:** engines stamp pid in `/root/logs/engines_stamp.pid` → `engines_65536.done`; n80 `/root/logs/r1_lora_n80_launch.pid` → `r1_lora_decision.json`.
-- **Serve env (required):** `CUDA_HOME=…/nvidia/cu13` + `VLLM_USE_FLASHINFER_*=0`. No `/usr/local/cuda` symlink; do not put `cu13/bin` on `PATH`.
+- **R1 LoRA** merged at `/tmp/r1_lora_merged`. CausalLM save dropped `model.visual.*` → chall died with uninitialized visual weights.
+- **p1861 fix:** grafted **333** visual tensors from Tok base → `model-visual.safetensors` (~853 MiB). Chall pid **70505** loaded **3/3** shards + CUDA graphs; GPUs 4–5 ~200 GiB. Awaiting `:8002` **200**.
+- **Waiters:** engines stamp → `engines_65536.done`; n80 launch pid **54956** still waiting → `r1_lora_decision.json`.
+- **Serve env:** `CUDA_HOME=…/nvidia/cu13` + `VLLM_USE_FLASHINFER_*=0`. Do **not** put `cu13/bin` on `PATH`.
+- **Tooling:** `merge_lora.py` now auto-grafts visual; `graft_visual_weights.py` standalone.
 
 Poll:
 ```
@@ -46,4 +47,4 @@ for p in 8000 8001 8002; do curl -s http://127.0.0.1:$p/v1/models | python3 -c '
 
 ## Next action
 
-**Harvest** `r1_lora_decision.json` after chall **200** + LoRA n80. Submit only if headroom ≥ **1.5×(3·SE)**. If chall dies again, confirm `config.json` is a real file with `Qwen3_5MoeForConditionalGeneration` (not a dangling HF symlink / not text-only).
+**Harvest** `r1_lora_decision.json` after chall **200** + LoRA n80. Submit only if headroom ≥ **1.5×(3·SE)**. If chall dies: confirm graft (`model-visual.safetensors` + 333 visual keys in index) before relaunch.

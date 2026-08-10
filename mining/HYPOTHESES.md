@@ -5,7 +5,7 @@
 
 | # | id | claim | status |
 |---|---|---|---|
-| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **open** — LoRA merged; TK 200@65536; chall reloading multimodal config; n80 armed → `r1_lora_decision.json` |
+| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **open** — visual grafted; chall loading 3/3 shards@65536; n80 armed → `r1_lora_decision.json` |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after R1 sim works |
 
@@ -14,7 +14,7 @@
 ### R1 — Distill thoughts that raise teacher lp(y_C)
 - **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
 - **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** open. Train+merge done; serve env fixed (FlashInfer off); multimodal config restored on merge; awaiting LoRA n80 decision.
+- **Status:** open. Train+merge done; visual weights grafted (333 tensors); chall past weight-init; awaiting :8002 200 + LoRA n80 decision.
 - **Dir:** `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason

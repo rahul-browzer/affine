@@ -23,12 +23,53 @@ _COPY_NAMES = (
     "config.json",
     "preprocessor_config.json",
     "processor_config.json",
+    "video_preprocessor_config.json",
     "chat_template.jinja",
     "chat_template.json",
     "generation_config.json",
     "configuration.json",
 )
 _ALWAYS_OVERWRITE = frozenset({"config.json"})
+
+
+def _graft_visual_weights(base: Path, out: Path) -> dict:
+    """CausalLM save drops model.visual.*; vLLM multimodal needs them back."""
+    from safetensors.torch import load_file, save_file
+
+    b_idx = json.loads((base / "model.safetensors.index.json").read_text())
+    m_idx_path = out / "model.safetensors.index.json"
+    m_idx = json.loads(m_idx_path.read_text())
+    b_map, m_map = b_idx["weight_map"], m_idx["weight_map"]
+    if any("visual" in k for k in m_map):
+        return {"status": "skip", "reason": "visual_already_present"}
+
+    vis_keys = sorted(k for k in b_map if "visual" in k)
+    if not vis_keys:
+        return {"status": "warn", "reason": "no_visual_in_base"}
+
+    shard_to_keys: dict[str, list[str]] = {}
+    for k in vis_keys:
+        shard_to_keys.setdefault(b_map[k], []).append(k)
+
+    tensors = {}
+    for shard, keys in shard_to_keys.items():
+        blob = load_file(str(base / shard), device="cpu")
+        for k in keys:
+            tensors[k] = blob[k]
+        del blob
+
+    shard_name = "model-visual.safetensors"
+    save_file(tensors, str(out / shard_name))
+    nbytes = sum(t.nbytes for t in tensors.values())
+    for k in vis_keys:
+        m_map[k] = shard_name
+    m_idx["weight_map"] = m_map
+    m_idx["metadata"] = dict(m_idx.get("metadata") or {})
+    m_idx["metadata"]["total_size"] = int(m_idx["metadata"].get("total_size", 0)) + int(
+        nbytes
+    )
+    m_idx_path.write_text(json.dumps(m_idx, indent=2) + "\n")
+    return {"status": "ok", "visual_keys": len(vis_keys), "bytes": nbytes, "shard": shard_name}
 
 
 def main() -> None:
@@ -102,10 +143,14 @@ def main() -> None:
         pre.write_text(json.dumps(img, indent=2) + "\n")
         print(f"[merge] derived {pre}", flush=True)
 
+    graft = _graft_visual_weights(args.base, args.out)
+    print(f"[merge] graft_visual={json.dumps(graft)}", flush=True)
+
     meta = {
         "base": str(args.base),
         "adapter": str(args.adapter),
         "out": str(args.out),
+        "graft_visual": graft,
         "elapsed_s": time.time() - t0,
         "finished_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
