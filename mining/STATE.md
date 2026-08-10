@@ -3,25 +3,24 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Reason v3 crown push** (operator 2026-08-10). King-watch **revoked**.
-S\* v2 memory archived → `archive/legacy-sstar-v2/`.
-`weight_version_key` must be **3**. Score = mean Reason (Λ2 only).
+**Stage 3 bootstrap** — Reason v3 crown push (operator 2026-08-10).
+King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Live facts
 
 | item | value |
 |---|---|
 | contract | Reason v3 · `weight_version_key=3` · crown = margin > 3·SE |
-| king (verify) | check `api/v1/snapshot` every pass — Tok af10 was pre-fork king |
-| Lium floor | ≥ $10,000 · daily mining ≤ $833/h |
-| fleet | tear `mine-watch-1` → rent `mine-crown-1` 8×B300 (else 8×B200) |
+| king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
+| Lium balance | ~$124,725 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
+| fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| *(reconcile `lium ps` — expect tear watch, then crown pod)* | | | | |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | crown pod (fresh; not bootstrapped) |
 
 ## Blocked
 
@@ -30,14 +29,6 @@ S\* v2 memory archived → `archive/legacy-sstar-v2/`.
 - HF: `unconst` public storage may still be full — verify before push.
 - Coldkey TAO is not convertible without a dated instruction.
 
-## Operator directive 2026-08-10 (active)
-
-1. Confirm `api/v1/contract` → `weight_version_key == 3`.
-2. `lium rm` `mine-watch-1` only (name-check first).
-3. Rent `mine-crown-1` 8×B300-class, TTL 12–24h, COUNT=8, update INVENTORY+LEDGER.
-4. Bootstrap teacher+king+challenger; Reason-only sim from `score.py`.
-5. Stage 0→3 this run; chase crown. Parallel ≤5 only after sim works.
-
 ## Next action
 
-**Tear watch pod → rent `mine-crown-1` (8×B300 preferred) → Stage 0/3 Reason sim.**
+**Bootstrap `mine-crown-1`:** teacher + live king + challenger under evalsrv knobs; Reason-only n=80 duel sim from `affine/affine/score.py` (read-only). Emit paired Reason margin + SE vs Tok af10.
