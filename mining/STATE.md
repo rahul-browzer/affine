@@ -21,16 +21,20 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | engines **200/200/200**; H64 n80 Reason sim |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | engines **200/200/200**; H64 n80 + R1 LoRA train |
 
-- **p1856:** n80 H64 sim pid **20566** alive @16:47Z: **challenger 30/80, king 29/80** (~ETA ~20m).
-- R1 train **ready** on GPUs 6–7 (idle):
-  - `/root/r1_data/sft_high_reason.jsonl` — **1403** rows (messages+completion; corpus join 1403/1403)
-  - `/root/mining_src/r1-reason-distill/{build_sft_jsonl,train_lora,thought_mask,launch_train}.py|sh`
-  - peft **0.15.2** + accelerate **1.14.0** in `/root/venv`
-  - launch: `CUDA_VISIBLE_DEVICES=6,7 bash /root/mining_src/r1-reason-distill/launch_train.sh` (init=Tok af10)
+- **p1857:** R1 LoRA train **launched** on GPUs 6–7 (pid **23282** / bash **23274**):
+  - data `sft_high_reason.jsonl` n=1403 · init Tok af10 `eb8bf9a…`
+  - out `/root/r1_out/lora_tok_high_reason` · log `/root/logs/r1_train.log`
+  - loading base weights @16:49Z (GPU6/7 ~34GB each)
+- H64 n80 sim pid **20566** still alive @16:49Z: last progress **30/80 / 30/80** (stale stamp 16:47Z; engines busy on teacher 0–1).
 
-Poll: `cat /root/affine_data/r1_decision.json /root/affine_data/r1_reason_progress.json 2>/dev/null; tail -n 20 /root/logs/r1_reason_sim.log`
+Poll:
+```
+cat /root/affine_data/r1_decision.json /root/affine_data/r1_reason_progress.json 2>/dev/null
+tail -n 30 /root/logs/r1_reason_sim.log /root/logs/r1_train.log
+test -f /root/logs/r1_train.done && cat /root/r1_out/lora_tok_high_reason/train_result.json
+```
 
 ## Blocked
 
@@ -41,4 +45,4 @@ Poll: `cat /root/affine_data/r1_decision.json /root/affine_data/r1_reason_progre
 
 ## Next action
 
-**Harvest** `/root/affine_data/r1_decision.json` when n80 finishes. Submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train: `bash /root/mining_src/r1-reason-distill/launch_train.sh` (GPUs 6–7; data already built).
+**Harvest** `/root/affine_data/r1_decision.json` when n80 finishes. Submit only if headroom ≥ **1.5×(3·SE)**. Else (or after train): merge LoRA → reload chall:8002 → fresh n80 vs Tok. Watch `/root/logs/r1_train.done`.

@@ -1,5 +1,14 @@
 # R1 result log
 
+## p1857 — launched R1 LoRA train on idle GPUs 6–7
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,652.
+- n80 H64 sim pid **20566** still ~**30/80** (no `r1_decision.json` yet).
+- Started `launch_train.sh` → train_lora pid **23282** (CUDA 6,7):
+  - base Tok `eb8bf9a…` · data n=1403 · out `/root/r1_out/lora_tok_high_reason`
+  - knobs: epochs=1 lr=2e-5 lora_r=16 α=32 batch=1 accum=8 loss_on=thought max_len=8192
+  - @16:49Z loading base weights (GPU6/7 ~34GB); done stamp `/root/logs/r1_train.done`
+- Parallelize: train while baseline finishes; next pass harvest decision + watch train.
+
 ## p1856 — train-ready SFT while n80 runs
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,652.
 - n80 still running pid **20566**: **30/80 / 29/80** @16:47Z (no decision yet).
