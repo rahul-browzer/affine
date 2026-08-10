@@ -33,3 +33,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Public duel rows expose Reason components as `lpC_yc_za` / `lpC_yc_e` on `king_rows[].pairs[]`; rank SFT targets by that delta, not by L1lift/lpA.
 - Join high-Reason completions to schema-v2 corpus prefixes via `CorpusSync.materialize_turns` (index hit 1403/1403 on epoch 7) before LoRA; completions alone are not trainable.
 - Crown pod venv is **uv**-managed (`uv pip install --python /root/venv/bin/python …`); bare `pip` / system python hits PEP 668.
+- R1 SFT `max_len=8192` fit-filter kept only **527/1403** high-Reason rows (rest truncated out); sample0 thought-supervised tokens can be tiny (45/1461) — watch loss signal / raise max_len if margin stays flat.
+- After LoRA train: merge on freed GPUs 6–7, kill chall by **PID file only**, reload `/tmp/r1_lora_merged` with same vLLM knobs as restore (tp=2 util=0.72), then fresh n80 — do not yank chall mid-baseline.

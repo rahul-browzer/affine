@@ -1,5 +1,15 @@
 # R1 result log
 
+## p1858 — armed merge→reload→LoRA-n80 waiter
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,641.
+- H64 n80 pid20566: **34/80 / 35/80** @16:51Z (still no `r1_decision.json`).
+- LoRA train pid23282: weights loaded; fit-filter **527/1403** @ max_len=8192; step **5/66** loss **0.429**; sample0 supervised **45/1461** thought tokens.
+- Staged + launched `merge_lora.py` + `launch_merge_reload_sim.sh` pid **24147**:
+  - waits `/root/logs/r1_train.done` + H64 decision
+  - merges adapter → `/root/r1_out/r1_lora_merged` → `/tmp/r1_lora_merged`
+  - kills chall by PID, reloads :8002 (tp=2 util=0.72), fresh n80 → `r1_lora_decision.json`
+- Next: harvest H64 + LoRA decisions; submit only if headroom ≥ 1.5×(3·SE).
+
 ## p1857 — launched R1 LoRA train on idle GPUs 6–7
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,652.
 - n80 H64 sim pid **20566** still ~**30/80** (no `r1_decision.json` yet).
