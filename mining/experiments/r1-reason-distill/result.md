@@ -1,5 +1,13 @@
 # R1 result log
 
+## p1856 — train-ready SFT while n80 runs
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,652.
+- n80 still running pid **20566**: **30/80 / 29/80** @16:47Z (no decision yet).
+- Built `/root/r1_data/sft_high_reason.jsonl`: **1403/1403** rows with corpus `messages` + high-Reason `completion` (`build_sft_jsonl.py`).
+- Staged `train_lora.py` + `thought_mask.py` + `launch_train.sh` (CUDA 6,7; init=Tok af10 snapshot `eb8bf9a…`).
+- Installed peft **0.15.2** + accelerate **1.14.0** via `uv pip` into `/root/venv`.
+- Next: harvest `r1_decision.json`; on REFUTE `bash /root/mining_src/r1-reason-distill/launch_train.sh`.
+
 ## p1855 — stage R1 SFT data while n80 runs
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,675.
 - n80 still running pid **20566**: **19/80 / 19/80** @16:44Z (no decision yet).

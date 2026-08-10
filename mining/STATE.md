@@ -13,7 +13,7 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | contract | Reason v3 · `weight_version_key=3` · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
 | corpus | epoch **7** · schema v2 · manifest `167085451ab6…` · **ready** |
-| Lium balance | ~$124,675 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
+| Lium balance | ~$124,652 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 
@@ -23,11 +23,12 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 |---|---|---|---|---|
 | mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | engines **200/200/200**; H64 n80 Reason sim |
 
-- **p1855:** n80 H64 sim pid **20566** alive @16:44Z: **challenger 19/80, king 19/80** (~2.5 turns/min/side; ETA ~25m).
-- Staged R1 SFT data on pod (CPU, no GPU fight):
-  - `/root/r1_data/teacher_refs_shortz.jsonl` — 791 rows (legacy refs)
-  - `/root/r1_data/high_reason_za.jsonl` — **1403** deduped king `z_A` ranked by Reason (`lpC_yc_za−lpC_yc_e`); mean Reason 0.062; from top-40 public duels
-- Harvest script: `experiments/r1-reason-distill/harvest_high_reason.py`
+- **p1856:** n80 H64 sim pid **20566** alive @16:47Z: **challenger 30/80, king 29/80** (~ETA ~20m).
+- R1 train **ready** on GPUs 6–7 (idle):
+  - `/root/r1_data/sft_high_reason.jsonl` — **1403** rows (messages+completion; corpus join 1403/1403)
+  - `/root/mining_src/r1-reason-distill/{build_sft_jsonl,train_lora,thought_mask,launch_train}.py|sh`
+  - peft **0.15.2** + accelerate **1.14.0** in `/root/venv`
+  - launch: `CUDA_VISIBLE_DEVICES=6,7 bash /root/mining_src/r1-reason-distill/launch_train.sh` (init=Tok af10)
 
 Poll: `cat /root/affine_data/r1_decision.json /root/affine_data/r1_reason_progress.json 2>/dev/null; tail -n 20 /root/logs/r1_reason_sim.log`
 
@@ -40,4 +41,4 @@ Poll: `cat /root/affine_data/r1_decision.json /root/affine_data/r1_reason_progre
 
 ## Next action
 
-**Harvest** `/root/affine_data/r1_decision.json` when n80 finishes. Submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train on GPUs **6–7** using `/root/r1_data/high_reason_za.jsonl` (primary) ± teacher_refs_shortz (init = Tok / H64).
+**Harvest** `/root/affine_data/r1_decision.json` when n80 finishes. Submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train: `bash /root/mining_src/r1-reason-distill/launch_train.sh` (GPUs 6–7; data already built).
