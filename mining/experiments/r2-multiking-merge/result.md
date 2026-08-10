@@ -1,5 +1,13 @@
 # R2 result log
 
+## p1898 — R2f kevin×awesome PREMERGE DONE → WEAK_SKIP n80
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,870.
+- Harvested `/root/logs/r2f_premerge.done`: **OK** 22:35:17Z · w_kevin=0.25 w_awesome=0.75 · max_abs_delta=**0.008987** · n_keys=1045 · identical_frac=0.448 · 72 GiB @ `/root/r2_out/alpha_kevin_awesome_v6_skew`.
+- Δ≪0.01 (same class as Tok×awesome) → killed R2f waiter **122165** first, then stub `r2f_alpha_decision.json` (hr=0) + `WEAK_SKIP_NO_N80` done stamp.
+- R2d n80 still gathering (~32/80; sim 121110); R2e waiter 104742 intact; engines 200@65536 untouched.
+- Artifacts: `artifacts/r2f_kevin_awesome_merge_alpha_meta.json`, `r2f_premerge.done`, `r2f_alpha_decision.json`.
+- Next: harvest R2d; if below 1.5× → R2e Talent×awesome (Δ=0.626) only.
+
 ## p1897 — R2f kevin×awesome CPU premerge + waiter armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,892.
 - R2d still gathering (~15/80); R2e waiter 104742 intact; evals index max still chal-00439 (no new DL parent).

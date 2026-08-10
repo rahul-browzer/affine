@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — R2d ~15/80; R2e Δ=**0.626** waits; **R2f** kevin×awesome CPU premerge armed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — R2d ~32/80; R2e Δ=**0.626** waits; **R2f SKIPPED** Δ=0.00899 |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok×awesome lanes SKIPPED. **R2d** pure awesome-v6 n80 ~15/80 (sim 121110); **R2e** Talent×awesome (Δ=0.626) waits (104742); **R2f** kevin×awesome skew (0.25/0.75) CPU premerge + post-R2e waiter armed (122164/122165). No new evals past chal-00439. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** pure awesome-v6 n80 ~32/80 (sim 121110); **R2e** Talent×awesome (Δ=0.626) waits (104742); **R2f** kevin×awesome skew premerge DONE Δ=**0.00899** → WEAK_SKIP n80 (p1898). No new evals past chal-00439. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.

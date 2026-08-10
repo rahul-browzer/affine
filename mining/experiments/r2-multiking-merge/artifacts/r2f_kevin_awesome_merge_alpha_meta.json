@@ -1,0 +1,20 @@
+{
+  "finished_utc": "2026-08-10T22:35:15Z",
+  "seconds": 442.1,
+  "n_keys": 1045,
+  "n_shards": 3,
+  "total_size_gb": 71.904,
+  "n_missing_fallback": 19,
+  "n_exact_primary": 468,
+  "identical_frac": 0.447847,
+  "max_abs_delta": 0.0089874267578125,
+  "sidecar_copied": [
+    "config.json",
+    "preprocessor_config.json",
+    "video_preprocessor_config.json",
+    "chat_template.jinja",
+    "generation_config.json",
+    "tokenizer.json",
+    "tokenizer_config.json"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-10T22:35:44Z",
+  "contract": "Reason v3",
+  "decision": "SKIP_WEAK_DELTA_NO_N80",
+  "headroom_bar": 1.5,
+  "false_probe": null,
+  "margin": 0.0,
+  "se": 0.01,
+  "z": 0.0,
+  "k_sigma": 3.0,
+  "threshold_3se": 0.03,
+  "headroom_vs_3se": 0.0,
+  "reason_c": null,
+  "reason_k": null,
+  "n_paired_turns": 0,
+  "challenger_wins": false,
+  "max_abs_delta": 0.0089874267578125,
+  "note": "p1898: kevin\u00d7awesome skew max_abs_delta\u22480.00899 (\u226a0.01), same class as Tok\u00d7awesome; skip n80; prefer R2d pure awesome + R2e Talent\u00d7awesome \u0394=0.626",
+  "hyp": "R2f"
+}
