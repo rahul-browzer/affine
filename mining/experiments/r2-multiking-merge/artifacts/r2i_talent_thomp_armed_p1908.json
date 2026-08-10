@@ -1,0 +1,23 @@
+{
+  "pass": 1908,
+  "utc": "2026-08-10T23:50:38Z",
+  "note": "Armed chal-00441 Reason watcher + Talent×thompsville R2i premerge while R2h n80 gathers",
+  "contract_wvk": 3,
+  "king": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "queue_parent": {
+    "challenge_id": "chal-00441",
+    "repo": "thompsville/affine-5dvegrgnsg-cgpb8",
+    "revision": "1da224590eb2a140dc25907c46958830896680cf"
+  },
+  "armed": {
+    "watch_chal00441_reason": 138617,
+    "r2i_premerge": 138637,
+    "out_reason": "/root/affine_data/chal00441_reason.json",
+    "merged_out": "/root/r2_out/alpha_talent_thomp_cgpb8_skew",
+    "gate": "headroom_vs_3se > 0 and king_match; weights Talent0.25×thomp0.75"
+  },
+  "r2h_progress_at_arm": {"challenger": 19, "king": 17, "n": 80, "sim_pid": 137312},
+  "thomp_prefetch_pid": 138058,
+  "do_not_submit_until": "n80 headroom >= 1.5×(3·SE) after R2i reload sim"
+}

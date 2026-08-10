@@ -1,5 +1,15 @@
 # R2 result log
 
+## p1908 — R2i Talent×thompsville gated (441 watcher + premerge)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,702.
+- R2h TTK n80 still **RUNNING** (~19/80 @23:50Z; sim 137312; no decision).
+- chal-00440 still `load_challenger` (gzip 404 expected); 440 watcher + R2g waiters intact.
+- Armed CPU: `watch_chal00441_reason.sh` pid **138617** → `chal00441_reason.json`.
+- Armed CPU: `launch_r2i_talent_thomp_premerge.sh` pid **138637** — waits thomp prefetch + 441 Reason+ (hr>0) → Talent0.25×thomp0.75 @ `/root/r2_out/alpha_talent_thomp_cgpb8_skew`.
+- Thomp prefetch still mid-download (138058); no GPU touch.
+- Artifacts: `artifacts/r2i_talent_thomp_armed_p1908.json`.
+- Next: harvest `r2h_ttk_decision.json`; if <1.5× → R2g if saysth Reason+ else R2i reload when premerge ready + lane free.
+
 ## p1907 — thompsville chal-00441 prefetch while R2h gathers
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,713.
 - R2h TTK n80 still **RUNNING** (~7/80 @23:47Z; sim 137312; no decision).
