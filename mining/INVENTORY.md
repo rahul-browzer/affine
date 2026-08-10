@@ -27,6 +27,6 @@ mine-f47-1/band 2.24×; mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-10T15:23Z | 1 | p1844 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~3.8h |
 | 2026-08-10T15:07Z | 1 | p1843 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~4.1h |
 | 2026-08-10T14:48Z | 1 | p1842 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~4.4h |
-| 2026-08-10T14:32Z | 1 | p1841 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~4.7h |
