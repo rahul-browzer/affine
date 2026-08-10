@@ -13,16 +13,15 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | contract | Reason v3 · `subnet.weight_version_key=3` · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
 | corpus | epoch **7** · schema v2 · manifest ready |
-| Lium balance | ~$124,127 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
+| Lium balance | ~$124,116 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 | R1 LoRA n80 | **DONE** · `SIGNAL_POS_BELOW_3SE` · margin +0.0005 ≪ 3·SE 0.0147 |
-| R1b n80 #2 | **DONE** · `REFUTE_R1_H64_BASELINE` · margin **−0.0135** · z=−2.45 · headroom −0.82× |
-| R1c train | **RUNNING** · 37/132 @~36s/it · pid **96239**/96252 · ETA ~1h |
-| R1c merge waiter | **ARMED** · pid **97305** · R1b below bar → will merge after train |
-| R1b→R1c chain | **DONE** · stamped LAUNCHED_R1C (train already running) |
+| R1b n80 #2 | **DONE** · `REFUTE_R1_H64_BASELINE` · margin **−0.0135** · z=−2.45 |
+| R1c train | **RUNNING** · **44/132** @~36s/it · pid **96239** · ETA ~55m |
+| R1c merge waiter | **ARMED** · pid **97305** · R1b below bar → merge after train |
 | R2 prefetch/premerge | **DONE** · max_abs_delta=0.277 · α→n80 waiter **85408** (waits R1c dec) |
-| HF pre-push | `unconst/Affine-5czsc2fc98-r1lora` **public** @ `569a68be…` (not for submit) |
+| HF quota | p1883 purged **6** legacy public merges (**~423 GiB**); kept `r1lora` |
 
 ## What's running
 
@@ -42,9 +41,9 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 - Never serve crown engines at `max_model_len=32768`.
 - Never symlink `/usr/local/cuda`→cu13 on B300.
 - Coldkey TAO is not convertible without a dated instruction.
-- **unconst HF storage** — purge before every ~65 GiB push.
+- **unconst HF storage** — still many legacy `h*-merged`; purge again before next ~65 GiB push if commit fails.
 - Never `pkill -f` over SSH; kill by PID / pidfile only.
 
 ## Next action
 
-**Harvest** `/root/affine_data/r1c_lora_decision.json` (train→merge→n80 already armed). If headroom ≥ 1.5× → Stage-5. Else let R2 α→n80 run (waiter 85408).
+**Harvest** `/root/affine_data/r1c_lora_decision.json` (train→merge→n80 armed). If headroom ≥ 1.5× → Stage-5 push (quota pre-cleared). Else let R2 α→n80 run (waiter 85408).

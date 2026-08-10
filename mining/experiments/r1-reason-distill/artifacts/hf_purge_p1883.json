@@ -1,0 +1,35 @@
+{
+  "utc": "2026-08-10T20:46:37Z",
+  "keep": [
+    "unconst/Affine-5czsc2fc98-r1lora"
+  ],
+  "deleted": [
+    {
+      "id": "unconst/Affine-5czsc2fc98-h5c-merged",
+      "bytes": 71923881372
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h107-merged",
+      "bytes": 70234600796
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h108-merged",
+      "bytes": 70234600312
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h111-merged",
+      "bytes": 70234599718
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h124-goldfullft",
+      "bytes": 70234598967
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h106-merged",
+      "bytes": 70234598962
+    }
+  ],
+  "errors": [],
+  "freed_bytes": 423096880127,
+  "freed_gb": 423.096880127
+}

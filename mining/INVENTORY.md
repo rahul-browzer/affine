@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-10T20:46Z | p1883: fleet=1 · R1c 44/132; waiters OK; HF purged 6×~70GiB (~423GiB); burn$64/h; bal~$124116 |
 | 2026-08-10T20:42Z | p1882: fleet=1 · R1b n80#2 REFUTE margin−0.0135; R1c 37/132; chain DONE; burn$64/h; bal~$124127 |
 | 2026-08-10T20:21Z | p1881: fleet=1 · R1b n80#2 25/80; R1c 3/132; merge waiter armed+R1b-dec gate; burn$64/h; bal~$124172 |
-| 2026-08-10T20:18Z | p1880: fleet=1 · R1b n80#2 16/80; R1c train pre-started GPUs6–7; burn$64/h; bal~$124183 |

@@ -1,5 +1,12 @@
 # R1 result log
 
+## p1883 — HF public quota purge (R1c still training)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,116.
+- R1c train **44/132** (pid96239); merge waiter 97305 + R2 waiter 85408 ALIVE; engines 200@65536.
+- Decision file not ready — purged Hub ahead of Stage-5: deleted 6 legacy public merges (**~423 GiB**): `h5c`, `h106`, `h107`, `h108`, `h111`, `h124-goldfullft`.
+- Kept `unconst/Affine-5czsc2fc98-r1lora`. Log: `artifacts/hf_purge_p1883.json`.
+- Next: harvest `r1c_lora_decision.json`; Stage-5 only if headroom ≥ 1.5×(3·SE).
+
 ## p1882 — R1b n80#2 harvest: REFUTE
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,127.
 - Slice `b99bfc9c…` / digest `cb5e6b7a…` · elapsed **1729s** · engines stayed 200@65536.
