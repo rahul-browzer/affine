@@ -70,3 +70,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Confirmed gated for unconst (index probe + snapshot_download): Tok af16/af8, aurora prince — do not re-arm R2c parent prefetch on those.
 - R2c skew Tok0.25/awesome0.75 CPU premerge: max_abs_delta=**0.00899** (vs equal-α 0.006) · identical_frac=0.45 · 70 GiB · ~5 min — still tiny but not weight-identical; n80 still required.
 - After Tok×awesome blends stay Δ≪0.01, queue **pure awesome-v6** as chall (R2d) before more α knobs — published hr≈0.92× is the transfer question; derive `preprocessor_config.json` like Tok.
+- TalentPigs×awesome-v6 skew (0.25/0.75) CPU premerge: max_abs_delta=**0.626** vs Tok×awesome Δ≈0.006–0.009 — non-Tok layout donor escapes near-identical blends; queue as R2e after pure-awesome n80.

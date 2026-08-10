@@ -1,5 +1,15 @@
 # R2 result log
 
+## p1892 — R2e Talent×awesome skew PREMERGE DONE + n80 waiter
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,026.
+- R1c still ~105/132 — no decision; Tok×awesome Δ≪0.01 so armed non-Tok parent mix while GPU chain waits.
+- Wrote+synced `launch_r2e_talent_awesome_premerge.sh` (W_TALENT=0.25 W_AWESOME=0.75, Talent layout donor) → `/root/r2_out/alpha_talent_awesome_v6_skew`.
+- Premerge **OK** 21:27:04Z · max_abs_delta=**0.6258** · n_keys=1026 · identical_frac=0.452 · 66 GiB.
+- Wrote+synced+armed `launch_r2e_merge_reload_sim.sh` pid **104742** (past premerge → wait-r2d-lane).
+- Prior chain untouched (R1c/R2/R2b/R2c/R2d ALIVE). Engines 200@65536.
+- Pre-reg: submit only if headroom ≥ 1.5×(3·SE).
+- Next: harvest R1c; if weak → R2→…→R2d→**R2e**.
+
 ## p1891 — R2d pure awesome-v6 n80 waiter armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,049.
 - R1c still ~88/132 — no decision; equal-α/skew Tok×awesome barely leave Tok (Δ≈0.006–0.009).
