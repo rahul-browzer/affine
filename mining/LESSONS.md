@@ -18,6 +18,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 
 ## Ops (still true — details in legacy archive if needed)
 - Live corpus is **schema v2** (Parquet index + chunks). `sync_corpus.sh` must accept `turns_index.parquet`, not only `turns.jsonl`.
+- Schema-v2 Reason sim needs **pandas + pyarrow** in the pod venv (`CorpusSync` reads parquet). vLLM-only installs miss them — pin in `restore_warm_stack.sh`.
 - Pods: `mine-*` only; never `rm` non-mine; always `--ttl`; reconcile `lium ps` first every pass.
 - Heavy work on pods; push to HF `unconst` with `source mining/.env` → `export HF_TOKEN`.
 - King is multimodal Qwen MoE — CausalLM save can drop `model.visual.*`; restore before vLLM.

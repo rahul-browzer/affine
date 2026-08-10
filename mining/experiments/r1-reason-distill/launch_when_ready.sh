@@ -35,6 +35,14 @@ if [[ -f /root/mine.env ]]; then
   # shellcheck disable=SC1091
   source /root/mine.env
 fi
+# Fail closed: schema-v2 sim needs parquet readers before burning GPU time.
+python - <<'PY'
+import importlib.util as u
+missing = [m for m in ("pandas", "pyarrow") if u.find_spec(m) is None]
+if missing:
+    raise SystemExit(f"[r1-wait] FATAL missing deps {missing} — install pandas pyarrow")
+print("[r1-wait] deps ok pandas+pyarrow", flush=True)
+PY
 export PYTHONPATH=/root/mining_src/affine_pkg${PYTHONPATH:+:$PYTHONPATH}
 export AFFINE_DATA_DIR=${AFFINE_DATA_DIR:-/root/affine_data}
 

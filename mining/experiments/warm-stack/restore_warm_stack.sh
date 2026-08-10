@@ -64,12 +64,19 @@ if [[ ! -x /root/venv/bin/vllm ]]; then
     "safetensors" \
     "numpy" \
     "scipy" \
+    "pandas" \
+    "pyarrow" \
     2>&1 | tee /root/logs/pip_restore.log | tail -40
+fi
+# Schema-v2 CorpusSync reads turns_index.parquet — need pandas even if vllm already present.
+if ! python -c 'import pandas, pyarrow'; then
+  uv pip install pandas pyarrow 2>&1 | tee -a /root/logs/pip_restore.log | tail -20
 fi
 
 python - <<'PY'
-import torch, transformers, vllm
-print("[restore] VERSIONS", torch.__version__, transformers.__version__, vllm.__version__)
+import torch, transformers, vllm, pandas, pyarrow
+print("[restore] VERSIONS", torch.__version__, transformers.__version__, vllm.__version__,
+      "pandas", pandas.__version__, "pyarrow", pyarrow.__version__)
 assert vllm.__version__.startswith("0.22.1"), vllm.__version__
 assert transformers.__version__.startswith("5.14"), transformers.__version__
 PY

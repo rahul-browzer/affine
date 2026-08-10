@@ -1,5 +1,13 @@
 # R1 result log
 
+## p1850 — unblock schema-v2 sim deps
+- Contract still `weight_version_key=3`; king Tok af10 unchanged.
+- HF DL healthy: `/root/hf` ~78→103G in ~2m (~550MB/s); restore pid1305 + watcher pid3045 alive.
+- **Bug found:** venv had pyarrow but **no pandas** → `CorpusSync` / n80 would fail after engines up.
+- Installed `pandas==3.0.5` (+ python-dateutil); corpus smoke OK (40335 index rows, epoch 7).
+- Stamped `/root/logs/deps_pandas.done`. Patched `restore_warm_stack.sh` + `launch_when_ready.sh` to require pandas/pyarrow.
+- No `r1_decision.json` yet (still downloading weights).
+
 ## p1849 — Reason harness + corpus + auto n80
 - Contract confirmed `weight_version_key=3`.
 - Uploaded `/root/mining_src/{affine_pkg,r1-reason-distill,s3-duel-sim}` (read-only score path).
