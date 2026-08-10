@@ -5,7 +5,7 @@
 
 | # | id | claim | status |
 |---|---|---|---|
-| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **open** — LoRA train ~5/66; H64 n80 ~34/80; merge→reload→LoRA-n80 waiter armed |
+| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **open** — H64 n80 CRASH@52/80 (32768 ctx); engines→65536; LoRA train ~42/66; merge waiter rearmed |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after R1 sim works |
 
@@ -14,7 +14,7 @@
 ### R1 — Distill thoughts that raise teacher lp(y_C)
 - **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
 - **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** open. H64 n80 ~34/80; LoRA train pid23282 (kept 527/1403 @8k, loss~0.43 @step5); merge waiter pid24147 → `r1_lora_decision.json`.
+- **Status:** open. H64 baseline CRASH (ctx 32768); fix=65536 engines loading; LoRA train ~42/66; merge pid24831 → `r1_lora_decision.json`.
 - **Dir:** `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason

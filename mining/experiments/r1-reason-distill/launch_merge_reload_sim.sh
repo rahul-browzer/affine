@@ -123,9 +123,11 @@ if [[ ! -d /root/.triton/cache/chall ]] || [[ -z "$(find /root/.triton/cache/cha
   fi
 fi
 
+# Match live evalsrv max_model_len=65536 (affine.toml). 32768 knife-edges
+# long corpus prefixes and aborts the whole n80 gather.
 COMMON=(
   --tensor-parallel-size 2
-  --max-model-len 32768
+  --max-model-len 65536
   --max-num-batched-tokens 8192
   --attention-backend FLASH_ATTN
   --attention-config.use_trtllm_attention 0

@@ -19,7 +19,7 @@ Common env (do **not** bake secrets into scripts; use `/root/mine.env`):
 # teacher
 CUDA_VISIBLE_DEVICES=0,1 TRITON_CACHE_DIR=/root/.triton/cache/teacher \
   /root/venv/bin/vllm serve zai-org/GLM-4.5-Air-FP8 \
-  --port 8000 --tensor-parallel-size 2 --max-model-len 32768 \
+  --port 8000 --tensor-parallel-size 2 --max-model-len 65536 \
   --gpu-memory-utilization 0.80 --max-num-batched-tokens 8192 \
   --attention-backend FLASH_ATTN --attention-config.use_trtllm_attention 0 \
   --compilation-config.pass_config.fuse_allreduce_rms false \
@@ -29,7 +29,7 @@ CUDA_VISIBLE_DEVICES=0,1 TRITON_CACHE_DIR=/root/.triton/cache/teacher \
 # king
 CUDA_VISIBLE_DEVICES=2,3 TRITON_CACHE_DIR=/root/.triton/cache/king \
   /root/venv/bin/vllm serve Tok331102/affine-5EqYW8McUc-af10 \
-  --port 8001 --tensor-parallel-size 2 --max-model-len 32768 \
+  --port 8001 --tensor-parallel-size 2 --max-model-len 65536 \
   --gpu-memory-utilization 0.80 --max-num-batched-tokens 8192 \
   --attention-backend FLASH_ATTN --attention-config.use_trtllm_attention 0 \
   --compilation-config.pass_config.fuse_allreduce_rms false \
@@ -40,7 +40,7 @@ CUDA_VISIBLE_DEVICES=2,3 TRITON_CACHE_DIR=/root/.triton/cache/king \
 # chall = H64 r=18 merged (util 0.72)
 CUDA_VISIBLE_DEVICES=4,5 TRITON_CACHE_DIR=/root/.triton/cache/chall \
   /root/venv/bin/vllm serve /tmp/h64_merged \
-  --port 8002 --tensor-parallel-size 2 --max-model-len 32768 \
+  --port 8002 --tensor-parallel-size 2 --max-model-len 65536 \
   --gpu-memory-utilization 0.72 --max-num-batched-tokens 8192 \
   --attention-backend FLASH_ATTN --attention-config.use_trtllm_attention 0 \
   --compilation-config.pass_config.fuse_allreduce_rms false \

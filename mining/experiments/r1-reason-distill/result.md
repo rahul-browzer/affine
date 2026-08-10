@@ -1,5 +1,15 @@
 # R1 result log
 
+## p1859 — H64 ctx crash → engines max_model_len=65536
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,618.
+- H64 n80 died @**52/80**: `ContextLengthError` on chall:8002 — prompt≥30977 + 1792 out > **32768**.
+- Live evalsrv `affine.toml` already sets **`max_model_len=65536`** for this exact knife-edge.
+- Patched `restore_warm_stack.sh` + `launch_merge_reload_sim.sh` + new `relaunch_engines_65536.sh`.
+- Wrote `r1_decision.json` decision=**CRASH** (no submit). Stopped old merge pid24147.
+- Relaunched engines pids **24941/24942/24943** with `--max-model-len 65536` (loading; GPUs 0–5).
+- Train still ~**42/66** on GPUs 6–7; merge waiter pid **24831** rearmed → LoRA n80 after train.
+- Next: confirm `/v1/models` max_model_len=65536 + harvest `r1_lora_decision.json`.
+
 ## p1858 — armed merge→reload→LoRA-n80 waiter
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,641.
 - H64 n80 pid20566: **34/80 / 35/80** @16:51Z (still no `r1_decision.json`).

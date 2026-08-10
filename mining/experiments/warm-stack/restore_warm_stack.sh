@@ -172,9 +172,12 @@ else:
     print("[restore] WARN: no tok preprocessor/processor_config", flush=True)
 PY
 
+# Match affine.toml [model_serving].max_model_len=65536. At 32768, corpus
+# prefixes ~31k + max_thought+max_action=1792 → vLLM 400 mid-duel (H64 n80
+# died at 52/80 on 2026-08-10). Ops knob only; same util 0.80.
 COMMON=(
   --tensor-parallel-size 2
-  --max-model-len 32768
+  --max-model-len 65536
   --max-num-batched-tokens 8192
   --attention-backend FLASH_ATTN
   --attention-config.use_trtllm_attention 0

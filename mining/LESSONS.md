@@ -35,3 +35,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Crown pod venv is **uv**-managed (`uv pip install --python /root/venv/bin/python …`); bare `pip` / system python hits PEP 668.
 - R1 SFT `max_len=8192` fit-filter kept only **527/1403** high-Reason rows (rest truncated out); sample0 thought-supervised tokens can be tiny (45/1461) — watch loss signal / raise max_len if margin stays flat.
 - After LoRA train: merge on freed GPUs 6–7, kill chall by **PID file only**, reload `/tmp/r1_lora_merged` with same vLLM knobs as restore (tp=2 util=0.72), then fresh n80 — do not yank chall mid-baseline.
+- Crown engines must use **`max_model_len=65536`** (live `affine.toml`); **32768** knife-edges ~31k prefixes + 1792 gen → `ContextLengthError` aborts whole n80 gather (H64 died 52/80).
