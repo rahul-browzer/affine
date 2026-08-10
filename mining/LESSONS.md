@@ -28,3 +28,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Never `pkill -f` over SSH (matches your session). Kill by PID. Seed chall Triton from live king TCACHE when recovering.
 - Never edit a running `restore_warm_stack.sh` on the pod (bash re-reads mid-file); write `.new` and swap after exit.
 - Mid-run edit failure mode: after a long heredoc, bash can die with `syntax error near unexpected token '**kw'` (Python seen as bash). Kill by PID, install `.new`, re-run — stamps skip re-download.
+- After any restore kill/relaunch, **re-check the n80 watcher PID** — pid3045 died silently (log froze at iter=60) while engines were still loading; without relaunch, PROMPTABLE would never start the sim.

@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $124,697.15 | 2026-08-10T16:29Z |
-| cumulative mining spend | ~$72,903 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T16:29Z |
-| **available for mining** | **~$114,697** (balance − $10,000 floor) | 2026-08-10T16:29Z |
+| Lium balance | $124,685.85 | 2026-08-10T16:33Z |
+| cumulative mining spend | ~$72,914 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T16:33Z |
+| **available for mining** | **~$114,686** (balance − $10,000 floor) | 2026-08-10T16:33Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T16:29Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T16:33Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T16:33Z | 124685.85 | p1853 watcher relaunch→engines 200 + n80 H64 sim (no new rent); burn$64/h; Δ−$11 vs p1852 (shared ok) |
 | 2026-08-10T16:29Z | 124697.15 | p1852 restore relaunch+vLLM serve after mid-edit crash (no new rent); burn$64/h; bal flat vs p1851 |
 | 2026-08-10T16:25Z | 124697.15 | p1851 B300 flash+Tok preprocessor pre-serve (no new rent); burn$64/h; Δ−$11 vs p1850 (shared ok) |
 | 2026-08-10T16:21Z | 124708.31 | p1850 installed pandas/pyarrow on crown (no new rent); burn$64/h; Δ−$11 vs p1849 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T15:55Z | 124759.03 | p1846 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$25 vs p1845 (shared ok) |
 | 2026-08-10T15:39Z | 124783.65 | p1845 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$25 vs p1844 (shared ok) |
 | 2026-08-10T15:23Z | 124808.20 | p1844 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$29 vs p1843 (shared ok) |
-| 2026-08-10T15:07Z | 124836.83 | p1843 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$54 vs p1842 (shared ok) |

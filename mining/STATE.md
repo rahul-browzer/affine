@@ -3,7 +3,7 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 3 bootstrap** — Reason v3 crown push (operator 2026-08-10).
+**Stage 3→4** — Reason v3 crown push (operator 2026-08-10).
 King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Live facts
@@ -13,7 +13,7 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | contract | Reason v3 · `weight_version_key=3` · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
 | corpus | epoch **7** · schema v2 · manifest `167085451ab6…` · **ready** |
-| Lium balance | ~$124,697 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
+| Lium balance | ~$124,686 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 
@@ -21,14 +21,13 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | vLLM teacher/king/H64 loading; Reason watcher pid3045 |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | engines **200/200/200**; H64 n80 Reason sim |
 
-- Teacher DL finished (~f9a9c5acf5…). First restore pid1305 died after DL: bash `syntax error near **kw` (script edited mid-run).
-- **p1852:** killed broken restore; installed `restore_warm_stack.sh.new` → live; relaunched pid **9697**.
-- Engines up: vllm pids 9910/9923/9936 on :8000/:8001/:8002 — loading weights (NCCL ok; not 200 yet).
-- B300 flash + Tok preprocessor confirmed; `/tmp/h64_merged` linked; watcher still waiting → n80.
+- **p1853:** found watcher pid3045 **dead** (log froze at iter=60); relaunched → pid **17015**.
+- Engines PROMPTABLE @ 16:33:28Z → `warm_stack_ready.done=READY`.
+- n80 sim running: `run_reason_sim.py` pid **20566**, slice `block_hash=cff36ecb8d89050f…` → `/root/affine_data/r1_reason_sim.json` → `r1_decision.json`.
 
-Poll: `cat /root/logs/warm_stack_ready.done /root/affine_data/r1_decision.json 2>/dev/null`
+Poll: `cat /root/affine_data/r1_decision.json /root/affine_data/r1_reason_progress.json 2>/dev/null; tail -n 20 /root/logs/r1_reason_sim.log`
 
 ## Blocked
 
@@ -39,4 +38,4 @@ Poll: `cat /root/logs/warm_stack_ready.done /root/affine_data/r1_decision.json 2
 
 ## Next action
 
-**Harvest** `/root/affine_data/r1_decision.json` when watcher finishes (engines → 200/200/200 → n80). If any engine dies, check `vllm_*.log` for flash/preproc. Decision: submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train/distill on same pod.
+**Harvest** `/root/affine_data/r1_decision.json` when n80 finishes. Decision: submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train/distill on same pod (GPUs 6–7 free).

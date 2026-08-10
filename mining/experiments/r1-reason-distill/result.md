@@ -1,5 +1,12 @@
 # R1 result log
 
+## p1853 — watcher dead → relaunch → n80 running
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,686.
+- Found `launch_when_ready` pid3045 **dead** (log stuck at iter=60 / 16:27Z); no process.
+- Relaunched → pid **17015**. Engines hit **200/200/200** @ 16:33:28Z (`warm_stack_ready.done=READY`).
+- n80 H64 vs Tok started: `run_reason_sim.py` pid **20566**, `block_hash=cff36ecb8d89050f…`, corpus epoch 7.
+- Outputs: `/root/affine_data/r1_reason_sim.json` → `r1_decision.json`. Poll progress / decision next pass.
+
 ## p1852 — unstick restore → engines loading
 - Teacher DL finished; first restore crashed: `syntax error near **kw` (running script was edited mid-pass).
 - Killed pid1305; `mv` `.new`→`restore_warm_stack.sh`; relaunched pid **9697** (skips all HF stamps).
