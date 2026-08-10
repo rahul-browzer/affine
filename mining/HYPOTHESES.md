@@ -5,16 +5,16 @@
 
 | # | id | claim | status |
 |---|---|---|---|
-| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **open** — LoRA n80 ~45/80 @17:56Z; HF **DONE** public `569a68be…` → await decision |
+| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 n80 +0.0005; **R1b train running** max_len=16384 |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after R1 sim works |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
 
 ### R1 — Distill thoughts that raise teacher lp(y_C)
 - **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
 - **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** open. Engines 200@65536; LoRA n80 pid76726 (chall 44/80, king 46/80 @17:56Z). HF public push **DONE** `unconst/Affine-5czsc2fc98-r1lora@569a68bea1e3…` after purging ~840 GiB public junk (public quota was also full). Decision pending.
+- **Status:** weak / R1b in flight. R1 LoRA@8192 → margin **+0.000516** (z=0.105). R1b: max_len=16384 (~1006/1403 rows) train pid79866 on crown GPUs 6–7 → `/root/r1_out/lora_tok_high_reason_r1b`. HF `r1lora@569a68be` not for submit.
 - **Dir:** `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason

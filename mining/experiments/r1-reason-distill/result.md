@@ -1,5 +1,22 @@
 # R1 result log
 
+## p1867 — R1b train launched (max_len=16384)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,451.
+- Fit-filter probe: max_len 8192→527/1403; **16384→1006/1403**; 24576→1374 (deferred — OOM risk).
+- Staged `launch_r1b_train.sh` + parameterized `launch_train.sh` (`MAX_LEN`/`OUT`/`DONE_STAMP`).
+- Launched pid **79866**: CUDA 6,7 · base Tok `eb8bf9a…` · out `/root/r1_out/lora_tok_high_reason_r1b` · log `/root/logs/r1b_train.log` · done `/root/logs/r1b_train.done`.
+- @18:15Z loading weights (GPU6/7 ~34GB); TK+old-LoRA chall still 200@65536 on 0–5.
+- Next: harvest `r1b_train.done` → merge+graft → reload chall → fresh n80; submit only if headroom ≥ 1.5×(3·SE).
+
+## p1866 — LoRA n80 harvest: SIGNAL_POS_BELOW_3SE (no submit)
+- Contract `weight_version_key=3`; king Tok af10 `eb8bf9a…`; epoch 7; slice `720854ee…`.
+- `r1_lora_decision.json` @18:12:44Z: **SIGNAL_POS_BELOW_3SE**.
+- margin **+0.000516** · SE **0.004907** · z **0.105** · 3·SE **0.01472** · headroom_vs_3se **0.035** (≪1.5).
+- reason_c **−0.006087** vs reason_k **−0.006381** (n=80); challenger_wins=false.
+- HF public `unconst/Affine-5czsc2fc98-r1lora@569a68be…` stays pre-submit only — **do not register/submit**.
+- Artifacts copied to `artifacts/r1_lora_{decision,reason_sim}.json`.
+- Next: R1b — rebuild SFT @ higher `max_len` (8192 kept only 527/1403) and retrain on warm crown GPUs 6–7.
+
 ## p1865 — public HF quota purge → r1lora push DONE
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,496.
 - n80 pid76726 @ **chall 44 / king 46**; engines still 200@65536.

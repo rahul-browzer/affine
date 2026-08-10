@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-10T18:12:44Z",
+  "hyp": "R1",
+  "contract": "Reason v3",
+  "decision": "SIGNAL_POS_BELOW_3SE",
+  "headroom_bar": 1.5,
+  "false_probe": null,
+  "margin": 0.0005157216161992374,
+  "se": 0.0049071353121055445,
+  "z": 0.10509626969669857,
+  "k_sigma": 3.0,
+  "threshold_3se": 0.014721405936316634,
+  "headroom_vs_3se": 0.03503208989889952,
+  "reason_c": -0.006087067381820138,
+  "reason_k": -0.0063810954761388235,
+  "n_paired_turns": 80,
+  "challenger_wins": false,
+  "sim_result": "/root/affine_data/r1_lora_reason_sim.json"
+}
