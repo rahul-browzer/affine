@@ -1,5 +1,15 @@
 # R1 result log
 
+## p1870 — R1c hardened (EPOCHS=6) + merge→n80 waiter staged
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,429.
+- R1b still training **23/126** @~34s/it loss~0.34; waiter pid80760 waiting; engines 200@65536.
+- R1b decision not ready (~0.9h train left) — used idle to fix R1c under-training:
+  - 176 rows × grad_accum=8 ⇒ ~22 steps/epoch at EPOCHS=1 (too weak vs R1b's 126).
+  - `launch_r1c_train.sh` now defaults **EPOCHS=6** (~132 opt-steps).
+  - Staged `launch_r1c_merge_reload_sim.sh` → `/root/affine_data/r1c_lora_decision.json`.
+- Synced both scripts to `/root/mining_src/r1-reason-distill/` (bash -n clean). Do **not** start until R1b frees GPUs 6–7.
+- Next: harvest R1b decision; if weak, launch R1c + arm its waiter.
+
 ## p1869 — thought-nsup starvation diagnosed; R1c filter ready
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,429.
 - R1b train live **16/126** @~34s/it loss~0.41; waiter pid80760 still waiting; engines 200@65536.

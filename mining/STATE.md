@@ -17,9 +17,10 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 | R1 LoRA n80 | **DONE** · `SIGNAL_POS_BELOW_3SE` · margin +0.0005 ≪ 3·SE 0.0147 |
-| R1b train | **RUNNING** · max_len=16384 · **16/126** @~34s/it · loss~0.41 · pid **79866** |
+| R1b train | **RUNNING** · max_len=16384 · **23/126** @~34s/it · loss~0.34 · pid **79866** |
 | R1b waiter | **ARMED** · merge→reload→n80 pid **80760** |
-| R1c data | **READY** · `/root/r1_data/sft_high_reason_nsup100.jsonl` **176** rows (nsup≥100) |
+| R1c data | **READY** · nsup≥100 jsonl **176** rows · launch **EPOCHS=6** (~132 steps) |
+| R1c waiter | **STAGED** · `launch_r1c_merge_reload_sim.sh` (do not arm until R1c train starts) |
 | HF pre-push | `unconst/Affine-5czsc2fc98-r1lora` **public** @ `569a68be…` (not for submit) |
 
 ## What's running
@@ -31,8 +32,8 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 - Engines 8000/8001/8002 **200** @ `max_model_len=65536`.
 - R1b: log `/root/logs/r1b_train.log`; done `/root/logs/r1b_train.done`; out `/root/r1_out/lora_tok_high_reason_r1b`.
 - Waiter → `/root/affine_data/r1b_lora_decision.json` after merge+n80.
-- ETA train ~1.0h (110×~34s); then merge+reload+n80.
-- R1c staged: `launch_r1c_train.sh` + nsup100 jsonl (do **not** start until R1b frees GPUs 6–7).
+- ETA train ~0.9h (103×~34s); then merge+reload+n80.
+- R1c: `launch_r1c_train.sh` (EPOCHS=6) + `launch_r1c_merge_reload_sim.sh` on pod — start **only after** R1b frees GPUs 6–7.
 
 ## Blocked
 
@@ -45,4 +46,4 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Next action
 
-**Harvest R1b n80** at `/root/affine_data/r1b_lora_decision.json`. If headroom < 1.5×(3·SE), launch **R1c** on `sft_high_reason_nsup100.jsonl` (176 rows, nsup_med=137) via `launch_r1c_train.sh`.
+**Harvest R1b n80** at `/root/affine_data/r1b_lora_decision.json`. If headroom < 1.5×(3·SE), launch **R1c** via `launch_r1c_train.sh` (EPOCHS=6 on nsup100) and arm `launch_r1c_merge_reload_sim.sh`.
