@@ -1,5 +1,13 @@
 # R2 result log
 
+## p1903 — R2g Talent×saysth gated waiter + near-miss rescan
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,792.
+- R2e Talent×awesome n80 still **RUNNING** (~28/80 @23:14Z; sim 128291; no decision).
+- Rescan chal-00420..439 vs Tok (per-turn Reason): top DL still **awesome-v6 hr≈0.92×**; nvidia/diane gated; no new completed Reason+ parents.
+- Wrote+synced `launch_r2g_talent_saysth_premerge.sh`; armed pid **130003** — waits for 440 Reason stamp with hr>0 then Talent0.25×saysth0.75 → `/root/r2_out/alpha_talent_saysth_v9a_skew` (else SKIP).
+- Artifacts: `artifacts/reason_nearmiss_p1903.json`.
+- Next: harvest `r2e_alpha_decision.json`; if below 1.5× → use R2g done/skip + 440 Reason for next chall.
+
 ## p1902 — saysth prefetch DONE + chal-00440 Reason watcher
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,792.
 - R2e Talent×awesome n80 still **RUNNING** (~21/80 @23:11Z; sim 128291; no decision).
