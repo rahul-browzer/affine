@@ -1,5 +1,13 @@
 # R2 result log
 
+## p1876 — premerge harvested (READY for α→n80)
+- Contract `weight_version_key=3`; king Tok af10; engines **200/200/200** @65536; burn$64/h; bal~$124,328.
+- `/root/logs/r2_premerge.done`: `OK 2026-08-10T18:47:53Z max_abs_delta=0.27734375 n_keys=1026`.
+- Artifact `/root/r2_out/alpha_tok_talent_kevin`: 2×33 GiB shards + index + multimodal sidecars; meta confirms distinct from Tok.
+- R2 α waiter pid **85408** still on wait-r1-lane (r1b/r1c decisions absent) — will reuse premerge (no re-blend).
+- R1b train **~93/126** loss~0.33; waiters 80760/83033 alive. ETA train ~0.35h then merge+n80.
+- Next: harvest R1b decision; Stage-5 only if headroom ≥ 1.5×; else R1c then R2 α n80.
+
 ## p1875 — premerge healthy + meta stamp fix
 - Contract `subnet.weight_version_key=3`; king Tok af10; burn$64/h; bal~$124,395.
 - Prefetch **DONE** @18:42Z (TalentPigs+kevin). R1b ~**48/126**; lane pids untouched.
