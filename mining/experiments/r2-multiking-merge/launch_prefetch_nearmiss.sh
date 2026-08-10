@@ -31,35 +31,55 @@ from pathlib import Path
 from huggingface_hub import snapshot_download
 
 # Ranked by recomputed Reason headroom vs Tok af10 (p1885).
-parents = [
+# Required: awesome-v6 (hr≈0.92×). Optional parents must not abort the stamp —
+# diane613 cool is gated (403) for unconst and killed p1885 prefetch before DONE.
+required = [
     ("0pentensor/Affine-5dflhtkufw-awesome-v6", "f479a24d452f1ca312d828acd668a4b1d8de0d8f"),
+]
+optional = [
     ("diane613/affine-5gedzafcvg-cool", "d31a456f0fbf2bac40a66d32823ec57b3201a815"),
 ]
 out = {
     "started_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-    "note": "pure Reason recompute; chal-00425 hr≈0.92×; chal-00415 hr≈0.64×",
+    "note": "pure Reason recompute; chal-00425 hr≈0.92×; optional gated parents skipped on 403",
     "parents": [],
+    "skipped": [],
 }
 Path("/root/affine_data").mkdir(parents=True, exist_ok=True)
 meta = Path("/root/affine_data/r2_prefetch_nearmiss.json")
-for repo, rev in parents:
+
+def pull(repo, rev, *, required=True):
     print(f"[r2-nearmiss] downloading {repo}@{rev[:12]}…", flush=True)
     t0 = time.time()
-    path = snapshot_download(
-        repo_id=repo,
-        revision=rev,
-        token=os.environ.get("HF_TOKEN"),
-        max_workers=8,
-    )
+    try:
+        path = snapshot_download(
+            repo_id=repo,
+            revision=rev,
+            token=os.environ.get("HF_TOKEN"),
+            max_workers=8,
+        )
+    except Exception as e:
+        msg = f"{type(e).__name__}: {e}"
+        print(f"[r2-nearmiss] FAIL {repo}: {msg}", flush=True)
+        out["skipped"].append({"repo": repo, "revision": rev, "error": msg[:500]})
+        meta.write_text(json.dumps(out, indent=2) + "\n")
+        if required:
+            raise
+        return
     dt = time.time() - t0
     print(f"[r2-nearmiss] OK {repo} -> {path} ({dt/60:.1f} min)", flush=True)
     out["parents"].append(
         {"repo": repo, "revision": rev, "path": path, "seconds": round(dt, 1)}
     )
     meta.write_text(json.dumps(out, indent=2) + "\n")
+
+for repo, rev in required:
+    pull(repo, rev, required=True)
+for repo, rev in optional:
+    pull(repo, rev, required=False)
 out["finished_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 meta.write_text(json.dumps(out, indent=2) + "\n")
-print("[r2-nearmiss] all parents cached", flush=True)
+print("[r2-nearmiss] required parents cached", flush=True)
 PY
 
 echo "OK $(date -u +%Y-%m-%dT%H:%M:%SZ)" >"$DONE"

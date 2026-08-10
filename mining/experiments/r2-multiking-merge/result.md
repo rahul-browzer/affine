@@ -1,5 +1,13 @@
 # R2 result log
 
+## p1887 — nearmiss DONE unblocked + R2b n80 waiter armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,094.
+- Prefetch pid 99742 **died** after awesome-v6 OK: `diane613/…-cool` **GatedRepoError 403** → no `r2_prefetch_nearmiss.done` → R2b stuck.
+- Patched `launch_prefetch_nearmiss.sh` (optional parents non-fatal); stamped DONE (awesome-only); R2b **100240** resumed α-merge shard1.
+- Wrote+synced+armed `launch_r2b_merge_reload_sim.sh` pid **101161** → waits `r2b_premerge.done` + R2 lane → chall:8002 reload → n80 → `r2b_alpha_decision.json`.
+- R1c ~61/132; engines 200@65536 untouched.
+- Next: harvest R1c; if weak → R2 α n80 then R2b n80.
+
 ## p1886 — R2b Tok×awesome CPU premerge armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,105.
 - R1c still ~56/132 — no decision yet; used idle CPU lane.

@@ -5,8 +5,8 @@
 
 | # | id | claim | status |
 |---|---|---|---|
-| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak/refuted variants** — R1 +0.0005; **R1b REFUTE −0.0135**; R1c train **~56/132** |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — α→n80 **99246**; nearmiss prefetch **99742**; **R2b Tok×awesome premerge 100240** |
+| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak/refuted variants** — R1 +0.0005; **R1b REFUTE −0.0135**; R1c train **~61/132** |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — α→n80 **99246**; R2b premerge **100240**; R2b n80 **101161** |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -14,13 +14,13 @@
 ### R1 — Distill thoughts that raise teacher lp(y_C)
 - **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
 - **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** R1 LoRA@8192 → +0.000516 (noise). **R1b** @16384/1006rows → **REFUTE** margin **−0.01349** (z=−2.45, headroom −0.82×, n_paired=75) — longer-ctx SFT hurt vs Tok. R1c (nsup≥100, EPOCHS=6) **~56/132** training; merge/R2 waiters armed; HF ~423 GiB purged for Stage-5 push. Artifacts: `artifacts/r1b_lora_{decision,reason_sim}.json`.
+- **Status:** R1 LoRA@8192 → +0.000516 (noise). **R1b** @16384/1006rows → **REFUTE** margin **−0.01349** (z=−2.45, headroom −0.82×, n_paired=75) — longer-ctx SFT hurt vs Tok. R1c (nsup≥100, EPOCHS=6) **~61/132** training; merge/R2 waiters armed; HF ~423 GiB purged for Stage-5 push. Artifacts: `artifacts/r1b_lora_{decision,reason_sim}.json`.
 - **Dir:** `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Equal-α Tok×Talent×kevin premerge **max_abs_delta=0.277**; α→n80 waiter **99246**. Best Reason near-miss **0pentensor awesome-v6** (hr≈0.92×); prefetch **99742** (~26 GiB). p1886 armed **R2b** equal-α Tok×awesome CPU premerge pid **100240** → `/root/r2_out/alpha_tok_awesome_v6` (no GPU). Artifact: `artifacts/reason_nearmiss_p1885.json`. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Equal-α Tok×Talent×kevin premerge **max_abs_delta=0.277**; α→n80 waiter **99246**. Near-miss prefetch **DONE** (awesome-v6; diane gated skipped). R2b Tok×awesome premerge **100240** blending; R2b chall+n80 waiter **101161** armed. Artifact: `artifacts/reason_nearmiss_p1885.json`. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.

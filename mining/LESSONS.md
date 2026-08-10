@@ -62,3 +62,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Many 2026-08-10 duels still stamp `ranking_formula=Λ2+L1lift` in the gzip; **recompute Reason from `lpC_yc_za−lpC_yc_e`** before trusting published margin/z (chal-00425 pub +0.017/z2.79 → Reason +0.0108/z2.75; still best near-miss ~0.92×).
 - Best live Reason near-miss vs Tok af10: `0pentensor/Affine-5dflhtkufw-awesome-v6@f479a24d452f` (hr≈0.92×) — prefer as merge/SFT parent over older S\*-margin leaders.
 - Overlap Tok×near-miss CPU α-premerge (`launch_r2b_tok_awesome_premerge.sh`) with R1c train + nearmiss download — same pattern as R2 Talent/kevin premerge; stamp `r2b_premerge.done` before chall reload.
+- Prefetch scripts: mark optional HF parents non-fatal — `diane613/…-cool` is **gated 403** for unconst; a hard fail after awesome-v6 OK left `r2_prefetch_nearmiss.done` unstamped and stalled R2b (p1887).
