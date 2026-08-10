@@ -1,5 +1,16 @@
 # R2 result log
 
+## p1901 — parent scan + saysth prefetch while R2e gathers
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,803.
+- R2e Talent×awesome n80 **RUNNING** (~7/80 @23:06Z; sim 128291; chall 124848; no decision yet).
+- Incremental Reason rescan (per-turn mean from row pairs):
+  - **chal-00433** `vera6/…-cc` hr≈**−0.21×** · downloadable · not a parent
+  - live **chal-00440** `saysth/Affine-5dtnxamt4t-v9a@6e13f365b36000cf631aad2fa9fb05fdabae0044` · **weights_ok** · no verdict yet
+  - best DL Reason+ unchanged: awesome-v6 hr≈0.92×
+- Armed CPU prefetch `launch_prefetch_saysth.sh` pid **129090** → `/root/logs/r2_prefetch_saysth.{log,done}`.
+- Artifacts: `artifacts/reason_nearmiss_p1901.json`.
+- Next: harvest `r2e_alpha_decision.json`; if below 1.5× and saysth Reason+ → R2g merge plan.
+
 ## p1899 — R2d pure awesome-v6 n80 DONE → SIGNAL_POS_BELOW_3SE
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,825.
 - Harvested `r2d_awesome_decision.json` (22:56:43Z): margin **+0.002227** · se=0.003387 · z=**0.658** · 3·SE=**0.01016** · headroom=**0.219×** · reason_c=−0.00855 · reason_k=−0.01074 · n_paired=80 · `challenger_wins=false`.

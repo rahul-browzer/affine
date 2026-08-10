@@ -78,3 +78,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - While R2d n80 burns GPU, arm next non-Tok×awesome CPU skew (**kevin×awesome** R2f) so R2e→R2f has no idle merge gap; kevin snapshot already on crown from early prefetch.
 - kevin×awesome skew (0.25/0.75) max_abs_delta=**0.00899** ≈ Tok×awesome — reign parents that share awesome-v6 weights stay near-identical; only Talent×awesome (Δ=0.626) is a real blend; WEAK_SKIP kevin n80 (p1898).
 - R2d pure awesome-v6 vs Tok af10: margin **+0.00223** (z=0.66, 3·SE=0.0102, hr **0.22×**, n=80) — published near-miss hr≈0.92× did **not** transfer as chall; need non-Tok blend (R2e) or stronger parents, not more α knobs on awesome alone.
+- Duel gzip pairs lack `turn_id` — id is on `king_rows[]`/`challenger_rows[]`; Reason scan = mean(lpC_yc_za−lpC_yc_e) **per row** then pair turns (repo fields = `request.challenger_repo` / `challenger_revision`).
+- p1901: chal-00433 `vera6/…-cc` Reason hr≈**−0.21×** (DL, not a parent); live chal-00440 `saysth/…-v9a@6e13f365…` **weights_ok** — prefetch while R2e runs; do not merge until post-verdict Reason+.
