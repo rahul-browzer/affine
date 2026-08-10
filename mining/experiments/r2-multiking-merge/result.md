@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1874 — CPU premerge overlapped with R1b
+- Contract `weight_version_key=3`; king Tok af10; engines 200@65536; burn$64/h.
+- R1b ~**42/126**; R1 lane pids untouched (79866/80760/83033).
+- Added `launch_r2_premerge.sh`: waits prefetch → equal-α blend → `/root/logs/r2_premerge.done`.
+- Patched `launch_r2_merge_reload_sim.sh` to **reuse** premerge (skip re-blend).
+- Killed old waiter 84752 by PID; armed premerge pid **85406** + waiter pid **85408**.
+- Prefetch: TalentPigs OK; kevin shard1 ~**28 GiB** incomplete (still downloading).
+- Next: harvest R1b/R1c/R2 decisions; Stage-5 only if headroom ≥ 1.5×.
+
 ## p1873 — α-merge recipe staged + waiter armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,407.
 - R1b still **~37/126**; R1b waiter+R1c chain still armed; engines 200@65536.

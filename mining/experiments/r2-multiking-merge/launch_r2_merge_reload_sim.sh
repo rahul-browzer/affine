@@ -164,15 +164,21 @@ KEVIN=$(resolve_snap kevin954/Affine-5dfqbbh8ev-sft "$KEVIN_REV") || {
 
 MERGED=${MERGED:-/root/r2_out/alpha_tok_talent_kevin}
 LINK=${LINK:-/tmp/r2_alpha_merged}
-rm -rf "$MERGED"
-mkdir -p "$MERGED"
+PREMERGE_DONE=${PREMERGE_DONE:-/root/logs/r2_premerge.done}
 
-echo "[r2-merge] α-merge Tok:$W_TOK Talent:$W_TALENT Kevin:$W_KEVIN → $MERGED"
-python /root/mining_src/r2-multiking-merge/merge_alpha.py \
-  --parent "${TOK}:${W_TOK}" \
-  --parent "${TALENT}:${W_TALENT}" \
-  --parent "${KEVIN}:${W_KEVIN}" \
-  --out "$MERGED"
+# Prefer CPU premerge stamped while R1 lane was still busy.
+if [[ -f "$PREMERGE_DONE" && -f "$MERGED/model.safetensors.index.json" ]]; then
+  echo "[r2-merge] reusing premerge $(cat "$PREMERGE_DONE")"
+else
+  rm -rf "$MERGED"
+  mkdir -p "$MERGED"
+  echo "[r2-merge] α-merge Tok:$W_TOK Talent:$W_TALENT Kevin:$W_KEVIN → $MERGED"
+  python /root/mining_src/r2-multiking-merge/merge_alpha.py \
+    --parent "${TOK}:${W_TOK}" \
+    --parent "${TALENT}:${W_TALENT}" \
+    --parent "${KEVIN}:${W_KEVIN}" \
+    --out "$MERGED"
+fi
 ln -sfn "$MERGED" "$LINK"
 echo "[r2-merge] link $LINK -> $(readlink -f "$LINK")"
 

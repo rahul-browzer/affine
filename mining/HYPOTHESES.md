@@ -5,8 +5,8 @@
 
 | # | id | claim | status |
 |---|---|---|---|
-| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 +0.0005; R1b **~37/126**; R1b→R1c chain **armed** |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — prefetch **running**; α-merge→n80 waiter **armed** |
+| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 +0.0005; R1b **~42/126**; R1b→R1c chain **armed** |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — prefetch+CPU premerge **armed**; α→n80 waiter **relaunched** |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -14,13 +14,13 @@
 ### R1 — Distill thoughts that raise teacher lp(y_C)
 - **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
 - **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** weak / R1b in flight. R1 LoRA@8192 → margin **+0.000516** (z=0.105). R1b: max_len=16384 kept **1006/1403** but thought-nsup med **54** (only 176≥100) — train **~37/126** @~39s/it; waiter pid80760. R1c: nsup100 **176** rows + **EPOCHS=6**; **R1b→R1c chain armed** (pid83033) auto-launches train+merge waiter if R1b headroom < 1.5×. HF `r1lora@569a68be` not for submit.
+- **Status:** weak / R1b in flight. R1 LoRA@8192 → margin **+0.000516** (z=0.105). R1b: max_len=16384 kept **1006/1403** but thought-nsup med **54** (only 176≥100) — train **~42/126** @~34s/it; waiter pid80760. R1c: nsup100 **176** rows + **EPOCHS=6**; **R1b→R1c chain armed** (pid83033) auto-launches train+merge waiter if R1b headroom < 1.5×. HF `r1lora@569a68be` not for submit.
 - **Dir:** `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open / prefetching + waiter armed. TalentPigs `dbfbb3e2…` ~66 GiB (23/25) + kevin954 `6a5815fa…` next (pid **83501**). Equal-α recipe (`merge_alpha.py` Tok:Talent:Kevin = 1:1:1) + `launch_r2_merge_reload_sim.sh` waiter pid **84752** (starts after prefetch.done and R1c below bar). Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open / prefetch + CPU premerge overlapping R1. TalentPigs OK; kevin shard ~28 GiB incomplete (pid **83501**). `launch_r2_premerge.sh` pid **85406** → stamp `/root/logs/r2_premerge.done`. α→n80 waiter pid **85408** reuses premerge (skips re-blend). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
