@@ -1,0 +1,26 @@
+{
+  "pass": 1890,
+  "at": "2026-08-10T21:12:00Z",
+  "note": "Incremental scan chal>=436 vs Tok; pure Reason from lpC fields.",
+  "best": "syntaxs0cerer/Affine-5eqdtdzqle-hx2ipp70@e073b2636a22 hr\u2248-0.13\u00d7",
+  "best_downloadable": "syntaxs0cerer/Affine-5eqdtdzqle-hx2ipp70@e073b2636a22 hr\u2248-0.13\u00d7",
+  "rows": [
+    {
+      "challenge_id": "chal-00437",
+      "repo": "syntaxs0cerer/Affine-5eqdtdzqle-hx2ipp70",
+      "revision": "e073b2636a22531a3a08f0de3e7a23dc8372727f",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "reason_margin": -0.0019130898299335,
+      "reason_se": 0.005053235655125206,
+      "reason_z": -0.37858709953357567,
+      "three_se": 0.015159706965375618,
+      "headroom_vs_3se": -0.12619569984452522,
+      "n_paired": 317,
+      "published_margin": -0.0019458430165549205,
+      "published_formula": "Reason = lpC(y_C|z_A) \u2212 lpC(y_C|\u2205)",
+      "weights_ok": true,
+      "access_err": null
+    }
+  ]
+}

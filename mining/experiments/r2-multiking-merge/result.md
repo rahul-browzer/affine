@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1890 — R2c skew PREMERGE DONE
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,060.
+- Harvested `/root/logs/r2c_premerge.done`: **OK** 21:12:32Z · w_tok=0.25 w_awesome=0.75 · max_abs_delta=**0.008987** · n_keys=1026 · identical_frac=0.452 · 70 GiB @ `/root/r2_out/alpha_tok_awesome_v6_skew`.
+- R2c n80 waiter **102560** past premerge → wait-r2b-lane (needs R2b decision + lane free).
+- R1c still ~84/132 (no decision yet); engines 200@65536 untouched.
+- Incremental chal≥436 Reason scan: chal-00437 syntaxs0cerer hr≈−0.13× (downloadable, not a parent); 00438/00439 pairing incomplete / negative — **awesome-v6 still best downloadable Reason+**.
+- Artifacts: `artifacts/r2c_skew_merge_alpha_meta.json`, `r2c_premerge.done`, `reason_nearmiss_p1890.json`.
+- Next: harvest R1c; if weak → R2→R2b→R2c skew n80.
+
 ## p1889 — R2c skew Tok×awesome premerge + n80 waiter
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,071.
 - R1c still ~76/132 — no decision; R2b equal-α Δ≈0.006 is almost Tok → arm stronger pull.

@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-10T21:13Z | p1890: fleet=1 · R2c skew PREMERGE DONE (Δ=0.009); R1c~84/132; burn$64/h; bal~$124060 |
 | 2026-08-10T21:08Z | p1889: fleet=1 · R2c skew premerge+waiter armed; R1c~76/132; burn$64/h; bal~$124071 |
 | 2026-08-10T21:05Z | p1888: fleet=1 · R2b premerge DONE (Δ=0.006); R1c~73/132; vs-Tok near-miss scan; burn$64/h; bal~$124082 |
-| 2026-08-10T20:58Z | p1887: fleet=1 · unblocked nearmiss DONE (diane gated); R2b merge+reload armed; burn$64/h; bal~$124094 |

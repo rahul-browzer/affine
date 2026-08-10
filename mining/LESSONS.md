@@ -68,3 +68,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Among completed duels vs Tok af10, the **only downloadable Reason+ parent** is `0pentensor/…-awesome-v6` (hr≈0.92×). Tok×awesome equal-α premerge: max_abs_delta=**0.006** (tiny but >0; not weight-identical).
 - Equal-α Tok×awesome barely moves weights (Δ≈0.006) — queue a **skew** blend (Tok0.25/awesome0.75) as R2c before burning another GPU n80 on near-identical chall.
 - Confirmed gated for unconst (index probe + snapshot_download): Tok af16/af8, aurora prince — do not re-arm R2c parent prefetch on those.
+- R2c skew Tok0.25/awesome0.75 CPU premerge: max_abs_delta=**0.00899** (vs equal-α 0.006) · identical_frac=0.45 · 70 GiB · ~5 min — still tiny but not weight-identical; n80 still required.
