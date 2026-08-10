@@ -1,5 +1,14 @@
 # R1 result log
 
+## p1878 — R1b train+merge DONE; n80 live (~10/80)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,250.
+- Train finished **2026-08-10T19:35:55Z** (126/126, elapsed ~4839s, adapter `/root/r1_out/lora_tok_high_reason_r1b/adapter`).
+- Merge+graft finished **19:38:43Z** → `/root/r1_out/r1b_lora_merged` (visual_keys=333); chall :8002 pid88838.
+- Engines **200/200/200** @65536; n80 launched **19:42:28Z** slice `b6a1f9464448f214…`.
+- Progress @19:46Z: challenger **10**/80, king **9**/80; pid **92752**; decision file not yet written.
+- R1b→R1c chain pid83033 + R2 α waiter pid85408 still armed (waiting decision / R1 lane).
+- Next: harvest `r1b_lora_decision.json`; Stage-5 only if headroom ≥ 1.5×(3·SE).
+
 ## p1870 — R1c hardened (EPOCHS=6) + merge→n80 waiter staged
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,429.
 - R1b still training **23/126** @~34s/it loss~0.34; waiter pid80760 waiting; engines 200@65536.

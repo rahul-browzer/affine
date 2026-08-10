@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $124,328.25 | 2026-08-10T19:13Z |
-| cumulative mining spend | ~$73,271 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T19:13Z |
-| **available for mining** | **~$114,328** (balance − $10,000 floor) | 2026-08-10T19:13Z |
+| Lium balance | $124,249.93 | 2026-08-10T19:46Z |
+| cumulative mining spend | ~$73,349 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T19:46Z |
+| **available for mining** | **~$114,250** (balance − $10,000 floor) | 2026-08-10T19:46Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T19:13Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T19:46Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T19:46Z | 124249.93 | p1878 R1b merge+n80 harvest (no new rent); burn$64/h; Δ−$78 vs p1876 (shared ok) |
 | 2026-08-10T19:13Z | 124328.25 | p1876 R2 premerge harvest (no new rent); burn$64/h; Δ−$67 vs p1875 (shared ok) |
 | 2026-08-10T18:45Z | 124395.31 | p1875 R2 meta-stamp fix + premerge progressing (no new rent); burn$64/h; Δ−$11 vs p1874 (shared ok) |
 | 2026-08-10T18:41Z | 124406.54 | p1874 R2 CPU premerge armed (no new rent); burn$64/h; bal flat vs p1873 |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T18:29Z | 124428.87 | p1870 R1c EPOCHS=6 + merge waiter staged (no new rent); burn$64/h; bal flat vs p1869 |
 | 2026-08-10T18:25Z | 124428.87 | p1869 R1b nsup probe+R1c filter (no new rent); burn$64/h; Δ−$22 vs p1868 (shared ok) |
 | 2026-08-10T18:18Z | 124451.19 | p1868 R1b merge→n80 waiter armed (no new rent); burn$64/h; bal flat vs p1867 |
-| 2026-08-10T18:15Z | 124451.19 | p1867 R1b train launched max_len=16384 (no new rent); burn$64/h; Δ−$11 vs p1866 (shared ok) |

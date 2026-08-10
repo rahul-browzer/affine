@@ -5,7 +5,7 @@
 
 | # | id | claim | status |
 |---|---|---|---|
-| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 +0.0005; R1b **~93/126**; R1b→R1c chain **armed** |
+| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 +0.0005; R1b train+merge **DONE**; n80 **~10/80** |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — premerge **DONE** max_abs_delta=0.277; α→n80 armed (waits R1) |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
@@ -14,7 +14,7 @@
 ### R1 — Distill thoughts that raise teacher lp(y_C)
 - **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
 - **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** weak / R1b in flight. R1 LoRA@8192 → margin **+0.000516** (z=0.105). R1b: max_len=16384 kept **1006/1403** but thought-nsup med **54** (only 176≥100) — train **~93/126** @~37s/it; waiter pid80760. R1c: nsup100 **176** rows + **EPOCHS=6**; **R1b→R1c chain armed** (pid83033) auto-launches train+merge waiter if R1b headroom < 1.5×. HF `r1lora@569a68be` not for submit.
+- **Status:** weak / R1b n80 running. R1 LoRA@8192 → margin **+0.000516** (z=0.105). R1b: train **DONE** 19:35Z (max_len=16384, 1006 rows); merge+graft **DONE** 19:38Z; chall reloaded `/tmp/r1b_lora_merged`; n80 pid92752 @ chall~10/king~9 (slice `b6a1f946…`). Waiter 80760 → `r1b_lora_decision.json`. R1c chain armed (83033) if headroom < 1.5×. HF `r1lora@569a68be` not for submit.
 - **Dir:** `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason
