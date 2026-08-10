@@ -61,3 +61,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R2 α→n80 lane-free gate must use **r1c_train.pid / r1c_merge_reload.pid + kill -0**, never `pgrep -af 'train_lora|launch_r1c_merge'` — SSH diagnostics match the needle and stall R2 after R1c decision.
 - Many 2026-08-10 duels still stamp `ranking_formula=Λ2+L1lift` in the gzip; **recompute Reason from `lpC_yc_za−lpC_yc_e`** before trusting published margin/z (chal-00425 pub +0.017/z2.79 → Reason +0.0108/z2.75; still best near-miss ~0.92×).
 - Best live Reason near-miss vs Tok af10: `0pentensor/Affine-5dflhtkufw-awesome-v6@f479a24d452f` (hr≈0.92×) — prefer as merge/SFT parent over older S\*-margin leaders.
+- Overlap Tok×near-miss CPU α-premerge (`launch_r2b_tok_awesome_premerge.sh`) with R1c train + nearmiss download — same pattern as R2 Talent/kevin premerge; stamp `r2b_premerge.done` before chall reload.

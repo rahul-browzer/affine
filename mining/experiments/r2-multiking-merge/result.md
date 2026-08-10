@@ -1,5 +1,13 @@
 # R2 result log
 
+## p1886 — R2b Tok×awesome CPU premerge armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,105.
+- R1c still ~56/132 — no decision yet; used idle CPU lane.
+- Wrote+synced `launch_r2b_tok_awesome_premerge.sh`: wait `r2_prefetch_nearmiss.done` → equal-α Tok×awesome-v6 → `/root/r2_out/alpha_tok_awesome_v6` + `r2b_premerge.done`.
+- Armed pid **100240** (log `/root/logs/r2b_premerge.log`). Prefetch still on awesome-v6 (~26 GiB, 10/11 files).
+- Pre-reg: later n80 submit only if headroom ≥ 1.5×(3·SE); refuse if `max_abs_delta==0`.
+- Next: harvest R1c; if weak → R2 α n80 then R2b reload+n80 after premerge stamp.
+
 ## p1885 — pure-Reason near-miss recompute + prefetch
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,105.
 - R1c still training (~52/132); decision not ready — used idle CPU/network.
