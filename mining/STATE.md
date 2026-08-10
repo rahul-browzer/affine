@@ -41,3 +41,4 @@ Do **not** rent a second `mine-*` without a new dated operator directive.
 1. KING-WATCH idle: record live king S from snapshot; confirm engines still 200/200/200; leave TTL (expires 03:38Z).
 2. If any engine dies: `tail /root/logs/vllm_*.log`; relaunch `/root/restore_warm_stack.sh` on this pod only (no second rent). King util=0.80 OOM → 0.72 + isolated TCACHE.
 3. If king S < 0.035 → H64 n80 re-screen on this single watch pod only.
+4. Before TTL (~03:38Z): if still needed, re-rent `mine-watch-1` with `--ttl` + restore from warm-stack snapshot (never cancel Removal without a replacement plan).
