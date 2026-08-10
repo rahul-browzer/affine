@@ -39,7 +39,7 @@ p1440: `lium up` w/ same `--name` **did** reset Removal on golden-wolf-bd to +6h
 
 ## Next action
 
-1. KING-WATCH idle until TTL ≲45m (~08:05Z): record live king S; confirm engines 200/200/200.
-2. If TTL ≲45m: re-rent on catalog 8×H200 ≤$32/h (`--ttl 6h`), COUNT=8, upload warm-stack tar + `restore_warm_stack.sh`, nohup restore; `lium rm` old **only after** new READY. Expect a duplicate spawn — rm the empty one if old TTL already refreshed.
+1. KING-WATCH: when TTL ≲45m (~08:05Z): record live king S; confirm engines 200/200/200; then re-rent.
+2. Re-rent on catalog 8×H200 ≤$32/h (`--ttl 6h`), COUNT=8, upload warm-stack tar + `restore_warm_stack.sh`, nohup restore; `lium rm` old **only after** new READY. Expect a duplicate spawn — rm the empty one if old TTL already refreshed.
 3. If any engine dies: relaunch `/root/restore_warm_stack.sh` on this pod only. King util=0.80 OOM → 0.72 + isolated TCACHE.
 4. If king S < 0.035 → H64 n80 re-screen on this single watch pod only.
