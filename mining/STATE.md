@@ -13,27 +13,28 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | contract | Reason v3 · `weight_version_key=3` · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
 | corpus | epoch **7** · schema v2 · manifest `167085451ab6…` · **ready** |
-| Lium balance | ~$124,429 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
+| Lium balance | ~$124,418 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 | R1 LoRA n80 | **DONE** · `SIGNAL_POS_BELOW_3SE` · margin +0.0005 ≪ 3·SE 0.0147 |
-| R1b train | **RUNNING** · max_len=16384 · **23/126** @~34s/it · loss~0.34 · pid **79866** |
+| R1b train | **RUNNING** · max_len=16384 · **27/126** @~34s/it · loss~0.45 · pid **79866** |
 | R1b waiter | **ARMED** · merge→reload→n80 pid **80760** |
-| R1c data | **READY** · nsup≥100 jsonl **176** rows · launch **EPOCHS=6** (~132 steps) |
-| R1c waiter | **STAGED** · `launch_r1c_merge_reload_sim.sh` (do not arm until R1c train starts) |
+| R1b→R1c chain | **ARMED** · pid **83033** · auto-launch R1c if headroom < 1.5× |
+| R1c data | **READY** · `/root/r1_data/sft_high_reason_nsup100.jsonl` **176** rows |
+| R1c train/waiter | **STAGED** · chain will start train + arm merge waiter |
 | HF pre-push | `unconst/Affine-5czsc2fc98-r1lora` **public** @ `569a68be…` (not for submit) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 + R1b train + merge waiter |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 + R1b train + R1b waiter + R1b→R1c chain |
 
 - Engines 8000/8001/8002 **200** @ `max_model_len=65536`.
 - R1b: log `/root/logs/r1b_train.log`; done `/root/logs/r1b_train.done`; out `/root/r1_out/lora_tok_high_reason_r1b`.
-- Waiter → `/root/affine_data/r1b_lora_decision.json` after merge+n80.
-- ETA train ~0.9h (103×~34s); then merge+reload+n80.
-- R1c: `launch_r1c_train.sh` (EPOCHS=6) + `launch_r1c_merge_reload_sim.sh` on pod — start **only after** R1b frees GPUs 6–7.
+- R1b waiter → `/root/affine_data/r1b_lora_decision.json` after merge+n80.
+- Chain log `/root/logs/r1b_to_r1c_chain.log`; stamp `/root/logs/r1b_to_r1c_chain.done`.
+- ETA train ~0.9h remaining; then merge+reload+n80; chain auto-fires R1c on fail.
 
 ## Blocked
 
@@ -46,4 +47,4 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Next action
 
-**Harvest R1b n80** at `/root/affine_data/r1b_lora_decision.json`. If headroom < 1.5×(3·SE), launch **R1c** via `launch_r1c_train.sh` (EPOCHS=6 on nsup100) and arm `launch_r1c_merge_reload_sim.sh`.
+**Harvest** `/root/affine_data/r1b_lora_decision.json` (and/or chain stamp). If R1b clears 1.5× → Stage-5 prep. If chain launched R1c → monitor `/root/logs/r1c_train.log` + harvest `/root/affine_data/r1c_lora_decision.json`.

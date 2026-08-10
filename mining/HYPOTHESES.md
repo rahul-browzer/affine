@@ -5,7 +5,7 @@
 
 | # | id | claim | status |
 |---|---|---|---|
-| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 +0.0005; R1b **23/126**; R1c nsup100 **ready** EPOCHS=6 staged |
+| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 +0.0005; R1b **27/126**; R1b→R1c chain **armed** |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
@@ -14,7 +14,7 @@
 ### R1 — Distill thoughts that raise teacher lp(y_C)
 - **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
 - **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** weak / R1b in flight. R1 LoRA@8192 → margin **+0.000516** (z=0.105). R1b: max_len=16384 kept **1006/1403** but thought-nsup med **54** (only 176≥100) — likely why R1 was noise; train **23/126** @~34s/it; waiter pid80760. R1c: nsup100 **176** rows + **EPOCHS=6** (~132 steps) + merge waiter staged (do not start until R1b frees 6–7). HF `r1lora@569a68be` not for submit.
+- **Status:** weak / R1b in flight. R1 LoRA@8192 → margin **+0.000516** (z=0.105). R1b: max_len=16384 kept **1006/1403** but thought-nsup med **54** (only 176≥100) — train **27/126** @~34s/it; waiter pid80760. R1c: nsup100 **176** rows + **EPOCHS=6**; **R1b→R1c chain armed** (pid83033) auto-launches train+merge waiter if R1b headroom < 1.5×. HF `r1lora@569a68be` not for submit.
 - **Dir:** `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason

@@ -45,3 +45,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - SFT fit-filter keep rates on epoch-7 high-Reason set (budget=max_len×2.5 chars): 8192→527/1403, **16384→1006**, 24576→1374, 32768→1394 — R1b uses 16384 first (OOM risk at longer).
 - Thought-loss **nsup** (supervised tokens after fence mask) @16384 on R1b keep-set: med **54**, mean 72; only **176/1006** have nsup≥100 — char budget alone starves the loss; filter `sft_high_reason_nsup100.jsonl` (nsup_med=137) before next LoRA (R1c).
 - R1c on 176 nsup≥100 rows @ grad_accum=8 is only ~22 steps/epoch — use **EPOCHS≈6** (~132 opt-steps) so the high-signal subset matches R1b's update budget; arm `launch_r1c_merge_reload_sim.sh` after train starts.
+- While R1b train+n80 is in flight, arm `launch_r1b_to_r1c_chain.sh` so a below-bar decision auto-starts R1c (EPOCHS=6) + merge waiter — avoid idle GPU hours waiting for the next Ralph pass.
