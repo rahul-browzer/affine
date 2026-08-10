@@ -84,6 +84,11 @@ def main() -> None:
         default=1.5,
         help="require margin >= bar × (3·SE); default 1.5",
     )
+    ap.add_argument(
+        "--hyp",
+        default="R1",
+        help="hypothesis id stamped into decision JSON (default R1)",
+    )
     args = ap.parse_args()
     d = json.loads(Path(args.sim_result).read_text())
     ex = extract(d)
@@ -91,7 +96,7 @@ def main() -> None:
     decision = decide(ex, headroom_bar=args.headroom_bar, fp=fp)
     out = {
         "utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "hyp": "R1",
+        "hyp": args.hyp,
         "contract": "Reason v3",
         "decision": decision,
         "headroom_bar": args.headroom_bar,

@@ -47,3 +47,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R1c on 176 nsup≥100 rows @ grad_accum=8 is only ~22 steps/epoch — use **EPOCHS≈6** (~132 opt-steps) so the high-signal subset matches R1b's update budget; arm `launch_r1c_merge_reload_sim.sh` after train starts.
 - While R1b train+n80 is in flight, arm `launch_r1b_to_r1c_chain.sh` so a below-bar decision auto-starts R1c (EPOCHS=6) + merge waiter — avoid idle GPU hours waiting for the next Ralph pass.
 - Prefetch R2 reign parents (TalentPigs/kevin) on crown CPU/network while R1b owns GPUs 6–7 — download does not disturb TK engines or train; ready the merge lane before R1 resolves.
+- R2 equal-α merge can be **CPU-only** on crown (~2 TB RAM): blend safetensors by key with Tok as layout/config donor; refuse if `max_abs_delta==0` (weight-identical). Arm `launch_r2_merge_reload_sim.sh` to wait prefetch + R1c decision before chall reload.
