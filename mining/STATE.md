@@ -20,8 +20,9 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | R1b n80 #2 | **DONE** · `REFUTE_R1_H64_BASELINE` · margin **−0.0135** · z=−2.45 |
 | R1c n80 | **DONE** · `REFUTE_R1_H64_BASELINE` · margin **−0.0171** · z=−2.75 · hr=−0.92× |
 | R2/R2b/R2c | **SKIPPED** (p1893) · Tok×awesome Δ≪0.01 · stubs headroom=0 |
-| R2d pure awesome-v6 | **RUNNING** · n80 started 22:22Z · pid **106493** / sim **121110** / chall **117592** |
+| R2d pure awesome-v6 | **RUNNING** · ~7/80 @22:25Z · pid **106493** / sim **121110** / chall **117592** |
 | R2e Talent×awesome | **WAITING R2d** · pid **104742** · premerge Δ=**0.626** |
+| near-miss scan p1896 | chal-00438/439 no better DL parent; awesome-v6 still hr≈**0.92×** |
 
 ## What's running
 
@@ -30,10 +31,9 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 + R2d→R2e |
 
 - Engines 8000/8001/8002 **200** (chall = `/tmp/r2d_awesome_v6`).
-- R1c closed: `artifacts/r1c_lora_{decision,reason_sim}.json` (local + pod).
-- R2d n80: `/root/logs/r2d_awesome_reload.log` → `r2d_awesome_decision.json` (block `2d69e7bf…`).
+- R2d n80: `/root/logs/r2d_awesome_reason_sim.log` → `r2d_awesome_decision.json` (block `2d69e7bf…`).
 - R2e n80: `/root/logs/r2e_merge_reload.log` → `r2e_alpha_decision.json` (waits R2d).
-- Weak skip stamp: `/root/logs/r2_weak_lanes_skipped.done`.
+- Near-miss artifact: `experiments/r2-multiking-merge/artifacts/reason_nearmiss_p1896.json`.
 
 ## Blocked
 
@@ -48,6 +48,7 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 - Published duel `margin` can still be S\* (Λ2+L1) — **recompute Reason from lpC fields**.
 - Prefer R2d/R2e over Tok×awesome α (Δ≈0.006–0.009).
 - King-init high-Reason SFT family (R1/R1b/R1c) is **closed** for this king — do not re-arm.
+- chal-00438 aurora prince still **gated**; chal-00439 darius3th DL but hr≈−1.79× — not a parent.
 
 ## Next action
 

@@ -74,3 +74,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Skip Tok×awesome equal-α/skew n80 when Δ≪0.01 — stamp `r2_weak_lanes_skipped.done` + below-bar stubs; **kill prior waiters before writing stub decisions** (old R2d raced on R2C stub and killed chall).
 - Do **not** use `SKIP_R2C` done text to jump the queue — R2d/R2e honor SKIP_* and cascade-exit; use weak_skip stamp + R1c-lane gate instead.
 - R1c nsup≥100 / EPOCHS=6 LoRA vs Tok: margin **−0.0171** (z=−2.75, hr −0.92×, n_paired=67) — worse than R1b; king-init high-Reason SFT family closed for this reign; pivot to R2d/R2e parents.
+- Near-miss rescan p1896 (chal≥405, per-turn mean Reason): **awesome-v6 still only DL Reason+** (hr≈0.92×); chal-00438 aurora prince gated hr≈0.17×; chal-00439 darius3th DL but hr≈−1.79× — do not prefetch as parent.

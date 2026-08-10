@@ -1,5 +1,15 @@
 # R2 result log
 
+## p1896 — near-miss rescan while R2d n80 gathers
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,903.
+- R2d pure awesome-v6 n80 **RUNNING** (~7/80 @22:25Z; sim pid 121110; decision pending). R2e waiter 104742 still waiting.
+- Recomputed per-turn mean Reason for chal≥405 vs Tok; new since p1890:
+  - chal-00438 `aurora1001/…-prince` hr≈**0.17×** · **gated 403**
+  - chal-00439 `darius3th/…-u2tgykt2` hr≈**−1.79×** · downloadable (not a parent)
+- Best downloadable Reason+ unchanged: `0pentensor/…-awesome-v6` hr≈**0.92×** (chal-00425).
+- Artifact: `artifacts/reason_nearmiss_p1896.json`.
+- Next: harvest `r2d_awesome_decision.json`; if below 1.5× → R2e.
+
 ## p1892 — R2e Talent×awesome skew PREMERGE DONE + n80 waiter
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,026.
 - R1c still ~105/132 — no decision; Tok×awesome Δ≪0.01 so armed non-Tok parent mix while GPU chain waits.
