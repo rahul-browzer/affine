@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1889 — R2c skew Tok×awesome premerge + n80 waiter
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,071.
+- R1c still ~76/132 — no decision; R2b equal-α Δ≈0.006 is almost Tok → arm stronger pull.
+- Wrote+synced `launch_r2c_tok_awesome_skew_premerge.sh` (W_TOK=0.25 W_AWESOME=0.75 → `/root/r2_out/alpha_tok_awesome_v6_skew`) pid **102471**.
+- Wrote+synced `launch_r2c_merge_reload_sim.sh` pid **102560** (waits R2b below bar → chall reload → n80 → `r2c_alpha_decision.json`).
+- Stamped failed af16/aurora prefetch DONE (n_ok=0 gated) so next pass does not re-chase.
+- Pre-reg: submit only if headroom ≥ 1.5×(3·SE); refuse if max_abs_delta==0.
+- Next: harvest R1c; if weak → R2 → R2b → R2c skew n80.
+
 ## p1888 — R2b premerge DONE + vs-Tok near-miss access scan
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,082.
 - R1c still ~73/132 — no decision; harvested R2b CPU premerge instead.

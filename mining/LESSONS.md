@@ -66,3 +66,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Duel gzips store king under **`request.king_repo`** (no top-level `king`); filter near-misses on that field or you mix pre-Tok margins into the ranking.
 - HF `model_info`/API **200** and even public `config.json` ≠ weight access — probe `model.safetensors.index.json` before arming prefetch. Gated for unconst vs Tok: diane cool/new, nvidia, Tok af16/af8, aurora.
 - Among completed duels vs Tok af10, the **only downloadable Reason+ parent** is `0pentensor/…-awesome-v6` (hr≈0.92×). Tok×awesome equal-α premerge: max_abs_delta=**0.006** (tiny but >0; not weight-identical).
+- Equal-α Tok×awesome barely moves weights (Δ≈0.006) — queue a **skew** blend (Tok0.25/awesome0.75) as R2c before burning another GPU n80 on near-identical chall.
+- Confirmed gated for unconst (index probe + snapshot_download): Tok af16/af8, aurora prince — do not re-arm R2c parent prefetch on those.
