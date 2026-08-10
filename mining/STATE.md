@@ -20,7 +20,10 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | crown pod (fresh; not bootstrapped) |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | restore warm stack (pid 1305) |
+
+Restore progress (p1848): vllm 0.22.1 OK · Triton n_so 8/24/24 · HF DL teacher+king+H64 in flight.
+Poll: `/root/logs/warm_stack_ready.done` → engines 200/200/200.
 
 ## Blocked
 
@@ -31,4 +34,4 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Next action
 
-**Bootstrap `mine-crown-1`:** teacher + live king + challenger under evalsrv knobs; Reason-only n=80 duel sim from `affine/affine/score.py` (read-only). Emit paired Reason margin + SE vs Tok af10.
+**Wait PROMPTABLE on `mine-crown-1`**, then wire Reason-only n=80 duel sim (from `affine/affine/score.py` read-only) and emit paired margin + SE vs Tok af10 (H64 chall first baseline).

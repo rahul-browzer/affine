@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $124,725.26 | 2026-08-10T16:13Z |
-| cumulative mining spend | ~$72,875 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T16:13Z |
-| **available for mining** | **~$114,725** (balance − $10,000 floor) | 2026-08-10T16:13Z |
+| Lium balance | $124,725.26 | 2026-08-10T16:14Z |
+| cumulative mining spend | ~$72,875 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T16:14Z |
+| **available for mining** | **~$114,725** (balance − $10,000 floor) | 2026-08-10T16:14Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T16:13Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T16:14Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T16:14Z | 124725.26 | p1848 mine-crown-1 bootstrap launched (no new rent); burn$64/h; bal flat vs p1847 |
 | 2026-08-10T16:13Z | 124725.26 | p1847 tore mine-watch-1; rented mine-crown-1 8×B300 @$64/h TTL24h; burn$64/h; Δ−$34 vs p1846 (shared ok) |
 | 2026-08-10T15:55Z | 124759.03 | p1846 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$25 vs p1845 (shared ok) |
 | 2026-08-10T15:39Z | 124783.65 | p1845 KING-WATCH idle; engines 200/200/200; burn~$28/h; Δ−$25 vs p1844 (shared ok) |
