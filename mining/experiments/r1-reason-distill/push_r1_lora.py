@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Upload R1 LoRA-merged challenger to HF while n80 sim runs.
 
-Private by default. Not a submission — Stage-5 still needs Reason headroom
-≥ 1.5×(3·SE), fresh hotkey, and submit.py --check. Runs on the crown pod.
+Prefer --public: unconst private storage is ~65GiB and one merged king fills it.
+Not a submission — Stage-5 still needs Reason headroom ≥ 1.5×(3·SE), fresh
+hotkey, and submit.py --check. Runs on the crown pod.
 """
 from __future__ import annotations
 

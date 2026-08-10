@@ -1,5 +1,13 @@
 # R1 result log
 
+## p1864 — HF private push failed → public retry
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,529.
+- n80 pid76726 @ **chall 22 / king 21**; engines still 200@65536.
+- Private push pid78057 **FAILED**: `Private repository storage limit reached` on commit.
+- Freed private quota: deleted `Affine-5czsc2fc98-h5b-merged` (~65.4 GiB) + tiny private adapters/probe; flipped `Affine-5czsc2fc98-r1lora` **public**.
+- Relaunched push pid **78558** with `--public` (scripts updated). Meta may show `FAILED_THEN_RETRYING_PUBLIC` until upload finishes.
+- Next: harvest `r1_lora_decision.json`; submit only if headroom ≥ 1.5×(3·SE).
+
 ## p1863 — HF pre-push while LoRA n80 runs
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,529.
 - Engines still **200/200/200** @65536; n80 pid76726 @ **chall 15 / king 16**.

@@ -16,7 +16,7 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | Lium balance | ~$124,529 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
-| HF pre-push | `unconst/Affine-5czsc2fc98-r1lora` **private** · uploading ~65.4 GiB |
+| HF pre-push | `unconst/Affine-5czsc2fc98-r1lora` **public** · re-uploading 65.4 GiB |
 
 ## What's running
 
@@ -26,15 +26,15 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 - **R1 LoRA** at `/tmp/r1_lora_merged` (66G; visual grafted; multimodal config).
 - **Engines:** 8000/8001/8002 all **200** @ `max_model_len=65536`.
-- **n80:** `run_reason_sim.py` pid **76726** · hotkey `local-r1-lora-20260810T173551Z` · `block_hash=720854ee…` · epoch-7.
-- **Progress @17:42Z:** challenger **15/80**, king **16/80** — no ContextLengthError.
-- **HF push:** pid **78057** → `unconst/Affine-5czsc2fc98-r1lora` (private, not a submit). Log `/root/logs/r1_lora_hf_push.log` → meta `r1_lora_hf_push.json`.
-- Outputs: `/root/affine_data/r1_lora_reason_progress.json` → `r1_lora_reason_sim.json` → `r1_lora_decision.json`.
+- **n80:** `run_reason_sim.py` pid **76726** (watcher **54956**) · hotkey `local-r1-lora-20260810T173551Z` · `block_hash=720854ee…` · epoch-7 → auto `r1_lora_decision.json`.
+- **Progress @17:45Z:** challenger **22/80**, king **21/80** — no ContextLengthError.
+- **HF push:** first private push **FAILED** (private storage limit). Freed ~65GiB (`h5b-merged` + tiny private adapters), flipped repo **public**, relaunched pid **78558** `--public`.
+- Outputs: `/root/affine_data/r1_lora_reason_progress.json` → `r1_lora_reason_sim.json` → `r1_lora_decision.json`; HF meta `r1_lora_hf_push.json`.
 
 Poll:
 ```
 cat /root/affine_data/r1_lora_decision.json /root/affine_data/r1_lora_reason_progress.json /root/affine_data/r1_lora_hf_push.json 2>/dev/null
-tail -n 30 /root/logs/r1_lora_reason_sim.log /root/logs/r1_lora_hf_push.log
+tail -n 30 /root/logs/r1_lora_reason_sim.log /root/logs/r1_lora_hf_push.nohup
 ```
 
 ## Blocked
@@ -44,7 +44,8 @@ tail -n 30 /root/logs/r1_lora_reason_sim.log /root/logs/r1_lora_hf_push.log
 - Never serve crown engines at `max_model_len=32768` — long corpus turns abort n80.
 - Never symlink `/usr/local/cuda`→cu13 on B300 (flashinfer CCCL clash).
 - Coldkey TAO is not convertible without a dated instruction.
+- **unconst private HF storage ≈ one merged king** — push public (or delete old private first).
 
 ## Next action
 
-**Harvest** `r1_lora_decision.json` (+ confirm HF push meta). Submit only if headroom ≥ **1.5×(3·SE)** via fresh registered hotkey + `submit.py --check` against `unconst/Affine-5czsc2fc98-r1lora` (make public / verify revision first).
+**Harvest** `r1_lora_decision.json` (+ confirm HF push meta / revision). Submit only if headroom ≥ **1.5×(3·SE)** via fresh registered hotkey + `submit.py --check` against public `unconst/Affine-5czsc2fc98-r1lora`.
