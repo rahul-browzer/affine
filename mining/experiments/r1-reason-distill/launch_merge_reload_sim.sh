@@ -65,6 +65,40 @@ fi
 export PYTHONPATH=/root/mining_src/affine_pkg${PYTHONPATH:+:$PYTHONPATH}
 export AFFINE_DATA_DIR=${AFFINE_DATA_DIR:-/root/affine_data}
 export HF_HOME=${HF_HOME:-/root/hf}
+export HF_HUB_ENABLE_HF_TRANSFER=${HF_HUB_ENABLE_HF_TRANSFER:-1}
+export HF_XET_HIGH_PERFORMANCE=${HF_XET_HIGH_PERFORMANCE:-1}
+# Match restore_warm_stack / serve_commands.md — avoid flashinfer JIT on B300.
+export VLLM_USE_DEEP_GEMM=0
+export VLLM_USE_FLASHINFER_SAMPLER=0
+export VLLM_ALLREDUCE_USE_FLASHINFER=0
+export VLLM_MOE_USE_DEEP_GEMM=0
+export VLLM_USE_FLASHINFER_MOE_FP16=0
+export VLLM_USE_FLASHINFER_MOE_FP4=0
+export VLLM_USE_FLASHINFER_MOE_FP8=0
+
+# B300 pods have no system CUDA toolkit — use pip nvidia/cu13 for nvcc.
+# Do NOT symlink /usr/local/cuda → cu13 (flashinfer CCCL header clash).
+_SITE=$(python - <<'PY'
+import site
+print(site.getsitepackages()[0])
+PY
+)
+_CU13="${_SITE}/nvidia/cu13"
+if [[ -x "${_CU13}/bin/nvcc" && -f "${_CU13}/include/cuda_fp16.h" ]]; then
+  export CUDA_HOME=${CUDA_HOME:-$_CU13}
+  export CUDA_PATH=$CUDA_HOME
+  export PATH="${CUDA_HOME}/bin:${PATH}"
+  export LD_LIBRARY_PATH="${CUDA_HOME}/lib:${CUDA_HOME}/lib64:${LD_LIBRARY_PATH:-}"
+  export LIBRARY_PATH="${CUDA_HOME}/lib:${CUDA_HOME}/lib64:${LIBRARY_PATH:-}"
+  echo "[r1-merge] CUDA_HOME=$CUDA_HOME"
+else
+  echo "[r1-merge] FATAL no nvcc under ${_CU13}" >&2
+  exit 2
+fi
+if [[ -L /usr/local/cuda ]]; then
+  rm -f /usr/local/cuda
+  echo "[r1-merge] removed /usr/local/cuda symlink"
+fi
 
 BASE=${BASE:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 ADAPTER=${ADAPTER:-/root/r1_out/lora_tok_high_reason/adapter}

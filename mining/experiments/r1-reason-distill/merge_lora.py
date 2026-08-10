@@ -17,7 +17,10 @@ import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+# Always overwrite config.json: CausalLM save writes qwen3_5_moe_text /
+# Qwen3_5MoeForCausalLM, which vLLM rejects (needs full multimodal MoE config).
 _COPY_NAMES = (
+    "config.json",
     "preprocessor_config.json",
     "processor_config.json",
     "chat_template.jinja",
@@ -25,6 +28,7 @@ _COPY_NAMES = (
     "generation_config.json",
     "configuration.json",
 )
+_ALWAYS_OVERWRITE = frozenset({"config.json"})
 
 
 def main() -> None:
@@ -76,13 +80,19 @@ def main() -> None:
     model.save_pretrained(str(args.out), safe_serialization=True)
     tok.save_pretrained(str(args.out))
 
-    # Copy multimodal / chat configs CausalLM save may omit.
+    # Copy multimodal / chat configs. Use copyfile (follows HF blob symlinks
+    # and writes a real file — copy2 of a symlink can leave a dangling link).
     for name in _COPY_NAMES:
         src = args.base / name
         dst = args.out / name
-        if src.is_file() and not dst.is_file():
-            shutil.copy2(src, dst)
-            print(f"[merge] copied {name}", flush=True)
+        if not src.is_file():
+            continue
+        if name not in _ALWAYS_OVERWRITE and dst.is_file() and not dst.is_symlink():
+            continue
+        if dst.is_symlink() or dst.exists():
+            dst.unlink()
+        shutil.copyfile(src, dst)
+        print(f"[merge] copied {name}", flush=True)
 
     # Derive preprocessor if only processor_config exists (Tok pattern).
     pre, proc = args.out / "preprocessor_config.json", args.out / "processor_config.json"

@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $124,618.05 | 2026-08-10T17:02Z |
-| cumulative mining spend | ~$72,982 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T17:02Z |
-| **available for mining** | **~$114,618** (balance − $10,000 floor) | 2026-08-10T17:02Z |
+| Lium balance | $124,562.98 | 2026-08-10T17:30Z |
+| cumulative mining spend | ~$73,037 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T17:30Z |
+| **available for mining** | **~$114,563** (balance − $10,000 floor) | 2026-08-10T17:30Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T17:02Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T17:30Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T17:30Z | 124562.98 | p1860 CUDA/FlashInfer serve fix + LoRA merge/config; TK@65536 (no new rent); burn$64/h; Δ−$55 vs p1859 (shared ok) |
 | 2026-08-10T17:02Z | 124618.05 | p1859 H64 crash→engines@65536 relaunch (no new rent); burn$64/h; Δ−$23 vs p1858 (shared ok) |
 | 2026-08-10T16:51Z | 124641.13 | p1858 merge→reload waiter armed (no new rent); burn$64/h; Δ−$11 vs p1857 (shared ok) |
 | 2026-08-10T16:49Z | 124652.41 | p1857 R1 LoRA train launched GPUs6–7 (no new rent); burn$64/h; bal flat vs p1856 |
