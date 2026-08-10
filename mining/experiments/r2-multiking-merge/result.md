@@ -1,5 +1,12 @@
 # R2 result log
 
+## p1875 — premerge healthy + meta stamp fix
+- Contract `subnet.weight_version_key=3`; king Tok af10; burn$64/h; bal~$124,395.
+- Prefetch **DONE** @18:42Z (TalentPigs+kevin). R1b ~**48/126**; lane pids untouched.
+- α-merge running: wrote `model-00001-of-00002.safetensors` (**33 GiB**); blending shard2 (598 keys).
+- Bugfix: `launch_r2_premerge.sh` looked for `merge_meta.json`; actual file is `merge_alpha_meta.json`. Patched local+pod; armed `fix_premerge_stamp.sh` pid **86376**.
+- Next: harvest `r2_premerge.done` (with max_abs_delta) then R1b/R1c/R2 decisions.
+
 ## p1874 — CPU premerge overlapped with R1b
 - Contract `weight_version_key=3`; king Tok af10; engines 200@65536; burn$64/h.
 - R1b ~**42/126**; R1 lane pids untouched (79866/80760/83033).

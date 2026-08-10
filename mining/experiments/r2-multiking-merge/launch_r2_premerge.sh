@@ -74,11 +74,12 @@ python /root/mining_src/r2-multiking-merge/merge_alpha.py \
   --out "$MERGED"
 
 META=""
-if [[ -f "$MERGED/merge_meta.json" ]]; then
+# merge_alpha.py writes merge_alpha_meta.json (not merge_meta.json).
+if [[ -f "$MERGED/merge_alpha_meta.json" ]]; then
   META=$(python - <<'PY'
 import json
 from pathlib import Path
-d=json.loads(Path("/root/r2_out/alpha_tok_talent_kevin/merge_meta.json").read_text())
+d=json.loads(Path("/root/r2_out/alpha_tok_talent_kevin/merge_alpha_meta.json").read_text())
 print(f"max_abs_delta={d.get('max_abs_delta')} n_keys={d.get('n_keys')}")
 PY
 )
