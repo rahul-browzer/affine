@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** hr=0.22×; **R2e REFUTE** hr=−1.18×; **R2f SKIP**; **R2g** armed; **R2h TTK** n80 **RUNNING** (~19/80); **R2i** Talent×thomp **ARMED** (441 gate) |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** hr=0.22×; **R2e REFUTE** hr=−1.18×; **R2f SKIP**; **R2g** armed; **R2h TTK** n80 **RUNNING** (~30/80); **R2i** Talent×thomp premerge+reload **ARMED** |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome (Δ=0.626) → margin **−0.0364** (z=−3.55, hr **−1.18×**, n=80) **REFUTED**. **R2f** WEAK_SKIP. **R2g** Talent×saysth: premerge **130003** + reload **130835** (waits R2h + 440 Reason). **R2h** Tok×Talent×kevin equal-α (Δ=0.277) n80 **RUNNING** sim **137312** (~19/80) → `r2h_ttk_decision.json`. **R2i** Talent×thompsville: watch **138617** + premerge **138637** (waits prefetch **138058** + 441 Reason hr>0) → `/root/r2_out/alpha_talent_thomp_cgpb8_skew`. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome (Δ=0.626) → margin **−0.0364** (z=−3.55, hr **−1.18×**, n=80) **REFUTED**. **R2f** WEAK_SKIP. **R2g** Talent×saysth: premerge **130003** + reload **130835** (waits R2h + 440 Reason). **R2h** Tok×Talent×kevin equal-α (Δ=0.277) n80 **RUNNING** sim **137312** (~30/80) → `r2h_ttk_decision.json`. **R2i** Talent×thompsville: watch **138617** + premerge **138637** (prefetch DONE; waits 441 Reason hr>0) + reload **139014** → `r2i_alpha_decision.json`. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.

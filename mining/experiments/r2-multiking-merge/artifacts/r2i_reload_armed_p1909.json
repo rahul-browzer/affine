@@ -1,0 +1,21 @@
+{
+  "pass": 1909,
+  "utc": "2026-08-10T23:53:51Z",
+  "action": "armed_r2i_merge_reload_sim",
+  "pid": 139014,
+  "script": "/root/mining_src/r2-multiking-merge/launch_r2i_merge_reload_sim.sh",
+  "waits_for": [
+    "r2i_premerge.done|skip (441 Reason+ gate)",
+    "r2h_ttk_decision.json + r2h pidfile clear",
+    "r2g_merge_reload.done OR r2g_premerge.skip"
+  ],
+  "outputs": {
+    "decision": "/root/affine_data/r2i_alpha_decision.json",
+    "sim": "/root/affine_data/r2i_alpha_reason_sim.json",
+    "merged": "/root/r2_out/alpha_talent_thomp_cgpb8_skew",
+    "link": "/tmp/r2i_alpha_merged"
+  },
+  "r2h_progress_at_arm": {"challenger": 30, "king": 30, "n_turns": 80},
+  "chal00440": "scoring",
+  "submit_bar": "headroom_vs_3se >= 1.5"
+}

@@ -16,15 +16,15 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | Lium balance | ~$123,702 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
-| board | duel phase · `chal-00440` `saysth/…-v9a` still **load_challenger** |
+| board | duel phase · `chal-00440` `saysth/…-v9a` **scoring** |
 | R2d pure awesome-v6 | **DONE** · hr **0.22×** · `SIGNAL_POS_BELOW_3SE` |
 | R2e Talent×awesome | **DONE** · hr **−1.18×** · margin **−0.0364** · **REFUTED** |
 | R2f kevin×awesome | **SKIPPED** · Δ=0.00899 |
 | R2g Talent×saysth | premerge **130003** + reload **130835** (waits R2h + 440 Reason+) |
-| R2h Tok×Talent×kevin | **n80 RUNNING** · sim **137312** · ~19/80 · bh `bdd5bd38…` |
-| R2i Talent×thomp | **ARMED** · watch **138617** + premerge **138637** (gate 441 Reason+) |
+| R2h Tok×Talent×kevin | **n80 RUNNING** · sim **137312** · ~30/80 · bh `bdd5bd38…` |
+| R2i Talent×thomp | premerge **138637** + reload **139014** (waits 441 Reason+ + R2h/R2g lane) |
 | saysth prefetch | **DONE** · cached @ HF snapshot `6e13f365…` |
-| thompsville prefetch | **RUNNING** · pid **138058** · chal-00441 `…-cgpb8@1da22459…` |
+| thompsville prefetch | **DONE** · `…-cgpb8@1da22459…` |
 | chal-00440 watch | pid **129745** → `/root/affine_data/chal00440_reason.json` |
 | chal-00441 watch | pid **138617** → `/root/affine_data/chal00441_reason.json` |
 
@@ -32,14 +32,14 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 + R2h n80 + R2g/440 + R2i/441 + thomp prefetch |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 + R2h n80 + R2g/440 + R2i/441 |
 
 - Engines 8000/8001/8002 all **200**; chall=`/tmp/r2h_ttk_merged` → `alpha_tok_talent_kevin`.
 - R2h n80: `run_reason_sim.py` pid **137312**; parent **130845**; block_hash `bdd5bd3807eb2c16…`.
 - Check: `cat /root/affine_data/r2h_ttk_reason_progress.json`; harvest `r2h_ttk_decision.json`.
 - R2g: waits R2h pidfile clear + 440 Reason+ premerge before chall reload.
-- R2i: waits thomp prefetch + 441 Reason+ → `/root/r2_out/alpha_talent_thomp_cgpb8_skew` (no reload yet).
-- thompsville: `tail /root/logs/r2_prefetch_thompsville.log`; done → `/root/logs/r2_prefetch_thompsville.done`.
+- R2i: waits thomp prefetch (done) + 441 Reason+ → premerge → reload **139014** takes lane after R2h/R2g.
+- Watchers: 440→129745; 441→138617.
 
 ## Blocked
 
@@ -57,4 +57,4 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Next action
 
-**Harvest R2h** when `/root/affine_data/r2h_ttk_decision.json` exists. If headroom ≥ 1.5× → Stage-5. Else R2g if saysth Reason+; else arm R2i chall reload when `r2i_premerge.done` + lane free (or SKIP if 441 Reason−).
+**Harvest R2h** when `/root/affine_data/r2h_ttk_decision.json` exists. If headroom ≥ 1.5× → Stage-5. Else follow R2g (440 Reason+) then R2i (`r2i_alpha_decision.json`) when armed waiters finish.

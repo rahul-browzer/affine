@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1909 — R2i reload→n80 waiter armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,702.
+- R2h TTK n80 still **RUNNING** (~30/80 @23:53Z; sim 137312; no decision).
+- chal-00440 now **scoring** (eval gzip still 404 until duel finishes); 440 watcher + R2g waiters intact.
+- Thomp prefetch **DONE** 23:51:15Z; R2i premerge 138637 waiting 441 Reason stamp.
+- Wrote+synced `launch_r2i_merge_reload_sim.sh`; armed pid **139014** — after premerge ready + R2h/R2g below-bar lane → chall reload Talent×thomp → n80 (`r2i_alpha_decision.json`); SKIP if premerge skipped or prior clears 1.5×.
+- Artifacts: `artifacts/r2i_reload_armed_p1909.json`.
+- Next: harvest `r2h_ttk_decision.json`; if <1.5× → R2g if saysth Reason+ else R2i when 441 Reason+/premerge + lane free.
+
 ## p1908 — R2i Talent×thompsville gated (441 watcher + premerge)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,702.
 - R2h TTK n80 still **RUNNING** (~19/80 @23:50Z; sim 137312; no decision).
