@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1902 — saysth prefetch DONE + chal-00440 Reason watcher
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,792.
+- R2e Talent×awesome n80 still **RUNNING** (~21/80 @23:11Z; sim 128291; no decision).
+- Saysth prefetch **DONE** 23:10:39Z (`saysth/…-v9a@6e13f365…`, 285.6 s) → `/root/logs/r2_prefetch_saysth.done`.
+- Evals index max still chal-00439 (no new completed parents).
+- Armed CPU watcher `watch_chal00440_reason.sh` pid **129745** → `/root/affine_data/chal00440_reason.json` + `/root/logs/watch_chal00440_reason.done`.
+- Artifacts: `artifacts/r2_prefetch_saysth_p1902.json`.
+- Next: harvest `r2e_alpha_decision.json`; if below 1.5× and saysth Reason+ → R2g.
+
 ## p1901 — parent scan + saysth prefetch while R2e gathers
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,803.
 - R2e Talent×awesome n80 **RUNNING** (~7/80 @23:06Z; sim 128291; chall 124848; no decision yet).

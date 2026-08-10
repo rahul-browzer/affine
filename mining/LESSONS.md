@@ -80,3 +80,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R2d pure awesome-v6 vs Tok af10: margin **+0.00223** (z=0.66, 3·SE=0.0102, hr **0.22×**, n=80) — published near-miss hr≈0.92× did **not** transfer as chall; need non-Tok blend (R2e) or stronger parents, not more α knobs on awesome alone.
 - Duel gzip pairs lack `turn_id` — id is on `king_rows[]`/`challenger_rows[]`; Reason scan = mean(lpC_yc_za−lpC_yc_e) **per row** then pair turns (repo fields = `request.challenger_repo` / `challenger_revision`).
 - p1901: chal-00433 `vera6/…-cc` Reason hr≈**−0.21×** (DL, not a parent); live chal-00440 `saysth/…-v9a@6e13f365…` **weights_ok** — prefetch while R2e runs; do not merge until post-verdict Reason+.
+- p1902: saysth chal-00440 HF snapshot cached in **~4.8 min** (~65 GiB); arm CPU `watch_chal00440_reason.sh` to stamp Reason hr from duel gzip so R2g does not wait on Ralph cadence.

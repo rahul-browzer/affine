@@ -1,0 +1,17 @@
+{
+  "pass": 1902,
+  "at": "2026-08-10T23:11:47Z",
+  "repo": "saysth/Affine-5dtnxamt4t-v9a",
+  "revision": "6e13f365b36000cf631aad2fa9fb05fdabae0044",
+  "prefetch_done": "OK 2026-08-10T23:10:39Z saysth/Affine-5dtnxamt4t-v9a@6e13f365b36000cf631aad2fa9fb05fdabae0044",
+  "seconds": 285.6,
+  "path": "/root/hf/hub/models--saysth--Affine-5dtnxamt4t-v9a/snapshots/6e13f365b36000cf631aad2fa9fb05fdabae0044",
+  "watcher": {
+    "script": "watch_chal00440_reason.sh",
+    "pid": 129745,
+    "out": "/root/affine_data/chal00440_reason.json",
+    "done": "/root/logs/watch_chal00440_reason.done"
+  },
+  "r2e_at_arm": {"king": 21, "challenger": 21, "n_turns": 80},
+  "note": "saysth cached; Reason unknown until chal-00440 verdict. Do not merge until headroom_vs_3se > 0 (prefer ≥0.5×)."
+}
