@@ -1,18 +1,28 @@
 #!/usr/bin/env bash
 # After R1c LoRA train (max_len=16384): merge → graft → reload chall:8002 → fresh n80.
 # Does NOT touch teacher:8000 or king:8001. Kill chall by PID only (never pkill -f).
-# Skips H64 wait — prior LoRA n80 already finished; TK engines stay warm.
+# Safe to arm while R1b n80 is still gathering: waits for r1b_lora_decision.json
+# (frees :8002) and SKIPs if R1b already clears the submit headroom bar.
 set -euo pipefail
 LOG=/root/logs/r1c_merge_reload.log
+DONE_STAMP=/root/logs/r1c_merge_reload.done
+SKIP_STAMP=/root/logs/r1c_merge_reload.skip
+R1B_DEC=${R1B_DEC:-/root/affine_data/r1b_lora_decision.json}
+HEADROOM_BAR=${HEADROOM_BAR:-1.5}
 mkdir -p /root/logs /root/affine_data /root/r1_out
 exec > >(tee -a "$LOG") 2>&1
 
 echo "[r1c-merge] $(date -u +%Y-%m-%dT%H:%M:%SZ) start"
 
+if [[ -f "$DONE_STAMP" || -f "$SKIP_STAMP" ]]; then
+  echo "[r1c-merge] already finished ($(ls "$DONE_STAMP" "$SKIP_STAMP" 2>/dev/null | tr '\n' ' ')); exit"
+  exit 0
+fi
+
 ADAPTER=${ADAPTER:-/root/r1_out/lora_tok_high_reason_r1c/adapter}
 TRAIN_DONE=${TRAIN_DONE:-/root/logs/r1c_train.done}
 
-# Wait for R1c train done (adapter written). GPUs 6–7 free after this.
+# 1) Wait for R1c train done (adapter written). GPUs 6–7 free after this.
 for i in $(seq 1 1440); do
   if [[ -f "$TRAIN_DONE" && -f "$ADAPTER/adapter_config.json" ]]; then
     echo "[r1c-merge] train done at iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ)"
@@ -29,6 +39,52 @@ for i in $(seq 1 1440); do
   fi
   sleep 10
 done
+
+# 2) Wait for R1b n80 decision so we do not yank chall:8002 mid-sim.
+#    If R1b already clears ~1.5×(3·SE), skip R1c merge (Stage-5 path).
+for i in $(seq 1 2160); do
+  if [[ -f "$R1B_DEC" ]]; then
+    echo "[r1c-merge] r1b decision present at iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    break
+  fi
+  if (( i % 12 == 0 )); then
+    crumb=$(grep -E 'king |challenger |SIGNAL|decision' /root/logs/r1b_lora_reason_sim.log 2>/dev/null | tail -1 || true)
+    echo "[r1c-merge] wait-r1b-dec iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) crumb=${crumb:-none}"
+  fi
+  if (( i == 2160 )); then
+    echo "[r1c-merge] TIMEOUT waiting for $R1B_DEC" >&2
+    exit 2
+  fi
+  sleep 10
+done
+
+R1B_GATE=$(python - <<PY
+import json, sys
+from pathlib import Path
+d = json.loads(Path("$R1B_DEC").read_text())
+h = d.get("headroom_vs_3se")
+dec = d.get("decision", "UNKNOWN")
+try:
+    hv = float(h)
+except (TypeError, ValueError):
+    print(f"FATAL {dec} {h}", file=sys.stderr)
+    sys.exit(2)
+bar = float("$HEADROOM_BAR")
+action = "SKIP" if hv >= bar else "PROCEED"
+print(f"{action} {dec} {hv}")
+PY
+)
+echo "[r1c-merge] r1b_gate=$R1B_GATE bar=$HEADROOM_BAR"
+read -r r1b_action r1b_decision r1b_headroom <<<"$R1B_GATE"
+if [[ "$r1b_action" == "SKIP" ]]; then
+  echo "SKIP_R1C_R1B_CLEARS decision=$r1b_decision headroom=$r1b_headroom $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$SKIP_STAMP"
+  exit 0
+fi
+if [[ "$r1b_action" != "PROCEED" ]]; then
+  echo "[r1c-merge] FATAL bad r1b gate: $R1B_GATE" >&2
+  exit 2
+fi
+echo "[r1c-merge] R1b below bar — proceed to merge/reload after train"
 
 # shellcheck disable=SC1091
 source /root/venv/bin/activate

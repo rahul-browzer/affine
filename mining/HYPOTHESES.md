@@ -5,7 +5,7 @@
 
 | # | id | claim | status |
 |---|---|---|---|
-| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 +0.0005; R1b n80#2 **16/80**; R1c train **pre-started** on 6–7 |
+| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 +0.0005; R1b n80#2 **25/80**; R1c train **3/132** + merge waiter armed |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — premerge **DONE** max_abs_delta=0.277; α→n80 armed (waits R1) |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
@@ -14,7 +14,7 @@
 ### R1 — Distill thoughts that raise teacher lp(y_C)
 - **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
 - **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** weak / R1b n80#2 + R1c overlap. R1 LoRA@8192 → margin **+0.000516** (z=0.105). R1b n80#2 pid95336 @16/80 (600s×5). R1c train pre-started pid96239 on idle GPUs 6–7 (176×EPOCHS=6) while n80 gathers; chain patched to skip double-launch. HF `r1lora@569a68be` not for submit.
+- **Status:** weak / R1b n80#2 + R1c overlap. R1 LoRA@8192 → margin **+0.000516** (z=0.105). R1b n80#2 pid95336 @25/80 (600s×5). R1c train pid96239 @3/132 on GPUs 6–7. Merge waiter pid97305 armed with R1b-dec gate (SKIP if headroom≥1.5×). HF `r1lora@569a68be` not for submit.
 - **Dir:** `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason
