@@ -146,5 +146,5 @@ Format: `- <finding> — <the number or error that proves it>`
 - **F42 Tok BoN-CE REFUTED** m=+0.00508 z=0.78; λ2_c−0.0043 > king−0.0071 but margin noise < +0.015 screen bar (p534).
 - **unconst HF public storage full** (p528) — merged push BadRequest; local `/tmp/*_full_ft_save` still serves. Free space/Pro before submit uploads.
 - **KING-WATCH p538:** keep healthiest warm stack (F45 chall+king+teacher TCACHE 190M, $31.92/h); rm other mine-* mid-n80 without margin (F44@42/80, F46 mid). Lium has no rename — role=`mine-watch-1`, name stays `mine-f45-1`.
+- **p1440 TTL renew side-effect:** `lium up <new-uuid> --name mine-watch-1 --ttl 6h` while golden-wolf-bd already held that name **reset Removal to now+6h (03:38→08:50)** *and* spawned a second pod (cosmic-matrix-e2 @$22, **no schedule**). Keep READY stack; **rm the empty dup same pass**. Do not treat this as a supported renew API.
 - **Raw non-Albedo base fails baseline band** — F47 Qwen3-Coder n80: base_x=**2.244** (abs 0.301 vs king 0.134), valid_c=false; ungated mix also loses (0.027<0.036). Do not re-screen unmodified foreign bases vs Tok.
-- **recover264/relaunch rearm path must match live p529 retry** — F46/F44 p531: DONE_LAUNCH rearmed `watch_n80_retry` to misnamed a203 `*_d203first.sh`, undoing p529. Patch `relaunch_chall_pass264.sh` + rearm after DONE; never edit the running relaunch script.
