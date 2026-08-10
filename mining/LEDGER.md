@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $123,724.56 | 2026-08-10T23:45Z |
-| cumulative mining spend | ~$73,873 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T23:45Z |
-| **available for mining** | **~$113,725** (balance − $10,000 floor) | 2026-08-10T23:45Z |
+| Lium balance | $123,713.36 | 2026-08-10T23:47Z |
+| cumulative mining spend | ~$73,884 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T23:47Z |
+| **available for mining** | **~$113,713** (balance − $10,000 floor) | 2026-08-10T23:47Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T23:45Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T23:47Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T23:47Z | 123713.36 | p1907 thompsville chal-00441 prefetch armed (no new rent); burn$64/h; Δ−$11 vs p1906 (shared ok) |
 | 2026-08-10T23:45Z | 123724.56 | p1906 R2e harvest REFUTE + R2h n80 launch (no new rent); burn$64/h; Δ−$56 vs p1905 (shared ok) |
 | 2026-08-10T23:20Z | 123780.45 | p1905 R2h TTK n80 waiter armed + R2g rearmed (no new rent); burn$64/h; bal flat vs p1904 |
 | 2026-08-10T23:17Z | 123780.45 | p1904 R2g reload→n80 waiter armed (no new rent); burn$64/h; Δ−$11 vs p1903 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T23:01Z | 123825.21 | p1900 R2e chall:8002 healthy + n80 launched (no new rent); burn$64/h; bal flat vs p1899 |
 | 2026-08-10T22:57Z | 123825.21 | p1899 R2d n80 DONE hr=0.22×; R2e chall reload (no new rent); burn$64/h; Δ−$45 vs p1898 (shared ok) |
 | 2026-08-10T22:35Z | 123869.94 | p1898 R2f premerge DONE Δ=0.00899 → WEAK_SKIP n80 (no new rent); burn$64/h; Δ−$22 vs p1897 (shared ok) |
-| 2026-08-10T22:28Z | 123892.25 | p1897 armed R2f kevin×awesome CPU (no new rent); burn$64/h; Δ−$11 vs p1896 (shared ok) |

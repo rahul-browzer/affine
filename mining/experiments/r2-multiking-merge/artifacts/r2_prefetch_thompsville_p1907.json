@@ -1,0 +1,17 @@
+{
+  "pass": 1907,
+  "utc": "2026-08-10T23:47:36Z",
+  "action": "arm_prefetch_thompsville_chal00441",
+  "repo": "thompsville/affine-5dvegrgnsg-cgpb8",
+  "revision": "1da224590eb2a140dc25907c46958830896680cf",
+  "weights_ok": true,
+  "approx_weight_gb": 70.21,
+  "pod_pid": 138058,
+  "done_stamp": "/root/logs/r2_prefetch_thompsville.done",
+  "note": "R2h n80 ~7/80 at arm; chal-00440 still load_challenger (no gzip); evals index max still 439",
+  "other_queue_weights_ok": [
+    "syntaxsorcerer1/Affine-5gbhwtw4zo-sft3@381dbc8245e2",
+    "adsbasd31badsf/affine-5ec3jw68ha-asdf@c23098154fd7",
+    "BKN1890/Affine-5ghvq9a9g9-seven@11821bf3164a"
+  ]
+}

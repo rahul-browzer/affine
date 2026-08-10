@@ -1,5 +1,15 @@
 # R2 result log
 
+## p1907 — thompsville chal-00441 prefetch while R2h gathers
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,713.
+- R2h TTK n80 still **RUNNING** (~7/80 @23:47Z; sim 137312; no decision).
+- chal-00440 still `load_challenger` (no eval gzip / duel API 404); watcher 129745 + R2g waiters intact.
+- Evals index max still chal-00439 — no new completed Reason+ parents.
+- Queue index-probe: **thompsville/…-cgpb8@1da22459** weights_ok ~70 GiB; also syntaxsorcerer1/sft3, adsbasd/asdf, BKN1890/seven OK.
+- Armed CPU prefetch `launch_prefetch_thompsville.sh` pid **138058** → `/root/logs/r2_prefetch_thompsville.{log,done}`.
+- Artifacts: `artifacts/r2_prefetch_thompsville_p1907.json`.
+- Next: harvest `r2h_ttk_decision.json`; if <1.5× → R2g if saysth Reason+ else Talent×thompsville gated on 441 Reason+.
+
 ## p1906 — R2e Talent×awesome REFUTED; R2h TTK n80 launched
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,725.
 - Harvested `r2e_alpha_decision.json` (23:39:06Z): margin **−0.03641** · se=0.01026 · z=**−3.55** · 3·SE=**0.03077** · headroom=**−1.183×** · reason_c=−0.04148 · reason_k=−0.00532 · n_paired=80 · `challenger_wins=false`.
