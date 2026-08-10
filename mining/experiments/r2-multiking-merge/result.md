@@ -1,5 +1,13 @@
 # R2 result log
 
+## p1884 — R2 lane-free gate: pgrep → pidfile
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,116.
+- R1c train ~47/132 (pid96239); R1c merge waiter 97305; engines 200@65536.
+- Proved `pgrep -af 'train_lora.py|merge_lora.py|launch_r1c_merge'` matches SSH diagnostics (false-positive busy) — would stall α→n80 after R1c decision.
+- Patched `launch_r2_merge_reload_sim.sh` → `/root/logs/r1c_train.pid` + `r1c_merge_reload.pid` + `kill -0`.
+- Synced; killed old waiter **85408** by PID; relaunched **99246** (premerge reused).
+- Next: harvest `r1c_lora_decision.json`; if below bar, R2 α→n80 proceeds without pgrep stall.
+
 ## p1876 — premerge harvested (READY for α→n80)
 - Contract `weight_version_key=3`; king Tok af10; engines **200/200/200** @65536; burn$64/h; bal~$124,328.
 - `/root/logs/r2_premerge.done`: `OK 2026-08-10T18:47:53Z max_abs_delta=0.27734375 n_keys=1026`.

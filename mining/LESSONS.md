@@ -58,3 +58,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Guard “already training” with **pidfile `kill -0`**, not `pgrep|grep r1c` — SSH/`bash -c` command lines contain the needle and false-positive skip the launch.
 - R1b LoRA@16384 on 1006 high-Reason rows **hurt** Reason vs Tok: margin **−0.0135** (z=−2.45, n_paired=75); chall mean_len_z 569 vs king 406 — longer/noisier thoughts, fewer scored pairs (195 vs 311). Char-keep ≠ teacher-helpful.
 - R1b→R1c chain correctly LAUNCHed on negative headroom and skipped double-train via pidfile while merge waiter stayed armed for post-train reload.
+- R2 α→n80 lane-free gate must use **r1c_train.pid / r1c_merge_reload.pid + kill -0**, never `pgrep -af 'train_lora|launch_r1c_merge'` — SSH diagnostics match the needle and stall R2 after R1c decision.

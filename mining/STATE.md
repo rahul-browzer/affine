@@ -18,9 +18,9 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | submissions | 0 · hotkey `default` unused |
 | R1 LoRA n80 | **DONE** · `SIGNAL_POS_BELOW_3SE` · margin +0.0005 ≪ 3·SE 0.0147 |
 | R1b n80 #2 | **DONE** · `REFUTE_R1_H64_BASELINE` · margin **−0.0135** · z=−2.45 |
-| R1c train | **RUNNING** · **44/132** @~36s/it · pid **96239** · ETA ~55m |
+| R1c train | **RUNNING** · **~47/132** @~39s/it · pid **96239** · ETA ~55m |
 | R1c merge waiter | **ARMED** · pid **97305** · R1b below bar → merge after train |
-| R2 prefetch/premerge | **DONE** · max_abs_delta=0.277 · α→n80 waiter **85408** (waits R1c dec) |
+| R2 prefetch/premerge | **DONE** · max_abs_delta=0.277 · α→n80 waiter **99246** (pidfile gate) |
 | HF quota | p1883 purged **6** legacy public merges (**~423 GiB**); kept `r1lora` |
 
 ## What's running
@@ -32,7 +32,7 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 - Engines 8000/8001/8002 **200** @ `max_model_len=65536` (chall still `/tmp/r1b_lora_merged` until R1c merge).
 - R1c train: log `/root/logs/r1c_train.log` → `/root/r1_out/lora_tok_high_reason_r1c` · stamp `r1c_train.done`.
 - R1c merge: log `/root/logs/r1c_merge_reload.log` → `r1c_lora_decision.json`.
-- R2 n80 waiter waits R1c decision → `/root/affine_data/r2_alpha_decision.json`.
+- R2 n80 waiter waits R1c decision → `/root/affine_data/r2_alpha_decision.json` (pidfile lane-free check).
 
 ## Blocked
 
@@ -43,7 +43,8 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 - Coldkey TAO is not convertible without a dated instruction.
 - **unconst HF storage** — still many legacy `h*-merged`; purge again before next ~65 GiB push if commit fails.
 - Never `pkill -f` over SSH; kill by PID / pidfile only.
+- R2 lane-free check must use **pidfile kill -0**, never `pgrep -af` (SSH false-positive stall).
 
 ## Next action
 
-**Harvest** `/root/affine_data/r1c_lora_decision.json` (train→merge→n80 armed). If headroom ≥ 1.5× → Stage-5 push (quota pre-cleared). Else let R2 α→n80 run (waiter 85408).
+**Harvest** `/root/affine_data/r1c_lora_decision.json` (train→merge→n80 armed). If headroom ≥ 1.5× → Stage-5 push (quota pre-cleared). Else let R2 α→n80 run (waiter 99246).

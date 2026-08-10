@@ -57,7 +57,7 @@ for i in $(seq 1 2160); do
 done
 
 # 2) Wait R1 lane: either R1b cleared bar (skip R2) OR R1c decision exists
-#    OR chain stamped SKIP/LAUNCHED and no train_lora still running after R1c.
+#    below bar and r1c train/merge pidfiles are dead (pidfile kill -0 only).
 for i in $(seq 1 2880); do
   if [[ -f "$R1B_DEC" ]]; then
     read -r d1 h1 < <(python - <<'PY'
@@ -92,8 +92,20 @@ PY
       echo "SKIP_R2_R1C_CLEARS decision=$d2 headroom=$h2 $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
       exit 0
     fi
-    # R1c finished below bar → proceed (after train/merge procs gone).
-    if ! pgrep -af 'train_lora.py|merge_lora.py|launch_r1c_merge' >/dev/null 2>&1; then
+    # R1c finished below bar → proceed only when R1c train/merge waiters are dead.
+    # Use pidfile kill -0 (never pgrep -af): SSH/diagnostics contain the needle and
+    # false-positive stall the α→n80 lane forever.
+    r1c_busy=0
+    for pf in /root/logs/r1c_train.pid /root/logs/r1c_merge_reload.pid; do
+      if [[ -f "$pf" ]]; then
+        ppid=$(cat "$pf" 2>/dev/null || true)
+        if [[ -n "${ppid:-}" ]] && kill -0 "$ppid" 2>/dev/null; then
+          r1c_busy=1
+          break
+        fi
+      fi
+    done
+    if (( r1c_busy == 0 )); then
       echo "[r2-merge] R1c below bar; lane free at iter=$i"
       break
     fi
