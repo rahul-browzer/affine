@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $124,059.93 | 2026-08-10T21:13Z |
-| cumulative mining spend | ~$73,539 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T21:13Z |
-| **available for mining** | **~$114,060** (balance − $10,000 floor) | 2026-08-10T21:13Z |
+| Lium balance | $124,048.74 | 2026-08-10T21:16Z |
+| cumulative mining spend | ~$73,550 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T21:16Z |
+| **available for mining** | **~$114,049** (balance − $10,000 floor) | 2026-08-10T21:16Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T21:13Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T21:16Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T21:16Z | 124048.74 | p1891 R2d pure awesome-v6 n80 waiter armed (no new rent); burn$64/h; Δ−$11 vs p1890 (shared ok) |
 | 2026-08-10T21:13Z | 124059.93 | p1890 R2c skew premerge DONE Δ=0.009 (no new rent); burn$64/h; Δ−$11 vs p1889 (shared ok) |
 | 2026-08-10T21:08Z | 124071.13 | p1889 R2c skew Tok0.25/awesome0.75 premerge+waiter armed (no new rent); burn$64/h; Δ−$11 vs p1888 (shared ok) |
 | 2026-08-10T21:05Z | 124081.85 | p1888 R2b premerge DONE + vs-Tok near-miss scan (no new rent); burn$64/h; Δ−$12 vs p1887 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T20:49Z | 124115.79 | p1884 R2 waiter pidfile-gate fix/relaunch (no new rent); burn$64/h; bal flat vs p1883 |
 | 2026-08-10T20:46Z | 124115.79 | p1883 HF purge 6 legacy merges (~423GiB; no new rent); burn$64/h; Δ−$11 vs p1882 (shared ok) |
 | 2026-08-10T20:42Z | 124127.05 | p1882 R1b n80#2 harvest REFUTE (no new rent); burn$64/h; Δ−$45 vs p1881 (shared ok) |
-| 2026-08-10T20:21Z | 124171.76 | p1881 R1c merge waiter armed + R1b-dec gate (no new rent); burn$64/h; Δ−$11 vs p1880 (shared ok) |

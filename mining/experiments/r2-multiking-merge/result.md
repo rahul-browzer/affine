@@ -1,5 +1,13 @@
 # R2 result log
 
+## p1891 — R2d pure awesome-v6 n80 waiter armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,049.
+- R1c still ~88/132 — no decision; equal-α/skew Tok×awesome barely leave Tok (Δ≈0.006–0.009).
+- Wrote+synced `launch_r2d_awesome_reload_sim.sh`: materialize `/root/r2_out/awesome_v6_chall` from HF snap `f479a24d…` (+ derived preprocessor) → wait R2c below bar → chall:8002 reload → n80 → `r2d_awesome_decision.json`.
+- Armed pid **104051** (log `/root/logs/r2d_awesome_reload.log`). Prior chain untouched (R1c/R2/R2b/R2c ALIVE).
+- Pre-reg: submit only if headroom ≥ 1.5×(3·SE).
+- Next: harvest R1c; if weak → R2→R2b→R2c→**R2d pure awesome** n80.
+
 ## p1890 — R2c skew PREMERGE DONE
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,060.
 - Harvested `/root/logs/r2c_premerge.done`: **OK** 21:12:32Z · w_tok=0.25 w_awesome=0.75 · max_abs_delta=**0.008987** · n_keys=1026 · identical_frac=0.452 · 70 GiB @ `/root/r2_out/alpha_tok_awesome_v6_skew`.
