@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1897 — R2f kevin×awesome CPU premerge + waiter armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,892.
+- R2d still gathering (~15/80); R2e waiter 104742 intact; evals index max still chal-00439 (no new DL parent).
+- Wrote+synced `launch_r2f_kevin_awesome_premerge.sh` (W_KEVIN=0.25 W_AWESOME=0.75, kevin layout donor) → `/root/r2_out/alpha_kevin_awesome_v6_skew`.
+- Premerge **RUNNING** pid **122164** (blend started 22:27:53Z).
+- Wrote+synced+armed `launch_r2f_merge_reload_sim.sh` pid **122165** (wait R2e decision then chall reload+n80).
+- Pre-reg: submit only if headroom ≥ 1.5×(3·SE).
+- Next: harvest R2d decision; chain R2e→R2f if below bar.
+
 ## p1896 — near-miss rescan while R2d n80 gathers
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,903.
 - R2d pure awesome-v6 n80 **RUNNING** (~7/80 @22:25Z; sim pid 121110; decision pending). R2e waiter 104742 still waiting.
