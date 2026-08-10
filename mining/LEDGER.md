@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $175,670.68 | 2026-08-10T08:40Z |
-| cumulative mining spend | ~$22,000 (Δ bal from p526 baseline) | 2026-08-10T08:40Z |
-| **available for mining** | **~$165,671** (balance − $10,000 floor) | 2026-08-10T08:40Z |
+| Lium balance | $175,670.68 | 2026-08-10T08:42Z |
+| cumulative mining spend | ~$22,000 (Δ bal from p526 baseline) | 2026-08-10T08:42Z |
+| **available for mining** | **~$165,671** (balance − $10,000 floor) | 2026-08-10T08:42Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | ~$28.00/h | 2026-08-10T08:40Z |
+| miner burn (1 pod) | ~$28.00/h | 2026-08-10T08:42Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T08:42Z | 175670.68 | p1765 KING-WATCH idle; engines 200/200/200; burn~$28/h; no rent/rm |
 | 2026-08-10T08:40Z | 175670.68 | p1764 KING-WATCH idle; engines 200/200/200; burn~$28/h; no rent/rm |
 | 2026-08-10T08:39Z | 175678.85 | p1763 KING-WATCH idle; engines 200/200/200; burn~$28/h; no rent/rm |
 | 2026-08-10T08:38Z | 175678.85 | p1762 KING-WATCH idle; engines 200/200/200; burn~$28/h; no rent/rm |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T08:33Z | 175686.96 | p1758 KING-WATCH idle; engines 200/200/200; burn~$28/h; no rent/rm |
 | 2026-08-10T08:32Z | 175686.96 | p1757 KING-WATCH idle; engines 200/200/200; burn~$28/h; no rent/rm |
 | 2026-08-10T08:31Z | 175686.96 | p1756 KING-WATCH idle; engines 200/200/200; burn~$28/h; no rent/rm |
-| 2026-08-10T08:30Z | 175686.96 | p1755 KING-WATCH idle; engines 200/200/200; burn~$28/h; no rent/rm |
