@@ -21,12 +21,12 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | teacher HF DL (~52G+) + restore pid1305; Reason watcher pid3045 |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | vLLM teacher/king/H64 loading; Reason watcher pid3045 |
 
-- King + H64 HF **done**; teacher still downloading (55-file GLM FP8).
-- **p1851 pre-serve fixes applied on live venv/snapshot:** B300 `flash_fwd_sm100` → `sm_121f`; Tok `preprocessor_config.json` derived.
-- `restore_warm_stack.sh.new` staged (do not overwrite live script until pid1305 exits).
-- Auto: `launch_when_ready.sh` pid **3045** → n80 H64 vs Tok when 200/200/200.
+- Teacher DL finished (~f9a9c5acf5…). First restore pid1305 died after DL: bash `syntax error near **kw` (script edited mid-run).
+- **p1852:** killed broken restore; installed `restore_warm_stack.sh.new` → live; relaunched pid **9697**.
+- Engines up: vllm pids 9910/9923/9936 on :8000/:8001/:8002 — loading weights (NCCL ok; not 200 yet).
+- B300 flash + Tok preprocessor confirmed; `/tmp/h64_merged` linked; watcher still waiting → n80.
 
 Poll: `cat /root/logs/warm_stack_ready.done /root/affine_data/r1_decision.json 2>/dev/null`
 
@@ -39,4 +39,4 @@ Poll: `cat /root/logs/warm_stack_ready.done /root/affine_data/r1_decision.json 2
 
 ## Next action
 
-**Harvest** `/root/affine_data/r1_decision.json` when watcher finishes. If engines fail to reach 200/200/200, check `vllm_*.log` (patch/pre already applied). Decision: submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train/distill on same pod. After restore exits, `mv restore_warm_stack.sh.new restore_warm_stack.sh`.
+**Harvest** `/root/affine_data/r1_decision.json` when watcher finishes (engines → 200/200/200 → n80). If any engine dies, check `vllm_*.log` for flash/preproc. Decision: submit only if headroom ≥ **1.5×(3·SE)**. If H64 REFUTE, start R1 train/distill on same pod.

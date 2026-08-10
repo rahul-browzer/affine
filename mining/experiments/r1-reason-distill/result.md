@@ -1,5 +1,12 @@
 # R1 result log
 
+## p1852 — unstick restore → engines loading
+- Teacher DL finished; first restore crashed: `syntax error near **kw` (running script was edited mid-pass).
+- Killed pid1305; `mv` `.new`→`restore_warm_stack.sh`; relaunched pid **9697** (skips all HF stamps).
+- Pre-linked `/tmp/h64_merged`; B300 patch + Tok preprocessor OK on relaunch.
+- vLLM serve started: teacher:8000 / king:8001 / chall:8002 (pids 9910/9923/9936) — weight load in progress, not 200 yet.
+- Watcher pid3045 still armed for n80 → `r1_decision.json`. Local `experiments/warm-stack/restore_warm_stack.sh` synced.
+
 ## p1851 — pre-serve B300 + Tok hygiene
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 mine-crown-1 @$64/h.
 - King + H64 downloads done; teacher GLM still ~52G / 55 files mid-flight.
