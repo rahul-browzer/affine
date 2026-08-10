@@ -25,6 +25,6 @@ mine-f47-1/band 2.24×; mine-f39-1/+0.0027; mine-f38-1/−0.053; mine-f43-1/−0
 
 | UTC | lium ps mine-* | action |
 |---|---|---|
+| 2026-08-10T02:51Z | 1 | p1441 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~6.0h |
 | 2026-08-10T02:50Z | 1→2→1 | p1440 `lium up` refreshed TTL→08:50Z + spawned cosmic-matrix-e2; **rm** dup; engines READY; king S=0.04456 |
 | 2026-08-10T02:48Z | 1 | p1439 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~50m |
-| 2026-08-10T02:47Z | 1 | p1438 ok; engines **READY** 200/200/200; king S=0.04456 idle; TTL~50m |
