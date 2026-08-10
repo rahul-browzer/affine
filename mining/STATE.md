@@ -14,7 +14,7 @@ Fleet = **1** warm pod. No submit. Trigger: king **S < 0.035** → re-screen H64
 | trigger | **idle** (need S < 0.035; live 0.04456) |
 | Lium / spend | **~$176,301** · cum ~$21,442 · **avail ~$166.3k** |
 | miner burn | **~$28.00/h** (1) <<$833 · free **19** |
-| watch | `mine-watch-1` / golden-wolf-bd · TTL **2026-08-10T03:38Z** (~1.4h) |
+| watch | `mine-watch-1` / golden-wolf-bd · TTL **2026-08-10T03:38Z** (~1.3h) |
 | restore | **READY** · `:8000/:8001/:8002` = **200/200/200** · `warm_stack_ready.done` |
 | HF | unconst **public storage full** — H64 still **downloadable** |
 | warm-stack | Triton tar on pod; `restore_warm_stack.sh` stages: pip→triton→DL→serve |
@@ -41,4 +41,4 @@ Do **not** rent a second `mine-*` without a new dated operator directive.
 1. KING-WATCH idle: record live king S from snapshot; confirm engines still 200/200/200; leave TTL (expires 03:38Z).
 2. If any engine dies: `tail /root/logs/vllm_*.log`; relaunch `/root/restore_warm_stack.sh` on this pod only (no second rent). King util=0.80 OOM → 0.72 + isolated TCACHE.
 3. If king S < 0.035 → H64 n80 re-screen on this single watch pod only.
-4. **Before TTL (~03:38Z / ~1.4h):** re-rent `mine-watch-1` with `--ttl` + restore from warm-stack snapshot (never cancel Removal without a replacement plan). Prefer acting when TTL ≲45m so engines stay warm through cutover.
+4. **Before TTL (~03:38Z / ~1.3h):** re-rent `mine-watch-1` with `--ttl` + restore from warm-stack snapshot (never cancel Removal without a replacement plan). Prefer acting when TTL ≲45m so engines stay warm through cutover.
