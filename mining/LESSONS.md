@@ -73,3 +73,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - TalentPigs×awesome-v6 skew (0.25/0.75) CPU premerge: max_abs_delta=**0.626** vs Tok×awesome Δ≈0.006–0.009 — non-Tok layout donor escapes near-identical blends; queue as R2e after pure-awesome n80.
 - Skip Tok×awesome equal-α/skew n80 when Δ≪0.01 — stamp `r2_weak_lanes_skipped.done` + below-bar stubs; **kill prior waiters before writing stub decisions** (old R2d raced on R2C stub and killed chall).
 - Do **not** use `SKIP_R2C` done text to jump the queue — R2d/R2e honor SKIP_* and cascade-exit; use weak_skip stamp + R1c-lane gate instead.
+- R1c nsup≥100 / EPOCHS=6 LoRA vs Tok: margin **−0.0171** (z=−2.75, hr −0.92×, n_paired=67) — worse than R1b; king-init high-Reason SFT family closed for this reign; pivot to R2d/R2e parents.
