@@ -1,0 +1,13 @@
+{
+  "source": "/root/r1_data/sft_high_reason.jsonl",
+  "out": "/root/r1_data/sft_high_reason_nsup100.jsonl",
+  "max_len": 16384,
+  "min_nsup": 100,
+  "min_reason": 0.0,
+  "in_rows": 1403,
+  "budget_candidates": 1006,
+  "kept": 176,
+  "nsup_med": 137.0,
+  "nsup_mean": 183.4,
+  "reason_med": 0.043349536886088266
+}

@@ -43,3 +43,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **unconst public HF storage is also capped** — commit fails with "exceeded your public storage space" after xet finalize (looks like a hang). Purge old public `Affine-5czsc*-h*-merged` / mock kings before each ~65 GiB push; verify Hub sibling count after DONE.
 - R1 LoRA@8192 (527/1403 high-Reason rows, r=16, 1 epoch) vs Tok af10: Reason margin **+0.0005** (z=0.105) — noise, not crown; need stronger/longer-ctx distill or different parents before Stage-5.
 - SFT fit-filter keep rates on epoch-7 high-Reason set (budget=max_len×2.5 chars): 8192→527/1403, **16384→1006**, 24576→1374, 32768→1394 — R1b uses 16384 first (OOM risk at longer).
+- Thought-loss **nsup** (supervised tokens after fence mask) @16384 on R1b keep-set: med **54**, mean 72; only **176/1006** have nsup≥100 — char budget alone starves the loss; filter `sft_high_reason_nsup100.jsonl` (nsup_med=137) before next LoRA (R1c).

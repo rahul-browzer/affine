@@ -1,5 +1,17 @@
 # R1 result log
 
+## p1869 — thought-nsup starvation diagnosed; R1c filter ready
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,429.
+- R1b train live **16/126** @~34s/it loss~0.41; waiter pid80760 still waiting; engines 200@65536.
+- Probed thought-only supervised tokens @16384 on R1b keep-set (`probe_supervised_tokens.py`):
+  - nsup med/mean/min/max = **54 / 71.8 / 13 / 1224**
+  - nsup<50 = **435/1006**; nsup≥100 = **176/1006**; nsup≥200 = 44
+  - Explains R1 noise margin: char fit-filter ≠ thought signal under fence mask.
+- Built `filter_nsup_sft.py` → `/root/r1_data/sft_high_reason_nsup100.jsonl` **176** rows (nsup_med=137, reason_med=0.043).
+- Staged `launch_r1c_train.sh` (do not start until R1b frees GPUs 6–7).
+- Artifacts: `artifacts/r1b_nsup_probe.log`, `artifacts/r1c_nsup_filter_meta.json`.
+- Next: harvest R1b decision; if weak, launch R1c on nsup100 set.
+
 ## p1868 — R1b merge→reload→n80 waiter armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,451.
 - R1b train live: fit-filter **1006/1403** @16384; steps **3/126** @~42s/it (ETA ~1.4h); GPUs 6–7.
