@@ -5,7 +5,7 @@
 
 | # | id | claim | status |
 |---|---|---|---|
-| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **open** — LoRA n80 live @65536 (chall~4/king~6 @17:39Z) → await `r1_lora_decision.json` |
+| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **open** — LoRA n80 ~15/80 @17:42Z + HF push `Affine-5czsc2fc98-r1lora` → await decision |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after R1 sim works |
 
@@ -14,7 +14,7 @@
 ### R1 — Distill thoughts that raise teacher lp(y_C)
 - **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
 - **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** open. Engines 200@65536; LoRA n80 pid76726 progressing (chall 4/80, king 6/80 @17:39Z); no ctx errors yet; decision pending.
+- **Status:** open. Engines 200@65536; LoRA n80 pid76726 (chall 15/80, king 16/80 @17:42Z); HF push pid78057 → private `unconst/Affine-5czsc2fc98-r1lora`; decision pending.
 - **Dir:** `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason

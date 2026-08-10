@@ -1,5 +1,13 @@
 # R1 result log
 
+## p1863 — HF pre-push while LoRA n80 runs
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,529.
+- Engines still **200/200/200** @65536; n80 pid76726 @ **chall 15 / king 16**.
+- Probed HF private write OK (`Affine-5czsc2fc98-r1lora-probe`).
+- Launched `push_r1_lora.py` pid **78057**: uploading `/tmp/r1_lora_merged` **65.4 GiB** → private `unconst/Affine-5czsc2fc98-r1lora` (not a submission).
+- Meta target: `/root/affine_data/r1_lora_hf_push.json`. Scripts: `push_r1_lora.py`, `launch_hf_push.sh`.
+- Next: harvest `r1_lora_decision.json`; submit only if headroom ≥ 1.5×(3·SE).
+
 ## p1862 — LoRA n80 confirmed live under 65536
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,541.
 - Engines **200/200/200** @ `max_model_len=65536`; GPUs 0–5 ~95–97%.

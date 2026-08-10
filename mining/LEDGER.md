@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $124,540.64 | 2026-08-10T17:39Z |
-| cumulative mining spend | ~$73,059 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T17:39Z |
-| **available for mining** | **~$114,541** (balance − $10,000 floor) | 2026-08-10T17:39Z |
+| Lium balance | $124,529.46 | 2026-08-10T17:42Z |
+| cumulative mining spend | ~$73,070 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T17:42Z |
+| **available for mining** | **~$114,529** (balance − $10,000 floor) | 2026-08-10T17:42Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T17:39Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T17:42Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T17:42Z | 124529.46 | p1863 HF pre-push started (no new rent); burn$64/h; Δ−$11 vs p1862 (shared ok) |
 | 2026-08-10T17:39Z | 124540.64 | p1862 LoRA n80 progressing (no new rent); burn$64/h; Δ−$11 vs p1861 (shared ok) |
 | 2026-08-10T17:35Z | 124551.72 | p1861 graft visual→chall reload (no new rent); burn$64/h; Δ−$11 vs p1860 (shared ok) |
 | 2026-08-10T17:30Z | 124562.98 | p1860 CUDA/FlashInfer serve fix + LoRA merge/config; TK@65536 (no new rent); burn$64/h; Δ−$55 vs p1859 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T16:47Z | 124652.41 | p1856 R1 SFT join+peft staged (no new rent); burn$64/h; Δ−$22 vs p1855 (shared ok) |
 | 2026-08-10T16:44Z | 124674.81 | p1855 R1 high_reason harvest staged (no new rent); burn$64/h; Δ−$11 vs p1854 (shared ok) |
 | 2026-08-10T16:38Z | 124685.85 | p1854 n80 progressing + mine.env export fix (no new rent); burn$64/h; bal flat vs p1853 |
-| 2026-08-10T16:33Z | 124685.85 | p1853 watcher relaunch→engines 200 + n80 H64 sim (no new rent); burn$64/h; Δ−$11 vs p1852 (shared ok) |
