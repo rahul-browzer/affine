@@ -17,18 +17,20 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 | R1 LoRA n80 | **DONE** · `SIGNAL_POS_BELOW_3SE` · margin +0.0005 ≪ 3·SE 0.0147 |
-| R1b train | **RUNNING** · max_len=16384 · GPUs 6–7 · pid **79866** |
+| R1b train | **RUNNING** · max_len=16384 · 3/126 @~42s/it · pid **79866**/79877 |
+| R1b waiter | **ARMED** · merge→reload→n80 pid **80760** |
 | HF pre-push | `unconst/Affine-5czsc2fc98-r1lora` **public** @ `569a68be…` (not for submit) |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 + R1b LoRA train |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 + R1b train + merge waiter |
 
 - Engines 8000/8001/8002 still **200** @ `max_model_len=65536` (teacher/king/old-LoRA chall).
-- R1b: `launch_r1b_train.sh` → out `/root/r1_out/lora_tok_high_reason_r1b`; log `/root/logs/r1b_train.log`; done `/root/logs/r1b_train.done`.
-- Fit expect ~**1006/1403** rows (vs R1 527 @8192). Loading base @18:15Z (GPU6/7 ~34GB).
+- R1b train: log `/root/logs/r1b_train.log`; done `/root/logs/r1b_train.done`; out `/root/r1_out/lora_tok_high_reason_r1b`.
+- Waiter `launch_r1b_merge_reload_sim.sh`: waits train → merge+graft → `/tmp/r1b_lora_merged` → chall:8002 → n80 → `/root/affine_data/r1b_lora_decision.json`.
+- ETA train ~1.4h remaining (123×~42s); then merge+reload+n80.
 
 ## Blocked
 
@@ -41,4 +43,4 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Next action
 
-**Harvest R1b train** (`/root/logs/r1b_train.done` + `train_result.json`). Then merge+graft → reload chall@65536 → fresh n80. Submit only if headroom ≥ **1.5×(3·SE)**.
+**Harvest R1b n80** at `/root/affine_data/r1b_lora_decision.json` (or check train/waiter logs if missing). Submit only if headroom ≥ **1.5×(3·SE)**.

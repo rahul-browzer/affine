@@ -1,5 +1,15 @@
 # R1 result log
 
+## p1868 — R1b merge→reload→n80 waiter armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,451.
+- R1b train live: fit-filter **1006/1403** @16384; steps **3/126** @~42s/it (ETA ~1.4h); GPUs 6–7.
+- Staged + launched `launch_r1b_merge_reload_sim.sh` pid **80760**:
+  - waits `/root/logs/r1b_train.done` + adapter
+  - merge+graft → `/root/r1_out/r1b_lora_merged` → `/tmp/r1b_lora_merged`
+  - kill chall by PID, reload :8002 @65536, fresh n80 → `/root/affine_data/r1b_lora_decision.json`
+- TK+old-LoRA chall still 200@65536 until waiter swaps chall post-train.
+- Next: harvest `r1b_lora_decision.json`; submit only if headroom ≥ 1.5×(3·SE).
+
 ## p1867 — R1b train launched (max_len=16384)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,451.
 - Fit-filter probe: max_len 8192→527/1403; **16384→1006/1403**; 24576→1374 (deferred — OOM risk).
