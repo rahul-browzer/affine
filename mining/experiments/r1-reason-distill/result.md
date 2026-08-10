@@ -1,5 +1,14 @@
 # R1 result log
 
+## p1855 — stage R1 SFT data while n80 runs
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,675.
+- n80 still running pid **20566**: **19/80 / 19/80** @16:44Z (no decision yet).
+- Added `harvest_high_reason.py`: picks top-40 public duels by duel-z, extracts king pairs with Reason=`lpC_yc_za−lpC_yc_e` ≥ 0.
+- Pod `/root/r1_data/`:
+  - `teacher_refs_shortz.jsonl` (791) copied from H5c
+  - `high_reason_za.jsonl` **1403** rows (deduped by turn_id); reason mean **0.062**, max **0.587**
+- Next: harvest `r1_decision.json`; on REFUTE train on GPUs 6–7 from `high_reason_za.jsonl`.
+
 ## p1854 — n80 progressing; HF export fix
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,686.
 - Sim pid **20566** (watcher 17015): after tokenizer warm-up, progress **challenger 5/80, king 7/80** @16:38Z; teacher GPUs 0–1 saturated.

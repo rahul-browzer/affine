@@ -14,8 +14,8 @@
 ### R1 — Distill thoughts that raise teacher lp(y_C)
 - **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
 - **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** open. Needs crown-pod sim.
-- **Dir:** `experiments/r1-reason-distill/` (create on launch).
+- **Status:** open. H64 baseline n80 running; SFT data staged (`/root/r1_data/high_reason_za.jsonl` n=1403).
+- **Dir:** `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
