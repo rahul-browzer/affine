@@ -89,9 +89,19 @@ if pgrep -af 'train_lora.py.*r1b|merge_lora.*r1b|lora_tok_high_reason_r1b' >/dev
   done
 fi
 
-# Launch R1c train (nohup).
+# Launch R1c train (nohup). Skip if already done or already running
+# (may pre-start on idle GPUs 6–7 while R1b n80 gathers). Prefer pidfile;
+# never grep the live SSH/pgrep cmdline for the string "r1c" (false positive).
+r1c_train_alive=0
+if [[ -f /root/logs/r1c_train.pid ]]; then
+  if kill -0 "$(cat /root/logs/r1c_train.pid)" 2>/dev/null; then
+    r1c_train_alive=1
+  fi
+fi
 if [[ -f /root/logs/r1c_train.done ]]; then
   echo "[r1b→r1c] r1c_train.done already present — skip train relaunch"
+elif [[ "$r1c_train_alive" -eq 1 ]]; then
+  echo "[r1b→r1c] R1c train already running — skip relaunch (pid=$(cat /root/logs/r1c_train.pid))"
 else
   rm -f /root/logs/r1c_train.pid /root/logs/r1c_train.log
   nohup bash /root/mining_src/r1-reason-distill/launch_r1c_train.sh \

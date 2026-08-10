@@ -1,5 +1,13 @@
 # R1 result log
 
+## p1880 — R1c train overlapped with R1b n80 gather
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,183.
+- R1b n80#2 healthy @**16/80** (pid95336, 600s×5); engines 200/200/200; GPUs 6–7 were idle.
+- Pre-started R1c train: 176 nsup100 rows × EPOCHS=6 on CUDA 6,7 → pidfile **96239** / train_lora **96252**; out `/root/r1_out/lora_tok_high_reason_r1c`.
+- Patched `launch_r1b_to_r1c_chain.sh` to skip train relaunch when pidfile alive (avoid double-launch after decision).
+- Do **not** merge/reload R1c until R1b n80 frees chall:8002.
+- Next: harvest `r1b_lora_decision.json`; Stage-5 only if headroom ≥ 1.5×(3·SE).
+
 ## p1879 — R1b n80#1 ReadTimeout; patched + relaunched
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,194.
 - n80#1 (slice `b6a1f946…`, pid92752) reached ~76/80 then died: `httpx.ReadTimeout` in teacher `sample` (stock client 180s×3).

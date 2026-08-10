@@ -53,3 +53,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Equal-α Tok×Talent×kevin premerge on epoch-7 parents: **max_abs_delta=0.277**, identical_frac≈0.44, 66 GiB — distinct enough for α→n80 (refuse only if max_abs_delta==0).
 - Crown n80 @65536: stock `vllm_client` **180s×3** can `ReadTimeout` on teacher sample mid-gather (~76/80 observed) — patch mining_src to **600s×5** before long sims (`patch_vllm_timeout.py` / `relaunch_r1b_n80.sh`).
 - Relaunch sims with `/root/venv/bin/python` + `set -a; source mine.env` — bare `python` misses pyarrow and dies before first progress.
+- Overlap next LoRA train on **GPUs 6–7** while n80 gather uses vLLM on 0–5 — saves an idle hour; do **not** start merge/reload until n80 frees chall:8002.
+- Guard “already training” with **pidfile `kill -0`**, not `pgrep|grep r1c` — SSH/`bash -c` command lines contain the needle and false-positive skip the launch.

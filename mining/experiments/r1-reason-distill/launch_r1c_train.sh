@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # R1c: thought SFT on nsup-filtered rows (nsup_thought>=100 @ max_len=16384).
-# Use only after R1b n80 resolves (or if R1b train dies). Shares GPUs 6–7.
+# OK to overlap R1b n80 gather (vLLM on 0–5); uses GPUs 6–7 only.
+# Do NOT start merge/reload until R1b n80 releases chall:8002.
 #
 # 176 rows × grad_accum=8 → ~22 steps/epoch. EPOCHS=6 ⇒ ~132 steps (≈ R1b's 126)
 # so the high-nsup subset gets a comparable update budget, not a 20-step dab.
