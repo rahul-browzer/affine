@@ -5,8 +5,8 @@
 
 | # | id | claim | status |
 |---|---|---|---|
-| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 +0.0005; R1b **27/126**; R1b→R1c chain **armed** |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** |
+| 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **weak** — R1 +0.0005; R1b **~32/126**; R1b→R1c chain **armed** |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — parent prefetch **running** |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family.
-- **Status:** open — after R1 baseline.
+- **Status:** open / prefetching. TalentPigs `dbfbb3e2…` + kevin954 `6a5815fa…` download pid **83501** on crown (CPU only; Tok already cached). Dir: `experiments/r2-multiking-merge/`. Merge recipe after R1c frees GPUs 6–7.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
