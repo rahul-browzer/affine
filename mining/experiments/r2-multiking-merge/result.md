@@ -1,5 +1,13 @@
 # R2 result log
 
+## p1906 — R2e Talent×awesome REFUTED; R2h TTK n80 launched
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,725.
+- Harvested `r2e_alpha_decision.json` (23:39:06Z): margin **−0.03641** · se=0.01026 · z=**−3.55** · 3·SE=**0.03077** · headroom=**−1.183×** · reason_c=−0.04148 · reason_k=−0.00532 · n_paired=80 · `challenger_wins=false`.
+- Decision stamped `REFUTE_R1_H64_BASELINE` (template string; hyp=R2e) — do **not** submit (bar 1.5×).
+- Auto-chain: R2h took GPU (R2g still waiting 440 Reason) → chall **132046** `/tmp/r2h_ttk_merged` → engines 200@65536 → n80 sim **137312** (hotkey `local-r2h-ttk-20260810T234453Z`, bh `bdd5bd3807eb2c16…`).
+- Artifacts: `artifacts/r2e_alpha_{decision,reason_sim}.json`.
+- Next: harvest `r2h_ttk_decision.json`; if <1.5× → R2g if saysth Reason+ else parent rescan.
+
 ## p1905 — R2h Tok×Talent×kevin n80 armed (never simulated)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,780.
 - R2e Talent×awesome n80 still **RUNNING** (~37/80 @23:20Z; sim 128291; no decision).
