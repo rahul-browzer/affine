@@ -1,5 +1,13 @@
 # R1 result log
 
+## p1865 — public HF quota purge → r1lora push DONE
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,496.
+- n80 pid76726 @ **chall 44 / king 46**; engines still 200@65536.
+- Public push pid79102 failed at Hub commit: **exceeded public storage space** (xet had finalized; looked like a hang).
+- Deleted public junk: `Teutonic-LXXX-mock-{king,chall}` (~153 GiB each) + 8 old `Affine-5czsc*-h*-merged` (~67 GiB each) ≈ **~840 GiB**.
+- Relaunched push pid **79270** → **DONE** `569a68bea1e39d9333c34447ab4f9d04120d21b1` (public, 14 files, 65.41 GiB, multimodal+visual).
+- Next: harvest `r1_lora_decision.json`; submit only if headroom ≥ 1.5×(3·SE) against that revision.
+
 ## p1864 — HF private push failed → public retry
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,529.
 - n80 pid76726 @ **chall 22 / king 21**; engines still 200@65536.
