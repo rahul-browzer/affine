@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $124,026.41 | 2026-08-10T21:27Z |
-| cumulative mining spend | ~$73,572 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T21:27Z |
-| **available for mining** | **~$114,026** (balance − $10,000 floor) | 2026-08-10T21:27Z |
+| Lium balance | $124,026.41 | 2026-08-10T21:34Z |
+| cumulative mining spend | ~$73,572 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-10T21:34Z |
+| **available for mining** | **~$114,026** (balance − $10,000 floor) | 2026-08-10T21:34Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T21:27Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-10T21:34Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-10T21:34Z | 124026.41 | p1893 skip weak R2/R2b/R2c; R2d→R2e after R1c (no new rent); burn$64/h; bal flat vs p1892 |
 | 2026-08-10T21:27Z | 124026.41 | p1892 R2e Talent×awesome premerge DONE Δ=0.626 (no new rent); burn$64/h; Δ−$22 vs p1891 (shared ok) |
 | 2026-08-10T21:16Z | 124048.74 | p1891 R2d pure awesome-v6 n80 waiter armed (no new rent); burn$64/h; Δ−$11 vs p1890 (shared ok) |
 | 2026-08-10T21:13Z | 124059.93 | p1890 R2c skew premerge DONE Δ=0.009 (no new rent); burn$64/h; Δ−$11 vs p1889 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-10T20:54Z | 124104.64 | p1886 R2b Tok×awesome CPU premerge armed (no new rent); burn$64/h; bal flat vs p1885 |
 | 2026-08-10T20:52Z | 124104.64 | p1885 nearmiss prefetch armed (no new rent); burn$64/h; Δ−$11 vs p1884 (shared ok) |
 | 2026-08-10T20:49Z | 124115.79 | p1884 R2 waiter pidfile-gate fix/relaunch (no new rent); burn$64/h; bal flat vs p1883 |
-| 2026-08-10T20:46Z | 124115.79 | p1883 HF purge 6 legacy merges (~423GiB; no new rent); burn$64/h; Δ−$11 vs p1882 (shared ok) |

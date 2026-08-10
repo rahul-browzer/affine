@@ -25,6 +25,8 @@ R2_DEC=${R2_DEC:-/root/affine_data/r2_alpha_decision.json}
 R2B_DEC=${R2B_DEC:-/root/affine_data/r2b_alpha_decision.json}
 R2C_DEC=${R2C_DEC:-/root/affine_data/r2c_alpha_decision.json}
 R2C_DONE=${R2C_DONE:-/root/logs/r2c_merge_reload.done}
+# Operator short-circuit: Tok×awesome Δ≪0.01 → skip R2/R2b/R2c n80 burns.
+WEAK_SKIP=${WEAK_SKIP:-/root/logs/r2_weak_lanes_skipped.done}
 HEADROOM_BAR=${HEADROOM_BAR:-1.5}
 
 AWESOME_SNAP=${AWESOME_SNAP:-/root/hf/hub/models--0pentensor--Affine-5dflhtkufw-awesome-v6/snapshots/f479a24d452f1ca312d828acd668a4b1d8de0d8f}
@@ -67,7 +69,23 @@ if [[ ! -f "$CHALL_DIR/preprocessor_config.json" ]]; then
 fi
 echo "[r2d-awesome] chall dir ready: $CHALL_DIR (index=$(test -f $CHALL_DIR/model.safetensors.index.json && echo y || echo n))"
 
-# 2) Wait prior lanes: skip if any clears bar; else need R2c decision + R2c reload dead.
+# 2) Wait prior lanes: skip if any clears bar.
+#    Else need (a) R1c decision + R1c train/merge dead (pidfile kill -0), and
+#    (b) either weak-lane skip stamp OR R2c decision + R2c reload dead.
+#    Do NOT honor SKIP_R2C done stamps — that cascaded and killed R2d/R2e.
+r1c_lane_busy() {
+  local pf ppid
+  for pf in /root/logs/r1c_train.pid /root/logs/r1c_merge_reload.pid; do
+    if [[ -f "$pf" ]]; then
+      ppid=$(cat "$pf" 2>/dev/null || true)
+      if [[ -n "${ppid:-}" ]] && kill -0 "$ppid" 2>/dev/null; then
+        return 0
+      fi
+    fi
+  done
+  return 1
+}
+
 for i in $(seq 1 2880); do
   for f in "$R1B_DEC" "$R1C_DEC" "$R2_DEC" "$R2B_DEC" "$R2C_DEC"; do
     if [[ -f "$f" ]] && headroom_ok "$f"; then
@@ -75,11 +93,16 @@ for i in $(seq 1 2880); do
       exit 0
     fi
   done
-  if [[ -f "$R2C_DONE" ]] && grep -q 'SKIP_R2C' "$R2C_DONE" 2>/dev/null; then
-    echo "SKIP_R2D_R2C_SKIPPED $(cat "$R2C_DONE")" | tee "$DONE"
-    exit 0
+
+  r1c_ready=0
+  if [[ -f "$R1C_DEC" ]] && ! r1c_lane_busy; then
+    r1c_ready=1
   fi
-  if [[ -f "$R2C_DEC" ]]; then
+
+  prior_ok=0
+  if [[ -f "$WEAK_SKIP" ]]; then
+    prior_ok=1
+  elif [[ -f "$R2C_DEC" ]]; then
     r2c_busy=0
     if [[ -f /root/logs/r2c_merge_reload.pid ]]; then
       ppid=$(cat /root/logs/r2c_merge_reload.pid 2>/dev/null || true)
@@ -88,15 +111,19 @@ for i in $(seq 1 2880); do
       fi
     fi
     if (( r2c_busy == 0 )); then
-      echo "[r2d-awesome] R2c below bar; lane free at iter=$i"
-      break
+      prior_ok=1
     fi
   fi
+
+  if (( r1c_ready == 1 && prior_ok == 1 )); then
+    echo "[r2d-awesome] R1c done + prior cleared (weak_skip=$([[ -f $WEAK_SKIP ]] && echo y || echo n)) at iter=$i"
+    break
+  fi
   if (( i % 12 == 0 )); then
-    echo "[r2d-awesome] wait-r2c-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2c_dec=$([[ -f $R2C_DEC ]] && echo y || echo n) r1c_dec=$([[ -f $R1C_DEC ]] && echo y || echo n) r2c_done=$([[ -f $R2C_DONE ]] && echo y || echo n)"
+    echo "[r2d-awesome] wait-r1c+prior iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r1c_dec=$([[ -f $R1C_DEC ]] && echo y || echo n) r1c_busy=$(r1c_lane_busy && echo y || echo n) r2c_dec=$([[ -f $R2C_DEC ]] && echo y || echo n) weak_skip=$([[ -f $WEAK_SKIP ]] && echo y || echo n)"
   fi
   if (( i == 2880 )); then
-    echo "[r2d-awesome] TIMEOUT waiting R2c lane" >&2
+    echo "[r2d-awesome] TIMEOUT waiting R1c+prior lane" >&2
     exit 2
   fi
   sleep 10
