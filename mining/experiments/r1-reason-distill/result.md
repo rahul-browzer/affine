@@ -1,5 +1,14 @@
 # R1 result log
 
+## p1879 — R1b n80#1 ReadTimeout; patched + relaunched
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,194.
+- n80#1 (slice `b6a1f946…`, pid92752) reached ~76/80 then died: `httpx.ReadTimeout` in teacher `sample` (stock client 180s×3).
+- No `r1b_lora_decision.json` written; merge waiter exited; R1c/R2 waiters still armed.
+- Patched `/root/mining_src/affine_pkg/evalsrv/vllm_client.py` → Timeout **600s**, connect 30s, **5** attempts (`patch_vllm_timeout.py`).
+- Relaunched via `relaunch_r1b_n80.sh` (venv python + mine.env): bash pid **95237**, sim pid **95336**, slice `b99bfc9c…`, progress king **1**/80 @20:14Z.
+- Engines still 200/200/200 @65536; chall `/tmp/r1b_lora_merged` unchanged.
+- Next: harvest `r1b_lora_decision.json`; Stage-5 only if headroom ≥ 1.5×(3·SE).
+
 ## p1878 — R1b train+merge DONE; n80 live (~10/80)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,250.
 - Train finished **2026-08-10T19:35:55Z** (126/126, elapsed ~4839s, adapter `/root/r1_out/lora_tok_high_reason_r1b/adapter`).

@@ -51,3 +51,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Overlap R2 CPU α-merge with R1 train via `launch_r2_premerge.sh` (no GPU); stamp `/root/logs/r2_premerge.done` so the α→n80 waiter reuses the blend and only does chall reload+sim.
 - `merge_alpha.py` writes **`merge_alpha_meta.json`** under `/root/r2_out/alpha_tok_talent_kevin/` (not `affine_data/`) — stamp scripts must read that name (not `merge_meta.json`) or `r2_premerge.done` loses `max_abs_delta` / `n_keys`.
 - Equal-α Tok×Talent×kevin premerge on epoch-7 parents: **max_abs_delta=0.277**, identical_frac≈0.44, 66 GiB — distinct enough for α→n80 (refuse only if max_abs_delta==0).
+- Crown n80 @65536: stock `vllm_client` **180s×3** can `ReadTimeout` on teacher sample mid-gather (~76/80 observed) — patch mining_src to **600s×5** before long sims (`patch_vllm_timeout.py` / `relaunch_r1b_n80.sh`).
+- Relaunch sims with `/root/venv/bin/python` + `set -a; source mine.env` — bare `python` misses pyarrow and dies before first progress.
