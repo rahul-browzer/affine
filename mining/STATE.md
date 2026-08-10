@@ -12,9 +12,9 @@ Fleet = **1** warm pod. No submit. Trigger: king **S < 0.035** → re-screen H64
 |---|---|
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` **S=0.04456** |
 | trigger | **idle** (need S < 0.035; live 0.04456) |
-| Lium / spend | **~$125,241** · cum ~$72,357 · **avail ~$115.2k** |
+| Lium / spend | **~$125,187** · cum ~$72,411 · **avail ~$115.2k** |
 | miner burn | **~$28.00/h** (1) <<$833 · free **19** |
-| watch | `mine-watch-1` / golden-wolf-bd · TTL **2026-08-10T13:59Z** (~1.3h) |
+| watch | `mine-watch-1` / golden-wolf-bd · TTL **2026-08-10T13:59Z** (~1.1h) |
 | restore | **READY** · `:8000/:8001/:8002` = **200/200/200** · `warm_stack_ready.done` |
 | HF | unconst **public storage full** — H64 still **downloadable** |
 | warm-stack | Triton tar on pod; `restore_warm_stack.sh` stages: pip→triton→DL→serve |
@@ -40,7 +40,7 @@ p1440/p1726: `lium up` w/ same `--name` **resets Removal to +6h** *and* spawns e
 
 ## Next action
 
-1. KING-WATCH idle: record live king S; confirm engines 200/200/200; when TTL ≲45m (~13:15Z) re-rent same-name path again.
-2. Re-rent: catalog 8×H200 ≤$32/h (`--ttl 6h`); expect TTL refresh + empty dup → rm dup; keep READY stack. Only full restore if old TTL did **not** refresh.
+1. KING-WATCH: when TTL ≲45m (**≲13:14Z**), re-rent same-name path (`lium up … --name mine-watch-1 --ttl 6h`); expect TTL refresh + empty dup → rm dup; keep READY stack.
+2. Until then: idle OK — record king S; confirm 200/200/200. Only full restore if engines die or TTL did **not** refresh after re-rent.
 3. If any engine dies: relaunch `/root/restore_warm_stack.sh` on this pod only. King util=0.80 OOM → 0.72 + isolated TCACHE.
 4. If king S < 0.035 → H64 n80 re-screen on this single watch pod only.
