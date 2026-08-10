@@ -1,5 +1,13 @@
 # R1 result log
 
+## p1862 — LoRA n80 confirmed live under 65536
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,541.
+- Engines **200/200/200** @ `max_model_len=65536`; GPUs 0–5 ~95–97%.
+- Sim pid **76726** (`local-r1-lora-20260810T173551Z`, `block_hash=720854ee…`, epoch 7).
+- Progress @17:39Z: challenger **4/80**, king **6/80** — no ContextLengthError / Traceback.
+- `r1_lora_decision.json` still missing (expected until n80 completes).
+- Next: harvest decision; submit only if headroom ≥ 1.5×(3·SE).
+
 ## p1859 — H64 ctx crash → engines max_model_len=65536
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$124,618.
 - H64 n80 died @**52/80**: `ContextLengthError` on chall:8002 — prompt≥30977 + 1792 out > **32768**.
