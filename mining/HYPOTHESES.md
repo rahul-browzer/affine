@@ -18,7 +18,7 @@
 | 30 | R30 | Tok GRPO lora_alpha=128 r=16 beats R3 α=32 (isolates α vs R29) | **open** · `mine-r30-hialpha-1` · p2105 armed |
 | 31 | R31 | Tok GRPO lora_dropout=0.0 beats R3 drop=0.05 (isolates dropout) | **open** · `mine-r31-nodrop-1` · p2107 armed |
 | 32 | R32 | Tok GRPO kl_coef=0.02 vs base beats R3 kl=0 (isolates KL) | **open** · `mine-r32-kl-1` · **p2108** armed |
-| 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · `mine-r4-fullft-1` · chall@**65536** + n80 armed (p2113) |
+| 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · `mine-r4-fullft-1` · **n80 gathering** ~24/80 (p2115 CorpusSync) |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **open** · `mine-r4-fullft-2` · p2080 armed |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · `mine-r5-nonking-1` · p2074 armed |
 | 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · `mine-r5-nonking-2` · p2081 armed |
@@ -54,7 +54,7 @@
 - GRPO pid**28660** step≥135/200; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
 
 ### R4 — Full-FT
-- p2113: `relaunch_chall_pass264` hardcoded 32768 → patched **65536**; recover pid15351 + n80 retry pid15359. Teacher already /health=200. Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.
+- p2115: unblocked n80 (pandas/pyarrow + corpus epoch8 + served model id); gathering ~24/80 vs Tok. Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.
 
 ### R24 — Long-context / full-thought GRPO
 - Tok-init; max_len=**16384** max_new=**1024** (live thought budget); same lr/r/G as R3.

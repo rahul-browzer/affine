@@ -138,8 +138,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Large Tok shard stuck at ~4 MB/s on single-stream `snapshot_download`: kill it and use 16-way HTTP range GET on the HF CDN URL (`accept-ranges: bytes`, ~35 GB) → ~90 MB/s; stamp `tok_init.done` then relaunch bootstrap (teacher stamp already present). Script: `experiments/r3-reason-grpo/fast_range_dl.py`.
 - Range-DL can stall on one worker near the end (~1 MB/s with others done): kill waiter+dl first (waiter FATAL if dl dies), rewrite only the bad range with sub-workers (`finish_incomplete_ranges.py`), then bootstrap. Do not trust zero-byte sampling on safetensors (legitimate zeros).
 - R3 GRPO wedges on CLOSE-WAIT to teacher:8000 (log freeze; 0%CPU / futex) even with healthy `/v1/models` — kill-by-PID + `start_r3.sh` (p2063@step10, p2070@step30→pid26401). Mitigate: httpx `max_keepalive_connections=0` + `Connection: close`; host `watch_r3_wedge.sh` only relaunches if age>600s **and** CLOSE-WAIT **and** no ESTAB (p2071).
-- `start_r3.sh` must **append** (`>>`) `r3_train.nohup` — `>` wipes relaunch markers/history (p2070).
-- R3 `r3-log` is sparse (`≤3` or `%5`); multi-minute gaps are normal (p2066 false-kill; p2071 step10→15 took ~6m with ESTAB). Prefer `[r3-hb]` mtime (patched p2071; live after next relaunch) or ESTAB before killing.
+- `start_r3.sh` must **append** (`>>`) `r3_train.nohup`; R3 gaps of minutes are normal — prefer `[r3-hb]` mtime / ESTAB before kill (not sparse `r3-log`).
 - **R2av** pure Bittoby `…-v2` ≈ king noise (m−0.00027, z−0.065, hr_live2σ −0.033×, n=80) — Stage-5 SKIP; do not re-sim that parent.
 - `lium ps` **table wraps** `mine-*` names across lines — never `grep mine-` the table under `set -o pipefail` (empty grep exits 1 → kills rent waiters). Use `lium ps --format json` and read `.name`.
 - Host rent waiters belong under `experiments/<axis>/wait_rent_b300.sh` (not only Ralph notes) so the next free 8×B300 is grabbed without waiting for a pass tick.
@@ -148,3 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R2ba** pure awesome-v10 WEAK: m=+0.00699 SE=0.00500 z=1.40 — fails live k=2 thr=0.010 and 1.5× submit bar; Stage-5 SKIP (sim still stamps k_sigma=3.0 — recompute with live 2.0).
 - HF snapshot "ready" ≠ complete: `model.safetensors.index.json` can appear before all 16 shards finish → vLLM "weights were not initialized" (visual/LM). Rematerialize chall links after all shards resolve+size-check, then relaunch (p2106 R2bb ckp333).
 - Full-FT: Trainer `save_strategy` must be **`no`** on gocryptfs `/root` — end-of-train `optimizer.pt` (~111G) hangs WCHAN=`request_wait_answer` (p2112); stage final weights only under `/tmp` then symlink.
+- R4 n80 needs **pandas+pyarrow** + schema-v2 corpus sync **and** `run_sim_duel` passing `CorpusSync`; `readlink -f` on `/root/h121/merged`→`/tmp/…` 404s vs vLLM id — use live `/v1/models` id (p2115).

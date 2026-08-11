@@ -2,20 +2,24 @@
 """Stage 4 local duel: challenger (candidate) vs king on public D.
 
 Wraps evalsrv.dueling.run_duel against already-served vLLM ports.
-Does NOT submit. Decision: margin > 0.04 + gates + H4 envelope.
+Does NOT submit. Prefer schema-v2 CorpusSync (Parquet index); fall back to
+flat turns.jsonl when present. Decision tooling is separate (write_merge_decision).
 """
 from __future__ import annotations
 
 import argparse
 import asyncio
 import json
+import os
 import sys
 import time
 from pathlib import Path
 
 import tomllib
 
+from affine.config import load_config
 from affine.score import duel as score_duel  # noqa: F401 — import path check
+from evalsrv.corpus import CorpusSync
 from evalsrv.dueling import run_duel
 from evalsrv.vllm_client import Served
 
@@ -32,6 +36,16 @@ async def main_async(args: argparse.Namespace) -> dict:
     if args.n_turns is not None:
         duel_cfg["n_turns"] = int(args.n_turns)
         engine["duel"] = duel_cfg
+
+    data_dir = Path(os.environ.get("AFFINE_DATA_DIR", "/root/affine_data"))
+    cfg = load_config(str(args.toml))
+    corpus = CorpusSync(
+        cfg.dataset.corpus_base_url, cfg.dataset.manifest_key, data_dir
+    )
+    if not corpus.ready and not corpus.refresh():
+        raise SystemExit("[sim] FATAL: corpus not ready")
+    corpus_info = corpus.info()
+    print(f"[sim] corpus {json.dumps(corpus_info)}", flush=True)
 
     progress_state: dict[str, int] = {}
 
@@ -58,14 +72,13 @@ async def main_async(args: argparse.Namespace) -> dict:
     chall = Served(name="challenger", repo=args.chall_repo,
                    revision=args.chall_rev, port=args.chall_port)
 
-    corpus_info = {
-        "corpus_epoch": 0,
-        "manifest_sha256": args.manifest_sha or "",
-    }
+    turns_path = Path(args.turns)
+    if not turns_path.exists():
+        turns_path = data_dir / "turns.jsonl"
     t0 = time.time()
     verdict, artifact = await run_duel(
         engine,
-        args.turns,
+        turns_path if turns_path.exists() else None,
         king,
         chall,
         teacher,
@@ -73,6 +86,7 @@ async def main_async(args: argparse.Namespace) -> dict:
         hotkey=args.hotkey,
         corpus_info=corpus_info,
         on_progress=on_progress,
+        corpus=corpus if corpus.schema_version >= 2 else None,
     )
     out = {
         "elapsed_s": time.time() - t0,

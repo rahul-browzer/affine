@@ -26,6 +26,14 @@ KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 MERGED=${MERGED:-/root/h121/merged}
 # p476: resolve symlink — vLLM model id is the real serve path (/tmp/hN_merged)
 if [[ -e "$MERGED" ]]; then MERGED=$(readlink -f "$MERGED"); fi
+# p2115: vLLM model id is whatever path was passed at serve time (often the
+# symlink /root/h121/merged), NOT the readlink target. Prefer live /v1/models id.
+_served=$(curl -s --max-time 5 http://127.0.0.1:8002/v1/models \
+  | python3 -c "import sys,json; d=json.load(sys.stdin); print(d[\"data\"][0][\"id\"] if d.get(\"data\") else \"\")" 2>/dev/null || true)
+if [[ -n "$_served" ]]; then
+  echo "[h121-n80-retry] using served chall model id=$_served (was MERGED=$MERGED)" >&2
+  MERGED="$_served"
+fi
 SIM=/root/affine_data/h121_sim_result.json
 PROG=/root/affine_data/h121_sim_progress.json
 DEC=/root/affine_data/h121_decision.json
