@@ -12,30 +12,30 @@ Rewritten every pass. Do not append.
 | contract | Reason v3 · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` |
 | corpus | epoch **7** · schema v2 (**synced**) |
-| Lium | ~$122,334 · burn **$52.25/h** (≤$833/h) |
+| Lium | ~$122,324 · burn **$52.25/h** (≤$833/h) |
 | fleet | `mine-crown-1` **gentle-orbit-bd** 8×B200 · TTL→2026-08-12T08:42Z |
 | SSH | `ssh root@95.133.253.90 -p 40099` |
 | submissions | 0 · hotkey `default` unused |
 | board | **chal-00471 pig** `load_challenger` · queue **480 sbs-v1** |
-| warm | teacher/king/chall **200**; R2al pig n80 ~34/80 |
+| warm | teacher/king/chall **200**; R2al pig n80 ~40/80 |
 | R2ak | **DONE** local hr**0.641×** · board 470 hr**0.094×** — no Stage-5 |
-| R2al | **RUNNING** pig n80 ~34/80 (pid30870) |
+| R2al | **RUNNING** pig n80 ~40/80 (pid30870) |
 | R2ab | Talent×sky wait R2al (premerge DONE Δ0.626) |
 | R2ac | Talent×google premerge DONE Δ0.626 · wait R2ab |
 | R2ad | **EAGER** Talent×pig α-merge Δ**0.626** · wait 471 hr>0 for DONE |
-| sbs-v1 | **prefetch RUNNING** chal-00480 @`d88d3bc…` (p2011) |
+| sbs-v1 | **prefetch DONE** @`d88d3bc…` · **watch480 RUNNING** (p2012) |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | TKC · R2al n80 · R2ad EAGER · sbs-v1 prefetch · watch471 |
+| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | TKC · R2al n80 · R2ad EAGER · watch471+480 · sbs DONE |
 
 - R2al: pig n80 → `r2al_pig_decision.json`; Stage-5 only if hr≥1.5×
 - R2ab → R2ac → R2ad n80 chain after prior terminal
 - R2ad: EAGER weights ready; DONE gated on chal00471 Reason+; merge_reload waits lane
 - Host hist bridge pid **1398836** (pending 471+480)
-- sbs-v1 prefetch: `/root/logs/r2_prefetch_sbs_v1.log` (no merge until board Reason+)
+- On-pod watch480 pid **36279** → `chal00480_reason.json` (gzip+history)
 
 ## Blocked
 
@@ -47,4 +47,4 @@ Rewritten every pass. Do not append.
 
 ## Next action
 
-**Poll** R2al → `r2al_pig_decision.json`. If hr≥1.5× → Stage-5. Else after R2al terminal confirm R2ab starts; stamp 471 when published → R2ad DONE or SKIP. Confirm sbs-v1 prefetch DONE.
+**Poll** R2al → `r2al_pig_decision.json`. If hr≥1.5× → Stage-5. Else after R2al terminal confirm R2ab starts; stamp 471 when published → R2ad DONE or SKIP. When 480 stamps Reason+ → arm Talent×sbs-v1 (else SKIP).

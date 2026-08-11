@@ -1,18 +1,12 @@
-#!/usr/bin/env python3
-"""Generate Reason watchers with history fast-path + unservable stamp."""
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent
-
-BODY = r'''#!/usr/bin/env bash
-# CPU watcher: when __CHAL__ publishes duel gzip OR history verdict,
+#!/usr/bin/env bash
+# CPU watcher: when chal-00480 publishes duel gzip OR history verdict,
 # stamp Reason headroom_vs_3se (or hr=None on unservable). No GPU. No submit.
 set -euo pipefail
-LOG=/root/logs/watch___OUTSTEM___reason.log
-DONE=/root/logs/watch___OUTSTEM___reason.done
-PIDF=/root/logs/watch___OUTSTEM___reason.pid
-OUT=${OUT:-/root/affine_data/__OUTSTEM___reason.json}
-CHAL=${CHAL:-__CHAL__}
+LOG=/root/logs/watch_chal00480_reason.log
+DONE=/root/logs/watch_chal00480_reason.done
+PIDF=/root/logs/watch_chal00480_reason.pid
+OUT=${OUT:-/root/affine_data/chal00480_reason.json}
+CHAL=${CHAL:-chal-00480}
 KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
 KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 BASE=${BASE:-https://s3.hippius.com/affine-sn120}
@@ -20,9 +14,9 @@ mkdir -p /root/logs /root/affine_data
 echo $$ >"$PIDF"
 exec > >(tee -a "$LOG") 2>&1
 
-echo "[watch-__SHORT__] $(date -u +%Y-%m-%dT%H:%M:%SZ) start chal=$CHAL"
+echo "[watch-480] $(date -u +%Y-%m-%dT%H:%M:%SZ) start chal=$CHAL"
 if [[ -f "$DONE" && -f "$OUT" ]]; then
-  echo "[watch-__SHORT__] already done: $(cat "$DONE")"
+  echo "[watch-480] already done: $(cat "$DONE")"
   exit 0
 fi
 
@@ -111,7 +105,7 @@ def score_duel(raw: bytes) -> dict:
 
 url = f"{base}/evals/{chal}.json.gz"
 hist_url = f"https://affine.io/api/v1/history?q={chal}&limit=5"
-print(f"[watch-__SHORT__] polling {url} (+ history fast-path)", flush=True)
+print(f"[watch-480] polling {url} (+ history fast-path)", flush=True)
 
 def try_history():
     try:
@@ -195,10 +189,10 @@ for i in range(1, 2880):
                 f"src={hist.get('source') or 'history'}"
             )
             done.write_text(line + "\n")
-            print(f"[watch-__SHORT__] {line}", flush=True)
+            print(f"[watch-480] {line}", flush=True)
             raise SystemExit(0)
         raw = fetch_bytes(url)
-        print(f"[watch-__SHORT__] got {len(raw)} bytes at iter={i}", flush=True)
+        print(f"[watch-480] got {len(raw)} bytes at iter={i}", flush=True)
         result = score_duel(raw)
         out.write_text(json.dumps(result, indent=2) + "\n")
         hr = result.get("headroom_vs_3se")
@@ -207,42 +201,14 @@ for i in range(1, 2880):
             f"n={result['n_paired']} repo={result.get('challenger_repo')}"
         )
         done.write_text(line + "\n")
-        print(f"[watch-__SHORT__] {line}", flush=True)
+        print(f"[watch-480] {line}", flush=True)
         raise SystemExit(0)
     except SystemExit:
         raise
     except Exception as e:
         if i % 12 == 0:
-            print(f"[watch-__SHORT__] wait iter={i} err={type(e).__name__}: {e}", flush=True)
+            print(f"[watch-480] wait iter={i} err={type(e).__name__}: {e}", flush=True)
         time.sleep(10)
-print("[watch-__SHORT__] TIMEOUT", flush=True)
+print("[watch-480] TIMEOUT", flush=True)
 raise SystemExit(2)
 PY
-'''
-
-
-def main() -> None:
-    for chal, short in [
-        ("chal-00463", "463"),
-        ("chal-00467", "467"),
-        ("chal-00468", "468"),
-        ("chal-00469", "469"),
-        ("chal-00470", "470"),
-        ("chal-00471", "471"),
-        ("chal-00480", "480"),
-    ]:
-        tag = chal.replace("chal-", "")
-        outstem = f"chal{tag}"
-        text = (
-            BODY.replace("__CHAL__", chal)
-            .replace("__OUTSTEM__", outstem)
-            .replace("__SHORT__", short)
-        )
-        path = ROOT / f"watch_{outstem}_reason.sh"
-        path.write_text(text)
-        path.chmod(0o755)
-        print(f"wrote {path} ({path.stat().st_size} bytes)")
-
-
-if __name__ == "__main__":
-    main()
