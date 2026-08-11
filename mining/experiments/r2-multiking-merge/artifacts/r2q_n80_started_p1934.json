@@ -1,0 +1,15 @@
+{
+  "pass": 1934,
+  "utc": "2026-08-11T01:31:17Z",
+  "event": "r2q_n80_started",
+  "chall_repo": "/tmp/r2q_saysth_v9a",
+  "chall_http": 200,
+  "sim_pid": 171850,
+  "block_hash_prefix": "14076c85bf7fee16",
+  "king": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "progress_at_check": {"king": 1, "challenger": 2, "n_turns": 80},
+  "decision_path": "/root/affine_data/r2q_saysth_decision.json",
+  "sim_out": "/root/affine_data/r2q_saysth_reason_sim.json",
+  "weight_version_key": 3
+}
