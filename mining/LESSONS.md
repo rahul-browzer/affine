@@ -27,7 +27,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Prefer COUNT=8 verified from `lium ls`; bare `yes|` floods SSH — use `-y`.
 - Never `pkill -f` over SSH (matches your session). Kill by PID. Seed chall Triton from live king TCACHE when recovering.
 - Never edit a running `restore_warm_stack.sh` on the pod (bash re-reads mid-file); write `.new` and swap after exit.
-- Mid-run edit failure mode: after a long heredoc, bash can die with `syntax error near unexpected token '**kw'` (Python seen as bash). Kill by PID, install `.new`, re-run — stamps skip re-download.
 - After any restore kill/relaunch, **re-check the n80 watcher PID** — pid3045 died silently (log froze at iter=60) while engines were still loading; without relaunch, PROMPTABLE would never start the sim.
 - `/root/mine.env` must **export** vars (or `set -a` before `source`); bare `HF_TOKEN=…` does not reach the python child — sim then hits unauth HF Hub and stalls on tokenizer download before first progress.
 - Public duel rows expose Reason components as `lpC_yc_za` / `lpC_yc_e` on `king_rows[].pairs[]`; rank SFT targets by that delta, not by L1lift/lpA.
@@ -148,3 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1967 queue index probes (unconst): chal-00468 sbs-v0 / 469 sky / 470 google / 471 pig all **weights_ok** — prefetch **sbs first** (16×st) one-at-a-time after v9; sky/google/pig are 2×st (~smaller).
 - Prefetch DONE without an eager Talent× blend (sbs/sky sat cached with only Reason watches) idles crown CPU — arm `*_eager_weights` on prefetch DONE in the same pass, not later.
 - p1975: **R2p REFUTE** Talent×sth hr **−0.93×** (margin −0.0282, z=−2.78, n=80) despite board 455 hr 0.79× — best DL Reason+ parent still fails Talent0.25 skew; Stage-5 SKIP; kill chall by PID then purge blend.
+- p1976: after R2ab eager DONE, arm next Talent×queue parent (google R2ac) same pass — disk ≥75 GiB + prefetch DONE; keep `*_premerge.done` gated on board Reason+; extend `wait_r2q` holding for R2aa/ab/ac.

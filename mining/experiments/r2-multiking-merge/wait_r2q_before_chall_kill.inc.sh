@@ -183,4 +183,86 @@ for _i in $(seq 1 2880); do
   echo "[${_TAG}] R2o not holding lane at iter=$_i"
   break
 done
+
+# R2aa Talent×sbs: only block siblings once holding stamp is set.
+R2AA_DEC=${R2AA_DEC:-/root/affine_data/r2aa_alpha_decision.json}
+R2AA_DONE=${R2AA_DONE:-/root/logs/r2aa_merge_reload.done}
+R2AA_PIDF=${R2AA_PIDF:-/root/logs/r2aa_merge_reload.pid}
+R2AA_HOLDING=${R2AA_HOLDING:-/root/logs/r2aa_talent_sbs_holding.stamp}
+if [[ -f "$R2AA_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AA_DEC"; then
+  echo "SKIP_${_TAG}_R2AA_CLEARS file=$R2AA_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AA_DONE" || -f "$R2AA_DEC" ]]; then
+    echo "[${_TAG}] R2aa terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AA_HOLDING" ]] && [[ -f "$R2AA_PIDF" ]]; then
+    _ppid=$(cat "$R2AA_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        echo "[${_TAG}] wait-r2aa iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid holding"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2aa not holding lane at iter=$_i"
+  break
+done
+# R2ab Talent×sky
+R2AB_DEC=${R2AB_DEC:-/root/affine_data/r2ab_alpha_decision.json}
+R2AB_DONE=${R2AB_DONE:-/root/logs/r2ab_merge_reload.done}
+R2AB_PIDF=${R2AB_PIDF:-/root/logs/r2ab_merge_reload.pid}
+R2AB_HOLDING=${R2AB_HOLDING:-/root/logs/r2ab_talent_sky_holding.stamp}
+if [[ -f "$R2AB_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AB_DEC"; then
+  echo "SKIP_${_TAG}_R2AB_CLEARS file=$R2AB_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AB_DONE" || -f "$R2AB_DEC" ]]; then
+    echo "[${_TAG}] R2ab terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AB_HOLDING" ]] && [[ -f "$R2AB_PIDF" ]]; then
+    _ppid=$(cat "$R2AB_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        echo "[${_TAG}] wait-r2ab iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid holding"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2ab not holding lane at iter=$_i"
+  break
+done
+# R2ac Talent×google
+R2AC_DEC=${R2AC_DEC:-/root/affine_data/r2ac_alpha_decision.json}
+R2AC_DONE=${R2AC_DONE:-/root/logs/r2ac_merge_reload.done}
+R2AC_PIDF=${R2AC_PIDF:-/root/logs/r2ac_merge_reload.pid}
+R2AC_HOLDING=${R2AC_HOLDING:-/root/logs/r2ac_talent_google_holding.stamp}
+if [[ -f "$R2AC_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AC_DEC"; then
+  echo "SKIP_${_TAG}_R2AC_CLEARS file=$R2AC_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AC_DONE" || -f "$R2AC_DEC" ]]; then
+    echo "[${_TAG}] R2ac terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AC_HOLDING" ]] && [[ -f "$R2AC_PIDF" ]]; then
+    _ppid=$(cat "$R2AC_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        echo "[${_TAG}] wait-r2ac iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid holding"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2ac not holding lane at iter=$_i"
+  break
+done
 unset _i _ppid _TAG

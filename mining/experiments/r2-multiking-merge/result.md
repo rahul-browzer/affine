@@ -1,3 +1,11 @@
+## p1976 — R2ab eager DONE; armed R2ac Talent×google
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,853.
+- Confirmed R2ab eager **DONE** Δ=**0.6258** · identical_frac=0.45 · wait chal-00469 Reason+.
+- Armed **R2ac** Talent0.25×google0.75 (`tojointhecommunity/…-google@9cb6484f…`): premerge pid **254948** + merge_reload pid **254949**; DONE gated on chal-00470 hr>0.
+- Eager merge writing `/root/r2_out/alpha_talent_google_skew` (~2/16 shards @06:14Z); disk ~172 GiB free. Patched `wait_r2q` for R2aa/ab/ac holding stamps.
+- Artifact: `artifacts/r2ac_talent_google_armed_p1976.json`.
+- Next: confirm R2ac eager stamp; first Reason+ among 468–470 → chall→n80; arm Talent×pig after R2ac eager + disk≥75 GiB.
+
 ## p1975 — R2p REFUTE (−0.93×); purge; R2aa/R2ab continue
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,864.
 - Harvested R2p Talent×sth: margin **−0.02821** · se=0.01016 · z=**−2.78** · 3·SE=0.03048 · hr=**−0.93×** · n=80 · Stage-5 **SKIP_BELOW_BAR**.
