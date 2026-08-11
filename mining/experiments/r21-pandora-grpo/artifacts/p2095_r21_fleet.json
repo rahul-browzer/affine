@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T20:10:35Z",
+  "pass": 2095,
+  "axis": "R21",
+  "pod": "mine-r21-pandora-grpo-1",
+  "hypo": "pandora-box-init Reason-GRPO (\u2260 R3 Tok GRPO, \u2260 R15 pandora REINFORCE, \u2260 R18/R19/R20 parent-GRPO)",
+  "base": "pandora-box/Affine-5eqdtdzqle-ckpt300-m4@5218b1383952ff7a8d49b1d7b82acfe5e1bd448d",
+  "queue_len": 22,
+  "target_mines": 25,
+  "uploader": "experiments/r21-pandora-grpo/upload_and_launch.sh",
+  "note": "armed uploader+fleet-boot; B300\u00d78 still 0 \u2014 rent polls",
+  "rent_pid": "2344642",
+  "boot_pid": "2344658"
+}
