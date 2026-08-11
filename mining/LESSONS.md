@@ -119,3 +119,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1942: chal-00431 BKN-six vs Tok hr **−0.46×** (margin −0.0082, z=−1.39, n=80) — Reason−; R2k premerge **SKIP** (no Talent×BKN6); both BKN six/seven are dead merge parents.
 - p1943: **R2t REFUTE** saysth×Talent hr **−0.93×** (margin −0.0234, z=−2.80, n=78, Δ=0.207) — inverse of R2g also fails; large weight Δ ≠ Reason lift; purge blend; do not re-α saysth↔Talent.
 - p1944: when board `load_challenger` idles crown after a REFUTE, arm **pure queue-parent n80** (R2v sft3) without waiting for gzip — gate siblings on `r2v_*` pid/done like R2q; only `premerge.done` claimants should block GPU.
+- p1946: **bridge_r2v_to_r2l** — local pure-parent n80 hr>0 may proxy the board Reason stamp to unblock Talent×parent CPU merge early; hr≥1.5× → SKIP blend + Stage-5; hr≤0 → keep board wait (R2q local−/board+ disagreement).

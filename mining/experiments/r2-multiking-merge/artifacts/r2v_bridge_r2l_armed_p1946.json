@@ -1,0 +1,27 @@
+{
+  "pass": 1946,
+  "utc": "2026-08-11T02:53:12Z",
+  "lane": "R2v→R2l bridge",
+  "script": "bridge_r2v_to_r2l.sh",
+  "bridge_pid": 196326,
+  "r2v_sim_pid": 194935,
+  "r2v_reload_pid": 189465,
+  "r2v_progress": {"challenger": 12, "king": 11, "n_turns": 80, "eta_min_approx": 35},
+  "engines": "200/200/200",
+  "rules": {
+    "hr_ge_1.5": "STAGE5 pure sft3 + SKIP R2l premerge (kill by pidfile)",
+    "hr_gt_0_lt_1.5": "write local-proxy chal00450_reason.json + watch.done → R2l CPU merge",
+    "hr_le_0": "KEEP board wait (do not SKIP R2l; R2q precedent)"
+  },
+  "decision_paths": {
+    "r2v": "/root/affine_data/r2v_sft3_decision.json",
+    "bridge_done": "/root/logs/bridge_r2v_to_r2l.done",
+    "stage5": "/root/affine_data/r2v_stage5_ready.json",
+    "proxy_reason": "/root/affine_data/chal00450_reason.json"
+  },
+  "board": "chal-00450 scoring (king phase); gzip still pending",
+  "wvk": 3,
+  "lium_balance_usd": 123299.75,
+  "burn_usd_per_h": 64.0,
+  "check": "ssh root@86.38.182.50 -p 40300 'cat /root/logs/bridge_r2v_to_r2l.done; cat /root/affine_data/r2v_sft3_decision.json'"
+}

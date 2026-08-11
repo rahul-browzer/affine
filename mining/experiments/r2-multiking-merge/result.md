@@ -1,3 +1,10 @@
+## p1946 — bridge R2v → R2l (no idle wait on board gzip)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,300.
+- R2v n80 healthy (~12/80 @02:53Z, sim **194935**, engines 200/200/200, ETA~35m). Board 450 still scoring (gzip 404).
+- Armed **`bridge_r2v_to_r2l.sh`** (pid **196326**): on `r2v_sft3_decision.json` — hr≥1.5× → Stage-5 flag + SKIP R2l; 0<hr<1.5× → local-proxy `chal00450_reason.json` to unblock Talent×sft3 CPU merge; hr≤0 → keep board wait (R2q local−/board+).
+- Does not touch TK/chall engines. Artifact: `artifacts/r2v_bridge_r2l_armed_p1946.json`.
+- Next: harvest R2v + bridge done; Stage-5 if clears bar else R2l proxy/premerge or board 450/458.
+
 ## p1944 — R2v armed (pure sft3 n80; burn idle GPUs)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,333.
 - Board still **chal-00450** `load_challenger` (~28 min, gzip 404). R2l…p Reason waiters alive but no GPU claimant (`premerge.done` absent) → idle $64/h after R2t REFUTE.
