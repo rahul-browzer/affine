@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+# Prefetch queue chal-00511 trangd/…-dpo2 (CPU/network only).
+# Armed p2121 while R2be hope12 n80 runs — next pure board parent if R2be fails.
+set -euo pipefail
+LOG=/root/logs/r2_prefetch_dpo2.log
+DONE=/root/logs/r2_prefetch_dpo2.done
+PIDF=/root/logs/r2_prefetch_dpo2.pid
+mkdir -p /root/logs /root/affine_data
+echo $$ >"$PIDF"
+exec > >(tee -a "$LOG") 2>&1
+echo "[r2-dpo2] $(date -u +%Y-%m-%dT%H:%M:%SZ) start"
+if [[ -f "$DONE" ]]; then
+  echo "[r2-dpo2] already done: $(cat "$DONE")"
+  exit 0
+fi
+set -a
+# shellcheck disable=SC1091
+source /root/mine.env
+set +a
+# shellcheck disable=SC1091
+source /root/venv/bin/activate
+export HF_HOME=${HF_HOME:-/root/hf}
+export HF_HUB_ENABLE_HF_TRANSFER=${HF_HUB_ENABLE_HF_TRANSFER:-1}
+export HF_XET_HIGH_PERFORMANCE=${HF_XET_HIGH_PERFORMANCE:-1}
+
+REPO=${DPO2_REPO:-trangd/affine-5dvha3y7cd-dpo2}
+REV=${DPO2_REV:-90ea78ff67c4e86632d907349ceba3342700e646}
+export DPO2_REPO="$REPO" DPO2_REV="$REV"
+
+python - <<'PY'
+import json, os, time
+from pathlib import Path
+from huggingface_hub import snapshot_download
+
+repo = os.environ["DPO2_REPO"]
+rev = os.environ["DPO2_REV"]
+out = {
+    "started_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    "note": "p2121 queue chal-00511 prefetch; R2bf pure board parent after R2be",
+    "parents": [],
+    "skipped": [],
+}
+meta = Path("/root/affine_data/r2_prefetch_dpo2.json")
+print(f"[r2-dpo2] downloading {repo}@{rev}…", flush=True)
+t0 = time.time()
+try:
+    path = snapshot_download(
+        repo_id=repo,
+        revision=rev,
+        token=os.environ.get("HF_TOKEN"),
+        max_workers=8,
+    )
+except Exception as e:
+    msg = f"{type(e).__name__}: {e}"
+    print(f"[r2-dpo2] FAIL {repo}: {msg}", flush=True)
+    out["skipped"].append({"repo": repo, "revision": rev, "error": msg[:500]})
+    meta.write_text(json.dumps(out, indent=2) + "\n")
+    raise
+dt = time.time() - t0
+print(f"[r2-dpo2] OK {repo} -> {path} ({dt/60:.1f} min)", flush=True)
+out["parents"].append({"repo": repo, "revision": rev, "path": path, "seconds": round(dt, 1)})
+out["finished_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+meta.write_text(json.dumps(out, indent=2) + "\n")
+print("[r2-dpo2] cached", flush=True)
+PY
+
+echo "OK $(date -u +%Y-%m-%dT%H:%M:%SZ) $REPO@$REV" >"$DONE"
+cp -f "$DONE" /root/affine_data/r2_prefetch_dpo2.done
+cp -f /root/affine_data/r2_prefetch_dpo2.json /root/logs/r2_prefetch_dpo2.json 2>/dev/null || true
+echo "[r2-dpo2] $(date -u +%Y-%m-%dT%H:%M:%SZ) DONE"

@@ -1,3 +1,9 @@
+## p2121 — train.done @step189 → merge (2026-08-11T22:23Z)
+
+- GRPO finished `mean_reward_last20≈−0.028`; adapter `/root/r3/train/adapter`.
+- `post_train_pipeline.sh` woke; LoRA merge loading base on GPUs 6–7 → chall:8002 → n80.
+- Watch: `tail -f /root/logs/r3_pipeline.nohup` · decision after sim.
+
 # R3 — Reason GRPO results
 
 ## p2061 — finish stuck w0 → teacher → GRPO train

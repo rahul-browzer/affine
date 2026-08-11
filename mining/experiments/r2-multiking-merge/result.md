@@ -1,3 +1,11 @@
+## p2121 — R2bf dpo2 armed overlapping R2be n80 (2026-08-11T22:23Z)
+
+- No 8×B300/B200 stock (fleet blind-fire continues @POLL=0 → `mine-r6-fmt-1`).
+- Verified Hub `trangd/affine-5dvha3y7cd-dpo2@90ea78ff…` (chal-00511): 1026 w / 16 shards / multimodal MoE.
+- Uploaded + launched on crown: `launch_prefetch_dpo2.sh`, `launch_r2bf_dpo2_reload_sim.sh` (waits R2be terminal), `watch_r2bf_stage5_push.sh`.
+- R2be still ~15/80 (`2fe3c39d…`); R3 train.done→merge concurrently on `mine-r3-grpo-1`.
+- Artifacts: `artifacts/r2bf_dpo2_armed_p2121.json`.
+
 ## p2119 — crown disk full → hope12 full-shard gate + n80 relaunch (2026-08-11T22:14Z)
 
 - Contract wvk=3 · k_sigma=2.0 · king Tok af10 · B300×8 stock=0 (fleet blind-fire continues).

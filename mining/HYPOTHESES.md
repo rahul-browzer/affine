@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — R2bd **UNSERVABLE** → **R2be armed** (hope12@fea71676; chal-00508) |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — R2be n80~15/80; **R2bf armed** (dpo2@90ea78ff; chal-00511) |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** step≥135; wedge-watch; post_train armed |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open** · `mine-r3-grpo-2` · p2078 armed |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
@@ -48,10 +48,10 @@
 - R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75). Dir: `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge
-- **R2ba** WEAK +0.007. **R2bb** WEAK. **R2bc+R2bd** UNSERVABLE (weight-init). **R2be** p2118 armed: Shatoria hope12@fea71676… chal-00508 (next dpo2 chal-00511). Dir: `experiments/r2-multiking-merge/`.
+- **R2ba** WEAK +0.007. **R2bb** WEAK. **R2bc+R2bd** UNSERVABLE. **R2be** n80 in flight (~15/80). **R2bf** p2121 armed: trangd dpo2@90ea78ff… chal-00511 (prefetch+reload waiter+stage5). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason (PRIORITY)
-- GRPO pid**28660** step≥185/200; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
+- GRPO **train.done** @step189 (p2121); post_train merging LoRA→chall→n80. Dir: `experiments/r3-reason-grpo/`.
 
 ### R4 — Full-FT
 - **REFUTED** p2116: n80 m=−0.0077 z=−0.76 (salvage ckpt-26 lr1e-6 ep1). Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.
