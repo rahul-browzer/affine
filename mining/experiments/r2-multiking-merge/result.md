@@ -1,3 +1,11 @@
+## p1981 — R2r n80 gathering; watch462 history fast-path
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,774.
+- R2r chall `:8002` healthy; n80 pid **266016** block_hash `3f8a0d5a…` · progress chall **6/80** king **8/80** @06:51:55Z · TKC 200/200/200.
+- Patched+restarted `watch_chal00462_reason.sh` (pid **266951**) with history-API fast-path (live phase chal-00462).
+- Ops: `pgrep -f` matching SSH cmdline killed the session — restart by pidfile only.
+- Artifact: `artifacts/r2r_n80_started_p1981.json`.
+- Next: harvest `r2r_alpha_decision.json`; hr≥1.5× → Stage-5 HF+submit; else purge whoami + advance 462+.
+
 ## p1980 — chal-00458 whoami Reason+ (0.39×); R2r chall→n80; Stage-5 armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,774.
 - Harvested **chal-00458** `marsplan0624/…-whoami@21ad4572`: margin **+0.00536** · z=**1.16** · 3·SE=0.01385 · hr=**0.39×** · n=80 · lost crown; clears R2r gate.
