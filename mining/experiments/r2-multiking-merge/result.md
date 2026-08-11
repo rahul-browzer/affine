@@ -1,3 +1,11 @@
+## p2003 — Talent DONE; R2ab Talent×sky eager armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,446.
+- Board chal-00469 sky scoring chall **74**/80 (gzip 404); R2aj still board-wait.
+- Talent prefetch **DONE** @dbfbb3e2…; uploaded `merge_alpha.py` + R2ab launchers; stubbed `r2aa_eager` + closed pre-reset lane terminals.
+- Armed **R2ab** eager Talent0.25×sky0.75 (pid **19092**, mid-blend) + merge_reload waiter **19191** (`premerge.done` only on 469 hr>0).
+- Artifacts: `artifacts/p2003_r2ab_eager_armed.json`, `launch_r2ab_talent_sky_premerge.sh`.
+- Next: poll 469 stamp / `r2ab_eager_weights.done`; SKIP_BOARD → R2ak; Reason+ after pure SKIP → R2ab n80.
+
 ## p2002 — Talent prefetch armed (board-wait fill)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,466.
 - Board chal-00469 sky scoring king **58**/80 (gzip 404); R2aj/R2ak/R2al still armed; host-hist pending 469–471.

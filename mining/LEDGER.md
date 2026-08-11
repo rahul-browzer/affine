@@ -10,11 +10,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,466.45 | 2026-08-11T09:11Z |
-| cumulative mining spend | ~$75,125 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T09:11Z |
-| **available for mining** | **~$112,466** (balance − $10,000 floor) | 2026-08-11T09:11Z |
+| Lium balance | $122,446.04 | 2026-08-11T09:15Z |
+| cumulative mining spend | ~$75,145 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T09:15Z |
+| **available for mining** | **~$112,446** (balance − $10,000 floor) | 2026-08-11T09:15Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T09:11Z |
+| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T09:15Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -23,6 +23,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T09:15Z | 122446.04 | p2003 Talent DONE + R2ab eager armed (no new rent); burn$52.25/h; Δ−$20 vs p2002 (shared ok) |
 | 2026-08-11T09:11Z | 122466.45 | p2002 Talent prefetch armed (no new rent); burn$52.25/h; Δ$0 vs p2001 |
 | 2026-08-11T09:08Z | 122466.45 | p2001 pig DONE+chall prestage (no new rent); burn$52.25/h; Δ$0 vs p2000 |
 | 2026-08-11T09:06Z | 122466.45 | p2000 google DONE + R2al/watch471 armed (no new rent); burn$52.25/h; Δ−$10 vs p1999 (shared ok) |

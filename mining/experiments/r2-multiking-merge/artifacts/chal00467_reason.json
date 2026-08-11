@@ -8,6 +8,8 @@
   "published_z": 0.6423142490178049,
   "published_formula": null,
   "challenger_wins": false,
+  "accepted": false,
+  "rejection_reason": null,
   "reason_margin": 0.0022257451679498098,
   "reason_se": 0.003465196625099488,
   "reason_z": 0.6423142490178049,
@@ -15,7 +17,8 @@
   "headroom_vs_3se": 0.21410474967260165,
   "n_paired": 80,
   "king_match": true,
-  "scored_at": "2026-08-11T08:08:35Z",
-  "source_url": "https://affine.io/api/v1/history?q=chal-00467&limit=5",
-  "source": "history_api"
+  "scored_at": "2026-08-11T08:45:45Z",
+  "source": "host_history_api",
+  "source_url": "https://affine.io/api/v1/history",
+  "note": "host bridge \u2014 pod CF-blocked on affine.io history"
 }

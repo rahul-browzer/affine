@@ -1,0 +1,24 @@
+{
+  "utc": "2026-08-11T09:16:08Z",
+  "pass": 2003,
+  "action": "talent_done_arm_r2ab_eager_and_merge",
+  "talent_done": "/root/logs/r2_prefetch_talent.done",
+  "talent_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "r2ab_premerge_pid": 19092,
+  "r2ab_merge_reload_pid": 19191,
+  "blend": "Talent0.25 x sky0.75 -> /root/r2_out/alpha_talent_sky_skew",
+  "r2aa_eager": "STUB_SKIP (sbs hr0.018; not re-armed)",
+  "prior_lanes": "CLOSED_PRE_POD_RESET stubs for R2i..z/q/v/aa",
+  "board": {
+    "challenge_id": "chal-00469",
+    "progress": "challenger 74/80"
+  },
+  "ssh": "ssh root@95.133.253.90 -p 40099",
+  "huid": "gentle-orbit-bd",
+  "burn_usd_h": 52.25,
+  "balance_usd": 122446.04,
+  "contract": {
+    "weight_version_key": 3,
+    "king": "Tok331102/affine-5EqYW8McUc-af10"
+  }
+}

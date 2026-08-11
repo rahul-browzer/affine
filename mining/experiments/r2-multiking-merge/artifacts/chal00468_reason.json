@@ -17,7 +17,7 @@
   "headroom_vs_3se": 0.017932082729414395,
   "n_paired": 80,
   "king_match": true,
-  "scored_at": "2026-08-11T08:44:12Z",
+  "scored_at": "2026-08-11T08:45:36Z",
   "source": "host_history_api",
   "source_url": "https://affine.io/api/v1/history",
   "note": "host bridge \u2014 pod CF-blocked on affine.io history"
