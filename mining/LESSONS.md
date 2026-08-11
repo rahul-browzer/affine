@@ -43,7 +43,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - SFT fit-filter keep rates on epoch-7 high-Reason set (budget=max_len×2.5 chars): 8192→527/1403, **16384→1006**, 24576→1374, 32768→1394 — R1b uses 16384 first (OOM risk at longer).
 - Thought-loss **nsup** (supervised tokens after fence mask) @16384 on R1b keep-set: med **54**, mean 72; only **176/1006** have nsup≥100 — char budget alone starves the loss; filter `sft_high_reason_nsup100.jsonl` (nsup_med=137) before next LoRA (R1c).
 - R1c on 176 nsup≥100 rows @ grad_accum=8 is only ~22 steps/epoch — use **EPOCHS≈6** (~132 opt-steps) so the high-signal subset matches R1b's update budget; arm `launch_r1c_merge_reload_sim.sh` after train starts.
-- While R1b train+n80 is in flight, arm `launch_r1b_to_r1c_chain.sh` so a below-bar decision auto-starts R1c (EPOCHS=6) + merge waiter — avoid idle GPU hours waiting for the next Ralph pass.
 - Overlap R2 CPU α-merge with R1 train via `launch_r2_premerge.sh` (no GPU); stamp `/root/logs/r2_premerge.done` so the α→n80 waiter reuses the blend and only does chall reload+sim.
 - `merge_alpha.py` writes **`merge_alpha_meta.json`** under `/root/r2_out/alpha_tok_talent_kevin/` (not `affine_data/`) — stamp scripts must read that name (not `merge_meta.json`) or `r2_premerge.done` loses `max_abs_delta` / `n_keys`.
 - Equal-α Tok×Talent×kevin premerge on epoch-7 parents: **max_abs_delta=0.277**, identical_frac≈0.44, 66 GiB — distinct enough for α→n80 (refuse only if max_abs_delta==0).
