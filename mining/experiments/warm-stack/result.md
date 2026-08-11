@@ -18,3 +18,10 @@
 - `mine-watch-1` / golden-wolf-bd / `37b3ea5c…` @$28/h `--ttl 6h` → remove_at 03:38Z
 - SSH 152.236.142.236:40301 · COUNT=8 · tar sha e55237b1… uploaded
 - `restore_warm_stack.sh` nohup pid=901 → poll `/root/logs/warm_stack_ready.done`
+
+## Fresh crown p1995 @ 08:48Z
+- `mine-crown-1` / gentle-orbit-bd 8×B200 @$52.25/h · SSH `95.133.253.90:40099`
+- Seeded `/root/mine.env` (HF_TOKEN) · Triton tar · harness → `/root/mining_src`
+- `restore_warm_stack.sh` via `/root/start_restore.sh` pid **2138** (uv pip in flight)
+- Corpus waiter pid **2143** → `/root/logs/corpus.done` after venv+pandas
+- Poll: `/root/logs/warm_stack_ready.done` (TKC 200/200/200 @ max_model_len=65536)

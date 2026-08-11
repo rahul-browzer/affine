@@ -3,7 +3,7 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 3→4** — new crown pod online; warm stack not yet restored. `weight_version_key=3`.
+**Stage 3** — crown pod restoring warm stack (TKC @65536). `weight_version_key=3`.
 
 ## Live facts
 
@@ -11,29 +11,28 @@ Rewritten every pass. Do not append.
 |---|---|
 | contract | Reason v3 · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` |
-| corpus | epoch **7** · schema v2 (re-sync on new pod) |
-| Lium | ~$122,516 · burn **$52.25/h** (≤$833/h) |
+| corpus | epoch **7** · schema v2 (sync waiter armed) |
+| Lium | ~$122,507 · burn **$52.25/h** (≤$833/h) |
 | fleet | `mine-crown-1` **gentle-orbit-bd** 8×B200 · TTL→2026-08-12T08:42Z |
 | SSH | `ssh root@95.133.253.90 -p 40099` |
 | submissions | 0 · hotkey `default` unused |
-| **R2ai** | **SKIP_BOARD** chal-00468 sbs hr **0.018×** (+ old pod RESET) |
-| board | duel **chal-00468** sbs-v0 (was scoring) |
+| board | duel **chal-00469** (sky) · R2ai sbs SKIP_BOARD 0.018× |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | fresh 8×B200 · empty · needs warm restore |
+| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | restore pid **2138** (uv pip) · corpus waiter **2143** |
 
-- Host hist bridge pid **1264563** (SSH consts updated → new pod; restart if stamp needed)
-- Old pod `lunar-orbit-50` **removed** (SSH port None after REBOOT_FAILED)
+- Poll: `/root/logs/warm_stack_ready.done` + engines **200/200/200**
+- Corpus: `/root/logs/corpus.done` (after venv+pandas)
+- Host hist bridge pid **1264563** (alive; stamps 467–471)
 
 ## Blocked
 
-- No TKC engines until `experiments/warm-stack/restore_warm_stack.sh` on new box.
-- B300 sold out → B200 fallback (@$52.25/h). Re-prefetch parents after restore.
+- No TKC until restore finishes (pip → Triton → HF DL → serve).
 - Submit only if sim hr ≥ **1.5×**.
 
 ## Next action
 
-**Bootstrap warm stack** on new `mine-crown-1` (HF token → restore TK@65536 → corpus sync) → arm next Reason+ **469–471** (sbs SKIP_BOARD 0.018×).
+**Poll warm_stack_ready.done** → if 200/200/200, arm first Reason+ among **469–471** (sky/google/pig) chall→n80; else diagnose `/root/logs/vllm_*.log`.
