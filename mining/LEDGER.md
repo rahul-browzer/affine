@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $123,545.22 | 2026-08-11T01:03Z |
-| cumulative mining spend | ~$74,051 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T01:03Z |
-| **available for mining** | **~$113,545** (balance − $10,000 floor) | 2026-08-11T01:03Z |
+| Lium balance | $123,545.22 | 2026-08-11T01:07Z |
+| cumulative mining spend | ~$74,051 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T01:07Z |
+| **available for mining** | **~$113,545** (balance − $10,000 floor) | 2026-08-11T01:07Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T01:03Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T01:07Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T01:07Z | 123545.22 | p1928 R2q pure-saysth armed after R2i…R2p (no new rent); burn$64/h; bal flat vs p1927 |
 | 2026-08-11T01:03Z | 123545.22 | p1927 R2p Talent×sth + watch-455 armed (no new rent); burn$64/h; Δ−$12 vs p1926 (shared ok) |
 | 2026-08-11T01:00Z | 123556.93 | p1926 R2o Talent×zeus + watch-452 armed (no new rent); burn$64/h; bal flat vs p1925 |
 | 2026-08-11T00:56Z | 123556.93 | p1925 R2g REFUTE + R2n Talent×asdf armed (no new rent); burn$64/h; Δ−$11 vs p1924 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T00:42Z | 123590.39 | p1921 sth DONE; cp200 prefetch armed (no new rent); burn$64/h; Δ−$22 vs p1920 (shared ok) |
 | 2026-08-11T00:37Z | 123612.64 | p1920 R2j Talent×BKN7 armed (no new rent); burn$64/h; Δ−$11 vs p1919 (shared ok) |
 | 2026-08-11T00:30Z | 123623.97 | p1919 sth prefetch armed after zeus (no new rent); burn$64/h; bal flat vs p1918 |
-| 2026-08-11T00:28Z | 123623.97 | p1918 zeus prefetch armed after asdf (no new rent); burn$64/h; Δ−$11 vs p1917 (shared ok) |

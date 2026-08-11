@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e REFUTE**; **R2f SKIP**; **R2h TTK REFUTE**; **440 saysth** hr=0.73×; **R2g REFUTE** −0.89×; **R2i…R2o** wait Reason+; **R2p** Talent×sth armed (455 Reason+) |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h REFUTE**; **440 saysth** 0.73×; **R2i…R2p** wait Reason+; **R2q** pure-saysth armed (after chain) |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** parent — **R2g** Talent0.25×saysth0.75 **REFUTED** (hr −0.89×). **R2i…R2o** wait 441/432/431/450/456/451/452 Reason+. **R2p** Talent0.25×sth 0.75 armed (p1927; wait 455 Reason+; lane after R2o). Prefetch: BKN six+sft3+asdf+zeus+sth+cp200 DONE. nvidia 00436 still weight-gated. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent×saysth **REFUTED** (hr −0.89×). **R2i…R2p** wait 441/432/431/450/456/451/452/455 Reason+. **R2q** pure saysth-v9a armed (p1928; after R2i…R2p terminals; R2d-analogue). Prefetch queue parents DONE. diane-new/nvidia/aurora Reason+ but weight-gated. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.

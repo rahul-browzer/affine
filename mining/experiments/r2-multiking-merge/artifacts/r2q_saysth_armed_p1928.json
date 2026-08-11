@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-11T01:07:00Z",
+  "pass": 1928,
+  "hyp": "R2q",
+  "action": "armed_pure_saysth_n80_after_R2i_R2p",
+  "parent": "saysth/Affine-5dtnxamt4t-v9a",
+  "revision": "6e13f365b36000cf631aad2fa9fb05fdabae0044",
+  "published_reason_hr": 0.73,
+  "rationale": "Talent×saysth skew REFUTE −0.89×; pure awesome transferred only 0.22×; pure saysth is the untested R2d-analogue for the best remaining DL Reason+ parent",
+  "gate": "wait R2i…R2p terminal (done|skip|dec) then reload chall→n80; skip if any prior hr≥1.5×",
+  "pids": {"r2q_saysth_reload": 157147},
+  "chall_dir": "/root/r2_out/saysth_v9a_chall",
+  "rescan_gated": [
+    {"chal": "chal-00421", "repo": "diane613/affine-5gedzafcvg-new", "hr": 0.54, "weights": "GATED"},
+    {"chal": "chal-00436", "repo": "tojointhecommunity/affine-5efg6cm3yl-nvidia", "hr": 0.45, "weights": "GATED"},
+    {"chal": "chal-00438", "repo": "aurora1001/affine-5cwwlhucdc-prince", "hr": 0.17, "weights": "GATED"}
+  ],
+  "contract_wvk": 3,
+  "burn_usd_h": 64.0,
+  "balance_usd": 123545.22
+}
