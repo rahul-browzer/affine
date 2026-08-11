@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e REFUTE**; **R2f SKIP**; **R2h TTK REFUTE**; **440 saysth** hr=0.73×; **R2g** Talent×saysth **n80 ~5/80**; **R2i** wait 441; **BKN seven** load_challenger; BKN six DONE; **sft3** prefetching; **asdf** armed after sft3 |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e REFUTE**; **R2f SKIP**; **R2h TTK REFUTE**; **440 saysth** hr=0.73×; **R2g** Talent×saysth **n80 ~12/80**; **R2i** wait 441; **BKN seven** load_challenger; BKN six DONE; **sft3** prefetching; **asdf** after sft3; **zeus** after asdf |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent0.25×saysth0.75 (Δ=0.626) **n80 ~5/80** pid146391. **R2i** gated on 441 Reason+. **chal-00432** BKN seven `load_challenger`; BKN six DONE; **sft3** prefetching; **asdf** (451 `@c2309815…`) armed after sft3 (p1917); zeus next. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent0.25×saysth0.75 (Δ=0.626) **n80 ~12/80** pid146391. **R2i** gated on 441 Reason+. **chal-00432** BKN seven `load_challenger`; BKN six DONE; **sft3** prefetching; **asdf** (451 `@c2309815…`) after sft3; **zeus** (452 `@accc9249…`) armed after asdf (p1918). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.

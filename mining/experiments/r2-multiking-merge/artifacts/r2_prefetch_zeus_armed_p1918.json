@@ -1,0 +1,17 @@
+{
+  "pass": 1918,
+  "utc": "2026-08-11T00:28:30Z",
+  "action": "arm_zeus_prefetch_after_asdf",
+  "challenge_id": "chal-00452",
+  "repo": "diceofgod/affine-5fjgc5jhxq-zeus",
+  "revision": "accc9249d879861f6d2c4f01c01df5b6e2426353",
+  "index_probe": {
+    "n_safetensors": 2,
+    "weights_bytes": 70214496104,
+    "weights_gib_approx": 65.39,
+    "weights_ok": true
+  },
+  "gate": "wait /root/logs/r2_prefetch_asdf.done then launch_prefetch_zeus.sh",
+  "note": "R2g n80 still early (~10/80); sft3 prefetching; asdf chained; BKN-432 still load_challenger",
+  "contract_wvk": 3
+}

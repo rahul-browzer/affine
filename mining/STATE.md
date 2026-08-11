@@ -13,7 +13,7 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | contract | Reason v3 · `subnet.weight_version_key=3` · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
 | corpus | epoch **7** · schema v2 · manifest ready |
-| Lium balance | ~$123,635 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
+| Lium balance | ~$123,624 · floor ≥$10k · burn **$64/h** (≤$833/h ok) |
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 | board | duel **chal-00432** BKN seven @ `load_challenger` |
@@ -23,24 +23,26 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | R2f kevin×awesome | **SKIPPED** · Δ=0.00899 |
 | R2h Tok×Talent×kevin | **DONE REFUTE** · hr **−0.59×** |
 | chal-00440 saysth | **DONE** · hr **0.73×** · `POS_BELOW_3SE` |
-| **R2g Talent×saysth** | **n80 RUNNING** · ~5/80 king · sim pid **146391** |
+| **R2g Talent×saysth** | **n80 RUNNING** · ~12/80 · sim pid **146391** |
 | R2i Talent×thomp | gated on 441 Reason+ (waiters armed) |
 | BKN seven | cached · watch **140530** · still load_challenger (evals 404) |
 | BKN six | **PREFETCH DONE** · `@a12fc171…` |
-| sft3 (450) | **PREFETCHING** · `@381dbc82…` · ~22 GiB · pid **146915** |
-| **asdf (451)** | **ARMED** after sft3 · `@c2309815…` · chain pid **147462** |
+| sft3 (450) | **PREFETCHING** · `@381dbc82…` · pid **146915** |
+| asdf (451) | **ARMED** after sft3 · `@c2309815…` · chain pid **147462** |
+| **zeus (452)** | **ARMED** after asdf · `@accc9249…` · chain pid **147860** |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 · R2g n80 · R2i/441 · BKN/432 · sft3→asdf |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 · R2g n80 · R2i/441 · BKN/432 · sft3→asdf→zeus |
 
 - Engines: teacher/king/chall **200** · chall=`/tmp/r2g_alpha_merged` (Talent×saysth Δ0.626).
 - R2g n80: `block_hash=d4044d4eaa11…` · out `/root/affine_data/r2g_alpha_reason_sim.json` · decision → `r2g_alpha_decision.json`.
 - Check: `cat /root/affine_data/r2g_alpha_reason_progress.json`; harvest → `r2g_alpha_decision.json`.
 - sft3: `tail /root/logs/r2_prefetch_sft3.log`; done → `r2_prefetch_sft3.done`.
 - asdf chain: `tail /root/logs/r2_prefetch_asdf_after_sft3.log`; then `r2_prefetch_asdf.done`.
+- zeus chain: `tail /root/logs/r2_prefetch_zeus_after_asdf.log`; then `r2_prefetch_zeus.done`.
 
 ## Blocked
 
@@ -58,4 +60,4 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Next action
 
-**Harvest R2g** → `r2g_alpha_decision.json`. Submit only if hr ≥ **1.5×**. If R2g fails: gate **R2i** on 441 Reason+; harvest BKN `chal00432_reason.json`; confirm sft3+asdf DONE; arm **zeus** (chal-00452 `@accc9249…`) next.
+**Harvest R2g** → `r2g_alpha_decision.json`. Submit only if hr ≥ **1.5×**. If R2g fails: gate **R2i** on 441 Reason+; harvest BKN `chal00432_reason.json`; confirm sft3→asdf→zeus DONE; pick next Reason+ queue parent or merge lane from harvest.
