@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# Prefetch queue chal-00455 fortunateGambler/…-sth (CPU/network only).
-# Index probe (p1919): weights_ok @8d81e78204c5… (16 safetensors, ~70.2 GiB).
-# No Reason verdict yet — cache now so a post-verdict Reason+ parent can merge
-# without an idle download after R2g / R2i / BKN / sft3 / asdf / zeus resolve.
+# Prefetch fortunateGambler/…-sth @8d81e782 (CPU/network only, ~70 GiB).
+# Board chal-00455 Reason hr≈0.79× (best DL Reason+). p1979 purged the cache;
+# p1982 re-fetch for R2ae pure-sth n80 after R2r. Clear stale *.done before relaunch.
 set -euo pipefail
 LOG=/root/logs/r2_prefetch_sth.log
 DONE=/root/logs/r2_prefetch_sth.done
@@ -38,7 +37,7 @@ repo = os.environ["STH_REPO"]
 rev = os.environ["STH_REV"]
 out = {
     "started_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-    "note": "p1919 queue chal-00455 prefetch after zeus; Reason unknown until verdict",
+    "note": "p1982 re-prefetch after p1979 purge; R2ae pure-sth n80 (board hr 0.79×)",
     "parents": [],
     "skipped": [],
 }

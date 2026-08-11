@@ -322,4 +322,61 @@ for _i in $(seq 1 2880); do
   break
 done
 
+# R2ae pure sth (board chal-00455 hr≈0.79×) — holding stamp only; often SKIP_GATED
+R2AE_DEC=${R2AE_DEC:-/root/affine_data/r2ae_sth_decision.json}
+R2AE_DONE=${R2AE_DONE:-/root/logs/r2ae_sth_reload.done}
+R2AE_SKIP=${R2AE_SKIP:-/root/logs/r2ae_sth_reload.skip}
+R2AE_PIDF=${R2AE_PIDF:-/root/logs/r2ae_sth_reload.pid}
+R2AE_HOLDING=${R2AE_HOLDING:-/root/logs/r2ae_sth_holding.stamp}
+if [[ -f "$R2AE_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AE_DEC"; then
+  echo "SKIP_${_TAG}_R2AE_CLEARS file=$R2AE_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AE_DONE" || -f "$R2AE_DEC" || -f "$R2AE_SKIP" ]]; then
+    echo "[${_TAG}] R2ae terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AE_HOLDING" ]] && [[ -f "$R2AE_PIDF" ]]; then
+    _ppid=$(cat "$R2AE_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        echo "[${_TAG}] wait-r2ae iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid holding"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2ae not holding lane at iter=$_i"
+  break
+done
+
+# R2af pure awesome-v8 (live chal-00462) — holding stamp only
+R2AF_DEC=${R2AF_DEC:-/root/affine_data/r2af_awesome_v8_decision.json}
+R2AF_DONE=${R2AF_DONE:-/root/logs/r2af_awesome_v8_reload.done}
+R2AF_PIDF=${R2AF_PIDF:-/root/logs/r2af_awesome_v8_reload.pid}
+R2AF_HOLDING=${R2AF_HOLDING:-/root/logs/r2af_awesome_v8_holding.stamp}
+if [[ -f "$R2AF_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AF_DEC"; then
+  echo "SKIP_${_TAG}_R2AF_CLEARS file=$R2AF_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AF_DONE" || -f "$R2AF_DEC" ]]; then
+    echo "[${_TAG}] R2af terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AF_HOLDING" ]] && [[ -f "$R2AF_PIDF" ]]; then
+    _ppid=$(cat "$R2AF_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        echo "[${_TAG}] wait-r2af iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid holding"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2af not holding lane at iter=$_i"
+  break
+done
+
 unset _i _ppid _TAG

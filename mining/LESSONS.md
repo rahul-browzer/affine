@@ -44,7 +44,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Thought-loss **nsup** (supervised tokens after fence mask) @16384 on R1b keep-set: med **54**, mean 72; only **176/1006** have nsup≥100 — char budget alone starves the loss; filter `sft_high_reason_nsup100.jsonl` (nsup_med=137) before next LoRA (R1c).
 - R1c on 176 nsup≥100 rows @ grad_accum=8 is only ~22 steps/epoch — use **EPOCHS≈6** (~132 opt-steps) so the high-signal subset matches R1b's update budget; arm `launch_r1c_merge_reload_sim.sh` after train starts.
 - While R1b train+n80 is in flight, arm `launch_r1b_to_r1c_chain.sh` so a below-bar decision auto-starts R1c (EPOCHS=6) + merge waiter — avoid idle GPU hours waiting for the next Ralph pass.
-- Prefetch R2 reign parents (TalentPigs/kevin) on crown CPU/network while R1b owns GPUs 6–7 — download does not disturb TK engines or train; ready the merge lane before R1 resolves.
 - R2 equal-α merge can be **CPU-only** on crown (~2 TB RAM): blend safetensors by key with Tok as layout/config donor; refuse if `max_abs_delta==0` (weight-identical). Arm `launch_r2_merge_reload_sim.sh` to wait prefetch + R1c decision before chall reload.
 - Overlap R2 CPU α-merge with R1 train via `launch_r2_premerge.sh` (no GPU); stamp `/root/logs/r2_premerge.done` so the α→n80 waiter reuses the blend and only does chall reload+sim.
 - `merge_alpha.py` writes **`merge_alpha_meta.json`** under `/root/r2_out/alpha_tok_talent_kevin/` (not `affine_data/`) — stamp scripts must read that name (not `merge_meta.json`) or `r2_premerge.done` loses `max_abs_delta` / `n_keys`.
@@ -90,7 +89,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Before R2g/R2i/BKN merge waves, purge **refuted/skipped** `/root/r2_out/alpha_*` (+ old unconst h64 cache) — p1913 freed ~398 GiB (334→729 GiB). Never `rm` the directory behind the live chall symlink (`readlink /tmp/r2*_merged`) until after reload; GPU-resident vLLM can stay healthy briefly.
 - Queue after live 432: 441 thomp (cached) → **431 BKN six** → 450 sft3 → 451 asdf → 452 zeus; all index-probe weights_ok for unconst — prefetch **one** next uncached parent while crown CPU merges (p1914 BKN six).
 - p1916: BKN six prefetch DONE `@a12fc171…` (~3.7 min); next uncached queue parent is **chal-00450** `syntaxsorcerer1/…-sft3@381dbc82…` (weights_ok, 2×safetensors) — arm while R2g n80 gathers.
-- p1919: queue grew **chal-00455** `fortunateGambler/…-sth@8d81e782…` (weights_ok, 16×safetensors ~70 GiB) — arm after zeus so one-at-a-time HF cache stays under disk headroom.
 - p1920: `repo_info` siblings can look complete while `hf_hub_download` of `model.safetensors.index.json` still **GatedRepoError** — re-probe with a real index/shard fetch before arming nvidia (00436 still gated).
 - p1920: arm **R2j** Talent×BKN-seven (live 432) Reason+-gated premerge+reload as soon as parent is cached — do not wait for R2g harvest; GPU lane still serializes behind R2g/R2i.
 - p1922: arm **R2k** Talent×BKN-six (queue 431) Reason+-gated premerge+reload + `watch_chal00431_reason` while R2g still gathers — parent already cached; no extra HF download; serializes behind R2j.
@@ -149,3 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1979: R2x–ad `lane_terminal(R2R)` without `r2r_premerge.done` **deadlocks** GPU forever while whoami duel pending — treat R2r like R2aa (busy only after premerge.done); convert R2r to eager; purge closed parents before the ~70 GiB blend.
 - p1980: chal-00458 whoami Reason+ hr **0.39×** (margin +0.00536, z=1.16) — clears R2r gate but far below crown; history-API stamp beats S3 gzip lag; arm Stage-5 HF waiter before n80 so ≥1.5× uploads without waiting for the next Ralph pass.
 - p1981: `pgrep -f` patterns that appear in the SSH `bash -c` string kill your own session — restart watchers by **pidfile PID only**; patch live-queue Reason watchers with history fast-path before their duel ends.
+- p1982: `fortunateGambler/…-sth` is HF **gated=manual** after p1979 purge — re-download 403; pure-sth (R2ae) blocked until owner grants `unconst`; pivot to pure awesome-v8 (R2af) while R2r gathers.

@@ -1,0 +1,24 @@
+{
+  "pass": 1982,
+  "utc": "2026-08-11T06:58:36Z",
+  "contract_wvk": 3,
+  "r2r_progress": {
+    "challenger": 16,
+    "king": 17,
+    "n": 80
+  },
+  "r2ae": "SKIP_GATED_STH",
+  "sth_error": "GatedRepoError 403 gated=manual after p1979 purge",
+  "r2af": {
+    "armed": true,
+    "pid": 268343,
+    "parent": "0pentensor/Affine-5dflhtkufw-awesome-v8@6c04b16d461d429f9e288508e92f9e42322baec6",
+    "stage5_pid": 268351
+  },
+  "board": {
+    "challenge_id": "chal-00462",
+    "stage": "load_challenger"
+  },
+  "lium_balance_usd": 122763.08,
+  "burn_usd_per_h": 64.0
+}

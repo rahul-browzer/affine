@@ -1,3 +1,11 @@
+## p1982 — R2ae SKIP_GATED sth; armed R2af pure awesome-v8
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,763.
+- R2r n80 healthy ~16/80 (pid 266016); TKC 200/200/200. Board chal-00462 still `load_challenger`.
+- Tried re-prefetch `fortunateGambler/…-sth@8d81e782` (board hr 0.79×) for pure-sth n80 — **GatedRepoError 403** (`gated=manual`); cache gone since p1979 purge.
+- Stamped **R2ae SKIP_GATED**; armed **R2af** pure awesome-v8 post-R2r (pid **268343**) + Stage-5 (pid **268351**); patched `wait_r2q` for R2af holding.
+- Artifacts: `artifacts/r2ae_gated_r2af_armed_p1982.json`, `launch_r2af_awesome_v8_reload_sim.sh`, `watch_r2af_stage5_push.sh`.
+- Next: harvest R2r; else R2af n80; else board Reason+ → R2x–ad.
+
 ## p1981 — R2r n80 gathering; watch462 history fast-path
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,774.
 - R2r chall `:8002` healthy; n80 pid **266016** block_hash `3f8a0d5a…` · progress chall **6/80** king **8/80** @06:51:55Z · TKC 200/200/200.
