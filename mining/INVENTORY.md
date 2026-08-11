@@ -6,9 +6,9 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 (`1c4255fa-…`) | 8×B300 | $64.00 | 2026-08-11T16:12Z | TKC@65536 · **R2ai** sbs chall loading · orphans cleared · host-hist bridge · disk~444 GiB |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | **fresh** · SSH ok · needs warm-stack restore |
 
-SSH: `ssh root@86.38.182.50 -p 40300`
+SSH: `ssh root@95.133.253.90 -p 40099`
 
 Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
-| 2026-08-11T08:21Z | p1993: fleet=1 · killed orphan R2ah EngCore/workers · R2ai chall relaunch pid299985 · burn$64/h · bal~$122573 |
-| 2026-08-11T08:18Z | p1992: fleet=1 · R2ag REFUTE −0.52× · R2ah/R2z SKIP board 0.21× · R2ai sbs armed · burn$64/h · bal~$122573 |
-| 2026-08-11T08:01Z | p1991: fleet=1 · R2ah pure-v9 armed after R2ag · R2ag ~49/49 · burn$64/h · bal~$122618 |
+| 2026-08-11T08:42Z | p1994: rm REBOOT_FAILED lunar-orbit-50; rent gentle-orbit-bd 8×B200@$52.25/h TTL24h; burn$52.25/h · bal~$122516 |
+| 2026-08-11T08:27Z | p1994mid: R2ai n80 started on old pod then SSH 40300 died |
+| 2026-08-11T08:21Z | p1993: fleet=1 · orphan GPU clear · R2ai chall 299985 · burn$64/h · bal~$122573 |

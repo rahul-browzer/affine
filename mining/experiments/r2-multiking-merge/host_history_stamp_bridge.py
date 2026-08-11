@@ -21,8 +21,8 @@ ART = ROOT / "artifacts"
 LOG = ROOT / "logs" / "host_history_stamp_bridge.log"
 PIDF = ROOT / "logs" / "host_history_stamp_bridge.pid"
 
-SSH_HOST = "root@86.38.182.50"
-SSH_PORT = "40300"
+SSH_HOST = "root@95.133.253.90"
+SSH_PORT = "40099"
 SSH = [
     "ssh",
     "-o",

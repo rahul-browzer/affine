@@ -1,3 +1,12 @@
+## p1994 — crown pod bricked → replaced with 8×B200
+- Contract `weight_version_key=3`; king Tok af10.
+- Mid-pass: R2ai chall healthy TKC **200/200/200**, n80 sim **306127** started (artifact `r2ai_n80_started_p1994.json`) — then SSH `86.38.182.50:40300` refused; `lium reboot` → **REBOOT_FAILED** / SSH port None while still @$64/h.
+- **Tore** `lunar-orbit-50` (`lium rm -y mine-crown-1`). B300 sold out → rented **gentle-orbit-bd** 8×B200 @$52.25/h `--ttl 24h` as `mine-crown-1`; SSH `95.133.253.90:40099` OK (8×B200).
+- Updated host-hist bridge SSH consts. Bal~$122,516 · burn **$52.25/h**.
+- Artifacts: `artifacts/r2ai_n80_started_p1994.json`, `artifacts/r2ai_pod_replace_p1994.json`.
+- Next: warm-stack restore on new box → re-arm R2ai / Reason+ **469–471**.
+
+
 ## p1990 — host history stamp bridge (pod CF 403)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,618.
 - R2ag n80 still gathering ~**36/38**/80 (pid 285579); decision pending; Stage-5 waiter armed.

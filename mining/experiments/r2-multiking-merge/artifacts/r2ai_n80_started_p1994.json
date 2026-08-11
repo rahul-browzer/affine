@@ -1,0 +1,38 @@
+{
+  "utc": "2026-08-11T08:27:41Z",
+  "pass": 1994,
+  "hyp": "R2ai",
+  "event": "n80_started",
+  "weight_version_key": 3,
+  "king": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "challenger": "ammazon/Affine-5dvqtektxx-sbs-v0",
+  "challenger_rev": "c175fe8b79a66a8de97953677f1a489cb386261d",
+  "chall_path": "/tmp/r2ai_sbs -> /root/r2_out/sbs_chall",
+  "engines": "200/200/200",
+  "chall_pid": 299985,
+  "sim_pid": 306127,
+  "script_pid": 299876,
+  "block_hash": "d01520e19eef05d47d15eadb96f893770270f8abbc8a7cb8fdfa4ad295b08785",
+  "hotkey_label": "local-r2ai-sbs-20260811T08:27:18Z",
+  "corpus": {
+    "epoch": 7,
+    "schema_version": 2,
+    "manifest_sha256": "167085451ab6b67160a31f4595f12b71d887a0510ecd341bc2bd7c9881bb380e",
+    "ready": true
+  },
+  "outs": {
+    "sim": "/root/affine_data/r2ai_sbs_reason_sim.json",
+    "progress": "/root/affine_data/r2ai_sbs_reason_progress.json",
+    "decision": "/root/affine_data/r2ai_sbs_decision.json",
+    "sim_log": "/root/logs/r2ai_sbs_reason_sim.log"
+  },
+  "board": {
+    "challenge_id": "chal-00468",
+    "repo": "ammazon/Affine-5dvqtektxx-sbs-v0",
+    "stage_at_start": "scoring",
+    "note": "live duel is same parent as R2ai pure local sim"
+  },
+  "stage5_watcher": "armed (wait headroom≥1.5)",
+  "next": "harvest r2ai_sbs_decision.json; hr≥1.5× → Stage-5; else next Reason+ among 469–471"
+}

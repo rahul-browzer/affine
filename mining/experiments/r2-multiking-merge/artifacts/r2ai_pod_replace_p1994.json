@@ -1,0 +1,40 @@
+{
+  "utc": "2026-08-11T08:42:44Z",
+  "pass": 1994,
+  "weight_version_key": 3,
+  "event": "crown_pod_replaced",
+  "old_pod": {
+    "name": "mine-crown-1",
+    "huid": "lunar-orbit-50",
+    "config": "8×B300",
+    "usd_per_h": 64.0,
+    "ssh": "root@86.38.182.50:40300",
+    "last_good": {
+      "event": "r2ai_n80_started",
+      "at": "2026-08-11T08:27:41Z",
+      "sim_pid": 306127,
+      "chall_pid": 299985,
+      "engines": "200/200/200",
+      "block_hash": "d01520e19eef05d47d15eadb96f893770270f8abbc8a7cb8fdfa4ad295b08785"
+    },
+    "failure": {
+      "ssh": "connection refused on 40300 from ~08:29Z",
+      "lium_reboot": "REBOOT_FAILED",
+      "ssh_after_reboot": "port None",
+      "action": "lium rm -y mine-crown-1"
+    }
+  },
+  "new_pod": {
+    "name": "mine-crown-1",
+    "huid": "gentle-orbit-bd",
+    "id": "3d07e519-dbfe-4837-85ef-169152001516",
+    "node_id": "5900a55f-daa3-4858-988d-ad06029e4a6f",
+    "node_huid": "golden-hawk-28",
+    "config": "8×B200",
+    "usd_per_h": 52.2544,
+    "ssh": "root@95.133.253.90 -p 40099",
+    "ttl_until": "2026-08-12T08:41:59Z",
+    "note": "B300 sold out; GOAL allows 8×B200 fallback"
+  },
+  "next": "bootstrap warm-stack restore_warm_stack.sh → re-arm R2ai / Reason+ 469-471"
+}

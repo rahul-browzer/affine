@@ -137,14 +137,10 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1966: while R2p n80 gathers, prefetch next uncached queue parent (chal-00467 awesome-v9 @75871c57, 16×st ~70.2 GiB) on CPU/network — do not merge until Reason+.
 - p1967 queue index probes (unconst): chal-00468 sbs-v0 / 469 sky / 470 google / 471 pig all **weights_ok** — prefetch **sbs first** (16×st) one-at-a-time after v9; sky/google/pig are 2×st (~smaller).
 - p1975: **R2p REFUTE** Talent×sth hr **−0.93×** (margin −0.0282, z=−2.78, n=80) despite board 455 hr 0.79× — best DL Reason+ parent still fails Talent0.25 skew; Stage-5 SKIP; kill chall by PID then purge blend.
-- p1981: `pgrep -f` patterns that appear in the SSH `bash -c` string kill your own session — restart watchers by **pidfile PID only**.
-- p1983: unconst public `Affine-5czsc*-h*-merged` still huge — pre-delete ≥3×65 GiB during n80 before Stage-5 push.
-- p1985: Talent×whoami board hr 0.39× → local hr **−1.43×** — board Reason+ does not transfer via Talent skew.
-- p1986: board awesome-v8 hr −0.04× → **SKIP pure-v8** local n80; free GPUs for next Reason+.
-- p1987: after SKIP leaves GPUs idle, arm **pure queue-parent n80** + history bridge — do not burn $64/h on gzip wait.
-- p1989: history `accepted=false`/`unservable` has **null margin** — stamp `hr=None` or waiters idle forever.
-- p1990: crown-pod often **CF 403** on `affine.io` history — host `host_history_stamp_bridge.py` + scp stamps.
-- p1991: prefer **pure next board parent** over Talent×parent after pure n80; PID-alive gate so siblings cannot steal.
-- p1992: **R2ag** pure tpc9 local hr **−0.52×** — board-unservable parent also loses locally; Stage-5 SKIP.
-- p1992: board Reason+ hr **≪1.5×** (v9 **0.21×**) → **SKIP_BOARD_FIRST** mid-load; free GPU for next pure parent.
-- p1993: chall kill-by-API-pidfile can leave **orphan EngineCore+Workers** (~200 GiB on GPU4/5) → next chall OOM; kill EngCore/worker PIDs then relaunch.
+- p1981: `pgrep -f` in SSH `bash -c` kills your session — restart watchers by **pidfile PID only**.
+- p1985–86: Talent×whoami board 0.39× → local **−1.43×**; board awesome-v8 −0.04× → **SKIP pure-v8**.
+- p1987: idle GPUs after SKIP → arm **pure queue-parent n80** + history bridge.
+- p1989–90: history unservable has **null margin** (stamp `hr=None`); crown-pod **CF 403** → host stamp bridge.
+- p1991–92: prefer **pure board parent**; R2ag tpc9 **−0.52×**; board hr≪1.5× → **SKIP_BOARD_FIRST**.
+- p1993: API-pidfile kill can leave **orphan EngCore/Workers** → OOM next chall; kill those PIDs.
+- p1994: SSH refuse + `lium reboot` → **REBOOT_FAILED**/port None while billing — `lium rm` that `mine-*` and re-rent (B300 sold out → 8×B200 OK).

@@ -3,7 +3,7 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4** — Reason v3 crown push. `weight_version_key=3`. King-watch revoked.
+**Stage 3→4** — new crown pod online; warm stack not yet restored. `weight_version_key=3`.
 
 ## Live facts
 
@@ -11,32 +11,29 @@ Rewritten every pass. Do not append.
 |---|---|
 | contract | Reason v3 · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` |
-| corpus | epoch **7** · schema v2 |
-| Lium | ~$122,573 · burn **$64/h** (≤$833/h) |
-| fleet | `mine-crown-1` lunar-orbit-50 8×B300 · TTL→2026-08-11T16:12Z |
+| corpus | epoch **7** · schema v2 (re-sync on new pod) |
+| Lium | ~$122,516 · burn **$52.25/h** (≤$833/h) |
+| fleet | `mine-crown-1` **gentle-orbit-bd** 8×B200 · TTL→2026-08-12T08:42Z |
+| SSH | `ssh root@95.133.253.90 -p 40099` |
 | submissions | 0 · hotkey `default` unused |
-| **R2ag** | pure tpc9 **REFUTE** hr **−0.52×** |
-| **R2ah/R2z** | **SKIP_BOARD** chal-00467 v9 hr **0.21×** |
-| **R2ai** | sbs-v0 relaunched · chall **299985** :8002 · script **299876** |
-| **R2aa–ad** | wait 468–471 Reason+ · blocked on R2ai PID |
-| board | duel **chal-00468** sbs-v0 |
+| **R2ai** | **RESET** — old lunar-orbit-50 died REBOOT_FAILED mid-n80 |
+| board | duel **chal-00468** sbs-v0 (was scoring) |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TKC@65536 · R2ai loading · Stage-5 watch |
+| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | fresh 8×B200 · empty · needs warm restore |
 
-- R2ai: `tail -f /root/logs/r2ai_sbs_reload.log`
-- Stage-5: `tail -f /root/logs/watch_r2ai_stage5_push.log`
-- Host bridge pid **1202431**: `experiments/r2-multiking-merge/logs/host_history_stamp_bridge.log`
-- p1993: killed orphan R2ah EngCore/workers (GPU4/5 OOM) → relaunched R2ai
+- Host hist bridge pid **1202431** (SSH consts updated → new pod; restart if stamp needed)
+- Old pod `lunar-orbit-50` **removed** (SSH port None after REBOOT_FAILED)
 
 ## Blocked
 
-- Submit only if sim hr ≥ **1.5×**. sth gated=manual. tpc9 unservable.
-- Pod CF 403 on affine.io — use host bridge. Kill EngCore orphans after API pidfile kill.
+- No TKC engines until `experiments/warm-stack/restore_warm_stack.sh` on new box.
+- B300 sold out → B200 fallback (@$52.25/h). Re-prefetch parents after restore.
+- Submit only if sim hr ≥ **1.5×**.
 
 ## Next action
 
-**Watch R2ai** → n80 → `r2ai_sbs_decision.json`. hr≥1.5× → Stage-5. Else next Reason+ **469–471** (pure > Talent).
+**Bootstrap warm stack** on new `mine-crown-1` (HF token → restore TK@65536 → corpus sync) → re-arm R2ai pure sbs-v0 n80 (or next Reason+ 469–471).
