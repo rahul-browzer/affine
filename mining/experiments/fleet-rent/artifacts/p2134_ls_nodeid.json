@@ -1,0 +1,28 @@
+{
+  "utc": "2026-08-11T23:38:30Z",
+  "pass": 2134,
+  "action": "fleet-rent: replace blind parallel lium-up with ls-then-node-id snatch; B300-first (~1s/iter); B200 ls every 10th; one ps/40 iters",
+  "pidfile": "experiments/fleet-rent/logs/wait_fleet_b300.pid",
+  "pid": 2751643,
+  "env": {
+    "PARALLEL_N": 22,
+    "POLL_S": 0,
+    "MAX_ITERS": 86400,
+    "PASS": 2134,
+    "MINE_CAP": 25,
+    "TARGET_MINES": 25,
+    "TTL": "24h",
+    "mode": "ls-then-node-id"
+  },
+  "cadence": {
+    "prev_blind_up_s_per_iter": 22,
+    "new_ls_s_per_iter": 1.0,
+    "measured": "iter1@23:37:34Z → iter41@23:38:15Z"
+  },
+  "stock": {
+    "B300x8": 0,
+    "B200x8": 0
+  },
+  "burn_h": 180.25,
+  "floor_h": 833
+}

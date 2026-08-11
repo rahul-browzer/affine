@@ -13,12 +13,12 @@ TTL=${TTL:-24h}
 CAP=${MINE_CAP:-25}
 # Burn floor ≈ $833/h ÷ ~$64/h ≈ 13 boxes; keep renting to CAP (floor≠ceiling).
 TARGET=${TARGET_MINES:-25}
-POLL_S=${POLL_S:-10}  # snatch B300×8 fast when stock flickers (was 30)
-# Fire this many distinct axis names per round in parallel (p2129).
-# Serial one-name blind-fire misses multi-node flickers and races poorly.
-PARALLEL_N=${PARALLEL_N:-4}
-MAX_ITERS=${MAX_ITERS:-2160}  # ~6h @10s
-PASS=${PASS:-2108}
+# Empty-stock sleep between ls polls. 0 → 0.25s (avoid CPU spin; ls≈0.6s anyway).
+POLL_S=${POLL_S:-0}
+# Max distinct axes to claim per stock sighting (one node → one name).
+PARALLEL_N=${PARALLEL_N:-22}
+MAX_ITERS=${MAX_ITERS:-86400}
+PASS=${PASS:-2134}
 
 # Distinct experimental axes (one pod each). Skip names already live.
 # Format: name|axis_id|short_note
@@ -94,15 +94,29 @@ name_live() {
   mine_names | grep -qx "$n"
 }
 
-stock_ok() {
+# Print available 8×$gpu node ids (prefer huid, else uuid), one per line.
+list_nodes() {
   local gpu=$1
+  # stderr discarded: empty stock prints "All … rented out" tips.
   lium ls --gpu "$gpu" --count 8 --format json 2>/dev/null \
     | python3 -c 'import json,sys
 try:
     d=json.load(sys.stdin)
 except Exception:
-    sys.exit(1)
-sys.exit(0 if isinstance(d,list) and len(d)>0 else 1)'
+    sys.exit(0)
+nodes = d if isinstance(d, list) else (d.get("nodes") or d.get("data") or [])
+for n in nodes:
+    if not isinstance(n, dict):
+        continue
+    nid = n.get("huid") or n.get("id") or n.get("name")
+    if nid:
+        print(nid)
+'
+}
+
+stock_ok() {
+  local gpu=$1
+  list_nodes "$gpu" | grep -q .
 }
 
 next_slot() {
@@ -140,6 +154,18 @@ next_slots() {
   printf '%s\n' "${out[@]}"
 }
 
+# Rent a concrete node id/huid (fast path once ls shows stock).
+try_rent_node() {
+  local node=$1 name=$2
+  log "attempting lium up node=$node name=$name ttl=$TTL"
+  set +e
+  lium up "$node" --name "$name" --ttl "$TTL" --no-ssh -y
+  local rc=$?
+  set -e
+  return "$rc"
+}
+
+# Legacy auto-select fallback (slower when empty; keep for rare ls/up races).
 try_rent() {
   local gpu=$1 name=$2
   log "attempting lium up gpu=$gpu name=$name ttl=$TTL"
@@ -193,11 +219,26 @@ sys.exit(0 if bal >= 10000 else 1)
 PY
 }
 
-log "start target=$TARGET cap=$CAP poll=${POLL_S}s parallel=$PARALLEL_N max_iters=$MAX_ITERS pass=$PASS"
+log "start target=$TARGET cap=$CAP poll=${POLL_S}s parallel=$PARALLEL_N max_iters=$MAX_ITERS pass=$PASS mode=ls-then-node-id"
 log "live_mines=$(mine_names | tr '\n' ' ')|count=$(mine_count)"
 
-for i in $(seq 1 "$MAX_ITERS"); do
-  n=$(mine_count)
+empty_sleep() {
+  # POLL_S=0 → brief pause so empty-stock loops don't peg a core (ls≈0.6s).
+  if (( POLL_S > 0 )); then
+    sleep "$POLL_S"
+  else
+    sleep 0.25
+  fi
+}
+
+live_now=""
+n=0
+names=()
+declare -A slot_axis=() slot_note=()
+
+refresh_queue() {
+  live_now=$(mine_names | tr '\n' ' ')
+  n=$(echo "$live_now" | awk '{print NF}')
   if (( n >= TARGET )); then
     log "TARGET reached mine_count=$n >= $TARGET — exit"
     exit 0
@@ -206,14 +247,8 @@ for i in $(seq 1 "$MAX_ITERS"); do
     log "ABORT at cap mine_count=$n >= $CAP"
     exit 3
   fi
-  if ! bal_ok; then
-    log "ABORT balance below \$10k floor"
-    exit 4
-  fi
-
-  # Cap parallel width by remaining slots under CAP.
-  local_n=$PARALLEL_N
-  remain=$(( CAP - n ))
+  local remain=$(( CAP - n ))
+  local local_n=$PARALLEL_N
   if (( remain < local_n )); then
     local_n=$remain
   fi
@@ -221,39 +256,93 @@ for i in $(seq 1 "$MAX_ITERS"); do
     log "ABORT at cap mine_count=$n >= $CAP"
     exit 3
   fi
-
-  mapfile -t slots < <(next_slots "$local_n" || true)
-  if (( ${#slots[@]} == 0 )); then
-    log "QUEUE exhausted with mine_count=$n < target=$TARGET — exit"
-    exit 0
-  fi
-
-  # Parallel blind-fire: one B300 attempt per pending axis name, then B200
-  # fallbacks for misses. snatch multi-node flickers; race better vs serial.
-  declare -A slot_axis=() slot_note=() rented_gpu=()
   names=()
-  for slot in "${slots[@]}"; do
-    name=${slot%%|*}
-    rest=${slot#*|}
+  slot_axis=()
+  slot_note=()
+  local ent name rest axis note
+  for ent in "${QUEUE[@]}"; do
+    name=${ent%%|*}
+    rest=${ent#*|}
     axis=${rest%%|*}
     note=${rest#*|}
-    if name_live "$name"; then
+    if echo " $live_now " | grep -q " $name "; then
       continue
     fi
     names+=("$name")
     slot_axis["$name"]=$axis
     slot_note["$name"]=$note
+    if (( ${#names[@]} >= local_n )); then
+      break
+    fi
   done
   if (( ${#names[@]} == 0 )); then
-    sleep 2
+    log "QUEUE exhausted with mine_count=$n < target=$TARGET — exit"
+    exit 0
+  fi
+}
+
+refresh_queue
+
+for i in $(seq 1 "$MAX_ITERS"); do
+  # bal / ps only every 40 empty iters — keep the hunt on ls latency.
+  if (( i == 1 || i % 40 == 0 )); then
+    if ! bal_ok; then
+      log "ABORT balance below \$10k floor"
+      exit 4
+    fi
+    refresh_queue
+  fi
+
+  # Fast path (p2134): ls B300 (~0.6s) then rent concrete node ids.
+  # Blind parallel `lium up --gpu` when empty burned ~20s/round and missed flickers.
+  # B200 probed every 10th empty iter only — keep the B300 flicker window tight.
+  mapfile -t b300_nodes < <(list_nodes B300 2>/dev/null || true)
+  gpu_label=B300
+  nodes=("${b300_nodes[@]}")
+  if (( ${#nodes[@]} == 0 )) && (( i % 10 == 0 )); then
+    mapfile -t b200_nodes < <(list_nodes B200 2>/dev/null || true)
+    if (( ${#b200_nodes[@]} > 0 )); then
+      gpu_label=B200
+      nodes=("${b200_nodes[@]}")
+      log "B300×8 empty — claiming B200×8 stock (${#nodes[@]} nodes)"
+    fi
+  fi
+
+  if (( ${#nodes[@]} == 0 )); then
+    if (( i % 40 == 1 )); then
+      bal=$(lium balance 2>/dev/null | tr -d '\n' | head -c 80 || true)
+      log "iter=$i ls-empty B300/B200×8; mine=$n/$TARGET (cap $CAP) next=${names[*]:0:6}… bal=$bal"
+    fi
+    empty_sleep
     continue
   fi
 
+  # Stock appeared — refresh live names before claiming.
+  refresh_queue
+  if (( ${#names[@]} == 0 )); then
+    continue
+  fi
+
+  # Pair each available node with next axis name; rent in parallel by node id.
+  n_claim=${#nodes[@]}
+  if (( n_claim > ${#names[@]} )); then
+    n_claim=${#names[@]}
+  fi
+  log "STOCK ${gpu_label}×8 n=${#nodes[@]} — claiming $n_claim axes: ${names[*]:0:n_claim}"
+
+  declare -A rented_gpu=()
   pids=()
-  for name in "${names[@]}"; do
+  for ((j=0; j<n_claim; j++)); do
+    name=${names[$j]}
+    node=${nodes[$j]}
     (
-      if try_rent B300 "$name"; then
-        echo "B300" >"/tmp/fleet_rent_${name}.gpu"
+      if try_rent_node "$node" "$name"; then
+        echo "$gpu_label" >"/tmp/fleet_rent_${name}.gpu"
+        exit 0
+      fi
+      # Race: node vanished between ls and up — one auto-select retry.
+      if try_rent "$gpu_label" "$name"; then
+        echo "$gpu_label" >"/tmp/fleet_rent_${name}.gpu"
         exit 0
       fi
       exit 1
@@ -264,59 +353,22 @@ for i in $(seq 1 "$MAX_ITERS"); do
     wait "$pid" || true
   done
 
-  miss=()
-  for name in "${names[@]}"; do
+  for ((j=0; j<n_claim; j++)); do
+    name=${names[$j]}
     if [[ -f "/tmp/fleet_rent_${name}.gpu" ]]; then
       rented_gpu["$name"]=$(cat "/tmp/fleet_rent_${name}.gpu")
       rm -f "/tmp/fleet_rent_${name}.gpu"
-    else
-      miss+=("$name")
     fi
   done
 
-  # B200 fallback only when 8×B200 stock exists. Empty B200 waves double API
-  # latency and eat the B300 flicker window (p2132).
-  if (( ${#miss[@]} > 0 )) && stock_ok B200; then
-    pids=()
-    for name in "${miss[@]}"; do
-      (
-        if try_rent B200 "$name"; then
-          echo "B200" >"/tmp/fleet_rent_${name}.gpu"
-          exit 0
-        fi
-        exit 1
-      ) &
-      pids+=($!)
-    done
-    for pid in "${pids[@]}"; do
-      wait "$pid" || true
-    done
-    for name in "${miss[@]}"; do
-      if [[ -f "/tmp/fleet_rent_${name}.gpu" ]]; then
-        rented_gpu["$name"]=$(cat "/tmp/fleet_rent_${name}.gpu")
-        rm -f "/tmp/fleet_rent_${name}.gpu"
-        log "B300×8 empty — fell back to B200×8 for $name"
-      fi
-    done
-  elif (( ${#miss[@]} > 0 )); then
-    if (( i % 20 == 1 )); then
-      log "skip B200 fallback (B200×8 stock empty); keep B300-only fire"
-    fi
-  fi
-
   n_rented=${#rented_gpu[@]}
   if (( n_rented == 0 )); then
-    if (( i % 20 == 1 )); then
-      bal=$(lium balance 2>/dev/null | tr -d '\n' | head -c 80 || true)
-      log "iter=$i no 8×B300/B200 (parallel×${#names[@]} miss); mine=$n/$TARGET (cap $CAP) next=${names[*]} bal=$bal"
-    fi
-    if (( POLL_S > 0 )); then
-      sleep "$POLL_S"
-    fi
+    log "iter=$i STOCK sighting but 0 rents (${gpu_label} n=${#nodes[@]}) — keep polling"
+    empty_sleep
     continue
   fi
 
-  sleep 10
+  sleep 8
   for name in "${!rented_gpu[@]}"; do
     gpu=${rented_gpu[$name]}
     axis=${slot_axis[$name]}
@@ -328,7 +380,8 @@ for i in $(seq 1 "$MAX_ITERS"); do
       log "up rc=0 but $name not in ps — keep polling"
     fi
   done
-  # Immediately try next round if more stock (no long sleep).
+  refresh_queue
+  # Immediately re-ls if more stock (no long sleep).
 done
 
 log "TIMEOUT after $MAX_ITERS iters — mine_count=$(mine_count)"
