@@ -294,6 +294,34 @@ for _i in $(seq 1 2880); do
   break
 done
 
+# R2am Talent×sbs-v1 (chal-00480 Reason+) — holding stamp only
+R2AM_DEC=${R2AM_DEC:-/root/affine_data/r2am_alpha_decision.json}
+R2AM_DONE=${R2AM_DONE:-/root/logs/r2am_merge_reload.done}
+R2AM_PIDF=${R2AM_PIDF:-/root/logs/r2am_merge_reload.pid}
+R2AM_HOLDING=${R2AM_HOLDING:-/root/logs/r2am_talent_sbs_v1_holding.stamp}
+if [[ -f "$R2AM_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AM_DEC"; then
+  echo "SKIP_${_TAG}_R2AM_CLEARS file=$R2AM_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AM_DONE" || -f "$R2AM_DEC" ]]; then
+    echo "[${_TAG}] R2am terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AM_HOLDING" ]] && [[ -f "$R2AM_PIDF" ]]; then
+    _ppid=$(cat "$R2AM_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        echo "[${_TAG}] wait-r2am iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid holding"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2am not holding lane at iter=$_i"
+  break
+done
+
 # R2r Talent×whoami (live chal-00458) — holding stamp only; Reason waiters must not block
 R2R_DEC=${R2R_DEC:-/root/affine_data/r2r_alpha_decision.json}
 R2R_DONE=${R2R_DONE:-/root/logs/r2r_merge_reload.done}

@@ -1,0 +1,15 @@
+{
+  "pass": 2017,
+  "utc": "2026-08-11T11:04:59Z",
+  "hyp": "R2ab",
+  "blend": "Talent0.25×sky0.75",
+  "decision": "REFUTE",
+  "margin": -0.050824474696535754,
+  "se": 0.010681388769186456,
+  "z": -4.758227211348546,
+  "threshold_3se": 0.032044166307559366,
+  "headroom_vs_3se": -1.5860757371161822,
+  "n_paired_turns": 77,
+  "stage5": false,
+  "handoff": "R2ac Talent×google claimed chall + n80 launched; R2am EAGER Δ0.671 waiting chal-00480 Reason+; purged alpha_talent_sky_skew ~66GiB"
+}

@@ -66,7 +66,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - After Tok×awesome blends stay Δ≪0.01, queue **pure awesome-v6** as chall (R2d) before more α knobs — published hr≈0.92× is the transfer question; derive `preprocessor_config.json` like Tok.
 - TalentPigs×awesome-v6 skew (0.25/0.75) CPU premerge: max_abs_delta=**0.626** vs Tok×awesome Δ≈0.006–0.009 — non-Tok layout donor escapes near-identical blends; queue as R2e after pure-awesome n80.
 - Skip Tok×awesome equal-α/skew n80 when Δ≪0.01 — stamp `r2_weak_lanes_skipped.done` + below-bar stubs; **kill prior waiters before writing stub decisions** (old R2d raced on R2C stub and killed chall).
-- Do **not** use `SKIP_R2C` done text to jump the queue — R2d/R2e honor SKIP_* and cascade-exit; use weak_skip stamp + R1c-lane gate instead.
 - R1c nsup≥100 / EPOCHS=6 LoRA vs Tok: margin **−0.0171** (z=−2.75, hr −0.92×, n_paired=67) — worse than R1b; king-init high-Reason SFT family closed for this reign; pivot to R2d/R2e parents.
 - Near-miss rescan p1896 (chal≥405, per-turn mean Reason): **awesome-v6 still only DL Reason+** (hr≈0.92×); chal-00438 aurora prince gated hr≈0.17×; chal-00439 darius3th DL but hr≈−1.79× — do not prefetch as parent.
 - While R2d n80 burns GPU, arm next non-Tok×awesome CPU skew (**kevin×awesome** R2f) so R2e→R2f has no idle merge gap; kevin snapshot already on crown from early prefetch.
@@ -148,3 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Pod replace also drops nohup CPU premerges (R2ac p1976 vanished with no logs) — after warm READY, re-check `r2ac_premerge.log` / pid and re-arm if absent while R2ak runs.
 - R2ak pure google local n80 hr **0.641×**; board chal-00470 gzip hr **0.094×** — local≫board slice noise; hr>0 → R2ac DONE; no Stage-5.
 - R2al SKIP_BOARD 471 pig hr0.580×; **R2ac↔R2ad deadlock** if ac waits on `r2ad_premerge.done` while ad waits on ac — yield only on `*_holding.stamp` (p2015).
+- R2ab Talent×sky local n80 hr **−1.59×** (margin −0.051, z=−4.76, n=77) — REFUTE; board sky ~0.46× does not crown via Talent0.25 skew (same pattern as R2l/n/o/p).
