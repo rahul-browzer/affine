@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $120,028.046 | 2026-08-11T23:49Z |
-| cumulative mining spend | ~$77,564 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T23:49Z |
-| **available for mining** | **~$110,028** (balance − $10,000 floor) | 2026-08-11T23:49Z |
+| Lium balance | $119,986.353 | 2026-08-11T23:55Z |
+| cumulative mining spend | ~$77,606 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T23:55Z |
+| **available for mining** | **~$109,986** (balance − $10,000 floor) | 2026-08-11T23:55Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T23:49Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T23:55Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T23:55Z | 119986.353 | p2138 no rent (B300/B200×8=0); R2bh IntoLayer armed; burn **$180.25/h**; Δ−$42 vs p2137 |
 | 2026-08-11T23:49Z | 120028.046 | p2137 no rent (B300/B200×8=0); fleet→unfiltered-8x+CAP-protect; burn **$180.25/h**; Δ$0 vs p2136 |
 | 2026-08-11T23:45Z | 120028.046 | p2136 no rent (B300/B200×8=0); fleet→api-http; burn **$180.25/h**; Δ−$21 vs p2135 |
 | 2026-08-11T23:40Z | 120048.959 | p2135 no rent (B300/B200×8=0); rearm fleet-boot; burn **$180.25/h**; Δ−$21 vs p2134 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T23:15Z | 120153.203 | p2131 no rent (B300×8=0); fleet parallel×16+86400iters; burn **$180.25/h**; Δ−$21 vs p2130 |
 | 2026-08-11T23:13Z | 120174.080 | p2130 no rent (B300×8=0); fleet→**parallel×8**; burn **$180.25/h**; Δ$0 vs p2129 |
 | 2026-08-11T23:11Z | 120174.080 | p2129 no rent (B300×8=0); fleet→**parallel×4**; burn **$180.25/h**; Δ−$21 vs p2128 |
-| 2026-08-11T23:07Z | 120194.970 | p2128 no rent (B300×8=0); R3b dedupe + fleet POLL=1s; burn **$180.25/h**; Δ−$20 vs p2127 |

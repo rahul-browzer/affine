@@ -1,0 +1,46 @@
+{
+  "utc": "2026-08-11T23:53:45Z",
+  "pass": 2138,
+  "action": "armed_pure_intolayer_v1_prefetch_and_reload_after_r2bg",
+  "prior_live": {
+    "hyp": "R2bg",
+    "repo": "afgod1079/Affine-5hgjp6jaqp-cp1266",
+    "revision": "68d1daa2a846d9f9e7ab9b8acfb304683f719be2",
+    "challenge_id": "chal-00514",
+    "n80_progress": {"challenger": 47, "king": 47, "n_turns": 80}
+  },
+  "target": {
+    "repo": "IntoLayer/Affine-5g94ihdxwu-v1",
+    "revision": "9b6bc52c8aee3ebbeb409f34114ef343c9a0d0b7",
+    "challenge_id": "chal-00516",
+    "queued_at": "2026-08-11T23:42:09",
+    "hub": {
+      "n_weights": 1026,
+      "n_shards": 2,
+      "arch": "Qwen3_5MoeForConditionalGeneration",
+      "gb": 65.4,
+      "weights_ok": true,
+      "preprocessor_config": false,
+      "note": "derive preprocessor from processor_config like Tok"
+    }
+  },
+  "crown": {
+    "prefetch": "launch_prefetch_intolayer_v1.sh",
+    "reload": "launch_r2bh_intolayer_reload_sim.sh",
+    "stage5": "watch_r2bh_stage5_push.sh",
+    "prefetch_pid": 254410,
+    "reload_pid": 254411,
+    "stage5_pid": 254412
+  },
+  "host": {
+    "hist_bridge_pid": 2777023,
+    "chal00516_added_to_TARGETS": true
+  },
+  "fleet": {
+    "B300x8": 0,
+    "B200x8": 0,
+    "waiter_pid": 2771543,
+    "mode": "api-unfiltered-8x"
+  },
+  "burn_h": 180.25
+}

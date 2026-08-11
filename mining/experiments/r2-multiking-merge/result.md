@@ -1,3 +1,12 @@
+## p2138 — R2bh IntoLayer chal-00516 armed (2026-08-11T23:54Z)
+
+- B300/B200×8 stock still **0** (fleet api-unfiltered-8x pid**2771543**); burn **$180.25/h** vs $833.
+- New queue parent **chal-00516** `IntoLayer/Affine-5g94ihdxwu-v1@9b6bc52c…` — Hub probe OK (1026w / 2 shards / multimodal MoE ~65 GiB).
+- Armed **R2bh** on crown overlapping R2bg n80 (~47/80): `launch_prefetch_intolayer_v1.sh`, `launch_r2bh_intolayer_reload_sim.sh` (waits R2bg terminal), `watch_r2bh_stage5_push.sh` (pids 254410/254411/254412).
+- Host-hist bridge restarted pid**2777023** with chal-00516 TARGET.
+- Artifacts: `artifacts/r2bh_intolayer_armed_p2138.json`.
+- Next: R2bg decision → R2bh n80; rent B300 if stock.
+
 ## p2133 — R2bf REFUTE → R2bg cp1266 armed (2026-08-11T23:28Z)
 
 - **R2bf** pure dpo2 n80 done: margin **−0.00206** · SE **0.00363** · z=**−0.57** · hr_vs_3se **−0.189×** → **REFUTE** / Stage-5 `SKIP_BELOW_BAR`.
