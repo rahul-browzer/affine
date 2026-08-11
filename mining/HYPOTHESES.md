@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** pure sft3 **0.39×**; **R2l** Talent×sft3 **n80~11/80** + stage5-push; **R2w** yielding; **p1953** prefetch **awesome-v8→tpc9** + watch 462/463 |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** pure sft3 **0.39×**; **R2l** Talent×sft3 **n80~21/80** + stage5-push; **R2w** yielding; **R2x** Talent×awesome-v8 armed (prefetch DONE, wait 462 Reason+); tpc9 DL |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e/g/h/q/t REFUTED**. **R2j/i/k SKIPPED**. **R2s/R2u WEAK_SKIP**. **R2v** pure sft3 local hr **0.39×** (margin +0.0049, z=1.18) ≈ board 450 0.37× — no Stage-5. **R2l** Talent0.25×sft3:0.75 (Δ=0.626) **n80 ~11/80**; stage5-push armed. **R2w** asdf yielding. **p1953:** queue grew chal-00462 awesome-v8 + chal-00463 tpc9 (both weights_ok); prefetch v8 then tpc9 + Reason watchers — no merge until Reason+. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e/g/h/q/t REFUTED**. **R2j/i/k SKIPPED**. **R2s/R2u WEAK_SKIP**. **R2v** pure sft3 local hr **0.39×** (margin +0.0049, z=1.18) ≈ board 450 0.37× — no Stage-5. **R2l** Talent0.25×sft3:0.75 (Δ=0.626) **n80 ~21/80**; stage5-push armed. **R2w** asdf yielding. **R2x** Talent0.25×awesome-v8:0.75 armed (v8 prefetch DONE @6c04b16d; waits chal-00462 hr>0; GPU after R2l…R2r/R2w). tpc9 prefetch in flight. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.

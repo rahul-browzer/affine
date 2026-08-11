@@ -63,6 +63,9 @@ R2P_PREMERGE_SKIP=${R2P_PREMERGE_SKIP:-/root/logs/r2p_premerge.skip}
 R2R_DEC=${R2R_DEC:-/root/affine_data/r2r_alpha_decision.json}
 R2R_DONE=${R2R_DONE:-/root/logs/r2r_merge_reload.done}
 R2R_PREMERGE_SKIP=${R2R_PREMERGE_SKIP:-/root/logs/r2r_premerge.skip}
+R2X_DEC=${R2X_DEC:-/root/affine_data/r2x_alpha_decision.json}
+R2X_DONE=${R2X_DONE:-/root/logs/r2x_merge_reload.done}
+R2X_PREMERGE_SKIP=${R2X_PREMERGE_SKIP:-/root/logs/r2x_premerge.skip}
 
 headroom_ok() {
   local f="$1"
@@ -234,6 +237,7 @@ for i in $(seq 1 2880); do
   if lane_claiming_gpu "$R2O_DONE" "$R2O_PREMERGE_SKIP" "$R2O_DEC" /root/logs/r2o_premerge.done; then busy=1; fi
   if lane_claiming_gpu "$R2P_DONE" "$R2P_PREMERGE_SKIP" "$R2P_DEC" /root/logs/r2p_premerge.done; then busy=1; fi
   if lane_claiming_gpu "$R2R_DONE" "$R2R_PREMERGE_SKIP" "$R2R_DEC" /root/logs/r2r_premerge.done; then busy=1; fi
+  if lane_claiming_gpu "$R2X_DONE" "$R2X_PREMERGE_SKIP" "$R2X_DEC" /root/logs/r2x_premerge.done; then busy=1; fi
 
   if (( busy == 0 )); then
     echo "[r2w-asdf] no GPU claimant ahead; lane free at iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ)"
