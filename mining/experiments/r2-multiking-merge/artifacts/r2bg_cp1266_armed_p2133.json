@@ -1,0 +1,44 @@
+{
+  "utc": "2026-08-11T23:28:49Z",
+  "pass": 2133,
+  "action": "armed_pure_cp1266_prefetch_and_reload_after_r2bf_refute",
+  "prior": {
+    "hyp": "R2bf",
+    "repo": "trangd/affine-5dvha3y7cd-dpo2",
+    "revision": "90ea78ff67c4e86632d907349ceba3342700e646",
+    "challenge_id": "chal-00511",
+    "margin": -0.0020583504914874016,
+    "se": 0.003628759282439636,
+    "z": -0.5672325804161803,
+    "headroom_vs_3se": -0.18907752680539344,
+    "decision": "REFUTE",
+    "stage5": "SKIP_BELOW_BAR"
+  },
+  "target": {
+    "repo": "afgod1079/Affine-5hgjp6jaqp-cp1266",
+    "revision": "68d1daa2a846d9f9e7ab9b8acfb304683f719be2",
+    "challenge_id": "chal-00514",
+    "hub": {
+      "n_weights": 1026,
+      "n_shards": 2,
+      "arch": "Qwen3_5MoeForConditionalGeneration",
+      "gb": 70.2
+    }
+  },
+  "crown": {
+    "prefetch": "launch_prefetch_cp1266.sh",
+    "reload": "launch_r2bg_cp1266_reload_sim.sh",
+    "stage5": "watch_r2bg_stage5_push.sh",
+    "prefetch_pid": 248646,
+    "reload_pid": 248718,
+    "stage5_pid": 248752
+  },
+  "fleet": {
+    "B300x8": 0,
+    "B200x8": 0,
+    "waiter_pid": 2714756,
+    "parallel": 22,
+    "poll_s": 0
+  },
+  "burn_h": 180.25
+}

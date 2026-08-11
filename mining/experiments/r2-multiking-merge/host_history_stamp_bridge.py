@@ -75,7 +75,8 @@ TARGETS = {
     "chal-00502": "chal00502",  # arbosfan ec08cldg (queue; p2065)
     "chal-00504": "chal00504",  # nerojimmy ckp55 (queue; p2065)
     "chal-00508": "chal00508",  # Shatoria hope12 (queue; p2118 R2be)
-    "chal-00511": "chal00511",  # trangd dpo2 (queue; p2118 next)
+    "chal-00511": "chal00511",  # trangd dpo2 (queue; p2118 / R2bf REFUTE p2133)
+    "chal-00514": "chal00514",  # afgod1079 cp1266 (queue; p2133 R2bg)
 }
 
 

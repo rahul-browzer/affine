@@ -1,3 +1,13 @@
+## p2133 — R2bf REFUTE → R2bg cp1266 armed (2026-08-11T23:28Z)
+
+- **R2bf** pure dpo2 n80 done: margin **−0.00206** · SE **0.00363** · z=**−0.57** · hr_vs_3se **−0.189×** → **REFUTE** / Stage-5 `SKIP_BELOW_BAR`.
+- Artifacts: `artifacts/r2bf_dpo2_decision.json`, `artifacts/r2bf_dpo2_reason_sim.json`.
+- Armed **R2bg** pure `afgod1079/Affine-5hgjp6jaqp-cp1266@68d1daa2…` (queue chal-00514; Hub 1026 w / 2 shards / multimodal MoE ~70 GB).
+- Crown: `launch_prefetch_cp1266.sh`, `launch_r2bg_cp1266_reload_sim.sh`, `watch_r2bg_stage5_push.sh` (pids 248646/248718/248752).
+- Host-hist bridge restarted pid**2733446** with chal-00514. Fleet still B300×22 POLL=0 (stock 0).
+- Artifacts: `artifacts/r2bg_cp1266_armed_p2133.json`.
+- Next: R2bg n80 decision; rent B300 if stock.
+
 ## p2121 — R2bf dpo2 armed overlapping R2be n80 (2026-08-11T22:23Z)
 
 - No 8×B300/B200 stock (fleet blind-fire continues @POLL=0 → `mine-r6-fmt-1`).

@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bf** n80~30/80 (dpo2@90ea78ff; chal-00511) |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bf REFUTE** m=−0.00206 z=−0.57; **R2bg** cp1266@68d1daa2 (chal-00514) armed |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open — PRIORITY** · live on `mine-r3-grpo-1` (p2127) |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
@@ -48,7 +48,8 @@
 - R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75). Dir: `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge
-- **R2ba–be** WEAK/UNSERVABLE. **R2bf** n80~30/80 (dpo2@90ea78ff; chal-00511). Dir: `experiments/r2-multiking-merge/`.
+- **R2ba–be** WEAK/UNSERVABLE. **R2bf REFUTE** p2133: n80 m=**−0.00206** z=−0.57 SE=0.00363 hr=−0.19× (dpo2@90ea78ff; chal-00511) → Stage-5 SKIP.
+- **R2bg** armed p2133: pure `afgod1079/Affine-5hgjp6jaqp-cp1266@68d1daa2…` (chal-00514; 1026w/2 shards). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **REFUTED** p2127: n80 m=+0.0094 SE=0.00706 z=1.33 < k=2 (hr0.66×); Stage-5 SKIP. Adapter `/root/r3/train_r3_final`. Dir: `experiments/r3-reason-grpo/`.

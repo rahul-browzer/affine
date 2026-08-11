@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $120,153.203 | 2026-08-11T23:19Z |
-| cumulative mining spend | ~$77,438 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T23:19Z |
-| **available for mining** | **~$110,153** (balance − $10,000 floor) | 2026-08-11T23:19Z |
+| Lium balance | $120,111.566 | 2026-08-11T23:28Z |
+| cumulative mining spend | ~$77,480 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T23:28Z |
+| **available for mining** | **~$110,112** (balance − $10,000 floor) | 2026-08-11T23:28Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T23:19Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T23:28Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T23:28Z | 120111.566 | p2133 no rent (B300/B200×8=0); R2bf REFUTE→R2bg armed; burn **$180.25/h**; Δ−$42 vs p2132 |
 | 2026-08-11T23:19Z | 120153.203 | p2132 no rent (B300×8=0); skip empty B200 waves; fleet ×22 POLL=0; burn **$180.25/h**; Δ$0 vs p2131 |
 | 2026-08-11T23:15Z | 120153.203 | p2131 no rent (B300×8=0); fleet parallel×16+86400iters; burn **$180.25/h**; Δ−$21 vs p2130 |
 | 2026-08-11T23:13Z | 120174.080 | p2130 no rent (B300×8=0); fleet→**parallel×8**; burn **$180.25/h**; Δ$0 vs p2129 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T22:59Z | 120236.736 | p2126 no rent (B300×8=0); R5→R6 retarget on r4; fleet→R7; burn **$180.25/h**; Δ$0 vs p2125 |
 | 2026-08-11T22:55Z | 120236.736 | p2125 no rent (B300×8=0); R3 n80 unblocked; R5 REFUTE; burn **$180.25/h**; Δ−$21 vs p2124 |
 | 2026-08-11T22:49Z | 120278.512 | p2124 no rent (B300×8=0); R5 reseat+n80; R2be below→R2bf; burn **$180.25/h**; Δ−$21 vs p2123 |
-| 2026-08-11T22:42Z | 120299.345 | p2123 no rent (B300×8=0); R3 visual graft+resume; R5 n80 armed; burn **$180.25/h**; Δ−$21 vs p2122 |
