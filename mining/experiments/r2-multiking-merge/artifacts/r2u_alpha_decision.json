@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-11T02:17:47Z",
+  "hyp": "R2u",
+  "contract": "Reason v3",
+  "decision": "WEAK_SKIP",
+  "headroom_bar": 1.5,
+  "max_abs_delta": 0.00299072265625,
+  "identical_frac": 0.437622,
+  "n_keys": 1026,
+  "note": "saysth\u00d7kevin near-identical (\u0394\u226a0.01); no n80",
+  "challenger_wins": false,
+  "headroom_vs_3se": null
+}

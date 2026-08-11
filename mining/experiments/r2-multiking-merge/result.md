@@ -1,3 +1,12 @@
+## p1941 — R2u WEAK_SKIP (saysth×kevin Δ≪0.01)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,378.
+- While R2t n80 ~14→29/80, CPU-premerged saysth0.75×kevin0.25 (saysth layout) → `max_abs_delta=0.00299` · identical_frac=0.438 · 1026 keys · ~420s · 70 GiB.
+- Δ≪0.01 → **WEAK_SKIP** (no chall kill / no n80); stubbed `r2u_alpha_decision.json`; purged blend (~66 GiB) → disk 559 GiB free.
+- Updated `wait_r2q_before_chall_kill.inc.sh` + R2r merge to yield on R2u; relaunched R2k…p/R2r merge waiters.
+- R2t untouched (engines 200/200/200, pid 176482). Finding: saysth/kevin/awesome are one near-identical cluster.
+- Artifacts: `artifacts/r2u_{alpha_decision,saysth_kevin_merge_alpha_meta,armed_p1941}.json`.
+- Next: harvest R2t; if hr≥1.5× → Stage-5; else queue Reason+ / R2r after 458.
+
 ## p1937 — R2s WEAK_SKIP (saysth×awesome Δ≪0.01)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,456.
 - R2s CPU premerge finished 01:44:35Z: saysth0.75×awesome0.25 → `max_abs_delta=1.53e-05` · identical_frac=0.659 · 1026 keys · ~297s · 66 GiB.

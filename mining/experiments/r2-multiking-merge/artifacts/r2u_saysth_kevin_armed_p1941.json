@@ -1,0 +1,12 @@
+{
+  "pass": 1941,
+  "armed_at": "2026-08-11T02:10:37Z",
+  "hyp": "R2u",
+  "blend": "saysth0.75\u00d7kevin0.25",
+  "layout": "saysth",
+  "saysth_rev": "6e13f365b36000cf631aad2fa9fb05fdabae0044",
+  "kevin_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "merged": "/root/r2_out/alpha_saysth_kevin_skew",
+  "gate": "after R2t terminal; WEAK_SKIP if \u0394<0.01; submit if hr\u22651.5\u00d7",
+  "note": "CPU premerge during R2t n80; R2r/R2k\u2013p yield on r2u"
+}
