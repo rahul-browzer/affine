@@ -33,4 +33,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T13:02Z | 121986.56 | p2029 SKIP_BOARD R2an + arm R2ao (no new rent); burn$52.25/h; Δ−$11 vs p2028 (shared ok) |
 | 2026-08-11T12:58Z | 121997.20 | p2028 arm af17 prefetch+watch489 (no new rent); burn$52.25/h; Δ−$10 vs p2027 (shared ok) |
 | 2026-08-11T12:55Z | 122007.39 | p2027 arm now-after-h44 + watch486 (no new rent); burn$52.25/h; Δ$0 vs p2026 |
-| 2026-08-11T12:53Z | 122007.39 | p2026 arm h44 prefetch + R2am Stage-5 (no new rent); burn$52.25/h; Δ−$10 vs p2025 (shared ok) |
