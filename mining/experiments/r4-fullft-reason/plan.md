@@ -9,11 +9,14 @@ so `z_A` raises teacher `lpC(y_C|z) − lpC(y_C|∅)`.
 `mine-r4-fullft-1` · 8×B300 preferred (@~$64/h) · TTL 24h
 Rent via `experiments/fleet-rent/wait_fleet_b300.sh` (multi-axis; supersedes
 one-shot `wait_rent_b300.sh` as of p2068). Cap 25 `mine-*`.
+Auto-bootstrap on rent: `fleet-rent/wait_bootstrap_fleet.sh` →
+`r4-fullft-reason/upload_and_launch.sh` (armed p2069).
 
 ## Method
 1. Rent 8×B300 (B200 only if B300 stock=0; replace when B300 appears).
-2. Bootstrap: reuse `s4-h121-f26-full-ft` train_full + B300 flash patch +
-   Tok af10 init + teacher for post-train n80.
+2. Bootstrap: `upload_and_launch.sh` → `s4-h121-f26-full-ft` train_full +
+   B300 flash patch + Tok af10 init + teacher; data =
+   `winner_za_high_l1.jsonl` (406 rows); soft deadline = rent+23h.
 3. Train full-FT → finalize non-identical → serve chall → n80 vs Tok.
 4. Decision: submit only if margin ≥ **1.5 × (k_sigma·SE)** (live k=2.0).
 

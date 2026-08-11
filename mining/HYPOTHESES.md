@@ -8,7 +8,7 @@
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2ax** tt n80 ~46/80; **R2ay/R2az** armed; **v10** cached `@07bc3392` |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · p2068: GRPO pid**23755** step≥25; king@65536; post_train armed |
-| 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · fleet queue head `mine-r4-fullft-1` (B300×8=0) |
+| 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · fleet queue head; **p2069** auto-bootstrap armed |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · fleet `mine-r5-nonking-1` |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **open** · fleet `mine-r6-fmt-1` |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · fleet `mine-r7-datafilt-1` |
@@ -33,7 +33,7 @@
 
 ### R4 — Full-FT on Reason
 - **Claim:** full-parameter FT on high-Reason winner thoughts beats LoRA-GRPO / board-copy screens on paired margin.
-- **Status:** open — fleet-rent queue head `mine-r4-fullft-1` (pid**2146782**, target 13 mines). Bootstrap after `fleet-rent/artifacts/rented_mine-r4-fullft-1.json`. Dir: `experiments/r4-fullft-reason/`.
+- **Status:** open — fleet-rent queue head `mine-r4-fullft-1` (rent pid**2146782**, boot pid in STATE). On rent, `wait_bootstrap_fleet.sh` runs `upload_and_launch.sh` (H121 full-FT + `winner_za_high_l1`). Dir: `experiments/r4-fullft-reason/`.
 
 ### R5–R8 — fleet axes (armed p2068)
 - **R5** non-king base · **R6** thought-format · **R7** data-filter · **R8** REINFORCE — plans under `experiments/r{5..8}-*/`; pods via `experiments/fleet-rent/wait_fleet_b300.sh`.

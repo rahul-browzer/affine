@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+# Host: when fleet-rent stamps rented_*.json, bootstrap that axis (R4 first).
+# Does not rent. Does not touch non-mine pods. Idempotent per stamp.
+set -euo pipefail
+
+ROOT=/home/const/subnet120
+EXP="$ROOT/mining/experiments/fleet-rent"
+STAMP_DIR="$EXP/artifacts"
+LOG="$EXP/logs/wait_bootstrap_fleet.log"
+PIDF="$EXP/logs/wait_bootstrap_fleet.pid"
+DONE_DIR="$EXP/artifacts/bootstrapped"
+POLL_S=${POLL_S:-20}
+MAX_ITERS=${MAX_ITERS:-1800}  # ~10h @20s
+PASS=${PASS:-2069}
+
+mkdir -p "$EXP/logs" "$STAMP_DIR" "$DONE_DIR"
+echo $$ >"$PIDF"
+exec >>"$LOG" 2>&1
+
+# shellcheck disable=SC1091
+source "$ROOT/.venv/bin/activate"
+
+log() { echo "[fleet-boot] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*"; }
+
+resolve_ssh() {
+  local name=$1
+  POD_NAME="$name" python3 - <<'PY'
+import json, os, re, subprocess, sys
+name = os.environ["POD_NAME"]
+raw = subprocess.check_output(["lium", "ps", "--format", "json"], text=True, timeout=60)
+pods = json.loads(raw)
+if isinstance(pods, dict):
+    pods = pods.get("pods") or pods.get("data") or []
+for p in pods:
+    if not isinstance(p, dict):
+        continue
+    if (p.get("name") or "") != name:
+        continue
+    ip = p.get("ip") or ""
+    ports = p.get("ports") or {}
+    port = ports.get("22") or ports.get(22)
+    cmd = p.get("ssh_cmd") or ""
+    m = re.search(r"ssh\s+root@(\S+)\s+-p\s+(\d+)", cmd)
+    if m:
+        ip, port = m.group(1), int(m.group(2))
+    if ip and port:
+        print(f"{ip} {port}")
+        sys.exit(0)
+sys.exit(1)
+PY
+}
+
+bootstrap_r4() {
+  local name=$1 host=$2 port=$3
+  log "bootstrap R4 upload_and_launch name=$name host=$host port=$port"
+  DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
+    bash "$ROOT/mining/experiments/r4-fullft-reason/upload_and_launch.sh"
+}
+
+process_stamp() {
+  local stamp=$1
+  local base done name axis
+  base=$(basename "$stamp")
+  done="$DONE_DIR/${base}.bootstrapped"
+  if [[ -f "$done" ]]; then
+    return 0
+  fi
+  name=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["name"])' "$stamp")
+  axis=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get("axis",""))' "$stamp")
+  log "new stamp $base name=$name axis=$axis — resolve SSH"
+  local ssh_line host port
+  # Pod may need a minute after rent before SSH answers.
+  for _ in $(seq 1 30); do
+    if ssh_line=$(resolve_ssh "$name"); then
+      break
+    fi
+    sleep 10
+  done
+  if [[ -z "${ssh_line:-}" ]]; then
+    log "FAIL resolve SSH for $name — will retry later"
+    return 1
+  fi
+  host=${ssh_line%% *}
+  port=${ssh_line##* }
+  case "$name" in
+    mine-r4-fullft-1)
+      if bootstrap_r4 "$name" "$host" "$port"; then
+        printf '%s\n' "{\"utc\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"pass\":$PASS,\"name\":\"$name\",\"axis\":\"$axis\",\"host\":\"$host\",\"port\":$port}" \
+          >"$done"
+        log "BOOTSTRAPPED $name → $done"
+      else
+        log "FAIL bootstrap $name"
+        return 1
+      fi
+      ;;
+    *)
+      # Other axes: stamp notice for next Ralph pass (plans exist; launchers TBD).
+      printf '%s\n' "{\"utc\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"pass\":$PASS,\"name\":\"$name\",\"axis\":\"$axis\",\"host\":\"$host\",\"port\":$port,\"note\":\"needs_axis_uploader\"}" \
+        >"$done"
+      log "STAMPED pending uploader for $name ($axis) ssh=$host:$port"
+      ;;
+  esac
+}
+
+log "start poll=${POLL_S}s max_iters=$MAX_ITERS pass=$PASS stamp_dir=$STAMP_DIR"
+
+for i in $(seq 1 "$MAX_ITERS"); do
+  shopt -s nullglob
+  stamps=("$STAMP_DIR"/rented_*.json)
+  shopt -u nullglob
+  for stamp in "${stamps[@]:-}"; do
+    [[ -f "$stamp" ]] || continue
+    process_stamp "$stamp" || true
+  done
+  if (( i % 15 == 1 )); then
+    n_stamps=$(find "$STAMP_DIR" -maxdepth 1 -name 'rented_*.json' | wc -l)
+    n_done=$(find "$DONE_DIR" -maxdepth 1 -name '*.bootstrapped' | wc -l)
+    log "iter=$i rented_stamps=$n_stamps bootstrapped=$n_done"
+  fi
+  sleep "$POLL_S"
+done
+
+log "TIMEOUT after $MAX_ITERS iters"
+exit 2
