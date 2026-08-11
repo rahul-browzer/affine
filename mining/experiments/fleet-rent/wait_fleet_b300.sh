@@ -21,8 +21,7 @@ PASS=${PASS:-2108}
 # Format: name|axis_id|short_note
 # R24–R32 (structural) sit after R3b — ahead of cosmetic parent-swap GRPO.
 QUEUE=(
-  "mine-r4-fullft-1|R4|full-FT Tok-init Reason winner_za"
-  "mine-r5-nonking-1|R5|non-king Genesis/Qwen base + Reason FT"
+  # R4/R4b REFUTED; R5 live on mine-r4-fullft-1 (p2120 retarget) — do not re-rent R5.
   "mine-r6-fmt-1|R6|thought-format / short-z teacher-shaped"
   "mine-r7-datafilt-1|R7|high-Reason data filter curriculum FT"
   "mine-r8-reinforce-1|R8|REINFORCE on Reason (full-rank / alt base)"
@@ -37,7 +36,6 @@ QUEUE=(
   "mine-r31-nodrop-1|R31|Tok GRPO lora_dropout=0.0 (≠ R3 0.05; isolates dropout)"
   "mine-r32-kl-1|R32|Tok GRPO kl_coef=0.02 vs base (≠ R3 kl=0; isolates KL)"
   "mine-r9-teacher-zc-1|R9|teacher-z_C imitation / format prior"
-  "mine-r4-fullft-2|R4b|full-FT lr/epoch family"
   "mine-r5-nonking-2|R5b|Talent/kevin non-king base FT"
   "mine-r10-merge-rl-1|R10|merge+RL hybrid Reason"
   "mine-r6-fmt-2|R6b|long-thought vs short-thought ablate"

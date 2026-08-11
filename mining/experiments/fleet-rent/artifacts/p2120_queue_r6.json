@@ -1,0 +1,6 @@
+{
+  "utc": "2026-08-11T22:18:29Z",
+  "pass": 2120,
+  "change": "skip R4/R4b/R5 in rent QUEUE (R5 on mine-r4-fullft-1); next=mine-r6-fmt-1",
+  "fleet_rent_pid": 2597099
+}

@@ -19,8 +19,8 @@
 | 31 | R31 | Tok GRPO lora_dropout=0.0 beats R3 drop=0.05 (isolates dropout) | **open** · `mine-r31-nodrop-1` · p2107 armed |
 | 32 | R32 | Tok GRPO kl_coef=0.02 vs base beats R3 kl=0 (isolates KL) | **open** · `mine-r32-kl-1` · **p2108** armed |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **REFUTED** · n80 m=**−0.0077** z=−0.76 (p2116) |
-| 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **open** · on `mine-r4-fullft-1` train pid**25058** (p2116) |
-| 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · `mine-r5-nonking-1` · p2074 armed |
+| 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **REFUTED** · n80 m=**−0.0037** z=−0.58 (p2120) |
+| 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · on `mine-r4-fullft-1` boot pid**34926** (p2120) |
 | 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · `mine-r5-nonking-2` · p2081 armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **open** · `mine-r6-fmt-1` · p2075 armed |
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **open** · `mine-r6-fmt-2` · p2083 armed |
@@ -51,13 +51,16 @@
 - **R2ba** WEAK +0.007. **R2bb** WEAK. **R2bc+R2bd** UNSERVABLE (weight-init). **R2be** p2118 armed: Shatoria hope12@fea71676… chal-00508 (next dpo2 chal-00511). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason (PRIORITY)
-- GRPO pid**28660** step≥167/200; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
+- GRPO pid**28660** step≥185/200; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
 
 ### R4 — Full-FT
-- **REFUTED** p2116: n80 m=−0.0077 z=−0.76 (salvage ckpt-26 lr1e-6 ep1). Retargeted pod → **R4b**. Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.
+- **REFUTED** p2116: n80 m=−0.0077 z=−0.76 (salvage ckpt-26 lr1e-6 ep1). Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.
 
 ### R4b — Full-FT lr/epoch
-- p2116: launched on `mine-r4-fullft-1` (killed TKC) lr=**5e-6** EPOCHS=**2** pid**25058**; post_train+form-decision armed. Watch `/root/logs/h121_train.nohup`. Dir: `experiments/r4b-fullft-lr/`.
+- **REFUTED** p2120: n80 m=**−0.0037** z=−0.58 SE=0.0064 (lr5e-6 ep2) — Tok full-FT family closed. Pod retargeted → **R5**. Dir: `experiments/r4b-fullft-lr/`.
+
+### R5 — Non-king Genesis
+- p2120: on `mine-r4-fullft-1` (no free `mine-r5-*` stock) H122 Genesis@abe89194… + winner_za_high_l1; boot pid**34926**. Watch `bootstrap_h122.log` → `h122_decision.json`. Dir: `experiments/r5-nonking-base/` + `s4-h122-f27-genesis-full-ft/`.
 
 ### R24 — Long-context / full-thought GRPO
 - Tok-init; max_len=**16384** max_new=**1024** (live thought budget); same lr/r/G as R3.

@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $120,424.541 | 2026-08-11T22:14Z |
-| cumulative mining spend | ~$77,166 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T22:14Z |
-| **available for mining** | **~$110,425** (balance − $10,000 floor) | 2026-08-11T22:14Z |
+| Lium balance | $120,403.598 | 2026-08-11T22:18Z |
+| cumulative mining spend | ~$77,187 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T22:18Z |
+| **available for mining** | **~$110,404** (balance − $10,000 floor) | 2026-08-11T22:18Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T22:14Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T22:18Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T22:18Z | 120403.598 | p2120 no rent (B300×8=0); R4b REFUTE→R5 on r4; fleet→R6; burn **$180.25/h**; Δ−$21 vs p2119 |
 | 2026-08-11T22:14Z | 120424.541 | p2119 no rent (B300×8=0); crown disk purge+R2be n80; burn **$180.25/h**; Δ−$63 vs p2118 |
 | 2026-08-11T21:56Z | 120487.215 | p2118 no rent (B300×8=0); R2bd UNSERVABLE→R2be hope12; burn **$180.25/h**; Δ−$21 vs p2117 |
 | 2026-08-11T21:53Z | 120507.962 | p2117 no rent (B300×8=0); R2bc UNSERVABLE→R2bd armed; burn **$180.25/h**; Δ−$21 vs p2116 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T21:24Z | 120633.231 | p2113 no rent (B300×8=0); R4 chall maxlen fix+n80; burn **$180.25/h**; Δ−$21 vs p2112 |
 | 2026-08-11T21:20Z | 120654.010 | p2112 no rent (B300×8=0); 90s R5 burst 53 miss; burn **$180.25/h**; Δ$0 vs p2111 |
 | 2026-08-11T21:14Z | 120675.003 | p2111 no rent (B300×8=0); fleet→**blind-fire** POLL=0; burn **$180.25/h**; Δ−$21 vs p2110 |
-| 2026-08-11T21:09Z | 120695.788 | p2110 no rent (B300×8=0); fleet→**1s** + boot→**5s**; burn **$180.25/h**; Δ−$20 vs p2109 |

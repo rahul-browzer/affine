@@ -2767,3 +2767,1419 @@ No nodes available with GPU type=B300, GPU count=8, min ports=12
 [fleet-rent] 2026-08-11T21:56:36Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
 No nodes available with GPU type=B200, GPU count=8, min ports=12
 [fleet-rent] 2026-08-11T21:56:39Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:40Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:43Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:44Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:47Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:48Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:51Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:51Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:54Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:55Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:58Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:56:59Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:02Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:03Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:05Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:07Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:08Z iter=661 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120487.21454582117 USD
+[fleet-rent] 2026-08-11T21:57:10Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:11Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:14Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:15Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:18Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:19Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:22Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:23Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:26Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:26Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:29Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:30Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:33Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:34Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:37Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:38Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:41Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:41Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:44Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:45Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:49Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:50Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:53Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:54Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:57Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:57:57Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:00Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:01Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:04Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:05Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:08Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:08Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:12Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:12Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:15Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:16Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:19Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:20Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:23Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:24Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:25Z iter=681 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120487.21454582117 USD
+[fleet-rent] 2026-08-11T21:58:27Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:28Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:31Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:32Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:35Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:36Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:39Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:40Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:43Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:43Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:46Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:47Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:50Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:51Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:54Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:55Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:58Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:58:59Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:02Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:03Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:06Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:06Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:10Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:11Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:14Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:14Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:18Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:18Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:21Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:22Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:25Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:26Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:29Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:30Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:33Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:34Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:38Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:38Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:42Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:44Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:46Z iter=701 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120487.21454582117 USD
+[fleet-rent] 2026-08-11T21:59:50Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:51Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:54Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:55Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:58Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T21:59:59Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:08Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:09Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:14Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:15Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:20Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:22Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:25Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:27Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:30Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:32Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:36Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:37Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:40Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:41Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:44Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:45Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:48Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:49Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:52Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:53Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:56Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:00:57Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:00Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:01Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:04Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:05Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:08Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:08Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:12Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:12Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:16Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:16Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:20Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:20Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:22Z iter=721 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120465.27102890589 USD
+[fleet-rent] 2026-08-11T22:01:24Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:25Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:29Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:30Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:33Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:34Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:37Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:38Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:41Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:42Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:45Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:45Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:49Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:50Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:53Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:54Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:57Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:01:57Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:01Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:02Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:05Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:05Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:09Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:09Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:13Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:13Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:17Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:17Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:20Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:21Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:24Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:25Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:28Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:29Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:32Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:33Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:36Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:37Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:41Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:42Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:43Z iter=741 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120465.27102890589 USD
+[fleet-rent] 2026-08-11T22:02:45Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:46Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:49Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:50Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:53Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:54Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:57Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:02:58Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:01Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:02Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:06Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:06Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:10Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:10Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:13Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:14Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:17Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:18Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:21Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:22Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:25Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:25Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:28Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:29Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:32Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:33Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:36Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:37Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:40Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:40Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:44Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:44Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:48Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:49Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:52Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:52Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:55Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:56Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:03:59Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:00Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:01Z iter=761 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120465.27102890589 USD
+[fleet-rent] 2026-08-11T22:04:03Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:04Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:08Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:08Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:11Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:12Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:15Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:16Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:19Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:20Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:23Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:23Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:26Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:27Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:30Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:31Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:34Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:35Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:39Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:39Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:42Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:43Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:46Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:47Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:50Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:51Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:54Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:54Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:57Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:04:58Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:03Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:05Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:08Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:09Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:12Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:13Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:17Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:17Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:21Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:21Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:23Z iter=781 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120445.35018395692 USD
+[fleet-rent] 2026-08-11T22:05:25Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:26Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:30Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:31Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:36Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:36Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:39Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:40Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:43Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:44Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:47Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:48Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:51Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:52Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:55Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:55Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:58Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:05:59Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:02Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:03Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:06Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:07Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:10Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:11Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:14Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:15Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:18Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:18Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:21Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:22Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:25Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:26Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:29Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:30Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:33Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:33Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:36Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:38Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:41Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:42Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:43Z iter=801 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120445.35018395692 USD
+[fleet-rent] 2026-08-11T22:06:45Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:46Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:49Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:50Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:53Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:54Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:57Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:06:57Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:00Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:01Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:04Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:05Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:08Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:08Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:11Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:12Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:15Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:16Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:19Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:20Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:23Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:24Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:27Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:27Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:30Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:31Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:35Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:35Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:39Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:39Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:42Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:43Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:46Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:47Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:50Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:50Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:53Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:54Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:57Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:58Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:07:59Z iter=821 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120445.35018395692 USD
+[fleet-rent] 2026-08-11T22:08:01Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:02Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:05Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:06Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:09Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:10Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:13Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:14Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:17Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:18Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:21Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:22Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:25Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:25Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:28Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:29Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:32Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:33Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:36Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:37Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:40Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:41Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:44Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:45Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:48Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:49Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:52Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:53Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:56Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:08:57Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:00Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:01Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:04Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:05Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:09Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:10Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:13Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:15Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:19Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:19Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:21Z iter=841 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120445.35018395692 USD
+[fleet-rent] 2026-08-11T22:09:23Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:24Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:27Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:28Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:31Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:32Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:35Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:36Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:39Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:39Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:42Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:43Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:46Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:47Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:50Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:51Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:54Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:54Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:58Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:09:58Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:02Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:04Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:07Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:08Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:11Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:12Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:15Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:16Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:19Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:20Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:23Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:24Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:27Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:27Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:31Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:32Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:35Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:36Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:39Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:40Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:41Z iter=861 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120424.54069113662 USD
+[fleet-rent] 2026-08-11T22:10:43Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:44Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:48Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:49Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:52Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:53Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:56Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:56Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:10:59Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:00Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:03Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:04Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:07Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:08Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:11Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:12Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:16Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:17Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:20Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:21Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:24Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:25Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:28Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:29Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:32Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:33Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:36Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:37Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:40Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:41Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:44Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:45Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:48Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:49Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:52Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:52Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:56Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:11:56Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:00Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:00Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:02Z iter=881 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120424.54069113662 USD
+[fleet-rent] 2026-08-11T22:12:04Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:05Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:08Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:09Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:12Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:12Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:15Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:16Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:19Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:20Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:23Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:24Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:27Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:27Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:30Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:31Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:34Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:35Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:38Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:38Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:41Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:42Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:45Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:46Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:49Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:50Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:53Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:54Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:57Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:12:57Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:00Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:01Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:05Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:05Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:08Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:09Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:12Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:13Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:16Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:16Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:18Z iter=901 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120424.54069113662 USD
+[fleet-rent] 2026-08-11T22:13:20Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:21Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:24Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:25Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:28Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:29Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:32Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:32Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:35Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:36Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:39Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:40Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:43Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:44Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:47Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:48Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:51Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:51Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:54Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:55Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:58Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:13:59Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:02Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:03Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:06Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:06Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:09Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:10Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:13Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:14Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:17Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:18Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:21Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:22Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:25Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:26Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:29Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:29Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:32Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:33Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:35Z iter=921 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120424.54069113662 USD
+[fleet-rent] 2026-08-11T22:14:37Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:38Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:41Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:42Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:45Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:46Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:49Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:50Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:54Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:54Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:58Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:14:59Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:04Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:05Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:08Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:09Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:12Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:13Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:16Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:17Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:20Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:21Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:24Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:25Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:28Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:29Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:32Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:33Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:36Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:37Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:40Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:40Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:43Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:44Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:47Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:48Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:51Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:52Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:56Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:57Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:15:58Z iter=941 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120403.59764307585 USD
+[fleet-rent] 2026-08-11T22:16:01Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:02Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:05Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:06Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:09Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:10Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:13Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:14Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:17Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:18Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:21Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:22Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:25Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:26Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:29Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:30Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:33Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:34Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:37Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:38Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:41Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:42Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:45Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:46Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:49Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:50Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:54Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:16:55Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:02Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:04Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:07Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:08Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:11Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:12Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:15Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:16Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:19Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:20Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:23Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:24Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:25Z iter=961 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120403.59764307585 USD
+[fleet-rent] 2026-08-11T22:17:27Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:28Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:31Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:32Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:36Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:36Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:39Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:40Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:44Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:44Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:47Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:48Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:51Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:52Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:55Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:56Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:17:59Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:00Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:03Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:04Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:08Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:09Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:13Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:13Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:16Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:17Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:20Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:21Z attempting lium up gpu=B200 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:24Z attempting lium up gpu=B300 name=mine-r5-nonking-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:27Z start target=25 cap=25 poll=0s max_iters=2160 pass=2120
+[fleet-rent] 2026-08-11T22:18:28Z live_mines=mine-r3-grpo-1 mine-r4-fullft-1 mine-crown-1 |count=3
+[fleet-rent] 2026-08-11T22:18:30Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:31Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:32Z iter=1 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r6-fmt-1 bal=Current balance: 120403.59764307585 USD
+[fleet-rent] 2026-08-11T22:18:35Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:35Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:38Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:39Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:42Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:43Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:46Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:47Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:50Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:51Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:54Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:54Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:57Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:18:58Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:01Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:02Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:05Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:06Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:09Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:09Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:12Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:13Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:16Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:17Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:20Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:20Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:24Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:24Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:27Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:28Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:31Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:32Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:35Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:36Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:39Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:40Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:43Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:44Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:47Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:48Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:49Z iter=21 no 8×B300/B200 (blind-fire miss); mine=3/25 (cap 25) next=mine-r6-fmt-1 bal=Current balance: 120403.59764307585 USD
+[fleet-rent] 2026-08-11T22:19:51Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:52Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:55Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:56Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:59Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:19:59Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:20:05Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:20:06Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:20:09Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:20:10Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:20:13Z attempting lium up gpu=B300 name=mine-r6-fmt-1 ttl=24h
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[fleet-rent] 2026-08-11T22:20:14Z attempting lium up gpu=B200 name=mine-r6-fmt-1 ttl=24h

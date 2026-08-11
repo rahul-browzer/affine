@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-11T22:17:38Z",
+  "pass": 2120,
+  "hypo": "R5",
+  "axis": "nonking_genesis_fullft",
+  "pod_name": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "ssh": "ssh root@86.38.182.50 -p 40307",
+  "pipeline_pid": 34926,
+  "base": "dendriteholdings/albedo-qwen3.6-35b-king-genesis@abe89194…",
+  "data": "winner_za_high_l1 n=406 (same family as R4; base is the isolate)",
+  "hf_out": "unconst/Affine-5czsc2fc98-r5-nonking",
+  "watch": "tail -f /root/logs/bootstrap_h122.log ; later /root/logs/h122_train.nohup",
+  "decision": "/root/affine_data/h122_decision.json",
+  "note": "R4b REFUTE → freed TKC → R5 Genesis full-FT on same B300 (no free stock for mine-r5-*)"
+}

@@ -147,4 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R2ba** pure awesome-v10 WEAK: m=+0.00699 SE=0.00500 z=1.40 — fails live k=2 thr=0.010 and 1.5× submit bar; Stage-5 SKIP (sim still stamps k_sigma=3.0 — recompute with live 2.0).
 - HF snapshot "ready" ≠ complete: wait **all shards** (not index); `/root` gocryptfs full (~1GB) stalls hope12 mid-prefetch (p2119 purged ~1.2T closed parents). **ec08+ckp55 UNSERVABLE** even full shards+HF-id (p2116–18). Never kill `:8002` mid-n80.
 - Full-FT: Trainer `save_strategy` must be **`no`** on gocryptfs `/root` — end-of-train `optimizer.pt` (~111G) hangs WCHAN=`request_wait_answer` (p2112); stage final weights only under `/tmp` then symlink.
-- R4 n80 needs **pandas+pyarrow** + schema-v2 corpus sync **and** `run_sim_duel` passing `CorpusSync`; `readlink -f` on `/root/h121/merged`→`/tmp/…` 404s vs vLLM id — use live `/v1/models` id (p2115).
+- R4 n80: need pandas+pyarrow + CorpusSync; use live `/v1/models` id (not `readlink -f` `/tmp` merge). Tok full-FT closed (R4 −0.0077 / R4b −0.0037) — retarget idle B300 to non-king axis; drop resolved names from fleet QUEUE.

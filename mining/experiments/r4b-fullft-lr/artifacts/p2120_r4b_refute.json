@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-11T22:11:31Z",
+  "pass": 2120,
+  "hypo": "R4b",
+  "axis": "fullft_lr5e6_ep2",
+  "pod": "mine-r4-fullft-1",
+  "decision": "REFUTE",
+  "margin": -0.0037318812017620813,
+  "se": 0.0063938447414256016,
+  "z": -0.583667785610009,
+  "k_sigma_live": 2.0,
+  "thr_2se": 0.012787689482851203,
+  "hr_live2se": -0.2918,
+  "block_hash": "d203000000000000000000000000000000000000000000000000000000000004",
+  "chall": "/root/h121/merged",
+  "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a…",
+  "note": "Tok-init full-FT lr=5e-6 EPOCHS=2 loses vs king; retarget pod → R5 Genesis"
+}
