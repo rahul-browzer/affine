@@ -7,8 +7,8 @@
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
 | mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2ay n80 + R2az + v10 cached |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | GRPO pid26401 + TK + wedge-watch |
-| *(pending fleet)* | mine-r4…r10 | 8×B300 | ~$64 | rent pid2146782 + boot pid2153833 | distinct axes → target 13 |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | GRPO pid28660 step≥6 + TK + wedge-watch |
+| *(pending fleet)* | mine-r4…r10 | 8×B300 | ~$64 | rent pid2146782 + boot pid**2205764** | R4+R5+R6 auto-boot; R7+ stamp-only |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
 SSH R3: `ssh root@204.9.206.245 -p 40051`
@@ -20,6 +20,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
-| 2026-08-11T18:51Z | p2071: R3 step15 OK; trainer anti-CWAIT patch+wedge-watch; R2ay~17/80; B300×8=0 |
-| 2026-08-11T18:46Z | p2070: R3 CLOSE-WAIT kill→pid26401 step≥10; R2ax REFUTE; R2ay~10/80; B300×8=0 |
-| 2026-08-11T18:31Z | p2069: arm fleet-boot→R4 upload; R2ax~60/80; R3 step30; B300×8=0 |
+| 2026-08-11T19:07Z | p2075: R6 uploader+fleet-boot (pid2205764); data n=202 z≤180; B300×8=0; burn $116.25/h; R3≥6; R2ay~54/80 |
+| 2026-08-11T19:04Z | p2074: R5 uploader+fleet-boot wire (pid2198447); B300×8=0; burn $116.25/h; R3≥5; R2ay~49/80 |
+| 2026-08-11T19:01Z | p2073: R3 step1–2 OK (mean_r≈0.019→0.025); R2ay~38/80; B300×8=0; burn $116.25/h |

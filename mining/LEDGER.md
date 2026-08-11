@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $121,123.08 | 2026-08-11T18:51Z |
-| cumulative mining spend | ~$76,464 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T18:51Z |
-| **available for mining** | **~$111,123** (balance − $10,000 floor) | 2026-08-11T18:51Z |
+| Lium balance | $121,076.52 | 2026-08-11T19:07Z |
+| cumulative mining spend | ~$76,511 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T19:07Z |
+| **available for mining** | **~$111,077** (balance − $10,000 floor) | 2026-08-11T19:07Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T18:51Z |
+| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T19:07Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,13 +21,13 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T19:07Z | 121076.52 | p2075 R6 uploader armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2074 |
+| 2026-08-11T19:04Z | 121091.26 | p2074 R5 uploader armed (no rent; B300×8=0); burn **$116.25/h**; Δ$0 vs p2073 |
+| 2026-08-11T19:01Z | 121091.26 | p2073 R3 step1–2 confirmed (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2072 |
+| 2026-08-11T18:58Z | 121107.57 | p2072 R3 force-relaunch (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2071 |
 | 2026-08-11T18:51Z | 121123.08 | p2071 R3 wedge-watch armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2070 |
 | 2026-08-11T18:46Z | 121138.47 | p2070 R3 GRPO relaunch (no rent; B300×8=0); burn **$116.25/h**; Δ−$47 vs p2069 |
 | 2026-08-11T18:31Z | 121185.07 | p2069 fleet-boot armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2068 |
 | 2026-08-11T18:27Z | 121200.78 | p2068 fleet rent waiter armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2067 |
 | 2026-08-11T18:23Z | 121216.25 | p2067 R4 rent waiter armed (no rent yet; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2066 |
 | 2026-08-11T18:14Z | 121247.33 | p2066 R2az vvv arm + HF purge (no new rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2065 |
-| 2026-08-11T18:08Z | 121262.81 | p2065 R2ay sbs-v2 arm (no new rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2064 |
-| 2026-08-11T18:04Z | 121277.80 | p2064 R2av REFUTE + R2ax auto-continue (no new rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2063 |
-| 2026-08-11T18:00Z | 121293.97 | p2063 R3 GRPO relaunch after wedge (no new rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2062 |
-| 2026-08-11T17:54Z | 121309.53 | p2062 R3 king@65536 + teacher recover (no new rent; B300×8=0); burn **$116.25/h**; Δ−$62 vs p2061 |

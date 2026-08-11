@@ -14,18 +14,18 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` reign 4 |
 | challenge | chal-00491 (hope11 load) |
 | miner burn | **$116.25/h** (B300 $64 + B200 $52.25) · floor $833/h · **gap −$717/h** |
-| B300 stock | **0** free 8×B300/B200 (only 1×B300 / 1×B200) · fleet rent+bootstrap armed |
-| Lium bal | ~$121,123 · floor $10k OK |
+| B300 stock | **0** free 8×B300 · fleet rent+bootstrap armed |
+| Lium bal | ~$121,077 · floor $10k OK |
 | submissions | 0 |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2ay** n80 ~17/80; R2az waiter; v10 cached |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **GRPO** pid**26401** step≥15; T+K live |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2ay** n80 ~54/80; R2az waiter; v10 cached |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **GRPO** pid28660 step≥6 (hb live); T+K live |
 | host fleet-rent | pid**2146782** | — | `wait_fleet_b300.sh` → rent R4… until 13 mines |
-| host fleet-boot | pid**2153833** | — | `wait_bootstrap_fleet.sh` → auto R4 upload on rent |
+| host fleet-boot | pid**2205764** | — | `wait_bootstrap_fleet.sh` → **R4+R5+R6** auto-upload |
 | host r3-wedge | pid**2176107** | — | `watch_r3_wedge.sh` stale>600s+CWAIT+no ESTAB → relaunch |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -45,6 +45,11 @@ R3: `grep -E 'r3-log|r3-hb' /root/logs/r3_train.nohup | tail`
 
 **If `fleet-rent/artifacts/bootstrapped/rented_mine-r4-fullft-1.json.bootstrapped`:**
 watch R4 train (`/root/logs/bootstrap_h121.log` / `h121_train.nohup`).
-**Else if `rented_*.json` without bootstrapped:** check fleet-boot log (should auto).
+**If `…rented_mine-r5-nonking-1.json.bootstrapped`:**
+watch R5 Genesis FT (`/root/logs/bootstrap_h122.log` / `r5_pipeline.nohup`).
+**If `…rented_mine-r6-fmt-1.json.bootstrapped`:**
+watch R6 (`/root/logs/bootstrap_h101.log` / `h101_train.nohup` / `r6_train_launched.json`).
+**Else if `rented_*.json` without bootstrapped:** check fleet-boot log (should auto R4/R5/R6).
+**R3:** steps→`train.done`→post_train merge+chall+n80 (armed).
 **Crown:** R2ay finish → R2az → pure awesome-v10 n80.
-**R3:** GRPO → `train.done` → post_train merge+chall+n80; wedge-watch auto-relaunches (patched trainer w/ no-keepalive + `[r3-hb]` on next start).
+**R7–R8:** still need uploaders (fleet-boot stamps `needs_axis_uploader`).

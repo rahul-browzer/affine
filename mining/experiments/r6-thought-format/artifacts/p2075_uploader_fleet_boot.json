@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-11T19:07:21Z",
+  "pass": 2075,
+  "axis": "R6",
+  "pod": "mine-r6-fmt-1",
+  "data": "results/za_short_natural.jsonl",
+  "rows": 202,
+  "max_z_chars": 180,
+  "epochs": 6,
+  "note": "natural short \u2260 H101 rewrite; fleet-boot case mine-r6-fmt-1 wired",
+  "fleet_boot_pid": 2205764
+}

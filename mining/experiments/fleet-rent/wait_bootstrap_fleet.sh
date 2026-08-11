@@ -11,7 +11,7 @@ PIDF="$EXP/logs/wait_bootstrap_fleet.pid"
 DONE_DIR="$EXP/artifacts/bootstrapped"
 POLL_S=${POLL_S:-20}
 MAX_ITERS=${MAX_ITERS:-1800}  # ~10h @20s
-PASS=${PASS:-2069}
+PASS=${PASS:-2075}
 
 mkdir -p "$EXP/logs" "$STAMP_DIR" "$DONE_DIR"
 echo $$ >"$PIDF"
@@ -57,6 +57,27 @@ bootstrap_r4() {
     bash "$ROOT/mining/experiments/r4-fullft-reason/upload_and_launch.sh"
 }
 
+bootstrap_r5() {
+  local name=$1 host=$2 port=$3
+  log "bootstrap R5 upload_and_launch name=$name host=$host port=$port"
+  DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
+    bash "$ROOT/mining/experiments/r5-nonking-base/upload_and_launch.sh"
+}
+
+bootstrap_r6() {
+  local name=$1 host=$2 port=$3
+  log "bootstrap R6 upload_and_launch name=$name host=$host port=$port"
+  DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
+    bash "$ROOT/mining/experiments/r6-thought-format/upload_and_launch.sh"
+}
+
+mark_bootstrapped() {
+  local done=$1 name=$2 axis=$3 host=$4 port=$5
+  printf '%s\n' "{\"utc\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"pass\":$PASS,\"name\":\"$name\",\"axis\":\"$axis\",\"host\":\"$host\",\"port\":$port}" \
+    >"$done"
+  log "BOOTSTRAPPED $name → $done"
+}
+
 process_stamp() {
   local stamp=$1
   local base done name axis
@@ -85,9 +106,23 @@ process_stamp() {
   case "$name" in
     mine-r4-fullft-1)
       if bootstrap_r4 "$name" "$host" "$port"; then
-        printf '%s\n' "{\"utc\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"pass\":$PASS,\"name\":\"$name\",\"axis\":\"$axis\",\"host\":\"$host\",\"port\":$port}" \
-          >"$done"
-        log "BOOTSTRAPPED $name → $done"
+        mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
+      else
+        log "FAIL bootstrap $name"
+        return 1
+      fi
+      ;;
+    mine-r5-nonking-1)
+      if bootstrap_r5 "$name" "$host" "$port"; then
+        mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
+      else
+        log "FAIL bootstrap $name"
+        return 1
+      fi
+      ;;
+    mine-r6-fmt-1)
+      if bootstrap_r6 "$name" "$host" "$port"; then
+        mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
       else
         log "FAIL bootstrap $name"
         return 1

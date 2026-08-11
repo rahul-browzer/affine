@@ -7,10 +7,10 @@
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2ax REFUTE**; **R2ay** ~17/80; **R2az**/v10 armed |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**26401** step≥15; wedge-watch pid**2176107**; post_train armed |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** steps≥2 (mean_r≈0.025); wedge-watch pid**2176107**; post_train armed |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · fleet queue head; **p2069** auto-bootstrap armed |
-| 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · fleet `mine-r5-nonking-1` |
-| 6 | R6 | Thought-format shaping raises teacher Reason | **open** · fleet `mine-r6-fmt-1` |
+| 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · fleet `mine-r5-nonking-1` · **p2074** uploader+boot armed |
+| 6 | R6 | Thought-format shaping raises teacher Reason | **open** · fleet `mine-r6-fmt-1` · **p2075** uploader+boot armed |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · fleet `mine-r7-datafilt-1` |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · fleet `mine-r8-reinforce-1` |
 
@@ -25,18 +25,26 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. **R2d** 0.22×; many Talent-skew REFUTEs (e/g/h/q/t/l/n/o/p/r/ab/ac/ad/**am −1.39×**). **R2an SKIP_BOARD** cp13. **R2ao REFUTE** af17 **−0.074×**. **R2ap WEAK_SKIP** h44 **0.327×**. **R2aq WEAK_SKIP** pure-now **0.773×**. **R2ar SKIP_UNSERVABLE** iynocr2p (cache purged p2066). **R2as WEAK_SKIP** pure-726. **R2at WEAK_SKIP** hope11 hr **0.97×**. **R2au REFUTE** sft4. **R2av REFUTE** Bittoby-v2. **R2ax REFUTE** tt. **R2ay** sbs-v2 n80 ~17/80 (p2071). **R2az** vvv waiting on R2ay. **v10** cached `@07bc3392`. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. **R2d** 0.22×; many Talent-skew REFUTEs (e/g/h/q/t/l/n/o/p/r/ab/ac/ad/**am −1.39×**). **R2an SKIP_BOARD** cp13. **R2ao REFUTE** af17 **−0.074×**. **R2ap WEAK_SKIP** h44 **0.327×**. **R2aq WEAK_SKIP** pure-now **0.773×**. **R2ar SKIP_UNSERVABLE** iynocr2p (cache purged p2066). **R2as WEAK_SKIP** pure-726. **R2at WEAK_SKIP** hope11 hr **0.97×**. **R2au REFUTE** sft4. **R2av REFUTE** Bittoby-v2. **R2ax REFUTE** tt. **R2ay** sbs-v2 n80 ~38/80 (p2073). **R2az** vvv waiting on R2ay. **v10** cached `@07bc3392`. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
-- **Status:** open — GRPO pid**26401** step≥15 (step15 mean_r≈−0.064); king@**65536**. Trainer patched+host wedge-watch armed (p2071). Next = train.done → merge → chall → n80.
+- **Status:** open — GRPO pid**28660** live after p2072 force-relaunch. **p2073** confirmed `[r3-hb]` + `[r3-log]` step1 mean_r=+0.019 / step2 +0.025. Stream+close HTTP, cached teacher tok, mid-group hb. king@**65536**. Next = steps→train.done→merge→chall→n80.
 
 ### R4 — Full-FT on Reason
 - **Claim:** full-parameter FT on high-Reason winner thoughts beats LoRA-GRPO / board-copy screens on paired margin.
 - **Status:** open — fleet-rent queue head `mine-r4-fullft-1` (rent pid**2146782**, boot pid in STATE). On rent, `wait_bootstrap_fleet.sh` runs `upload_and_launch.sh` (H121 full-FT + `winner_za_high_l1`). Dir: `experiments/r4-fullft-reason/`.
 
-### R5–R8 — fleet axes (armed p2068)
-- **R5** non-king base · **R6** thought-format · **R7** data-filter · **R8** REINFORCE — plans under `experiments/r{5..8}-*/`; pods via `experiments/fleet-rent/wait_fleet_b300.sh`.
+### R5 — Non-king Genesis full-FT
+- **Claim:** Genesis-init dense FT on high-Reason `z_A` beats Tok-init (R4) on paired margin.
+- **Status:** open — **p2074** `upload_and_launch.sh` + fleet-boot case for `mine-r5-nonking-1` (H122 stack @ `abe89194`, same `winner_za_high_l1` as R4). Waiting on 8×B300 rent.
+
+### R6 — Thought-format / short-z
+- **Claim:** natural short non-listy `z` (keep original text) raises Reason vs king more than raw/long or H101 rewrite.
+- **Status:** open — **p2075** `upload_and_launch.sh` + fleet-boot case for `mine-r6-fmt-1` (H101 stack overlay, EPOCHS=6, n=202 z≤180). ≠ H101 ultrashort rewrite REFUTE. Waiting on 8×B300 rent.
+
+### R7–R8 — fleet axes (uploaders TBD)
+- **R7** data-filter · **R8** REINFORCE — plans under `experiments/r{7,8}-*/`; pods via fleet-rent; boot stamps `needs_axis_uploader` until launchers land.
 
 ## Refuted (Reason era)
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.
