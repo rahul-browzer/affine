@@ -274,7 +274,9 @@ for i in $(seq 1 "$MAX_ITERS"); do
     fi
   done
 
-  if (( ${#miss[@]} > 0 )); then
+  # B200 fallback only when 8×B200 stock exists. Empty B200 waves double API
+  # latency and eat the B300 flicker window (p2132).
+  if (( ${#miss[@]} > 0 )) && stock_ok B200; then
     pids=()
     for name in "${miss[@]}"; do
       (
@@ -296,6 +298,10 @@ for i in $(seq 1 "$MAX_ITERS"); do
         log "B300×8 empty — fell back to B200×8 for $name"
       fi
     done
+  elif (( ${#miss[@]} > 0 )); then
+    if (( i % 20 == 1 )); then
+      log "skip B200 fallback (B200×8 stock empty); keep B300-only fire"
+    fi
   fi
 
   n_rented=${#rented_gpu[@]}

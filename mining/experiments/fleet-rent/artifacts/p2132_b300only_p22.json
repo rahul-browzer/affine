@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-11T23:18:00Z",
+  "pass": 2132,
+  "action": "fleet-rent: skip empty B200 fallback; parallel\u00d716\u2192\u00d722; POLL_S=0 continuous B300 fire; MAX_ITERS=86400",
+  "pidfile": "experiments/fleet-rent/logs/wait_fleet_b300.pid",
+  "pid": 2714756,
+  "env": {
+    "PARALLEL_N": 22,
+    "POLL_S": 0,
+    "MAX_ITERS": 86400,
+    "PASS": 2132,
+    "MINE_CAP": 25,
+    "TARGET_MINES": 25,
+    "TTL": "24h"
+  },
+  "stock": {
+    "B300x8": 0,
+    "B200x8": 0
+  },
+  "burn_h": 180.25,
+  "floor_h": 833
+}

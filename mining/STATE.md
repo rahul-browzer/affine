@@ -13,7 +13,7 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` reign 4 |
 | challenge | chal-00498 scoring; queue 502/504/508/511… |
 | miner burn | **$180.25/h** · floor $833/h · **gap −$653/h** |
-| B300 stock | **0** free 8×B300/B200 · fleet **parallel×16** @POLL=1s |
+| B300 stock | **0** free 8×B300/B200 · fleet **B300-only ×22** @POLL=0 |
 | Lium bal | ~$120,153 · floor $10k OK |
 | submissions | 0 |
 
@@ -21,10 +21,10 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2bf** n80 ~50/80 dpo2@90ea78ff |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO sole @step5 mean_r≈0.004 |
-| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R6** train ~18/96 @max_len16384 |
-| host fleet-rent | pid**2708039** | — | **parallel×16** →R7–R32+ @1s · MAX_ITERS=86400 |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2bf** n80 ~60/80 dpo2@90ea78ff |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO ~step6 sample/score |
+| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R6** train ~22/96 @max_len16384 |
+| host fleet-rent | pid**2714756** | — | **B300-only ×22** POLL=0 →R7–R32+ |
 | host fleet-boot | pid**2463724** | — | auto-upload @5s |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099` · R3/R3b: `ssh root@204.9.206.245 -p 40051`
@@ -33,13 +33,13 @@ R2bf: `tail -f /root/logs/r2bf_dpo2_reload.log` · dec `r2bf_dpo2_decision.json`
 R3b: `tail -f /root/logs/r3_train.nohup` · pipe `r3b_pipeline.nohup`
 R6: `tail -f /root/logs/h101_train.nohup` · dec `h101_decision.json`
 Fleet: `tail -f experiments/fleet-rent/logs/wait_{fleet_b300,bootstrap_fleet}.log`
-**p2131:** fleet×8→**parallel×16** + MAX_ITERS 2160→**86400** (p2130 budget ~36m@1s); B300×8=0; burn **$180.25/h**.
+**p2132:** skip empty B200 fallback; parallel×16→**×22** POLL=0; B300×8=0; burn **$180.25/h**.
 
 ## Blocked
 No free 8×B300/B200. Cannot hit $833/h burn until stock returns.
 
 ## Next action
-**Rent:** snatch via parallel×16 (R7 first). Bootstrap auto-arms.
+**Rent:** snatch via B300-only ×22 @POLL=0 (R7 first). Bootstrap auto-arms.
 **R3b:** wait train.done → merge/n80 → `r3b_decision.json`.
 **R6:** wait train.done → merge/n80 → `h101_decision.json`.
 **Crown:** wait R2bf n80 → decision.
