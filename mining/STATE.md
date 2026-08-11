@@ -18,15 +18,15 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | submissions | 0 · hotkey `default` unused |
 | board | live duel **chal-00441** (thompsville cgpb8, still `load_challenger`) |
 | queue | 431→450→451→452→455→456→**458 whoami** |
-| disk | ~261 GiB free on `/root` (85%) |
+| disk | **~494 GiB free** (72%) after p1932 purge |
 | R2d/e/f/h | 0.22× / REFUTE / SKIP / REFUTE −0.59× |
 | **R2g** | Talent×saysth **REFUTE** hr **−0.89×** (n=79) |
 | 440 saysth | hr **0.73×** (parent only; merge lost) |
-| **R2j** | BKN-seven **SKIP** hr **−0.57×** (no Talent×BKN7) |
+| **R2j** | BKN-seven **SKIP** hr **−0.57×** (HF cache purged p1932) |
 | R2i/k…p | wait 441/431/450/456/451/452/455 Reason+ |
 | **R2q** | pure saysth **ARMED** · after R2i…R2p · pid **157147** |
 | **R2r** | Talent×whoami **ARMED** · premerge **162125** · merge **162126** (after R2q + 458 hr>0) |
-| prefetch | BKN6+sft3+asdf+zeus+sth+cp200+**whoami DONE** |
+| prefetch | BKN6+sft3+asdf+zeus+sth+cp200+thomp+**whoami DONE** |
 | gated+ | diane-new 0.54× / nvidia 0.45× / aurora 0.17× — still weight-gated |
 
 ## What's running
@@ -36,11 +36,12 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · R2i/k…p + R2q + **R2r** |
 
 - Engines 8000/8001/8002 healthy (chall still `/tmp/r2g_alpha_merged` idle).
-- R2j terminal: `r2j_premerge.skip` + `r2j_merge_reload.done` (pids dead).
+- R2j terminal: `r2j_premerge.skip` + `r2j_merge_reload.done` (pids dead; BKN7 HF removed).
 - R2q log: `/root/logs/r2q_saysth_reload.log` → decision `r2q_saysth_decision.json`.
 - R2r: `tail /root/logs/r2r_premerge.log` · `r2r_merge_reload.log` → `r2r_alpha_decision.json`.
 - 441 watch: `tail /root/logs/watch_chal00441_reason.log` → `chal00441_reason.json`.
 - whoami DONE; watch `watch_chal00458_reason.log`.
+- Disk purge stamp: `/root/logs/disk_purge_p1932.json`.
 
 ## Blocked
 

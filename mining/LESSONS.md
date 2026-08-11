@@ -108,3 +108,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1929: chal-00432 BKN-seven vs Tok hr **−0.57×** (margin −0.0103, z=−1.72, n=80) — Reason−; R2j premerge correctly **SKIP** (no Talent×BKN7); do not re-arm BKN7 as merge parent.
 - p1930: queue grew **chal-00458** `marsplan0624/…-whoami@21ad4572…` — same id fragment as gated diane-new (`5gedzafcvg`) but **ungated** (index+shards OK); prefetch+watch before duel; do not GPU-merge until Reason+ after R2q.
 - p1930 nearmiss confirm (published gzips): saysth 0.73× > nvidia 0.45× > aurora 0.17×; vera/syntaxs0cerer/darius3th Reason− — gated parents unchanged.
+- p1932: with queue parents cached, `/root` hit **87%/229 GiB free** — purge closed R1 (`/root/r1_out` ~199 GiB) + Reason− BKN7 HF (~66 GiB) → **494 GiB free** before R2r ~70 GiB blend; never `rm` live chall target (`readlink /tmp/r2*_merged`).

@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-11T01:19:29Z",
+  "pass": 1932,
+  "purged": [
+    "/root/r1_out (~199G; R1/R1b/R1c REFUTED)",
+    "hf BKN1890/Affine-5ghvq9a9g9-seven (~66G; chal-00432 Reason- hr -0.57\u00d7)"
+  ],
+  "disk_before": "229G free (87%)",
+  "disk_after": "494G free (72%)",
+  "kept_live_chall": "/root/r2_out/alpha_talent_saysth_v9a_skew",
+  "engines_ok": true,
+  "board": "chal-00441 still load_challenger; gzips 404"
+}
