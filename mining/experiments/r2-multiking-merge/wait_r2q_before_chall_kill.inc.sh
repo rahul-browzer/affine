@@ -407,4 +407,35 @@ for _i in $(seq 1 2880); do
   break
 done
 
+# R2ah pure awesome-v9 (live chal-00467) — block while PID alive so Talent×v9
+# cannot steal the lane between R2ag exit and R2ah claim.
+R2AH_DEC=${R2AH_DEC:-/root/affine_data/r2ah_awesome_v9_decision.json}
+R2AH_DONE=${R2AH_DONE:-/root/logs/r2ah_awesome_v9_reload.done}
+R2AH_PIDF=${R2AH_PIDF:-/root/logs/r2ah_awesome_v9_reload.pid}
+R2AH_HOLDING=${R2AH_HOLDING:-/root/logs/r2ah_awesome_v9_holding.stamp}
+if [[ -f "$R2AH_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AH_DEC"; then
+  echo "SKIP_${_TAG}_R2AH_CLEARS file=$R2AH_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AH_DONE" || -f "$R2AH_DEC" ]]; then
+    echo "[${_TAG}] R2ah terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AH_PIDF" ]]; then
+    _ppid=$(cat "$R2AH_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        hold="holding"
+        [[ -f "$R2AH_HOLDING" ]] || hold="armed"
+        echo "[${_TAG}] wait-r2ah iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid $hold"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2ah not holding lane at iter=$_i"
+  break
+done
+
 unset _i _ppid _TAG

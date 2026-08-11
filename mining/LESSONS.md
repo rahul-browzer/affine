@@ -137,7 +137,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1964: R2p Talent×sth skew CPU premerge **DONE** max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~10.5 min; **R2p merge_reload must gate R2m on `r2m_premerge.done` only** (old pid-alive gate would idle GPU forever behind chal-00456).
 - p1965: **R2o REFUTE** Talent×zeus hr **−1.10×** (margin −0.0286, z=−3.31, n=79) — board zeus 0.25× does not crown via Talent0.25 skew; Stage-5 SKIP; purge blend; let R2p (board parent 0.79×) own chall.
 - p1966: while R2p n80 gathers, prefetch next uncached queue parent (chal-00467 awesome-v9 @75871c57, 16×st ~70.2 GiB) on CPU/network — do not merge until Reason+.
-- p1967: R2z Talent×awesome-v9 skew (0.25/0.75) eager CPU merge **DONE** max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~5.7 min — same Δ class as R2p/R2x; keep DONE gated on chal-00467 Reason+.
 - p1967 queue index probes (unconst): chal-00468 sbs-v0 / 469 sky / 470 google / 471 pig all **weights_ok** — prefetch **sbs first** (16×st) one-at-a-time after v9; sky/google/pig are 2×st (~smaller).
 - p1975: **R2p REFUTE** Talent×sth hr **−0.93×** (margin −0.0282, z=−2.78, n=80) despite board 455 hr 0.79× — best DL Reason+ parent still fails Talent0.25 skew; Stage-5 SKIP; kill chall by PID then purge blend.
 - p1980: chal-00458 whoami Reason+ hr **0.39×** (margin +0.00536, z=1.16) — clears R2r gate but far below crown; history-API stamp beats S3 gzip lag; arm Stage-5 HF waiter before n80 so ≥1.5× uploads without waiting for the next Ralph pass.
@@ -148,3 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1987: after R2af SKIP leaves GPUs idle while board `load_challenger`, arm **pure queue-parent n80** (R2ag tpc9) + bridge→Talent×parent + history fast-path on the live watch — do not burn $64/h waiting on gzip.
 - p1989: history `accepted=false` + `rejection_reason=unservable…` has **null margin/se** — stamp `hr=None` immediately (R2i/441 pattern) or Talent×parent waiters idle forever; board unservable ≠ local serve (R2ag still healthy).
 - p1990: crown-pod Lium egress often **CF 403** on `affine.io/api/v1/history` (gzip on hippius still OK) — run `host_history_stamp_bridge.py` on the mining host and scp stamps for 467–471 or Reason gates stall.
+- p1991: after R2ag pure-parent n80, prefer **pure next board parent** (R2ah awesome-v9) over Talent×parent — Talent skews keep REFUTING; arm PID-alive gate in `wait_r2q` so siblings cannot steal between R2ag exit and pure claim.

@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p/r REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2ae SKIP_GATED**; **R2af/R2x SKIP_BOARD** v8 hr−0.04×; **R2y SKIP_UNSERVABLE** (463); **R2ag** pure-tpc9 n80 ~36/38; **R2z–ad** wait 467–471 (+ host hist bridge) |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p/r REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2ae SKIP_GATED**; **R2af/R2x SKIP_BOARD** v8 hr−0.04×; **R2y SKIP_UNSERVABLE** (463); **R2ag** pure-tpc9 n80 ~49/49; **R2ah** pure-v9 armed post-R2ag; **R2z–ad** wait 467–471 |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e/g/h/q/t/l/n/o/p/r REFUTED**. **R2j/i/k SKIPPED**. **R2s/R2u WEAK_SKIP**. **R2v** pure sft3 local hr **0.39×**. **R2w** asdf **SKIP_BOARD** 0.40×. **R2ae** sth **SKIP_GATED**. **R2af** pure awesome-v8 **SKIP_BOARD_FIRST** (chal-00462 hr **−0.04×**, p1986). **R2x** Talent×v8 **SKIP**+purge same board. **R2y** Talent×tpc9 **SKIP_UNSERVABLE** (chal-00463 board reject; blend purged p1989). **R2ag** pure tpc9 local n80 **gathering** (~36/38; board unservable ≠ local serve). **R2z–ad** wait 467–471 Reason+ via **host history stamp bridge** (pod CF 403 on affine.io). Disk ~444 GiB. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e/g/h/q/t/l/n/o/p/r REFUTED**. **R2j/i/k SKIPPED**. **R2s/R2u WEAK_SKIP**. **R2v** pure sft3 local hr **0.39×**. **R2w** asdf **SKIP_BOARD** 0.40×. **R2ae** sth **SKIP_GATED**. **R2af** pure awesome-v8 **SKIP_BOARD_FIRST** (chal-00462 hr **−0.04×**, p1986). **R2x** Talent×v8 **SKIP**+purge same board. **R2y** Talent×tpc9 **SKIP_UNSERVABLE** (chal-00463 board reject; blend purged p1989). **R2ag** pure tpc9 local n80 **gathering** (~49/49). **R2ah** pure awesome-v9 **armed** post-R2ag (prefer over Talent×v9). **R2z–ad** wait 467–471 Reason+ via **host history stamp bridge**. Disk ~444 GiB. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.

@@ -1,0 +1,1 @@
+- p1967: R2z Talent×awesome-v9 skew (0.25/0.75) eager CPU merge **DONE** max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~5.7 min — same Δ class as R2p/R2x; keep DONE gated on chal-00467 Reason+.
