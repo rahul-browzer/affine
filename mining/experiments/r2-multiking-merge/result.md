@@ -1,3 +1,12 @@
+## p1960 — arm R2n Stage-5 HF push + pre-purge (+140.5 GiB)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,087.
+- R2n n80 healthy (~25/80 @04:25Z, sim **224186**, engines 200/200/200). Board 452 scoring king ~44/80.
+- Parents intact under `/root/hf` (701 GiB; Talent/asdf/zeus/v8/tpc9/cp200/sth/whoami) — do not confuse with empty `~/.cache/huggingface`.
+- Wrote+synced `watch_r2n_stage5_push.sh` (pid **226867**): on `r2n_alpha_decision.json` hr≥1.5× → public `unconst/Affine-5czsc2fc98-r2n-talent-asdf`; below-bar → SKIP (no submit).
+- Pre-purged **h81-merged + h82-merged** → **+140.5 GiB** (`artifacts/r2n_stage5_hf_prepurge_p1960.json`). Kept `r1lora` / `r2v-sft3` / target repo.
+- R2o/x/y Reason waiters untouched. No submit.
+- Next: harvest R2n; hr≥1.5× → confirm HF push meta then register+`--check`+submit; else advance queue Reason+ lanes.
+
 ## p1958 — R2l REFUTE (−0.89×); unblock R2n n80
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,110.
 - Harvested R2l: margin **−0.03068** · se=0.01149 · z=**−2.67** · 3·SE=0.03447 · hr=**−0.89×** · n=79 · Stage-5 `SKIP_BELOW_BAR`.

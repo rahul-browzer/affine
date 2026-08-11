@@ -1,0 +1,25 @@
+{
+  "utc": "2026-08-11T04:25:21Z",
+  "pass": 1960,
+  "need_gb": 75.0,
+  "freed_bytes": 140469197130,
+  "freed_gb": 140.46919713,
+  "n_deleted": 2,
+  "deleted": [
+    {
+      "id": "unconst/Affine-5czsc2fc98-h81-merged",
+      "bytes": 70234598565
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h82-merged",
+      "bytes": 70234598565
+    }
+  ],
+  "errors": [],
+  "keep": [
+    "unconst/Affine-5czsc2fc98-r1lora",
+    "unconst/Affine-5czsc2fc98-r2n-talent-asdf",
+    "unconst/Affine-5czsc2fc98-r2v-sft3"
+  ],
+  "note": "pre-purge during R2n n80 so Stage-5 HF push can start immediately on \u22651.5\u00d7"
+}
