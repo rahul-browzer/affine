@@ -16,7 +16,7 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | Lium | ~$123,300 · burn **$64/h** (≤$833/h) · floor ≥$10k |
 | fleet | `mine-crown-1` lunar-orbit-50 8×B300 · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
-| board | live duel **chal-00450** (sft3, scoring king ~16/80) |
+| board | live duel **chal-00450** (sft3, scoring king ~31/80) |
 | queue | 451 asdf → 452 zeus → 455 sth → 456 cp200 → **458 whoami** |
 | disk | **~624 GiB free** on `/root` (65%) |
 | R2d/e/f/h | 0.22× / REFUTE / SKIP / REFUTE −0.59× |
@@ -24,21 +24,24 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | **R2s/u** | saysth×awesome/kevin **WEAK_SKIP** |
 | **R2j/i/k** | BKN7 SKIP / thomp SKIP / **BKN6 SKIP** |
 | R2l…p | Reason+ waiters armed (450/456/451/452/455) |
-| **R2r** | Talent×whoami **ARMED** · after 458 hr>0 (+ R2v terminal) |
-| **R2v** | pure sft3 **n80 RUNNING** · sim pid **194935** · ~12/80 @02:53Z · ETA~35m |
-| **bridge** | `bridge_r2v_to_r2l` pid **196326** · local+ → unblock R2l; ≥1.5× → Stage-5 |
+| **R2r** | Talent×whoami **ARMED** · after 458 hr>0 (+ R2v/R2w terminal) |
+| **R2v** | pure sft3 **n80 RUNNING** · sim pid **194935** · ~18/80 @02:57Z · ETA~30m |
+| **bridge-v** | `bridge_r2v_to_r2l` pid **196326** · local+ → unblock R2l; ≥1.5× → Stage-5 |
+| **R2w** | pure asdf **ARMED** · pid **197123** · waits R2v+bridge-v · yield to R2l…R2r |
+| **bridge-w** | `bridge_r2w_to_r2n` pid **197133** · local+ → unblock R2n; ≥1.5× → Stage-5 |
 | gated+ | diane-new 0.54× / nvidia 0.45× / aurora 0.17× |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · **R2v n80** · bridge · R2l…p+R2r wait |
+| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · **R2v n80** · bridges · R2w wait · R2l…p+R2r |
 
 - Teacher/king/chall **200/200/200**; chall = pure sft3 (`/tmp/r2v_sft3`).
-- R2v reload pid **189465** · sim **194935** · check `cat /root/affine_data/r2v_sft3_reason_progress.json`.
-- Bridge: `cat /root/logs/bridge_r2v_to_r2l.done` / `r2v_stage5_ready.json`.
-- R2l…p / R2r waiters alive; yield on R2v via wait-include / R2r wait-lane.
+- R2v sim **194935** · check `cat /root/affine_data/r2v_sft3_reason_progress.json`.
+- Bridge-v: `cat /root/logs/bridge_r2v_to_r2l.done` / `r2v_stage5_ready.json`.
+- R2w: `tail /root/logs/r2w_asdf_reload.log` · after R2v terminal.
+- Bridge-w: `cat /root/logs/bridge_r2w_to_r2n.done` / `r2w_stage5_ready.json`.
 
 ## Blocked
 
@@ -46,11 +49,11 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 - Never `max_model_len=32768`; never cu13→`/usr/local/cuda`; never `pkill -f`.
 - Lane-free = **pidfile kill -0** only. Recompute Reason from lpC fields.
 - No merge thomp/BKN6/BKN7/sft3/cp200/asdf/zeus/sth until Reason+. No re-n80 closed lanes.
-- nvidia/diane-new/aurora weight-gated. R2r GPU only after **458 hr>0** (+ R2v terminal).
+- nvidia/diane-new/aurora weight-gated. R2r GPU only after **458 hr>0** (+ R2v/R2w terminal).
 - saysth×kevin/awesome/Tok near-identical — do not re-α those pairs.
 - saysth×Talent (both α directions) **REFUTED** — do not re-blend.
-- Local R2v hr≤0 does **not** SKIP R2l (board may still be +; R2q precedent).
+- Local pure-parent hr≤0 does **not** SKIP Talent×parent (board may still be +).
 
 ## Next action
 
-**Harvest R2v** (`r2v_sft3_decision.json` + bridge done): hr≥1.5× → Stage-5 pure sft3; 0<hr<1.5× → confirm R2l proxy-stamp/premerge; hr≤0 → keep board 450 / R2r on 458.
+**Harvest R2v** (`r2v_sft3_decision.json` + bridge-v done): hr≥1.5× → Stage-5 pure sft3; 0<hr<1.5× → R2l proxy; hr≤0 → confirm **R2w** takes chall (asdf) without idle GPU.

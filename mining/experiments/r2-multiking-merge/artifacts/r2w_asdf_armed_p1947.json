@@ -1,0 +1,13 @@
+{
+  "pass": 1947,
+  "utc": "2026-08-11T02:57:13Z",
+  "lane": "R2w",
+  "chall": "adsbasd31badsf/affine-5ec3jw68ha-asdf@c23098154fd717e64f577cd863f0e1ba8e96ee84",
+  "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a2",
+  "gate": "wait R2v terminal + bridge_r2v_to_r2l; SKIP if hr≥1.5× / stage5; yield to GPU claimants (R2l…R2r)",
+  "r2w_pid": 197123,
+  "bridge_r2w_to_r2n_pid": 197133,
+  "r2v_progress_at_arm": {"challenger": 18, "king": 18, "n_turns": 80},
+  "decision_path": "/root/affine_data/r2w_asdf_decision.json",
+  "check": "tail /root/logs/r2w_asdf_reload.log; cat /root/affine_data/r2w_asdf_reason_progress.json"
+}

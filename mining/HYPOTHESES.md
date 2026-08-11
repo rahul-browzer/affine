@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **440 saysth** 0.73× parent-only; **R2v** pure sft3 **n80 ~12/80** + **bridge→R2l**; **R2l…p/R2r** armed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **440 saysth** 0.73× parent-only; **R2v** sft3 n80 ~18/80 + bridge→R2l; **R2w** pure asdf **ARMED** + bridge→R2n; **R2l…p/R2r** armed |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e/g/h/q/t REFUTED**. **R2j/i/k SKIPPED**. **R2s/R2u WEAK_SKIP**. **chal-00440 saysth** hr **0.73×** parent-only. **R2v** pure sft3@381dbc82 **n80 ~12/80** (sim 194935, ETA~35m; board 450 scoring). **bridge_r2v_to_r2l** armed: local hr>0 proxies 450 stamp; ≥1.5× → Stage-5 + SKIP R2l; local− keeps board wait. **R2l…p** Reason+-gated. **R2r** Talent×whoami armed (after 458 hr>0 + R2v terminal). diane/nvidia/aurora gated. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e/g/h/q/t REFUTED**. **R2j/i/k SKIPPED**. **R2s/R2u WEAK_SKIP**. **chal-00440 saysth** hr **0.73×** parent-only. **R2v** pure sft3@381dbc82 **n80 ~18/80** (sim 194935; board 450 scoring ~31/80). **bridge_r2v_to_r2l** armed. **R2w** pure asdf@c2309815 **ARMED** (pid 197123; waits R2v+bridge-v; yields to R2l…R2r GPU claimants). **bridge_r2w_to_r2n** armed (local+ proxies 451 / ≥1.5× Stage-5). **R2l…p** Reason+-gated. **R2r** Talent×whoami armed (after 458 hr>0 + R2v/R2w terminal). diane/nvidia/aurora gated. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.

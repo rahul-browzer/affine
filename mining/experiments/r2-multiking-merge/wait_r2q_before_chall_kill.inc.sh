@@ -1,7 +1,7 @@
 # Sourced by R2i…R2p merge_reload before killing chall:8002.
 # Pure-saysth (R2q), saysth×awesome (R2s), saysth×Talent (R2t),
-# saysth×kevin (R2u), or pure-sft3 (R2v) may hold the GPU while queue
-# Reason waiters are armed.
+# saysth×kevin (R2u), pure-sft3 (R2v), or pure-asdf (R2w) may hold the GPU
+# while queue Reason waiters are armed.
 R2Q_DEC=${R2Q_DEC:-/root/affine_data/r2q_saysth_decision.json}
 R2Q_DONE=${R2Q_DONE:-/root/logs/r2q_saysth_reload.done}
 R2Q_PIDF=${R2Q_PIDF:-/root/logs/r2q_saysth_reload.pid}
@@ -17,6 +17,9 @@ R2U_PIDF=${R2U_PIDF:-/root/logs/r2u_merge_reload.pid}
 R2V_DEC=${R2V_DEC:-/root/affine_data/r2v_sft3_decision.json}
 R2V_DONE=${R2V_DONE:-/root/logs/r2v_sft3_reload.done}
 R2V_PIDF=${R2V_PIDF:-/root/logs/r2v_sft3_reload.pid}
+R2W_DEC=${R2W_DEC:-/root/affine_data/r2w_asdf_decision.json}
+R2W_DONE=${R2W_DONE:-/root/logs/r2w_asdf_reload.done}
+R2W_PIDF=${R2W_PIDF:-/root/logs/r2w_asdf_reload.pid}
 _TAG=${_WAIT_R2Q_TAG:-merge}
 if [[ -f "$R2Q_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2Q_DEC"; then
   echo "SKIP_${_TAG}_R2Q_CLEARS file=$R2Q_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
@@ -36,6 +39,10 @@ if [[ -f "$R2U_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2U
 fi
 if [[ -f "$R2V_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2V_DEC"; then
   echo "SKIP_${_TAG}_R2V_CLEARS file=$R2V_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+if [[ -f "$R2W_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2W_DEC"; then
+  echo "SKIP_${_TAG}_R2W_CLEARS file=$R2W_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
   exit 0
 fi
 for _i in $(seq 1 2880); do
@@ -126,6 +133,24 @@ for _i in $(seq 1 2880); do
     fi
   fi
   echo "[${_TAG}] R2v not holding lane at iter=$_i"
+  break
+done
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2W_DONE" || -f "$R2W_DEC" ]]; then
+    echo "[${_TAG}] R2w terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2W_PIDF" ]]; then
+    _ppid=$(cat "$R2W_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        echo "[${_TAG}] wait-r2w iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2w not holding lane at iter=$_i"
   break
 done
 unset _i _ppid _TAG
