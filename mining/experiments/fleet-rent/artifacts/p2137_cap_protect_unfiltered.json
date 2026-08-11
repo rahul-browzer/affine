@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-11T23:49:32Z",
+  "pass": 2137,
+  "mode": "api-unfiltered-8x",
+  "why": "/pods 429\u2192mine=0 overshoots CAP; dual machine_names GETs amplify 429. Single 8\u00d7 poll + client B300/B200 filter; refuse rent when live-resolve fails; lium ps fallback.",
+  "pid": 2771543,
+  "empty_sleep_s": 0.5,
+  "script": "experiments/fleet-rent/wait_fleet_b300_api.py",
+  "stock": {
+    "B300x8": 0,
+    "B200x8": 0,
+    "B300x1": 1,
+    "B200x1": 1
+  },
+  "burn_h": 180.25,
+  "floor_h": 833
+}

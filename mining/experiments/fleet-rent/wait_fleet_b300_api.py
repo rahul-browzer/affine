@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Fast fleet snatcher via Lium HTTP API (session-reused /executors).
 
-Replaces shell `lium ls` polling (~0.6s/iter) with ~0.14s/iter GET polls.
-On stock: `lium up <executor_id> --name mine-* --ttl …` (keeps TTL/SSH/template path).
+One unfiltered GET /executors?gpu_count=8 per poll, then client-filter B300
+(preferred) else B200. Avoids dual machine_names queries that 429 the key.
+
+On stock: `lium up <executor_id> --name mine-* --ttl …` (keeps TTL/SSH path).
 Never touches non-mine pods. Hard-stops if balance < $10k.
+
+Critical: /pods API failure must NOT look like mine_count=0 (overshoots CAP).
 """
 from __future__ import annotations
 
@@ -30,10 +34,10 @@ CAP = int(os.environ.get("MINE_CAP", "25"))
 TARGET = int(os.environ.get("TARGET_MINES", "25"))
 PARALLEL_N = int(os.environ.get("PARALLEL_N", "22"))
 MAX_ITERS = int(os.environ.get("MAX_ITERS", "86400"))
-PASS = int(os.environ.get("PASS", "2136"))
-B200_EVERY = int(os.environ.get("B200_EVERY", "8"))  # probe B200 every N empty iters
+PASS = int(os.environ.get("PASS", "2137"))
 # Stay under Lium 429 while still beating CLI ls (~0.63s). 0.5s ≈ 2 Hz.
 EMPTY_SLEEP = float(os.environ.get("EMPTY_SLEEP", "0.5"))
+PODS_FAIL_SLEEP = float(os.environ.get("PODS_FAIL_SLEEP", "2.0"))
 
 # Distinct axes (one pod each). Skip names already live.
 QUEUE = [
@@ -67,8 +71,6 @@ QUEUE = [
     ("mine-r23-diane-grpo-1", "R23", "diane613-init Reason-GRPO (≠ R3/R16/R18–R22)"),
 ]
 
-B300_MACHINES = "NVIDIA B300 SXM6 AC"
-B200_MACHINES = "NVIDIA B200"
 BASE = os.environ.get("LIUM_BASE_URL", "https://lium.io/api")
 
 
@@ -135,7 +137,17 @@ def _get_json(sess: requests.Session, path: str, params: dict | None = None, ret
     return None
 
 
-def list_nodes(sess: requests.Session, machine_names: str) -> list[dict]:
+def _is_b300(machine: str) -> bool:
+    return "B300" in (machine or "").upper()
+
+
+def _is_b200(machine: str) -> bool:
+    u = (machine or "").upper()
+    return "B200" in u and "B300" not in u
+
+
+def list_b300_b200_nodes(sess: requests.Session) -> tuple[str, list[dict]] | tuple[None, None]:
+    """One unfiltered 8× poll; prefer B300, else B200. None,None = API fail."""
     data = _get_json(
         sess,
         "/executors",
@@ -143,33 +155,40 @@ def list_nodes(sess: requests.Session, machine_names: str) -> list[dict]:
             "size": 1000,
             "gpu_count_gte": 8,
             "gpu_count_lte": 8,
-            "machine_names": machine_names,
         },
     )
     if not isinstance(data, list):
-        return []
-    out = []
+        return None, None
+    b300: list[dict] = []
+    b200: list[dict] = []
     for n in data:
         if not isinstance(n, dict):
             continue
-        # Prefer free whole hosts; skip pending rental races when flagged.
         if n.get("has_no_pending_rental") is False:
             continue
-        nid = n.get("id")
-        if nid:
-            out.append(n)
-    return out
+        if not n.get("id"):
+            continue
+        mn = n.get("machine_name") or ""
+        if _is_b300(mn):
+            b300.append(n)
+        elif _is_b200(mn):
+            b200.append(n)
+    if b300:
+        return "B300", b300
+    if b200:
+        return "B200", b200
+    return "", []
 
 
-def mine_pods(sess: requests.Session) -> list[dict]:
+def mine_pods_or_none(sess: requests.Session) -> list[dict] | None:
+    """Return mine-* pods, or None if /pods failed (do NOT treat as empty)."""
     data = _get_json(sess, "/pods")
     if not isinstance(data, list):
-        return []
+        return None
     mines = []
     for p in data:
         if not isinstance(p, dict):
             continue
-        # /pods uses pod_name; lium ps --format json uses name.
         name = p.get("pod_name") or p.get("name") or ""
         if isinstance(name, str) and name.startswith("mine-"):
             p = dict(p)
@@ -178,8 +197,36 @@ def mine_pods(sess: requests.Session) -> list[dict]:
     return mines
 
 
-def mine_names(sess: requests.Session) -> set[str]:
-    return {p["name"] for p in mine_pods(sess)}
+def mine_names_cli_fallback() -> set[str] | None:
+    """Last-resort live mine names via `lium ps` when /pods is 429'd."""
+    try:
+        raw = subprocess.check_output(
+            ["lium", "ps", "--format", "json"], text=True, timeout=60
+        )
+        pods = json.loads(raw)
+        if isinstance(pods, dict):
+            pods = pods.get("pods") or pods.get("data") or []
+        if not isinstance(pods, list):
+            return None
+        out = set()
+        for p in pods:
+            if not isinstance(p, dict):
+                continue
+            name = p.get("name") or p.get("pod_name") or ""
+            if isinstance(name, str) and name.startswith("mine-"):
+                out.add(name)
+        return out
+    except Exception as e:
+        log(f"lium ps fallback fail: {e}")
+        return None
+
+
+def resolve_live(sess: requests.Session) -> set[str] | None:
+    pods = mine_pods_or_none(sess)
+    if pods is not None:
+        return {p["name"] for p in pods}
+    log("/pods failed — trying lium ps fallback before any rent")
+    return mine_names_cli_fallback()
 
 
 def balance_ok() -> bool:
@@ -231,10 +278,8 @@ def try_rent_node(node_id: str, name: str) -> bool:
 def write_stamp(name: str, axis: str, gpu: str, note: str, sess: requests.Session) -> None:
     STAMP_DIR.mkdir(parents=True, exist_ok=True)
     path = STAMP_DIR / f"rented_{name.replace('/', '_')}.json"
-    try:
-        ps = json.dumps(mine_pods(sess))[:4000]
-    except Exception as e:
-        ps = f"err:{e}"
+    pods = mine_pods_or_none(sess)
+    ps = json.dumps(pods)[:4000] if pods is not None else "pods_unavailable"
     path.write_text(
         json.dumps(
             {
@@ -245,7 +290,7 @@ def write_stamp(name: str, axis: str, gpu: str, note: str, sess: requests.Sessio
                 "gpu": gpu,
                 "note": note,
                 "ttl": TTL,
-                "mode": "api-ls-then-lium-up",
+                "mode": "api-unfiltered-8x-then-lium-up",
                 "ps_json": ps,
             },
             indent=2,
@@ -260,25 +305,31 @@ def main() -> int:
     STAMP_DIR.mkdir(parents=True, exist_ok=True)
     PIDF.write_text(str(os.getpid()) + "\n")
 
-    # Tee to log (launcher also redirects; keep direct writes if attached).
     log_f = open(LOG, "a", buffering=1)
+
     class Tee:
         def write(self, s):
             sys.__stdout__.write(s)
             log_f.write(s)
+
         def flush(self):
             sys.__stdout__.flush()
             log_f.flush()
+
     sys.stdout = Tee()  # type: ignore
     sys.stderr = sys.stdout  # type: ignore
 
     sess = make_session()
     log(
         f"start target={TARGET} cap={CAP} empty_sleep={EMPTY_SLEEP}s "
-        f"parallel={PARALLEL_N} max_iters={MAX_ITERS} pass={PASS} mode=api-http"
+        f"parallel={PARALLEL_N} max_iters={MAX_ITERS} pass={PASS} "
+        f"mode=api-unfiltered-8x"
     )
 
-    live = mine_names(sess)
+    live = resolve_live(sess)
+    if live is None:
+        log("ABORT cannot resolve live mine-* at start (/pods + lium ps failed)")
+        return 5
     log(f"live_mines={' '.join(sorted(live))}|count={len(live)}")
 
     for i in range(1, MAX_ITERS + 1):
@@ -286,7 +337,11 @@ def main() -> int:
             if not balance_ok():
                 log("ABORT balance below $10k floor")
                 return 4
-            live = mine_names(sess)
+            live = resolve_live(sess)
+            if live is None:
+                log(f"iter={i} live-resolve FAIL — skip rent, sleep {PODS_FAIL_SLEEP}s")
+                time.sleep(PODS_FAIL_SLEEP)
+                continue
             n = len(live)
             if n >= TARGET:
                 log(f"TARGET reached mine_count={n} >= {TARGET} — exit")
@@ -295,21 +350,25 @@ def main() -> int:
                 log(f"ABORT at cap mine_count={n} >= {CAP}")
                 return 3
 
-        gpu_label = "B300"
-        nodes = list_nodes(sess, B300_MACHINES)
-        if not nodes and (i % B200_EVERY == 0):
-            b200 = list_nodes(sess, B200_MACHINES)
-            if b200:
-                gpu_label = "B200"
-                nodes = b200
-                log(f"B300×8 empty — claiming B200×8 stock ({len(nodes)} nodes)")
+        gpu_label, nodes = list_b300_b200_nodes(sess)
+        if gpu_label is None:
+            if i % 40 == 1:
+                log(f"iter={i} /executors FAIL — backoff sleep")
+            time.sleep(max(EMPTY_SLEEP, PODS_FAIL_SLEEP))
+            continue
 
         if not nodes:
             if i % 40 == 1:
-                live = mine_names(sess)
+                live = resolve_live(sess)
+                if live is None:
+                    log(f"iter={i} api-empty but live-resolve FAIL")
+                    time.sleep(PODS_FAIL_SLEEP)
+                    continue
                 slots = next_slots(live, 6)
                 try:
-                    bal = subprocess.check_output(["lium", "balance"], text=True, timeout=30).strip()
+                    bal = subprocess.check_output(
+                        ["lium", "balance"], text=True, timeout=30
+                    ).strip()
                 except Exception:
                     bal = "?"
                 log(
@@ -319,7 +378,16 @@ def main() -> int:
             time.sleep(EMPTY_SLEEP)
             continue
 
-        live = mine_names(sess)
+        # STOCK — must know live count before claiming (never assume 0 on API fail).
+        live = resolve_live(sess)
+        if live is None:
+            log(
+                f"STOCK {gpu_label}×8 n={len(nodes)} but live-resolve FAIL — "
+                f"NO RENT (cap protect); sleep {PODS_FAIL_SLEEP}s"
+            )
+            time.sleep(PODS_FAIL_SLEEP)
+            continue
+
         n = len(live)
         if n >= TARGET:
             log(f"TARGET reached mine_count={n} >= {TARGET} — exit")
@@ -358,12 +426,15 @@ def main() -> int:
                     rented[name] = (axis, note, gpu_label)
 
         if not rented:
-            log(f"iter={i} STOCK sighting but 0 rents ({gpu_label} n={len(nodes)}) — keep polling")
+            log(
+                f"iter={i} STOCK sighting but 0 rents ({gpu_label} n={len(nodes)}) "
+                "— keep polling"
+            )
             time.sleep(EMPTY_SLEEP)
             continue
 
         time.sleep(8)
-        live = mine_names(sess)
+        live = resolve_live(sess) or set()
         for name, (axis, note, gpu) in rented.items():
             if name in live:
                 log(f"RENTED ok gpu={gpu} name={name} axis={axis}")
@@ -371,7 +442,8 @@ def main() -> int:
             else:
                 log(f"up rc=0 but {name} not in ps — keep polling")
 
-    log(f"TIMEOUT after {MAX_ITERS} iters — mine_count={len(mine_names(sess))}")
+    live_final = resolve_live(sess) or set()
+    log(f"TIMEOUT after {MAX_ITERS} iters — mine_count={len(live_final)}")
     return 2
 
 

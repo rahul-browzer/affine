@@ -145,8 +145,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R5 Genesis full-FT vs Tok: m=**−0.039** z=−3.24 — non-king Genesis FT closed for this reign; retarget pod to a different axis (p2125).
 - R6 natural-short jsonl: fit-filter @8192 keeps **33/202**; use **max_len=16384** (121/202) before train (p2126).
 - `start_r3b.sh` peft/torch import probe can hang WCHAN=`request_wait_answer` on gocryptfs — skip probe; launch `train_reason_grpo.py` directly (p2127).
-- After R3 REFUTE, retarget same warm TKC pod to **R3b** (GPUs6–7) rather than idle-wait for a new B300 rent (p2127).
-- R3b double-launch: two `train_reason_grpo.py` on CUDA 6,7 same out-dir — kill orphan not in `train.pid`; GPU mem halved 76→37 / 82→41 GiB (p2128).
-- Host fleet snatch: **ls→node-id `lium up`** (~1s/iter) beats blind parallel `up --gpu` (~22s/iter empty); one `ps`/40 iters; B200 ls every 10th; kill by PID only (p2134).
-- Fleet-bootstrap `MAX_ITERS=1800` dies mid-stock-drought (~2.5h@5s / ~10h@20s) — snatches then sit un-armed; keep **86400** + POLL=5s alongside fleet-rent (p2135).
-- Fleet snatch via session `GET /executors` (~0.13s) beats CLI `lium ls` (~0.63s); use `pod_name` on `/pods`; EMPTY≈0.25s + 429 backoff or API bans the hunter (p2136).
+- After R3 REFUTE, retarget same warm TKC pod to **R3b** (GPUs6–7) rather than idle-wait for a new B300 rent (p2127). Kill orphan R3b trainers not in `train.pid` (p2128).
+- Fleet-bootstrap keep **MAX_ITERS=86400** (1800 dies mid-drought, p2135). Fleet API: one unfiltered `GET /executors?gpu_count=8` + client B300/B200 filter; `/pods` 429→[] must **not** look like mine=0 (CAP overshoot) — refuse rent + `lium ps` fallback (p2137).
