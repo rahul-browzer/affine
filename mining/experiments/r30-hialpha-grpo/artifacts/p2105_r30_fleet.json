@@ -1,0 +1,24 @@
+{
+  "utc": "2026-08-11T20:45:01Z",
+  "pass": 2105,
+  "axis": "R30",
+  "pod": "mine-r30-hialpha-1",
+  "hypo": "Tok-init Reason-GRPO HiAlpha α=128 r=16 (≠ R3 α=32; isolates α scale vs R29 r-bump)",
+  "base": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "queue_priority": "after R29, before R9/parent-swap axes",
+  "poll_s": 10,
+  "target_mines": 25,
+  "uploader": "experiments/r30-hialpha-grpo/upload_and_launch.sh",
+  "note": "armed while B300×8=0 — rent polls @10s; structural α isolate",
+  "rent_pid": "2422351",
+  "boot_pid": "2422369",
+  "knobs": {
+    "lr": "5e-6",
+    "group_size": 4,
+    "temperature": 0.8,
+    "lora_r": 16,
+    "lora_alpha": 128,
+    "max_len": 6144,
+    "max_new": 512
+  }
+}
