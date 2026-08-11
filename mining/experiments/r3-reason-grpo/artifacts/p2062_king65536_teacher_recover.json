@@ -1,0 +1,18 @@
+{
+  "pass": 2062,
+  "utc": "2026-08-11T17:54:08Z",
+  "pod": "mine-r3-grpo-1",
+  "actions": [
+    "reloaded king :8001 max_model_len 32768→65536 util=0.72 (gpus 2,3)",
+    "patched serve_three.sh MAXLEN default → 65536 (pod + mining/experiments)",
+    "teacher died (NCCL timeout / orphan worker pid10870 on GPU1); cleared GPU0/1",
+    "SIGSTOP GRPO 15121 during teacher relaunch; SIGCONT after :8000 ready",
+    "confirmed GRPO step=10 mean_r≈0.01166 with live teacher rewards"
+  ],
+  "engines": {
+    "teacher": {"port": 8000, "max_model_len": 32768, "health": 200},
+    "king": {"port": 8001, "max_model_len": 65536, "health": 200, "util": 0.72}
+  },
+  "b300_x8_free": 0,
+  "burn_usd_per_h": 116.25
+}

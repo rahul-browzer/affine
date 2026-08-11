@@ -53,7 +53,7 @@ CHALL_REPO=${CHALL_REPO:-kevin954/Affine-5dfqbbh8ev-sft}
 CHALL_REV=${CHALL_REV:-6a5815fad8f4e34c983b1933c1fae5762fe25220}
 
 TP=${TP:-2}
-MAXLEN=${MAXLEN:-32768}
+MAXLEN=${MAXLEN:-65536}
 GPUUTIL=${GPUUTIL:-0.80}
 # Chall at 0.80 OOMs on first prompt-logprobs (H20: log_softmax needs ~7.2GiB free).
 CHALL_GPUUTIL=${CHALL_GPUUTIL:-0.72}
