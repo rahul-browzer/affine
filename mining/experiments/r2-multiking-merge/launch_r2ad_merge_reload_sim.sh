@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
-# R2ac: after R2l…R2z (+ R2q/R2v/R2aa/R2ab) resolve below bar + Talent×google skew
-# premerge ready (gated on chal-00470 Reason hr>0) → reload chall → fresh n80.
-# If R2ac premerge SKIP (Reason− / mismatch / timeout) → exit without chall kill.
+# R2ad: after R2l…R2z (+ R2q/R2v/R2aa/R2ab/R2ac) resolve below bar + Talent×pig skew
+# premerge ready (gated on chal-00471 Reason hr>0) → reload chall → fresh n80.
+# Yields if a later sibling already stamped premerge.done (none yet); waits R2ac only if r2ac_premerge.done.
+# If R2ad premerge SKIP (Reason− / mismatch / timeout) → exit without chall kill.
 # Does NOT touch teacher:8000 or king:8001. Kill chall by PID file only.
 # Pre-registered: submit only if headroom ≥ 1.5×(3·SE).
 set -euo pipefail
-LOG=/root/logs/r2ac_merge_reload.log
-DONE=/root/logs/r2ac_merge_reload.done
-PIDF=/root/logs/r2ac_merge_reload.pid
+LOG=/root/logs/r2ad_merge_reload.log
+DONE=/root/logs/r2ad_merge_reload.done
+PIDF=/root/logs/r2ad_merge_reload.pid
 mkdir -p /root/logs /root/affine_data /root/r2_out
 echo $$ >"$PIDF"
 exec > >(tee -a "$LOG") 2>&1
 
-echo "[r2ac-merge] $(date -u +%Y-%m-%dT%H:%M:%SZ) start"
+echo "[r2ad-merge] $(date -u +%Y-%m-%dT%H:%M:%SZ) start"
 if [[ -f "$DONE" ]]; then
-  echo "[r2ac-merge] already done: $(cat "$DONE")"
+  echo "[r2ad-merge] already done: $(cat "$DONE")"
   exit 0
 fi
 
-PREMERGE_DONE=${PREMERGE_DONE:-/root/logs/r2ac_premerge.done}
-PREMERGE_SKIP=${PREMERGE_SKIP:-/root/logs/r2ac_premerge.skip}
+PREMERGE_DONE=${PREMERGE_DONE:-/root/logs/r2ad_premerge.done}
+PREMERGE_SKIP=${PREMERGE_SKIP:-/root/logs/r2ad_premerge.skip}
 R2D_DEC=${R2D_DEC:-/root/affine_data/r2d_awesome_decision.json}
 R2E_DEC=${R2E_DEC:-/root/affine_data/r2e_alpha_decision.json}
 R2G_DEC=${R2G_DEC:-/root/affine_data/r2g_alpha_decision.json}
@@ -79,13 +80,13 @@ R2AA_PREMERGE_SKIP=${R2AA_PREMERGE_SKIP:-/root/logs/r2aa_premerge.skip}
 R2AB_DEC=${R2AB_DEC:-/root/affine_data/r2ab_alpha_decision.json}
 R2AB_DONE=${R2AB_DONE:-/root/logs/r2ab_merge_reload.done}
 R2AB_PREMERGE_SKIP=${R2AB_PREMERGE_SKIP:-/root/logs/r2ab_premerge.skip}
-R2AD_DEC=${R2AD_DEC:-/root/affine_data/r2ad_alpha_decision.json}
-R2AD_DONE=${R2AD_DONE:-/root/logs/r2ad_merge_reload.done}
-R2AD_PREMERGE_SKIP=${R2AD_PREMERGE_SKIP:-/root/logs/r2ad_premerge.skip}
+R2AC_DEC=${R2AC_DEC:-/root/affine_data/r2ac_alpha_decision.json}
+R2AC_DONE=${R2AC_DONE:-/root/logs/r2ac_merge_reload.done}
+R2AC_PREMERGE_SKIP=${R2AC_PREMERGE_SKIP:-/root/logs/r2ac_premerge.skip}
 HEADROOM_BAR=${HEADROOM_BAR:-1.5}
-MERGED=${MERGED:-/root/r2_out/alpha_talent_google_skew}
-LINK=${LINK:-/tmp/r2ac_alpha_merged}
-HOLDING=${HOLDING:-/root/logs/r2ac_talent_google_holding.stamp}
+MERGED=${MERGED:-/root/r2_out/alpha_talent_pig_skew}
+LINK=${LINK:-/tmp/r2ad_alpha_merged}
+HOLDING=${HOLDING:-/root/logs/r2ad_talent_pig_holding.stamp}
 
 headroom_ok() {
   local f="$1"
@@ -114,22 +115,22 @@ lane_terminal() {
   [[ -f "$done" || -f "$skip" || -f "$dec" ]]
 }
 
-# 1) Wait R2ac CPU premerge outcome (done with weights, or skip).
+# 1) Wait R2ad CPU premerge outcome (done with weights, or skip).
 for i in $(seq 1 2880); do
   if [[ -f "$PREMERGE_SKIP" ]]; then
-    echo "SKIP_R2AC_PREMERGE_SKIPPED $(cat "$PREMERGE_SKIP") $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+    echo "SKIP_R2AD_PREMERGE_SKIPPED $(cat "$PREMERGE_SKIP") $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
     exit 0
   fi
   if [[ -f "$PREMERGE_DONE" && -f "$MERGED/model.safetensors.index.json" ]]; then
-    echo "[r2ac-merge] premerge ready at iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) $(cat "$PREMERGE_DONE")"
+    echo "[r2ad-merge] premerge ready at iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) $(cat "$PREMERGE_DONE")"
     break
   fi
   if (( i % 12 == 0 )); then
-    crumb=$(tail -n 3 /root/logs/r2ac_premerge.log 2>/dev/null | tr '\r' '\n' | tail -1 || true)
-    echo "[r2ac-merge] wait-premerge iter=$i crumb=${crumb:-none}"
+    crumb=$(tail -n 3 /root/logs/r2ad_premerge.log 2>/dev/null | tr '\r' '\n' | tail -1 || true)
+    echo "[r2ad-merge] wait-premerge iter=$i crumb=${crumb:-none}"
   fi
   if (( i == 2880 )); then
-    echo "SKIP_R2AC_PREMERGE_TIMEOUT $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+    echo "SKIP_R2AD_PREMERGE_TIMEOUT $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
     exit 0
   fi
   sleep 10
@@ -140,25 +141,17 @@ for i in $(seq 1 2880); do
   for f in "$R2D_DEC" "$R2E_DEC" "$R2H_DEC" "$R2G_DEC" "$R2I_DEC" "$R2J_DEC" \
            "$R2K_DEC" "$R2L_DEC" "$R2M_DEC" "$R2N_DEC" "$R2O_DEC" "$R2P_DEC" \
            "$R2Q_DEC" "$R2R_DEC" "$R2S_DEC" "$R2T_DEC" "$R2U_DEC" "$R2V_DEC" \
-           "$R2X_DEC" "$R2Y_DEC" "$R2Z_DEC" "$R2AA_DEC" "$R2AB_DEC" "$R2AD_DEC"; do
+           "$R2X_DEC" "$R2Y_DEC" "$R2Z_DEC" "$R2AA_DEC" "$R2AB_DEC" "$R2AC_DEC"; do
     if [[ -f "$f" ]] && headroom_ok "$f"; then
-      echo "SKIP_R2AC_PRIOR_CLEARS file=$f $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+      echo "SKIP_R2AD_PRIOR_CLEARS file=$f $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
       exit 0
     fi
   done
   if [[ -f "$PREMERGE_SKIP" ]]; then
-    echo "SKIP_R2AC_PREMERGE_SKIPPED $(cat "$PREMERGE_SKIP") $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+    echo "SKIP_R2AD_PREMERGE_SKIPPED $(cat "$PREMERGE_SKIP") $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
     exit 0
   fi
 
-  # If R2ad already has premerge.done, wait for R2ad terminal (do not race chall)
-  if [[ -f /root/logs/r2ad_premerge.done ]] && ! lane_terminal "$R2AD_DONE" "$R2AD_PREMERGE_SKIP" "$R2AD_DEC"; then
-    if (( i % 12 == 0 )); then
-      echo "[r2ac-merge] wait-r2ad-premerge-claim iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-    fi
-    sleep 10
-    continue
-  fi
   busy=0
   if ! lane_terminal "$R2I_DONE" "$R2I_PREMERGE_SKIP" "$R2I_DEC"; then busy=1; fi
   if ! lane_terminal "$R2J_DONE" "$R2J_PREMERGE_SKIP" "$R2J_DEC"; then busy=1; fi
@@ -178,6 +171,7 @@ for i in $(seq 1 2880); do
   # R2aa/R2ab: busy only once premerge.done lands (eager waiters must not idle GPU)
   if [[ -f /root/logs/r2aa_premerge.done ]] && ! lane_terminal "$R2AA_DONE" "$R2AA_PREMERGE_SKIP" "$R2AA_DEC"; then busy=1; fi
   if [[ -f /root/logs/r2ab_premerge.done ]] && ! lane_terminal "$R2AB_DONE" "$R2AB_PREMERGE_SKIP" "$R2AB_DEC"; then busy=1; fi
+  if [[ -f /root/logs/r2ac_premerge.done ]] && ! lane_terminal "$R2AC_DONE" "$R2AC_PREMERGE_SKIP" "$R2AC_DEC"; then busy=1; fi
   if [[ -f /root/logs/r2s_premerge.done ]] && ! lane_terminal "$R2S_DONE" "$R2S_PREMERGE_SKIP" "$R2S_DEC"; then
     busy=1
   fi
@@ -193,7 +187,7 @@ for i in $(seq 1 2880); do
             /root/logs/r2t_merge_reload.pid /root/logs/r2u_merge_reload.pid \
             /root/logs/r2v_sft3_reload.pid /root/logs/r2x_merge_reload.pid \
             /root/logs/r2y_merge_reload.pid /root/logs/r2z_merge_reload.pid \
-            /root/logs/r2aa_merge_reload.pid /root/logs/r2ab_merge_reload.pid; do
+            /root/logs/r2aa_merge_reload.pid /root/logs/r2ab_merge_reload.pid /root/logs/r2ac_merge_reload.pid; do
     if pid_alive "$pf"; then
       case "$pf" in
         *r2i*) lane_terminal "$R2I_DONE" "$R2I_PREMERGE_SKIP" "$R2I_DEC" || busy=1 ;;
@@ -214,19 +208,20 @@ for i in $(seq 1 2880); do
         *r2z*) lane_terminal "$R2Z_DONE" "$R2Z_PREMERGE_SKIP" "$R2Z_DEC" || busy=1 ;;
         *r2aa*) lane_terminal "$R2AA_DONE" "$R2AA_PREMERGE_SKIP" "$R2AA_DEC" || busy=1 ;;
         *r2ab*) lane_terminal "$R2AB_DONE" "$R2AB_PREMERGE_SKIP" "$R2AB_DEC" || busy=1 ;;
+        *r2ac*) lane_terminal "$R2AC_DONE" "$R2AC_PREMERGE_SKIP" "$R2AC_DEC" || busy=1 ;;
       esac
     fi
   done
 
   if (( busy == 0 )); then
-    echo "[r2ac-merge] R2i…R2z/R2q/R2v/R2aa/R2ab below bar or skipped; lane free at iter=$i"
+    echo "[r2ad-merge] R2i…R2z/R2q/R2v/R2aa/R2ab/R2ac below bar or skipped; lane free at iter=$i"
     break
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2ac-merge] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) busy=$busy r2p_term=$(lane_terminal "$R2P_DONE" "$R2P_PREMERGE_SKIP" "$R2P_DEC" && echo y || echo n) r2aa_term=$(lane_terminal "$R2AA_DONE" "$R2AA_PREMERGE_SKIP" "$R2AA_DEC" && echo y || echo n) r2ab_term=$(lane_terminal "$R2AB_DONE" "$R2AB_PREMERGE_SKIP" "$R2AB_DEC" && echo y || echo n)"
+    echo "[r2ad-merge] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) busy=$busy r2p_term=$(lane_terminal "$R2P_DONE" "$R2P_PREMERGE_SKIP" "$R2P_DEC" && echo y || echo n) r2aa_term=$(lane_terminal "$R2AA_DONE" "$R2AA_PREMERGE_SKIP" "$R2AA_DEC" && echo y || echo n) r2ab_term=$(lane_terminal "$R2AB_DONE" "$R2AB_PREMERGE_SKIP" "$R2AB_DEC" && echo y || echo n) r2ac_term=$(lane_terminal "$R2AC_DONE" "$R2AC_PREMERGE_SKIP" "$R2AC_DEC" && echo y || echo n)"
   fi
   if (( i == 2880 )); then
-    echo "[r2ac-merge] TIMEOUT waiting R2i…R2z/R2q/R2v/R2aa/R2ab lane" >&2
+    echo "[r2ad-merge] TIMEOUT waiting R2i…R2z/R2q/R2v/R2aa/R2ab/R2ac lane" >&2
     exit 2
   fi
   sleep 10
@@ -268,16 +263,16 @@ if [[ -L /usr/local/cuda ]]; then
 fi
 
 if [[ ! -f "$MERGED/model.safetensors.index.json" ]]; then
-  echo "[r2ac-merge] FATAL missing merged index at $MERGED" >&2
+  echo "[r2ad-merge] FATAL missing merged index at $MERGED" >&2
   exit 2
 fi
 
 ln -sfn "$MERGED" "$LINK"
-echo "[r2ac-merge] link $LINK -> $(readlink -f "$LINK")"
+echo "[r2ad-merge] link $LINK -> $(readlink -f "$LINK")"
 
 # Wait if R2q/R2s/R2t/R2u/R2v/R2w/R2o currently owns chall (do not yank mid-n80).
 rm -f "$HOLDING"
-_WAIT_R2Q_TAG=r2ac-merge
+_WAIT_R2Q_TAG=r2ad-merge
 # shellcheck disable=SC1091
 source /root/mining_src/r2-multiking-merge/wait_r2q_before_chall_kill.inc.sh
 
@@ -288,7 +283,7 @@ CHALL_PID_FILE=/root/logs/vllm_chall.pid
 if [[ -f "$CHALL_PID_FILE" ]]; then
   CPID=$(cat "$CHALL_PID_FILE" || true)
   if [[ -n "${CPID:-}" ]] && kill -0 "$CPID" 2>/dev/null; then
-    echo "[r2ac-merge] stopping chall pid=$CPID"
+    echo "[r2ad-merge] stopping chall pid=$CPID"
     kill "$CPID" || true
     for j in $(seq 1 60); do
       kill -0 "$CPID" 2>/dev/null || break
@@ -303,7 +298,7 @@ sleep 3
 
 if [[ ! -d /root/.triton/cache/chall ]] || [[ -z "$(find /root/.triton/cache/chall -name '*.so' 2>/dev/null | head -1)" ]]; then
   if [[ -d /root/.triton/cache/king ]]; then
-    echo "[r2ac-merge] seeding chall Triton cache from king"
+    echo "[r2ad-merge] seeding chall Triton cache from king"
     mkdir -p /root/.triton/cache/chall
     cp -a /root/.triton/cache/king/. /root/.triton/cache/chall/ || true
   fi
@@ -320,62 +315,62 @@ COMMON=(
   --additional-config '{"gdn_prefill_backend": "triton"}'
 )
 
-echo "[r2ac-merge] launching chall :8002 on $LINK"
+echo "[r2ad-merge] launching chall :8002 on $LINK"
 CUDA_VISIBLE_DEVICES=4,5 TRITON_CACHE_DIR=/root/.triton/cache/chall \
   nohup /root/venv/bin/vllm serve "$LINK" \
     --port 8002 --gpu-memory-utilization 0.72 \
     "${COMMON[@]}" \
     >/root/logs/vllm_chall.log 2>&1 &
 echo $! >/root/logs/vllm_chall.pid
-echo "[r2ac-merge] chall pid=$(cat /root/logs/vllm_chall.pid)"
+echo "[r2ad-merge] chall pid=$(cat /root/logs/vllm_chall.pid)"
 
 for i in $(seq 1 480); do
   c0=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8000/v1/models || true)
   c1=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8001/v1/models || true)
   c2=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 http://127.0.0.1:8002/v1/models || true)
   if [[ "$c0$c1$c2" == "200200200" ]]; then
-    echo "[r2ac-merge] engines 200/200/200 at iter=$i"
+    echo "[r2ad-merge] engines 200/200/200 at iter=$i"
     break
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2ac-merge] wait-engines iter=$i codes=${c0}/${c1}/${c2}"
+    echo "[r2ad-merge] wait-engines iter=$i codes=${c0}/${c1}/${c2}"
   fi
   if (( i == 480 )); then
-    echo "[r2ac-merge] TIMEOUT engines; see vllm_chall.log" >&2
+    echo "[r2ad-merge] TIMEOUT engines; see vllm_chall.log" >&2
     rm -f "$HOLDING"
     exit 2
   fi
   sleep 5
 done
 
-OUT=/root/affine_data/r2ac_alpha_reason_sim.json
-DEC=/root/affine_data/r2ac_alpha_decision.json
-PROG=/root/affine_data/r2ac_alpha_reason_progress.json
+OUT=/root/affine_data/r2ad_alpha_reason_sim.json
+DEC=/root/affine_data/r2ad_alpha_decision.json
+PROG=/root/affine_data/r2ad_alpha_reason_progress.json
 rm -f "$OUT" "$DEC" "$PROG"
 BH=$(python - <<'PY'
 import hashlib, time
-print(hashlib.sha256(f"r2ac-talent-google-{time.time_ns()}".encode()).hexdigest())
+print(hashlib.sha256(f"r2ad-talent-pig-{time.time_ns()}".encode()).hexdigest())
 PY
 )
 
-echo "[r2ac-merge] launching R2ac n80 block_hash=${BH:0:16}…"
+echo "[r2ad-merge] launching R2ad n80 block_hash=${BH:0:16}…"
 python /root/mining_src/r1-reason-distill/run_reason_sim.py \
   --n-turns 80 \
   --block-hash "$BH" \
-  --hotkey "local-r2ac-talent-google-$(date -u +%Y%m%dT%H%M%SZ)" \
+  --hotkey "local-r2ad-talent-pig-$(date -u +%Y%m%dT%H%M%SZ)" \
   --king-repo Tok331102/affine-5EqYW8McUc-af10 \
   --king-rev eb8bf9a356a254f71faaa439e8abc3cfba572c53 \
   --chall-repo "$LINK" \
   --out "$OUT" \
   --progress-out "$PROG" \
   --save-artifact \
-  2>&1 | tee /root/logs/r2ac_alpha_reason_sim.log
+  2>&1 | tee /root/logs/r2ad_alpha_reason_sim.log
 
 python /root/mining_src/r1-reason-distill/write_reason_decision.py \
-  --sim-result "$OUT" --out "$DEC" --hyp R2ac \
-  2>&1 | tee -a /root/logs/r2ac_alpha_reason_sim.log
+  --sim-result "$OUT" --out "$DEC" --hyp R2ad \
+  2>&1 | tee -a /root/logs/r2ad_alpha_reason_sim.log
 
 rm -f "$HOLDING"
-echo "[r2ac-merge] DONE $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+echo "[r2ad-merge] DONE $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 cat "$DEC"
 echo "OK $(date -u +%Y-%m-%dT%H:%M:%SZ)" >"$DONE"
