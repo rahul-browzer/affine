@@ -143,8 +143,8 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1991–92: prefer **pure board parent**; R2ag tpc9 **−0.52×**; board hr≪1.5× → **SKIP_BOARD_FIRST**.
 - p1993: API-pidfile kill can leave **orphan EngCore/Workers** → OOM next chall; kill those PIDs.
 - p1994: SSH refuse + `lium reboot` → **REBOOT_FAILED**/port None while billing — `lium rm` that `mine-*` and re-rent (B300 sold out → 8×B200 OK).
-- After crown pod replace: stub closed prior-lane `*_decision.json` + `*_reload.done` (CLOSED_PRE_POD_RESET) before arming R2ab+ waiters — else merge_reload step-2 hangs forever on missing R2i…R2z/q/v terminals; also stub `r2aa_eager_weights.done` if R2aa not re-armed.
-- Pod replace also drops nohup CPU premerges (R2ac p1976 vanished with no logs) — after warm READY, re-check `r2ac_premerge.log` / pid and re-arm if absent while R2ak runs.
+- After crown pod replace: stub closed prior-lane `*_decision.json`/`*_reload.done` (CLOSED_PRE_POD_RESET) + re-arm vanished CPU premerges before waiters hang on missing terminals.
 - R2ak pure google local n80 hr **0.641×**; board chal-00470 gzip hr **0.094×** — local≫board slice noise; hr>0 → R2ac DONE; no Stage-5.
 - R2al SKIP_BOARD 471 pig hr0.580×; **R2ac↔R2ad deadlock** if ac waits on `r2ad_premerge.done` while ad waits on ac — yield only on `*_holding.stamp` (p2015).
 - R2ab/ac/ad Talent skew REFUTE: sky **−1.59×**; google **−0.978×**; pig **−1.18×** (board pig 0.58×) — board/local Reason+ does not transfer via Talent0.25×parent0.75.
+- chal-00484 cgpb9 **UNSERVABLE** (vLLM load fail, hr=None) — do not Talent-skew unservable parents; prefer pure screens of servable Tok-lineage (af17) / h44 / now after board Reason+.
