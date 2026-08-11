@@ -17,27 +17,28 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | fleet | `mine-crown-1` = `lunar-orbit-50` 8×B300 @ $64/h · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 | board | duel **chal-00432** BKN seven @ `load_challenger` |
-| disk | **~691 GiB free** on `/root` |
+| disk | **~1.5 TiB free** on `/` (51% used) |
 | R2d pure awesome-v6 | **DONE** · hr **0.22×** · `SIGNAL_POS_BELOW_3SE` |
 | R2e Talent×awesome | **DONE** · hr **−1.18×** · **REFUTED** |
 | R2f kevin×awesome | **SKIPPED** · Δ=0.00899 |
 | R2h Tok×Talent×kevin | **DONE REFUTE** · hr **−0.59×** |
 | chal-00440 saysth | **DONE** · hr **0.73×** · `POS_BELOW_3SE` |
-| **R2g Talent×saysth** | **MERGED+RELOADING** · Δ=0.626 · chall pid **142866** → n80 |
-| R2i Talent×thomp | gated on 441 Reason+ (queue after R2g) |
+| **R2g Talent×saysth** | **n80 RUNNING** · engines 200/200/200 · sim pid **146391** |
+| R2i Talent×thomp | gated on 441 Reason+ (waiters armed) |
 | BKN seven | cached · watch **140530** · live eval now |
-| **BKN six** | **PREFETCHING** · chal-00431 · ~48 GiB · pid **142256** |
+| BKN six | **PREFETCH DONE** · `@a12fc171…` |
+| **sft3 (450)** | **PREFETCHING** · `@381dbc82…` · pid **146915** |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 · R2g reload→n80 · R2i/441 · BKN/432 · prefetch BKN6 |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 · R2g n80 · R2i/441 · BKN/432 · prefetch sft3 |
 
-- Engines: teacher/king **200**; chall **loading** `/tmp/r2g_alpha_merged` (was R2h).
-- R2g: premerge **DONE** 00:20:29Z · waiter **130835** stopped old chall · new chall **142866**.
-- Check: `tail /root/logs/r2g_merge_reload.log`; harvest `r2g_alpha_decision.json`.
-- BKN six: `tail /root/logs/r2_prefetch_bkn_six.log`; done → `r2_prefetch_bkn_six.done`.
+- Engines: teacher/king/chall **200** · chall=`/tmp/r2g_alpha_merged` (Talent×saysth Δ0.626).
+- R2g n80: `block_hash=d4044d4eaa11…` · out `/root/affine_data/r2g_alpha_reason_sim.json` · decision → `r2g_alpha_decision.json`.
+- Check: `tail /root/logs/r2g_merge_reload.log`; `cat /root/affine_data/r2g_alpha_reason_progress.json`.
+- sft3: `tail /root/logs/r2_prefetch_sft3.log`; done → `r2_prefetch_sft3.done`.
 
 ## Blocked
 
@@ -55,4 +56,4 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Next action
 
-**Wait R2g** chall health **200** → n80 → harvest `r2g_alpha_decision.json`. Submit only if hr ≥ **1.5×**. If R2g fails: gate **R2i** on 441 Reason+; harvest BKN `chal00432_reason.json`; confirm BKN-six prefetch DONE before next queue parent.
+**Harvest R2g** → `r2g_alpha_decision.json`. Submit only if hr ≥ **1.5×**. If R2g fails: gate **R2i** on 441 Reason+; harvest BKN `chal00432_reason.json`; confirm sft3 prefetch DONE before next queue parent (asdf/zeus).
