@@ -1,0 +1,21 @@
+{
+  "pass": 1978,
+  "utc": "2026-08-11T06:25:02Z",
+  "hyp": "R2ad",
+  "status": "eager_weights_done",
+  "stamp": "EAGER 2026-08-11T06:25:02Z w_talent=0.25 w_pig=0.75 max_abs_delta=0.62579345703125 n_keys=1026 identical_frac=0.453216",
+  "parents": [
+    {"repo": "TalentPigs/affine-5ekxlcg3fx-abc", "rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4", "w": 0.25},
+    {"repo": "diceofgod/affine-5fjgc5jhxq-pig", "rev": "e4889db406e743bc878d75183aed79bc59915463", "w": 0.75}
+  ],
+  "out": "/root/r2_out/alpha_talent_pig_skew",
+  "merge_seconds": 335.7,
+  "total_size_gb": 70.214,
+  "max_abs_delta": 0.62579345703125,
+  "identical_frac": 0.453216,
+  "n_keys": 1026,
+  "wait_reason_chal": 471,
+  "premerge_done": false,
+  "disk_free_gib_after": 49,
+  "note": "Waiting for chal-00471 Reason+ before premerge.done → chall reload → n80"
+}

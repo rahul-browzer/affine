@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2x/y/z** wait Reason+; **R2aa** Talent×sbs eager DONE Δ0.671 (wait 468); **R2ab** Talent×sky eager DONE Δ0.626 (wait 469); **R2ac** Talent×google eager DONE Δ0.626 (wait 470); **R2ad** Talent×pig eager RUNNING (wait 471); watches **462/463/467–471 ARMED** |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2x/y/z/aa/ab/ac/ad** eager DONE (Δ0.622–0.671); all wait Reason+ 462/463/467–471 before n80 |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e/g/h/q/t/l/n/o/p REFUTED**. **R2j/i/k SKIPPED**. **R2s/R2u WEAK_SKIP**. **R2v** pure sft3 local hr **0.39×** ≈ board 450. **R2w** pure asdf **SKIP_BOARD_FIRST** (chal-00451 hr **0.40×**). **R2p** Talent×sth **REFUTE** hr **−0.93×** (board 455 0.79×, Δ=0.671, n=80) — Stage-5 SKIP; blend purged. **R2x** eager Δ=**0.626** (wait 462). **R2y** eager Δ=**0.622** (wait 463). **R2z** Talent×awesome-v9 eager Δ=**0.671** (wait 467). **R2aa** Talent×sbs eager **DONE** Δ=**0.671** (wait 468). **R2ab** Talent×sky eager **DONE** Δ=**0.626** (wait 469). **R2ac** Talent×google eager **DONE** Δ=**0.626** (wait 470). **R2ad** Talent×pig eager **RUNNING** (wait 471; pids 256029/256030). Prefetch DONE through pig. chal-00456 cp200 hr **−1.06×**. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e/g/h/q/t/l/n/o/p REFUTED**. **R2j/i/k SKIPPED**. **R2s/R2u WEAK_SKIP**. **R2v** pure sft3 local hr **0.39×** ≈ board 450. **R2w** pure asdf **SKIP_BOARD_FIRST** (chal-00451 hr **0.40×**). **R2p** Talent×sth **REFUTE** hr **−0.93×** (board 455 0.79×, Δ=0.671, n=80) — Stage-5 SKIP; blend purged. **R2x–ad** all eager DONE (Δ0.622–0.671); wait Reason+ **462/463/467–471** before `premerge.done`→n80. **R2ad** Talent×pig Δ=**0.626** (p1978). Disk ~49 GiB — no new blend until purge. chal-00456 cp200 hr **−1.06×**. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
