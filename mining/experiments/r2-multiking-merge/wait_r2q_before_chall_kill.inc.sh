@@ -156,4 +156,31 @@ for _i in $(seq 1 2880); do
   echo "[${_TAG}] R2w not holding lane at iter=$_i"
   break
 done
+# R2o Talent×zeus: only block siblings once holding stamp is set (post lane-wait).
+R2O_DEC=${R2O_DEC:-/root/affine_data/r2o_alpha_decision.json}
+R2O_DONE=${R2O_DONE:-/root/logs/r2o_merge_reload.done}
+R2O_PIDF=${R2O_PIDF:-/root/logs/r2o_merge_reload.pid}
+R2O_HOLDING=${R2O_HOLDING:-/root/logs/r2o_talent_zeus_holding.stamp}
+if [[ -f "$R2O_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2O_DEC"; then
+  echo "SKIP_${_TAG}_R2O_CLEARS file=$R2O_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2O_DONE" || -f "$R2O_DEC" ]]; then
+    echo "[${_TAG}] R2o terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2O_HOLDING" ]] && [[ -f "$R2O_PIDF" ]]; then
+    _ppid=$(cat "$R2O_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        echo "[${_TAG}] wait-r2o iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid holding"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2o not holding lane at iter=$_i"
+  break
+done
 unset _i _ppid _TAG

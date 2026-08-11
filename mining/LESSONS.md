@@ -136,3 +136,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1960: crown HF cache is **`HF_HOME=/root/hf`** (not `~/.cache/huggingface`) — inventory disk checks must `du /root/hf` or false-alarm "parents wiped".
 - p1960: arm R2n Stage-5 HF push waiter + pre-purge ≥75 GiB public `Affine-5czsc*` during n80 (same as R2v/R2l) so ≥1.5× starts upload without waiting for the next Ralph pass.
 - p1961: **eager CPU α-merge** while a prior n80 runs — blend weights now, stamp `*_eager_weights.done`, but **only** stamp `*_premerge.done` after board Reason+ (else merge_reload steals chall on Reason−). chal-00452 zeus hr **0.25×** (Reason+, lost crown).
+- p1962: **R2n REFUTE** Talent×asdf hr **−1.07×** (margin −0.023, z=−3.21, n=80) — board asdf 0.40× does not lift via Talent0.25 skew; Stage-5 SKIP; purge blend after chall swap.
+- p1962: R2o lane-busy must treat R2m as busy **only if `r2m_premerge.done`** — Reason-only waiters (`merge_reload.pid` alive, no premerge) idle the GPU for hours after prior n80 ends.
+- p1962: stamp `r2o_talent_zeus_holding.stamp` before chall kill + extend `wait_r2q_before_chall_kill.inc.sh` so R2m/R2p/R2r do not race mid-R2o n80; clear stale self-holding before sourcing the include.
+- p1962: R2x Talent×awesome-v8 eager CPU merge (same pattern as R2o): max_abs_delta=**0.626** · identical_frac=0.45 · ~70 GiB · ~4.7 min — real blend; keep DONE gated on chal-00462 Reason+.

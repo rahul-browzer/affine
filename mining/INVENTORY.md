@@ -6,7 +6,7 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 (`1c4255fa-…`) | 8×B300 | $64.00 | 2026-08-11T16:12Z | TK@65536 · **R2n n80~54/80** · R2o premerge DONE · Stage-5 armed |
+| mine-crown-1 | lunar-orbit-50 (`1c4255fa-…`) | 8×B300 | $64.00 | 2026-08-11T16:12Z | TK@65536 · **R2o n80** · R2n REFUTE · R2x eager Δ0.626 |
 
 SSH: `ssh root@86.38.182.50 -p 40300`
 
@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T04:54Z | p1962: fleet=1 · **R2n REFUTE hr−1.07×** · unstuck R2o→n80 · R2x eager Δ0.626 · purge R2n ~66 GiB · burn$64/h · bal~$123031 |
 | 2026-08-11T04:39Z | p1961: fleet=1 · R2n~54/80 · **R2o eager Talent×zeus DONE** Δ0.626 · chal452 hr0.25× · burn$64/h · bal~$123065 |
 | 2026-08-11T04:25Z | p1960: fleet=1 · R2n~25/80 · **armed Stage-5 push + prepurge +140.5 GiB** · burn$64/h · bal~$123087 |
-| 2026-08-11T04:20Z | p1959: fleet=1 · R2n~13/80 · **purged sft3+kevin+saysth+awesome-v6 (~281 GiB)** · hub 701 GiB · burn$64/h · bal~$123099 |

@@ -154,23 +154,26 @@ for i in $(seq 1 2880); do
     r2l_busy=1
   fi
 
+  # p1962: R2m Reason-only waiters are NOT GPU claimants — only premerge.done is.
   r2m_busy=0
   if [[ -f "$R2M_DONE" ]] || [[ -f "$R2M_PREMERGE_SKIP" ]] || [[ -f "$R2M_DEC" ]]; then
     r2m_busy=0
-  elif pid_alive /root/logs/r2m_merge_reload.pid || pid_alive /root/logs/r2m_premerge.pid; then
+  elif [[ -f /root/logs/r2m_premerge.done ]] || [[ -f /root/affine_data/r2m_premerge.done ]]; then
     r2m_busy=1
   else
-    r2m_busy=1
+    r2m_busy=0
   fi
 
   r2n_busy=0
   if [[ -f "$R2N_DONE" ]] || [[ -f "$R2N_PREMERGE_SKIP" ]] || [[ -f "$R2N_DEC" ]]; then
     r2n_busy=0
-  elif pid_alive /root/logs/r2n_merge_reload.pid || pid_alive /root/logs/r2n_premerge.pid; then
+  elif [[ -f /root/logs/r2n_premerge.done ]] || [[ -f /root/affine_data/r2n_premerge.done ]]; then
+    # R2n has weights / may hold chall until decision lands.
+    r2n_busy=1
+  elif pid_alive /root/logs/r2n_merge_reload.pid; then
     r2n_busy=1
   else
-    # R2n waiters still expected (451 not stamped); do not race chall.
-    r2n_busy=1
+    r2n_busy=0
   fi
 
   if (( r2g_busy == 0 && r2i_busy == 0 && r2j_busy == 0 && r2k_busy == 0 && r2l_busy == 0 && r2m_busy == 0 && r2n_busy == 0 )); then
@@ -178,7 +181,7 @@ for i in $(seq 1 2880); do
     break
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2o-merge] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2g_busy=$r2g_busy r2i_busy=$r2i_busy r2j_busy=$r2j_busy r2k_busy=$r2k_busy r2l_busy=$r2l_busy r2m_busy=$r2m_busy r2n_busy=$r2n_busy r2n_done=$([[ -f $R2N_DONE ]] && echo y || echo n)"
+    echo "[r2o-merge] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2g_busy=$r2g_busy r2i_busy=$r2i_busy r2j_busy=$r2j_busy r2k_busy=$r2k_busy r2l_busy=$r2l_busy r2m_busy=$r2m_busy r2n_busy=$r2n_busy r2n_dec=$([[ -f $R2N_DEC ]] && echo y || echo n) r2m_pre=$([[ -f /root/logs/r2m_premerge.done ]] && echo y || echo n)"
   fi
   if (( i == 2880 )); then
     echo "[r2o-merge] TIMEOUT waiting R2g/R2i/R2j/R2k/R2l/R2m/R2n lane" >&2
@@ -230,10 +233,17 @@ fi
 ln -sfn "$MERGED" "$LINK"
 echo "[r2o-merge] link $LINK -> $(readlink -f "$LINK")"
 
+# Clear any stale self-holding before the sibling wait (avoid waiting on ourselves).
+rm -f /root/logs/r2o_talent_zeus_holding.stamp /root/affine_data/r2o_talent_zeus_holding.stamp
+
 # Wait if R2q pure-saysth currently owns chall (do not yank mid-n80).
 _WAIT_R2Q_TAG=r2o-merge
 # shellcheck disable=SC1091
 source /root/mining_src/r2-multiking-merge/wait_r2q_before_chall_kill.inc.sh
+
+# Claim chall so Reason-only siblings (R2m/R2p/R2r) do not race mid-reload/n80.
+echo "HOLD $(date -u +%Y-%m-%dT%H:%M:%SZ)" >/root/logs/r2o_talent_zeus_holding.stamp
+cp -f /root/logs/r2o_talent_zeus_holding.stamp /root/affine_data/r2o_talent_zeus_holding.stamp
 
 CHALL_PID_FILE=/root/logs/vllm_chall.pid
 if [[ -f "$CHALL_PID_FILE" ]]; then
