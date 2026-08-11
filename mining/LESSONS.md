@@ -147,4 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - `start_r3b.sh` peft/torch import probe can hang WCHAN=`request_wait_answer` on gocryptfs — skip probe; launch `train_reason_grpo.py` directly (p2127).
 - After R3 REFUTE, retarget same warm TKC pod to **R3b** (GPUs6–7) rather than idle-wait for a new B300 rent (p2127).
 - R3b double-launch: two `train_reason_grpo.py` on CUDA 6,7 same out-dir — kill orphan not in `train.pid`; GPU mem halved 76→37 / 82→41 GiB (p2128).
-- Host fleet restart: never \`pgrep/pkill -f wait_fleet_b300\` in the same shell that launches it — the pattern matches the launcher cmdline and kills the new waiter (p2130).
+- Host fleet: kill waiter by **PID only** (never `pkill -f`); at POLL=1s set **MAX_ITERS≥86400** or a 2160-iter restart dies in ~36m (p2130/p2131).

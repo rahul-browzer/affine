@@ -1,0 +1,36 @@
+{
+  "utc": "2026-08-11T23:15:28Z",
+  "pass": 2131,
+  "action": "fleet-rent parallel\u00d78\u2192\u00d716 + MAX_ITERS=86400 (~24h@1s); kill-by-PID only",
+  "pidfile": "experiments/fleet-rent/logs/wait_fleet_b300.pid",
+  "env": {
+    "PARALLEL_N": 16,
+    "POLL_S": 1,
+    "MAX_ITERS": 86400,
+    "TARGET_MINES": 25,
+    "MINE_CAP": 25
+  },
+  "next": [
+    "mine-r7-datafilt-1",
+    "mine-r8-reinforce-1",
+    "mine-r24-longctx-1",
+    "mine-r25-hitemp-1",
+    "mine-r26-lotemp-1",
+    "mine-r27-bigg-1",
+    "mine-r28-hilr-1",
+    "mine-r29-hirank-1",
+    "mine-r30-hialpha-1",
+    "mine-r31-nodrop-1",
+    "mine-r32-kl-1",
+    "mine-r9-teacher-zc-1",
+    "mine-r5-nonking-2",
+    "mine-r10-merge-rl-1",
+    "mine-r6-fmt-2",
+    "mine-r11-odpo-1"
+  ],
+  "stock": "B300\u00d78=0 B200\u00d78=0 (only 1\u00d7B300 listed)",
+  "burn_h": 180.25,
+  "floor_h": 833,
+  "balance": 120174.08,
+  "note": "prior MAX_ITERS=2160@1s would die ~36m after p2130 restart; extend to 24h"
+}
