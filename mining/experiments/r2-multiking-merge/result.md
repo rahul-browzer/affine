@@ -1,3 +1,12 @@
+## p1944 — R2v armed (pure sft3 n80; burn idle GPUs)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,333.
+- Board still **chal-00450** `load_challenger` (~28 min, gzip 404). R2l…p Reason waiters alive but no GPU claimant (`premerge.done` absent) → idle $64/h after R2t REFUTE.
+- Armed **R2v**: pure `syntaxsorcerer1/…-sft3@381dbc82` chall → n80 (R2d/R2q analogue). No board-Reason gate. Derived `preprocessor_config.json`. Chall reload pid **189540**; R2v pid **189465**.
+- Updated `wait_r2q_before_chall_kill.inc.sh` + R2r wait-lane for R2v; relaunched R2r merge (pid **189461**). R2l…p will yield via include before chall kill.
+- Check: `tail /root/logs/r2v_sft3_reload.log` / `r2v_sft3_reason_progress.json`. Decision rule unchanged: submit only if hr≥1.5×.
+- Artifact: `artifacts/r2v_sft3_armed_p1944.json`.
+- Next: harvest R2v; if hr≥1.5× → Stage-5; else keep R2l on 450 Reason+ / R2r on 458.
+
 ## p1943 — R2t REFUTE (saysth×Talent hr −0.93×)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,333.
 - Harvested `r2t_alpha_decision.json` (02:37:16Z): margin **−0.02341** · se=0.008374 · z=**−2.80** · 3·SE=**0.02512** · headroom=**−0.932×** · reason_c=−0.02869 · reason_k=−0.00636 · n_paired=78 · `challenger_wins=false`.
