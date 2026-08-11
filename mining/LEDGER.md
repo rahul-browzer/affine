@@ -10,11 +10,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $121,589.16 | 2026-08-11T16:17Z |
-| cumulative mining spend | ~$75,999 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T16:17Z |
-| **available for mining** | **~$111,589** (balance − $10,000 floor) | 2026-08-11T16:17Z |
+| Lium balance | $121,578.97 | 2026-08-11T16:25Z |
+| cumulative mining spend | ~$76,009 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T16:25Z |
+| **available for mining** | **~$111,579** (balance − $10,000 floor) | 2026-08-11T16:25Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T16:17Z |
+| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T16:25Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -23,6 +23,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T16:25Z | 121578.97 | p2052 R2at hope11 engines up + n80 ~4/80 (no new rent); burn$52.25/h; Δ−$10 vs p2051 (shared ok) |
 | 2026-08-11T16:17Z | 121589.16 | p2051 R2as WEAK_SKIP + R2at hope11 load (no new rent); burn$52.25/h; Δ−$41 vs p2050 (shared ok) |
 | 2026-08-11T15:57Z | 121630.02 | p2050 tt prefetch DONE + tt_chall prestage (no new rent); burn$52.25/h; Δ−$10 vs p2049 (shared ok) |
 | 2026-08-11T15:53Z | 121640.13 | p2049 R2ax tt arm+prefetch (no new rent); burn$52.25/h; Δ−$10 vs p2048 (shared ok) |
@@ -32,4 +33,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T15:32Z | 121680.79 | p2045 R2aq WEAK_SKIP + R2ar load (no new rent); burn$52.25/h; Δ−$41 vs p2044 (shared ok) |
 | 2026-08-11T15:11Z | 121721.78 | p2044 R2aw mt1 SKIP_UNSERVABLE (no prefetch/rent); burn$52.25/h; Δ−$10 vs p2043 (shared ok) |
 | 2026-08-11T15:08Z | 121732.00 | p2043 arm R2av pure-v2+prefetch (no new rent); burn$52.25/h; Δ−$10 vs p2042 (shared ok) |
-| 2026-08-11T15:04Z | 121741.67 | p2042 arm R2au pure-sft4+Stage-5 (no new rent); burn$52.25/h; Δ−$11 vs p2041 (shared ok) |
