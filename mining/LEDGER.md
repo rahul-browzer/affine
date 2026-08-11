@@ -10,11 +10,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,353.75 | 2026-08-11T10:00Z |
-| cumulative mining spend | ~$75,237 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T10:00Z |
-| **available for mining** | **~$112,354** (balance − $10,000 floor) | 2026-08-11T10:00Z |
+| Lium balance | $122,353.75 | 2026-08-11T10:05Z |
+| cumulative mining spend | ~$75,237 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T10:05Z |
+| **available for mining** | **~$112,354** (balance − $10,000 floor) | 2026-08-11T10:05Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T10:00Z |
+| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T10:05Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -23,6 +23,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T10:05Z | 122353.75 | p2009 re-armed R2ad Talent×pig (no new rent); burn$52.25/h; Δ$0 vs p2008 |
 | 2026-08-11T10:00Z | 122353.75 | p2008 stamped 470 + R2ac DONE (no new rent); burn$52.25/h; Δ−$21 vs p2007 (shared ok) |
 | 2026-08-11T09:53Z | 122374.66 | p2007 R2ak n80 DONE hr0.641× (no new rent); burn$52.25/h; Δ−$51 vs p2006 (shared ok) |
 | 2026-08-11T09:30Z | 122425.66 | p2006 re-armed R2ac Talent×google (no new rent); burn$52.25/h; Δ$0 vs p2005 |
@@ -32,4 +33,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T09:11Z | 122466.45 | p2002 Talent prefetch armed (no new rent); burn$52.25/h; Δ$0 vs p2001 |
 | 2026-08-11T09:08Z | 122466.45 | p2001 pig DONE+chall prestage (no new rent); burn$52.25/h; Δ$0 vs p2000 |
 | 2026-08-11T09:06Z | 122466.45 | p2000 google DONE + R2al/watch471 armed (no new rent); burn$52.25/h; Δ−$10 vs p1999 (shared ok) |
-| 2026-08-11T09:03Z | 122476.07 | p1999 sky DONE + google DL + watch469/pig-chain (no new rent); burn$52.25/h; Δ$0 vs p1998 |

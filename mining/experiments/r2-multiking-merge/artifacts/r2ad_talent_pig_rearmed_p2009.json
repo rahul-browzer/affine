@@ -1,0 +1,33 @@
+{
+  "pass": 2009,
+  "utc": "2026-08-11T10:04:28Z",
+  "lane": "R2ad",
+  "action": "re-arm after B200 pod reset (p1977/p1978 eager lost; no r2ad logs on gentle-orbit-bd)",
+  "claim": "Talent0.25 × pig 0.75 (Talent layout) raises Reason vs Tok when chal-00471 hr>0",
+  "parent_chal": "chal-00471",
+  "parent_repo": "diceofgod/affine-5fjgc5jhxq-pig",
+  "parent_rev": "e4889db406e743bc878d75183aed79bc59915463",
+  "talent_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "merged": "/root/r2_out/alpha_talent_pig_skew",
+  "eager": true,
+  "waits_before_eager": ["r2_prefetch_pig.done", "r2ac_eager_weights.done"],
+  "done_gated_on": "chal00471_reason.json hr>0 + king_match",
+  "pids": {"premerge": 32852, "merge_alpha": 32876, "merge_reload": 32951},
+  "r2ac_eager_confirmed": "EAGER 2026-08-11T09:34:48Z max_abs_delta=0.62579345703125",
+  "disk_free_at_arm_gib": 872.6,
+  "parallel": {
+    "R2al": "n80 ~18/80 pid30870 (pure pig; same board parent as 471)",
+    "R2ab": "wait-r2al (premerge DONE Δ0.626)",
+    "R2ac": "wait-r2ab (premerge DONE Δ0.626; 470 hr0.094×)"
+  },
+  "board": {
+    "current_eval": "chal-00471 pig load_challenger",
+    "queue": []
+  },
+  "check": {
+    "premerge_log": "tail -f /root/logs/r2ad_premerge.log",
+    "eager": "cat /root/logs/r2ad_eager_weights.done",
+    "decision": "cat /root/affine_data/r2ad_alpha_decision.json"
+  },
+  "weight_version_key": 3
+}
