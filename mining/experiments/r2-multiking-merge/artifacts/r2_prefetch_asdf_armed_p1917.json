@@ -1,0 +1,18 @@
+{
+  "pass": 1917,
+  "utc": "2026-08-11T00:26:00Z",
+  "action": "arm_asdf_prefetch_after_sft3",
+  "challenge_id": "chal-00451",
+  "repo": "adsbasd31badsf/affine-5ec3jw68ha-asdf",
+  "revision": "c23098154fd717e64f577cd863f0e1ba8e96ee84",
+  "index_probe": {
+    "n_safetensors": 16,
+    "weights_bytes": 70214495940,
+    "weights_gib_approx": 70.2,
+    "has_processor_config": true,
+    "has_preprocessor_config": false
+  },
+  "gate": "wait /root/logs/r2_prefetch_sft3.done then launch_prefetch_asdf.sh",
+  "note": "R2g n80 still early (king/chall ~2/80); BKN-432 still load_challenger (evals 404 expected)",
+  "next_after_asdf": "diceofgod/affine-5fjgc5jhxq-zeus@accc9249d879861f6d2c4f01c01df5b6e2426353 (chal-00452)"
+}

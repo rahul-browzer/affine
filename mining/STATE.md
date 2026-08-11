@@ -23,22 +23,24 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | R2f kevin×awesome | **SKIPPED** · Δ=0.00899 |
 | R2h Tok×Talent×kevin | **DONE REFUTE** · hr **−0.59×** |
 | chal-00440 saysth | **DONE** · hr **0.73×** · `POS_BELOW_3SE` |
-| **R2g Talent×saysth** | **n80 RUNNING** · engines 200/200/200 · sim pid **146391** |
+| **R2g Talent×saysth** | **n80 RUNNING** · ~5/80 king · sim pid **146391** |
 | R2i Talent×thomp | gated on 441 Reason+ (waiters armed) |
-| BKN seven | cached · watch **140530** · live eval now |
+| BKN seven | cached · watch **140530** · still load_challenger (evals 404) |
 | BKN six | **PREFETCH DONE** · `@a12fc171…` |
-| **sft3 (450)** | **PREFETCHING** · `@381dbc82…` · pid **146915** |
+| sft3 (450) | **PREFETCHING** · `@381dbc82…` · ~22 GiB · pid **146915** |
+| **asdf (451)** | **ARMED** after sft3 · `@c2309815…` · chain pid **147462** |
 
 ## What's running
 
 | name | huid | SSH | TTL | role |
 |---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 · R2g n80 · R2i/441 · BKN/432 · prefetch sft3 |
+| mine-crown-1 | lunar-orbit-50 | `ssh root@86.38.182.50 -p 40300` | 2026-08-11T16:12Z | TK@65536 · R2g n80 · R2i/441 · BKN/432 · sft3→asdf |
 
 - Engines: teacher/king/chall **200** · chall=`/tmp/r2g_alpha_merged` (Talent×saysth Δ0.626).
 - R2g n80: `block_hash=d4044d4eaa11…` · out `/root/affine_data/r2g_alpha_reason_sim.json` · decision → `r2g_alpha_decision.json`.
-- Check: `tail /root/logs/r2g_merge_reload.log`; `cat /root/affine_data/r2g_alpha_reason_progress.json`.
+- Check: `cat /root/affine_data/r2g_alpha_reason_progress.json`; harvest → `r2g_alpha_decision.json`.
 - sft3: `tail /root/logs/r2_prefetch_sft3.log`; done → `r2_prefetch_sft3.done`.
+- asdf chain: `tail /root/logs/r2_prefetch_asdf_after_sft3.log`; then `r2_prefetch_asdf.done`.
 
 ## Blocked
 
@@ -56,4 +58,4 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Next action
 
-**Harvest R2g** → `r2g_alpha_decision.json`. Submit only if hr ≥ **1.5×**. If R2g fails: gate **R2i** on 441 Reason+; harvest BKN `chal00432_reason.json`; confirm sft3 prefetch DONE before next queue parent (asdf/zeus).
+**Harvest R2g** → `r2g_alpha_decision.json`. Submit only if hr ≥ **1.5×**. If R2g fails: gate **R2i** on 441 Reason+; harvest BKN `chal00432_reason.json`; confirm sft3+asdf DONE; arm **zeus** (chal-00452 `@accc9249…`) next.
