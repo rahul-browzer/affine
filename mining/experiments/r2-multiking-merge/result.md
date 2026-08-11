@@ -1,3 +1,12 @@
+## p1942 — R2k SKIP (chal-00431 BKN-six Reason−)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,367.
+- Harvested `chal00431_reason.json` (scored 02:13:26Z): margin **−0.008159** · se=0.005852 · z=**−1.39** · 3·SE=**0.01755** · headroom=**−0.465×** · n=80 · `challenger_wins=false` · `king_match=true`.
+- R2k gate `hr>0` failed → `r2k_premerge.skip` + `r2k_merge_reload.done` (SKIP_R2K_PREMERGE_SKIPPED); **no Talent×BKN6 merge/n80**.
+- Board advanced: **chal-00450** sft3 `load_challenger`. Queue: 451→452→455→456→458. R2l still correctly waiting on 450 Reason+.
+- R2t saysth×Talent n80 untouched (~34/80, pid 176482); engines 200/200/200.
+- Artifacts: `artifacts/chal00431_reason.json`, `artifacts/r2k_{premerge.skip,merge_reload.done}`, `artifacts/r2k_bkn6_skip_p1942.json`.
+- Next: harvest R2t; if hr≥1.5× → Stage-5; else 450/458 Reason+ lanes.
+
 ## p1941 — R2u WEAK_SKIP (saysth×kevin Δ≪0.01)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,378.
 - While R2t n80 ~14→29/80, CPU-premerged saysth0.75×kevin0.25 (saysth layout) → `max_abs_delta=0.00299` · identical_frac=0.438 · 1026 keys · ~420s · 70 GiB.

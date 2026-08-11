@@ -116,3 +116,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1938: inverse of REFUTED R2g — **saysth0.75×Talent0.25** with **saysth layout** (R2t) yields max_abs_delta=**0.207** (identical_frac=0.45) — real blend; arm n80 after R2q (R2r must yield on `r2t_premerge.done`).
 - p1939: **R2q REFUTE** pure saysth-v9a hr **−0.35×** (margin −0.0066, z=−1.05, n=79) — published chal-00440 hr 0.73× does **not** replay as a local crown candidate vs Tok; do not submit; let R2t (inverse R2g) own the lane.
 - p1941: saysth0.75×kevin0.25 (saysth layout) max_abs_delta=**0.0030** · identical_frac=0.44 → **WEAK_SKIP** (no n80); saysth/kevin/awesome are one near-identical cluster — only Talent×{saysth,awesome} show Δ≫0.01; purge blend after stub.
+- p1942: chal-00431 BKN-six vs Tok hr **−0.46×** (margin −0.0082, z=−1.39, n=80) — Reason−; R2k premerge **SKIP** (no Talent×BKN6); both BKN six/seven are dead merge parents.
