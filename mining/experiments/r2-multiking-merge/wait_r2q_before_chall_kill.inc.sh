@@ -469,4 +469,64 @@ for _i in $(seq 1 2880); do
   break
 done
 
+# R2aj pure sky (live chal-00469) — block siblings while armed/holding.
+R2AJ_DEC=${R2AJ_DEC:-/root/affine_data/r2aj_sky_decision.json}
+R2AJ_DONE=${R2AJ_DONE:-/root/logs/r2aj_sky_reload.done}
+R2AJ_PIDF=${R2AJ_PIDF:-/root/logs/r2aj_sky_reload.pid}
+R2AJ_HOLDING=${R2AJ_HOLDING:-/root/logs/r2aj_sky_holding.stamp}
+if [[ -f "$R2AJ_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AJ_DEC"; then
+  echo "SKIP_${_TAG}_R2AJ_CLEARS file=$R2AJ_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AJ_DONE" || -f "$R2AJ_DEC" ]]; then
+    echo "[${_TAG}] R2aj terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AJ_PIDF" ]]; then
+    _ppid=$(cat "$R2AJ_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        hold="holding"
+        [[ -f "$R2AJ_HOLDING" ]] || hold="armed"
+        echo "[${_TAG}] wait-r2aj iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid $hold"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2aj not holding lane at iter=$_i"
+  break
+done
+
+# R2ak pure google (queue chal-00470) — holding stamp / PID while claiming chall.
+R2AK_DEC=${R2AK_DEC:-/root/affine_data/r2ak_google_decision.json}
+R2AK_DONE=${R2AK_DONE:-/root/logs/r2ak_google_reload.done}
+R2AK_PIDF=${R2AK_PIDF:-/root/logs/r2ak_google_reload.pid}
+R2AK_HOLDING=${R2AK_HOLDING:-/root/logs/r2ak_google_holding.stamp}
+if [[ -f "$R2AK_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AK_DEC"; then
+  echo "SKIP_${_TAG}_R2AK_CLEARS file=$R2AK_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AK_DONE" || -f "$R2AK_DEC" ]]; then
+    echo "[${_TAG}] R2ak terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AK_PIDF" ]]; then
+    _ppid=$(cat "$R2AK_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        hold="holding"
+        [[ -f "$R2AK_HOLDING" ]] || hold="armed"
+        echo "[${_TAG}] wait-r2ak iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid $hold"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2ak not holding lane at iter=$_i"
+  break
+done
+
 unset _i _ppid _TAG

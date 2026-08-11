@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-11T08:55:42Z",
+  "pass": 1997,
+  "hyp": "R2ak",
+  "pod": "mine-crown-1",
+  "huid": "gentle-orbit-bd",
+  "ssh": "ssh root@95.133.253.90 -p 40099",
+  "google_repo": "tojointhecommunity/affine-5efg6cm3yl-google",
+  "google_rev": "9cb6484f2bb4c9d93f10ff94335eef4f0e2ae4e4",
+  "board": "chal-00470",
+  "r2ak_pid": 5813,
+  "google_after_sky_pid": 5811,
+  "watch470_pid": 5817,
+  "upstream": "R2aj pid 3857 (pure sky / chal-00469)",
+  "gates": [
+    "warm_stack_ready.done",
+    "r2aj_sky_decision.json|r2aj_sky_reload.done",
+    "chal00470_reason.json (board-first if present)",
+    "google snapshot",
+    "board hr>=1.5 for local n80"
+  ],
+  "note": "pre-arm pure-google after R2aj terminal/SKIP_BOARD so GPU does not idle on next Ralph cadence"
+}
