@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-11T20:42:30Z",
+  "pass": 2104,
+  "axis": "R29",
+  "pod": "mine-r29-hirank-1",
+  "action": "queue+boot_case+uploader armed; rent/boot refreshed pass 2104 @10s",
+  "rent_pid": "2416934",
+  "boot_pid": "2417447",
+  "b300_stock": 0,
+  "burn_h": 116.25,
+  "floor_h": 833
+}
