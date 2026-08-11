@@ -147,4 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R2am REFUTE** Talent0.25×sbs-v1:0.75 n80#2 hr **−1.39×** (margin −0.0405, z=−4.18, n=80) — Stage-5 SKIP; Talent skew family stays dead; purge blend.
 - **p2032–33:** EngCore orphan-kill must stay on CUDA4,5/`--port 8002`; never edit running `launch_*.sh` (bash re-read) — use `continue_*_n80.sh` if TKC already 200.
 - **R2ao REFUTE** pure Tok af17 n80: hr **−0.074×** (margin −0.0007, z=−0.22, n=80) — near king parity, not crown; Stage-5 SKIP → R2ap pure-h44.
-- Queue grew **chal-00490** `darius3th/…-iynocr2p@fe080f2b…` + **chal-00491** `Shatoria/…-hope11@1be4ac10…` — both index-probe **weights_ok**; prefetch one-at-a-time (iynocr2p then hope11) while R2ap n80 gathers; arm pure R2ar after R2aq.
+- p2037: while prior pure-parent n80 gathers, arm **next** pure-parent reload+Stage-5 (R2as 726) + wait_r2q holding block — prefetch DONE alone is not a GPU lane.
