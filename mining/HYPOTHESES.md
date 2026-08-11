@@ -24,7 +24,8 @@
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open** · `mine-r13-odpo-1` · p2086 armed |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open** · `mine-r14-kevin-rl-1` · p2087 armed |
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open** · `mine-r15-pandora-rl-1` · p2088 armed |
-| 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open** · `mine-r16-golden-rl-1` · **p2089** armed |
+| 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open** · `mine-r16-golden-rl-1` · p2089 armed |
+| 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open** · `mine-r17-coder-rl-1` · **p2091** armed |
 
 ## Open (detail)
 
@@ -35,11 +36,11 @@
 - **R2ay** +0.00930 (hr 1.02×) WEAK. **R2az** m≈−3e−5 REFUTE. **R2ba** pure awesome-v10 :8002→n80. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason (PRIORITY)
-- GRPO pid**28660** step≥57; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
+- GRPO pid**28660** step≥62; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
 
-### Fleet axes waiting on 8×B300 (R3b–R16)
+### Fleet axes waiting on 8×B300 (R3b–R17)
 - One pod/axis; uploaders+boot cases armed. Decision: n80 vs Tok; submit iff hr ≥ 1.5×(2·SE).
-- **R3b** alt GRPO knobs · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14** kevin RL · **R15** pandora RL · **R16** golden RL @ee37f4f0 (`experiments/r16-golden-rl/`).
+- **R3b** alt GRPO knobs · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14** kevin RL · **R15** pandora RL · **R16** golden RL · **R17** Qwen3-Coder RL @b2cff646 (`experiments/r17-coder-rl/`).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.

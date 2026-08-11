@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-11T19:59:15Z",
+  "pass": 2091,
+  "rent_pid": 2321516,
+  "boot_pid": 2321517,
+  "target_mines": 25,
+  "cap": 25,
+  "queue_tail": "mine-r17-coder-rl-1",
+  "live_mines": 2,
+  "burn_usd_per_h": 116.25,
+  "floor_usd_per_h": 833,
+  "b300x8": 0,
+  "b200x8": 0,
+  "note": "R17 Qwen3-Coder REINFORCE uploader + fleet queue/boot armed; B300×8=0"
+}

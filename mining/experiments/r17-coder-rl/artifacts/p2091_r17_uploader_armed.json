@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-11T19:59:15Z",
+  "pass": 2091,
+  "axis": "R17",
+  "pod": "mine-r17-coder-rl-1",
+  "base": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "base_rev": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "method": "reinforce_teacher_reason",
+  "uploader": "experiments/r17-coder-rl/upload_and_launch.sh",
+  "fleet_rent_pid": 2321516,
+  "fleet_boot_pid": 2321517,
+  "note": "Qwen3-Coder REINFORCE uploader + fleet queue/boot armed; B300×8=0"
+}
