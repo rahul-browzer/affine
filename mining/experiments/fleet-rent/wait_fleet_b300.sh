@@ -15,7 +15,7 @@ CAP=${MINE_CAP:-25}
 TARGET=${TARGET_MINES:-25}
 POLL_S=${POLL_S:-30}
 MAX_ITERS=${MAX_ITERS:-720}  # ~6h @30s
-PASS=${PASS:-2088}
+PASS=${PASS:-2089}
 
 # Distinct experimental axes (one pod each). Skip names already live.
 # Format: name|axis_id|short_note
@@ -36,6 +36,7 @@ QUEUE=(
   "mine-r13-odpo-1|R13|offline DPO on duel Reason prefs"
   "mine-r14-kevin-rl-1|R14|kevin954-init REINFORCE on teacher Reason"
   "mine-r15-pandora-rl-1|R15|pandora-box-init REINFORCE on teacher Reason"
+  "mine-r16-golden-rl-1|R16|golden-crown-init REINFORCE on teacher Reason"
 )
 
 mkdir -p "$EXP/logs" "$STAMP_DIR"

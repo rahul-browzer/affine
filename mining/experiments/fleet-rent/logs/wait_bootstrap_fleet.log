@@ -40,3 +40,5 @@
 [fleet-boot] 2026-08-11T19:44:26Z iter=1 rented_stamps=0 bootstrapped=0
 [fleet-boot] 2026-08-11T19:48:52Z start poll=20s max_iters=1800 pass=2088 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
 [fleet-boot] 2026-08-11T19:48:52Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:52:40Z start poll=20s max_iters=1800 pass=2089 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:52:40Z iter=1 rented_stamps=0 bootstrapped=0
