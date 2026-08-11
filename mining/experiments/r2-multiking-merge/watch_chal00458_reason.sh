@@ -109,9 +109,68 @@ def score_duel(raw: bytes) -> dict:
     }
 
 url = f"{base}/evals/{chal}.json.gz"
-print(f"[watch-458] polling {url}", flush=True)
+hist_url = f"https://affine.io/api/v1/history?q={chal}&limit=5"
+print(f"[watch-458] polling {url} (+ history fast-path)", flush=True)
+
+def try_history() -> dict | None:
+    """Stamp Reason gate from published margin/se when gzip not up yet."""
+    try:
+        raw = fetch_bytes(hist_url)
+        payload = json.loads(raw.decode("utf-8"))
+    except Exception:
+        return None
+    for item in payload.get("items") or []:
+        if item.get("challenge_id") != chal or item.get("event") != "verdict":
+            continue
+        margin = item.get("margin")
+        se = item.get("se")
+        if margin is None or se is None:
+            continue
+        try:
+            margin_f = float(margin)
+            se_f = float(se)
+        except (TypeError, ValueError):
+            continue
+        three_se = 3.0 * se_f
+        hr = (margin_f / three_se) if three_se > 0 else None
+        z = (margin_f / se_f) if se_f > 0 else None
+        # Live king is Tok af10 for this watcher; history omits king repo.
+        return {
+            "challenge_id": chal,
+            "king_repo": king_repo,
+            "king_revision": king_rev,
+            "challenger_repo": item.get("repo"),
+            "challenger_revision": item.get("revision"),
+            "published_margin": margin_f,
+            "published_z": item.get("z"),
+            "published_formula": None,
+            "challenger_wins": item.get("challenger_wins"),
+            "reason_margin": margin_f,
+            "reason_se": se_f,
+            "reason_z": z,
+            "three_se": three_se,
+            "headroom_vs_3se": hr,
+            "n_paired": item.get("n_paired_turns"),
+            "king_match": True,
+            "scored_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "source_url": hist_url,
+            "source": "history_api",
+        }
+    return None
+
 for i in range(1, 2880):  # ~8h @10s
     try:
+        hist = try_history()
+        if hist is not None:
+            out.write_text(json.dumps(hist, indent=2) + "\n")
+            hr = hist.get("headroom_vs_3se")
+            line = (
+                f"OK {hist['scored_at']} hr={hr} margin={hist['reason_margin']} "
+                f"n={hist.get('n_paired')} repo={hist.get('challenger_repo')} src=history"
+            )
+            done.write_text(line + "\n")
+            print(f"[watch-458] {line}", flush=True)
+            raise SystemExit(0)
         raw = fetch_bytes(url)
         print(f"[watch-458] got {len(raw)} bytes at iter={i}", flush=True)
         result = score_duel(raw)
@@ -124,6 +183,8 @@ for i in range(1, 2880):  # ~8h @10s
         done.write_text(line + "\n")
         print(f"[watch-458] {line}", flush=True)
         raise SystemExit(0)
+    except SystemExit:
+        raise
     except Exception as e:
         if i % 12 == 0:
             print(f"[watch-458] wait iter={i} err={type(e).__name__}: {e}", flush=True)

@@ -1,3 +1,11 @@
+## p1980 — chal-00458 whoami Reason+ (0.39×); R2r chall→n80; Stage-5 armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,774.
+- Harvested **chal-00458** `marsplan0624/…-whoami@21ad4572`: margin **+0.00536** · z=**1.16** · 3·SE=0.01385 · hr=**0.39×** · n=80 · lost crown; clears R2r gate.
+- Patched `watch_chal00458_reason.sh` with history-API fast-path; stamped Reason; R2r `premerge.done` → chall pid **262297** loading Talent×whoami (Δ=0.671).
+- Armed **`watch_r2r_stage5_push.sh`** (pid **261661**): on `r2r_alpha_decision.json` hr≥1.5× → public `unconst/Affine-5czsc2fc98-r2r-talent-whoami`. Cleared stale `r2o` holding stamp.
+- Artifacts: `artifacts/r2r_chal458_harvest_p1980.json`, `watch_r2r_stage5_push.sh`.
+- Next: harvest R2r n80; hr≥1.5× → confirm HF then Stage-5 submit; else purge whoami blend + advance 462+.
+
 ## p1976 — R2ab eager DONE; armed R2ac Talent×google
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,853.
 - Confirmed R2ab eager **DONE** Δ=**0.6258** · identical_frac=0.45 · wait chal-00469 Reason+.

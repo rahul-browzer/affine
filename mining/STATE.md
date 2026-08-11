@@ -13,32 +13,30 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | contract | Reason v3 · `weight_version_key=3` · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
 | corpus | epoch **7** · schema v2 |
-| Lium | ~$122,797 · burn **$64/h** (≤$833/h) · floor ≥$10k |
+| Lium | ~$122,774 · burn **$64/h** (≤$833/h) · floor ≥$10k |
 | fleet | `mine-crown-1` lunar-orbit-50 8×B300 · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
-| live eval | **chal-00458** whoami dueling · queue 462→463→467→468→469→470→471 |
-| disk | `/root` **~248 GiB** free (86%) after purge+R2r eager |
-| **R2p** | **REFUTE** hr **−0.93×** · Stage-5 SKIP |
-| **R2r** | Talent×whoami eager **DONE** Δ=**0.671** · wait 458 Reason+ |
-| **R2x–ad** | eager DONE Δ0.622–0.671 · wait 462/463/467–471 Reason+ |
-| **p1979 fix** | R2x–ad no longer always-busy on Reason-only R2r |
+| **chal-00458** | whoami Reason+ hr **0.39×** (margin +0.00536, z=1.16, n=80) · lost crown |
+| **R2r** | premerge **DONE** · chall **loading** pid **262297** → n80 |
+| disk | `/root` **~248 GiB** free · 8 eager blends kept |
+| Stage-5 | `watch_r2r_stage5_push` armed (hr≥1.5× → HF public) |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · chall **idle** · R2r/R2x–ad wait Reason+ |
+| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · R2r chall→n80 · R2x–ad wait Reason+ |
 
-- R2r eager: `cat /root/logs/r2r_eager_weights.done`
-- First lane with `*_premerge.done` (post-Reason+) claims chall → n80
-- GPU claim path unblocked (R2r busy only if `r2r_premerge.done`)
+- R2r: `tail -f /root/logs/r2r_merge_reload.log` · decision `/root/affine_data/r2r_alpha_decision.json`
+- Stage-5: `tail -f /root/logs/watch_r2r_stage5_push.log`
+- Queue next: 462 awesome-v8 → 463 tpc9 → 467–471
 
 ## Blocked
 
-- No submit until sim hr ≥ **1.5×**. Board parents ≤0.79×; Talent×sth local **−0.93×**.
+- No submit until sim hr ≥ **1.5×**. Board whoami only **0.39×**; Talent×* locals mostly refute.
 - Never `max_model_len=32768`; never cu13→`/usr/local/cuda`; never `pkill -f`.
-- Do not stamp `*_premerge.done` until post-verdict Reason+ (eager OK).
+- Do not stamp sibling `*_premerge.done` until their board Reason+.
 
 ## Next action
 
-**Harvest first Reason+ among 458/462/463/467–471** → that lane stamps `premerge.done` → chall reload → n80.
+**Harvest `r2r_alpha_decision.json`.** If hr≥1.5× → confirm Stage-5 HF push then register+`--check`+submit. Else purge whoami blend + advance first Reason+ among 462/463/467–471.
