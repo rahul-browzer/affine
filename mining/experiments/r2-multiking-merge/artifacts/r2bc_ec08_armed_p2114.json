@@ -1,0 +1,27 @@
+{
+  "utc": "2026-08-11T21:28:09Z",
+  "pass": 2114,
+  "hyp": "R2bc",
+  "action": "arm_prefetch_reload_n80_stage5",
+  "parent": {
+    "repo": "arbosfan/Affine-5eqdtdzqle-ec08cldg",
+    "revision": "24a3a65eb68bfc1e412b1169c5d4a8c82491d227",
+    "challenge_id": "chal-00502"
+  },
+  "prior": {
+    "hyp": "R2bb",
+    "decision": "WEAK_CLEAR_LIVE_2SIGMA_BUT_BELOW_1_5X_SUBMIT",
+    "margin": 0.013006152051304927,
+    "headroom_vs_live_thr": 1.2485147425444458
+  },
+  "crown_pids": {
+    "prefetch": 200560,
+    "reload": 200562,
+    "stage5": 200566
+  },
+  "decision_rule": "submit only if headroom_vs_3se >= 1.5 on fresh n80",
+  "next_after": "R2bd nerojimmy/Affine-5fqbxvz29b-ckp55@bf4d01359355df32cdcd1332a9cc587eb8835f7d chal-00504",
+  "rent": "B300x8=0; 36s burst miss; fleet blind-fire pid 2471342 continues",
+  "burn_usd_per_h": 180.25,
+  "contract": {"weight_version_key": 3, "k_sigma": 2.0}
+}

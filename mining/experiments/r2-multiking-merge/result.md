@@ -1,3 +1,12 @@
+## p2114 — R2bc ec08cldg armed (2026-08-11T21:28Z)
+
+- Contract wvk=3 · k_sigma=2.0 · king Tok af10 · B300×8 stock=0 (36s R5 burst miss; fleet blind-fire continues).
+- After R2bb WEAK: armed **R2bc** pure `arbosfan/Affine-5eqdtdzqle-ec08cldg@24a3a65e…` (queue chal-00502).
+- Crown pids: prefetch**200560** / reload**200562** / stage5**200566**. Prefetch ~33% @ arm; reload waits index then chall swap+n80.
+- R4 TKC 200/200/200 @65536 · n80 retrying; R3 GRPO step≥141; burn $180.25/h vs $833.
+- Scripts: `launch_prefetch_ec08.sh`, `launch_r2bc_ec08_reload_sim.sh`, `watch_r2bc_stage5_push.sh`.
+- Next: R2bc n80 decision → **R2bd** nerojimmy ckp55@bf4d0135… (chal-00504); rent B300 if stock.
+
 ## p2103 — R2bb ckp333 armed (2026-08-11T20:39Z)
 
 - Contract wvk=3 · k_sigma=2.0 · king Tok af10 · chal-00495 · B300×8 stock=0.

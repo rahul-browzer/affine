@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $120,633.231 | 2026-08-11T21:24Z |
-| cumulative mining spend | ~$76,956 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T21:24Z |
-| **available for mining** | **~$110,633** (balance − $10,000 floor) | 2026-08-11T21:24Z |
+| Lium balance | $120,612.386 | 2026-08-11T21:29Z |
+| cumulative mining spend | ~$76,977 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T21:29Z |
+| **available for mining** | **~$110,612** (balance − $10,000 floor) | 2026-08-11T21:29Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T21:24Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T21:29Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T21:29Z | 120612.386 | p2114 no rent (B300×8=0); R2bc armed; burn **$180.25/h**; Δ$0 vs p2113 |
 | 2026-08-11T21:24Z | 120633.231 | p2113 no rent (B300×8=0); R4 chall maxlen fix+n80; burn **$180.25/h**; Δ−$21 vs p2112 |
 | 2026-08-11T21:20Z | 120654.010 | p2112 no rent (B300×8=0); 90s R5 burst 53 miss; R4 salvage+serve; R2bb WEAK; burn **$180.25/h**; Δ$0 vs p2111 |
 | 2026-08-11T21:14Z | 120675.003 | p2111 no rent (B300×8=0); fleet→**blind-fire** POLL=0; 90s R5 burst 41 miss; burn **$180.25/h**; Δ−$21 vs p2110 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T20:54Z | 120750.250 | p2107 R31 NoDrop uploader+fleet queue (no rent; B300×8=0); burn **$116.25/h**; Δ$0 vs p2106 |
 | 2026-08-11T20:51Z | 120750.250 | p2106 R2bb remat+n80 (no rent; B300×8=0); burn **$116.25/h**; Δ−$31 vs p2105 |
 | 2026-08-11T20:45Z | 120781.340 | p2105 R30 HiAlpha uploader+fleet queue (no rent; B300×8=0); burn **$116.25/h**; Δ$0 vs p2104 |
-| 2026-08-11T20:42Z | 120781.340 | p2104 R29 HiRank uploader+fleet queue (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2103 |

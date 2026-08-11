@@ -1,0 +1,26 @@
+[burst] 2026-08-11T21:28:24Z start 36s R5 p2114
+[burst] 2026-08-11T21:28:25Z i=1 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:26Z i=1 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:29Z i=2 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:30Z i=2 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:34Z i=3 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:35Z i=3 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:39Z i=4 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:39Z i=4 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:43Z i=5 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:44Z i=5 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:48Z i=6 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:49Z i=6 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:52Z i=7 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:53Z i=7 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:57Z i=8 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:28:58Z i=8 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:29:02Z i=9 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:29:03Z i=9 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:29:07Z i=10 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:29:08Z i=10 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:29:11Z i=11 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:29:12Z i=11 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:29:16Z i=12 B300 No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:29:17Z i=12 B200 No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:29:20Z miss
