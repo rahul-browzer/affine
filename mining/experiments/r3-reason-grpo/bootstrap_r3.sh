@@ -100,7 +100,27 @@ if p.is_file():
         print("[bootstrap-r3] vllm_client already patched or pattern miss", flush=True)
 PY
 
-# Blocking DL: tok-init + teacher (train needs both; teacher must be served first).
+# Blocking DL: tok-init + teacher. Prefer parallel_dl (started mid-pip) stamps.
+if [[ -s /root/logs/tok_init.done && -s /root/logs/teacher.done ]]; then
+  echo "[bootstrap-r3] DOWNLOAD skip — stamps already present"
+  echo "[bootstrap-r3] tok=$(cat /root/logs/tok_init.done)"
+  echo "[bootstrap-r3] teacher=$(cat /root/logs/teacher.done)"
+elif [[ -f /root/logs/parallel_dl.pid ]] && kill -0 "$(cat /root/logs/parallel_dl.pid)" 2>/dev/null; then
+  echo "[bootstrap-r3] waiting for parallel_dl pid=$(cat /root/logs/parallel_dl.pid)"
+  for i in $(seq 1 720); do
+    if [[ -s /root/logs/tok_init.done && -s /root/logs/teacher.done ]]; then
+      echo "[bootstrap-r3] parallel_dl stamps ready at wait=$i"
+      break
+    fi
+    if ! kill -0 "$(cat /root/logs/parallel_dl.pid)" 2>/dev/null; then
+      echo "[bootstrap-r3] parallel_dl exited; falling through to inline download"
+      break
+    fi
+    sleep 15
+  done
+fi
+
+if [[ ! -s /root/logs/tok_init.done || ! -s /root/logs/teacher.done ]]; then
 python - <<'PY'
 import os
 from huggingface_hub import snapshot_download
@@ -118,6 +138,9 @@ print(f"[bootstrap-r3] DOWNLOAD teacher done -> {tpath}", flush=True)
 open("/root/logs/teacher.done", "w").write(tpath + "\n")
 print("[bootstrap-r3] ALL_DOWNLOADS_OK", flush=True)
 PY
+else
+  echo "[bootstrap-r3] ALL_DOWNLOADS_OK (from stamps/parallel_dl)"
+fi
 
 # Serve teacher (+ king) on 0–3; chall placeholder stopped; train on 6,7.
 echo "[bootstrap-r3] $(date -u +%Y-%m-%dT%H:%M:%SZ) serving teacher before train"

@@ -1,5 +1,12 @@
 # R3 — Reason GRPO results
 
+## p2056 — parallel_dl overlap pip
+
+- **Action:** while `uv pip` still installing, spun `/root/dl_venv` + nohup `parallel_dl` (pid2246) for Tok af10 + GLM teacher into `HF_HOME=/root/hf`
+- Patched `bootstrap_r3.sh` to wait on `/root/logs/{tok_init,teacher}.done` / `parallel_dl.pid` instead of always re-downloading
+- At 16:37Z: pip VERSIONS ok; HF cache ~1.7G; tok fetch 9/11 files; no free 8×B300
+- **Check:** `tail -f /root/logs/parallel_dl.log` then `bootstrap_r3.log` for stamps → teacher → train
+
 ## p2055 — bootstrap launched
 
 - **Pod:** `mine-r3-grpo-1` / golden-hawk-ff / 8×B300 @$64/h
