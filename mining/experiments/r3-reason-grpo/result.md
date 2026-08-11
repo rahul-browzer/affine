@@ -1,3 +1,11 @@
+## p2122 — unstick merge (gocryptfs) → `/tmp` (2026-08-11T22:34Z)
+
+- **Problem:** LoRA `save_pretrained` to `/root/r3/merged` hung ~10m: WCHAN=`request_wait_answer`, write_bytes flat @7.08GB, GPU SM=0% (same class as full-FT optimizer.pt on gocryptfs).
+- **Action:** killed merge pid40674 + post_train pid15127 by PID; relaunch with `MERGED=/tmp/r3_merged` (overlay, not fuse.gocryptfs). Default in `post_train_pipeline.sh` updated.
+- **Check:** `tail -f /root/logs/r3_pipeline.nohup` · look for `merge LoRA → /tmp/r3_merged` · then chall:8002 → n80 / `r3_decision.json`.
+- **Stamp:** `/root/affine_data/r3_merge_gocryptfs_unstick_p2122.json`
+- **Market:** still 0× free 8×B300; burn $180.25/h vs $833/h.
+
 ## p2121 — train.done @step189 → merge (2026-08-11T22:23Z)
 
 - GRPO finished `mean_reward_last20≈−0.028`; adapter `/root/r3/train/adapter`.

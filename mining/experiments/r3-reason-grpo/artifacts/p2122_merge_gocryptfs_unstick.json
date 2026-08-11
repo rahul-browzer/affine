@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-11T22:34:07Z",
+  "pass": 2122,
+  "action": "kill_hung_merge_relaunch_MERGED_tmp",
+  "hung_wchan": "request_wait_answer",
+  "hung_out": "/root/r3/merged",
+  "tmp_bytes_stuck": 49739502312,
+  "write_bytes_stuck": 7083176526,
+  "new_merged": "/tmp/r3_merged",
+  "relaunch_pid": 42023,
+  "reason": "gocryptfs /root large safetensors save hang (same class as LESSONS full-FT optimizer.pt)"
+}

@@ -24,7 +24,9 @@ KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/
 TRAIN_DIR=${TRAIN_DIR:-/root/r3/train}
 ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
 CKPT_ROOT=${CKPT_ROOT:-$TRAIN_DIR/checkpoints}
-MERGED=${MERGED:-/root/r3/merged}
+# Default /tmp (overlay): gocryptfs /root hangs large safetensors saves
+# (WCHAN=request_wait_answer) — same class as full-FT optimizer.pt (p2122).
+MERGED=${MERGED:-/tmp/r3_merged}
 SIM_N80=/root/affine_data/r3_sim_result.json
 PROG=/root/affine_data/r3_sim_progress.json
 LOG=/root/logs/r3_pipeline.nohup
