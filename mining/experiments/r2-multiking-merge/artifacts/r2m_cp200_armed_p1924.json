@@ -1,0 +1,25 @@
+{
+  "pass": 1924,
+  "utc": "2026-08-11T00:52:09Z",
+  "hyp": "R2m",
+  "action": "armed Talent×cp200 Reason+-gated premerge+reload + watch-456",
+  "parents": {
+    "talent": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "cp200": "afgod1079/Affine-5hjnzhlrnj-cp200@19c881d1257cc2164f54aa3e542a564fb9beef1d",
+    "weights": "w_talent=0.25 w_cp200=0.75"
+  },
+  "gate": {
+    "challenge_id": "chal-00456",
+    "reason_json": "/root/affine_data/chal00456_reason.json",
+    "rule": "king_match && headroom_vs_3se > 0"
+  },
+  "pids": {
+    "watch_chal00456_reason": 153317,
+    "r2m_premerge": 153337,
+    "r2m_merge_reload": 153346
+  },
+  "lane_serializes_behind": ["R2g", "R2i", "R2j", "R2k", "R2l"],
+  "r2g_progress_at_arm": {"king": 70, "challenger": 70, "n": 80},
+  "contract": {"weight_version_key": 3, "king": "Tok331102/affine-5EqYW8McUc-af10"},
+  "submit_bar": "headroom_vs_3se >= 1.5"
+}

@@ -98,3 +98,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1920: arm **R2j** Talent×BKN-seven (live 432) Reason+-gated premerge+reload as soon as parent is cached — do not wait for R2g harvest; GPU lane still serializes behind R2g/R2i.
 - p1922: arm **R2k** Talent×BKN-six (queue 431) Reason+-gated premerge+reload + `watch_chal00431_reason` while R2g still gathers — parent already cached; no extra HF download; serializes behind R2j.
 - p1923: arm **R2l** Talent×sft3 (queue 450) Reason+-gated premerge+reload + `watch_chal00450_reason` while R2g ~63/80 — sft3+cp200 already cached; lane waits R2g/R2i/R2j/R2k; next Talent×cp200 (456).
+- p1924: arm **R2m** Talent×cp200 (queue 456) Reason+-gated premerge+reload + `watch_chal00456_reason` while R2g ~70/80 — parent cached; lane waits R2g…R2l; next Talent×asdf (451) if disk allows.
