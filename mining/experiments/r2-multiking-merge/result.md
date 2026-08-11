@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1925 — R2g REFUTE; R2n Talent×asdf armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,557.
+- Harvested `r2g_alpha_decision.json` (00:53:55Z): margin **−0.02030** · se=0.00759 · z=**−2.67** · 3·SE=**0.02278** · headroom=**−0.891×** · reason_c=−0.03810 · reason_k=−0.01608 · n_paired=79 · `challenger_wins=false`.
+- Decision `REFUTE_R1_H64_BASELINE` (hyp=R2g) — **do not submit** (bar 1.5×). Parent 440 saysth was Reason+ 0.73×; skew merge lost.
+- Armed **R2n**: watch-451 pid **153903** + `launch_r2n_talent_asdf_premerge.sh` **153922** (wait 451 hr>0 → Talent0.25×asdf0.75 @ `/root/r2_out/alpha_talent_asdf_skew`) + `launch_r2n_merge_reload_sim.sh` **153931** (GPU after R2i…R2m; submit bar 1.5×).
+- Disk ~295 GiB free; asdf prefetch already DONE `@c2309815…`. R2i/j/k/l/m waiters still polling 404 evals.
+- Artifacts: `artifacts/r2g_alpha_{decision,reason_sim}.json`, `artifacts/r2n_asdf_armed_p1925.json`.
+- Next: first Reason+ among 441/432/431/450/456/451 → merge→n80; else arm Talent×zeus (452).
+
 ## p1920 — R2j Talent×BKN7 armed; asdf+zeus DONE
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,613.
 - Prefetch chain: **asdf DONE** 00:31:38Z `@c2309815…`; **zeus DONE** 00:35:30Z `@accc9249…`; **sth** downloading after zeus (~8 GiB).

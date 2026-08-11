@@ -1,0 +1,42 @@
+{
+  "pass": 1925,
+  "utc": "2026-08-11T00:56:22Z",
+  "hyp": "R2n",
+  "action": "armed Talent\u00d7asdf Reason+-gated premerge+reload + watch-451; harvested R2g REFUTE",
+  "parents": {
+    "talent": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "asdf": "adsbasd31badsf/affine-5ec3jw68ha-asdf@c23098154fd717e64f577cd863f0e1ba8e96ee84",
+    "weights": "w_talent=0.25 w_asdf=0.75"
+  },
+  "gate": {
+    "challenge_id": "chal-00451",
+    "reason_json": "/root/affine_data/chal00451_reason.json",
+    "rule": "king_match && headroom_vs_3se > 0"
+  },
+  "pids": {
+    "watch_chal00451_reason": 153903,
+    "r2n_premerge": 153922,
+    "r2n_merge_reload": 153931
+  },
+  "lane_serializes_behind": [
+    "R2g",
+    "R2i",
+    "R2j",
+    "R2k",
+    "R2l",
+    "R2m"
+  ],
+  "r2g_harvest": {
+    "decision": "REFUTE_R1_H64_BASELINE",
+    "margin": -0.020296204989437416,
+    "headroom_vs_3se": -0.8910794029269853,
+    "z": -2.673238208780956,
+    "n_paired_turns": 79
+  },
+  "contract": {
+    "weight_version_key": 3,
+    "king": "Tok331102/affine-5EqYW8McUc-af10"
+  },
+  "submit_bar": "headroom_vs_3se >= 1.5",
+  "disk_free_gib": 295
+}

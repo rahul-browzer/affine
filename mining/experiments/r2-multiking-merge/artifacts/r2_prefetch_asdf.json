@@ -1,0 +1,14 @@
+{
+  "started_at": "2026-08-11T00:28:06Z",
+  "note": "p1917 queue chal-00451 prefetch after sft3; Reason unknown until verdict",
+  "parents": [
+    {
+      "repo": "adsbasd31badsf/affine-5ec3jw68ha-asdf",
+      "revision": "c23098154fd717e64f577cd863f0e1ba8e96ee84",
+      "path": "/root/hf/hub/models--adsbasd31badsf--affine-5ec3jw68ha-asdf/snapshots/c23098154fd717e64f577cd863f0e1ba8e96ee84",
+      "seconds": 211.8
+    }
+  ],
+  "skipped": [],
+  "finished_at": "2026-08-11T00:31:38Z"
+}

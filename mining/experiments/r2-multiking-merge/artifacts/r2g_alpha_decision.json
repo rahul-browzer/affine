@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-11T00:53:55Z",
+  "hyp": "R2g",
+  "contract": "Reason v3",
+  "decision": "REFUTE_R1_H64_BASELINE",
+  "headroom_bar": 1.5,
+  "false_probe": null,
+  "margin": -0.020296204989437416,
+  "se": 0.007592366786756667,
+  "z": -2.673238208780956,
+  "k_sigma": 3.0,
+  "threshold_3se": 0.022777100360270003,
+  "headroom_vs_3se": -0.8910794029269853,
+  "reason_c": -0.03810296896422268,
+  "reason_k": -0.016076501388582094,
+  "n_paired_turns": 79,
+  "challenger_wins": false,
+  "sim_result": "/root/affine_data/r2g_alpha_reason_sim.json"
+}
