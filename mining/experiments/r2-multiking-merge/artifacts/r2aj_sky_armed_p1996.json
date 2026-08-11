@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-11T08:51:51Z",
+  "pass": 1996,
+  "hyp": "R2aj",
+  "pod": "mine-crown-1",
+  "huid": "gentle-orbit-bd",
+  "ssh": "ssh root@95.133.253.90 -p 40099",
+  "sky_repo": "magicworld7/affine-5dtu4gucst-sky",
+  "sky_rev": "a569e29bcab3a1f4ed3a99ee9e46c17dc40e8fdf",
+  "board": "chal-00469",
+  "prefetch_pid": 3855,
+  "r2aj_pid": 3857,
+  "restore_pid": 2138,
+  "gates": [
+    "warm_stack_ready.done",
+    "chal00469_reason.json",
+    "sky snapshot",
+    "board hr>=1.5"
+  ],
+  "note": "armed pure-sky chall\u2192n80 after warm restore; board-first skip if hr<1.5\u00d7"
+}

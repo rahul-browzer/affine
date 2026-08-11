@@ -1,3 +1,10 @@
+## p1996 — R2aj pure-sky armed (wait warm + board 469)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,497.
+- Restore still HF DL (king~40 GiB / h64~27 GiB / teacher~11 GiB); corpus epoch7 synced.
+- Armed **R2aj** pure `magicworld7/…-sky@a569e29b` (chal-00469): prefetch pid **3855** + reload/sim pid **3857**. Gates: `warm_stack_ready` → board `chal00469_reason.json` → skip if hr&lt;1.5× else chall→n80.
+- Host-hist bridge still pending 469–471. Artifacts: `artifacts/r2aj_sky_armed_p1996.json`, `launch_r2aj_sky_reload_sim.sh`, `launch_prefetch_sky.sh`.
+- Next: poll warm/R2aj; SKIP_BOARD → arm pure google (470); else harvest `r2aj_sky_decision.json`.
+
 ## p1994 — crown pod bricked → replaced with 8×B200
 - Contract `weight_version_key=3`; king Tok af10.
 - Mid-pass: R2ai chall healthy TKC **200/200/200**, n80 sim **306127** started (artifact `r2ai_n80_started_p1994.json`) — then SSH `86.38.182.50:40300` refused; `lium reboot` → **REBOOT_FAILED** / SSH port None while still @$64/h.

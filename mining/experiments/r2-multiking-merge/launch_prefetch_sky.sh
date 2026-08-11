@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# Prefetch queue chal-00469 magicworld7/…-sky (CPU/network only).
-# Index probe (p1969): weights_ok @a569e29bcab3… (2 safetensors).
-# Next after sbs-v0. Cache while R2p n80 gathers; do not merge until
-# post-verdict Reason+. Disk ~496 GiB free at arm.
+# Prefetch magicworld7/…-sky @a569e29b… (CPU/network; 2×safetensors ~smaller).
+# Live board chal-00469. Wait warm_stack_ready so we do not steal HF bandwidth
+# from teacher/king/h64 restore on the fresh crown pod.
 set -euo pipefail
 LOG=/root/logs/r2_prefetch_sky.log
 DONE=/root/logs/r2_prefetch_sky.done
@@ -15,6 +14,24 @@ if [[ -f "$DONE" ]]; then
   echo "[r2-sky] already done: $(cat "$DONE")"
   exit 0
 fi
+
+WARM=${WARM_DONE:-/root/logs/warm_stack_ready.done}
+echo "[r2-sky] waiting for $WARM (avoid contending restore HF DL)"
+for i in $(seq 1 2880); do
+  if [[ -f "$WARM" ]]; then
+    echo "[r2-sky] warm stack ready at iter=$i"
+    break
+  fi
+  if (( i % 12 == 0 )); then
+    echo "[r2-sky] wait-warm iter=$i"
+  fi
+  if (( i == 2880 )); then
+    echo "[r2-sky] TIMEOUT waiting warm_stack_ready" >&2
+    exit 2
+  fi
+  sleep 10
+done
+
 set -a
 # shellcheck disable=SC1091
 source /root/mine.env
@@ -38,8 +55,7 @@ repo = os.environ["SKY_REPO"]
 rev = os.environ["SKY_REV"]
 out = {
     "started_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-    "note": "p1969 queue chal-00469 prefetch; after sbs; Reason unknown until verdict",
-    "challenge_id": "chal-00469",
+    "note": "p1996 prefetch sky for R2aj pure-parent n80 after warm-stack restore",
     "parents": [],
     "skipped": [],
 }
