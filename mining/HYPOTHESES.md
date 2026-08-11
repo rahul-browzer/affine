@@ -20,6 +20,7 @@
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open** · fleet `mine-r9-teacher-zc-1` · **p2079** uploader+boot armed |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open** · fleet `mine-r10-merge-rl-1` · **p2082** uploader+boot armed |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open** · fleet `mine-r11-odpo-1` · **p2084** uploader+boot armed |
+| 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open** · fleet `mine-r12-bon-1` · **p2085** uploader+boot armed |
 
 ## Open
 
@@ -89,26 +90,15 @@
 - **Prediction:** n80 paired margin ≥ **1.5 × (2·SE)** vs Tok.
 - **Status:** open — **p2084** `upload_and_launch.sh` + fleet-boot case for `mine-r11-odpo-1` (H139 stack overlay; S\* F44 abandoned mid-n80, never Reason-v3 decision). Waiting on 8×B300 rent. Dir: `experiments/r11-online-dpo/`.
 
+### R12 — Best-of-N CE on teacher Reason
+- **Claim:** sample G=4 z, CE only the argmax teacher-Reason thought — moves mean more than GRPO/REINFORCE when group rewards cluster.
+- **Prediction:** n80 paired margin ≥ **1.5 × (2·SE)** vs Tok.
+- **Status:** open — **p2085** `upload_and_launch.sh` + fleet-boot case for `mine-r12-bon-1` (H137 `train_bon_l2.py` overlay). Waiting on 8×B300 rent. Dir: `experiments/r12-bon-reason/`.
+
 ## Refuted (Reason era)
+- Older Talent-skew / board-parent REFUTEs (R2h–R2am family) → `archive/` / prior status.log; do not re-blend.
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.
 - **R1c** (2026-08-10): nsup≥100 filter (176 rows) + EPOCHS=6 → margin −0.0171 vs Tok (z=−2.75, n_paired=67). High-signal subset SFT still hurts Reason.
-- **R2h** (2026-08-11): Tok×Talent×kevin equal-α (Δ=0.277) → margin −0.0211 vs Tok (z=−1.77, hr −0.59×, n=60). Multi-reign equal-α does not clear 3·SE.
-- **R2g** (2026-08-11): Talent0.25×saysth0.75 (parent 440 hr 0.73×) → margin −0.0203 vs Tok (z=−2.67, hr −0.89×, n=79). Parent Reason+ does not transfer through skew-α.
-- **R2q** (2026-08-11): pure saysth-v9a local n80 → margin −0.00657 vs Tok (z=−1.05, hr −0.35×, n=79). Published 440 hr 0.73× does not replay as crown candidate on our slice.
-- **R2t** (2026-08-11): saysth0.75×Talent0.25 (saysth layout, Δ=0.207) → margin **−0.02341** vs Tok (z=−2.80, hr **−0.93×**, n=78). Inverse of R2g also loses; do not re-blend saysth×Talent.
-- **R2l** (2026-08-11): Talent0.25×sft3:0.75 → margin **−0.03068** vs Tok (z=−2.67, hr **−0.89×**, n=79). Parent board/local ~0.37–0.39× does not lift via Talent skew; Stage-5 SKIP.
-- **R2n** (2026-08-11): Talent0.25×asdf:0.75 → margin **−0.02323** vs Tok (z=−3.21, hr **−1.07×**, n=80). Board parent 0.40× does not crown via Talent skew; Stage-5 SKIP; blend purged.
-- **R2o** (2026-08-11): Talent0.25×zeus:0.75 → margin **−0.02860** vs Tok (z=−3.31, hr **−1.10×**, n=79). Board parent 0.25× does not crown via Talent skew; Stage-5 SKIP; blend purged.
-- **R2p** (2026-08-11): Talent0.25×sth:0.75 → margin **−0.02821** vs Tok (z=−2.78, hr **−0.93×**, n=80). Board parent 0.79× (best DL Reason+) does not crown via Talent skew; Stage-5 SKIP; blend purged.
-- **R2r** (2026-08-11): Talent0.25×whoami:0.75 → margin **−0.03351** vs Tok (z=−4.29, hr **−1.43×**, n=80). Board parent 0.39× does not crown via Talent skew; Stage-5 SKIP; blend purged.
-- **R2af/R2x** (2026-08-11): board chal-00462 awesome-v8 hr **−0.04×** → SKIP pure-v8 n80 + Talent×v8 (no local gather).
-- **R2y** (2026-08-11): chal-00463 tpc9 **unservable** (vLLM load fail) → hr=None → SKIP Talent×tpc9 + purge blend; local R2ag n80 still runs.
-- **R2ag** (2026-08-11): pure tpc9 local n80 → margin **−0.0105** (z=−1.56, hr **−0.52×**, n=79). Board-unservable parent also loses locally; Stage-5 SKIP.
-- **R2ah/R2z** (2026-08-11): board chal-00467 awesome-v9 hr **0.21×** → SKIP pure-v9 n80 mid-load + Talent×v9 (R2w sub-1.5× board-first).
-- **R2ab** (2026-08-11): Talent0.25×sky0.75 → margin **−0.0508** vs Tok (z=−4.76, hr **−1.59×**, n=77). Board sky ~0.46× does not crown via Talent skew; Stage-5 SKIP; blend purged.
-- **R2ac** (2026-08-11): Talent0.25×google0.75 → margin **−0.03126** vs Tok (z=−2.94, hr **−0.978×**, n=80). Pure-parent local 0.641× does not transfer via Talent skew; Stage-5 SKIP; blend purged.
-- **R2ad** (2026-08-11): Talent0.25×pig0.75 → margin **−0.03694** vs Tok (z=−3.54, hr **−1.18×**, n=80). Board pig 0.58× does not crown via Talent skew; Stage-5 SKIP; blend purged.
-- **R2am** (2026-08-11): Talent0.25×sbs-v1:0.75 n80#2 → margin **−0.04052** vs Tok (z=−4.18, hr **−1.39×**, n=80). Stage-5 SKIP; blend purged.
 - **R2ao** (2026-08-11): pure Tok af17 → margin **−0.00072** vs Tok af10 (z=−0.22, hr **−0.074×**, n=80). Near-parity, not crown; Stage-5 SKIP → R2ap h44.
 - **R2ap** (2026-08-11): pure kevin954 h44 → margin **+0.00414** vs Tok (z=0.98, hr **0.327×**, n=80). Weak positive ≪1.5×; Stage-5 SKIP → R2aq now.
 - **R2aq** (2026-08-11): pure tojointhecommunity …-now → margin **+0.00795** vs Tok (z=2.32, hr **0.773×**, n=80). Best pure signal yet; clears live 2·SE (1.16×) but not submit bar; Stage-5 SKIP → R2ar iynocr2p.

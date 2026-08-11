@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-11T19:38:04Z",
+  "pass": 2085,
+  "axis": "R12",
+  "pod_name": "mine-r12-bon-1",
+  "method": "bon_ce_teacher_reason",
+  "stack": "s4-h137-f42-tok-bon-l2 + r12 overlays",
+  "knobs": {
+    "lr": 5e-06,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "G": 4,
+    "max_steps": 150
+  },
+  "fleet_rent_pid": 2277571,
+  "fleet_boot_pid": 2277625,
+  "target_mines": 25,
+  "note": "R12 uploader+fleet-boot armed; queue after R11; 8xB300 stock empty"
+}

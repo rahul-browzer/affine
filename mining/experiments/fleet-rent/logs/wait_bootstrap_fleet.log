@@ -1,0 +1,36 @@
+[fleet-boot] 2026-08-11T18:31:22Z start poll=20s max_iters=1800 pass=2069 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T18:31:22Z iter=1 rented_stamps=0
+0 bootstrapped=0
+0
+[fleet-boot] 2026-08-11T18:31:55Z start poll=20s max_iters=1800 pass=2069 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T18:31:55Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T18:36:55Z iter=16 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T18:41:55Z iter=31 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T18:46:55Z iter=46 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T18:51:55Z iter=61 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T18:56:55Z iter=76 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:01:55Z iter=91 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:04:07Z start poll=20s max_iters=1800 pass=2074 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:04:07Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:07:19Z start poll=20s max_iters=1800 pass=2075 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:07:19Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:09:51Z start poll=20s max_iters=1800 pass=2076 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:09:51Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:12:09Z start poll=20s max_iters=1800 pass=2077 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:12:09Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:14:50Z start poll=20s max_iters=1800 pass=2078 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:14:50Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:18:21Z start poll=20s max_iters=1800 pass=2079 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:18:21Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:21:29Z start poll=20s max_iters=1800 pass=2080 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:21:29Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:24:40Z start poll=20s max_iters=1800 pass=2081 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:24:40Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:27:55Z start poll=20s max_iters=1800 pass=2082 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:27:55Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:30:18Z start poll=20s max_iters=1800 pass=2083 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:30:18Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:34:22Z start poll=20s max_iters=1800 pass=2084 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:34:22Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T19:38:01Z start poll=20s max_iters=1800 pass=2085 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T19:38:01Z iter=1 rented_stamps=0 bootstrapped=0
