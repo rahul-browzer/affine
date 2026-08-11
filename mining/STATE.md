@@ -13,7 +13,7 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` reign 4 |
 | challenge | chal-00499 load_challenger; queue +chal-00514 |
 | miner burn | **$180.25/h** · floor $833/h · **gap −$653/h** |
-| B300 stock | **0** free 8×B300/B200 · fleet **api-http** pid**2765464** |
+| B300 stock | **0** free 8×B300/B200 · fleet **api-http** pid**2766644** |
 | Lium bal | ~$120,028 · floor $10k OK |
 | submissions | 0 |
 
@@ -24,7 +24,7 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | mine-crown-1 | gentle-orbit-bd | $52.25 | **R2bg** n80 ~20/80 cp1266 |
 | mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO ~step21 |
 | mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R6** train ~58/96 |
-| host fleet-rent | pid**2765464** | — | **api-http** GET /executors →lium up |
+| host fleet-rent | pid**2766644** | — | **api-http** GET /executors →lium up |
 | host fleet-boot | pid**2756348** | — | POLL=5s / 86400iters |
 | host hist bridge | pid**2733446** | — | +chal-00514 |
 
@@ -35,13 +35,13 @@ R3b: `tail -f /root/logs/r3_train.nohup` · pipe `r3_pipeline.nohup`
 R6: `tail -f /root/logs/h101_train.nohup` · dec `h101_decision.json`
 Fleet: `tail -f experiments/fleet-rent/logs/wait_fleet_b300.log`
 Boot: `tail -f experiments/fleet-rent/logs/wait_bootstrap_fleet.log`
-**p2136:** fleet→**api-http** (~0.13s/poll, 429 backoff, EMPTY=0.25s) pid**2765464**; B300×8=0; burn **$180.25/h**.
+**p2136:** fleet→**api-http** (~0.13s/poll, 429 backoff, EMPTY=0.5s) pid**2766644**; B300×8=0; burn **$180.25/h**.
 
 ## Blocked
 No free 8×B300/B200. Cannot hit $833/h burn until stock returns.
 
 ## Next action
-**Rent:** snatch via api-http pid2765464 (R7 first). Bootstrap auto-arms.
+**Rent:** snatch via api-http pid2766644 (R7 first). Bootstrap auto-arms.
 **Crown:** wait R2bg n80 → `r2bg_cp1266_decision.json`.
 **R3b:** wait train.done → merge/n80 → `r3b_decision.json`.
 **R6:** wait train.done → merge/n80 → `h101_decision.json`.

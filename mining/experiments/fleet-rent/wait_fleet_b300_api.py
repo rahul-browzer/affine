@@ -32,8 +32,8 @@ PARALLEL_N = int(os.environ.get("PARALLEL_N", "22"))
 MAX_ITERS = int(os.environ.get("MAX_ITERS", "86400"))
 PASS = int(os.environ.get("PASS", "2136"))
 B200_EVERY = int(os.environ.get("B200_EVERY", "8"))  # probe B200 every N empty iters
-# Stay under Lium 429 while still beating CLI ls (~0.63s). 0.25s ≈ 4 Hz.
-EMPTY_SLEEP = float(os.environ.get("EMPTY_SLEEP", "0.25"))
+# Stay under Lium 429 while still beating CLI ls (~0.63s). 0.5s ≈ 2 Hz.
+EMPTY_SLEEP = float(os.environ.get("EMPTY_SLEEP", "0.5"))
 
 # Distinct axes (one pod each). Skip names already live.
 QUEUE = [
