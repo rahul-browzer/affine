@@ -19,6 +19,7 @@
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · fleet `mine-r8-reinforce-1` · **p2077** uploader+boot armed |
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open** · fleet `mine-r9-teacher-zc-1` · **p2079** uploader+boot armed |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open** · fleet `mine-r10-merge-rl-1` · **p2082** uploader+boot armed |
+| 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open** · fleet `mine-r11-odpo-1` · **p2084** uploader+boot armed |
 
 ## Open
 
@@ -82,6 +83,11 @@
 - **Claim:** Tok×sbs-v2 α0.5 merge as GRPO init beats Tok-init GRPO (R3) and merge-only n80 (R2) on paired Reason margin.
 - **Prediction:** n80 paired margin ≥ **1.5 × (2·SE)** vs Tok after merge→GRPO.
 - **Status:** open — **p2082** `upload_and_launch.sh` + fleet-boot case for `mine-r10-merge-rl-1`. Waiting on 8×B300 rent. Dir: `experiments/r10-merge-rl/`.
+
+### R11 — Online DPO on teacher Reason
+- **Claim:** sample G=2 z from Tok-LoRA, label with live teacher Reason, DPO (β=0.1) vs frozen base clears paired crown bar where GRPO/REINFORCE/offline-DPO may stall.
+- **Prediction:** n80 paired margin ≥ **1.5 × (2·SE)** vs Tok.
+- **Status:** open — **p2084** `upload_and_launch.sh` + fleet-boot case for `mine-r11-odpo-1` (H139 stack overlay; S\* F44 abandoned mid-n80, never Reason-v3 decision). Waiting on 8×B300 rent. Dir: `experiments/r11-online-dpo/`.
 
 ## Refuted (Reason era)
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.

@@ -11,11 +11,11 @@ PIDF="$EXP/logs/wait_fleet_b300.pid"
 STAMP_DIR="$EXP/artifacts"
 TTL=${TTL:-24h}
 CAP=${MINE_CAP:-25}
-# Burn floor ≈ $833/h ÷ ~$64/h ≈ 13 boxes (operator 2026-08-11).
-TARGET=${TARGET_MINES:-13}
+# Burn floor ≈ $833/h ÷ ~$64/h ≈ 13 boxes; keep renting to CAP (floor≠ceiling).
+TARGET=${TARGET_MINES:-25}
 POLL_S=${POLL_S:-30}
 MAX_ITERS=${MAX_ITERS:-720}  # ~6h @30s
-PASS=${PASS:-2068}
+PASS=${PASS:-2084}
 
 # Distinct experimental axes (one pod each). Skip names already live.
 # Format: name|axis_id|short_note
@@ -31,6 +31,7 @@ QUEUE=(
   "mine-r5-nonking-2|R5b|Talent/kevin non-king base FT"
   "mine-r10-merge-rl-1|R10|merge+RL hybrid Reason"
   "mine-r6-fmt-2|R6b|long-thought vs short-thought ablate"
+  "mine-r11-odpo-1|R11|online DPO on live teacher Reason"
 )
 
 mkdir -p "$EXP/logs" "$STAMP_DIR"

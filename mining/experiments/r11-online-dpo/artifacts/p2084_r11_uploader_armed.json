@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-11T19:34:24Z",
+  "pass": 2084,
+  "axis": "R11",
+  "pod": "mine-r11-odpo-1",
+  "claim": "online DPO on live teacher Reason (\u2260 R3 GRPO / R8 REINFORCE / H138 offline)",
+  "uploader": "experiments/r11-online-dpo/upload_and_launch.sh",
+  "fleet_queue": true,
+  "fleet_boot_case": true,
+  "target_mines": 25,
+  "stock_8xb300": 0,
+  "note": "armed while B300\u00d78 empty; rent TARGET raised 13\u219225"
+}

@@ -22,10 +22,10 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | R2ay WEAK +0.0093; **R2az** n80 ~20/80 |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥27; wedge-watch |
-| host fleet-rent | pid**2146782** | — | rent →13 mines (R4…) |
-| host fleet-boot | pid**2264120** | — | auto-upload **R4–R10 + R3b/R4b/R5b/R6b** |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | R2ay WEAK +0.0093; **R2az** n80 ~32/80 |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥32; wedge-watch |
+| host fleet-rent | pid**2270423** | — | rent →**25** mines (R4…R11) |
+| host fleet-boot | pid**2270445** | — | auto-upload **R4–R11** |
 | host r3-wedge | pid**2176107** | — | GRPO wedge relaunch |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -36,12 +36,12 @@ R3: `grep -E 'r3-log|r3-hb' /root/logs/r3_train.nohup | tail`
 
 ## Blocked
 
-- No free 8×B300/B200 — rent polls 30s (target 13 / cap 25).
+- No free 8×B300/B200 — rent polls 30s (target **25** / cap 25).
 
 ## Next action
 
-**Bootstrapped rented_mine-r{4..10}* / r3-grpo-2 / r4-fullft-2 / r5-nonking-2 / r6-fmt-2:** watch axis train log.
-**Else rented without boot:** fleet-boot log (auto R4–R10+alts).
+**Bootstrapped rented_mine-r{4..11}*:** watch axis train log.
+**Else rented without boot:** fleet-boot log (auto R4–R11).
 **R3:** steps→train.done→post_train n80.
 **Crown:** R2az n80 → decision → awesome-v10.
-**New axes:** invent next distinct axis beyond R6b if stock appears and queue empties.
+**New axes:** invent next distinct axis beyond R11 if stock appears and queue empties.

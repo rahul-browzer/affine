@@ -6,9 +6,9 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2ay done; R2az n80 ~20/80 |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | GRPO pid28660 step≥27 + TK + wedge-watch |
-| *(pending fleet)* | mine-r4…r10 + r6-fmt-2 | 8×B300 | ~$64 | rent pid2146782 + boot pid**2264120** | R4–R10+R3b/R4b/R5b/R6b auto-boot |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2ay done; R2az n80 ~32/80 |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | GRPO pid28660 step≥32 + TK + wedge-watch |
+| *(pending fleet)* | mine-r4…r11 | 8×B300 | ~$64 | rent pid**2270423** + boot pid**2270445** | R4–R11 auto-boot (target 25) |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
 SSH R3: `ssh root@204.9.206.245 -p 40051`
@@ -20,6 +20,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T19:34Z | p2084: R11 online-DPO uploader+fleet-boot; rent TARGET 13→**25**; R2az~32/80; R3≥32; B300×8=0; burn $116.25/h |
 | 2026-08-11T19:30Z | p2083: R6b long-z uploader+fleet-boot (pid2264120); R2az~20/80; R3≥27; B300×8=0; burn $116.25/h |
 | 2026-08-11T19:28Z | p2082: R10 merge+RL uploader+fleet-boot (pid2259195); R2az~15/80; R3≥24; B300×8=0; burn $116.25/h |
-| 2026-08-11T19:24Z | p2081: R5b Talent uploader+fleet-boot (pid2254067); R2az~5/80; R3≥21; B300×8=0; burn $116.25/h |
