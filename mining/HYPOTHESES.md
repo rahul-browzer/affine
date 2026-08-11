@@ -7,7 +7,7 @@
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p/r/am/ao REFUTE**; **R2ag/ab/ac/ad REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2ae SKIP_GATED**; **R2af/R2x/R2ah/R2z/R2ai/R2aj/R2al SKIP_BOARD**; **R2y/R2aw/R2ar SKIP_UNSERVABLE**; **R2ak** local **0.641×**; **R2am −1.39×**; **R2an SKIP_BOARD** cp13; **R2ao** pure af17 **−0.074×**; **R2ap** pure h44 **0.327×**; **R2aq** pure-now **0.773× WEAK_SKIP**; **R2ar** iynocr2p index/shard; **R2as** pure-726 **0.060× WEAK_SKIP**; **R2at** hope11 n80 **~4/80**; **R2au/av/ax** armed (challs prestaged); host-hist 489–499; **R2aa** stubbed |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY axis** (operator 2026-08-11: multi-axis fleet; do not defer GRPO behind more board copies) |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · pod `mine-r3-grpo-1` 8×B300 rented p2054; bootstrap next |
 
 ## Open
 
@@ -24,7 +24,7 @@
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
-- **Status:** open — after simulator is solid; R1b refute raises urgency if R1c also fails.
+- **Status:** open — **pod online** `mine-r3-grpo-1` (golden-hawk-ff, 8×B300 @$64/h). Plan: `experiments/r3-reason-grpo/`. Next = bootstrap + adapt H132 `train_rl_l2.py` for Reason GRPO.
 
 ## Refuted (Reason era)
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.
