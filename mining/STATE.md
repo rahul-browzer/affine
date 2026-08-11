@@ -2,7 +2,6 @@
 Rewritten every pass. Do not append.
 
 ## Stage
-
 **Stage 4 — beat the king; parallel axes.** Reason v3 · win the subnet.
 Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 
@@ -14,31 +13,27 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` reign 4 |
 | challenge | chal-00495 |
 | miner burn | **$116.25/h** · floor $833/h · **gap −$717/h** |
-| B300 stock | **0** free 8×B300/B200 · fleet rent@**10s** poll |
-| Lium bal | ~$120,828 · floor $10k OK |
+| B300 stock | **0** free 8×B300/B200 · fleet rent@**10s** |
+| Lium bal | ~$120,812 · floor $10k OK |
 | submissions | 0 |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | R2az REFUTE; **R2ba** awesome-v10 n80 **~65/80** |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥**88**; wedge-watch |
-| host fleet-rent | pid**2390617** | — | rent →**25** mines @10s (R4…R25 + **R26** + R9…) |
-| host fleet-boot | pid**2390659** | — | auto-upload R4–R26 |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2ba** awesome-v10 n80 **~67/80** |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥**90** + wedge |
+| host fleet-rent | pid**2397672** | — | →25 mines @10s (R4…R27) |
+| host fleet-boot | pid**2397693** | — | auto-upload R4–R27 |
 | host r3-wedge | pid**2176107** | — | GRPO wedge relaunch |
 
-SSH crown: `ssh root@95.133.253.90 -p 40099`
-SSH R3: `ssh root@204.9.206.245 -p 40051`
+SSH crown: `ssh root@95.133.253.90 -p 40099` · R3: `ssh root@204.9.206.245 -p 40051`
 Fleet: `tail -f experiments/fleet-rent/logs/wait_{fleet_b300,bootstrap_fleet}.log`
-R2ba: `ssh … 'tail -f /root/logs/r2ba_awesome_v10_reload.log'`
 
 ## Blocked
-
-- No free 8×B300/B200 — rent polls 10s (target **25** / cap 25).
+No free 8×B300/B200 — rent polls 10s (target **25** / cap 25).
 
 ## Next action
-
-**Crown:** R2ba n80→decision. **R3:** steps→train.done→n80.
-**Else:** fleet-boot when B300×8 appears (R26 lotemp prioritized after R25).
-**Else:** next structural axis >R26 (not parent-swap).
+**Crown:** R2ba n80→decision. **R3:** train.done→n80.
+**Else:** fleet-boot on B300×8 (R27 BigG after R26).
+**Else:** next structural axis >R27 (not parent-swap).
