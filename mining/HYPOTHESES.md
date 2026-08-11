@@ -27,20 +27,16 @@
 
 ## Open
 
-### R1 — Distill thoughts that raise teacher lp(y_C)
-- **Claim:** train (or select) `z` to maximize Reason; king-init LoRA/SFT is enough to clear 3·SE once L1/gates are gone.
-- **Prediction (pre-register):** n80 paired margin > 3·SE vs live king on first serious screen.
-- **Status:** **family closed.** R1 +0.0005; R1b −0.0135 (z=−2.45); **R1c** nsup≥100 EPOCHS=6 → margin **−0.01707** (z=−2.75, hr −0.92×, n_paired=67) — worse than R1b. Artifacts: `artifacts/r1c_lora_{decision,reason_sim}.json`.
-- **Dir:** `experiments/r1-reason-distill/`.
+### R1 — Distill (family closed)
+- R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75). Dir: `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
-- **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (2·SE)** vs Tok (live kσ=2).
-- **Status:** open. **R2ay** pure sbs-v2 → margin **+0.00930** (z=2.04, hr_live2σ **1.02×**, n=79) — clears 2σ barely, **not** 1.5× submit bar (`SIGNAL_POS_BELOW_3SE` on pod kσ=3). **R2az** vvv n80 launched p2079. **v10** cached. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. **R2ay** +0.00930 (hr_live2σ **1.02×**) — WEAK, not 1.5×. **R2az** n80 live (~73/80). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
-- **Status:** open — GRPO pid**28660** live after p2072 force-relaunch. **p2079** step≥17 (`[r3-hb]` mean_r≈0.040). Stream+close HTTP, cached teacher tok, mid-group hb. king@**65536**. Next = steps→train.done→merge→chall→n80.
+- **Status:** open — GRPO pid**28660** step≥48; wedge-watch; next train.done→merge→n80.
 
 ### R3b — GRPO alt-LR / rank
 - **Claim:** same Reason-GRPO as R3 but lr=2e-5, LoRA r=64/α128, G=8 clears paired crown bar where R3's lr=5e-6 r=16 G=4 may not.
