@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Host-side Reason stamp bridge for chal-00467..471 + 480 + 481.
+"""Host-side Reason stamp bridge for live board chals (gzip 404 + pod CF 403).
 
 Crown pod often gets Cloudflare 403 on affine.io/api/v1/history (Lium egress),
-so on-pod history fast-path silently no-ops and unservable verdicts never stamp.
-This process polls history from the mining host (curl works) and scp-pushes
+and s3 evals/*.json.gz stay 404 until late — so on-pod watchers spin forever.
+This process polls history from the mining host (curl + UA works) and scp-pushes
 chal00XXX_reason.json + watch done lines onto mine-crown-1.
 
-No GPU. No submit. Safe to overlap R2ac n80 / live board duels.
+No GPU. No submit. Safe to overlap crown n80 / live board duels.
 """
 from __future__ import annotations
 
@@ -50,7 +50,7 @@ SCP = [
 KING_REPO = "Tok331102/affine-5EqYW8McUc-af10"
 KING_REV = "eb8bf9a356a254f71faaa439e8abc3cfba572c53"
 
-# challenge_id → outstem (matches on-pod watchers / R2z–ad gates)
+# challenge_id → outstem (matches on-pod watchers / Stage-5 gates)
 TARGETS = {
     "chal-00467": "chal00467",
     "chal-00468": "chal00468",
@@ -58,7 +58,13 @@ TARGETS = {
     "chal-00470": "chal00470",
     "chal-00471": "chal00471",
     "chal-00480": "chal00480",  # queue ammazon sbs-v1 (p2011)
-    "chal-00481": "chal00481",  # live Talucampe037 cp13 (p2018)
+    "chal-00481": "chal00481",  # Talucampe037 cp13 (p2018)
+    "chal-00485": "chal00485",  # kevin954 h44 (live duel / R2ap parent)
+    "chal-00486": "chal00486",  # tojointhecommunity now (R2aq)
+    "chal-00489": "chal00489",  # Tok af17 (R2ao parent; board stamp)
+    "chal-00490": "chal00490",  # darius3th iynocr2p (R2ar)
+    "chal-00491": "chal00491",  # Shatoria hope11
+    "chal-00492": "chal00492",  # wearetop 726 (R2as)
 }
 
 
@@ -188,7 +194,8 @@ def push_stamp(outstem: str, stamp: dict) -> None:
 
 def poll_once(pending: set[str]) -> None:
     # Broad recent window — q= filter is nice-to-have; scan items.
-    payload = curl_json("https://affine.io/api/v1/history?limit=40")
+    # Wider window — board queue can sit behind many unservable/probe rows.
+    payload = curl_json("https://affine.io/api/v1/history?limit=80")
     by_chal: dict[str, dict] = {}
     for item in payload.get("items") or []:
         cid = item.get("challenge_id")

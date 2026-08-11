@@ -3,7 +3,7 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4** — R2ap pure-h44 n80 gathering; R2aq/ar/as armed; **726 prefetch DONE**. `weight_version_key=3`.
+**Stage 4** — R2ap pure-h44 n80 gathering; R2aq/ar/as armed; host-hist bridge watching 485–492. `weight_version_key=3`.
 
 ## Live facts
 
@@ -12,17 +12,18 @@ Rewritten every pass. Do not append.
 | contract | Reason v3 · crown = margin > **k_sigma·SE** (`k_sigma=2` live) |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` |
 | corpus | epoch **7** · schema v2 (**synced**) |
-| Lium | ~$121,814 · burn **$52.25/h** (≤$833/h) |
+| Lium | ~$121,803 · burn **$52.25/h** (≤$833/h) |
 | fleet | `mine-crown-1` **gentle-orbit-bd** 8×B200 · TTL→2026-08-12T08:42Z |
 | SSH | `ssh root@95.133.253.90 -p 40099` |
 | submissions | 0 · hotkey `default` unused |
-| board | Q **485 h44** (dueling) + **486 now** + **489 af17** + **490 iynocr2p** + **491 hope11** + **492 726** |
-| warm | T/K/C **200/200/200** · R2ap n80 **~33/80** |
+| board | Q **485 h44** scoring (~162/2080) + **486 now** + **489 af17** + **490 iynocr2p** + **491 hope11** + **492 726** |
+| warm | T/K/C **200/200/200** · R2ap n80 **~41/80** |
 | R2ao | **REFUTE** hr **−0.074×** · Stage-5 SKIP |
 | R2ap | pure h44 n80 **gathering** · Stage-5 armed |
 | R2aq | pure now **ARMED** wait R2ap · Stage-5 armed |
 | R2ar | pure iynocr2p **ARMED** wait R2aq · prefetch DONE |
 | R2as | pure 726 **ARMED** wait R2ar · prefetch **DONE** · Stage-5 armed |
+| host-hist | bridge **pid1823995** pending 485/486/489/490/491/492 |
 
 ## What's running
 
@@ -35,14 +36,16 @@ Rewritten every pass. Do not append.
 - R2aq wait **87484** · Stage-5 **87497**
 - R2ar wait **111595** · Stage-5 **111599**
 - R2as wait **114233** · Stage-5 **114242**
-- watch-485/486/489/490/491/492 · prefetch **726 DONE** @57ad3177…
+- watch-485/486/489/490/491/492 · prefetch **726 DONE**
+- host `host_history_stamp_bridge.py` → pod stamps when verdict lands
 
 ## Blocked
 
 - Submit only if sim hr ≥ **1.5×**.
 - Talent0.25 skew keep REFUTE — prefer **pure** parents.
 - Pure af17 (R2ao) dead — do not re-sim.
+- On-pod history/gzip watchers often blind (CF 403 / gzip 404) — use host bridge.
 
 ## Next action
 
-**Poll** R2ap n80→decision. If hr≥1.5× → Stage-5 HF push → register+submit. Else R2aq pure-now (orphan-kill CUDA4,5 only). Stamp 485/486/489/490/491/492 board hr when gzips land; R2as auto-runs after R2ar.
+**Poll** R2ap n80→decision. If hr≥1.5× → Stage-5 HF push → register+submit. Else R2aq pure-now (orphan-kill CUDA4,5 only). Confirm host-hist pushes when 485+ verdicts land; R2as auto-runs after R2ar.

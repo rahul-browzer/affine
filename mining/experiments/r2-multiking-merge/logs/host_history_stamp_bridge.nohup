@@ -83,3 +83,11 @@ scp: Connection closed
 [host-hist] 2026-08-11T11:42:44Z iter=120 still pending=['chal-00481']
 [host-hist] 2026-08-11T11:45:53Z PUSHED chal00481 hr=0.16017607184664387 repo=Talucampe037/Affine-5f6xxabdmp-cp13
 [host-hist] 2026-08-11T11:45:53Z all targets stamped
+[host-hist] 2026-08-11T14:31:45Z init skip chal-00467: already on pod
+[host-hist] 2026-08-11T14:31:47Z init skip chal-00468: already on pod
+[host-hist] 2026-08-11T14:31:49Z init skip chal-00469: already on pod
+[host-hist] 2026-08-11T14:31:51Z init skip chal-00470: already on pod
+[host-hist] 2026-08-11T14:31:53Z init skip chal-00471: already on pod
+[host-hist] 2026-08-11T14:31:55Z init skip chal-00480: already on pod
+[host-hist] 2026-08-11T14:31:57Z init skip chal-00481: already on pod
+[host-hist] 2026-08-11T14:32:09Z start pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492']

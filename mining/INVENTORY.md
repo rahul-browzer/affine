@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T14:32Z | p2038: R2ap~41/80; rearm host-hist bridge for 485–492; burn$52.25/h · bal~$121803 |
 | 2026-08-11T14:29Z | p2037: R2ap~33/80; arm R2as pure-726 reload+Stage-5; prefetch726 DONE; burn$52.25/h · bal~$121814 |
 | 2026-08-11T14:26Z | p2036: R2ap~21/80; arm watch492+prefetch726 (hope11 DONE); burn$52.25/h · bal~$121814 |
-| 2026-08-11T14:21Z | p2035: R2ap n80~7/80; arm R2ar iynocr2p+hope11 prefetch/watch/Stage-5; burn$52.25/h · bal~$121824 |
