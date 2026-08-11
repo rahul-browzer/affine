@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $123,299.75 | 2026-08-11T02:57Z |
-| cumulative mining spend | ~$74,295 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T02:57Z |
-| **available for mining** | **~$113,300** (balance − $10,000 floor) | 2026-08-11T02:57Z |
+| Lium balance | $123,288.62 | 2026-08-11T03:01Z |
+| cumulative mining spend | ~$74,306 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T03:01Z |
+| **available for mining** | **~$113,289** (balance − $10,000 floor) | 2026-08-11T03:01Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T02:57Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T03:01Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T03:01Z | 123288.62 | p1948 stage5-push armed + asdf_chall pre-staged (no new rent); burn$64/h; Δ−$11 vs p1947 (shared ok) |
 | 2026-08-11T02:57Z | 123299.75 | p1947 R2w pure-asdf + bridge→R2n armed (no new rent); burn$64/h; bal flat vs p1946 |
 | 2026-08-11T02:53Z | 123299.75 | p1946 R2v→R2l bridge armed (no new rent); burn$64/h; Δ−$11 vs p1945 (shared ok) |
 | 2026-08-11T02:49Z | 123310.93 | p1945 R2v n80 gathering 1/80 (no new rent); burn$64/h; Δ−$22 vs p1944 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T02:18Z | 123378.01 | p1941 R2u WEAK_SKIP + purge (no new rent); burn$64/h; Δ−$22 vs p1940 (shared ok) |
 | 2026-08-11T02:06Z | 123400.33 | p1940 R2t n80 confirmed running (no new rent); burn$64/h; Δ−$11 vs p1939 (shared ok) |
 | 2026-08-11T02:03Z | 123411.12 | p1939 R2q REFUTE harvest + R2t reload (no new rent); burn$64/h; Δ−$23 vs p1938 (shared ok) |
-| 2026-08-11T01:55Z | 123433.91 | p1938 R2t saysth×Talent armed (no new rent); burn$64/h; Δ−$22 vs p1937 (shared ok) |

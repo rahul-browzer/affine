@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-11T03:01:20Z",
+  "pass": 1948,
+  "armed": "watch_r2v_stage5_push.sh",
+  "pid": 198235,
+  "waits_for": "/root/affine_data/r2v_stage5_ready.json",
+  "push_repo": "unconst/Affine-5czsc2fc98-r2v-sft3",
+  "source_chall": "/root/r2_out/sft3_chall",
+  "also": "pre-staged /root/r2_out/asdf_chall with preprocessor_config.json for R2w",
+  "r2v_progress_at_arm": {"challenger": 32, "king": 31, "n_turns": 80},
+  "note": "HF push only on Stage-5; no hotkey register/submit in this waiter"
+}
