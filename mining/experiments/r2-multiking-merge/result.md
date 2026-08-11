@@ -1,3 +1,9 @@
+## p1988 — R2ag pure-tpc9 n80 gathering
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,651.
+- Chall `:8002` healthy (TKC 200/200/200); sim pid **285579** block_hash `ef8cf0a9…` · progress king **9**/80 chall **5**/80 @07:43:19Z · holding stamp live; bridge+Stage-5 waiters intact.
+- Artifact: `artifacts/r2ag_n80_started_p1988.json`.
+- Next: harvest `r2ag_tpc9_decision.json`; hr≥1.5× → Stage-5; 0<hr<1.5 → proxy 463 for R2y; else board Reason+/467–471.
+
 ## p1987 — R2ag pure-tpc9 armed (idle GPUs → n80); watch463 history
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,673.
 - Board chal-00463 tpc9 still `load_challenger`; R2y eager blend ready but Reason-gated; GPUs 4–7 idle after R2af SKIP.
