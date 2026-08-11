@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-11T23:13:29Z",
+  "pass": 2130,
+  "action": "fleet-rent parallel×4→×8 blind-fire (R7/R8/R24–R29 per round); POLL_S=1; restarted pid2700183 after self-pkill landmine",
+  "pid": 2700183,
+  "next": [
+    "mine-r7-datafilt-1",
+    "mine-r8-reinforce-1",
+    "mine-r24-longctx-1",
+    "mine-r25-hitemp-1",
+    "mine-r26-lotemp-1",
+    "mine-r27-bigg-1",
+    "mine-r28-hilr-1",
+    "mine-r29-hirank-1"
+  ],
+  "stock": "B300×8=0 B200×8=0",
+  "burn_h": 180.25,
+  "floor_h": 833,
+  "balance": 120174.08,
+  "lesson": "never pgrep/pkill -f wait_fleet_b300 in same shell that starts it — matches the launcher cmdline"
+}
