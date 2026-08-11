@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T20:17:44Z",
+  "pass": 2097,
+  "axis": "R23",
+  "pod": "mine-r23-diane-grpo-1",
+  "hypo": "diane613-init Reason-GRPO (\u2260 R3 Tok GRPO, \u2260 R16/R22 golden, \u2260 R18\u2013R21 parent-GRPO)",
+  "base": "diane613/Affine-5CQLBK7Mmw1vsk7eQcBok9Qn44JNU5YVrfNmZpJHPxLV271B@ad0f3f116e44dc5154ca3f72b933faaefc4905fa",
+  "queue_len": 24,
+  "target_mines": 25,
+  "uploader": "experiments/r23-diane-grpo/upload_and_launch.sh",
+  "note": "armed uploader+fleet-boot; B300\u00d78 still 0 \u2014 rent polls; R23 last in queue",
+  "rent_pid": "2367396",
+  "boot_pid": "2367425"
+}

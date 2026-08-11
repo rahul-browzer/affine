@@ -30,7 +30,8 @@
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **open** · `mine-r20-kevin-grpo-1` · p2094 armed |
 | 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open** · `mine-r21-pandora-grpo-1` · p2095 armed |
-| 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open** · `mine-r22-golden-grpo-1` · **p2096** armed |
+| 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open** · `mine-r22-golden-grpo-1` · p2096 armed |
+| 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open** · `mine-r23-diane-grpo-1` · **p2097** armed |
 
 ## Open (detail)
 
@@ -38,14 +39,14 @@
 - R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75). Dir: `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge
-- **R2ay** +0.00930 (hr 1.02×) WEAK. **R2az** m≈−3e−5 REFUTE. **R2ba** pure awesome-v10 n80 **~20/80**. Dir: `experiments/r2-multiking-merge/`.
+- **R2ay** +0.00930 (hr 1.02×) WEAK. **R2az** m≈−3e−5 REFUTE. **R2ba** pure awesome-v10 n80 **~38/80**. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason (PRIORITY)
 - GRPO pid**28660** step≥75; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
 
-### Fleet axes waiting on 8×B300 (R3b–R22)
+### Fleet axes waiting on 8×B300 (R3b–R23)
 - One pod/axis; uploaders+boot cases armed. Decision: n80 vs Tok; submit iff hr ≥ 1.5×(2·SE).
-- **R3b** alt GRPO knobs · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14** kevin RL · **R15** pandora RL · **R16** golden RL · **R17** Qwen3-Coder RL · **R18** pure sbs-v2 GRPO · **R19** Talent-init GRPO · **R20** kevin-init GRPO · **R21** pandora-init GRPO · **R22** golden-init GRPO @ee37f4f0 (`experiments/r22-golden-grpo/`).
+- **R3b** alt GRPO knobs · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14** kevin RL · **R15** pandora RL · **R16** golden RL · **R17** Qwen3-Coder RL · **R18** pure sbs-v2 GRPO · **R19** Talent-init GRPO · **R20** kevin-init GRPO · **R21** pandora-init GRPO · **R22** golden-init GRPO · **R23** diane613-init GRPO @ad0f3f11 (`experiments/r23-diane-grpo/`).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.

@@ -15,7 +15,7 @@ CAP=${MINE_CAP:-25}
 TARGET=${TARGET_MINES:-25}
 POLL_S=${POLL_S:-30}
 MAX_ITERS=${MAX_ITERS:-720}  # ~6h @30s
-PASS=${PASS:-2096}
+PASS=${PASS:-2097}
 
 # Distinct experimental axes (one pod each). Skip names already live.
 # Format: name|axis_id|short_note
@@ -43,6 +43,7 @@ QUEUE=(
   "mine-r20-kevin-grpo-1|R20|kevin954-init Reason-GRPO (≠ R3/R14/R19)"
   "mine-r21-pandora-grpo-1|R21|pandora-box-init Reason-GRPO (≠ R3/R15/R20)"
   "mine-r22-golden-grpo-1|R22|golden-crown-init Reason-GRPO (≠ R3/R16/R18–R21)"
+  "mine-r23-diane-grpo-1|R23|diane613-init Reason-GRPO (≠ R3/R16/R18–R22)"
 )
 
 mkdir -p "$EXP/logs" "$STAMP_DIR"
