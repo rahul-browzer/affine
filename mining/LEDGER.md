@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,919.64 | 2026-08-11T05:43Z |
-| cumulative mining spend | ~$74,674 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T05:43Z |
-| **available for mining** | **~$112,920** (balance − $10,000 floor) | 2026-08-11T05:43Z |
+| Lium balance | $122,919.64 | 2026-08-11T05:45Z |
+| cumulative mining spend | ~$74,674 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T05:45Z |
+| **available for mining** | **~$112,920** (balance − $10,000 floor) | 2026-08-11T05:45Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T05:43Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T05:45Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T05:45Z | 122919.64 | p1968 armed sbs prefetch chal468 (no new rent); burn$64/h; Δ$0 vs p1967 (shared ok) |
 | 2026-08-11T05:43Z | 122919.64 | p1967 R2z Talent×v9 eager + watch467 (no new rent); burn$64/h; Δ−$22 vs p1966 (shared ok) |
 | 2026-08-11T05:33Z | 122941.78 | p1966 R2p n80 + awesome-v9 prefetch arm (no new rent); burn$64/h; Δ−$34 vs p1965 (shared ok) |
 | 2026-08-11T05:28Z | 122975.49 | p1965 R2o REFUTE + purge + R2p chall reload (no new rent); burn$64/h; Δ−$11 vs p1964 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T04:39Z | 123065.01 | p1961 R2o eager Talent×zeus + chal452 Reason+ hr0.25× (no new rent); burn$64/h; Δ−$22 vs p1960 (shared ok) |
 | 2026-08-11T04:25Z | 123087.35 | p1960 R2n~25/80 + Stage-5 arm + HF prepurge +140.5 GiB (no new rent); burn$64/h; Δ−$11 vs p1959 (shared ok) |
 | 2026-08-11T04:20Z | 123098.52 | p1959 R2n~13/80 + purge REFUTED HF ~281 GiB (no new rent); burn$64/h; Δ−$11 vs p1958 (shared ok) |
-| 2026-08-11T04:16Z | 123109.64 | p1958 R2l REFUTE + R2n n80 start + R2l purge (no new rent); burn$64/h; Δ−$67 vs p1957 (shared ok) |

@@ -146,3 +146,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1966: while R2p n80 gathers, prefetch next uncached queue parent (chal-00467 awesome-v9 @75871c57, 16×st ~70.2 GiB) on CPU/network — do not merge until Reason+.
 - p1967: R2z Talent×awesome-v9 skew (0.25/0.75) eager CPU merge **DONE** max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~5.7 min — same Δ class as R2p/R2x; keep DONE gated on chal-00467 Reason+.
 - p1967 queue index probes (unconst): chal-00468 sbs-v0 / 469 sky / 470 google / 471 pig all **weights_ok** — prefetch **sbs first** (16×st) one-at-a-time after v9; sky/google/pig are 2×st (~smaller).
+- p1968: armed `launch_prefetch_sbs.sh` for chal-00468 `ammazon/…-sbs-v0@c175fe8b` while R2p~27/80 — one parent at a time; merge still gated on Reason+.

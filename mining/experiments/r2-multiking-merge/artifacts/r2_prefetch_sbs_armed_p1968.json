@@ -1,0 +1,20 @@
+{
+  "pass": 1968,
+  "armed_at": "2026-08-11T05:45:00Z",
+  "hyp": "R2-parent-prefetch",
+  "challenge_id": "chal-00468",
+  "repo": "ammazon/Affine-5dvqtektxx-sbs-v0",
+  "revision": "c175fe8b79a66a8de97953677f1a489cb386261d",
+  "probe": "weights_ok",
+  "st": 16,
+  "size_gib": 70.23,
+  "pattern": "CPU/network snapshot_download while R2p n80 gathers; no merge until Reason+",
+  "disk_free_gib_at_arm": 510,
+  "why_now": "v9 prefetch DONE; next queue parent after awesome-v9; R2p ~27/80 still running",
+  "check": "tail -f /root/logs/r2_prefetch_sbs.log ; test -f /root/logs/r2_prefetch_sbs.done",
+  "queue_after": [
+    {"chal": "chal-00469", "repo": "magicworld7/affine-5dtu4gucst-sky", "rev": "a569e29bcab3a1f4ed3a99ee9e46c17dc40e8fdf", "st": 2},
+    {"chal": "chal-00470", "repo": "tojointhecommunity/affine-5efg6cm3yl-google", "rev": "9cb6484f2bb4c9d93f10ff94335eef4f0e2ae4e4", "st": 2},
+    {"chal": "chal-00471", "repo": "diceofgod/affine-5fjgc5jhxq-pig", "rev": "e4889db406e743bc878d75183aed79bc59915463", "st": 2}
+  ]
+}
