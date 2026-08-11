@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e REFUTE**; **R2f SKIP**; **R2h TTK REFUTE**; **440 saysth** hr=0.73×; **R2g** Talent×saysth merging (~7/16); **R2i** wait 441; **BKN seven** live as chal-00432 |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e REFUTE**; **R2f SKIP**; **R2h TTK REFUTE**; **440 saysth** hr=0.73×; **R2g** Talent×saysth merging (~11/16); **R2i** wait 441; **BKN seven** live 432; **BKN six** prefetching (431) |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent0.25×saysth0.75 CPU merge mid-flight (~7/16; disk cleaned). **R2i** gated on 441 Reason+. **chal-00432** = BKN seven live (`load_challenger`); watch **140530**. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent0.25×saysth0.75 CPU merge ~11/16. **R2i** gated on 441 Reason+. **chal-00432** BKN seven live; **chal-00431** BKN six prefetching (p1914). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
