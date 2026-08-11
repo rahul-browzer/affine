@@ -1,0 +1,24 @@
+{
+  "pass": 1931,
+  "armed_at": "2026-08-11T01:17:09Z",
+  "hyp": "R2r",
+  "claim": "Talent0.25×whoami0.75 skew-α raises Reason margin vs Tok after chal-00458 Reason+",
+  "repo": "marsplan0624/affine-5gedzafcvg-whoami",
+  "revision": "21ad45721ab242a6aa0c18d00104045627d68583",
+  "challenge_id": "chal-00458",
+  "decision_rule": "submit only if n80 headroom_vs_3se >= 1.5; skip merge if 458 hr<=0 or king mismatch",
+  "gates": {
+    "prefetch": "DONE 2026-08-11T01:17:07Z",
+    "reason_stamp": "wait watch_chal00458",
+    "gpu_lane": "after R2q (+ R2i…R2p) terminal; pidfile kill -0 only"
+  },
+  "pids": {
+    "premerge": "162125",
+    "merge_reload": "162126",
+    "watch_458": "159877"
+  },
+  "board_at_arm": {
+    "live": "chal-00441 load_challenger (gzip still 404)",
+    "whoami_prefetch_min": 3.6
+  }
+}
