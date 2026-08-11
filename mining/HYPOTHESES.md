@@ -7,7 +7,7 @@
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p/r/am/ao REFUTE**; **R2ag/ab/ac/ad REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2ae SKIP_GATED**; **R2af/R2x/R2ah/R2z/R2ai/R2aj/R2al SKIP_BOARD**; **R2y/R2aw/R2ar SKIP_UNSERVABLE**; **R2ak** local **0.641×**; **R2am −1.39×**; **R2an SKIP_BOARD** cp13; **R2ao** pure af17 **−0.074×**; **R2ap** pure h44 **0.327×**; **R2aq** pure-now **0.773× WEAK_SKIP**; **R2ar** iynocr2p index/shard; **R2as** pure-726 **0.060× WEAK_SKIP**; **R2at** hope11 **WEAK_SKIP** m+0.01223 z=1.93 hr**0.97×** live2σ; **R2au** sft4 n80 **~13/80**; R2av/ax armed; host-hist 489–499; **R2aa** stubbed |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · teacher **stamped**; tok shard2 ~5% via bootstrap inline (p2059 unstuck hung HF) |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · teacher stamped; p2060 **16-way CDN range DL** Tok shard2 @~90MB/s → waiter→bootstrap→GRPO |
 
 ## Open
 
@@ -24,7 +24,7 @@
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
-- **Status:** open — p2059 killed hung `parallel_dl` (0% CPU after teacher 55/55); stamped `teacher.done`; bootstrap inline tok shard2 ~5% @~4 MB/s (pid4131/6648). Next = `tok_init.done` → prewarm teacher :8000 → `r3_train_launched.stamp`.
+- **Status:** open — p2060 replaced ~4 MB/s inline HF with 16-way CDN range DL (~90 MB/s, pid7247) + `wait_tok_then_bootstrap` (pid7308). Next = `tok_init.done` → teacher :8000 → `r3_train_launched.stamp`.
 
 ## Refuted (Reason era)
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.

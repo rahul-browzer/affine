@@ -1,5 +1,14 @@
 # R3 — Reason GRPO results
 
+## p2060 — 16-way CDN range DL (unstick shard2)
+
+- **Problem:** inline `snapshot_download` on Tok shard2 (`da0b5fc3…`) crawled ~4 MB/s (~2h ETA); teacher already stamped; no free 8×B300.
+- **Action:** killed bootstrap/HF; launched `fast_range_dl.py` (16 HTTP range workers on HF CDN; `accept-ranges: bytes`; size 35112732728); armed `wait_tok_then_bootstrap.sh` → relaunch bootstrap → teacher :8000 → GRPO.
+- **Rates@17:09Z:** ~90 MB/s avg (peaks ~100 MB/s) — ~15–20× single-stream HF. ETA ~6 min for remaining ~32 GB.
+- **Check:** `tail -f /root/logs/fast_range_dl.log` → `tok_init.done` → `bootstrap_r3.log` → `r3_train_launched.stamp`
+- **Scripts:** `experiments/r3-reason-grpo/{fast_range_dl.py,wait_tok_then_bootstrap.sh}`
+- **Market:** 0× free 8×B300; burn $116.25/h vs $833/h.
+
 ## p2058 — abort slow rsync; true-parallel HF dl
 
 - **Problem:** crown→R3 rsync collapsed to ~1–4 MB/s (ETA 5–12h); `sleep 7200` holder would expire → bootstrap race. Holder death already fell through to sequential inline DL.

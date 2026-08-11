@@ -6,8 +6,8 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2au sft4 n80 ~13/80 |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | teacher done; tok shard2 DL |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2au sft4 n80 ~35/80 |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | range-DL Tok shard2 → GRPO |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
 SSH R3: `ssh root@204.9.206.245 -p 40051`
@@ -18,6 +18,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T17:09Z | p2060: killed ~4MB/s HF; 16-way CDN range DL @~90MB/s + waiter→bootstrap; B300×8=0 |
 | 2026-08-11T17:05Z | p2059: unstuck R3 (kill hung HF dl; teacher stamped); R2at WEAK_SKIP; R2au n80; B300×8=0 |
 | 2026-08-11T16:46Z | p2058: killed slow crown→R3 rsync; restarted true-parallel HF dl; burn $116.25/h; B300×8=0 |
-| 2026-08-11T16:41Z | p2057: killed slow HF dl; crown→R3 parallel rsync Tok+GLM; burn $116.25/h; B300×8=0 |
