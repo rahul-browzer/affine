@@ -1,0 +1,14 @@
+{
+  "pass": 1939,
+  "utc": "2026-08-11T02:02:10Z",
+  "hyp": "R2q",
+  "parent": "saysth-v9a pure (chal-00440 lineage)",
+  "decision": "REFUTE_R1_H64_BASELINE",
+  "margin": -0.0065702213967274775,
+  "se": 0.006282549693575015,
+  "z": -1.04578900560813,
+  "headroom_vs_3se": -0.34859633520271005,
+  "n_paired": 79,
+  "bar": 1.5,
+  "next": "R2t saysth\u00d7Talent auto-reload n80 (\u0394=0.207)"
+}

@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $123,433.91 | 2026-08-11T01:55Z |
-| cumulative mining spend | ~$74,161 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T01:55Z |
-| **available for mining** | **~$113,434** (balance − $10,000 floor) | 2026-08-11T01:55Z |
+| Lium balance | $123,411.12 | 2026-08-11T02:03Z |
+| cumulative mining spend | ~$74,184 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T02:03Z |
+| **available for mining** | **~$113,411** (balance − $10,000 floor) | 2026-08-11T02:03Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T01:55Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T02:03Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T02:03Z | 123411.12 | p1939 R2q REFUTE harvest + R2t reload (no new rent); burn$64/h; Δ−$23 vs p1938 (shared ok) |
 | 2026-08-11T01:55Z | 123433.91 | p1938 R2t saysth×Talent armed (no new rent); burn$64/h; Δ−$22 vs p1937 (shared ok) |
 | 2026-08-11T01:45Z | 123456.26 | p1937 R2s WEAK_SKIP + purge (no new rent); burn$64/h; Δ−$11 vs p1936 (shared ok) |
 | 2026-08-11T01:39Z | 123467.42 | p1936 R2s saysth×awesome armed + R2g purge (no new rent); burn$64/h; bal flat vs p1935 |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T01:19Z | 123512.14 | p1932 disk purge r1_out+BKN7 (no new rent); burn$64/h; bal flat vs p1931 |
 | 2026-08-11T01:17Z | 123512.14 | p1931 R2r Talent×whoami armed (no new rent); burn$64/h; Δ−$11 vs p1930 (shared ok) |
 | 2026-08-11T01:14Z | 123523.34 | p1930 whoami prefetch+watch-458 armed (no new rent); burn$64/h; Δ−$11 vs p1929 (shared ok) |
-| 2026-08-11T01:10Z | 123534.54 | p1929 R2j SKIP harvest (432 Reason−); no new rent; burn$64/h; Δ−$11 vs p1928 (shared ok) |
