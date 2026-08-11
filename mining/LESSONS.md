@@ -141,8 +141,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - `start_r3.sh` must **append** (`>>`) `r3_train.nohup`; R3 gaps of minutes are normal — prefer `[r3-hb]` mtime / ESTAB before kill (not sparse `r3-log`).
 - **R2av** pure Bittoby `…-v2` ≈ king noise (m−0.00027, z−0.065, hr_live2σ −0.033×, n=80) — Stage-5 SKIP; do not re-sim that parent.
 - `lium ps` **table wraps** `mine-*` names across lines — never `grep mine-` the table under `set -o pipefail` (empty grep exits 1 → kills rent waiters). Use `lium ps --format json` and read `.name`.
-- Host rent waiters belong under `experiments/<axis>/wait_rent_b300.sh` (not only Ralph notes) so the next free 8×B300 is grabbed without waiting for a pass tick.
-- R7 curriculum ≠ R4 data: top-250 h99 by Reason (min≈0.116) + EPOCHS=2 vs R4 clip_l1 n=406 EPOCHS=1 — wire `upload_and_launch` before rent or fleet-boot only stamps `needs_axis_uploader`.
 - Fleet structural GRPO through **R32** KL (`--kl-coef`, default 0); if rent waiter restarts mid-`lium up`, reconstruct `rented_*.json` or bootstrap never runs.
 - **R2ba** pure awesome-v10 WEAK: m=+0.00699 SE=0.00500 z=1.40 — fails live k=2 thr=0.010 and 1.5× submit bar; Stage-5 SKIP (sim still stamps k_sigma=3.0 — recompute with live 2.0).
 - HF snapshot "ready" ≠ complete: wait **all shards** (not index); `/root` gocryptfs full (~1GB) stalls hope12 mid-prefetch (p2119 purged ~1.2T closed parents). **ec08+ckp55 UNSERVABLE** even full shards+HF-id (p2116–18). Never kill `:8002` mid-n80.
