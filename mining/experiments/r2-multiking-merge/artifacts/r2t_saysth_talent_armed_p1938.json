@@ -1,0 +1,24 @@
+{
+  "pass": 1938,
+  "armed_at": "2026-08-11T01:49:09Z",
+  "hyp": "R2t",
+  "claim": "saysth0.75\u00d7Talent0.25 with saysth layout (inverse of REFUTED R2g Talent-layout) raises Reason vs Tok",
+  "parents": {
+    "saysth": "saysth/Affine-5dtnxamt4t-v9a@6e13f365b36000cf631aad2fa9fb05fdabae0044",
+    "talent": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "weights": {
+      "saysth": 0.75,
+      "talent": 0.25
+    },
+    "layout_donor": "saysth"
+  },
+  "gate": "after R2q terminal; WEAK_SKIP if max_abs_delta < 0.01; submit if hr>=1.5\u00d7",
+  "pids": {
+    "premerge_launcher": "176395",
+    "premerge": "176395",
+    "merge_launcher": "176482",
+    "merge": "176482",
+    "r2r_merge_relaunch": "176728"
+  },
+  "note": "R2s WEAK_SKIP; R2g REFUTE Talent-layout; R2q pure-saysth still gathering"
+}
