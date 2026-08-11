@@ -1,3 +1,11 @@
+## p1965 — R2o REFUTE (−1.10×); purge; R2p chall reload
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,975.
+- Harvested R2o: margin **−0.02860** · se=0.00863 · z=**−3.31** · 3·SE=0.02589 · hr=**−1.10×** · n=79 · Stage-5 SKIP.
+- Auto-waiter freed lane; R2p linked `/tmp/r2p_alpha_merged` → Talent×sth (Δ=0.671) and relaunched chall pid **241437** (models still loading @05:28Z).
+- Purged `/root/r2_out/alpha_talent_zeus_skew` (~66 GiB) → `/root` **~643 GiB** free.
+- Artifacts: `artifacts/r2o_alpha_{decision,reason_sim}.json`, `artifacts/r2o_refute_harvest_p1965.json`, `artifacts/r2o_talent_zeus_merge_alpha_meta.json`.
+- Next: harvest R2p n80; hr≥1.5× → Stage-5; else purge/advance R2x/R2y when board Reason+.
+
 ## p1964 — chal-00455 sth hr 0.79×; R2p Talent×sth premerge DONE + gate fix
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,987.
 - Board **chal-00455** `fortunateGambler/…-sth@8d81e782`: Reason margin **+0.00910** · z=**2.36** · 3·SE=0.01156 · hr=**0.79×** · n=80 · lost crown (best DL Reason+ since saysth 0.73×).

@@ -1,0 +1,35 @@
+{
+  "utc": "2026-08-11T05:28:56Z",
+  "pass": 1965,
+  "hyp": "R2o",
+  "action": "harvest_refute_purge_advance_r2p",
+  "decision": {
+    "utc": "2026-08-11T05:27:58Z",
+    "hyp": "R2o",
+    "contract": "Reason v3",
+    "decision": "REFUTE_R1_H64_BASELINE",
+    "headroom_bar": 1.5,
+    "false_probe": null,
+    "margin": -0.028598899388860864,
+    "se": 0.008631543260148186,
+    "z": -3.3133008231450236,
+    "k_sigma": 3.0,
+    "threshold_3se": 0.02589462978044456,
+    "headroom_vs_3se": -1.1044336077150079,
+    "reason_c": -0.03397970185619292,
+    "reason_k": -0.007117647953070875,
+    "n_paired_turns": 79,
+    "challenger_wins": false,
+    "sim_result": "/root/affine_data/r2o_alpha_reason_sim.json"
+  },
+  "purged": "/root/r2_out/alpha_talent_zeus_skew (~66GiB)",
+  "r2p": {
+    "blend": "/tmp/r2p_alpha_merged -> /root/r2_out/alpha_talent_sth_skew",
+    "chall_pid": 241437,
+    "status": "vllm_reload_after_r2o_terminal",
+    "board_parent_hr": 0.79,
+    "delta": 0.671
+  },
+  "contract_wvk": 3,
+  "no_submit": true
+}
