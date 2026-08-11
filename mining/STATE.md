@@ -3,7 +3,7 @@ Rewritten every pass. Do not append.
 
 ## Stage
 
-**Stage 4** — R2as pure-726 **n80 RUNNING** (~1/80); R2at…av armed. `weight_version_key=3`.
+**Stage 4** — R2as pure-726 **n80 RUNNING** (~7/80); R2at…av armed; v2_chall **pre-staged**. `weight_version_key=3`.
 
 ## Live facts
 
@@ -16,16 +16,16 @@ Rewritten every pass. Do not append.
 | fleet | `mine-crown-1` **gentle-orbit-bd** 8×B200 · TTL→2026-08-12T08:42Z |
 | SSH | `ssh root@95.133.253.90 -p 40099` |
 | submissions | 0 · hotkey `default` unused |
-| board | Q **486**+ pending hist; **485** stamped hr **0.601×** (h44) |
+| board | Q **489**+; **486** now scoring (~879/2080); **485** stamped hr **0.601×** |
 | warm | T/K/C **200/200/200** · pure-726 on :8002 |
 | R2aq | pure now **WEAK_SKIP** m+0.00795 z=2.32 hr **0.773×** (n=80) |
 | R2ar | pure iynocr2p **SKIP_UNSERVABLE** (index/shard mismatch) |
-| R2as | pure 726 **n80** pid**141642** ~**1/80** · Stage-5 armed |
+| R2as | pure 726 **n80** pid**141642** ~**7/80** · Stage-5 armed |
 | R2at | pure hope11 **ARMED** wait R2as · chall pre-staged |
 | R2au | pure sft4 **ARMED** wait R2at · chall staged · Stage-5 armed |
-| R2av | pure Bittoby-v2 **ARMED** wait R2au · prefetch **DONE** · Stage-5 armed |
+| R2av | pure Bittoby-v2 **ARMED** wait R2au · prefetch+**v2_chall staged** |
 | R2aw | pure mt1 **SKIP_UNSERVABLE** (`Glm4MoeForCausalLM`) |
-| host-hist | bridge **pid1863303** pending 486–495 (485 DONE; 490 local unservable) |
+| host-hist | bridge **pid1863303** pending 486–495 (485 DONE) |
 
 ## What's running
 
@@ -37,7 +37,7 @@ Rewritten every pass. Do not append.
 - R2as reload **114233** · n80 **141642** · Stage-5 **114242**
 - R2at wait **115843** · Stage-5 **115855**
 - R2au wait **124777** · Stage-5 **124789**
-- R2av wait **125528** · Stage-5 **125529** · prefetch DONE
+- R2av wait **125528** · Stage-5 **125529** · `/root/r2_out/v2_chall` ready
 - host `host_history_stamp_bridge.py` → pod stamps when verdict lands
 
 ## Blocked

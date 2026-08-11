@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T15:48:41Z",
+  "pass": 2048,
+  "hyp": "R2av",
+  "action": "prestage_chall_dir",
+  "repo": "Bittoby1040/Affine-5cxncav2du-v2",
+  "revision": "766dbdc7c551a23221d15413422f6ffdedbbda0f",
+  "chall_dir": "/root/r2_out/v2_chall",
+  "n_keys": 1026,
+  "missing_files": 0,
+  "arch": ["Qwen3_5MoeForConditionalGeneration"],
+  "preprocessor_config": true,
+  "note": "Materialized thin chall dir early so R2av reload skips link/build when R2au ends."
+}
