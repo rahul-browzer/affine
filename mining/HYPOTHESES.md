@@ -18,8 +18,8 @@
 | 30 | R30 | Tok GRPO lora_alpha=128 r=16 beats R3 α=32 (isolates α vs R29) | **open** · `mine-r30-hialpha-1` · p2105 armed |
 | 31 | R31 | Tok GRPO lora_dropout=0.0 beats R3 drop=0.05 (isolates dropout) | **open** · `mine-r31-nodrop-1` · p2107 armed |
 | 32 | R32 | Tok GRPO kl_coef=0.02 vs base beats R3 kl=0 (isolates KL) | **open** · `mine-r32-kl-1` · **p2108** armed |
-| 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · `mine-r4-fullft-1` · **n80 gathering** ~24/80 (p2115 CorpusSync) |
-| 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **open** · `mine-r4-fullft-2` · p2080 armed |
+| 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **REFUTED** · n80 m=**−0.0077** z=−0.76 (p2116) |
+| 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **open** · on `mine-r4-fullft-1` train pid**25058** (p2116) |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · `mine-r5-nonking-1` · p2074 armed |
 | 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · `mine-r5-nonking-2` · p2081 armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **open** · `mine-r6-fmt-1` · p2075 armed |
@@ -48,13 +48,16 @@
 - R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75). Dir: `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge
-- **R2ba** WEAK +0.007. **R2bb** ckp333 **WEAK** m=+0.013 z=2.50 hr1.25×. **R2bc** armed p2114: pure `arbosfan/…-ec08cldg@24a3a65e` (chal-00502) prefetch+reload+n80+stage5. Next **R2bd** ckp55. Dir: `experiments/r2-multiking-merge/`.
+- **R2ba** WEAK +0.007. **R2bb** ckp333 **WEAK** m=+0.013 z=2.50 hr1.25×. **R2bc** p2116: chall **DEAD** — vLLM `ValueError` weights not init (`language_model.model.*`) on ec08cldg despite index≡king; next HF-id serve or skip→**R2bd** ckp55. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason (PRIORITY)
-- GRPO pid**28660** step≥135/200; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
+- GRPO pid**28660** step≥158/200; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
 
 ### R4 — Full-FT
-- p2115: unblocked n80 (pandas/pyarrow + corpus epoch8 + served model id); gathering ~24/80 vs Tok. Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.
+- **REFUTED** p2116: n80 m=−0.0077 z=−0.76 (salvage ckpt-26 lr1e-6 ep1). Retargeted pod → **R4b**. Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.
+
+### R4b — Full-FT lr/epoch
+- p2116: launched on `mine-r4-fullft-1` (killed TKC) lr=**5e-6** EPOCHS=**2** pid**25058**; post_train+form-decision armed. Watch `/root/logs/h121_train.nohup`. Dir: `experiments/r4b-fullft-lr/`.
 
 ### R24 — Long-context / full-thought GRPO
 - Tok-init; max_len=**16384** max_new=**1024** (live thought budget); same lr/r/G as R3.

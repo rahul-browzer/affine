@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-11T21:44:33Z",
+  "pass": 2116,
+  "hyp": "R4b",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "ssh": "root@86.38.182.50 -p 40307",
+  "axis": "fullft_lr5e6_ep2",
+  "train_pid": 25058,
+  "knobs": {"lr": 5e-6, "epochs": 2, "max_len": 8192, "loss_on": "thought"},
+  "vs_r4": {"r4_lr": 1e-6, "r4_epochs": 1, "r4_n80": {"margin": -0.007707, "z": -0.764, "decision": "REFUTE_H121"}},
+  "watch": {
+    "train": "tail -f /root/logs/h121_train.nohup",
+    "meta": "/root/affine_data/r4b_train_launched.json",
+    "post": "tail -f /root/logs/r4b_post_train.nohup",
+    "decision": "/root/affine_data/h121_decision.json"
+  },
+  "note": "Retargeted idle R4 pod after REFUTE; killed TKC for 8-GPU full-FT; post_train+form-decision armed"
+}
