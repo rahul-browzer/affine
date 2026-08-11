@@ -11,7 +11,7 @@ PIDF="$EXP/logs/wait_bootstrap_fleet.pid"
 DONE_DIR="$EXP/artifacts/bootstrapped"
 POLL_S=${POLL_S:-20}
 MAX_ITERS=${MAX_ITERS:-1800}  # ~10h @20s
-PASS=${PASS:-2095}
+PASS=${PASS:-2096}
 
 mkdir -p "$EXP/logs" "$STAMP_DIR" "$DONE_DIR"
 echo $$ >"$PIDF"
@@ -203,6 +203,13 @@ bootstrap_r21() {
   log "bootstrap R21 upload_and_launch name=$name host=$host port=$port"
   DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
     bash "$ROOT/mining/experiments/r21-pandora-grpo/upload_and_launch.sh"
+}
+
+bootstrap_r22() {
+  local name=$1 host=$2 port=$3
+  log "bootstrap R22 upload_and_launch name=$name host=$host port=$port"
+  DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
+    bash "$ROOT/mining/experiments/r22-golden-grpo/upload_and_launch.sh"
 }
 
 mark_bootstrapped() {
@@ -408,6 +415,14 @@ process_stamp() {
       ;;
     mine-r21-pandora-grpo-1)
       if bootstrap_r21 "$name" "$host" "$port"; then
+        mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
+      else
+        log "FAIL bootstrap $name"
+        return 1
+      fi
+      ;;
+    mine-r22-golden-grpo-1)
+      if bootstrap_r22 "$name" "$host" "$port"; then
         mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
       else
         log "FAIL bootstrap $name"

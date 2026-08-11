@@ -22,10 +22,10 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | R2az REFUTE; **R2ba** awesome-v10 n80 **~20/80** |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥72; wedge-watch |
-| host fleet-rent | pid**2344642** | — | rent →**25** mines (R4…R21) |
-| host fleet-boot | pid**2344658** | — | auto-upload **R4–R21** |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | R2az REFUTE; **R2ba** awesome-v10 n80 **~30/80** |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥75; wedge-watch |
+| host fleet-rent | pid**2358190** | — | rent →**25** mines (R4…R22) |
+| host fleet-boot | pid**2358204** | — | auto-upload **R4–R22** |
 | host r3-wedge | pid**2176107** | — | GRPO wedge relaunch |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -40,4 +40,4 @@ R2ba: `ssh … 'tail -f /root/logs/r2ba_awesome_v10_reload.log'`
 ## Next action
 
 **Crown:** R2ba n80→decision. **R3:** steps→train.done→n80.
-**Else:** fleet-boot / rent log when B300×8 appears. **Else:** next axis >R21.
+**Else:** fleet-boot / rent log when B300×8 appears. **Else:** next axis >R22.

@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T20:13:48Z",
+  "pass": 2096,
+  "axis": "R22",
+  "pod": "mine-r22-golden-grpo-1",
+  "hypo": "golden-crown-init Reason-GRPO (\u2260 R3 Tok GRPO, \u2260 R16 golden REINFORCE, \u2260 R18\u2013R21 parent-GRPO)",
+  "base": "golden-crown/Affine-5EpvnXGu8jUAVc67oPGgJ3brR4JZqjBUSaTKhZuBoNAAzSJF@ee37f4f0457df943d957435d7c9c24222a7ca93d",
+  "queue_len": 23,
+  "target_mines": 25,
+  "uploader": "experiments/r22-golden-grpo/upload_and_launch.sh",
+  "note": "armed uploader+fleet-boot; B300\u00d78 still 0 \u2014 rent polls",
+  "rent_pid": "2358190",
+  "boot_pid": "2358204"
+}
