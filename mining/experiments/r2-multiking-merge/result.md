@@ -1,3 +1,10 @@
+## p2066 — R2az vvv armed after R2ay (2026-08-11T18:14Z)
+
+- Purged crown HF caches (iynocr2p unservable, h64-merged, sft4 REFUTE) → **~339G** free.
+- **R2az** armed: prefetch `vera6/affine-5g4yy75zuz-vvv@46476149…` (chal-00497) + reload waiter (after R2ay terminal; board-first) + stage5. Pids crown **173825/173828/173832**.
+- R3 GRPO confirmed healthy step**10** mean_r≈**0.025** (not wedged; logs every 5 steps). B300×8 still 0.
+- Artifacts: `launch_prefetch_vvv.sh`, `launch_r2az_vvv_reload_sim.sh`, `watch_r2az_stage5_push.sh`, `artifacts/r2az_vvv_armed_p2066.json`.
+
 ## p2065 — R2ay sbs-v2 armed after R2ax (2026-08-11T18:08Z)
 
 - Contract wvk=3 · k_sigma_live=2.0 · king Tok af10 · burn $116.25/h · B300×8 stock=0.

@@ -1,0 +1,28 @@
+{
+  "pass": 2066,
+  "utc": "2026-08-11T18:14:19Z",
+  "hyp": "R2az",
+  "action": "purge unservable/refuted HF caches (iynocr2p+h64+sft4) \u2192 arm pure vvv after R2ay",
+  "challenger": "vera6/affine-5g4yy75zuz-vvv",
+  "revision": "464761496a109a8140021e6232b2083f4268dc13",
+  "challenge_id": "chal-00497",
+  "scripts": {
+    "prefetch": "/root/launch_prefetch_vvv.sh",
+    "reload": "/root/launch_r2az_vvv_reload_sim.sh",
+    "stage5": "/root/watch_r2az_stage5_push.sh"
+  },
+  "pids_crown": {
+    "prefetch": 173825,
+    "reload": 173828,
+    "stage5": 173832
+  },
+  "purged_hf": [
+    "darius3th/Affine-5gcl5uxakb-iynocr2p",
+    "unconst/Affine-5czsc2fc98-h64-merged",
+    "syntaxsorcerer1/Affine-5gbhwtw4zo-sft4"
+  ],
+  "disk_free_after": "339G",
+  "r3_note": "GRPO pid23755 healthy step10 mean_r0.025 (logs every 5 steps; not wedged)",
+  "b300_stock": 0,
+  "burn_h": 116.25
+}
