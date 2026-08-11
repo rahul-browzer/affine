@@ -10,11 +10,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,211.42 | 2026-08-11T11:16Z |
-| cumulative mining spend | ~$75,378 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T11:16Z |
-| **available for mining** | **~$112,211** (balance − $10,000 floor) | 2026-08-11T11:16Z |
+| Lium balance | $122,201.20 | 2026-08-11T11:19Z |
+| cumulative mining spend | ~$75,388 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T11:19Z |
+| **available for mining** | **~$112,201** (balance − $10,000 floor) | 2026-08-11T11:19Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T11:16Z |
+| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T11:19Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -23,6 +23,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T11:19Z | 122201.20 | p2020 R2ac Stage-5 waiter + HF prepurge (no new rent); burn$52.25/h; Δ−$10 vs p2019 (shared ok) |
 | 2026-08-11T11:16Z | 122211.42 | p2019 armed R2an Talent×cp13 EAGER (no new rent); burn$52.25/h; Δ$0 vs p2018 |
 | 2026-08-11T11:13Z | 122211.42 | p2018 armed chal-00481 cp13 prefetch (no new rent); burn$52.25/h; Δ$0 vs p2017 |
 | 2026-08-11T11:05Z | 122221.67 | p2017 R2ab REFUTE + R2ac n80 + R2am EAGER (no new rent); burn$52.25/h; Δ−$20 vs p2016 (shared ok) |
@@ -32,4 +33,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T10:16Z | 122323.62 | p2012 sbs-v1 DONE + watch480 armed (no new rent); burn$52.25/h; Δ−$10 vs p2011 (shared ok) |
 | 2026-08-11T10:13Z | 122333.78 | p2011 armed sbs-v1 prefetch (no new rent); burn$52.25/h; Δ−$10 vs p2010 (shared ok) |
 | 2026-08-11T10:09Z | 122344.08 | p2010 R2ad EAGER Talent×pig (no new rent); burn$52.25/h; Δ−$10 vs p2009 (shared ok) |
-| 2026-08-11T10:05Z | 122353.75 | p2009 re-armed R2ad Talent×pig (no new rent); burn$52.25/h; Δ$0 vs p2008 |

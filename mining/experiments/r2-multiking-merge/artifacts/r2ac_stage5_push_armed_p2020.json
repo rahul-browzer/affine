@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-11T11:19:16Z",
+  "pass": 2020,
+  "hyp": "R2ac",
+  "action": "armed_stage5_hf_push_waiter_during_n80",
+  "pod": "mine-crown-1",
+  "watcher_pid": 58934,
+  "decision_path": "/root/affine_data/r2ac_alpha_decision.json",
+  "chall": "/root/r2_out/alpha_talent_google_skew",
+  "repo": "unconst/Affine-5czsc2fc98-r2ac-talent-google",
+  "headroom_bar": 1.5,
+  "n80_progress_at_arm": {"king": 31, "challenger": 31, "n_turns": 80},
+  "hf_prepurge_gb": 140.47,
+  "hf_prepurge": [
+    "unconst/Affine-5czsc2fc98-h99-merged",
+    "unconst/Affine-5czsc2fc98-h98-merged"
+  ],
+  "note": "HF push only on hr≥1.5×; no register/submit. R2an Talent×cp13 CPU merge still in flight; board 481 load_challenger."
+}
