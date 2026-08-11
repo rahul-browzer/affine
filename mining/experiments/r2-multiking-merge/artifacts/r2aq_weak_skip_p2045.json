@@ -1,0 +1,16 @@
+{
+  "pass": 2045,
+  "utc": "2026-08-11T15:29:33Z",
+  "hyp": "R2aq",
+  "parent": "tojointhecommunity/affine-5efg6cm3yl-now@d6c08a984f379b5571098d58dc83bf9f77234f2f",
+  "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "decision": "SIGNAL_POS_BELOW_3SE",
+  "margin": 0.007946037943420907,
+  "se": 0.0034268038761555886,
+  "z": 2.3187898200743513,
+  "headroom_vs_3se": 0.7729299400247838,
+  "headroom_vs_2se": 1.1593949100371757,
+  "n_paired": 80,
+  "stage5": "SKIP_BELOW_BAR",
+  "next": "R2ar pure-iynocr2p"
+}
