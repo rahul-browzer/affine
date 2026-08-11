@@ -1,3 +1,11 @@
+## p1989 — chal-00463 unservable → R2y SKIP; patch 467–471 history
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,640.
+- History: chal-00463 `llorite/…-tpc9` **rejected** `unservable:challenger failed to load in vLLM` (margin/se null). Stamped `chal00463_reason.json` hr=None → **R2y SKIP** + purged `alpha_talent_tpc9_skew` (~+66 GiB → disk **444 GiB**).
+- Live board now **chal-00467** awesome-v9 `load_challenger`. Patched+restarted watchers **467–471** with history fast-path + unservable stamp (`gen_history_watchers.py`).
+- R2ag local n80 still healthy ~**21/21**/80 (pid 285579) — board unservable does not kill local serve.
+- Artifacts: `artifacts/chal00463_reason.json`, `artifacts/r2y_tpc9_unservable_skip_p1989.json`.
+- Next: harvest `r2ag_tpc9_decision.json`; hr≥1.5× → Stage-5; else first Reason+ among 467–471 (R2z/aa–ad).
+
 ## p1988 — R2ag pure-tpc9 n80 gathering
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,651.
 - Chall `:8002` healthy (TKC 200/200/200); sim pid **285579** block_hash `ef8cf0a9…` · progress king **9**/80 chall **5**/80 @07:43:19Z · holding stamp live; bridge+Stage-5 waiters intact.

@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-# CPU watcher: when chal-00471 (diceofgod/affine-5fjgc5jhxq-pig) publishes a duel gzip,
-# recompute Reason = mean(lpC_yc_za − lpC_yc_e) per turn, paired vs Tok af10,
-# stamp headroom_vs_3se. Gates post-verdict merge/n80 without waiting for the
-# next Ralph pass. No GPU. Does not submit.
+# CPU watcher: when chal-00471 publishes duel gzip OR history verdict,
+# stamp Reason headroom_vs_3se (or hr=None on unservable). No GPU. No submit.
 set -euo pipefail
 LOG=/root/logs/watch_chal00471_reason.log
 DONE=/root/logs/watch_chal00471_reason.done
@@ -42,7 +40,7 @@ def fetch_bytes(url: str) -> bytes:
     with urllib.request.urlopen(req, timeout=60) as r:
         return r.read()
 
-def reason_of_row(row: dict) -> float | None:
+def reason_of_row(row: dict):
     vals = []
     for p in row.get("pairs") or []:
         a, b = p.get("lpC_yc_za"), p.get("lpC_yc_e")
@@ -80,10 +78,7 @@ def score_duel(raw: bytes) -> dict:
     if n == 0:
         raise RuntimeError("no paired turns with Reason components")
     margin = statistics.fmean(deltas)
-    if n > 1:
-        se = statistics.stdev(deltas) / math.sqrt(n)
-    else:
-        se = float("inf")
+    se = statistics.stdev(deltas) / math.sqrt(n) if n > 1 else float("inf")
     three_se = 3.0 * se
     hr = (margin / three_se) if three_se and three_se > 0 else None
     z = (margin / se) if se and se > 0 else None
@@ -109,9 +104,93 @@ def score_duel(raw: bytes) -> dict:
     }
 
 url = f"{base}/evals/{chal}.json.gz"
-print(f"[watch-471] polling {url}", flush=True)
-for i in range(1, 2880):  # ~8h @10s
+hist_url = f"https://affine.io/api/v1/history?q={chal}&limit=5"
+print(f"[watch-471] polling {url} (+ history fast-path)", flush=True)
+
+def try_history():
     try:
+        payload = json.loads(fetch_bytes(hist_url).decode("utf-8"))
+    except Exception:
+        return None
+    for item in payload.get("items") or []:
+        if item.get("challenge_id") != chal or item.get("event") != "verdict":
+            continue
+        rej = item.get("rejection_reason") or ""
+        # Unservable / no-score reject: stamp hr=None so Talent×parent SKIP
+        if item.get("accepted") is False and rej and item.get("margin") is None and item.get("se") is None:
+            utc = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            return {
+                "challenge_id": chal,
+                "king_repo": king_repo,
+                "king_revision": king_rev,
+                "challenger_repo": item.get("repo"),
+                "challenger_revision": item.get("revision"),
+                "published_margin": None,
+                "published_z": None,
+                "published_formula": None,
+                "challenger_wins": False,
+                "accepted": False,
+                "rejection_reason": rej,
+                "has_artifact": False,
+                "reason_margin": None,
+                "reason_se": None,
+                "reason_z": None,
+                "three_se": None,
+                "headroom_vs_3se": None,
+                "n_paired": 0,
+                "king_match": True,
+                "scored_at": utc,
+                "source": "history_api_unservable",
+                "source_url": hist_url,
+                "note": "no duel gzip — rejected load; cannot compute Reason; Talent×parent must SKIP",
+            }
+        margin, se = item.get("margin"), item.get("se")
+        if margin is None or se is None:
+            continue
+        try:
+            margin_f, se_f = float(margin), float(se)
+        except (TypeError, ValueError):
+            continue
+        three_se = 3.0 * se_f
+        hr = (margin_f / three_se) if three_se > 0 else None
+        z = (margin_f / se_f) if se_f > 0 else None
+        return {
+            "challenge_id": chal,
+            "king_repo": king_repo,
+            "king_revision": king_rev,
+            "challenger_repo": item.get("repo"),
+            "challenger_revision": item.get("revision"),
+            "published_margin": margin_f,
+            "published_z": item.get("z"),
+            "published_formula": None,
+            "challenger_wins": item.get("challenger_wins"),
+            "reason_margin": margin_f,
+            "reason_se": se_f,
+            "reason_z": z,
+            "three_se": three_se,
+            "headroom_vs_3se": hr,
+            "n_paired": item.get("n_paired_turns"),
+            "king_match": True,
+            "scored_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "source_url": hist_url,
+            "source": "history_api",
+        }
+    return None
+
+for i in range(1, 2880):
+    try:
+        hist = try_history()
+        if hist is not None:
+            out.write_text(json.dumps(hist, indent=2) + "\n")
+            hr = hist.get("headroom_vs_3se")
+            line = (
+                f"OK {hist['scored_at']} hr={hr} margin={hist.get('reason_margin')} "
+                f"n={hist.get('n_paired')} repo={hist.get('challenger_repo')} "
+                f"src={hist.get('source') or 'history'}"
+            )
+            done.write_text(line + "\n")
+            print(f"[watch-471] {line}", flush=True)
+            raise SystemExit(0)
         raw = fetch_bytes(url)
         print(f"[watch-471] got {len(raw)} bytes at iter={i}", flush=True)
         result = score_duel(raw)
@@ -124,6 +203,8 @@ for i in range(1, 2880):  # ~8h @10s
         done.write_text(line + "\n")
         print(f"[watch-471] {line}", flush=True)
         raise SystemExit(0)
+    except SystemExit:
+        raise
     except Exception as e:
         if i % 12 == 0:
             print(f"[watch-471] wait iter={i} err={type(e).__name__}: {e}", flush=True)
