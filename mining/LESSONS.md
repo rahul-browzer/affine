@@ -97,8 +97,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1925: **R2g REFUTE** Talent×saysth hr **−0.89×** (margin −0.0203, z=−2.67, n=79) despite parent 440 hr 0.73× — skew-α does not inherit parent Reason+; do not submit; arm next parent lane without re-n80.
 - p1925: arm **R2n** Talent×asdf (queue 451) Reason+-gated premerge+reload + `watch_chal00451_reason` after R2g harvest — asdf cached; lane waits R2g…R2m; next Talent×zeus (452) if disk allows.
 - p1926: arm **R2o** Talent×zeus (queue 452) Reason+-gated premerge+reload + `watch_chal00452_reason` — zeus already cached @accc9249; lane waits R2g…R2n; next Talent×sth (455) if disk allows after a refute.
-- p1927: arm **R2p** Talent×sth (queue 455) Reason+-gated premerge+reload + `watch_chal00455_reason` with ~295 GiB free — no refute needed when disk already clears a ~70 GiB blend; lane waits R2g…R2o; all queued parents now gated.
-- p1928 rescan: diane-new hr **0.54×**, nvidia **0.45×**, aurora **0.17×** are Reason+ vs Tok but still **weight-gated** for unconst — do not re-arm prefetch; only DL Reason+ remain awesome-v6 + saysth-v9a (+ queue parents pending verdict).
 - p1928: after Talent×saysth REFUTE, arm **R2q pure saysth** n80 (R2d analogue) gated on R2i…R2p terminals — do not steal chall while queue Reason+ waiters may still fire; chall dir materialize is free (symlink + preprocessor).
 - p1929: chal-00432 BKN-seven vs Tok hr **−0.57×** (margin −0.0103, z=−1.72, n=80) — Reason−; R2j premerge correctly **SKIP** (no Talent×BKN7); do not re-arm BKN7 as merge parent.
 - p1930: queue grew **chal-00458** `marsplan0624/…-whoami@21ad4572…` — same id fragment as gated diane-new (`5gedzafcvg`) but **ungated** (index+shards OK); prefetch+watch before duel; do not GPU-merge until Reason+ after R2q.
@@ -148,3 +146,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1983: unconst public `Affine-5czsc2fc98-h*-merged` still ~5 TB — pre-delete ≥3×65 GiB during n80 (keep r1lora + pending Stage-5 targets) so R2r/R2af ≥1.5× push does not die on Hub storage after xet finalize.
 - p1984: while R2r n80 gathers, CPU-pre-materialise the next chall dir (`ln -sfn` HF snap + derive `preprocessor_config.json`) so R2af can claim `:8002` without copy latency after decision.
 - p1985: Talent×whoami (board hr 0.39×, Δ=0.671) local n80 → margin **−0.0335** (z=−4.29, hr **−1.43×**, n=80) — board Reason+ parent does not transfer via Talent skew; purge blend; R2af pure-v8 claimed `:8002` same pass.
+- p1986: board **chal-00462 awesome-v8 hr −0.04×** (margin −0.0005, z=−0.11) → **SKIP pure-v8 local n80** (kill chall by PID before gather); R2x Talent×v8 auto-SKIP+purge on same stamp; free GPUs for next Reason+ (chal-00463 tpc9 → R2y).

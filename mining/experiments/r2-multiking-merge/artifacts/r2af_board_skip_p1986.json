@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-11T07:28:50Z",
+  "pass": 1986,
+  "action": "SKIP_R2AF_BOARD_FIRST",
+  "challenge_id": "chal-00462",
+  "headroom_vs_3se": -0.03762216278750812,
+  "margin": -0.00048599669508141255,
+  "z": -0.11286648836252437,
+  "se": 0.0043059432620992264,
+  "decision_path": "artifacts/r2af_awesome_v8_decision.json",
+  "also": "R2x Talent\u00d7awesome-v8 auto SKIP+purge at 07:25Z on same board",
+  "next": "wait chal-00463 tpc9 Reason+ \u2192 R2y (eager Talent\u00d7tpc9 ready)"
+}

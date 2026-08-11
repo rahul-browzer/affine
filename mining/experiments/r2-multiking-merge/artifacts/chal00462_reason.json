@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-11T07:28:50Z",
+  "challenge_id": "chal-00462",
+  "repo": "0pentensor/Affine-5dflhtkufw-awesome-v8",
+  "revision": "6c04b16d461d429f9e288508e92f9e42322baec6",
+  "accepted": false,
+  "margin": -0.00048599669508141255,
+  "se": 0.0043059432620992264,
+  "z": -0.11286648836252437,
+  "k_sigma": 3.0,
+  "threshold_3se": 0.012917829786297678,
+  "headroom_vs_3se": -0.03762216278750812,
+  "n_paired_turns": 80,
+  "challenger_wins": false,
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "source": "https://affine.io/api/v1/duels/chal-00462"
+}
