@@ -132,3 +132,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1957: Talent×asdf skew (0.25/0.75) CPU premerge **DONE** max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~9.6 min — real blend (≫ Tok×awesome Δ); purge Reason− BKN6 HF + REFUTED R2g blend before next ~70 GiB lane (~+66 GiB free).
 - p1958: **R2l REFUTE** Talent×sft3 hr **−0.89×** (margin −0.0307, z=−2.67, n=79) — board/local parent ~0.4× does not crown via Talent0.25 skew; Stage-5 SKIP; purge blend after chall swap.
 - p1958: R2n must **not** treat R2m `merge_reload.pid` as busy while R2m only waits chal-00456 Reason — gate on `r2m_premerge.done` only; R2m must yield to R2n when `r2n_premerge.done` exists.
+- p1959: while R2n n80 gathers, purge closed parents (sft3/kevin/saysth/awesome-v6 ≈281 GiB) before next Talent× alpha CPU merges — keep only live waiters + Tok/GLM/Talent/asdf + current `alpha_talent_asdf_skew`.
