@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1920 — R2j Talent×BKN7 armed; asdf+zeus DONE
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,613.
+- Prefetch chain: **asdf DONE** 00:31:38Z `@c2309815…`; **zeus DONE** 00:35:30Z `@accc9249…`; **sth** downloading after zeus (~8 GiB).
+- R2g Talent×saysth n80 still gathering (~36/80, pid 146391) — not harvestable yet.
+- Armed **R2j**: `launch_r2j_talent_bkn7_premerge.sh` pid **150140** (wait 432 Reason hr>0 → Talent0.25×BKN7 0.75 @ `/root/r2_out/alpha_talent_bkn7_seven_skew`) + `launch_r2j_merge_reload_sim.sh` pid **150142** (GPU after R2g/R2i terminal; submit bar 1.5×).
+- Re-probe: chal-00436 nvidia still weight-gated for unconst (index 403) despite public sibling list — do not prefetch.
+- Artifacts: `artifacts/r2j_bkn7_armed_p1920.json`.
+- Next: harvest `r2g_alpha_decision.json`; R2i/R2j fire on 441/432 Reason+.
+
 ## p1913 — disk cleanup while R2g merges; BKN seven live
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,646.
 - R2g Talent×saysth CPU merge **alive** (pid 140939) ~7/16 shards → `/root/r2_out/alpha_talent_saysth_v9a_skew`; reload waiter 130835 armed.

@@ -1,0 +1,34 @@
+{
+  "pass": 1920,
+  "utc": "2026-08-11T00:37:02Z",
+  "action": "arm_r2j_talent_bkn7",
+  "contract": {"weight_version_key": 3, "k_sigma": 3.0, "n_turns": 80},
+  "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a2",
+  "live_eval": {"challenge_id": "chal-00432", "repo": "BKN1890/Affine-5ghvq9a9g9-seven", "stage": "load_challenger"},
+  "parents": {
+    "talent": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c",
+    "bkn7": "BKN1890/Affine-5ghvq9a9g9-seven@11821bf3164ae9e35955012e2f88223e8734ab6f",
+    "weights": "Talent0.25 × BKN7 0.75",
+    "merged_out": "/root/r2_out/alpha_talent_bkn7_seven_skew"
+  },
+  "gates": {
+    "premerge": "chal00432_reason.json headroom_vs_3se > 0 and king_match",
+    "gpu_lane": "wait R2g + R2i terminal (dec/done/skip); skip if any prior hr≥1.5",
+    "submit_bar": "headroom_vs_3se ≥ 1.5"
+  },
+  "pids": {
+    "r2j_premerge": 150140,
+    "r2j_merge_reload": 150142,
+    "watch_chal00432": 140530
+  },
+  "also_confirmed": {
+    "asdf_prefetch": "DONE 2026-08-11T00:31:38Z @c23098154fd7",
+    "zeus_prefetch": "DONE 2026-08-11T00:35:30Z @accc9249d879",
+    "sth_prefetch": "RUNNING after zeus",
+    "r2g_n80": "~36/80 pid 146391"
+  },
+  "scripts": [
+    "launch_r2j_talent_bkn7_premerge.sh",
+    "launch_r2j_merge_reload_sim.sh"
+  ]
+}

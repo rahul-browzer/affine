@@ -94,3 +94,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Queue after live 432: 441 thomp (cached) → **431 BKN six** → 450 sft3 → 451 asdf → 452 zeus; all index-probe weights_ok for unconst — prefetch **one** next uncached parent while crown CPU merges (p1914 BKN six).
 - p1916: BKN six prefetch DONE `@a12fc171…` (~3.7 min); next uncached queue parent is **chal-00450** `syntaxsorcerer1/…-sft3@381dbc82…` (weights_ok, 2×safetensors) — arm while R2g n80 gathers.
 - p1919: queue grew **chal-00455** `fortunateGambler/…-sth@8d81e782…` (weights_ok, 16×safetensors ~70 GiB) — arm after zeus so one-at-a-time HF cache stays under disk headroom.
+- p1920: `repo_info` siblings can look complete while `hf_hub_download` of `model.safetensors.index.json` still **GatedRepoError** — re-probe with a real index/shard fetch before arming nvidia (00436 still gated).
+- p1920: arm **R2j** Talent×BKN-seven (live 432) Reason+-gated premerge+reload as soon as parent is cached — do not wait for R2g harvest; GPU lane still serializes behind R2g/R2i.
