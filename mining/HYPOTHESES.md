@@ -12,6 +12,7 @@
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · fleet queue head; **p2069** auto-bootstrap armed |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **open** · fleet `mine-r4-fullft-2` · **p2080** uploader+boot armed |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · fleet `mine-r5-nonking-1` · **p2074** uploader+boot armed |
+| 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · fleet `mine-r5-nonking-2` · **p2081** uploader+boot armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **open** · fleet `mine-r6-fmt-1` · **p2075** uploader+boot armed |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · fleet `mine-r7-datafilt-1` · **p2076** uploader+boot armed |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · fleet `mine-r8-reinforce-1` · **p2077** uploader+boot armed |
@@ -49,6 +50,10 @@
 ### R5 — Non-king Genesis full-FT
 - **Claim:** Genesis-init dense FT on high-Reason `z_A` beats Tok-init (R4) on paired margin.
 - **Status:** open — **p2074** `upload_and_launch.sh` + fleet-boot case for `mine-r5-nonking-1` (H122 stack @ `abe89194`, same `winner_za_high_l1` as R4). Waiting on 8×B300 rent.
+
+### R5b — Talent reign-base full-FT
+- **Claim:** TalentPigs reign-3 dense FT on same `winner_za_high_l1` beats Tok-init (R4) and Genesis (R5) on paired margin.
+- **Status:** open — **p2081** `upload_and_launch.sh` + fleet-boot case for `mine-r5-nonking-2` (H122 stack + Talent overlays @ `dbfbb3e2`). Waiting on 8×B300 rent. Dir: `experiments/r5b-talent-base/`.
 
 ### R6 — Thought-format / short-z
 - **Claim:** natural short non-listy `z` (keep original text) raises Reason vs king more than raw/long or H101 rewrite.

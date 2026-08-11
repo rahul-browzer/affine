@@ -11,7 +11,7 @@ PIDF="$EXP/logs/wait_bootstrap_fleet.pid"
 DONE_DIR="$EXP/artifacts/bootstrapped"
 POLL_S=${POLL_S:-20}
 MAX_ITERS=${MAX_ITERS:-1800}  # ~10h @20s
-PASS=${PASS:-2080}
+PASS=${PASS:-2081}
 
 mkdir -p "$EXP/logs" "$STAMP_DIR" "$DONE_DIR"
 echo $$ >"$PIDF"
@@ -106,6 +106,13 @@ bootstrap_r4b() {
     bash "$ROOT/mining/experiments/r4b-fullft-lr/upload_and_launch.sh"
 }
 
+bootstrap_r5b() {
+  local name=$1 host=$2 port=$3
+  log "bootstrap R5b upload_and_launch name=$name host=$host port=$port"
+  DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
+    bash "$ROOT/mining/experiments/r5b-talent-base/upload_and_launch.sh"
+}
+
 mark_bootstrapped() {
   local done=$1 name=$2 axis=$3 host=$4 port=$5
   printf '%s\n' "{\"utc\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"pass\":$PASS,\"name\":\"$name\",\"axis\":\"$axis\",\"host\":\"$host\",\"port\":$port}" \
@@ -197,6 +204,14 @@ process_stamp() {
       ;;
     mine-r4-fullft-2)
       if bootstrap_r4b "$name" "$host" "$port"; then
+        mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
+      else
+        log "FAIL bootstrap $name"
+        return 1
+      fi
+      ;;
+    mine-r5-nonking-2)
+      if bootstrap_r5b "$name" "$host" "$port"; then
         mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
       else
         log "FAIL bootstrap $name"

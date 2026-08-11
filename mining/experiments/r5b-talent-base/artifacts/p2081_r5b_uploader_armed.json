@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-11T19:24:44Z",
+  "pass": 2081,
+  "hyp": "R5b",
+  "pod": "mine-r5-nonking-2",
+  "axis": "talent_fullft",
+  "base_hub": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "base_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "data": "s4-h27-clip-l1-shape/results/winner_za_high_l1.jsonl",
+  "n_examples": 406,
+  "knobs": {
+    "lr": 1e-06,
+    "epochs": 1,
+    "max_len": 8192
+  },
+  "vs_r5": {
+    "r5_base": "dendriteholdings/albedo-qwen3.6-35b-king-genesis@abe89194"
+  },
+  "stack": "s4-h122-f27-genesis-full-ft + start_r5b/bootstrap_r5b overlays",
+  "fleet_boot": "wait_bootstrap_fleet.sh case mine-r5-nonking-2 pid2254067",
+  "note": "≠ R5 Genesis; ≠ R4 Tok; same winner_za_high_l1 data"
+}
