@@ -146,5 +146,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1966: while R2p n80 gathers, prefetch next uncached queue parent (chal-00467 awesome-v9 @75871c57, 16×st ~70.2 GiB) on CPU/network — do not merge until Reason+.
 - p1967: R2z Talent×awesome-v9 skew (0.25/0.75) eager CPU merge **DONE** max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~5.7 min — same Δ class as R2p/R2x; keep DONE gated on chal-00467 Reason+.
 - p1967 queue index probes (unconst): chal-00468 sbs-v0 / 469 sky / 470 google / 471 pig all **weights_ok** — prefetch **sbs first** (16×st) one-at-a-time after v9; sky/google/pig are 2×st (~smaller).
-- p1971: armed `launch_prefetch_pig_after_google.sh` for chal-00471 `diceofgod/…-pig@e4889db4` (2×st, weights_ok) — waits google.done; sky DONE; queue prefetch chain complete for known parents.
 - Prefetch DONE without an eager Talent× blend (sbs/sky sat cached with only Reason watches) idles crown CPU — arm `*_eager_weights` on prefetch DONE in the same pass, not later.
+- p1975: **R2p REFUTE** Talent×sth hr **−0.93×** (margin −0.0282, z=−2.78, n=80) despite board 455 hr 0.79× — best DL Reason+ parent still fails Talent0.25 skew; Stage-5 SKIP; kill chall by PID then purge blend.

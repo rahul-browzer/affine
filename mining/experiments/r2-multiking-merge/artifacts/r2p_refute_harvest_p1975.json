@@ -1,0 +1,37 @@
+{
+  "utc": "2026-08-11T06:09:40Z",
+  "pass": 1975,
+  "hyp": "R2p",
+  "action": "harvest_refute_purge_keep_r2aa_r2ab",
+  "decision": {
+    "utc": "2026-08-11T06:08:04Z",
+    "hyp": "R2p",
+    "contract": "Reason v3",
+    "decision": "REFUTE_R1_H64_BASELINE",
+    "headroom_bar": 1.5,
+    "false_probe": null,
+    "margin": -0.02820601396273064,
+    "se": 0.010158989518853563,
+    "z": -2.7764586143518017,
+    "k_sigma": 3.0,
+    "threshold_3se": 0.030476968556560687,
+    "headroom_vs_3se": -0.925486204783934,
+    "reason_c": -0.04566044216746249,
+    "reason_k": -0.01560547257214921,
+    "n_paired_turns": 80,
+    "challenger_wins": false,
+    "sim_result": "/root/affine_data/r2p_alpha_reason_sim.json"
+  },
+  "stage5": "SKIP_BELOW_BAR",
+  "purged": "/root/r2_out/alpha_talent_sth_skew (~66GiB) + /tmp/r2p_alpha_merged symlink",
+  "chall_killed_pid": 241437,
+  "r2aa": {
+    "eager": "EAGER 2026-08-11T06:05:09Z w_talent=0.25 w_sbs=0.75 max_abs_delta=0.67138671875 n_keys=1026 identical_frac=0.451267",
+    "waiting": "chal00468 Reason+"
+  },
+  "r2ab": "Talent\u00d7sky eager merge in flight",
+  "contract_wvk": 3,
+  "no_submit": true,
+  "board_parent_hr": 0.79,
+  "delta": 0.671
+}

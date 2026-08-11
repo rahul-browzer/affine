@@ -1,3 +1,11 @@
+## p1975 — R2p REFUTE (−0.93×); purge; R2aa/R2ab continue
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,864.
+- Harvested R2p Talent×sth: margin **−0.02821** · se=0.01016 · z=**−2.78** · 3·SE=0.03048 · hr=**−0.93×** · n=80 · Stage-5 **SKIP_BELOW_BAR**.
+- Killed idle chall pid **241437**; purged `/root/r2_out/alpha_talent_sth_skew` (~66 GiB) → `/root` **~196 GiB** free. Teacher/king still 200/200.
+- R2aa eager **DONE** Δ=**0.671** (wait chal-00468 Reason+). R2ab Talent×sky eager ~13/16 mid-merge.
+- Artifacts: `artifacts/r2p_alpha_{decision,reason_sim}.json`, `artifacts/r2p_refute_harvest_p1975.json`, `artifacts/r2aa_eager_weights.done`.
+- Next: R2ab eager stamp; first Reason+ among 468/469 → chall reload→n80; arm Talent×google after R2ab eager + disk≥75 GiB.
+
 ## p1972 — Reason watches 468–471 + R2p Stage-5 armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,897.
 - R2p n80 still gathering (~47/80). Google prefetch ~46 GiB under `/root/hf`; pig-after-google waiting.
