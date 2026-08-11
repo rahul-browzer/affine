@@ -1,0 +1,18 @@
+{
+  "pass": 1940,
+  "utc": "2026-08-11T02:06:16Z",
+  "hyp": "R2t",
+  "blend": "saysth0.75×Talent0.25",
+  "layout": "saysth",
+  "max_abs_delta": 0.20703125,
+  "identical_frac": 0.452242,
+  "merged_path": "/tmp/r2t_alpha_merged -> /root/r2_out/alpha_saysth_talent_skew",
+  "engines": {"teacher": 200, "king": 200, "chall": 200},
+  "chall_pid": 179043,
+  "sim_pid": 182566,
+  "block_hash": "daad55c41c6d7a68917ad4fdc9d290f9f2960ec969d8b6726248811a305c6075",
+  "progress": {"king": 3, "challenger": 3, "n_turns": 80},
+  "decision_path": "/root/affine_data/r2t_alpha_decision.json",
+  "sim_out": "/root/affine_data/r2t_alpha_reason_sim.json",
+  "check": "tail /root/logs/r2t_merge_reload.log; cat /root/affine_data/r2t_alpha_reason_progress.json"
+}
