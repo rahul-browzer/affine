@@ -65,6 +65,8 @@ TARGETS = {
     "chal-00490": "chal00490",  # darius3th iynocr2p (R2ar)
     "chal-00491": "chal00491",  # Shatoria hope11
     "chal-00492": "chal00492",  # wearetop 726 (R2as)
+    "chal-00493": "chal00493",  # Bittoby1040 v2 (queue)
+    "chal-00494": "chal00494",  # peakperformer1 mt1 (queue)
 }
 
 

@@ -91,3 +91,19 @@ scp: Connection closed
 [host-hist] 2026-08-11T14:31:55Z init skip chal-00480: already on pod
 [host-hist] 2026-08-11T14:31:57Z init skip chal-00481: already on pod
 [host-hist] 2026-08-11T14:32:09Z start pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492']
+[host-hist] 2026-08-11T14:34:54Z iter=12 still pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492']
+[host-hist] 2026-08-11T14:37:55Z iter=24 still pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492']
+[host-hist] 2026-08-11T14:40:56Z iter=36 still pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492']
+[host-hist] 2026-08-11T14:43:56Z iter=48 still pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492']
+[host-hist] 2026-08-11T14:46:57Z iter=60 still pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492']
+[host-hist] 2026-08-11T14:49:57Z iter=72 still pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492']
+[host-hist] 2026-08-11T14:52:58Z iter=84 still pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492']
+[host-hist] 2026-08-11T14:55:59Z iter=96 still pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492']
+[host-hist] 2026-08-11T14:56:15Z init skip chal-00467: already on pod
+[host-hist] 2026-08-11T14:56:17Z init skip chal-00468: already on pod
+[host-hist] 2026-08-11T14:56:19Z init skip chal-00469: already on pod
+[host-hist] 2026-08-11T14:56:21Z init skip chal-00470: already on pod
+[host-hist] 2026-08-11T14:56:23Z init skip chal-00471: already on pod
+[host-hist] 2026-08-11T14:56:25Z init skip chal-00480: already on pod
+[host-hist] 2026-08-11T14:56:27Z init skip chal-00481: already on pod
+[host-hist] 2026-08-11T14:56:42Z start pending=['chal-00485', 'chal-00486', 'chal-00489', 'chal-00490', 'chal-00491', 'chal-00492', 'chal-00493', 'chal-00494']

@@ -6,7 +6,7 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2ap n80 · R2aq…at · 492 |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2aq n80 · R2ar…at · 493/494 |
 
 SSH: `ssh root@95.133.253.90 -p 40099`
 
@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T14:56Z | p2040: R2ap WEAK_SKIP hr0.327×; R2aq n80 started; host-hist +493/494; burn$52.25/h · bal~$121752 |
 | 2026-08-11T14:36Z | p2039: arm R2at pure-hope11+Stage-5 (wait R2as); pre-stage iynocr2p/726/hope11 chall; R2ap~47/80; burn$52.25/h · bal~$121803 |
 | 2026-08-11T14:32Z | p2038: R2ap~41/80; rearm host-hist bridge for 485–492; burn$52.25/h · bal~$121803 |
-| 2026-08-11T14:29Z | p2037: R2ap~33/80; arm R2as pure-726 reload+Stage-5; prefetch726 DONE; burn$52.25/h · bal~$121814 |

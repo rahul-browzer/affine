@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-11T14:56:15Z",
+  "pass": 2040,
+  "action": "rearm_host_history_stamp_bridge",
+  "targets_added": ["chal-00493", "chal-00494"],
+  "pending_expected": [
+    "chal-00485",
+    "chal-00486",
+    "chal-00489",
+    "chal-00490",
+    "chal-00491",
+    "chal-00492",
+    "chal-00493",
+    "chal-00494"
+  ],
+  "bridge_pid_file": "experiments/r2-multiking-merge/logs/host_history_stamp_bridge.pid",
+  "why": "queue grew to v2+mt1; keep stamps ready after 485–492"
+}
