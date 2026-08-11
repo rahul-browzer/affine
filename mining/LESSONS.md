@@ -148,3 +148,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - After R3 REFUTE, retarget same warm TKC pod to **R3b** (GPUs6–7) rather than idle-wait for a new B300 rent (p2127).
 - R3b double-launch: two `train_reason_grpo.py` on CUDA 6,7 same out-dir — kill orphan not in `train.pid`; GPU mem halved 76→37 / 82→41 GiB (p2128).
 - Host fleet snatch: **ls→node-id `lium up`** (~1s/iter) beats blind parallel `up --gpu` (~22s/iter empty); one `ps`/40 iters; B200 ls every 10th; kill by PID only (p2134).
+- Fleet-bootstrap `MAX_ITERS=1800` dies mid-stock-drought (~2.5h@5s / ~10h@20s) — snatches then sit un-armed; keep **86400** + POLL=5s alongside fleet-rent (p2135).

@@ -14,18 +14,18 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | challenge | chal-00499 load_challenger; queue +chal-00514 |
 | miner burn | **$180.25/h** · floor $833/h · **gap −$653/h** |
 | B300 stock | **0** free 8×B300/B200 · fleet **ls→node-id** pid**2751643** |
-| Lium bal | ~$120,070 · floor $10k OK |
+| Lium bal | ~$120,049 · floor $10k OK |
 | submissions | 0 |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2bg** n80 ~4/80 cp1266 |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO ~step18 |
-| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R6** train ~49/96 |
-| host fleet-rent | pid**2751643** | — | **ls→node-id** ~1s/iter →R7–R32+ |
-| host fleet-boot | pid**2463724** | — | auto-upload @5s |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2bg** n80 ~5/80 cp1266 |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO ~step19 |
+| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R6** train ~50/96 |
+| host fleet-rent | pid**2751643** | — | **ls→node-id** →R7–R32+ |
+| host fleet-boot | pid**2756348** | — | **rearmed** @5s / 86400iters (p2135) |
 | host hist bridge | pid**2733446** | — | +chal-00514 |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099` · R3/R3b: `ssh root@204.9.206.245 -p 40051`
@@ -34,7 +34,8 @@ R2bg: `tail -f /root/logs/r2bg_cp1266_reason_sim.log` · dec `r2bg_cp1266_decisi
 R3b: `tail -f /root/logs/r3_train.nohup` · pipe `r3_pipeline.nohup`
 R6: `tail -f /root/logs/h101_train.nohup` · dec `h101_decision.json`
 Fleet: `tail -f experiments/fleet-rent/logs/wait_fleet_b300.log`
-**p2134:** fleet snatch **ls→node-id** (~1s/iter vs ~22s blind-up); B300×8=0; R2bg~4/80; burn **$180.25/h**.
+Boot: `tail -f experiments/fleet-rent/logs/wait_bootstrap_fleet.log`
+**p2135:** bootstrap TIMEOUT@1800 → rearmed pid**2756348** POLL=5s MAX=86400; B300×8=0; burn **$180.25/h**.
 
 ## Blocked
 No free 8×B300/B200. Cannot hit $833/h burn until stock returns.

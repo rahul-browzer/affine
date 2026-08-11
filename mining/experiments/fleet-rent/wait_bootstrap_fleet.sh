@@ -9,9 +9,11 @@ STAMP_DIR="$EXP/artifacts"
 LOG="$EXP/logs/wait_bootstrap_fleet.log"
 PIDF="$EXP/logs/wait_bootstrap_fleet.pid"
 DONE_DIR="$EXP/artifacts/bootstrapped"
-POLL_S=${POLL_S:-20}
-MAX_ITERS=${MAX_ITERS:-1800}  # ~10h @20s
-PASS=${PASS:-2108}
+# Match fleet-rent longevity: empty B300 waits can last many hours.
+# 86400×5s ≈ 5d; do not leave rents un-armed after a short TIMEOUT.
+POLL_S=${POLL_S:-5}
+MAX_ITERS=${MAX_ITERS:-86400}
+PASS=${PASS:-2135}
 
 mkdir -p "$EXP/logs" "$STAMP_DIR" "$DONE_DIR"
 echo $$ >"$PIDF"

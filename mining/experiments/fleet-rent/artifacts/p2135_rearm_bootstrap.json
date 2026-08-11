@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T23:40:20Z",
+  "pass": 2135,
+  "action": "rearm fleet-bootstrap after TIMEOUT@1800; POLL_S=5 MAX_ITERS=86400; fleet-rent ls\u2192node-id still pid2751643",
+  "bootstrap_pid": 2756348,
+  "fleet_rent_pid": 2751643,
+  "stock": {
+    "B300x8": 0,
+    "B200x8": 0
+  },
+  "burn_h": 180.25,
+  "floor_h": 833,
+  "note": "B300\u00d78 still empty \u2014 cannot rent; without bootstrap, snatches would idle"
+}
