@@ -1,3 +1,11 @@
+## p2010 — R2ad Talent×pig EAGER (2026-08-11T10:09Z)
+
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,344.
+- **R2ad** α-merge finished → `r2ad_eager_weights.done` (max_abs_delta=**0.626**, n_keys=1026, 70.2 GiB, 283.5s). DONE still gated on chal-00471 hr>0.
+- **R2al** pure pig n80 **~30/80** (pid30870); R2ab waits R2al; R2ac waits R2ab; watch471 + host-hist pending 471 (`load_challenger`).
+- Artifacts: `artifacts/r2ad_eager_p2010.json`.
+- Next: poll `r2al_pig_decision.json`; stamp 471 → R2ad DONE/SKIP; R2ab n80 after R2al terminal.
+
 ## p2004 — chal-00469 stamp unlocks R2aj/R2ab/R2ak (2026-08-11T09:19Z)
 
 - Board sky vs Tok: Reason margin **+0.00395** · z=1.38 · 3·SE=0.00860 · hr **0.459×** (n=79; gzip matches published Reason formula).

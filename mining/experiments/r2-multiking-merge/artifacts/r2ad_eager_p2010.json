@@ -1,0 +1,42 @@
+{
+  "pass": 2010,
+  "utc": "2026-08-11T10:09:14Z",
+  "lane": "R2ad",
+  "action": "confirmed Talent×pig α-merge EAGER weights",
+  "claim": "Talent0.25 × pig 0.75 (Talent layout) raises Reason vs Tok when chal-00471 hr>0",
+  "eager_line": "EAGER 2026-08-11T10:09:14Z w_talent=0.25 w_pig=0.75 max_abs_delta=0.62579345703125 n_keys=1026 identical_frac=0.453216",
+  "merged": "/root/r2_out/alpha_talent_pig_skew",
+  "merge_alpha_meta": {
+    "finished_utc": "2026-08-11T10:09:12Z",
+    "seconds": 283.5,
+    "n_keys": 1026,
+    "n_shards": 16,
+    "total_size_gb": 70.214,
+    "identical_frac": 0.453216,
+    "max_abs_delta": 0.62579345703125,
+    "n_exact_primary": 465
+  },
+  "parent_chal": "chal-00471",
+  "parent_repo": "diceofgod/affine-5fjgc5jhxq-pig",
+  "parent_rev": "e4889db406e743bc878d75183aed79bc59915463",
+  "talent_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "done_gated_on": "chal00471_reason.json hr>0 + king_match",
+  "premerge_done": false,
+  "parallel": {
+    "R2al": "n80 ~30/80 pid30870",
+    "R2ab": "wait-r2al (premerge DONE Δ0.626)",
+    "R2ac": "wait-r2ab (premerge DONE Δ0.626; 470 hr0.094×)",
+    "watch471": "pid17261",
+    "host_hist": "pending chal-00471"
+  },
+  "board": {
+    "current_eval": "chal-00471 pig load_challenger",
+    "queue_next": "chal-00480 ammazon/…-sbs-v1"
+  },
+  "weight_version_key": 3,
+  "check": {
+    "eager": "cat /root/logs/r2ad_eager_weights.done",
+    "reason_stamp": "cat /root/affine_data/chal00471_reason.json",
+    "r2al": "cat /root/affine_data/r2al_pig_decision.json"
+  }
+}
