@@ -1,3 +1,12 @@
+## p2103 — R2bb ckp333 armed (2026-08-11T20:39Z)
+
+- Contract wvk=3 · k_sigma=2.0 · king Tok af10 · chal-00495 · B300×8 stock=0.
+- **R2bb** armed on crown after R2ba WEAK: prefetch + reload+n80 + stage5 for pure `tolegend/Affine-5fqbxvz29b-ckp333@24c137e8…` (queue chal-00501).
+- Crown pids: prefetch**191709** / reload**191710** / stage5**191711**. Warm TKC still up; chall swap after prefetch.
+- R3 GRPO step≥**98**; fleet rent/boot pids **2413743/2413756** @10s; burn $116.25/h vs $833.
+- Artifacts: `launch_prefetch_ckp333.sh`, `launch_r2bb_ckp333_reload_sim.sh`, `watch_r2bb_stage5_push.sh`, `artifacts/r2bb_ckp333_armed_p2103.json`.
+- Next: R2bb n80 decision; then ec08/ckp55; rent B300 if stock appears.
+
 ## p2102 — R2ba awesome-v10 WEAK (2026-08-11T20:33Z)
 
 - **R2ba** n80 done (n_paired=79): margin **+0.00699**, SE **0.00500**, z=**1.40**.

@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-11T20:39:38Z",
+  "pass": 2103,
+  "hyp": "R2bb",
+  "parent": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "revision": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "queue_chal": "chal-00501",
+  "prefetch_pid": 191709,
+  "reload_pid": 191710,
+  "stage5_pid": 191711,
+  "link": "/tmp/r2bb_ckp333",
+  "chall_dir": "/root/r2_out/ckp333_chall",
+  "decision_rule": "submit only if headroom_vs_3se >= 1.5 on fresh n80 (also check live k_sigma=2.0)",
+  "prior": "R2ba WEAK m=+0.007 z=1.40 hr=0.47x",
+  "watch": "tail -f /root/logs/r2bb_ckp333_reload.log; decision -> /root/affine_data/r2bb_ckp333_decision.json"
+}
