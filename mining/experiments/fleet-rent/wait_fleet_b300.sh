@@ -15,7 +15,7 @@ CAP=${MINE_CAP:-25}
 TARGET=${TARGET_MINES:-25}
 POLL_S=${POLL_S:-30}
 MAX_ITERS=${MAX_ITERS:-720}  # ~6h @30s
-PASS=${PASS:-2092}
+PASS=${PASS:-2093}
 
 # Distinct experimental axes (one pod each). Skip names already live.
 # Format: name|axis_id|short_note
@@ -39,6 +39,7 @@ QUEUE=(
   "mine-r16-golden-rl-1|R16|golden-crown-init REINFORCE on teacher Reason"
   "mine-r17-coder-rl-1|R17|Qwen3-Coder base REINFORCE on teacher Reason"
   "mine-r18-sbs-grpo-1|R18|pure sbs-v2-init Reason-GRPO (≠ R3/R10)"
+  "mine-r19-talent-grpo-1|R19|TalentPigs-init Reason-GRPO (≠ R3/R5b/R18)"
 )
 
 mkdir -p "$EXP/logs" "$STAMP_DIR"

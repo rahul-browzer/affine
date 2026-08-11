@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-11T20:05:15Z",
+  "pass": 2093,
+  "axis": "R19",
+  "pod": "mine-r19-talent-grpo-1",
+  "base": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "base_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "method": "grpo_teacher_reason_talent_init",
+  "uploader": "experiments/r19-talent-grpo/upload_and_launch.sh",
+  "fleet_rent_pid": 2332910,
+  "fleet_boot_pid": 2332911,
+  "note": "Talent-init GRPO uploader + fleet/boot armed; B300\u00d78=0; \u2260 R3/R5b/R18"
+}

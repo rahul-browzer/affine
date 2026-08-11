@@ -26,7 +26,8 @@
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open** · `mine-r15-pandora-rl-1` · p2088 armed |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open** · `mine-r16-golden-rl-1` · p2089 armed |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open** · `mine-r17-coder-rl-1` · p2091 armed |
-| 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · **p2092** armed |
+| 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
+| 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · **p2093** armed |
 
 ## Open (detail)
 
@@ -39,9 +40,9 @@
 ### R3 — RL on Reason (PRIORITY)
 - GRPO pid**28660** step≥65; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
 
-### Fleet axes waiting on 8×B300 (R3b–R18)
+### Fleet axes waiting on 8×B300 (R3b–R19)
 - One pod/axis; uploaders+boot cases armed. Decision: n80 vs Tok; submit iff hr ≥ 1.5×(2·SE).
-- **R3b** alt GRPO knobs · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14** kevin RL · **R15** pandora RL · **R16** golden RL · **R17** Qwen3-Coder RL · **R18** pure sbs-v2 GRPO @6f1b8e68 (`experiments/r18-sbs-grpo/`).
+- **R3b** alt GRPO knobs · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14** kevin RL · **R15** pandora RL · **R16** golden RL · **R17** Qwen3-Coder RL · **R18** pure sbs-v2 GRPO · **R19** Talent-init GRPO @dbfbb3e2 (`experiments/r19-talent-grpo/`).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
