@@ -122,31 +122,11 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1958: R2n must **not** treat R2m `merge_reload.pid` as busy while R2m only waits chal-00456 Reason — gate on `r2m_premerge.done` only; R2m must yield to R2n when `r2n_premerge.done` exists.
 - p1959: while R2n n80 gathers, purge closed parents (sft3/kevin/saysth/awesome-v6 ≈281 GiB) before next Talent× alpha CPU merges — keep only live waiters + Tok/GLM/Talent/asdf + current `alpha_talent_asdf_skew`.
 - p1960: crown HF cache is **`HF_HOME=/root/hf`** (not `~/.cache/huggingface`) — inventory disk checks must `du /root/hf` or false-alarm "parents wiped".
-- p1960: arm R2n Stage-5 HF push waiter + pre-purge ≥75 GiB public `Affine-5czsc*` during n80 (same as R2v/R2l) so ≥1.5× starts upload without waiting for the next Ralph pass.
-- p1961: **eager CPU α-merge** while a prior n80 runs — blend weights now, stamp `*_eager_weights.done`, but **only** stamp `*_premerge.done` after board Reason+ (else merge_reload steals chall on Reason−). chal-00452 zeus hr **0.25×** (Reason+, lost crown).
-- p1962: **R2n REFUTE** Talent×asdf hr **−1.07×** (margin −0.023, z=−3.21, n=80) — board asdf 0.40× does not lift via Talent0.25 skew; Stage-5 SKIP; purge blend after chall swap.
-- p1962: R2o lane-busy must treat R2m as busy **only if `r2m_premerge.done`** — Reason-only waiters (`merge_reload.pid` alive, no premerge) idle the GPU for hours after prior n80 ends.
-- p1962: stamp `r2o_talent_zeus_holding.stamp` before chall kill + extend `wait_r2q_before_chall_kill.inc.sh` so R2m/R2p/R2r do not race mid-R2o n80; clear stale self-holding before sourcing the include.
-- p1962: R2x Talent×awesome-v8 eager CPU merge (same pattern as R2o): max_abs_delta=**0.626** · identical_frac=0.45 · ~70 GiB · ~4.7 min — real blend; keep DONE gated on chal-00462 Reason+.
-- p1964: chal-00455 `fortunateGambler/…-sth@8d81e782` vs Tok Reason hr **0.79×** (margin +0.0091, z=2.36, n=80) — best DL Reason+ since saysth 0.73×; lost crown; clears R2p gate.
-- p1964: R2p Talent×sth skew CPU premerge **DONE** max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~10.5 min; **R2p merge_reload must gate R2m on `r2m_premerge.done` only** (old pid-alive gate would idle GPU forever behind chal-00456).
-- p1965: **R2o REFUTE** Talent×zeus hr **−1.10×** (margin −0.0286, z=−3.31, n=79) — board zeus 0.25× does not crown via Talent0.25 skew; Stage-5 SKIP; purge blend; let R2p (board parent 0.79×) own chall.
-- p1966: while R2p n80 gathers, prefetch next uncached queue parent (chal-00467 awesome-v9 @75871c57, 16×st ~70.2 GiB) on CPU/network — do not merge until Reason+.
-- p1967 queue index probes (unconst): chal-00468 sbs-v0 / 469 sky / 470 google / 471 pig all **weights_ok** — prefetch **sbs first** (16×st) one-at-a-time after v9; sky/google/pig are 2×st (~smaller).
-- p1975: **R2p REFUTE** Talent×sth hr **−0.93×** (margin −0.0282, z=−2.78, n=80) despite board 455 hr 0.79× — best DL Reason+ parent still fails Talent0.25 skew; Stage-5 SKIP; kill chall by PID then purge blend.
-- p1981: `pgrep -f` in SSH `bash -c` kills your session — restart watchers by **pidfile PID only**.
-- p1985–86: Talent×whoami board 0.39× → local **−1.43×**; board awesome-v8 −0.04× → **SKIP pure-v8**.
-- p1987: idle GPUs after SKIP → arm **pure queue-parent n80** + history bridge.
-- p1989–90: history unservable has **null margin** (stamp `hr=None`); crown-pod **CF 403** → host stamp bridge.
-- p1991–92: prefer **pure board parent**; R2ag tpc9 **−0.52×**; board hr≪1.5× → **SKIP_BOARD_FIRST**.
-- p1993: API-pidfile kill can leave **orphan EngCore/Workers** → OOM next chall; kill those PIDs.
-- p1994: SSH refuse + `lium reboot` → **REBOOT_FAILED**/port None while billing — `lium rm` that `mine-*` and re-rent (B300 sold out → 8×B200 OK).
-- After crown pod replace: stub closed prior-lane `*_decision.json`/`*_reload.done` (CLOSED_PRE_POD_RESET) + re-arm vanished CPU premerges before waiters hang on missing terminals.
-- R2ak pure google local n80 hr **0.641×**; board chal-00470 gzip hr **0.094×** — local≫board slice noise; hr>0 → R2ac DONE; no Stage-5.
-- chal-00484 cgpb9 **UNSERVABLE** (hr=None) — skip Talent-skew; prefer pure Tok-lineage. **R2an SKIP_BOARD** cp13 hr0.16×; arm **R2ao→R2ap→R2aq** pure parents (af17/h44/now) while prior n80 runs so GPU never idles after REFUTE/SKIP.
-- **R2am REFUTE** Talent0.25×sbs-v1:0.75 n80#2 hr **−1.39×** (margin −0.0405, z=−4.18, n=80) — Stage-5 SKIP; Talent skew family stays dead; purge blend.
-- **p2032–33:** EngCore orphan-kill must stay on CUDA4,5/`--port 8002`; never edit running `launch_*.sh` (bash re-read) — use `continue_*_n80.sh` if TKC already 200.
-- **R2ao REFUTE** af17 −0.074×; **R2ap WEAK_SKIP** h44 0.327×; **R2aq WEAK_SKIP** pure-now **0.773×** (m+0.00795, z=2.32) — best pure yet, clears live 2·SE@1.16× but not 1.5× bar; Stage-5 SKIP → R2ar.
-- **R2aw SKIP_UNSERVABLE** mt1 = `Glm4MoeForCausalLM` (not Qwen VLM) — Hub-inspect arch before ~60 GiB prefetch.
-- On-pod board watchers often blind (evals gzip 404 + affine.io history CF 403); keep `host_history_stamp_bridge.py` pending on live Q chals and scp stamps to the crown pod.
-- Board chal-00485 h44 stamped hr **0.601×** (host bridge) — matches local R2ap “positive but sub-bar” class; do not re-sim h44.
+- Eager CPU α-merge while n80 runs OK; stamp `*_premerge.done` only after board Reason+; lane-busy = `*_premerge.done` not pid-alive (else GPU idles). Holding stamps before chall kill.
+- Talent0.25×{asdf,zeus,sth,whoami,sbs-v1,…} all REFUTE locally despite board Reason+ parents (sth 0.79× → local −0.93×; sbs −1.39×) — Talent skew family dead; prefer pure parents.
+- Prefetch next uncached Q parent on CPU during n80; Hub-inspect `architectures` before ~60 GiB pull (**R2aw** mt1=`Glm4MoeForCausalLM` SKIP_UNSERVABLE).
+- `pgrep -f` over SSH kills your session — pidfile PID only. API kill can leave EngCore orphans on CUDA4–5/:8002 → OOM; kill those. Never edit running `launch_*.sh` (bash re-read).
+- Crown **CF 403** / evals gzip 404 → host `host_history_stamp_bridge.py`. Unservable history → `hr=None`. Board hr≪1.5× → **SKIP_BOARD_FIRST**.
+- `lium reboot` can bill dead pods (REBOOT_FAILED) — `lium rm` that `mine-*` only; B300 sold out → 8×B200 OK. After replace, stub CLOSED_PRE_POD_RESET terminals + re-arm waiters.
+- Local≫board slice noise (R2ak google 0.641× vs board 0.094×). Arm next pure lane while prior n80 runs so GPU never idles.
+- **R2ao** af17 −0.074×; **R2ap** h44 0.327×; **R2aq** pure-now **0.773×** (m+0.00795, z=2.32) — best pure yet, clears live 2·SE@1.16× not 1.5× bar; Stage-5 SKIP → R2ar. Board 485 h44 hr **0.601×** — do not re-sim h44.
