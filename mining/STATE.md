@@ -16,7 +16,7 @@ Rewritten every pass. Do not append.
 | fleet | `mine-crown-1` **gentle-orbit-bd** 8×B200 · TTL→2026-08-12T08:42Z |
 | SSH | `ssh root@95.133.253.90 -p 40099` |
 | submissions | 0 · hotkey `default` unused |
-| **R2ai** | **RESET** — old lunar-orbit-50 died REBOOT_FAILED mid-n80 |
+| **R2ai** | **SKIP_BOARD** chal-00468 sbs hr **0.018×** (+ old pod RESET) |
 | board | duel **chal-00468** sbs-v0 (was scoring) |
 
 ## What's running
@@ -36,4 +36,4 @@ Rewritten every pass. Do not append.
 
 ## Next action
 
-**Bootstrap warm stack** on new `mine-crown-1` (HF token → restore TK@65536 → corpus sync) → re-arm R2ai pure sbs-v0 n80 (or next Reason+ 469–471).
+**Bootstrap warm stack** on new `mine-crown-1` (HF token → restore TK@65536 → corpus sync) → arm next Reason+ **469–471** (sbs SKIP_BOARD 0.018×).
