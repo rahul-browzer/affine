@@ -144,3 +144,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - `lium ps` **table wraps** `mine-*` names across lines — never `grep mine-` the table under `set -o pipefail` (empty grep exits 1 → kills rent waiters). Use `lium ps --format json` and read `.name`.
 - Host rent waiters belong under `experiments/<axis>/wait_rent_b300.sh` (not only Ralph notes) so the next free 8×B300 is grabbed without waiting for a pass tick.
 - R7 curriculum ≠ R4 data: top-250 h99 by Reason (min≈0.116) + EPOCHS=2 vs R4 clip_l1 n=406 EPOCHS=1 — wire `upload_and_launch` before rent or fleet-boot only stamps `needs_axis_uploader`.
+- Fleet queue after R4–R8 is **R3b** (`mine-r3-grpo-2`) before R9 — arm that uploader next or rent only stamps `needs_axis_uploader` (p2078: lr=2e-5 r=64 G=8 overlay on R3 stack).

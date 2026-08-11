@@ -7,7 +7,8 @@
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2ax REFUTE**; **R2ay** ~17/80; **R2az**/v10 armed |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** steps≥11 (mean_r≈0.036); wedge-watch pid**2176107**; post_train armed |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** steps≥13; wedge-watch pid**2176107**; post_train armed |
+| 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open** · fleet `mine-r3-grpo-2` · **p2078** uploader+boot armed |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · fleet queue head; **p2069** auto-bootstrap armed |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · fleet `mine-r5-nonking-1` · **p2074** uploader+boot armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **open** · fleet `mine-r6-fmt-1` · **p2075** uploader+boot armed |
@@ -29,7 +30,11 @@
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
-- **Status:** open — GRPO pid**28660** live after p2072 force-relaunch. **p2077** step≥11 mean_r≈0.036 (`[r3-hb]`). Stream+close HTTP, cached teacher tok, mid-group hb. king@**65536**. Next = steps→train.done→merge→chall→n80.
+- **Status:** open — GRPO pid**28660** live after p2072 force-relaunch. **p2078** step≥13 (`[r3-hb]`). Stream+close HTTP, cached teacher tok, mid-group hb. king@**65536**. Next = steps→train.done→merge→chall→n80.
+
+### R3b — GRPO alt-LR / rank
+- **Claim:** same Reason-GRPO as R3 but lr=2e-5, LoRA r=64/α128, G=8 clears paired crown bar where R3's lr=5e-6 r=16 G=4 may not.
+- **Status:** open — **p2078** `upload_and_launch.sh` + fleet-boot case for `mine-r3-grpo-2`. Waiting on 8×B300 rent. Dir: `experiments/r3b-grpo-alt/`.
 
 ### R4 — Full-FT on Reason
 - **Claim:** full-parameter FT on high-Reason winner thoughts beats LoRA-GRPO / board-copy screens on paired margin.

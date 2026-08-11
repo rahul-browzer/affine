@@ -22,10 +22,10 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2ay** n80 ~66/80; R2az waiter; v10 cached |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **GRPO** pid28660 step≥11 (mean_r≈0.036); T+K live |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2ay** n80 ~77/80; R2az waiter; v10 cached |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **GRPO** pid28660 step≥13 (mean_r≈0.036); T+K live |
 | host fleet-rent | pid**2146782** | — | `wait_fleet_b300.sh` → rent R4… until 13 mines |
-| host fleet-boot | pid**2221996** | — | `wait_bootstrap_fleet.sh` → **R4–R8** auto-upload |
+| host fleet-boot | pid**2228441** | — | `wait_bootstrap_fleet.sh` → **R4–R8 + R3b** auto-upload |
 | host r3-wedge | pid**2176107** | — | `watch_r3_wedge.sh` stale>600s+CWAIT+no ESTAB → relaunch |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -53,7 +53,9 @@ watch R6 (`/root/logs/bootstrap_h101.log` / `h101_train.nohup` / `r6_train_launc
 watch R7 (`/root/logs/bootstrap_h121.log` / `r7_pipeline.nohup` / `r7_train_launched.json`).
 **If `…rented_mine-r8-reinforce-1.json.bootstrapped`:**
 watch R8 (`/root/logs/bootstrap_r8.log` / `r8_train.nohup` `[r8-hb]`).
-**Else if `rented_*.json` without bootstrapped:** check fleet-boot log (should auto R4–R8).
+**If `…rented_mine-r3-grpo-2.json.bootstrapped`:**
+watch R3b (`/root/logs/bootstrap_r3.log` / `r3_train.nohup` `[r3-hb]` · knobs lr=2e-5 r=64 G=8).
+**Else if `rented_*.json` without bootstrapped:** check fleet-boot log (should auto R4–R8+R3b).
 **R3:** steps→`train.done`→post_train merge+chall+n80 (armed).
 **Crown:** R2ay finish → R2az → pure awesome-v10 n80.
 **R9+:** still stamp `needs_axis_uploader` until next pass builds them.

@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-11T19:14:52Z",
+  "pass": 2078,
+  "axis": "R3b",
+  "pod_name": "mine-r3-grpo-2",
+  "knobs": {
+    "lr": 2e-05,
+    "lora_r": 64,
+    "lora_alpha": 128,
+    "group_size": 8,
+    "max_steps": 200
+  },
+  "vs_r3": {
+    "lr": 5e-06,
+    "lora_r": 16,
+    "group_size": 4
+  },
+  "uploader": "experiments/r3b-grpo-alt/upload_and_launch.sh",
+  "fleet_boot": "wired mine-r3-grpo-2 \u2192 bootstrap_r3b",
+  "note": "B300\u00d78=0; rent waiter still polling; auto-upload on rent"
+}

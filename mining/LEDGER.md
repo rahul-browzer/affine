@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $121,060.74 | 2026-08-11T19:12Z |
-| cumulative mining spend | ~$76,527 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T19:12Z |
-| **available for mining** | **~$111,061** (balance − $10,000 floor) | 2026-08-11T19:12Z |
+| Lium balance | $121,060.74 | 2026-08-11T19:14Z |
+| cumulative mining spend | ~$76,527 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T19:14Z |
+| **available for mining** | **~$111,061** (balance − $10,000 floor) | 2026-08-11T19:14Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T19:12Z |
+| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T19:14Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T19:14Z | 121060.74 | p2078 R3b uploader armed (no rent; B300×8=0); burn **$116.25/h**; Δ$0 vs p2077 |
 | 2026-08-11T19:12Z | 121060.74 | p2077 R8 uploader armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2076 |
 | 2026-08-11T19:09Z | 121076.52 | p2076 R7 uploader armed (no rent; B300×8=0); burn **$116.25/h**; Δ$0 vs p2075 |
 | 2026-08-11T19:07Z | 121076.52 | p2075 R6 uploader armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2074 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T18:51Z | 121123.08 | p2071 R3 wedge-watch armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2070 |
 | 2026-08-11T18:46Z | 121138.47 | p2070 R3 GRPO relaunch (no rent; B300×8=0); burn **$116.25/h**; Δ−$47 vs p2069 |
 | 2026-08-11T18:31Z | 121185.07 | p2069 fleet-boot armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2068 |
-| 2026-08-11T18:27Z | 121200.78 | p2068 fleet rent waiter armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2067 |
