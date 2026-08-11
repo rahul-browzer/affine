@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **440 saysth** 0.73× parent-only; **R2t** saysth×Talent **n80 ~34/80** Δ=**0.207**; **R2l…p/R2r** armed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **440 saysth** 0.73× parent-only; **R2t** saysth×Talent hr **−0.93×**; **R2l…p/R2r** armed |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent×saysth **REFUTED** (hr −0.89×). **R2q** pure saysth-v9a **REFUTED** (hr **−0.35×**). **R2j** Talent×BKN7 **SKIPPED** (chal-00432 hr **−0.57×**). **R2i** Talent×thomp **SKIPPED** (chal-00441 **unservable**). **R2k** Talent×BKN6 **SKIPPED** (chal-00431 hr **−0.46×**). **R2s** saysth×awesome **WEAK_SKIP** (Δ=1.53e-05). **R2u** saysth0.75×kevin0.25 **WEAK_SKIP** (Δ=**0.0030**, identical_frac=0.44) — saysth/kevin/awesome cluster near-identical; only Talent blends show Δ≫0.01. **R2t** saysth0.75×Talent0.25 Δ=**0.207** · **n80 ~34/80**. **R2l…p** Reason+-gated (board 450 sft3). **R2r** Talent×whoami **ARMED** (after R2t + 458 hr>0). diane/nvidia/aurora gated. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent×saysth **REFUTED** (hr −0.89×). **R2q** pure saysth-v9a **REFUTED** (hr **−0.35×**). **R2t** saysth0.75×Talent0.25 (Δ=**0.207**) **REFUTED** (hr **−0.93×**). **R2j** Talent×BKN7 **SKIPPED** (chal-00432 hr **−0.57×**). **R2i** Talent×thomp **SKIPPED** (chal-00441 **unservable**). **R2k** Talent×BKN6 **SKIPPED** (chal-00431 hr **−0.46×**). **R2s** saysth×awesome **WEAK_SKIP** (Δ=1.53e-05). **R2u** saysth0.75×kevin0.25 **WEAK_SKIP** (Δ=**0.0030**) — saysth/kevin/awesome near-identical; both Talent×saysth α directions REFUTED. **R2l…p** Reason+-gated (board 450 sft3). **R2r** Talent×whoami **ARMED** (after 458 hr>0). diane/nvidia/aurora gated. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
@@ -32,6 +32,7 @@
 - **R2h** (2026-08-11): Tok×Talent×kevin equal-α (Δ=0.277) → margin −0.0211 vs Tok (z=−1.77, hr −0.59×, n=60). Multi-reign equal-α does not clear 3·SE.
 - **R2g** (2026-08-11): Talent0.25×saysth0.75 (parent 440 hr 0.73×) → margin −0.0203 vs Tok (z=−2.67, hr −0.89×, n=79). Parent Reason+ does not transfer through skew-α.
 - **R2q** (2026-08-11): pure saysth-v9a local n80 → margin −0.00657 vs Tok (z=−1.05, hr −0.35×, n=79). Published 440 hr 0.73× does not replay as crown candidate on our slice.
+- **R2t** (2026-08-11): saysth0.75×Talent0.25 (saysth layout, Δ=0.207) → margin **−0.02341** vs Tok (z=−2.80, hr **−0.93×**, n=78). Inverse of R2g also loses; do not re-blend saysth×Talent.
 
 ## Do not reopen from S\* legacy
 Clip-L1 shaping, r∈[0.7,0.85], α-merge lotteries, king-watch, "don't raise Λ2", submit-gate 0.04 as research kill — all S\* v2. See archive if curious; do not schedule them.

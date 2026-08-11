@@ -1,3 +1,12 @@
+## p1943 — R2t REFUTE (saysth×Talent hr −0.93×)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,333.
+- Harvested `r2t_alpha_decision.json` (02:37:16Z): margin **−0.02341** · se=0.008374 · z=**−2.80** · 3·SE=**0.02512** · headroom=**−0.932×** · reason_c=−0.02869 · reason_k=−0.00636 · n_paired=78 · `challenger_wins=false`.
+- Decision `REFUTE_R1_H64_BASELINE` (hyp=R2t) — **do not submit** (bar 1.5×). Merge had real Δ=0.207 (identical_frac=0.45); still loses harder than R2g.
+- Purged `/root/r2_out/alpha_saysth_talent_skew` (~66 GiB); engines stay 200 (chall weights in GPU RAM until next reload).
+- R2l…p / R2r waiters still alive; board **chal-00450** sft3 `load_challenger` (gzip 404).
+- Artifacts: `artifacts/r2t_alpha_{decision,reason_sim}.json`, `artifacts/r2t_refute_harvest_p1943.json`, `artifacts/r2t_saysth_talent_merge_alpha_meta.json`.
+- Next: 450 Reason+ → R2l; else queue SKIP cascade; R2r after 458 hr>0.
+
 ## p1942 — R2k SKIP (chal-00431 BKN-six Reason−)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,367.
 - Harvested `chal00431_reason.json` (scored 02:13:26Z): margin **−0.008159** · se=0.005852 · z=**−1.39** · 3·SE=**0.01755** · headroom=**−0.465×** · n=80 · `challenger_wins=false` · `king_match=true`.

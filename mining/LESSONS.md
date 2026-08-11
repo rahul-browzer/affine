@@ -117,3 +117,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1939: **R2q REFUTE** pure saysth-v9a hr **−0.35×** (margin −0.0066, z=−1.05, n=79) — published chal-00440 hr 0.73× does **not** replay as a local crown candidate vs Tok; do not submit; let R2t (inverse R2g) own the lane.
 - p1941: saysth0.75×kevin0.25 (saysth layout) max_abs_delta=**0.0030** · identical_frac=0.44 → **WEAK_SKIP** (no n80); saysth/kevin/awesome are one near-identical cluster — only Talent×{saysth,awesome} show Δ≫0.01; purge blend after stub.
 - p1942: chal-00431 BKN-six vs Tok hr **−0.46×** (margin −0.0082, z=−1.39, n=80) — Reason−; R2k premerge **SKIP** (no Talent×BKN6); both BKN six/seven are dead merge parents.
+- p1943: **R2t REFUTE** saysth×Talent hr **−0.93×** (margin −0.0234, z=−2.80, n=78, Δ=0.207) — inverse of R2g also fails; large weight Δ ≠ Reason lift; purge blend; do not re-α saysth↔Talent.
