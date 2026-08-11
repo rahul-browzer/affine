@@ -706,4 +706,35 @@ for _i in $(seq 1 2880); do
   break
 done
 
+
+# R2ar pure iynocr2p (queue chal-00490) — holding stamp / PID while claiming chall.
+R2AR_DEC=${R2AR_DEC:-/root/affine_data/r2ar_iynocr2p_decision.json}
+R2AR_DONE=${R2AR_DONE:-/root/logs/r2ar_iynocr2p_reload.done}
+R2AR_PIDF=${R2AR_PIDF:-/root/logs/r2ar_iynocr2p_reload.pid}
+R2AR_HOLDING=${R2AR_HOLDING:-/root/logs/r2ar_iynocr2p_holding.stamp}
+if [[ -f "$R2AR_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AR_DEC"; then
+  echo "SKIP_${_TAG}_R2AR_CLEARS file=$R2AR_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AR_DONE" || -f "$R2AR_DEC" ]]; then
+    echo "[${_TAG}] R2ar terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AR_PIDF" ]]; then
+    _ppid=$(cat "$R2AR_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        hold="holding"
+        [[ -f "$R2AR_HOLDING" ]] || hold="armed"
+        echo "[${_TAG}] wait-r2ar iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid $hold"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2ar not holding lane at iter=$_i"
+  break
+done
+
 unset _i _ppid _TAG

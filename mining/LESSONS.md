@@ -43,7 +43,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Thought-loss **nsup** (supervised tokens after fence mask) @16384 on R1b keep-set: med **54**, mean 72; only **176/1006** have nsup≥100 — char budget alone starves the loss; filter `sft_high_reason_nsup100.jsonl` (nsup_med=137) before next LoRA (R1c).
 - R1c on 176 nsup≥100 rows @ grad_accum=8 is only ~22 steps/epoch — use **EPOCHS≈6** (~132 opt-steps) so the high-signal subset matches R1b's update budget; arm `launch_r1c_merge_reload_sim.sh` after train starts.
 - While R1b train+n80 is in flight, arm `launch_r1b_to_r1c_chain.sh` so a below-bar decision auto-starts R1c (EPOCHS=6) + merge waiter — avoid idle GPU hours waiting for the next Ralph pass.
-- R2 equal-α merge can be **CPU-only** on crown (~2 TB RAM): blend safetensors by key with Tok as layout/config donor; refuse if `max_abs_delta==0` (weight-identical). Arm `launch_r2_merge_reload_sim.sh` to wait prefetch + R1c decision before chall reload.
 - Overlap R2 CPU α-merge with R1 train via `launch_r2_premerge.sh` (no GPU); stamp `/root/logs/r2_premerge.done` so the α→n80 waiter reuses the blend and only does chall reload+sim.
 - `merge_alpha.py` writes **`merge_alpha_meta.json`** under `/root/r2_out/alpha_tok_talent_kevin/` (not `affine_data/`) — stamp scripts must read that name (not `merge_meta.json`) or `r2_premerge.done` loses `max_abs_delta` / `n_keys`.
 - Equal-α Tok×Talent×kevin premerge on epoch-7 parents: **max_abs_delta=0.277**, identical_frac≈0.44, 66 GiB — distinct enough for α→n80 (refuse only if max_abs_delta==0).
@@ -148,3 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R2am REFUTE** Talent0.25×sbs-v1:0.75 n80#2 hr **−1.39×** (margin −0.0405, z=−4.18, n=80) — Stage-5 SKIP; Talent skew family stays dead; purge blend.
 - **p2032–33:** EngCore orphan-kill must stay on CUDA4,5/`--port 8002`; never edit running `launch_*.sh` (bash re-read) — use `continue_*_n80.sh` if TKC already 200.
 - **R2ao REFUTE** pure Tok af17 n80: hr **−0.074×** (margin −0.0007, z=−0.22, n=80) — near king parity, not crown; Stage-5 SKIP → R2ap pure-h44.
+- Queue grew **chal-00490** `darius3th/…-iynocr2p@fe080f2b…` + **chal-00491** `Shatoria/…-hope11@1be4ac10…` — both index-probe **weights_ok**; prefetch one-at-a-time (iynocr2p then hope11) while R2ap n80 gathers; arm pure R2ar after R2aq.
