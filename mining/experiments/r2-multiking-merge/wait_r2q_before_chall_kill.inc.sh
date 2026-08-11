@@ -615,4 +615,34 @@ for _i in $(seq 1 2880); do
   break
 done
 
+# R2ao pure af17 (queue chal-00489) — holding stamp / PID while claiming chall.
+R2AO_DEC=${R2AO_DEC:-/root/affine_data/r2ao_af17_decision.json}
+R2AO_DONE=${R2AO_DONE:-/root/logs/r2ao_af17_reload.done}
+R2AO_PIDF=${R2AO_PIDF:-/root/logs/r2ao_af17_reload.pid}
+R2AO_HOLDING=${R2AO_HOLDING:-/root/logs/r2ao_af17_holding.stamp}
+if [[ -f "$R2AO_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AO_DEC"; then
+  echo "SKIP_${_TAG}_R2AO_CLEARS file=$R2AO_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AO_DONE" || -f "$R2AO_DEC" ]]; then
+    echo "[${_TAG}] R2ao terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AO_PIDF" ]]; then
+    _ppid=$(cat "$R2AO_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        hold="holding"
+        [[ -f "$R2AO_HOLDING" ]] || hold="armed"
+        echo "[${_TAG}] wait-r2ao iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid $hold"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2ao not holding lane at iter=$_i"
+  break
+done
+
 unset _i _ppid _TAG
