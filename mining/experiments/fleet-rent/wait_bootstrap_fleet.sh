@@ -11,7 +11,7 @@ PIDF="$EXP/logs/wait_bootstrap_fleet.pid"
 DONE_DIR="$EXP/artifacts/bootstrapped"
 POLL_S=${POLL_S:-20}
 MAX_ITERS=${MAX_ITERS:-1800}  # ~10h @20s
-PASS=${PASS:-2076}
+PASS=${PASS:-2077}
 
 mkdir -p "$EXP/logs" "$STAMP_DIR" "$DONE_DIR"
 echo $$ >"$PIDF"
@@ -78,6 +78,13 @@ bootstrap_r7() {
     bash "$ROOT/mining/experiments/r7-data-filter/upload_and_launch.sh"
 }
 
+bootstrap_r8() {
+  local name=$1 host=$2 port=$3
+  log "bootstrap R8 upload_and_launch name=$name host=$host port=$port"
+  DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
+    bash "$ROOT/mining/experiments/r8-reinforce-reason/upload_and_launch.sh"
+}
+
 mark_bootstrapped() {
   local done=$1 name=$2 axis=$3 host=$4 port=$5
   printf '%s\n' "{\"utc\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"pass\":$PASS,\"name\":\"$name\",\"axis\":\"$axis\",\"host\":\"$host\",\"port\":$port}" \
@@ -137,6 +144,14 @@ process_stamp() {
       ;;
     mine-r7-datafilt-1)
       if bootstrap_r7 "$name" "$host" "$port"; then
+        mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
+      else
+        log "FAIL bootstrap $name"
+        return 1
+      fi
+      ;;
+    mine-r8-reinforce-1)
+      if bootstrap_r8 "$name" "$host" "$port"; then
         mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
       else
         log "FAIL bootstrap $name"

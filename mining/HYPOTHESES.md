@@ -7,12 +7,12 @@
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2ax REFUTE**; **R2ay** ~17/80; **R2az**/v10 armed |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** steps≥2 (mean_r≈0.025); wedge-watch pid**2176107**; post_train armed |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** steps≥11 (mean_r≈0.036); wedge-watch pid**2176107**; post_train armed |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · fleet queue head; **p2069** auto-bootstrap armed |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · fleet `mine-r5-nonking-1` · **p2074** uploader+boot armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **open** · fleet `mine-r6-fmt-1` · **p2075** uploader+boot armed |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · fleet `mine-r7-datafilt-1` · **p2076** uploader+boot armed |
-| 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · fleet `mine-r8-reinforce-1` |
+| 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · fleet `mine-r8-reinforce-1` · **p2077** uploader+boot armed |
 
 ## Open
 
@@ -29,7 +29,7 @@
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
-- **Status:** open — GRPO pid**28660** live after p2072 force-relaunch. **p2073** confirmed `[r3-hb]` + `[r3-log]` step1 mean_r=+0.019 / step2 +0.025. Stream+close HTTP, cached teacher tok, mid-group hb. king@**65536**. Next = steps→train.done→merge→chall→n80.
+- **Status:** open — GRPO pid**28660** live after p2072 force-relaunch. **p2077** step≥11 mean_r≈0.036 (`[r3-hb]`). Stream+close HTTP, cached teacher tok, mid-group hb. king@**65536**. Next = steps→train.done→merge→chall→n80.
 
 ### R4 — Full-FT on Reason
 - **Claim:** full-parameter FT on high-Reason winner thoughts beats LoRA-GRPO / board-copy screens on paired margin.
@@ -47,8 +47,9 @@
 - **Claim:** full-FT on top-250 h99 rows by Reason (min≈0.116, mean≈0.174, EPOCHS=2) beats R4's broader clip_l1 set on paired margin.
 - **Status:** open — **p2076** `upload_and_launch.sh` + fleet-boot case for `mine-r7-datafilt-1` (H121 overlay `start_r7.sh`). Data: `results/winner_za_top_reason.jsonl`. Waiting on 8×B300 rent.
 
-### R8 — fleet axis (uploader TBD)
-- **R8** REINFORCE — plan under `experiments/r8-reinforce-reason/`; pod via fleet-rent; boot stamps `needs_axis_uploader` until launcher lands.
+### R8 — EMA REINFORCE (alt to GRPO)
+- **Claim:** classic REINFORCE with EMA baseline + LoRA r=64 beats R3 group-mean GRPO (G=4,r=16) on paired Reason margin.
+- **Status:** open — **p2077** `upload_and_launch.sh` + fleet-boot case for `mine-r8-reinforce-1` (train `train_reason_reinforce.py`, lr=1e-5, max_steps=300). Waiting on 8×B300 rent. Dir: `experiments/r8-reinforce-reason/`.
 
 ## Refuted (Reason era)
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.

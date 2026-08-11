@@ -15,17 +15,17 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | challenge | chal-00491 (hope11 load) |
 | miner burn | **$116.25/h** (B300 $64 + B200 $52.25) · floor $833/h · **gap −$717/h** |
 | B300 stock | **0** free 8×B300 · fleet rent+bootstrap armed |
-| Lium bal | ~$121,077 · floor $10k OK |
+| Lium bal | ~$121,061 · floor $10k OK |
 | submissions | 0 |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2ay** n80 ~61/80; R2az waiter; v10 cached |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **GRPO** pid28660 step≥8 (mean_r≈0.043); T+K live |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2ay** n80 ~66/80; R2az waiter; v10 cached |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **GRPO** pid28660 step≥11 (mean_r≈0.036); T+K live |
 | host fleet-rent | pid**2146782** | — | `wait_fleet_b300.sh` → rent R4… until 13 mines |
-| host fleet-boot | pid**2210763** | — | `wait_bootstrap_fleet.sh` → **R4+R5+R6+R7** auto-upload |
+| host fleet-boot | pid**2221996** | — | `wait_bootstrap_fleet.sh` → **R4–R8** auto-upload |
 | host r3-wedge | pid**2176107** | — | `watch_r3_wedge.sh` stale>600s+CWAIT+no ESTAB → relaunch |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -51,7 +51,9 @@ watch R5 Genesis FT (`/root/logs/bootstrap_h122.log` / `r5_pipeline.nohup`).
 watch R6 (`/root/logs/bootstrap_h101.log` / `h101_train.nohup` / `r6_train_launched.json`).
 **If `…rented_mine-r7-datafilt-1.json.bootstrapped`:**
 watch R7 (`/root/logs/bootstrap_h121.log` / `r7_pipeline.nohup` / `r7_train_launched.json`).
-**Else if `rented_*.json` without bootstrapped:** check fleet-boot log (should auto R4–R7).
+**If `…rented_mine-r8-reinforce-1.json.bootstrapped`:**
+watch R8 (`/root/logs/bootstrap_r8.log` / `r8_train.nohup` `[r8-hb]`).
+**Else if `rented_*.json` without bootstrapped:** check fleet-boot log (should auto R4–R8).
 **R3:** steps→`train.done`→post_train merge+chall+n80 (armed).
 **Crown:** R2ay finish → R2az → pure awesome-v10 n80.
-**R8:** still needs uploader (fleet-boot stamps `needs_axis_uploader`).
+**R9+:** still stamp `needs_axis_uploader` until next pass builds them.
