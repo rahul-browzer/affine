@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,908.43 | 2026-08-11T05:47Z |
-| cumulative mining spend | ~$74,685 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T05:47Z |
-| **available for mining** | **~$112,908** (balance − $10,000 floor) | 2026-08-11T05:47Z |
+| Lium balance | $122,908.43 | 2026-08-11T05:50Z |
+| cumulative mining spend | ~$74,685 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T05:50Z |
+| **available for mining** | **~$112,908** (balance − $10,000 floor) | 2026-08-11T05:50Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T05:47Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T05:50Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T05:50Z | 122908.43 | p1970 armed google-after-sky chal470 (no new rent); burn$64/h; Δ$0 vs p1969 (shared ok) |
 | 2026-08-11T05:47Z | 122908.43 | p1969 armed sky-after-sbs chal469 (no new rent); burn$64/h; Δ−$11 vs p1968 (shared ok) |
 | 2026-08-11T05:45Z | 122919.64 | p1968 armed sbs prefetch chal468 (no new rent); burn$64/h; Δ$0 vs p1967 (shared ok) |
 | 2026-08-11T05:43Z | 122919.64 | p1967 R2z Talent×v9 eager + watch467 (no new rent); burn$64/h; Δ−$22 vs p1966 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T05:03Z | 123008.48 | p1963 R2y eager Talent×tpc9 (no new rent); burn$64/h; Δ−$23 vs p1962 (shared ok) |
 | 2026-08-11T04:54Z | 123031.48 | p1962 R2n REFUTE + R2o n80 + R2x eager (no new rent); burn$64/h; Δ−$34 vs p1961 (shared ok) |
 | 2026-08-11T04:39Z | 123065.01 | p1961 R2o eager Talent×zeus + chal452 Reason+ hr0.25× (no new rent); burn$64/h; Δ−$22 vs p1960 (shared ok) |
-| 2026-08-11T04:25Z | 123087.35 | p1960 R2n~25/80 + Stage-5 arm + HF prepurge +140.5 GiB (no new rent); burn$64/h; Δ−$11 vs p1959 (shared ok) |
