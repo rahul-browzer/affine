@@ -123,23 +123,49 @@ PY
   fi
 fi
 
-# 3) Wait hope12 prefetch (or accept snapshot already on disk).
-echo "[r2be-hope12] waiting for hope12 prefetch/index at $HOPE12_SNAP"
+# 3) Wait hope12 prefetch COMPLETE (all 15 shards). Index alone is not enough —
+# p2119: reload launched on index while 5/15 shards missing and /root was full.
+hope12_shards_ready() {
+  python3 - <<PY
+import json
+from pathlib import Path
+snap = Path("$HOPE12_SNAP")
+idx = snap / "model.safetensors.index.json"
+if not idx.is_file():
+    raise SystemExit(1)
+w = json.loads(idx.read_text())["weight_map"]
+shards = sorted(set(w.values()))
+if len(shards) < 15:
+    raise SystemExit(1)
+for sh in shards:
+    fp = snap / sh
+    try:
+        real = fp.resolve()
+    except Exception:
+        raise SystemExit(1)
+    if not real.is_file() or real.stat().st_size <= 0:
+        raise SystemExit(1)
+raise SystemExit(0)
+PY
+}
+
+echo "[r2be-hope12] waiting for hope12 FULL snapshot (15 shards) at $HOPE12_SNAP"
 for i in $(seq 1 1440); do
-  if [[ -f "$HOPE12_SNAP/model.safetensors.index.json" ]]; then
-    echo "[r2be-hope12] hope12 snapshot ready at iter=$i"
+  if hope12_shards_ready; then
+    echo "[r2be-hope12] hope12 full snapshot ready at iter=$i ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
     break
   fi
-  if [[ -f "$PREFETCH_DONE" ]] && [[ ! -f "$HOPE12_SNAP/model.safetensors.index.json" ]]; then
-    echo "[r2be-hope12] FATAL prefetch done but index missing at $HOPE12_SNAP" >&2
+  if [[ -f "$PREFETCH_DONE" ]] && ! hope12_shards_ready; then
+    echo "[r2be-hope12] FATAL prefetch done but shards incomplete at $HOPE12_SNAP" >&2
     exit 2
   fi
   if (( i % 12 == 0 )); then
+    n=$(ls -1 "$HOPE12_SNAP"/model-*.safetensors 2>/dev/null | wc -l | tr -d ' ')
     crumb=$(tail -n 2 /root/logs/r2_prefetch_hope12.log 2>/dev/null | tr '\r' '\n' | tail -1 || true)
-    echo "[r2be-hope12] wait-prefetch iter=$i crumb=${crumb:-none}"
+    echo "[r2be-hope12] wait-prefetch iter=$i shards=${n:-0}/15 crumb=${crumb:-none}"
   fi
   if (( i == 1440 )); then
-    echo "[r2be-hope12] TIMEOUT waiting hope12 snapshot" >&2
+    echo "[r2be-hope12] TIMEOUT waiting hope12 full snapshot" >&2
     exit 2
   fi
   sleep 10

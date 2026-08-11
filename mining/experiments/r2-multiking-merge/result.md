@@ -1,3 +1,13 @@
+## p2119 — crown disk full → hope12 full-shard gate + n80 relaunch (2026-08-11T22:14Z)
+
+- Contract wvk=3 · k_sigma=2.0 · king Tok af10 · B300×8 stock=0 (fleet blind-fire continues).
+- `/root` gocryptfs was **100%** (~1.3G free); hope12 prefetch stuck 5/15 shards missing; reload had launched on index-only.
+- Purged closed HF parents → **1.3T free** (kept GLM + Tok af10 + hope12). Patched reload to require all 15 shards (`hope12_shards_ready`).
+- Restored TK after accidental kill during cleanup; first n80 hit FALSE_PROBE (archived); relaunched hope12 chall → **200/200/200** → n80 `block_hash=2fe3c39d…` pid**239655**.
+- Artifacts: `artifacts/r2be_disk_purge_n80_p2119.json`, patched `launch_r2be_hope12_reload_sim.sh`.
+- Also: R4b `train.done` @22:01Z; R3 step≥182. Burn $180.25/h vs $833.
+- Next: R2be decision; R4b post_train n80; rent B300 if stock.
+
 ## p2118 — R2bd UNSERVABLE → R2be hope12 armed (2026-08-11T21:56Z)
 
 - Contract wvk=3 · k_sigma=2.0 · king Tok af10 · B300×8 stock=0 (fleet blind-fire continues).
