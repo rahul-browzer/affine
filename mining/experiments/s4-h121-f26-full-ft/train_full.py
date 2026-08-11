@@ -249,6 +249,8 @@ def main() -> None:
         raise SystemExit("thought mask produced empty supervised span on row0")
 
     targs = TrainingArguments(
+        # Checkpoints under /root (gocryptfs) hang on huge optimizer.pt
+        # (WCHAN=request_wait_answer; p2112). Final weights go to /tmp only.
         output_dir=str(args.out_dir / "checkpoints"),
         num_train_epochs=args.epochs,
         per_device_train_batch_size=args.batch,
@@ -257,6 +259,7 @@ def main() -> None:
         lr_scheduler_type="cosine",
         warmup_ratio=args.warmup_ratio,
         logging_steps=args.logging_steps,
+        save_strategy="no",
         save_steps=args.save_steps,
         save_total_limit=2,
         bf16=True,

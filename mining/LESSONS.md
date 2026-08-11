@@ -147,3 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Fleet structural GRPO through **R32** KL (`--kl-coef`, default 0); if rent waiter restarts mid-`lium up`, reconstruct `rented_*.json` or bootstrap never runs.
 - **R2ba** pure awesome-v10 WEAK: m=+0.00699 SE=0.00500 z=1.40 — fails live k=2 thr=0.010 and 1.5× submit bar; Stage-5 SKIP (sim still stamps k_sigma=3.0 — recompute with live 2.0).
 - HF snapshot "ready" ≠ complete: `model.safetensors.index.json` can appear before all 16 shards finish → vLLM "weights were not initialized" (visual/LM). Rematerialize chall links after all shards resolve+size-check, then relaunch (p2106 R2bb ckp333).
+- Full-FT: Trainer `save_strategy` must be **`no`** on gocryptfs `/root` — end-of-train `optimizer.pt` (~111G) hangs WCHAN=`request_wait_answer` (p2112); stage final weights only under `/tmp` then symlink.

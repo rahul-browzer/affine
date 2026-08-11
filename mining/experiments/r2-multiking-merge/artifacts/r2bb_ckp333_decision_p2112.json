@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-11T21:19:00Z",
+  "pass": 2112,
+  "hyp": "R2bb",
+  "parent": "ckp333",
+  "n": 80,
+  "margin": 0.013006152051304927,
+  "se": 0.005208649769244483,
+  "z_stamped_k3": 2.4970294850888917,
+  "k_sigma_sim_stamp": 3.0,
+  "k_sigma_live": 2.0,
+  "thr_live": 0.010417299538488967,
+  "z_live": 2.4970294850888917,
+  "headroom_vs_live_thr": 1.2485147425444458,
+  "submit_bar_1_5x": 0.01562594930773345,
+  "decision": "WEAK_CLEAR_LIVE_2SIGMA_BUT_BELOW_1_5X_SUBMIT",
+  "stage5": "SKIP",
+  "next": "R2bc",
+  "note": "sim stamped k_sigma=3.0 \u2192 challenger_wins=false; live k=2.0 clears thr but hr=1.25\u00d7 <1.5\u00d7"
+}

@@ -14,31 +14,30 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | challenge | chal-00495 (scoring) |
 | miner burn | **$180.25/h** · floor $833/h · **gap −$653/h** |
 | B300 stock | **0** free 8×B300/B200 · fleet **blind-fire** POLL=0 |
-| Lium bal | ~$120,675 · floor $10k OK |
+| Lium bal | ~$120,654 · floor $10k OK |
 | submissions | 0 |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2bb** n80 ~**60/80** |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥**129** + wedge |
-| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R4** train 26/26 → **writing shards** + post_train |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2bb DONE** WEAK (live); next **R2bc** |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥**133**/200 + wedge |
+| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R4** salvaged → finalize OK → **serve_three** |
 | host fleet-rent | pid**2471342** | — | blind-fire →25 @POLL=0 (R5…) |
-| host fleet-boot | pid**2463724** | — | auto-upload @5s; R4 done; next R5 |
-| host r3-wedge | pid**2176107** | — | GRPO wedge relaunch |
+| host fleet-boot | pid**2463724** | — | auto-upload @5s; next R5 |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099` · R3: `ssh root@204.9.206.245 -p 40051`
 SSH R4: `ssh root@86.38.182.50 -p 40307`
-R2bb: `tail -f` crown `/root/logs/r2bb_ckp333_reason_sim.log`
-R4: `tail -f` `/root/logs/h121_{train,post_train}.nohup`
+R4: `tail -f` `/root/logs/h121_{pipeline,post_train}.nohup` + vllm_*.log
+R2bb: `artifacts/r2bb_ckp333_decision_p2112.json` · arm R2bc next
 Fleet: `tail -f experiments/fleet-rent/logs/wait_{fleet_b300,bootstrap_fleet}.log`
 
 ## Blocked
-No free 8×B300/B200. p2111: skip `stock_ok` (blind-fire `lium up`); 90s burst 41 tries miss. Next rent = **R5**.
+No free 8×B300/B200. p2112: 90s R5 burst 53 miss. Next rent = **R5**.
 
 ## Next action
 **Rent:** snatch next B300 → `mine-r5-nonking-1` (blind-fire@0).
-**R4:** wait `train.done` → merge → n80 (post_train armed).
-**Crown:** R2bb n80 → decision; if WEAK/REFUTE arm **R2bc**.
-**R3:** train.done→n80 (step≥129/200).
+**R4:** wait serve_three healthy → n80 (watcher armed).
+**Crown:** arm **R2bc** (R2bb live-clear but hr1.25× <1.5× submit).
+**R3:** train.done→n80 (step≥133/200).

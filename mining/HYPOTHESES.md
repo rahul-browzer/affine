@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2ba WEAK** +0.007; **R2bb** ckp333 armed p2103 (chal-00501) |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bb WEAK** m=+0.013 z=2.50 (live k=2 clears; hr1.25×<1.5×) → **R2bc** |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** step≥93; wedge-watch; post_train armed |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open** · `mine-r3-grpo-2` · p2078 armed |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
@@ -48,10 +48,13 @@
 - R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75). Dir: `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge
-- **R2ay** +0.00930 WEAK. **R2az** m≈0 REFUTE. **R2ba** awesome-v10 **WEAK** m=+0.00699 z=1.40 (live k=2 thr=0.010; hr0.47×) — Stage-5 SKIP. Next: R2bb board parent. Dir: `experiments/r2-multiking-merge/`.
+- **R2ba** WEAK +0.007. **R2bb** ckp333 **WEAK**: m=+0.01301 SE=0.00521 z=2.50 — live k=2 thr=0.0104 clears; submit 1.5× thr=0.0156 fails (hr1.25×). Stage-5 SKIP → **R2bc**. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason (PRIORITY)
-- GRPO pid**28660** step≥100; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
+- GRPO pid**28660** step≥133/200; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
+
+### R4 — Full-FT
+- p2112: train 26/26 salvaged off gocryptfs hang → finalize OK_NON_IDENTICAL → serve_three live. n80 next. Dir: `experiments/s4-h121-f26-full-ft/`.
 
 ### R24 — Long-context / full-thought GRPO
 - Tok-init; max_len=**16384** max_new=**1024** (live thought budget); same lr/r/G as R3.
