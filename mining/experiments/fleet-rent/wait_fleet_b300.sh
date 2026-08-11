@@ -13,12 +13,13 @@ TTL=${TTL:-24h}
 CAP=${MINE_CAP:-25}
 # Burn floor ≈ $833/h ÷ ~$64/h ≈ 13 boxes; keep renting to CAP (floor≠ceiling).
 TARGET=${TARGET_MINES:-25}
-POLL_S=${POLL_S:-30}
-MAX_ITERS=${MAX_ITERS:-720}  # ~6h @30s
-PASS=${PASS:-2097}
+POLL_S=${POLL_S:-10}  # snatch B300×8 fast when stock flickers (was 30)
+MAX_ITERS=${MAX_ITERS:-2160}  # ~6h @10s
+PASS=${PASS:-2098}
 
 # Distinct experimental axes (one pod each). Skip names already live.
 # Format: name|axis_id|short_note
+# R24 (structural longctx) sits after R3b — ahead of cosmetic parent-swap GRPO.
 QUEUE=(
   "mine-r4-fullft-1|R4|full-FT Tok-init Reason winner_za"
   "mine-r5-nonking-1|R5|non-king Genesis/Qwen base + Reason FT"
@@ -26,6 +27,7 @@ QUEUE=(
   "mine-r7-datafilt-1|R7|high-Reason data filter curriculum FT"
   "mine-r8-reinforce-1|R8|REINFORCE on Reason (full-rank / alt base)"
   "mine-r3-grpo-2|R3b|GRPO LoRA alt-LR/rank family"
+  "mine-r24-longctx-1|R24|Tok GRPO max_len=16384 max_new=1024 (≠ R3 6144/512)"
   "mine-r9-teacher-zc-1|R9|teacher-z_C imitation / format prior"
   "mine-r4-fullft-2|R4b|full-FT lr/epoch family"
   "mine-r5-nonking-2|R5b|Talent/kevin non-king base FT"

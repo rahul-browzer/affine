@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $120,858.998 | 2026-08-11T20:17Z |
-| cumulative mining spend | ~$76,729 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T20:17Z |
-| **available for mining** | **~$110,859** (balance − $10,000 floor) | 2026-08-11T20:17Z |
+| Lium balance | $120,843.447 | 2026-08-11T20:21Z |
+| cumulative mining spend | ~$76,745 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T20:21Z |
+| **available for mining** | **~$110,843** (balance − $10,000 floor) | 2026-08-11T20:21Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T20:17Z |
+| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T20:21Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T20:21Z | 120843.447 | p2098 R24 longctx-GRPO uploader + fleet-boot @10s poll (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2097 |
 | 2026-08-11T20:17Z | 120858.998 | p2097 R23 diane-GRPO uploader + fleet-boot (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2096 |
 | 2026-08-11T20:14Z | 120874.58 | p2096 R22 golden-GRPO uploader + fleet-boot (no rent; B300×8=0); burn **$116.25/h**; Δ$0 vs p2095 |
 | 2026-08-11T20:10Z | 120874.58 | p2095 R21 pandora-GRPO uploader + fleet-boot (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2094 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T19:59Z | 120921.18 | p2091 R17 coder-RL uploader + fleet-boot (no rent; B300×8=0); burn **$116.25/h**; Δ$0 vs p2090 |
 | 2026-08-11T19:56Z | 120921.18 | p2090 R2az REFUTE + R2ba awesome-v10 armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2089 |
 | 2026-08-11T19:52Z | 120936.63 | p2089 R16 golden-RL uploader + fleet-boot (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2088 |
-| 2026-08-11T19:49Z | 120952.17 | p2088 R15 pandora-RL uploader + fleet-boot (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2087 |

@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-11T20:21:41Z",
+  "pass": 2098,
+  "axis": "R24",
+  "pod": "mine-r24-longctx-1",
+  "hypo": "Tok-init Reason-GRPO longctx max_len=16384 max_new=1024 (\u2260 R3 6144/512, \u2260 R3b lr/rank, \u2260 parent-GRPO)",
+  "base": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "queue_priority": "after R3b, before R9/parent-swap axes",
+  "poll_s": 10,
+  "target_mines": 25,
+  "uploader": "experiments/r24-longctx-grpo/upload_and_launch.sh",
+  "note": "armed uploader+fleet-boot; B300\u00d78 still 0 \u2014 rent polls @10s; structural axis not parent-swap",
+  "rent_pid": "2376417",
+  "boot_pid": "2376418"
+}
