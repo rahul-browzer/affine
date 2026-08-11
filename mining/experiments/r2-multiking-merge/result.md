@@ -128,6 +128,14 @@
 - Artifacts: `artifacts/r2r_chal458_harvest_p1980.json`, `watch_r2r_stage5_push.sh`.
 - Next: harvest R2r n80; hr≥1.5× → confirm HF then Stage-5 submit; else purge whoami blend + advance 462+.
 
+## p2006 — re-armed R2ac Talent×google (lost on reset)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,426.
+- R2ak pure-google n80 still advancing (~15/80); engines 200×3. Board chal-00470 still `load_challenger`.
+- Found p1976 R2ac waiters gone post-reset (no `/root/logs/r2ac*`); parents + R2ab eager + google prefetch still present.
+- Re-armed **R2ac** Talent0.25×google0.75: premerge pid **25746** / merge_alpha **25770** / merge_reload **25847**; DONE gated on chal-00470 hr>0.
+- Artifact: `artifacts/r2ac_talent_google_rearmed_p2006.json`.
+- Next: poll R2ak decision; confirm `r2ac_eager_weights.done`; stamp 470 when board lands.
+
 ## p1976 — R2ab eager DONE; armed R2ac Talent×google
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,853.
 - Confirmed R2ab eager **DONE** Δ=**0.6258** · identical_frac=0.45 · wait chal-00469 Reason+.

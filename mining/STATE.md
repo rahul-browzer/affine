@@ -19,25 +19,28 @@ Rewritten every pass. Do not append.
 | board | **chal-00470 google** `load_challenger` · queue **471 pig** · 469 stamped hr0.459× |
 | warm | **READY** engines teacher/king/chall **200/200/200** |
 | R2aj | **SKIP_BOARD_FIRST** hr0.459× < 1.5× |
-| R2ak | **n80 RUNNING** pid24452 · progress **~12/80 chall · 9/80 king** |
+| R2ak | **n80 RUNNING** pid24452 · progress **~15/80** |
 | R2ab | eager+premerge **DONE** Δ=0.626 · merge_reload waits R2ak |
+| R2ac | **RE-ARMED** Talent×google eager merge pid25746/25770 · DONE gates 470 hr>0 |
 | R2al | pure pig wait R2ak |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | TKC · R2ak google n80 · R2al wait · R2ab wait-R2ak · watch470/471 |
+| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | TKC · R2ak n80 · R2ac CPU merge · R2al/R2ab wait · watch470/471 |
 
-- R2ak: n80 vs Tok in flight; Stage-5 only if hr≥1.5× → `r2ak_google_decision.json`
-- R2ab: Talent×sky reload after R2ak(+R2al) terminal; already Reason+ gated
+- R2ak: n80 vs Tok; Stage-5 only if hr≥1.5× → `r2ak_google_decision.json`
+- R2ac: CPU α Talent0.25×google0.75 writing `/root/r2_out/alpha_talent_google_skew`; merge_reload waits siblings + Reason+
+- R2ab: Talent×sky reload after R2ak(+R2al) terminal
 - Host hist bridge pid **1264563** (pending 470–471)
 
 ## Blocked
 
 - Submit only if sim hr ≥ **1.5×**.
+- R2ac DONE only after chal-00470 Reason+ (else SKIP+purge).
 - R2ab n80 only after pure-google/pig terminals (holding gate).
 
 ## Next action
 
-**Poll** R2ak → `r2ak_google_decision.json`. If hr≥1.5× → Stage-5 push. Else let R2al pig then R2ab Talent×sky n80. Stamp 470/471 via host bridge when verdicts land.
+**Poll** R2ak → `r2ak_google_decision.json`. If hr≥1.5× → Stage-5. Else R2al pig then R2ab. Confirm R2ac `r2ac_eager_weights.done`. Stamp 470/471 when verdicts land.

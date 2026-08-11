@@ -6,7 +6,7 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | TKC · R2ak google n80 ~12/80 · R2ab wait · R2al wait |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | TKC · R2ak ~15/80 · R2ac CPU merge · R2ab/R2al wait |
 
 SSH: `ssh root@95.133.253.90 -p 40099`
 
@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T09:30Z | p2006: re-armed R2ac Talent×google (lost on reset); R2ak ~15/80; burn$52.25/h · bal~$122426 |
 | 2026-08-11T09:28Z | p2005: R2ak n80 RUNNING ~12/80 (engines 200×3); board 470 load_challenger; burn$52.25/h · bal~$122426 |
 | 2026-08-11T09:19Z | p2004: stamped 469 hr0.459×; R2aj SKIP; R2ab Δ0.626 DONE; R2ak loading google; burn$52.25/h · bal~$122446 |
-| 2026-08-11T09:15Z | p2003: Talent DONE; armed R2ab eager+merge; stubbed closed pre-reset lanes; board 469 chall74/80; burn$52.25/h · bal~$122446 |

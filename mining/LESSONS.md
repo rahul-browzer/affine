@@ -145,3 +145,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1993: API-pidfile kill can leave **orphan EngCore/Workers** → OOM next chall; kill those PIDs.
 - p1994: SSH refuse + `lium reboot` → **REBOOT_FAILED**/port None while billing — `lium rm` that `mine-*` and re-rent (B300 sold out → 8×B200 OK).
 - After crown pod replace: stub closed prior-lane `*_decision.json` + `*_reload.done` (CLOSED_PRE_POD_RESET) before arming R2ab+ waiters — else merge_reload step-2 hangs forever on missing R2i…R2z/q/v terminals; also stub `r2aa_eager_weights.done` if R2aa not re-armed.
+- Pod replace also drops nohup CPU premerges (R2ac p1976 vanished with no logs) — after warm READY, re-check `r2ac_premerge.log` / pid and re-arm if absent while R2ak runs.
