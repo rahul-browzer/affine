@@ -68,3 +68,29 @@
 [fleet-rent] 2026-08-11T20:30:44Z start target=25 cap=25 poll=10s max_iters=2160 pass=2101
 [fleet-rent] 2026-08-11T20:30:45Z live_mines=mine-r3-grpo-1 mine-crown-1 |count=2
 [fleet-rent] 2026-08-11T20:30:49Z iter=1 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120812.08944579925 USD
+[fleet-rent] 2026-08-11T20:33:00Z iter=11 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120812.08944579925 USD
+[fleet-rent] 2026-08-11T20:35:12Z start target=25 cap=25 poll=10s max_iters=2160 pass=2102
+[fleet-rent] 2026-08-11T20:35:13Z live_mines=mine-r3-grpo-1 mine-crown-1 |count=2
+[fleet-rent] 2026-08-11T20:35:17Z iter=1 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120796.95072697916 USD
+[fleet-rent] 2026-08-11T20:37:28Z iter=11 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120796.95072697916 USD
+[fleet-rent] 2026-08-11T20:39:40Z iter=21 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120796.95072697916 USD
+[fleet-rent] 2026-08-11T20:39:42Z start target=25 cap=25 poll=10s max_iters=2160 pass=2103
+[fleet-rent] 2026-08-11T20:39:43Z live_mines=mine-r3-grpo-1 mine-crown-1 |count=2
+[fleet-rent] 2026-08-11T20:39:47Z iter=1 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120796.95072697916 USD
+[fleet-rent] 2026-08-11T20:41:59Z iter=11 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120781.34008495533 USD
+[fleet-rent] 2026-08-11T20:42:02Z start target=25 cap=25 poll=10s max_iters=2160 pass=2104
+[fleet-rent] 2026-08-11T20:42:04Z live_mines=mine-r3-grpo-1 mine-crown-1 |count=2
+[fleet-rent] 2026-08-11T20:42:07Z iter=1 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120781.34008495533 USD
+[fleet-rent] 2026-08-11T20:44:18Z iter=11 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120781.34008495533 USD
+[fleet-rent] 2026-08-11T20:44:56Z start target=25 cap=25 poll=10s max_iters=2160 pass=2105
+[fleet-rent] 2026-08-11T20:44:57Z live_mines=mine-r3-grpo-1 mine-crown-1 |count=2
+[fleet-rent] 2026-08-11T20:45:05Z iter=1 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120781.34008495533 USD
+[fleet-rent] 2026-08-11T20:47:21Z iter=11 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120765.66487767607 USD
+[fleet-rent] 2026-08-11T20:49:33Z iter=21 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120765.66487767607 USD
+[fleet-rent] 2026-08-11T20:51:47Z iter=31 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120750.25000710378 USD
+[fleet-rent] 2026-08-11T20:53:35Z start target=25 cap=25 poll=10s max_iters=2160 pass=2107
+[fleet-rent] 2026-08-11T20:53:37Z live_mines=mine-r3-grpo-1 mine-crown-1 |count=2
+[fleet-rent] 2026-08-11T20:53:40Z iter=1 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120750.25000710378 USD
+[fleet-rent] 2026-08-11T20:53:47Z start target=25 cap=25 poll=10s max_iters=2160 pass=2107
+[fleet-rent] 2026-08-11T20:53:48Z live_mines=mine-r3-grpo-1 mine-crown-1 |count=2
+[fleet-rent] 2026-08-11T20:53:51Z iter=1 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120750.25000710378 USD

@@ -1,0 +1,25 @@
+{
+  "utc": "2026-08-11T20:54:10Z",
+  "pass": 2107,
+  "axis": "R31",
+  "pod": "mine-r31-nodrop-1",
+  "action": "queue+boot_case+uploader armed; --lora-dropout added to train_reason_grpo.py; rent/boot refreshed pass 2107 @10s",
+  "knobs": {
+    "lora_dropout": 0.0,
+    "vs_r3": 0.05,
+    "lr": "5e-6",
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "group_size": 4,
+    "temperature": 0.8,
+    "max_len": 6144,
+    "max_new": 512,
+    "max_steps": 200
+  },
+  "uploader": "experiments/r31-nodrop-grpo/upload_and_launch.sh",
+  "rent_pid": "2436070",
+  "boot_pid": "2436073",
+  "b300_stock": 0,
+  "burn_h": 116.25,
+  "floor_h": 833
+}

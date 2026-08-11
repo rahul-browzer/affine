@@ -15,7 +15,8 @@
 | 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · `mine-r27-bigg-1` · p2101 armed |
 | 28 | R28 | Tok GRPO lr=2e-5 beats R3 5e-6 (isolates LR vs R3b) | **open** · `mine-r28-hilr-1` · p2102 armed |
 | 29 | R29 | Tok GRPO lora_r=64 beats R3 r=16 (isolates rank vs R3b) | **open** · `mine-r29-hirank-1` · p2104 armed |
-| 30 | R30 | Tok GRPO lora_alpha=128 r=16 beats R3 α=32 (isolates α vs R29) | **open** · `mine-r30-hialpha-1` · **p2105** armed |
+| 30 | R30 | Tok GRPO lora_alpha=128 r=16 beats R3 α=32 (isolates α vs R29) | **open** · `mine-r30-hialpha-1` · p2105 armed |
+| 31 | R31 | Tok GRPO lora_dropout=0.0 beats R3 drop=0.05 (isolates dropout) | **open** · `mine-r31-nodrop-1` · **p2107** armed |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · `mine-r4-fullft-1` · p2069 armed |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **open** · `mine-r4-fullft-2` · p2080 armed |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · `mine-r5-nonking-1` · p2074 armed |
@@ -83,9 +84,14 @@
 - Isolates α scale — not confounded with R29 rank. Pod `mine-r30-hialpha-1`; queue after R29.
 - Dir: `experiments/r30-hialpha-grpo/`.
 
-### Fleet axes waiting on 8×B300 (R3b–R30)
+### R31 — Zero-dropout GRPO
+- Tok-init; **lora_dropout=0.0** (R3 default **0.05**); same lr/r/α/G/temp/len as R3.
+- Isolates adapter dropout. Pod `mine-r31-nodrop-1`; queue after R30.
+- Dir: `experiments/r31-nodrop-grpo/`. Trainer: `--lora-dropout` on `train_reason_grpo.py`.
+
+### Fleet axes waiting on 8×B300 (R3b–R31)
 - One pod/axis; uploaders+boot cases armed. Decision: n80 vs Tok; submit iff hr ≥ 1.5×(2·SE).
-- **R3b** alt GRPO knobs · **R24** longctx · **R25** hitemp · **R26** lotemp · **R27** BigG · **R28** HiLR · **R29** HiRank · **R30** HiAlpha · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14–R17** parent REINFORCE · **R18–R23** parent GRPO.
+- **R3b** alt GRPO knobs · **R24** longctx · **R25** hitemp · **R26** lotemp · **R27** BigG · **R28** HiLR · **R29** HiRank · **R30** HiAlpha · **R31** NoDrop · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14–R17** parent REINFORCE · **R18–R23** parent GRPO.
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
