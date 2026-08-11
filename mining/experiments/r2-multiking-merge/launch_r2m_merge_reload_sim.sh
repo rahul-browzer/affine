@@ -39,6 +39,9 @@ R2K_PREMERGE_SKIP=${R2K_PREMERGE_SKIP:-/root/logs/r2k_premerge.skip}
 R2L_DEC=${R2L_DEC:-/root/affine_data/r2l_alpha_decision.json}
 R2L_DONE=${R2L_DONE:-/root/logs/r2l_merge_reload.done}
 R2L_PREMERGE_SKIP=${R2L_PREMERGE_SKIP:-/root/logs/r2l_premerge.skip}
+R2N_DEC=${R2N_DEC:-/root/affine_data/r2n_alpha_decision.json}
+R2N_DONE=${R2N_DONE:-/root/logs/r2n_merge_reload.done}
+R2N_PREMERGE_SKIP=${R2N_PREMERGE_SKIP:-/root/logs/r2n_premerge.skip}
 HEADROOM_BAR=${HEADROOM_BAR:-1.5}
 MERGED=${MERGED:-/root/r2_out/alpha_talent_cp200_skew}
 LINK=${LINK:-/tmp/r2m_alpha_merged}
@@ -88,7 +91,7 @@ done
 
 # 2) Wait R2g + R2i + R2j + R2k + R2l lanes free (or prior clears 1.5×). Pidfile kill -0 only.
 for i in $(seq 1 2880); do
-  for f in "$R2D_DEC" "$R2E_DEC" "$R2H_DEC" "$R2G_DEC" "$R2I_DEC" "$R2J_DEC" "$R2K_DEC" "$R2L_DEC"; do
+  for f in "$R2D_DEC" "$R2E_DEC" "$R2H_DEC" "$R2G_DEC" "$R2I_DEC" "$R2J_DEC" "$R2K_DEC" "$R2L_DEC" "$R2N_DEC"; do
     if [[ -f "$f" ]] && headroom_ok "$f"; then
       echo "SKIP_R2M_PRIOR_CLEARS file=$f $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
       exit 0
@@ -149,15 +152,27 @@ for i in $(seq 1 2880); do
     r2l_busy=1
   fi
 
-  if (( r2g_busy == 0 && r2i_busy == 0 && r2j_busy == 0 && r2k_busy == 0 && r2l_busy == 0 )); then
-    echo "[r2m-merge] R2g/R2i/R2j/R2k/R2l below bar or skipped; lane free at iter=$i"
+  # Yield to R2n when it already owns / is about to own chall (p1958: R2n runs while 456 waits).
+  r2n_busy=0
+  if [[ -f "$R2N_DONE" ]] || [[ -f "$R2N_PREMERGE_SKIP" ]] || [[ -f "$R2N_DEC" ]]; then
+    r2n_busy=0
+  elif [[ -f /root/logs/r2n_premerge.done ]] && ! [[ -f "$R2N_DONE" ]]; then
+    r2n_busy=1
+  elif pid_alive /root/logs/r2n_merge_reload.pid && ! [[ -f "$R2N_DONE" ]]; then
+    r2n_busy=1
+  else
+    r2n_busy=0
+  fi
+
+  if (( r2g_busy == 0 && r2i_busy == 0 && r2j_busy == 0 && r2k_busy == 0 && r2l_busy == 0 && r2n_busy == 0 )); then
+    echo "[r2m-merge] R2g/R2i/R2j/R2k/R2l/R2n below bar or skipped; lane free at iter=$i"
     break
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2m-merge] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2g_busy=$r2g_busy r2i_busy=$r2i_busy r2j_busy=$r2j_busy r2k_busy=$r2k_busy r2l_busy=$r2l_busy r2g_dec=$([[ -f $R2G_DEC ]] && echo y || echo n) r2l_done=$([[ -f $R2L_DONE ]] && echo y || echo n)"
+    echo "[r2m-merge] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2g_busy=$r2g_busy r2i_busy=$r2i_busy r2j_busy=$r2j_busy r2k_busy=$r2k_busy r2l_busy=$r2l_busy r2n_busy=$r2n_busy r2g_dec=$([[ -f $R2G_DEC ]] && echo y || echo n) r2l_done=$([[ -f $R2L_DONE ]] && echo y || echo n) r2n_pre=$([[ -f /root/logs/r2n_premerge.done ]] && echo y || echo n)"
   fi
   if (( i == 2880 )); then
-    echo "[r2m-merge] TIMEOUT waiting R2g/R2i/R2j/R2k/R2l lane" >&2
+    echo "[r2m-merge] TIMEOUT waiting R2g/R2i/R2j/R2k/R2l/R2n lane" >&2
     exit 2
   fi
   sleep 10

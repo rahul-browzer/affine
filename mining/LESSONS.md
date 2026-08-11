@@ -130,3 +130,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1954: while R2l gathers, arm **R2x** Talent×awesome-v8 Reason+-gated premerge+reload as soon as v8 prefetch DONE — same pattern as R2l/R2m; GPU serializes behind R2l…R2r/R2w; next Talent×tpc9 (R2y) after tpc9 cache.
 - p1956: board **chal-00451 asdf hr 0.40×** (z=1.19) → **SKIP pure-asdf local n80** (write `r2w_asdf_decision` + `reload.done`); frees post-R2l GPU for Talent×asdf (R2n) instead of a known-sub-1.5× gather.
 - p1957: Talent×asdf skew (0.25/0.75) CPU premerge **DONE** max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~9.6 min — real blend (≫ Tok×awesome Δ); purge Reason− BKN6 HF + REFUTED R2g blend before next ~70 GiB lane (~+66 GiB free).
+- p1958: **R2l REFUTE** Talent×sft3 hr **−0.89×** (margin −0.0307, z=−2.67, n=79) — board/local parent ~0.4× does not crown via Talent0.25 skew; Stage-5 SKIP; purge blend after chall swap.
+- p1958: R2n must **not** treat R2m `merge_reload.pid` as busy while R2m only waits chal-00456 Reason — gate on `r2m_premerge.done` only; R2m must yield to R2n when `r2n_premerge.done` exists.

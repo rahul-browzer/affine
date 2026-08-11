@@ -1,3 +1,12 @@
+## p1958 — R2l REFUTE (−0.89×); unblock R2n n80
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,110.
+- Harvested R2l: margin **−0.03068** · se=0.01149 · z=**−2.67** · 3·SE=0.03447 · hr=**−0.89×** · n=79 · Stage-5 `SKIP_BELOW_BAR`.
+- Bug: R2n waited on R2m Reason-waiter PID (456 still queued behind 452/455) → idle chall on dead R2l. Fix: R2n busy-gate = `r2m_premerge.done` only; R2m yields to R2n premerge.done.
+- Reloaded chall → Talent×asdf; n80 started block_hash=`7865a70b…` (~2/80 @04:16Z, chall **220421**, sim **224186**).
+- Purged `/root/r2_out/alpha_talent_sft3_skew` after removing stale `/tmp/r2l_alpha_merged`.
+- Artifacts: `artifacts/r2l_alpha_{decision,reason_sim}.json`, `artifacts/r2l_refute_harvest_p1958.json`.
+- Next: harvest R2n; hr≥1.5× → Stage-5; else advance queue Reason+ lanes.
+
 ## p1949 — Stage-5 HF pre-purge (+140 GiB) while R2v gathers
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,266.
 - R2v n80 healthy (~41/80 @03:05Z, sim **194935**, engines 200/200/200). Board 450 scoring ~61/80.

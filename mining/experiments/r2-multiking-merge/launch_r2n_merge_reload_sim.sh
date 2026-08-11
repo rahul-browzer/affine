@@ -151,14 +151,17 @@ for i in $(seq 1 2880); do
     r2l_busy=1
   fi
 
+  # R2m only blocks when premerge.done exists (ready to claim GPU) and not terminal.
+  # merge_reload.pid alone is NOT enough — that waiter idles on chal-00456 Reason for hours
+  # (same p1933 R2q lesson; p1958: pid-alive + no premerge.done still starved R2n).
+  R2M_PREMERGE_DONE=${R2M_PREMERGE_DONE:-/root/logs/r2m_premerge.done}
   r2m_busy=0
   if [[ -f "$R2M_DONE" ]] || [[ -f "$R2M_PREMERGE_SKIP" ]] || [[ -f "$R2M_DEC" ]]; then
     r2m_busy=0
-  elif pid_alive /root/logs/r2m_merge_reload.pid || pid_alive /root/logs/r2m_premerge.pid; then
+  elif [[ -f "$R2M_PREMERGE_DONE" ]]; then
     r2m_busy=1
   else
-    # R2m waiters still expected (456 not stamped); do not race chall.
-    r2m_busy=1
+    r2m_busy=0
   fi
 
   if (( r2g_busy == 0 && r2i_busy == 0 && r2j_busy == 0 && r2k_busy == 0 && r2l_busy == 0 && r2m_busy == 0 )); then
@@ -166,7 +169,7 @@ for i in $(seq 1 2880); do
     break
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2n-merge] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2g_busy=$r2g_busy r2i_busy=$r2i_busy r2j_busy=$r2j_busy r2k_busy=$r2k_busy r2l_busy=$r2l_busy r2m_busy=$r2m_busy r2g_dec=$([[ -f $R2G_DEC ]] && echo y || echo n) r2m_done=$([[ -f $R2M_DONE ]] && echo y || echo n)"
+    echo "[r2n-merge] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2g_busy=$r2g_busy r2i_busy=$r2i_busy r2j_busy=$r2j_busy r2k_busy=$r2k_busy r2l_busy=$r2l_busy r2m_busy=$r2m_busy r2g_dec=$([[ -f $R2G_DEC ]] && echo y || echo n) r2m_pre=$([[ -f $R2M_PREMERGE_DONE ]] && echo y || echo n) r2m_done=$([[ -f $R2M_DONE ]] && echo y || echo n)"
   fi
   if (( i == 2880 )); then
     echo "[r2n-merge] TIMEOUT waiting R2g/R2i/R2j/R2k/R2l/R2m lane" >&2
