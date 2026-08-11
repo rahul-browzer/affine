@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-11T23:07:49Z",
+  "pass": 2128,
+  "killed_orphan": 51496,
+  "kept_canon": 51672,
+  "gpu_mem_before_mib": [
+    76340,
+    82176
+  ],
+  "gpu_mem_after_mib": [
+    37734,
+    41230
+  ],
+  "reason": "two train_reason_grpo.py both CUDA 6,7 out=/root/r3/train; keep train.pid canon"
+}

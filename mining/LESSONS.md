@@ -148,3 +148,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R6 natural-short jsonl: fit-filter @8192 keeps **33/202**; use **max_len=16384** (121/202) before train (p2126).
 - `start_r3b.sh` peft/torch import probe can hang WCHAN=`request_wait_answer` on gocryptfs — skip probe; launch `train_reason_grpo.py` directly (p2127).
 - After R3 REFUTE, retarget same warm TKC pod to **R3b** (GPUs6–7) rather than idle-wait for a new B300 rent (p2127).
+- R3b double-launch: two `train_reason_grpo.py` on CUDA 6,7 same out-dir — kill orphan not in `train.pid`; GPU mem halved 76→37 / 82→41 GiB (p2128).
