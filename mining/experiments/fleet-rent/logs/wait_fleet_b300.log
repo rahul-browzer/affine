@@ -94,3 +94,24 @@
 [fleet-rent] 2026-08-11T20:53:47Z start target=25 cap=25 poll=10s max_iters=2160 pass=2107
 [fleet-rent] 2026-08-11T20:53:48Z live_mines=mine-r3-grpo-1 mine-crown-1 |count=2
 [fleet-rent] 2026-08-11T20:53:51Z iter=1 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120750.25000710378 USD
+[fleet-rent] 2026-08-11T20:56:02Z iter=11 no 8×B300/B200; mine=2/25 (cap 25) next=mine-r4-fullft-1 bal=Current balance: 120734.78944220448 USD
+[fleet-rent] 2026-08-11T20:57:46Z attempting lium up gpu=B300 name=mine-r4-fullft-1 ttl=24h
+Est. deploy time: ~1m 0s (image: ~3.5 GB, download: 371 Mbps)
+[fleet-rent] 2026-08-11T20:58:08Z start target=25 cap=25 poll=10s max_iters=2160 pass=2108
+[fleet-rent] 2026-08-11T20:58:09Z live_mines=mine-r3-grpo-1 mine-r4-fullft-1 mine-crown-1 |count=3
+Pod noble-orbit-9d (name: mine-r4-fullft-1, id: 
+70f95aab-68aa-4389-b845-337f938b4c9f) ready
+[fleet-rent] 2026-08-11T20:58:13Z iter=1 no 8×B300/B200; mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120734.78944220448 USD
+[fleet-rent] 2026-08-11T21:00:26Z iter=11 no 8×B300/B200; mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120715.75991298069 USD
+[fleet-rent] 2026-08-11T21:02:39Z iter=21 no 8×B300/B200; mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120715.75991298069 USD
+[fleet-rent] 2026-08-11T21:04:28Z start target=25 cap=25 poll=3s max_iters=2160 pass=2109
+[fleet-rent] 2026-08-11T21:04:29Z live_mines=mine-r3-grpo-1 mine-r4-fullft-1 mine-crown-1 |count=3
+[fleet-rent] 2026-08-11T21:04:32Z iter=1 no 8×B300/B200; mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120715.75991298069 USD
+[fleet-rent] 2026-08-11T21:05:38Z iter=11 no 8×B300/B200; mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120695.78806000199 USD
+[fleet-rent] 2026-08-11T21:06:39Z iter=21 no 8×B300/B200; mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120695.78806000199 USD
+[fleet-rent] 2026-08-11T21:07:28Z start target=25 cap=25 poll=1s max_iters=2160 pass=2110
+[fleet-rent] 2026-08-11T21:07:30Z live_mines=mine-r3-grpo-1 mine-r4-fullft-1 mine-crown-1 |count=3
+[fleet-rent] 2026-08-11T21:07:33Z iter=1 no 8×B300/B200; mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120695.78806000199 USD
+[fleet-rent] 2026-08-11T21:08:15Z iter=11 no 8×B300/B200; mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120695.78806000199 USD
+[fleet-rent] 2026-08-11T21:08:56Z iter=21 no 8×B300/B200; mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120695.78806000199 USD
+[fleet-rent] 2026-08-11T21:09:36Z iter=31 no 8×B300/B200; mine=3/25 (cap 25) next=mine-r5-nonking-1 bal=Current balance: 120695.78806000199 USD

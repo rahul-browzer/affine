@@ -81,3 +81,45 @@
 [fleet-boot] 2026-08-11T20:52:27Z iter=46 rented_stamps=0 bootstrapped=0
 [fleet-boot] 2026-08-11T20:53:47Z start poll=10s max_iters=1800 pass=2107 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
 [fleet-boot] 2026-08-11T20:53:47Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T20:56:17Z iter=16 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T20:58:08Z start poll=10s max_iters=1800 pass=2108 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T20:58:08Z iter=1 rented_stamps=0 bootstrapped=0
+[fleet-boot] 2026-08-11T20:59:08Z new stamp rented_mine-r4-fullft-1.json name=mine-r4-fullft-1 axis=R4 — resolve SSH
+[fleet-boot] 2026-08-11T20:59:09Z bootstrap R4 upload_and_launch name=mine-r4-fullft-1 host=86.38.182.50 port=40307
+-rw-rw-r-- 1 const const 405K Aug 11 20:59 /tmp/mine-r4-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-r4-fullft
+R4_DEADLINES soft=2026-08-12T19:59:17Z dead=2026-08-12T20:29:17Z
+STACK_UPLOAD_OK
+PIPELINE_PID=1374
+[bootstrap-h121] 2026-08-11T20:59:29Z start host=c4e57ca0deba
+GPU 0: NVIDIA B300 SXM6 AC (UUID: GPU-ee552503-17fd-c120-72e7-a7216d4b90a9)
+GPU 1: NVIDIA B300 SXM6 AC (UUID: GPU-3649f200-2a1f-18c7-7c9c-bc4118579416)
+GPU 2: NVIDIA B300 SXM6 AC (UUID: GPU-2eb6abbc-2646-0c13-1be7-a2b970df35d1)
+GPU 3: NVIDIA B300 SXM6 AC (UUID: GPU-54b1cc69-3e2d-42fc-67c3-126d89ee721e)
+GPU 4: NVIDIA B300 SXM6 AC (UUID: GPU-e0fb6ee4-dd24-68d0-0a5a-2f2a921de77c)
+GPU 5: NVIDIA B300 SXM6 AC (UUID: GPU-5efe6e08-2183-f088-898d-43bc9dea4089)
+GPU 6: NVIDIA B300 SXM6 AC (UUID: GPU-3fd51aff-7b46-2580-e050-7d959c07fa3c)
+GPU 7: NVIDIA B300 SXM6 AC (UUID: GPU-8301f3ed-c104-5559-9557-0462c436bdb8)
+[bootstrap-h121] GPU_COUNT=8
+downloading uv 0.12.3 x86_64-unknown-linux-gnu
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: venv
+Activate with: source venv/bin/activate
+    PID     ELAPSED CMD
+   1374 441077227-18:26:40 bash /root/mining_src/s4-h121-f26-full-ft/bootstrap_h121.sh
+8
+UPLOAD_AND_LAUNCH_OK pod=mine-r4-fullft-1 2026-08-11T20:59:34Z
+[fleet-boot] 2026-08-11T20:59:34Z BOOTSTRAPPED mine-r4-fullft-1 → /home/const/subnet120/mining/experiments/fleet-rent/artifacts/bootstrapped/rented_mine-r4-fullft-1.json.bootstrapped
+[fleet-boot] 2026-08-11T21:01:04Z iter=16 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-11T21:03:34Z iter=31 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-11T21:04:28Z start poll=10s max_iters=1800 pass=2109 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T21:04:28Z iter=1 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-11T21:06:58Z iter=16 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-11T21:07:30Z start poll=5s max_iters=1800 pass=2110 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-11T21:07:30Z iter=1 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-11T21:08:45Z iter=16 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-11T21:10:01Z iter=31 rented_stamps=1 bootstrapped=1
