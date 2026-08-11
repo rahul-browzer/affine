@@ -93,3 +93,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Before R2g/R2i/BKN merge waves, purge **refuted/skipped** `/root/r2_out/alpha_*` (+ old unconst h64 cache) — p1913 freed ~398 GiB (334→729 GiB). Never `rm` the directory behind the live chall symlink (`readlink /tmp/r2*_merged`) until after reload; GPU-resident vLLM can stay healthy briefly.
 - Queue after live 432: 441 thomp (cached) → **431 BKN six** → 450 sft3 → 451 asdf → 452 zeus; all index-probe weights_ok for unconst — prefetch **one** next uncached parent while crown CPU merges (p1914 BKN six).
 - p1916: BKN six prefetch DONE `@a12fc171…` (~3.7 min); next uncached queue parent is **chal-00450** `syntaxsorcerer1/…-sft3@381dbc82…` (weights_ok, 2×safetensors) — arm while R2g n80 gathers.
+- p1919: queue grew **chal-00455** `fortunateGambler/…-sth@8d81e782…` (weights_ok, 16×safetensors ~70 GiB) — arm after zeus so one-at-a-time HF cache stays under disk headroom.
