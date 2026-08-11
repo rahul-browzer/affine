@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $123,612.64 | 2026-08-11T00:37Z |
-| cumulative mining spend | ~$73,984 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T00:37Z |
-| **available for mining** | **~$113,613** (balance − $10,000 floor) | 2026-08-11T00:37Z |
+| Lium balance | $123,590.39 | 2026-08-11T00:42Z |
+| cumulative mining spend | ~$74,006 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T00:42Z |
+| **available for mining** | **~$113,590** (balance − $10,000 floor) | 2026-08-11T00:42Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T00:37Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T00:42Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T00:42Z | 123590.39 | p1921 sth DONE; cp200 prefetch armed (no new rent); burn$64/h; Δ−$22 vs p1920 (shared ok) |
 | 2026-08-11T00:37Z | 123612.64 | p1920 R2j Talent×BKN7 armed (no new rent); burn$64/h; Δ−$11 vs p1919 (shared ok) |
 | 2026-08-11T00:30Z | 123623.97 | p1919 sth prefetch armed after zeus (no new rent); burn$64/h; bal flat vs p1918 |
 | 2026-08-11T00:28Z | 123623.97 | p1918 zeus prefetch armed after asdf (no new rent); burn$64/h; Δ−$11 vs p1917 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T00:18Z | 123646.31 | p1914 BKN-six prefetch armed (no new rent); burn$64/h; bal flat vs p1913 |
 | 2026-08-11T00:16Z | 123646.31 | p1913 disk cleanup dead blends (no new rent); burn$64/h; Δ−$11 vs p1912 (shared ok) |
 | 2026-08-11T00:13Z | 123657.45 | p1912 chal-00440 Reason harvest + R2g merge ungated (no new rent); burn$64/h; bal flat vs p1911 |
-| 2026-08-11T00:10Z | 123657.45 | p1911 R2h harvest REFUTE + BKN watch armed (no new rent); burn$64/h; Δ−$34 vs p1910 (shared ok) |
