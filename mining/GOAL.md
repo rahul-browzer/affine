@@ -1,47 +1,49 @@
-# GOAL — make as much money as possible mining Affine (Bittensor SN120)
+# GOAL — win Affine (Bittensor SN120)
 
-Alpha emissions on SN120 go to the rolling set of the most recent distinct
-kings, split equally, and only to **registered hotkeys**. So the objective
-reduces to: get our checkpoints crowned, again and again, and keep our hotkeys
-registered. Everything else is instrumental.
+**Win the subnet.** Crown checkpoints under the live Reason contract, keep
+hotkeys registered in the reign chain, and stay king. Alpha / dollars are a
+side effect of winning — they are **not** the objective and must not constrain
+how hard you push (beyond the hard floor that protects the validator).
 
-## Operator directive 2026-08-10 — Reason v3, go for crown
+## Operator directive 2026-08-11 — win the subnet, ≥$20k/day B300 fleet
 
-**The scoring rule forked today.** `weight_version_key = 3`. The old S\* v2
-contract (mix + five gates + δ floor) is dead. All prior mining conclusions
-about clip-L1, r-bands, baseline bands, submit-gate 0.04, king-watch, and
-"don't raise Λ2" are **legacy**. They live under
-`archive/legacy-sstar-v2/` for ops archaeology only — **do not load them into
-strategy**.
+**Objective = win.** Not "make money," not "idle cheaply," not "one careful
+pod." The board is adversarial; breadth across experimental axes is how you
+find a crown. Serial board-copy screens on one box are not enough.
 
-You optimize **Reason**, not model quality and not the retired S\*:
+**Scoring (still Reason v3, `weight_version_key = 3`):**
 
 ```
 Reason = lpC(y_C | z_A) − lpC(y_C | ∅)     # per pair; miner score = mean
-crown  = paired mean(Reason_c − Reason_k) > k_sigma · SE     # k_sigma = 3
+crown  = paired mean(Reason_c − Reason_k) > k_sigma · SE
 ```
 
-That is the whole contract. No gates, no mix, no clip, no `min_margin`, no
-`min_se`. Old gate fields still appear in verdicts as **telemetry only**.
+Confirm live `k_sigma` from `api/v1/contract` / snapshot every pass (it has
+moved). No gates on score. Legacy S\* conclusions stay in
+`archive/legacy-sstar-v2/` — ops only.
 
-**Immediate order (this pass):**
+**Compute mandate (operator 2026-08-11) — binding:**
 
-1. Tear down `mine-watch-1` (king-watch is cancelled).
-2. Rent **one bigger machine** — prefer **8×B300** (else 8×B200), named
-   `mine-crown-1`, with a TTL (e.g. 12–24h). This is the primary crown pod.
-3. On that box: serve teacher + current king + challenger under the live
-   evalsrv config, rebuild a Reason-only duel simulator from
-   `affine/affine/score.py` (read-only), and chase a crown against the live king.
-4. Use the **current** corpus and contract
-   (`https://affine.io/api/v1/contract`, `llms.txt`, turn manifest). Do not
-   assume anything from pre-fork duels still decides a crown.
-5. Submit when simulated paired margin clears **> 3·SE** with headroom for
-   slice redraw (aim ≈ **1.5×** the observed `3·SE` on your sim, not the old
-   0.04 S\* gate). Fresh registered hotkey per submit.
+1. **Burn at least $20,000/day on mining B300s** (≥ **~$833/h** summed over
+   live `mine-*` 8×B300 pods). This is a **floor**, not a ceiling. At ~$64/h
+   per 8×B300 that is roughly **≥13 concurrent B300 boxes**. Prefer B300;
+   only use B200 if no B300 is available and replace it when B300 appears.
+2. **Raise the pod cap to 25** `mine-*` pods so the floor is reachable.
+3. **Multiple axes in parallel, every pass that has free slots.** Do not
+   serialize one board-challenger n80 behind another on a single box while
+   20 slots sit empty. Independent axes include (non-exhaustive): Reason-SFT /
+   distill, GRPO/REINFORCE on Reason reward, full-FT vs LoRA, non-king bases,
+   multi-king merges, thought-format, data filters, learning-rate/rank families
+   that can move the mean by >~SE. One axis per pod; name pods for the axis
+   (`mine-r3-grpo-1`, `mine-r2-merge-3`, …).
+4. Keep at least one warm duel stack (teacher+king+chall) able to run n80s;
+   the rest of the fleet should be training or screening, not idle.
+5. Submit when sim margin clears the live crown bar with ~1.5× headroom on a
+   fresh slice. Fresh registered hotkey per submit.
 
-King-watch mode is **revoked**. Idle passes are no longer correct. Parallel
-pods are allowed again (up to the caps below) once `mine-crown-1` is producing
-Reason-margin numbers.
+**This pass:** scale toward the $20k/day B300 floor immediately — rent free
+B300 capacity up to the cap, assign each new pod a distinct axis, and stop
+treating a single $52/h B200 as the fleet.
 
 ---
 
@@ -64,8 +66,8 @@ miner's own logprobs (`lpA` / L1lift) do **not** enter the ranked quantity.
 ## HARD RULES — breaking any one of these is a total failure of the run
 
 **1. The validator is strictly off limits.**
-This machine runs the SN120 validator. You make money by mining, never by
-touching the validator.
+This machine runs the SN120 validator. You win by mining, never by touching
+the validator.
 
 - Never write to anything outside `/home/const/subnet120/mining/`. You may
   **read** the rest of the repo freely (`affine/affine/score.py`,
@@ -87,25 +89,29 @@ The Lium account is shared with the validator (`affine-eval`, `affine-bench`,
   `mine-crown-1`). No exceptions.
 - Never run `lium rm` on a pod whose name does not start with `mine-`.
 - Never `lium rm --all` or any bulk removal.
-- Max **5** concurrent `mine-*` pods unless a later dated directive here
-  raises it.
+- Max **25** concurrent `mine-*` pods (operator 2026-08-11). Prefer **8×B300**.
 
 **3. Every pod gets a TTL.**
-Always pass `--ttl` to `lium up`. Prefer `--ttl 12h` or `24h` on the crown
-pod and extend deliberately while it is working.
+Always pass `--ttl` to `lium up`. Prefer `--ttl 12h` or `24h` and extend
+deliberately while it is working.
 
-**4. Money.**
+**4. Money / burn (validator protected; mining is not thrifty).**
 The Lium balance is **shared with the validator** (~$70/h on its pods).
 
-- **Never let the Lium balance fall below $10,000.**
-- **Daily mining budget: $20,000/day = $833/hour.** Sum `$/h` over live
-  `mine-*` pods every pass into `LEDGER.md`. If burn exceeds $833/h, do not
-  rent — tear the least informative pod first.
+- **Never let the Lium balance fall below $10,000.** That floor is the only
+  spend brake. Winning the subnet is the goal; do not under-spend to "save"
+  credit above the floor.
+- **Mining B300 burn floor: > $20,000/day (≥ ~$833/h)** on live `mine-*`
+  8×B300 pods (operator 2026-08-11). Sum `$/h` every pass into `LEDGER.md`.
+  If you are **under** the floor and B300 capacity exists, **rent in the same
+  pass**. Idle under-spend is a failure mode.
+- There is **no** mining spend ceiling above the floor unless a later dated
+  directive here adds one.
 - Reconcile cumulative spend from `lium balance` deltas, never by summing
   teardown costs.
 - Fund Lium only from the `miner` wallet if ever instructed. Never `-w default`.
-- **The coldkey is NOT your budget.** Registration reserve only (~τ10 for
-  burns). Do not convert TAO→Lium without a dated per-amount instruction here.
+- **The coldkey is NOT your budget.** Registration reserve only. Do not convert
+  TAO→Lium without a dated per-amount instruction here.
 - Record every dollar and every TAO in `LEDGER.md` in the same pass it moves.
 
 **5. Keep the heavy work off this machine.**
@@ -207,23 +213,29 @@ per dollar.
 End-to-end Reason duel sim matching evalsrv serving knobs.
 *Gate: sim runs n=80 and emits paired Reason margin + SE.*
 
-**Stage 4 — beat the king in simulation.**
-Train / merge / distill candidates. Decision metric: paired Reason margin vs
-live king. Parallelize secondary `mine-*` pods only after crown-pod is
-producing numbers.
-*Gate: margin > 3·SE with ~1.5× headroom on a fresh slice.*
+**Stage 4 — beat the king; parallel axes at fleet scale.**
+Train / merge / distill / RL candidates. Decision metric: paired Reason margin
+vs live king. Run **many axes at once** on the B300 fleet — do not wait for
+one n80 to finish before renting the next axis.
+*Gate: margin > live (k_sigma·SE) with ~1.5× headroom on a fresh slice.*
 
-**Stage 5 — submit and scale.**
-Register hotkey, `submit.py --check`, submit, watch verdict, reinvest.
+**Stage 5 — submit.**
+Register hotkey, `submit.py --check`, submit, watch verdict. Winning (crown)
+is the point; reinvestment is incidental.
 
 ---
 
 ## Use the compute
 
-- Primary: **one large crown pod** (`mine-crown-1`, 8×B300-class).
-- Fill additional slots (≤5 total) with independent Reason hypotheses once the
-  sim works — not with retired S\* cells.
-- Tear a pod the moment its experiment resolves. Idle pods are expensive.
+- **Floor: >$20k/day mining on 8×B300** (≥~$833/h, ~≥13 boxes @ ~$64/h). Cap 25
+  pods. Report burn vs floor in `LEDGER.md` / `STATE.md` every pass.
+- **Unit of parallelism = experimental axis**, not "another board parent on the
+  same recipe." If two pods would run the same method with a cosmetic parent
+  swap, that is one axis — free the slot for something structurally different
+  (GRPO-on-Reason, full-FT, non-king base, thought format, data curriculum, …).
+- Keep one warm TKC duel stack; put training weight on the other GPUs/pods.
+- Tear a pod when its experiment resolves. Idle pods count against the floor
+  without buying information — replace them.
 - Bake recovery into bootstrap (Triton cache seed, watchdogs). Ops detail for
   VLM/Triton may be looked up under `archive/legacy-sstar-v2/` if needed.
 
