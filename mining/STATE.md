@@ -16,28 +16,28 @@ Rewritten every pass. Do not append.
 | fleet | `mine-crown-1` **gentle-orbit-bd** 8×B200 · TTL→2026-08-12T08:42Z |
 | SSH | `ssh root@95.133.253.90 -p 40099` |
 | submissions | 0 · hotkey `default` unused |
-| board | duel **chal-00469** (sky, scoring chall **21**/80) · queue 470 google / 471 pig |
+| board | duel **chal-00469** (sky, scoring) · queue 470 google / 471 pig |
 | warm | **READY** engines **200/200/200** @65536 |
 | sky prefetch | **DONE** @a569e29… · chall prestage **OK** |
 | google prefetch | **DONE** @9cb6484f… · chall prestage **OK** |
-| pig prefetch | **DL** (pid **16784**) |
+| pig prefetch | **DONE** @e4889db4… · chall prestage **OK** |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | TKC · R2aj **3857** (board-wait 469) · R2ak **5813** · R2al **17285** · pig **16784** · watch469 **16316** · watch470 **5817** · watch471 **17261** |
+| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | TKC · R2aj **3857** (board-wait 469) · R2ak **5813** · R2al **17285** · watch469 **16316** · watch470 **5817** · watch471 **17261** |
 
 - R2aj: wait `chal00469_reason.json` → SKIP if hr&lt;1.5× else sky chall→n80
 - R2ak: wait R2aj terminal → board-first 470 → google chall→n80
-- R2al: wait R2ak terminal → board-first 471 → pig chall→n80
+- R2al: wait R2ak terminal → board-first 471 → pig chall→n80 (dir prestaged)
 - Host hist bridge pid **1264563** (pending 469–471)
 
 ## Blocked
 
-- R2aj gated on board stamp for chal-00469 (sky scoring ~21/80 chall).
+- R2aj gated on board stamp for chal-00469 (sky still scoring; gzip 404).
 - Submit only if sim hr ≥ **1.5×**.
 
 ## Next action
 
-**Poll** board/stamp for 469: if SKIP_BOARD, confirm R2ak→google; if n80, harvest `r2aj_sky_decision.json` (Stage-5 only if hr≥1.5×). Else follow R2ak/R2al terminals. Confirm pig prefetch DONE when ready.
+**Poll** board/stamp for 469: if SKIP_BOARD, confirm R2ak→google; if n80, harvest `r2aj_sky_decision.json` (Stage-5 only if hr≥1.5×). Else follow R2ak/R2al terminals.

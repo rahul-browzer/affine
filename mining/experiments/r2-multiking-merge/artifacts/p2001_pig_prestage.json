@@ -1,0 +1,24 @@
+{
+  "utc": "2026-08-11T09:08:30Z",
+  "pass": 2001,
+  "weight_version_key": 3,
+  "king": "Tok331102/affine-5EqYW8McUc-af10",
+  "board": "chal-00469 scoring (sky)",
+  "pig": {
+    "challenge_id": "chal-00471",
+    "repo": "diceofgod/affine-5fjgc5jhxq-pig",
+    "revision": "e4889db406e743bc878d75183aed79bc59915463",
+    "prefetch": "DONE",
+    "chall_dir": "/root/r2_out/pig_chall",
+    "link": "/tmp/r2al_pig",
+    "has_preprocessor_config": true,
+    "n_entries": 11
+  },
+  "lanes": {
+    "r2aj": "board-wait 469 (pid 3857)",
+    "r2ak": "wait R2aj (pid 5813)",
+    "r2al": "wait R2ak (pid 17285); pig prestaged"
+  },
+  "burn_usd_per_h": 52.25,
+  "balance_usd": 122466.45
+}

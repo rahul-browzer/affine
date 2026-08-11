@@ -1,3 +1,11 @@
+## p2001 — pig DONE + chall prestage
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,466.
+- Board chal-00469 sky still scoring (gzip 404); R2aj board-wait; R2ak/R2al armed; host-hist pending 469–471.
+- Pig prefetch **DONE** @e4889db4…; prestaged `/root/r2_out/pig_chall` + `preprocessor_config.json` → `/tmp/r2al_pig` (11 entries).
+- Sky/google/pig all cached+prestaged; GPUs idle until 469 stamp or SKIP_BOARD fires R2aj.
+- Artifacts: `artifacts/r2al_pig_prestage.done`.
+- Next: poll 469 stamp → SKIP_BOARD or harvest R2aj; else R2ak/R2al.
+
 ## p2000 — google DONE; sky/google chall prestage; R2al+watch471 armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,466.
 - Board chal-00469 sky scoring chall **21**/80; R2aj still board-wait (host-hist pending).

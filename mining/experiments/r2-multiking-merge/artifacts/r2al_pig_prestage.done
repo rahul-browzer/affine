@@ -1,0 +1,11 @@
+{
+  "utc": "2026-08-11T09:08:30Z",
+  "pass": 2001,
+  "challenge_id": "chal-00471",
+  "repo": "diceofgod/affine-5fjgc5jhxq-pig",
+  "revision": "e4889db406e743bc878d75183aed79bc59915463",
+  "chall_dir": "/root/r2_out/pig_chall",
+  "link": "/tmp/r2al_pig",
+  "has_preprocessor_config": true,
+  "n_entries": 11
+}
