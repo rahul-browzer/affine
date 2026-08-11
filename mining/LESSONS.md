@@ -137,14 +137,14 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1966: while R2p n80 gathers, prefetch next uncached queue parent (chal-00467 awesome-v9 @75871c57, 16×st ~70.2 GiB) on CPU/network — do not merge until Reason+.
 - p1967 queue index probes (unconst): chal-00468 sbs-v0 / 469 sky / 470 google / 471 pig all **weights_ok** — prefetch **sbs first** (16×st) one-at-a-time after v9; sky/google/pig are 2×st (~smaller).
 - p1975: **R2p REFUTE** Talent×sth hr **−0.93×** (margin −0.0282, z=−2.78, n=80) despite board 455 hr 0.79× — best DL Reason+ parent still fails Talent0.25 skew; Stage-5 SKIP; kill chall by PID then purge blend.
-- p1980: chal-00458 whoami Reason+ hr **0.39×** (margin +0.00536, z=1.16) — clears R2r gate but far below crown; history-API stamp beats S3 gzip lag; arm Stage-5 HF waiter before n80 so ≥1.5× uploads without waiting for the next Ralph pass.
-- p1981: `pgrep -f` patterns that appear in the SSH `bash -c` string kill your own session — restart watchers by **pidfile PID only**; patch live-queue Reason watchers with history fast-path before their duel ends.
-- p1983: unconst public `Affine-5czsc2fc98-h*-merged` still ~5 TB — pre-delete ≥3×65 GiB during n80 (keep r1lora + pending Stage-5 targets) so R2r/R2af ≥1.5× push does not die on Hub storage after xet finalize.
-- p1985: Talent×whoami (board hr 0.39×, Δ=0.671) local n80 → margin **−0.0335** (z=−4.29, hr **−1.43×**, n=80) — board Reason+ parent does not transfer via Talent skew; purge blend; R2af pure-v8 claimed `:8002` same pass.
-- p1986: board **chal-00462 awesome-v8 hr −0.04×** (margin −0.0005, z=−0.11) → **SKIP pure-v8 local n80** (kill chall by PID before gather); R2x Talent×v8 auto-SKIP+purge on same stamp; free GPUs for next Reason+ (chal-00463 tpc9 → R2y).
-- p1987: after R2af SKIP leaves GPUs idle while board `load_challenger`, arm **pure queue-parent n80** (R2ag tpc9) + bridge→Talent×parent + history fast-path on the live watch — do not burn $64/h waiting on gzip.
-- p1989: history `accepted=false` + `rejection_reason=unservable…` has **null margin/se** — stamp `hr=None` immediately (R2i/441 pattern) or Talent×parent waiters idle forever; board unservable ≠ local serve (R2ag still healthy).
-- p1990: crown-pod Lium egress often **CF 403** on `affine.io/api/v1/history` (gzip on hippius still OK) — run `host_history_stamp_bridge.py` on the mining host and scp stamps for 467–471 or Reason gates stall.
-- p1991: after R2ag pure-parent n80, prefer **pure next board parent** (R2ah awesome-v9) over Talent×parent — Talent skews keep REFUTING; arm PID-alive gate in `wait_r2q` so siblings cannot steal between R2ag exit and pure claim.
-- p1992: **R2ag** pure tpc9 local hr **−0.52×** (margin −0.0105, z=−1.56, n=79) — board-unservable parent also loses as local chall; Stage-5 SKIP.
-- p1992: board Reason+ with hr **≪1.5×** (chal-00467 v9 **0.21×**) → **SKIP_BOARD_FIRST** pure + Talent lanes mid-load (extend R2w); free GPU for next pure parent (R2ai sbs).
+- p1981: `pgrep -f` patterns that appear in the SSH `bash -c` string kill your own session — restart watchers by **pidfile PID only**.
+- p1983: unconst public `Affine-5czsc*-h*-merged` still huge — pre-delete ≥3×65 GiB during n80 before Stage-5 push.
+- p1985: Talent×whoami board hr 0.39× → local hr **−1.43×** — board Reason+ does not transfer via Talent skew.
+- p1986: board awesome-v8 hr −0.04× → **SKIP pure-v8** local n80; free GPUs for next Reason+.
+- p1987: after SKIP leaves GPUs idle, arm **pure queue-parent n80** + history bridge — do not burn $64/h on gzip wait.
+- p1989: history `accepted=false`/`unservable` has **null margin** — stamp `hr=None` or waiters idle forever.
+- p1990: crown-pod often **CF 403** on `affine.io` history — host `host_history_stamp_bridge.py` + scp stamps.
+- p1991: prefer **pure next board parent** over Talent×parent after pure n80; PID-alive gate so siblings cannot steal.
+- p1992: **R2ag** pure tpc9 local hr **−0.52×** — board-unservable parent also loses locally; Stage-5 SKIP.
+- p1992: board Reason+ hr **≪1.5×** (v9 **0.21×**) → **SKIP_BOARD_FIRST** mid-load; free GPU for next pure parent.
+- p1993: chall kill-by-API-pidfile can leave **orphan EngineCore+Workers** (~200 GiB on GPU4/5) → next chall OOM; kill EngCore/worker PIDs then relaunch.

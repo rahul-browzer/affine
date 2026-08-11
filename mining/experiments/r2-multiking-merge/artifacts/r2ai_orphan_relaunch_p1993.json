@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-11T08:21:25Z",
+  "pass": 1993,
+  "hyp": "R2ai",
+  "event": "orphan_gpu_clear_and_relaunch",
+  "weight_version_key": 3,
+  "king": "Tok331102/affine-5EqYW8McUc-af10",
+  "challenger": "ammazon/Affine-5dvqtektxx-sbs-v0",
+  "revision": "c175fe8b79a66a8de97953677f1a489cb386261d",
+  "failure": {
+    "first_chall_pid": 297023,
+    "error": "Free memory on device cuda:0 (69.45/267.69 GiB) < desired 0.72 util (192.74 GiB)",
+    "cause": "orphan R2ah EngineCore 292894 + Worker_TP0/1 293233/293234 held ~200GiB on GPU4/5 after API pidfile kill"
+  },
+  "fix": {
+    "killed_pids": [292894, 293233, 293234, 296915, 296918],
+    "new_r2ai_script_pid": 299876,
+    "new_chall_pid": 299985,
+    "gpus_after_kill": {"4": "0 MiB", "5": "0 MiB"},
+    "status_at_write": "chall loading; teacher/king 200; :8002 not ready yet"
+  },
+  "next": "wait engines → n80 → r2ai_sbs_decision.json; Stage-5 watcher already armed"
+}

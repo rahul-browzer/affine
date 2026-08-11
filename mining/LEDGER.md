@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,572.97 | 2026-08-11T08:18Z |
-| cumulative mining spend | ~$75,018 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T08:18Z |
-| **available for mining** | **~$112,573** (balance − $10,000 floor) | 2026-08-11T08:18Z |
+| Lium balance | $122,572.97 | 2026-08-11T08:21Z |
+| cumulative mining spend | ~$75,018 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T08:21Z |
+| **available for mining** | **~$112,573** (balance − $10,000 floor) | 2026-08-11T08:21Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T08:18Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T08:21Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T08:21Z | 122572.97 | p1993 R2ai orphan-GPU clear + chall relaunch (no new rent); burn$64/h; Δ$0 vs p1992 |
 | 2026-08-11T08:18Z | 122572.97 | p1992 R2ag harvest+R2ah/R2z SKIP+R2ai arm (no new rent); burn$64/h; Δ−$33 vs p1991 (shared ok) |
 | 2026-08-11T08:01Z | 122606.05 | p1991 R2ah pure-v9 armed (no new rent); burn$64/h; Δ−$12 vs p1990 (shared ok) |
 | 2026-08-11T07:55Z | 122617.82 | p1990 host hist bridge + R2ag gather (no new rent); burn$64/h; Δ−$22 vs p1989 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T07:29Z | 122684.88 | p1986 R2af SKIP_BOARD + chall kill (no new rent); burn$64/h; Δ−$11 vs p1985 (shared ok) |
 | 2026-08-11T07:23Z | 122696.03 | p1985 R2r REFUTE harvest + whoami purge + R2af claim (no new rent); burn$64/h; Δ−$34 vs p1984 (shared ok) |
 | 2026-08-11T07:05Z | 122729.63 | p1984 R2af chall pre-materialise (no new rent); burn$64/h; Δ−$22 vs p1983 (shared ok) |
-| 2026-08-11T07:02Z | 122751.97 | p1983 HF Stage-5 prepurge +210.7 GiB (no new rent); burn$64/h; Δ$0 vs p1982 |
