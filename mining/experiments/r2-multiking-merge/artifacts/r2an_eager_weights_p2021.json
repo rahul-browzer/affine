@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-11T11:21:30Z",
+  "pass": 2021,
+  "lane": "R2an",
+  "blend": "Talent0.25\u00d7cp13:0.75",
+  "out": "/root/r2_out/alpha_talent_cp13_skew",
+  "max_abs_delta": 0.62579345703125,
+  "identical_frac": 0.453216,
+  "n_keys": 1026,
+  "status": "EAGER_WEIGHTS_READY_WAIT_CHAL481_REASON",
+  "gate": "chal00481_reason.json hr>0 + watch_chal00481_reason.done",
+  "board": {
+    "challenge_id": "chal-00481",
+    "repo": "Talucampe037/Affine-5f6xxabdmp-cp13",
+    "rev": "762f3e853ad93d82024de1ce7e2b98ef35a83572",
+    "stage": "load_challenger"
+  }
+}

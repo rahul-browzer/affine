@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-11T11:36:43Z",
+  "hyp": "R2ac",
+  "contract": "Reason v3",
+  "decision": "REFUTE_R1_H64_BASELINE",
+  "headroom_bar": 1.5,
+  "false_probe": null,
+  "margin": -0.03126184875521537,
+  "se": 0.010651121585731095,
+  "z": -2.9350757573827426,
+  "k_sigma": 3.0,
+  "threshold_3se": 0.031953364757193285,
+  "headroom_vs_3se": -0.9783585857942475,
+  "reason_c": -0.043406434142080855,
+  "reason_k": -0.012395906903855971,
+  "n_paired_turns": 80,
+  "challenger_wins": false,
+  "sim_result": "/root/affine_data/r2ac_alpha_reason_sim.json",
+  "pass": 2021,
+  "stage5": "SKIP_BELOW_BAR",
+  "next": "R2ad Talent\u00d7pig n80 after chall reload"
+}

@@ -147,4 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Pod replace also drops nohup CPU premerges (R2ac p1976 vanished with no logs) — after warm READY, re-check `r2ac_premerge.log` / pid and re-arm if absent while R2ak runs.
 - R2ak pure google local n80 hr **0.641×**; board chal-00470 gzip hr **0.094×** — local≫board slice noise; hr>0 → R2ac DONE; no Stage-5.
 - R2al SKIP_BOARD 471 pig hr0.580×; **R2ac↔R2ad deadlock** if ac waits on `r2ad_premerge.done` while ad waits on ac — yield only on `*_holding.stamp` (p2015).
-- R2ab Talent×sky local n80 hr **−1.59×** (margin −0.051, z=−4.76, n=77) — REFUTE; board sky ~0.46× does not crown via Talent0.25 skew (same pattern as R2l/n/o/p).
+- R2ab/R2ac Talent skew REFUTE: sky **−1.59×**; google **−0.978×** (even after R2ak pure local **0.641×**) — board/local parent Reason+ does not transfer through Talent0.25×parent0.75.
