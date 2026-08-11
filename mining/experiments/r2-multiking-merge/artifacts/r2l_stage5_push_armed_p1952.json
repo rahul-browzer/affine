@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-11T03:28:19Z",
+  "pass": 1952,
+  "action": "arm_watch_r2l_stage5_push",
+  "why": "R2l n80 live (5/80) with no Stage-5 HF handoff; R2v watcher was one-shot and exited after SKIP_BELOW_BAR",
+  "watcher_pid": 209817,
+  "script": "/root/mining_src/r2-multiking-merge/watch_r2l_stage5_push.sh",
+  "waits_for": "/root/affine_data/r2l_alpha_decision.json",
+  "bar": 1.5,
+  "on_clear": {
+    "stamp": "/root/affine_data/r2l_stage5_ready.json",
+    "chall": "/root/r2_out/alpha_talent_sft3_skew",
+    "hf_repo": "unconst/Affine-5czsc2fc98-r2l-talent-sft3",
+    "then": "next pass: register fresh hotkey + submit.py --check"
+  },
+  "on_below_bar": "SKIP_BELOW_BAR → exit 0; R2w pure-asdf claims chall",
+  "r2l_progress_at_arm": {"king": 5, "challenger": 5, "n": 80},
+  "engines": "200/200/200 TK@65536 chall=/tmp/r2l_alpha_merged",
+  "r2w": "yielding (pid 205024) until R2l terminal",
+  "contract": {"weight_version_key": 3, "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a2"}
+}
