@@ -236,10 +236,19 @@ if [[ -f "$CHALL_PID_FILE" ]]; then
   fi
 fi
 # Orphan EngCore/Workers can OOM the next chall load (p1993).
+# NEVER pgrep bare 'VLLM::EngineCore' — that also matches teacher/king EngCores
+# (p2032: killed 8078/8791 and took :8000/:8001 down). Only orphans on GPUs 4,5.
 sleep 3
-for op in $(pgrep -f 'VLLM::EngineCore|vllm.*8002' 2>/dev/null || true); do
+for op in $(pgrep -f 'VLLM::EngineCore|VLLM::Worker' 2>/dev/null || true); do
+  envf="/proc/$op/environ"
+  if [[ -r "$envf" ]] && tr '\0' '\n' <"$envf" 2>/dev/null | grep -qx 'CUDA_VISIBLE_DEVICES=4,5'; then
+    echo "[r2aq-now] killing leftover chall orphan pid=$op (CUDA 4,5)"
+    kill "$op" 2>/dev/null || true
+  fi
+done
+for op in $(pgrep -f 'vllm serve .*--port 8002' 2>/dev/null || true); do
   if [[ "$op" != "$$" ]] && kill -0 "$op" 2>/dev/null; then
-    echo "[r2aq-now] killing leftover chall-related pid=$op"
+    echo "[r2aq-now] killing leftover chall serve pid=$op"
     kill "$op" 2>/dev/null || true
   fi
 done

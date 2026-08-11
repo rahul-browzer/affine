@@ -145,6 +145,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1994: SSH refuse + `lium reboot` → **REBOOT_FAILED**/port None while billing — `lium rm` that `mine-*` and re-rent (B300 sold out → 8×B200 OK).
 - After crown pod replace: stub closed prior-lane `*_decision.json`/`*_reload.done` (CLOSED_PRE_POD_RESET) + re-arm vanished CPU premerges before waiters hang on missing terminals.
 - R2ak pure google local n80 hr **0.641×**; board chal-00470 gzip hr **0.094×** — local≫board slice noise; hr>0 → R2ac DONE; no Stage-5.
-- R2al SKIP_BOARD 471 pig hr0.580×; **R2ac↔R2ad deadlock** if ac waits on `r2ad_premerge.done` while ad waits on ac — yield only on `*_holding.stamp` (p2015).
-- R2ab/ac/ad Talent skew REFUTE: sky **−1.59×**; google **−0.978×**; pig **−1.18×** (board pig 0.58×) — board/local Reason+ does not transfer via Talent0.25×parent0.75.
 - chal-00484 cgpb9 **UNSERVABLE** (hr=None) — skip Talent-skew; prefer pure Tok-lineage. **R2an SKIP_BOARD** cp13 hr0.16×; arm **R2ao→R2ap→R2aq** pure parents (af17/h44/now) while prior n80 runs so GPU never idles after REFUTE/SKIP.
+- **R2am REFUTE** Talent0.25×sbs-v1:0.75 n80#2 hr **−1.39×** (margin −0.0405, z=−4.18, n=80) — Stage-5 SKIP; Talent skew family stays dead; purge blend.
+- **p2032:** `pgrep -f 'VLLM::EngineCore'` after chall kill also matches **teacher/king** EngCores (8078/8791) → takes :8000/:8001 down. Orphan-kill only PIDs with `CUDA_VISIBLE_DEVICES=4,5` (or `vllm serve --port 8002`).
