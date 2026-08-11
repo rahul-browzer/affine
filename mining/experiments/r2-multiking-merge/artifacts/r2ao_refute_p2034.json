@@ -1,0 +1,24 @@
+{
+  "utc": "2026-08-11T14:11:27Z",
+  "pass": 2034,
+  "hyp": "R2ao",
+  "claim": "pure Tok331102/affine-5EqYW8McUc-af17 (queue chal-00489) clears ≥1.5×(3·SE) vs live Tok af10",
+  "decision": "REFUTE",
+  "stage5": "SKIP_BELOW_BAR",
+  "margin": -0.0007166211991836279,
+  "se": 0.003222249276940825,
+  "z": -0.22239781518827176,
+  "k_sigma_in_decision": 3.0,
+  "threshold_3se": 0.009666747830822475,
+  "headroom_vs_3se": -0.07413260506275725,
+  "reason_c": -0.00406873212579126,
+  "reason_k": -0.0038828074319402447,
+  "n_paired_turns": 80,
+  "challenger": "Tok331102/affine-5EqYW8McUc-af17@b7fdf6f02ae6d81235d8e6656d67003e198f51c7",
+  "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "artifacts": [
+    "r2ao_af17_decision.json",
+    "r2ao_af17_reason_sim.json"
+  ],
+  "next": "R2ap pure kevin954/…-h44 n80 (chall reload started 14:11Z pid 104821)"
+}

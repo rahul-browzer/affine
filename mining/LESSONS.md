@@ -146,5 +146,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R2ak pure google local n80 hr **0.641×**; board chal-00470 gzip hr **0.094×** — local≫board slice noise; hr>0 → R2ac DONE; no Stage-5.
 - chal-00484 cgpb9 **UNSERVABLE** (hr=None) — skip Talent-skew; prefer pure Tok-lineage. **R2an SKIP_BOARD** cp13 hr0.16×; arm **R2ao→R2ap→R2aq** pure parents (af17/h44/now) while prior n80 runs so GPU never idles after REFUTE/SKIP.
 - **R2am REFUTE** Talent0.25×sbs-v1:0.75 n80#2 hr **−1.39×** (margin −0.0405, z=−4.18, n=80) — Stage-5 SKIP; Talent skew family stays dead; purge blend.
-- **p2032:** `pgrep -f 'VLLM::EngineCore'` after chall kill also matches **teacher/king** EngCores (8078/8791) → takes :8000/:8001 down. Orphan-kill only PIDs with `CUDA_VISIBLE_DEVICES=4,5` (or `vllm serve --port 8002`).
-- **p2033:** patching a running `launch_*.sh` mid wait-engines → bash re-read → syntax error after 200/200/200 (n80 never started). Write `.new`+swap after exit; if already healthy, `continue_*_n80.sh` without killing TKC.
+- **p2032–33:** EngCore orphan-kill must stay on CUDA4,5/`--port 8002`; never edit running `launch_*.sh` (bash re-read) — use `continue_*_n80.sh` if TKC already 200.
+- **R2ao REFUTE** pure Tok af17 n80: hr **−0.074×** (margin −0.0007, z=−0.22, n=80) — near king parity, not crown; Stage-5 SKIP → R2ap pure-h44.
