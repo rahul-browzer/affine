@@ -102,30 +102,33 @@ token = os.environ["HF_TOKEN"]
 from huggingface_hub import HfApi
 
 api = HfApi(token=token)
-# Free public storage: delete oldest *merged* Affine-5czsc repos except keep-list.
+# Free public storage: delete largest Affine-5czsc artifacts except keep-list.
+# Include fullft/trefsft/etc — not only *-merged (p1949: those alone left ~70G
+# fullft repos that still tripped the public storage cap).
 deleted = []
 errors = []
 models = list(api.list_models(author="unconst"))
-merged = sorted(
-    [
-        m
-        for m in models
-        if m.id.startswith("unconst/Affine-5czsc2fc98-")
-        and ("-merged" in m.id or m.id.endswith("-merged"))
-        and m.id not in keep
-    ],
-    key=lambda m: m.id,
-)
+cands = []
+for m in models:
+    if not m.id.startswith("unconst/Affine-5czsc2fc98-"):
+        continue
+    if m.id in keep:
+        continue
+    try:
+        info = api.model_info(m.id, files_metadata=True)
+        sz = sum(int(getattr(s, "size", 0) or 0) for s in (info.siblings or []))
+    except Exception as e:
+        errors.append({"id": m.id, "error": f"info: {e}"})
+        continue
+    if sz >= int(1e9):
+        cands.append((sz, m))
+cands.sort(key=lambda x: x[0], reverse=True)
 need_gb = total / 1e9 + 5.0
 freed = 0
-for m in merged:
+for sz, m in cands:
     if freed / 1e9 >= need_gb:
         break
     try:
-        info = api.model_info(m.id, files_metadata=True)
-        sz = 0
-        for s in info.siblings or []:
-            sz += int(getattr(s, "size", 0) or 0)
         api.delete_repo(m.id, repo_type="model")
         deleted.append({"id": m.id, "bytes": sz})
         freed += sz

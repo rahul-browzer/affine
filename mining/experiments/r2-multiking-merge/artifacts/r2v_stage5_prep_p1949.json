@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-11T03:05:50Z",
+  "pass": 1949,
+  "weight_version_key": 3,
+  "r2v_progress": {"challenger": 41, "king": 41, "n_turns": 80, "sim_pid": 194935},
+  "stage5_push_pid": 199244,
+  "hf_pre_purge": {
+    "freed_gb": 140.47,
+    "deleted": [
+      "unconst/Affine-5czsc2fc98-h93-merged",
+      "unconst/Affine-5czsc2fc98-h92-merged"
+    ],
+    "meta": "artifacts/r2v_stage5_hf_purge_p1949.json"
+  },
+  "watcher_fix": "purge largest Affine-5czsc >=1GiB not only *-merged",
+  "engines": "200/200/200",
+  "next": "harvest R2v decision; Stage-5 if hr>=1.5x else R2l/R2w"
+}

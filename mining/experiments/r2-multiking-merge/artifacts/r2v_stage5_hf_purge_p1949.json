@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-11T03:05:07Z",
+  "pass": 1949,
+  "need_gb": 80,
+  "freed_bytes": 140469197130,
+  "freed_gb": 140.46919713,
+  "deleted": [
+    {
+      "id": "unconst/Affine-5czsc2fc98-h93-merged",
+      "bytes": 70234598565
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h92-merged",
+      "bytes": 70234598565
+    }
+  ],
+  "errors": [],
+  "keep": [
+    "unconst/Affine-5czsc2fc98-r1lora",
+    "unconst/Affine-5czsc2fc98-r2v-sft3"
+  ],
+  "note": "pre-purge before R2v harvest so Stage-5 push skips storage wait; includes fullft not only -merged"
+}

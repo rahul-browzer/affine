@@ -1,3 +1,12 @@
+## p1949 — Stage-5 HF pre-purge (+140 GiB) while R2v gathers
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,266.
+- R2v n80 healthy (~41/80 @03:05Z, sim **194935**, engines 200/200/200). Board 450 scoring ~61/80.
+- Found Stage-5 purge filter only removed `*-merged`; many ~70 GiB `*fullft*`/`*trefsft*` would still block public upload.
+- Pre-purged **h93-merged + h92-merged** → **+140.5 GiB** free (`artifacts/r2v_stage5_hf_purge_p1949.json`). Kept `r1lora` / `r2v-sft3`.
+- Widened `watch_r2v_stage5_push.sh` to purge largest ≥1 GiB Affine-5czsc artifacts; relaunched waiter pid **199244** (old 198235 killed by PID).
+- R2w/bridge-v/bridge-w untouched. No submit.
+- Next: harvest R2v; hr≥1.5× → confirm HF push meta then register+`--check`+submit; else R2l proxy / R2w.
+
 ## p1946 — bridge R2v → R2l (no idle wait on board gzip)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,300.
 - R2v n80 healthy (~12/80 @02:53Z, sim **194935**, engines 200/200/200, ETA~35m). Board 450 still scoring (gzip 404).
