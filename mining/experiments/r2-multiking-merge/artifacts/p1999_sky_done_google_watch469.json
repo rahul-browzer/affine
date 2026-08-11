@@ -1,0 +1,32 @@
+{
+  "pass": 1999,
+  "at": "2026-08-11T09:03:17Z",
+  "weight_version_key": 3,
+  "board": {
+    "challenge_id": "chal-00469",
+    "repo": "magicworld7/affine-5dtu4gucst-sky",
+    "stage": "scoring",
+    "progress": {"phase": "scoring", "miner": "king", "done": 12, "total": 80}
+  },
+  "sky_prefetch": {
+    "done": "OK 2026-08-11T09:02:40Z magicworld7/affine-5dtu4gucst-sky@a569e29bcab3a1f4ed3a99ee9e46c17dc40e8fdf",
+    "seconds_approx": 126
+  },
+  "google_prefetch": {
+    "started_at": "2026-08-11T09:02:42Z",
+    "repo": "tojointhecommunity/affine-5efg6cm3yl-google",
+    "revision": "9cb6484f2bb4c9d93f10ff94335eef4f0e2ae4e4",
+    "cache_giB_at_arm": 16
+  },
+  "armed": {
+    "watch_chal00469": 16316,
+    "pig_after_google": 16342
+  },
+  "still_waiting": {
+    "r2aj": "chal00469_reason.json board stamp",
+    "r2ak": "R2aj terminal",
+    "host_hist_bridge": "pending 469-471"
+  },
+  "engines": "200/200/200",
+  "burn_usd_per_h": 52.25
+}
