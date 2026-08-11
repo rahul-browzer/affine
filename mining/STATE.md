@@ -12,7 +12,7 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 |---|---|
 | contract | wvk=**3** · `k_sigma=2.0` · reason_only · n_turns=2080 |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` reign 4 |
-| challenge | chal-00494 |
+| challenge | chal-00495 |
 | miner burn | **$116.25/h** · floor $833/h · **gap −$717/h** |
 | B300 stock | **0** free 8×B300/B200 · fleet rent@**10s** poll |
 | Lium bal | ~$120,828 · floor $10k OK |
@@ -22,10 +22,10 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | R2az REFUTE; **R2ba** awesome-v10 n80 **~55/80** |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥**85**; wedge-watch |
-| host fleet-rent | pid**2385132** | — | rent →**25** mines @10s (R4…R23 + R24 + **R25**) |
-| host fleet-boot | pid**2385133** | — | auto-upload R4–R25 |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | R2az REFUTE; **R2ba** awesome-v10 n80 **~65/80** |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥**88**; wedge-watch |
+| host fleet-rent | pid**2390617** | — | rent →**25** mines @10s (R4…R25 + **R26** + R9…) |
+| host fleet-boot | pid**2390659** | — | auto-upload R4–R26 |
 | host r3-wedge | pid**2176107** | — | GRPO wedge relaunch |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -40,5 +40,5 @@ R2ba: `ssh … 'tail -f /root/logs/r2ba_awesome_v10_reload.log'`
 ## Next action
 
 **Crown:** R2ba n80→decision. **R3:** steps→train.done→n80.
-**Else:** fleet-boot when B300×8 appears (R25 hitemp prioritized after R24).
-**Else:** next structural axis >R25 (not parent-swap).
+**Else:** fleet-boot when B300×8 appears (R26 lotemp prioritized after R25).
+**Else:** next structural axis >R26 (not parent-swap).

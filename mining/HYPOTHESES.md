@@ -6,11 +6,12 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2ay** WEAK (+0.0093); **R2az REFUTE** m≈0; **R2ba** awesome-v10 n80 ~51/80 |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** step≥83; wedge-watch; post_train armed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2ay** WEAK (+0.0093); **R2az REFUTE** m≈0; **R2ba** awesome-v10 n80 ~65/80 |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** step≥88; wedge-watch; post_train armed |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open** · `mine-r3-grpo-2` · p2078 armed |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
-| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · `mine-r25-hitemp-1` · **p2099** armed |
+| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · `mine-r25-hitemp-1` · p2099 armed |
+| 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open** · `mine-r26-lotemp-1` · **p2100** armed |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · `mine-r4-fullft-1` · p2069 armed |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **open** · `mine-r4-fullft-2` · p2080 armed |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · `mine-r5-nonking-1` · p2074 armed |
@@ -41,10 +42,10 @@
 - R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75). Dir: `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge
-- **R2ay** +0.00930 (hr 1.02×) WEAK. **R2az** m≈−3e−5 REFUTE. **R2ba** pure awesome-v10 n80 **~55/80**. Dir: `experiments/r2-multiking-merge/`.
+- **R2ay** +0.00930 (hr 1.02×) WEAK. **R2az** m≈−3e−5 REFUTE. **R2ba** pure awesome-v10 n80 **~65/80**. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason (PRIORITY)
-- GRPO pid**28660** step≥85; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
+- GRPO pid**28660** step≥88; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
 
 ### R24 — Long-context / full-thought GRPO
 - Tok-init; max_len=**16384** max_new=**1024** (live thought budget); same lr/r/G as R3.
@@ -54,9 +55,13 @@
 - Tok-init; **temperature=1.2** (R3 uses 0.8); same len/new/lr/r/G as R3.
 - Pod `mine-r25-hitemp-1`; queue after R24. Dir: `experiments/r25-hitemp-grpo/`.
 
-### Fleet axes waiting on 8×B300 (R3b–R25)
+### R26 — Low-temperature GRPO
+- Tok-init; **temperature=0.5** (R3 0.8 / R25 1.2); same len/new/lr/r/G as R3.
+- Pod `mine-r26-lotemp-1`; queue after R25. Dir: `experiments/r26-lotemp-grpo/`.
+
+### Fleet axes waiting on 8×B300 (R3b–R26)
 - One pod/axis; uploaders+boot cases armed. Decision: n80 vs Tok; submit iff hr ≥ 1.5×(2·SE).
-- **R3b** alt GRPO knobs · **R24** longctx · **R25** hitemp · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14–R17** parent REINFORCE · **R18–R23** parent GRPO.
+- **R3b** alt GRPO knobs · **R24** longctx · **R25** hitemp · **R26** lotemp · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14–R17** parent REINFORCE · **R18–R23** parent GRPO.
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
