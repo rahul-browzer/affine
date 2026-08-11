@@ -6,10 +6,10 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | **R2bg** n80 ~47/80 + **R2bh** prefetch |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | **R3b** train ~step24 |
-| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | ~24h from 20:57Z | **R6** train~66/96 |
-| *(pending fleet)* | mine-r7…r32 | 8×B300 | ~$64 | rent **2771543** unfiltered-8x + boot **2756348** | R7–R32 |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | **R2bg** n80 ~55/80 + **R2bh** reload wait |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | **R3b** train ~step27 |
+| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | ~24h from 20:57Z | **R6** train~73/96 |
+| *(pending fleet)* | mine-r7…r32 | 8×B300 | ~$64 | rent **2784801** POST-rent + boot **2756348** | R7–R32 |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
 SSH R3/R3b: `ssh root@204.9.206.245 -p 40051`
@@ -22,6 +22,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T23:58Z | p2139: fleet→**api-POST-rent** pid2784801; B300×8=0; burn **$180.25/h** |
 | 2026-08-11T23:54Z | p2138: R2bh IntoLayer armed; B300×8=0; burn **$180.25/h**; fleet pid2771543 |
 | 2026-08-11T23:49Z | p2137: fleet→**api-unfiltered-8x** pid2771543 (CAP-protect); B300×8=0; burn **$180.25/h** |
-| 2026-08-11T23:45Z | p2136: fleet→**api-http** pid2766644 (~0.13s/poll); B300×8=0; burn **$180.25/h** |

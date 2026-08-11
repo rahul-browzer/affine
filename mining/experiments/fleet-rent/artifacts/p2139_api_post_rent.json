@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T23:58:40Z",
+  "pass": 2139,
+  "mode": "api-unfiltered-8x-POST-rent",
+  "why": "CLI lium up adds fork+auth latency on stock flicker; POST /executors/{id}/rent + schedule-removal TTL, CLI fallback; B300/B200x8 still 0",
+  "pid": 2784801,
+  "template_id": "da582e38-eb5c-4580-94d6-70cbda7c7c56",
+  "burn_h": 180.25,
+  "floor_h": 833,
+  "stock": {
+    "B300x8": 0,
+    "B200x8": 0
+  }
+}

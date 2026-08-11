@@ -4,7 +4,8 @@
 One unfiltered GET /executors?gpu_count=8 per poll, then client-filter B300
 (preferred) else B200. Avoids dual machine_names queries that 429 the key.
 
-On stock: `lium up <executor_id> --name mine-* --ttl …` (keeps TTL/SSH path).
+On stock: POST /executors/{id}/rent (fast path) then schedule-removal for TTL;
+falls back to `lium up <executor_id> --name mine-* --ttl …` if API rent fails.
 Never touches non-mine pods. Hard-stops if balance < $10k.
 
 Critical: /pods API failure must NOT look like mine_count=0 (overshoots CAP).
@@ -19,6 +20,7 @@ import subprocess
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -34,10 +36,17 @@ CAP = int(os.environ.get("MINE_CAP", "25"))
 TARGET = int(os.environ.get("TARGET_MINES", "25"))
 PARALLEL_N = int(os.environ.get("PARALLEL_N", "22"))
 MAX_ITERS = int(os.environ.get("MAX_ITERS", "86400"))
-PASS = int(os.environ.get("PASS", "2137"))
+PASS = int(os.environ.get("PASS", "2139"))
 # Stay under Lium 429 while still beating CLI ls (~0.63s). 0.5s ≈ 2 Hz.
 EMPTY_SLEEP = float(os.environ.get("EMPTY_SLEEP", "0.5"))
 PODS_FAIL_SLEEP = float(os.environ.get("PODS_FAIL_SLEEP", "2.0"))
+# Pytorch (Cuda + DinD) — same family as live mine-* pods.
+TEMPLATE_ID = os.environ.get(
+    "LIUM_TEMPLATE_ID", "da582e38-eb5c-4580-94d6-70cbda7c7c56"
+)
+SSH_PUBKEY_PATH = Path(
+    os.environ.get("LIUM_SSH_PUBKEY", str(Path.home() / ".ssh/id_ed25519.pub"))
+)
 
 # Distinct axes (one pod each). Skip names already live.
 QUEUE = [
@@ -251,10 +260,90 @@ def next_slots(live: set[str], want: int) -> list[tuple[str, str, str]]:
     return out
 
 
-def try_rent_node(node_id: str, name: str) -> bool:
+def _ttl_hours(ttl: str) -> int:
+    m = re.fullmatch(r"\s*(\d+)\s*([hmdHMD]?)\s*", ttl or "")
+    if not m:
+        return 24
+    n = int(m.group(1))
+    unit = (m.group(2) or "h").lower()
+    if unit == "m":
+        return max(1, (n + 59) // 60)
+    if unit == "d":
+        return n * 24
+    return n
+
+
+def _ssh_pubkey() -> str:
+    try:
+        return SSH_PUBKEY_PATH.read_text().strip()
+    except Exception:
+        return ""
+
+
+def _schedule_ttl(sess: requests.Session, pod_id: str, hours: int) -> None:
+    when = datetime.now(timezone.utc) + timedelta(hours=hours)
+    iso = when.strftime("%Y-%m-%dT%H:%M:%SZ")
+    try:
+        r = sess.post(
+            f"{BASE}/pods/{pod_id}/schedule-removal",
+            json={"removal_scheduled_at": iso},
+            timeout=30,
+        )
+        if r.ok:
+            log(f"TTL ok pod={pod_id} removal={iso}")
+        else:
+            log(f"TTL fail pod={pod_id} http={r.status_code} body={r.text[:160]}")
+    except Exception as e:
+        log(f"TTL err pod={pod_id}: {e}")
+
+
+def try_rent_node_api(node_id: str, name: str) -> bool:
+    """POST /executors/{id}/rent — beats CLI fork+auth when stock flickers."""
     if not name.startswith("mine-"):
         log(f"REFUSE non-mine name={name}")
         return False
+    body = {
+        "pod_name": name,
+        "template_id": TEMPLATE_ID,
+        "gpu_count": 8,
+        "initial_port_count": 12,
+        "enable_volume_encryption": True,
+        "enable_jupyter": False,
+    }
+    pk = _ssh_pubkey()
+    if pk:
+        body["user_public_key"] = pk
+    hours = _ttl_hours(TTL)
+    body["termination_hours"] = hours
+    log(f"attempting API rent executor={node_id} name={name} ttl={hours}h")
+    # Per-call session: ThreadPoolExecutor must not share one Session.
+    sess = make_session()
+    try:
+        r = sess.post(
+            f"{BASE}/executors/{node_id}/rent",
+            json=body,
+            timeout=60,
+        )
+    except Exception as e:
+        log(f"API rent neterr name={name} err={e}")
+        return False
+    if not r.ok:
+        log(f"API rent fail name={name} http={r.status_code} body={r.text[:200]}")
+        return False
+    pod_id = None
+    try:
+        data = r.json()
+        if isinstance(data, dict):
+            pod_id = data.get("id") or (data.get("pod") or {}).get("id")
+    except Exception:
+        data = None
+    log(f"API rent ok name={name} pod={pod_id or '?'} http={r.status_code}")
+    if pod_id:
+        _schedule_ttl(sess, str(pod_id), hours)
+    return True
+
+
+def try_rent_node_cli(node_id: str, name: str) -> bool:
     cmd = [
         "lium",
         "up",
@@ -266,13 +355,19 @@ def try_rent_node(node_id: str, name: str) -> bool:
         "--no-ssh",
         "-y",
     ]
-    log(f"attempting {' '.join(cmd)}")
+    log(f"attempting CLI fallback {' '.join(cmd)}")
     try:
         r = subprocess.run(cmd, timeout=180)
         return r.returncode == 0
     except Exception as e:
-        log(f"rent fail name={name} err={e}")
+        log(f"CLI rent fail name={name} err={e}")
         return False
+
+
+def try_rent_node(node_id: str, name: str) -> bool:
+    if try_rent_node_api(node_id, name):
+        return True
+    return try_rent_node_cli(node_id, name)
 
 
 def write_stamp(name: str, axis: str, gpu: str, note: str, sess: requests.Session) -> None:
@@ -290,7 +385,7 @@ def write_stamp(name: str, axis: str, gpu: str, note: str, sess: requests.Sessio
                 "gpu": gpu,
                 "note": note,
                 "ttl": TTL,
-                "mode": "api-unfiltered-8x-then-lium-up",
+                "mode": "api-unfiltered-8x-POST-rent",
                 "ps_json": ps,
             },
             indent=2,
@@ -323,7 +418,7 @@ def main() -> int:
     log(
         f"start target={TARGET} cap={CAP} empty_sleep={EMPTY_SLEEP}s "
         f"parallel={PARALLEL_N} max_iters={MAX_ITERS} pass={PASS} "
-        f"mode=api-unfiltered-8x"
+        f"mode=api-unfiltered-8x-POST-rent template={TEMPLATE_ID[:8]}"
     )
 
     live = resolve_live(sess)
@@ -414,7 +509,11 @@ def main() -> int:
             for j in range(n_claim):
                 name, axis, note = slots[j]
                 node_id = nodes[j]["id"]
-                futs[pool.submit(try_rent_node, node_id, name)] = (name, axis, note)
+                futs[pool.submit(try_rent_node, node_id, name)] = (
+                    name,
+                    axis,
+                    note,
+                )
             for fut in as_completed(futs):
                 name, axis, note = futs[fut]
                 ok = False
