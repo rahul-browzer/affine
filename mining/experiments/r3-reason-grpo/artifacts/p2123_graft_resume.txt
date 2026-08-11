@@ -1,0 +1,31 @@
+{
+  "status": "ok",
+  "visual_keys": 333,
+  "visual_in_shard": 333,
+  "bytes": 893179504,
+  "elapsed_s": 6.8,
+  "out": "/tmp/r3_merged/model-visual-restored.safetensors"
+}
+
+{
+  "vs_tok_init_base": {
+    "label": "tok_init_base",
+    "n_pairs": 2,
+    "identical": false
+  },
+  "vs_tok331102_king": {
+    "label": "tok331102_king",
+    "n_pairs": 2,
+    "identical": false
+  },
+  "identical_to_base": false,
+  "identical_to_king": false
+}
+
+[serve] 2026-08-11T22:41:22Z DONE_LAUNCH
+[h2-serve] waiting for king+chall readiness
+[wait] t=1 k=1 c=0 elapsed=0s
+[wait] t=1 k=1 c=0 elapsed=15s
+[wait] t=1 k=1 c=0 elapsed=30s
+/root/logs/vllm_chall.pid
+max-model-len 65536
