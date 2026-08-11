@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-11T09:51:59Z",
+  "hyp": "R2ak",
+  "contract": "Reason v3",
+  "decision": "SIGNAL_POS_BELOW_3SE",
+  "headroom_bar": 1.5,
+  "false_probe": null,
+  "margin": 0.006375212323438306,
+  "se": 0.0033151872731168445,
+  "z": 1.9230323351973155,
+  "k_sigma": 3.0,
+  "threshold_3se": 0.009945561819350534,
+  "headroom_vs_3se": 0.6410107783991051,
+  "reason_c": -0.001749694988559881,
+  "reason_k": -0.007499539267098365,
+  "n_paired_turns": 80,
+  "challenger_wins": false,
+  "sim_result": "/root/affine_data/r2ak_google_reason_sim.json"
+}

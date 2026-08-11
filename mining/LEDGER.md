@@ -10,11 +10,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,425.66 | 2026-08-11T09:30Z |
-| cumulative mining spend | ~$75,165 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T09:30Z |
-| **available for mining** | **~$112,426** (balance − $10,000 floor) | 2026-08-11T09:30Z |
+| Lium balance | $122,374.66 | 2026-08-11T09:53Z |
+| cumulative mining spend | ~$75,216 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T09:53Z |
+| **available for mining** | **~$112,375** (balance − $10,000 floor) | 2026-08-11T09:53Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T09:30Z |
+| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T09:53Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -23,6 +23,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T09:53Z | 122374.66 | p2007 R2ak n80 DONE hr0.641× (no new rent); burn$52.25/h; Δ−$51 vs p2006 (shared ok) |
 | 2026-08-11T09:30Z | 122425.66 | p2006 re-armed R2ac Talent×google (no new rent); burn$52.25/h; Δ$0 vs p2005 |
 | 2026-08-11T09:28Z | 122425.66 | p2005 R2ak n80 confirmed advancing (no new rent); burn$52.25/h; Δ−$20 vs p2004 (shared ok) |
 | 2026-08-11T09:19Z | 122446.04 | p2004 stamped 469 hr0.459× + R2ab DONE (no new rent); burn$52.25/h; Δ$0 vs p2003 |
@@ -32,4 +33,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T09:06Z | 122466.45 | p2000 google DONE + R2al/watch471 armed (no new rent); burn$52.25/h; Δ−$10 vs p1999 (shared ok) |
 | 2026-08-11T09:03Z | 122476.07 | p1999 sky DONE + google DL + watch469/pig-chain (no new rent); burn$52.25/h; Δ$0 vs p1998 |
 | 2026-08-11T09:00Z | 122476.07 | p1998 warm TKC READY (no new rent); burn$52.25/h; Δ−$21 vs p1997 (shared ok) |
-| 2026-08-11T08:55Z | 122497.00 | p1997 armed R2ak google lane (no new rent); burn$52.25/h; Δ$0 vs p1996 |

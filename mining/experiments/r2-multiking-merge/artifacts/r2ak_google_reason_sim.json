@@ -1,0 +1,89 @@
+{
+  "elapsed_s": 1834.4185523986816,
+  "contract": "Reason v3",
+  "ranking_formula": "Reason = lpC(y_C|z_A) \u2212 lpC(y_C|\u2205)",
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "chall_repo": "/tmp/r2ak_google",
+  "chall_rev": null,
+  "block_hash": "4a5768473b076d78dcadef7f434cc292bb3140f3816067e0ab73e38305c69741",
+  "hotkey": "local-r2ak-google-20260811T09:21:19Z",
+  "corpus": {
+    "manifest_sha256": "167085451ab6b67160a31f4595f12b71d887a0510ecd341bc2bd7c9881bb380e",
+    "corpus_epoch": 7,
+    "schema_version": 2,
+    "synced_at": 1786438160.1592934,
+    "stale": false,
+    "ready": true
+  },
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.006375212323438306,
+    "se": 0.0033151872731168445,
+    "z": 1.9230323351973155,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "Reason = lpC(y_C|z_A) \u2212 lpC(y_C|\u2205)",
+    "duel_params": {
+      "n_turns": 80,
+      "k_sigma": 3.0
+    },
+    "king": {
+      "reason": -0.007499539267098365,
+      "n_turns": 80,
+      "n_pairs": 313,
+      "gate_pass_rate": 0.8146964856230032,
+      "bank_frac": 0.4166666666666667,
+      "calib_ratio": 0.7447301279029486,
+      "baseline_abs": 0.1506737157415395,
+      "mean_l1lift": 0.038462460145730286,
+      "mean_eta": -0.26850390125237866,
+      "mean_len_z": 465.51437699680514,
+      "mean_len_y": 328.73162939297123,
+      "len_z_delta": 181.74250199680512,
+      "len_y_delta": -90.72149560702877
+    },
+    "challenger": {
+      "reason": -0.001749694988559881,
+      "n_turns": 80,
+      "n_pairs": 319,
+      "gate_pass_rate": 0.8150470219435737,
+      "bank_frac": 0.425,
+      "calib_ratio": 0.7297721690274201,
+      "baseline_abs": 0.15097732481580434,
+      "mean_l1lift": 0.04079827501101746,
+      "mean_eta": -0.24015130796710452,
+      "mean_len_z": 407.25705329153607,
+      "mean_len_y": 290.9153605015674,
+      "len_z_delta": 123.48517829153604,
+      "len_y_delta": -128.53776449843258
+    },
+    "teacher": {
+      "mean_len_z": 283.771875,
+      "mean_len_y": 419.453125
+    },
+    "duel_seconds": 1834.4179674059997,
+    "slice": {
+      "seed": 12310186081112430467,
+      "n": 80,
+      "digest": "83a5d110e41333c5978076a1c742e61d08e2cd44581731ceab839f6f663c87bd",
+      "block_hash": "4a5768473b076d78dcadef7f434cc292bb3140f3816067e0ab73e38305c69741",
+      "corpus_epoch": 7,
+      "manifest_sha256": "167085451ab6b67160a31f4595f12b71d887a0510ecd341bc2bd7c9881bb380e"
+    }
+  },
+  "reason": {
+    "margin": 0.006375212323438306,
+    "se": 0.0033151872731168445,
+    "z": 1.9230323351973155,
+    "k_sigma": 3.0,
+    "threshold_3se": 0.009945561819350534,
+    "headroom_vs_3se": 0.6410107783991051,
+    "submit_bar_1_5x": 1.5,
+    "clears_3se": false,
+    "clears_1_5x_3se": false,
+    "reason_c": -0.001749694988559881,
+    "reason_k": -0.007499539267098365,
+    "n_paired_turns": 80
+  }
+}
