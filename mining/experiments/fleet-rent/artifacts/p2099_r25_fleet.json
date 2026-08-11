@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T20:25:11Z",
+  "pass": 2099,
+  "axis": "R25",
+  "pod": "mine-r25-hitemp-1",
+  "rent_pid": 2385132,
+  "boot_pid": 2385133,
+  "poll_s": 10,
+  "target": 25,
+  "bal_usd": 120827.954,
+  "burn_per_h": 116.25,
+  "floor_per_h": 833,
+  "b300x8_free": 0
+}
