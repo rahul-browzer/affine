@@ -17,28 +17,27 @@ Rewritten every pass. Do not append.
 | SSH | `ssh root@95.133.253.90 -p 40099` |
 | submissions | 0 · hotkey `default` unused |
 | board | live **chal-00481** `Talucampe037/…-cp13` load_challenger |
-| warm | teacher/king/chall **200**; R2ac n80 ~14/80 |
+| warm | teacher/king/chall **200**; R2ac n80 ~16/80 |
 | R2ab | **REFUTE** Talent×sky hr**−1.59×** |
-| R2ac | **RUNNING** Talent×google n80 (~14/80) |
+| R2ac | **RUNNING** Talent×google n80 (~16/80) |
 | R2ad | premerge DONE Δ0.626 · wait R2ac |
 | R2am | **DONE+armed** Δ**0.671** · wait R2ad (480 hr0.503×) |
-| R2an | **ARMED** cp13 prefetch+watch+host bridge (Reason TBD) |
+| R2an | **EAGER** Talent×cp13 α-merge CPU + merge_reload armed (481 Reason TBD) |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | TKC · R2ac n80 · R2ad/R2am wait · cp13 prefetch |
+| mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | TKC · R2ac n80 · R2ad/R2am/R2an wait · cp13 EAGER |
 
 - R2ac → `r2ac_*decision*`; Stage-5 only if hr≥1.5×
-- R2ad → after R2ac terminal · R2am → after R2ad
-- R2an → Talent×cp13 only if 481 hr>0 after R2am lane
+- R2ad → after R2ac terminal · R2am → after R2ad · R2an → after R2am (if 481 hr>0)
 
 ## Blocked
 
 - Submit only if sim hr ≥ **1.5×**.
-- R2ad/R2am/R2an serial behind active n80.
+- R2ad/R2am/R2an serial behind active n80; R2an DONE gated on 481 Reason+.
 
 ## Next action
 
-**Poll** R2ac → decision. If hr≥1.5× → Stage-5. Else R2ad→R2am. If 481 Reason+ → arm R2an premerge.
+**Poll** R2ac → decision. If hr≥1.5× → Stage-5. Else R2ad→R2am. If 481 hr>0 → R2an n80 after R2am; else SKIP_BOARD + purge.

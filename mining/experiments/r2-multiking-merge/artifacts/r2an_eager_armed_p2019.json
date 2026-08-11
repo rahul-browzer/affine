@@ -1,0 +1,24 @@
+{
+  "utc": "2026-08-11T11:16:10Z",
+  "pass": 2019,
+  "hyp": "R2an",
+  "note": "EAGER Talent×cp13 CPU α-merge + merge_reload waiter while R2ac n80 gathers; DONE gated on chal-00481 Reason+ (hr>0) + king_match. Prefetch already DONE.",
+  "challenge_id": "chal-00481",
+  "parents": {
+    "talent": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "cp13": "Talucampe037/Affine-5f6xxabdmp-cp13@762f3e853ad93d82024de1ce7e2b98ef35a83572",
+    "w_talent": 0.25,
+    "w_cp13": 0.75
+  },
+  "pod": {
+    "premerge": "/root/launch_r2an_talent_cp13_premerge.sh",
+    "merge_reload": "/root/launch_r2an_merge_reload_sim.sh",
+    "merged": "/root/r2_out/alpha_talent_cp13_skew",
+    "holding": "/root/logs/r2an_talent_cp13_holding.stamp",
+    "premerge_pid": 57297,
+    "merge_reload_pid": 57637
+  },
+  "gate": "chal00481_reason.json hr>0 && king_match before r2an_premerge.done",
+  "lane": "n80 only after R2ac/R2ad/R2am terminal; bar ≥1.5×(3·SE)",
+  "overlap": "R2ac Talent×google n80 ~16/80; R2ad/R2am waiters unchanged"
+}
