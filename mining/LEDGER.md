@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,751.97 | 2026-08-11T07:02Z |
-| cumulative mining spend | ~$74,841 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T07:02Z |
-| **available for mining** | **~$112,752** (balance − $10,000 floor) | 2026-08-11T07:02Z |
+| Lium balance | $122,729.63 | 2026-08-11T07:05Z |
+| cumulative mining spend | ~$74,863 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T07:05Z |
+| **available for mining** | **~$112,730** (balance − $10,000 floor) | 2026-08-11T07:05Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T07:02Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T07:05Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T07:05Z | 122729.63 | p1984 R2af chall pre-materialise (no new rent); burn$64/h; Δ−$22 vs p1983 (shared ok) |
 | 2026-08-11T07:02Z | 122751.97 | p1983 HF Stage-5 prepurge +210.7 GiB (no new rent); burn$64/h; Δ$0 vs p1982 |
 | 2026-08-11T06:58Z | 122751.97 | p1982 R2ae SKIP_GATED + R2af armed (no new rent); burn$64/h; Δ−$22 vs p1981 (shared ok) |
 | 2026-08-11T06:52Z | 122774.27 | p1981 R2r n80 started + watch462 hist (no new rent); burn$64/h; Δ$0 vs p1980 |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T06:19Z | 122841.26 | p1977 armed R2ad Talent×pig (no new rent); burn$64/h; Δ−$11 vs p1976 (shared ok) |
 | 2026-08-11T06:14Z | 122852.56 | p1976 armed R2ac Talent×google (no new rent); burn$64/h; Δ−$11 vs p1975 (shared ok) |
 | 2026-08-11T06:09Z | 122863.77 | p1975 R2p REFUTE+purge (no new rent); burn$64/h; Δ−$11 vs p1974 (shared ok) |
-| 2026-08-11T06:02Z | 122874.34 | p1974 armed R2ab Talent×sky (wait R2aa eager; no new rent); burn$64/h; Δ−$12 vs p1973 (shared ok) |

@@ -1,3 +1,10 @@
+## p1984 — R2af awesome-v8 chall dir pre-materialised
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,730.
+- R2r n80 still gathering ~37/80 (pid 266016); TKC 200/200/200; no `r2r_alpha_decision.json` yet. Board chal-00462 still `load_challenger`.
+- CPU-only: built `/root/r2_out/awesome_v8_chall` from HF snap `0pentensor/…-awesome-v8@6c04b16d…` (2 shards, links resolve); derived `preprocessor_config.json`. R2af waiter pid 268343 untouched.
+- Artifact: `artifacts/r2af_chall_prematerialized_p1984.json`.
+- Next: harvest R2r decision; else R2af n80 with zero materialise delay; else board Reason+ → R2x–ad.
+
 ## p1983 — Stage-5 HF prepurge +210.7 GiB while R2r gathers
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,752.
 - R2r n80 healthy ~29/80 (pid 266016); TKC 200/200/200. Board chal-00462 still `load_challenger`. R2af waiter pid 268343 intact; awesome-v8 snap 65.4 GiB complete.

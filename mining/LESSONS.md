@@ -149,3 +149,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1981: `pgrep -f` patterns that appear in the SSH `bash -c` string kill your own session — restart watchers by **pidfile PID only**; patch live-queue Reason watchers with history fast-path before their duel ends.
 - p1982: `fortunateGambler/…-sth` is HF **gated=manual** after p1979 purge — re-download 403; pure-sth (R2ae) blocked until owner grants `unconst`; pivot to pure awesome-v8 (R2af) while R2r gathers.
 - p1983: unconst public `Affine-5czsc2fc98-h*-merged` still ~5 TB — pre-delete ≥3×65 GiB during n80 (keep r1lora + pending Stage-5 targets) so R2r/R2af ≥1.5× push does not die on Hub storage after xet finalize.
+- p1984: while R2r n80 gathers, CPU-pre-materialise the next chall dir (`ln -sfn` HF snap + derive `preprocessor_config.json`) so R2af can claim `:8002` without copy latency after decision.
