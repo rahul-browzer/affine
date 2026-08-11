@@ -1,5 +1,13 @@
 # R3 — Reason GRPO results
 
+## p2058 — abort slow rsync; true-parallel HF dl
+
+- **Problem:** crown→R3 rsync collapsed to ~1–4 MB/s (ETA 5–12h); `sleep 7200` holder would expire → bootstrap race. Holder death already fell through to sequential inline DL.
+- **Action:** killed crown `stage_to_r3` rsyncs; stopped broken bootstrap; uploaded `parallel_dl.py`; relaunched **parallel HF** tok+teacher (venv python pid3973) + bootstrap wait (pid4131).
+- **Rates@16:45–16:46Z:** Tok 4.5→8.5G / teacher 1→12G in ~30s (~100–300 MB/s) — ≫ rsync.
+- **Check:** `tail -f /root/logs/parallel_dl.log` → `{tok_init,teacher}.done` → teacher :8000 → GRPO.
+- **Market:** still 0× free 8×B300; burn $116.25/h vs $833/h.
+
 ## p2057 — crown→R3 weight stage (replace HF dl)
 
 - **Problem:** HF `parallel_dl` stuck on large Tok blobs (~15–35MB/s, ETA long); no free 8×B300 to rent.
