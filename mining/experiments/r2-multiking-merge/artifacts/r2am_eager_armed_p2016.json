@@ -1,0 +1,35 @@
+{
+  "pass": 2016,
+  "utc": "2026-08-11T11:00:32Z",
+  "lane": "R2am",
+  "action": "armed Talent×sbs-v1 α-merge EAGER premerge (CPU) while R2ab n80",
+  "claim": "Talent0.25 × sbs-v1 0.75 (Talent layout) raises Reason vs Tok when chal-00480 hr>0",
+  "script": "/root/launch_r2am_talent_sbs_v1_premerge.sh",
+  "pid": 48422,
+  "merged": "/root/r2_out/alpha_talent_sbs_v1_skew",
+  "parents": {
+    "talent": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "sbs_v1": "ammazon/Affine-5dvqtektxx-sbs-v1@d88d3bc77638ec65d34c223263223e33965c7d67",
+    "w_talent": 0.25,
+    "w_sbs": 0.75
+  },
+  "parent_blobs_distinct": true,
+  "done_gated_on": "chal00480_reason.json hr>0 + king_match (watch480)",
+  "premerge_done": false,
+  "parallel": {
+    "R2ab": "n80 ~67/80 pid41520",
+    "R2ac": "wait-lane r2ab_term=n (holding-stamp yield only)",
+    "R2ad": "wait-lane r2ac_term=n (premerge DONE Δ0.626)",
+    "watch480": "pid36279 still 404 (scoring live king~49/80)"
+  },
+  "board": {
+    "current_eval": "chal-00480 sbs-v1 scoring",
+    "queue_next": "chal-00481 cp13"
+  },
+  "weight_version_key": 3,
+  "check": {
+    "eager": "cat /root/logs/r2am_eager_weights.done",
+    "log": "tail /root/logs/r2am_premerge.log",
+    "r2ab": "cat /root/affine_data/r2ab_alpha_reason_progress.json"
+  }
+}
