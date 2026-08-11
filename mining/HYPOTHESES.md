@@ -6,8 +6,8 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p/r/am/ao REFUTE**; **R2ag/ab/ac/ad REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2ae SKIP_GATED**; **R2af/R2x/R2ah/R2z/R2ai/R2aj/R2al SKIP_BOARD**; **R2y/R2aw/R2ar SKIP_UNSERVABLE**; **R2ak** local **0.641×**; **R2am −1.39×**; **R2an SKIP_BOARD** cp13; **R2ao** pure af17 **−0.074×**; **R2ap** pure h44 **0.327×**; **R2aq** pure-now **0.773× WEAK_SKIP**; **R2ar** iynocr2p index/shard; **R2as** pure-726 **0.060× WEAK_SKIP**; **R2at** hope11 n80 **~4/80**; **R2au/av/ax** armed (challs prestaged); host-hist 489–499; **R2aa** stubbed |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · pip DONE; parallel_dl tok+teacher (p2056) |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p/r/am/ao REFUTE**; **R2ag/ab/ac/ad REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2ae SKIP_GATED**; **R2af/R2x/R2ah/R2z/R2ai/R2aj/R2al SKIP_BOARD**; **R2y/R2aw/R2ar SKIP_UNSERVABLE**; **R2ak** local **0.641×**; **R2am −1.39×**; **R2an SKIP_BOARD** cp13; **R2ao** pure af17 **−0.074×**; **R2ap** pure h44 **0.327×**; **R2aq** pure-now **0.773× WEAK_SKIP**; **R2ar** iynocr2p index/shard; **R2as** pure-726 **0.060× WEAK_SKIP**; **R2at** hope11 n80 **~50/80**; **R2au/av/ax** armed (challs prestaged); host-hist 489–499; **R2aa** stubbed |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · pip DONE; **crown→R3 parallel rsync** Tok+teacher (p2057) |
 
 ## Open
 
@@ -20,11 +20,11 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. **R2d** 0.22×; many Talent-skew REFUTEs (e/g/h/q/t/l/n/o/p/r/ab/ac/ad/**am −1.39×**). **R2an SKIP_BOARD** cp13. **R2ao REFUTE** af17 **−0.074×**. **R2ap WEAK_SKIP** h44 **0.327×**. **R2aq WEAK_SKIP** pure-now **0.773×**. **R2ar SKIP_UNSERVABLE** iynocr2p. **R2as WEAK_SKIP** pure-726 m+0.00092 z=0.18 hr **0.060×** (n=79) — Stage-5 SKIP. **R2at** hope11 engines 200/200/200; n80 **~4/80** (pid151923, block `0fabc99c…`); **R2au→av→ax(tt)** armed + challs prestaged. **R2aw** mt1 SKIP. Alt board parents diane/new + adambell ckpt1000 **SKIP_GATED**. Host-hist 489–499. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. **R2d** 0.22×; many Talent-skew REFUTEs (e/g/h/q/t/l/n/o/p/r/ab/ac/ad/**am −1.39×**). **R2an SKIP_BOARD** cp13. **R2ao REFUTE** af17 **−0.074×**. **R2ap WEAK_SKIP** h44 **0.327×**. **R2aq WEAK_SKIP** pure-now **0.773×**. **R2ar SKIP_UNSERVABLE** iynocr2p. **R2as WEAK_SKIP** pure-726 m+0.00092 z=0.18 hr **0.060×** (n=79) — Stage-5 SKIP. **R2at** hope11 n80 **~50/80** (pid151923, block `0fabc99c…`); **R2au→av→ax(tt)** armed + challs prestaged. **R2aw** mt1 SKIP. Alt board parents diane/new + adambell ckpt1000 **SKIP_GATED**. Host-hist 489–499. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
-- **Status:** open — pip DONE on `mine-r3-grpo-1`; **parallel_dl** overlapping pip for tok+teacher (HF ~1.7G@16:37Z). Bootstrap waits stamps then teacher :8000 → GRPO. Next = `r3_train_launched.stamp` + `[r3-log]`.
+- **Status:** open — pip+flash DONE on `mine-r3-grpo-1`; p2057 killed slow HF `parallel_dl`, **parallel rsync** Tok(66G)+GLM(106G) from crown (`/root/stage_to_r3.sh`, ~26MB/s agg). Bootstrap held on sleep-pid until `{tok_init,teacher}.done`. Next = stamps → teacher :8000 → `r3_train_launched.stamp`.
 
 ## Refuted (Reason era)
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.
