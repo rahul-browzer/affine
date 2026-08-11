@@ -1,0 +1,49 @@
+{
+  "utc": "2026-08-11T12:52:55Z",
+  "pass": 2026,
+  "note": "R2am n80#2 still gathering (~6–10/80); overlap next queue parent + Stage-5 waiter",
+  "r2am": {
+    "sim_pid": 82665,
+    "relaunch_pid": 82533,
+    "progress_at_arm": {"challenger": 6, "king": 10, "n_turns": 80},
+    "engines": {":8000": 200, ":8001": 200, ":8002": 200},
+    "timeout_patch": "600s×5"
+  },
+  "armed": [
+    {
+      "name": "r2_prefetch_h44",
+      "chal": "chal-00485",
+      "repo": "kevin954/Affine-5DFQbBh8Ev-h44",
+      "revision": "70874fc248912ccab9a2b3fb8003889f6e667452",
+      "pid": 83661,
+      "role": "CPU/network prefetch only; no merge until Reason+"
+    },
+    {
+      "name": "watch_r2am_stage5_push",
+      "pid": 83741,
+      "dec": "/root/affine_data/r2am_alpha_decision.json",
+      "chall": "/root/r2_out/alpha_talent_sbs_v1_skew",
+      "hf_repo": "unconst/Affine-5czsc2fc98-r2am-talent-sbs-v1",
+      "bar": 1.5,
+      "role": "HF push only on hr≥1.5×; no submit"
+    },
+    {
+      "name": "watch_chal00485_reason",
+      "pid": 83772,
+      "out": "/root/affine_data/chal00485_reason.json"
+    }
+  ],
+  "queue_next_uncached": {
+    "chal": "chal-00486",
+    "repo": "tojointhecommunity/affine-5efg6cm3yl-now",
+    "revision": "d6c08a984f379b5571098d58dc83bf9f77234f2f",
+    "weights_ok": true,
+    "note": "prefetch after h44 DONE (one-at-a-time)"
+  },
+  "board": {
+    "phase": "duel",
+    "challenge_id": "chal-00481",
+    "chal481_hist_hr": 0.160,
+    "queue": ["chal-00484", "chal-00485", "chal-00486"]
+  }
+}
