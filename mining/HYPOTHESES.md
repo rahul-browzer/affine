@@ -14,6 +14,7 @@
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · fleet `mine-r5-nonking-1` · **p2074** uploader+boot armed |
 | 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · fleet `mine-r5-nonking-2` · **p2081** uploader+boot armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **open** · fleet `mine-r6-fmt-1` · **p2075** uploader+boot armed |
+| 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **open** · fleet `mine-r6-fmt-2` · **p2083** uploader+boot armed |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · fleet `mine-r7-datafilt-1` · **p2076** uploader+boot armed |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · fleet `mine-r8-reinforce-1` · **p2077** uploader+boot armed |
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open** · fleet `mine-r9-teacher-zc-1` · **p2079** uploader+boot armed |
@@ -59,6 +60,10 @@
 ### R6 — Thought-format / short-z
 - **Claim:** natural short non-listy `z` (keep original text) raises Reason vs king more than raw/long or H101 rewrite.
 - **Status:** open — **p2075** `upload_and_launch.sh` + fleet-boot case for `mine-r6-fmt-1` (H101 stack overlay, EPOCHS=6, n=202 z≤180). ≠ H101 ultrashort rewrite REFUTE. Waiting on 8×B300 rent.
+
+### R6b — long-thought ablate
+- **Claim:** natural long non-listy `z` (z>180, n=204, med≈245) raises Reason more than R6 short≤180 on same Tok-init LoRA knobs.
+- **Status:** open — **p2083** `upload_and_launch.sh` + fleet-boot case for `mine-r6-fmt-2` (H101 overlay `start_r6b.sh`). Data: `results/za_long_natural.jsonl`. Waiting on 8×B300 rent. Dir: `experiments/r6b-long-thought/`.
 
 ### R7 — top-Reason data-filter curriculum
 - **Claim:** full-FT on top-250 h99 rows by Reason (min≈0.116, mean≈0.174, EPOCHS=2) beats R4's broader clip_l1 set on paired margin.

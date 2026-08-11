@@ -1,0 +1,27 @@
+{
+  "utc": "2026-08-11T19:30:29Z",
+  "pass": 2083,
+  "axis": "R6b",
+  "pod_name": "mine-r6-fmt-2",
+  "claim": "natural long-z (z>180 non-listy n=204) Tok-init LoRA beats R6 short\u2264180",
+  "data": {
+    "path": "experiments/r6b-long-thought/results/za_long_natural.jsonl",
+    "n": 204,
+    "z_med": 245,
+    "z_min": 181,
+    "z_max": 300
+  },
+  "train": {
+    "lr": 5e-06,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "epochs": 6,
+    "max_len": 8192
+  },
+  "uploader": "experiments/r6b-long-thought/upload_and_launch.sh",
+  "fleet_boot_case": "mine-r6-fmt-2",
+  "fleet_boot_pid": 2264120,
+  "b300_stock_8x": 0,
+  "burn_usd_per_h": 116.25,
+  "note": "armed while B300\u00d78 empty; fleet-rent still polling next=mine-r4-fullft-1; queue uploaders complete through R6b"
+}

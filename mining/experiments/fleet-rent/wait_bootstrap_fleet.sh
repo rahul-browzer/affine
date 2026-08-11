@@ -11,7 +11,7 @@ PIDF="$EXP/logs/wait_bootstrap_fleet.pid"
 DONE_DIR="$EXP/artifacts/bootstrapped"
 POLL_S=${POLL_S:-20}
 MAX_ITERS=${MAX_ITERS:-1800}  # ~10h @20s
-PASS=${PASS:-2082}
+PASS=${PASS:-2083}
 
 mkdir -p "$EXP/logs" "$STAMP_DIR" "$DONE_DIR"
 echo $$ >"$PIDF"
@@ -118,6 +118,13 @@ bootstrap_r10() {
   log "bootstrap R10 upload_and_launch name=$name host=$host port=$port"
   DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
     bash "$ROOT/mining/experiments/r10-merge-rl/upload_and_launch.sh"
+}
+
+bootstrap_r6b() {
+  local name=$1 host=$2 port=$3
+  log "bootstrap R6b upload_and_launch name=$name host=$host port=$port"
+  DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
+    bash "$ROOT/mining/experiments/r6b-long-thought/upload_and_launch.sh"
 }
 
 mark_bootstrapped() {
@@ -227,6 +234,14 @@ process_stamp() {
       ;;
     mine-r10-merge-rl-1)
       if bootstrap_r10 "$name" "$host" "$port"; then
+        mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
+      else
+        log "FAIL bootstrap $name"
+        return 1
+      fi
+      ;;
+    mine-r6-fmt-2)
+      if bootstrap_r6b "$name" "$host" "$port"; then
         mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
       else
         log "FAIL bootstrap $name"
