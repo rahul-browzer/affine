@@ -139,3 +139,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R3 teacher death mid-GRPO: `SIGSTOP`→clear orphans→relaunch→`SIGCONT` can still leave train wedged (100%CPU + CLOSE-WAIT to :8000, log frozen). If no new `r3-log` ~2m after CONT, kill-by-PID and relaunch (p2063: step1 mean_r0.020 all-4 live).
 - R3 `r3-log` prints only for steps ≤3 or `%5==0` — a multi-minute gap after step 5 is normal while 6–9 run; confirm via teacher `:8000` POST activity / train.nohup mtime before killing (p2066 false alarm → step10 mean_r0.025).
 - **R2av** pure Bittoby `…-v2` ≈ king noise (m−0.00027, z−0.065, hr_live2σ −0.033×, n=80) — Stage-5 SKIP; do not re-sim that parent.
+- `lium ps` **table wraps** `mine-*` names across lines — never `grep mine-` the table under `set -o pipefail` (empty grep exits 1 → kills rent waiters). Use `lium ps --format json` and read `.name`.
+- Host rent waiters belong under `experiments/<axis>/wait_rent_b300.sh` (not only Ralph notes) so the next free 8×B300 is grabbed without waiting for a pass tick.

@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-11T18:23:12Z",
+  "pass": 2067,
+  "action": "host B300 rent waiter for mine-r4-fullft-1 (R4 full-FT Reason axis)",
+  "waiter_pid": 2139807,
+  "waiter_log": "experiments/r4-fullft-reason/logs/wait_rent_b300.log",
+  "cap": 25,
+  "ttl": "24h",
+  "prefer": "8xB300",
+  "fallback": "8xB200 if B300 stock empty",
+  "b300_x8_free_at_start": 0,
+  "live_mines": ["mine-crown-1", "mine-r3-grpo-1"],
+  "burn_usd_per_h": 116.25,
+  "floor_usd_per_h": 833,
+  "also": "crown prefetch awesome-v10@07bc3392 (chal-00498) for post-R2az pure n80"
+}
