@@ -31,7 +31,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Public duel rows expose Reason components as `lpC_yc_za` / `lpC_yc_e` on `king_rows[].pairs[]`; rank SFT targets by that delta, not by L1lift/lpA.
 - Join high-Reason completions to schema-v2 corpus prefixes via `CorpusSync.materialize_turns` (index hit 1403/1403 on epoch 7) before LoRA; completions alone are not trainable.
 - Crown pod venv is **uv**-managed (`uv pip install --python /root/venv/bin/python …`); bare `pip` / system python hits PEP 668.
-- R1 SFT `max_len=8192` fit-filter kept only **527/1403** high-Reason rows (rest truncated out); sample0 thought-supervised tokens can be tiny (45/1461) — watch loss signal / raise max_len if margin stays flat.
 - After LoRA train: merge on freed GPUs 6–7, kill chall by **PID file only**, reload `/tmp/r1_lora_merged` with same vLLM knobs as restore (tp=2 util=0.72), then fresh n80 — do not yank chall mid-baseline.
 - Crown engines must use **`max_model_len=65536`** (live `affine.toml`); **32768** knife-edges ~31k prefixes + 1792 gen → `ContextLengthError` aborts whole n80 gather (H64 died 52/80).
 - B300 serve env = restore recipe: `CUDA_HOME=…/nvidia/cu13` + `VLLM_USE_FLASHINFER_*=0`. **Do not** symlink `/usr/local/cuda`→cu13 and **do not** put `cu13/bin` on `PATH` (flashinfer CCCL ↔ nvcc 13.3 "headers incompatible").
@@ -148,3 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - chal-00484 cgpb9 **UNSERVABLE** (hr=None) — skip Talent-skew; prefer pure Tok-lineage. **R2an SKIP_BOARD** cp13 hr0.16×; arm **R2ao→R2ap→R2aq** pure parents (af17/h44/now) while prior n80 runs so GPU never idles after REFUTE/SKIP.
 - **R2am REFUTE** Talent0.25×sbs-v1:0.75 n80#2 hr **−1.39×** (margin −0.0405, z=−4.18, n=80) — Stage-5 SKIP; Talent skew family stays dead; purge blend.
 - **p2032:** `pgrep -f 'VLLM::EngineCore'` after chall kill also matches **teacher/king** EngCores (8078/8791) → takes :8000/:8001 down. Orphan-kill only PIDs with `CUDA_VISIBLE_DEVICES=4,5` (or `vllm serve --port 8002`).
+- **p2033:** patching a running `launch_*.sh` mid wait-engines → bash re-read → syntax error after 200/200/200 (n80 never started). Write `.new`+swap after exit; if already healthy, `continue_*_n80.sh` without killing TKC.
