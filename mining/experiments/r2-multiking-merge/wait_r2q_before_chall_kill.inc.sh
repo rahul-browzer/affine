@@ -676,4 +676,34 @@ for _i in $(seq 1 2880); do
   break
 done
 
+# R2aq pure now (queue chal-00486) — holding stamp / PID while claiming chall.
+R2AQ_DEC=${R2AQ_DEC:-/root/affine_data/r2aq_now_decision.json}
+R2AQ_DONE=${R2AQ_DONE:-/root/logs/r2aq_now_reload.done}
+R2AQ_PIDF=${R2AQ_PIDF:-/root/logs/r2aq_now_reload.pid}
+R2AQ_HOLDING=${R2AQ_HOLDING:-/root/logs/r2aq_now_holding.stamp}
+if [[ -f "$R2AQ_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AQ_DEC"; then
+  echo "SKIP_${_TAG}_R2AQ_CLEARS file=$R2AQ_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AQ_DONE" || -f "$R2AQ_DEC" ]]; then
+    echo "[${_TAG}] R2aq terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AQ_PIDF" ]]; then
+    _ppid=$(cat "$R2AQ_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        hold="holding"
+        [[ -f "$R2AQ_HOLDING" ]] || hold="armed"
+        echo "[${_TAG}] wait-r2aq iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid $hold"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2aq not holding lane at iter=$_i"
+  break
+done
+
 unset _i _ppid _TAG

@@ -4,7 +4,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 
 ## Scoring (Reason v3, weight_version_key=3)
 - **Reason = lpC(y_C|z_A) − lpC(y_C|∅)** per pair; miner score = mean. Formerly called Λ2.
-- **Crown:** paired mean(Reason_c − Reason_k) > **k_sigma · SE** with k_sigma=3. No min_margin, no min_se.
+- **Crown:** paired mean(Reason_c − Reason_k) > **k_sigma · SE**; live contract `k_sigma=2.0` (2026-08-11). No min_margin, no min_se. Submit bar still ~1.5×(kσ·SE).
 - **No gates on score or validity.** causality / leakage / bank / r / baseline band are telemetry only.
 - Miner-side terms (L1lift, lpA, calibration r) do **not** enter Reason. Do not train them as objectives.
 - Absolute Reason is only comparable within one duel slice. Use paired margin vs the live king.
@@ -147,4 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R2ak pure google local n80 hr **0.641×**; board chal-00470 gzip hr **0.094×** — local≫board slice noise; hr>0 → R2ac DONE; no Stage-5.
 - R2al SKIP_BOARD 471 pig hr0.580×; **R2ac↔R2ad deadlock** if ac waits on `r2ad_premerge.done` while ad waits on ac — yield only on `*_holding.stamp` (p2015).
 - R2ab/ac/ad Talent skew REFUTE: sky **−1.59×**; google **−0.978×**; pig **−1.18×** (board pig 0.58×) — board/local Reason+ does not transfer via Talent0.25×parent0.75.
-- chal-00484 cgpb9 **UNSERVABLE** (hr=None) — skip Talent-skew; prefer pure Tok-lineage. **R2an SKIP_BOARD** cp13 hr0.16×; arm **R2ao pure af17** after R2am; while n80 runs, arm next pure parent (**R2ap h44**) so GPU lane never idles after a REFUTE/SKIP.
+- chal-00484 cgpb9 **UNSERVABLE** (hr=None) — skip Talent-skew; prefer pure Tok-lineage. **R2an SKIP_BOARD** cp13 hr0.16×; arm **R2ao→R2ap→R2aq** pure parents (af17/h44/now) while prior n80 runs so GPU never idles after REFUTE/SKIP.
