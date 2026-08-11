@@ -1,0 +1,21 @@
+{
+  "challenger_repo": "vera6/affine-5g4yy75zuz-cc",
+  "challenger_revision": "973a2bfdc193b605fba3e521619990716397ff0c",
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "king_match": true,
+  "n_paired": 79,
+  "mean_margin": -0.004057837945266801,
+  "se": 0.00639127932033643,
+  "thr_3se": 0.01917383796100929,
+  "headroom_vs_3se": -0.2116341002525715,
+  "z": -0.6349023007577146,
+  "weight_version_key": null,
+  "verdict_pub": {
+    "margin": -0.004057837945266801
+  },
+  "n_king_rows": 80,
+  "n_chall_rows": 80,
+  "challenge_id": "chal-00433",
+  "bytes": 230902
+}

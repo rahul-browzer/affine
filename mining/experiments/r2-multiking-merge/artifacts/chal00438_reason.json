@@ -1,0 +1,21 @@
+{
+  "challenger_repo": "aurora1001/affine-5cwwlhucdc-prince",
+  "challenger_revision": "1bacb3edf95ddcfce41cb1a7027b22d4eb25362a",
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "king_match": true,
+  "n_paired": 80,
+  "mean_margin": 0.0022764294916650094,
+  "se": 0.004437141447078166,
+  "thr_3se": 0.013311424341234498,
+  "headroom_vs_3se": 0.17101321641541886,
+  "z": 0.5130396492462566,
+  "weight_version_key": null,
+  "verdict_pub": {
+    "margin": 0.002276429491665009
+  },
+  "n_king_rows": 80,
+  "n_chall_rows": 80,
+  "challenge_id": "chal-00438",
+  "bytes": 244495
+}

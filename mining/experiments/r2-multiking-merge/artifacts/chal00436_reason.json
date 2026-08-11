@@ -1,0 +1,21 @@
+{
+  "challenger_repo": "tojointhecommunity/affine-5efg6cm3yl-nvidia",
+  "challenger_revision": "b40f9ba611ec5dc6ef4717de31ec4a8ef35702fa",
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "king_match": true,
+  "n_paired": 80,
+  "mean_margin": 0.006675298666126296,
+  "se": 0.004905400069255429,
+  "thr_3se": 0.014716200207766289,
+  "headroom_vs_3se": 0.4536020556857803,
+  "z": 1.360806167057341,
+  "weight_version_key": null,
+  "verdict_pub": {
+    "margin": 0.006675298666126296
+  },
+  "n_king_rows": 80,
+  "n_chall_rows": 80,
+  "challenge_id": "chal-00436",
+  "bytes": 245213
+}

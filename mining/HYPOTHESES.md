@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h REFUTE**; **R2j SKIP** 432 hr −0.57×; **440 saysth** 0.73×; **R2i/k…p** wait Reason+; **R2q** armed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h REFUTE**; **R2j SKIP** 432 hr −0.57×; **440 saysth** 0.73×; **R2i/k…p** wait Reason+; **R2q** armed; **R2r-prep** whoami/458 prefetch+watch |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent×saysth **REFUTED** (hr −0.89×). **R2j** Talent×BKN7 **SKIPPED** (chal-00432 hr **−0.57×**, margin −0.0103, z=−1.72). **R2i/k…p** wait 441/431/450/456/451/452/455 Reason+. **R2q** pure saysth-v9a armed (after remaining terminals). Prefetch DONE. diane/nvidia/aurora gated. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent×saysth **REFUTED** (hr −0.89×). **R2j** Talent×BKN7 **SKIPPED** (chal-00432 hr **−0.57×**, margin −0.0103, z=−1.72). **R2i/k…p** wait 441/431/450/456/451/452/455 Reason+. **R2q** pure saysth-v9a armed (after remaining terminals). **R2r-prep:** queue **chal-00458** `marsplan…-whoami` (diane-new id `5gedzafcvg`, ungated) prefetch+watch armed — GPU merge only if hr>0 after R2q. Prefetch DONE except whoami INFLT. diane/nvidia/aurora gated. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.

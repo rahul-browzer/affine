@@ -1,0 +1,20 @@
+{
+  "pass": 1930,
+  "armed_at": "2026-08-11T01:13:35Z",
+  "hyp": "R2r-prep",
+  "repo": "marsplan0624/affine-5gedzafcvg-whoami",
+  "revision": "21ad45721ab242a6aa0c18d00104045627d68583",
+  "challenge_id": "chal-00458",
+  "note": "diane-new lineage id 5gedzafcvg; ungated weights; prefetch+watch only (no GPU merge until Reason+ after R2q)",
+  "pids": {
+    "prefetch_launcher": "159761",
+    "prefetch": "159761",
+    "watch_458": "159877"
+  },
+  "nearmiss_confirm": {
+    "440_saysth": 0.728,
+    "436_nvidia": 0.454,
+    "438_aurora": 0.171,
+    "note": "gated parents unchanged; saysth still best DL Reason+"
+  }
+}

@@ -1,5 +1,13 @@
 # R2 result log
 
+## p1930 — whoami (458) prefetch+watch; nearmiss confirm
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,523.
+- Board still **chal-00441** `load_challenger` (gzip 404). Harvest deferred.
+- Near-miss rescore of published gzips vs Tok: **440 saysth 0.728×** · **436 nvidia 0.454×** · **438 aurora 0.171×** · 437/433/439 Reason−. Gated parents unchanged.
+- New queue parent **chal-00458** `marsplan0624/affine-5gedzafcvg-whoami@21ad4572…` — diane-new lineage id, **ungated** weights (25 files / 16 shards). Armed CPU: prefetch pid **159761** + watch-458 pid **159877**. No GPU merge yet (wait Reason+ after R2q).
+- Artifacts: `artifacts/r2r_whoami_prefetch_armed_p1930.json`, `artifacts/nearmiss_sweep_p1930.json`, `launch_prefetch_whoami.sh`, `watch_chal00458_reason.sh`.
+- Next: harvest 441; R2i…R2q chain; if 458 hr>0 arm R2r Talent×whoami after R2q.
+
 ## p1929 — R2j SKIP (chal-00432 BKN-seven Reason−)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,535.
 - Harvested `chal00432_reason.json` (01:08:44Z): margin **−0.010257** · se=0.005954 · z=**−1.72** · 3·SE=**0.01786** · headroom=**−0.574×** · n=80 · `challenger_wins=false` · `king_match=true` · formula Reason.

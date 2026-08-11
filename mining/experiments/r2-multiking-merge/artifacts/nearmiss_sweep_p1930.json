@@ -1,0 +1,258 @@
+{
+  "ranked": [
+    {
+      "challenger_repo": "saysth/Affine-5dtnxamt4t-v9a",
+      "challenger_revision": "6e13f365b36000cf631aad2fa9fb05fdabae0044",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 80,
+      "mean_margin": 0.009155625778557861,
+      "se": 0.004193285116874115,
+      "thr_3se": 0.012579855350622345,
+      "headroom_vs_3se": 0.7278005607675703,
+      "z": 2.1834016823027107,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": 0.00915562577855786
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00440",
+      "bytes": 255888
+    },
+    {
+      "challenger_repo": "tojointhecommunity/affine-5efg6cm3yl-nvidia",
+      "challenger_revision": "b40f9ba611ec5dc6ef4717de31ec4a8ef35702fa",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 80,
+      "mean_margin": 0.006675298666126296,
+      "se": 0.004905400069255429,
+      "thr_3se": 0.014716200207766289,
+      "headroom_vs_3se": 0.4536020556857803,
+      "z": 1.360806167057341,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": 0.006675298666126296
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00436",
+      "bytes": 245213
+    },
+    {
+      "challenger_repo": "aurora1001/affine-5cwwlhucdc-prince",
+      "challenger_revision": "1bacb3edf95ddcfce41cb1a7027b22d4eb25362a",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 80,
+      "mean_margin": 0.0022764294916650094,
+      "se": 0.004437141447078166,
+      "thr_3se": 0.013311424341234498,
+      "headroom_vs_3se": 0.17101321641541886,
+      "z": 0.5130396492462566,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": 0.002276429491665009
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00438",
+      "bytes": 244495
+    },
+    {
+      "challenger_repo": "syntaxs0cerer/Affine-5eqdtdzqle-hx2ipp70",
+      "challenger_revision": "e073b2636a22531a3a08f0de3e7a23dc8372727f",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 80,
+      "mean_margin": -0.0019458430165549205,
+      "se": 0.003555044301639481,
+      "thr_3se": 0.010665132904918443,
+      "headroom_vs_3se": -0.1824490171761062,
+      "z": -0.5473470515283186,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": -0.0019458430165549205
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00437",
+      "bytes": 217094
+    },
+    {
+      "challenger_repo": "vera6/affine-5g4yy75zuz-cc",
+      "challenger_revision": "973a2bfdc193b605fba3e521619990716397ff0c",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 79,
+      "mean_margin": -0.004057837945266801,
+      "se": 0.00639127932033643,
+      "thr_3se": 0.01917383796100929,
+      "headroom_vs_3se": -0.2116341002525715,
+      "z": -0.6349023007577146,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": -0.004057837945266801
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00433",
+      "bytes": 230902
+    },
+    {
+      "challenger_repo": "darius3th/Affine-5eqdtdzqle-u2tgykt2",
+      "challenger_revision": "23dda7769521ddca5fb85931d19cd5ce304596de",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 60,
+      "mean_margin": -0.04816358702428748,
+      "se": 0.008958424418384974,
+      "thr_3se": 0.026875273255154923,
+      "headroom_vs_3se": -1.792115249099812,
+      "z": -5.376345747299436,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": -0.04816358702428748
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00439",
+      "bytes": 192059
+    }
+  ],
+  "all": [
+    {
+      "challenger_repo": "vera6/affine-5g4yy75zuz-cc",
+      "challenger_revision": "973a2bfdc193b605fba3e521619990716397ff0c",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 79,
+      "mean_margin": -0.004057837945266801,
+      "se": 0.00639127932033643,
+      "thr_3se": 0.01917383796100929,
+      "headroom_vs_3se": -0.2116341002525715,
+      "z": -0.6349023007577146,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": -0.004057837945266801
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00433",
+      "bytes": 230902
+    },
+    {
+      "challenger_repo": "tojointhecommunity/affine-5efg6cm3yl-nvidia",
+      "challenger_revision": "b40f9ba611ec5dc6ef4717de31ec4a8ef35702fa",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 80,
+      "mean_margin": 0.006675298666126296,
+      "se": 0.004905400069255429,
+      "thr_3se": 0.014716200207766289,
+      "headroom_vs_3se": 0.4536020556857803,
+      "z": 1.360806167057341,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": 0.006675298666126296
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00436",
+      "bytes": 245213
+    },
+    {
+      "challenger_repo": "syntaxs0cerer/Affine-5eqdtdzqle-hx2ipp70",
+      "challenger_revision": "e073b2636a22531a3a08f0de3e7a23dc8372727f",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 80,
+      "mean_margin": -0.0019458430165549205,
+      "se": 0.003555044301639481,
+      "thr_3se": 0.010665132904918443,
+      "headroom_vs_3se": -0.1824490171761062,
+      "z": -0.5473470515283186,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": -0.0019458430165549205
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00437",
+      "bytes": 217094
+    },
+    {
+      "challenger_repo": "aurora1001/affine-5cwwlhucdc-prince",
+      "challenger_revision": "1bacb3edf95ddcfce41cb1a7027b22d4eb25362a",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 80,
+      "mean_margin": 0.0022764294916650094,
+      "se": 0.004437141447078166,
+      "thr_3se": 0.013311424341234498,
+      "headroom_vs_3se": 0.17101321641541886,
+      "z": 0.5130396492462566,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": 0.002276429491665009
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00438",
+      "bytes": 244495
+    },
+    {
+      "challenger_repo": "darius3th/Affine-5eqdtdzqle-u2tgykt2",
+      "challenger_revision": "23dda7769521ddca5fb85931d19cd5ce304596de",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 60,
+      "mean_margin": -0.04816358702428748,
+      "se": 0.008958424418384974,
+      "thr_3se": 0.026875273255154923,
+      "headroom_vs_3se": -1.792115249099812,
+      "z": -5.376345747299436,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": -0.04816358702428748
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00439",
+      "bytes": 192059
+    },
+    {
+      "challenger_repo": "saysth/Affine-5dtnxamt4t-v9a",
+      "challenger_revision": "6e13f365b36000cf631aad2fa9fb05fdabae0044",
+      "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+      "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+      "king_match": true,
+      "n_paired": 80,
+      "mean_margin": 0.009155625778557861,
+      "se": 0.004193285116874115,
+      "thr_3se": 0.012579855350622345,
+      "headroom_vs_3se": 0.7278005607675703,
+      "z": 2.1834016823027107,
+      "weight_version_key": null,
+      "verdict_pub": {
+        "margin": 0.00915562577855786
+      },
+      "n_king_rows": 80,
+      "n_chall_rows": 80,
+      "challenge_id": "chal-00440",
+      "bytes": 255888
+    }
+  ]
+}
