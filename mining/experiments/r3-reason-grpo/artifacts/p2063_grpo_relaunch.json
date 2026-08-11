@@ -1,0 +1,19 @@
+{
+  "pass": 2063,
+  "utc": "2026-08-11T18:01:30Z",
+  "action": "killed_wedged_grpo_relaunched",
+  "old_pid": 15121,
+  "new_pid": 23755,
+  "symptom": "100%CPU spin + CLOSE-WAIT to teacher:8000; log frozen at step10 after p2062 SIGSTOP/CONT; earlier steps mostly reward=0 from Connection refused",
+  "teacher": "healthy /v1/models + completions",
+  "king": "8001 max_model_len=65536",
+  "first_step_after_relaunch": {
+    "step": 1,
+    "mean_r": 0.019796665328794667,
+    "rewards": [0.019767562263066064, 0.019485998862051632, 0.019774237662246123, 0.020158862527814847],
+    "note": "all four group rewards nonzero — teacher scoring live"
+  },
+  "post_train_waiter_pid": 15127,
+  "b300_stock": 0,
+  "burn_h": 116.25
+}
