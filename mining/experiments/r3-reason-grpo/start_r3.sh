@@ -69,7 +69,7 @@ nohup python3 "$SRC/train_reason_grpo.py" \
   --group-size 4 \
   --temperature 0.8 \
   --max-steps 200 \
-  >"$LOG" 2>&1 &
+  >>"$LOG" 2>&1 &
 echo $! | tee /root/logs/r3_train.pid >"$OUT/train.pid"
 python3 - <<PY
 import json, time

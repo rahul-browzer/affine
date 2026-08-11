@@ -1,0 +1,23 @@
+{
+  "pass": 2070,
+  "utc": "2026-08-11T18:46:50Z",
+  "action": "killed_wedged_grpo_relaunched",
+  "old_pid": 23755,
+  "new_pid": 26401,
+  "symptom": "0%CPU + CLOSE-WAIT to teacher:8000; log frozen at step30 (~18:30Z); workers futex_do_wait",
+  "teacher": "healthy /v1/models + completions",
+  "king": "8001 max_model_len=65536",
+  "first_steps_after_relaunch": [
+    {"step": 1, "mean_r": 0.019269469509076816},
+    {"step": 2, "mean_r": 0.02469519205350616},
+    {"step": 10, "mean_r": -0.04612219395160703}
+  ],
+  "side_fixes": [
+    "start_r3.sh: truncate >LOG → append >>LOG (host+pod) so relaunches keep history"
+  ],
+  "crown_note": "R2ax REFUTE margin=-0.00620 z=-1.48; R2ay n80 started ~18:42Z",
+  "post_train_waiter_pid": 15127,
+  "b300_stock_x8": 0,
+  "burn_h": 116.25,
+  "balance_usd": 121138.47
+}
