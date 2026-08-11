@@ -1,0 +1,38 @@
+{
+  "pass": 1926,
+  "utc": "2026-08-11T01:00:11Z",
+  "hyp": "R2o",
+  "action": "armed Talent×zeus Reason+-gated premerge+reload + watch-452; zeus prefetch already DONE",
+  "parents": {
+    "talent": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "zeus": "diceofgod/affine-5fjgc5jhxq-zeus@accc9249d879861f6d2c4f01c01df5b6e2426353",
+    "weights": "w_talent=0.25 w_zeus=0.75"
+  },
+  "gate": {
+    "challenge_id": "chal-00452",
+    "reason_json": "/root/affine_data/chal00452_reason.json",
+    "rule": "king_match && headroom_vs_3se > 0"
+  },
+  "pids": {
+    "watch_chal00452_reason": 154867,
+    "r2o_premerge": 154889,
+    "r2o_merge_reload": 154904
+  },
+  "lane_serializes_behind": [
+    "R2g",
+    "R2i",
+    "R2j",
+    "R2k",
+    "R2l",
+    "R2m",
+    "R2n"
+  ],
+  "contract": {
+    "weight_version_key": 3,
+    "king": "Tok331102/affine-5EqYW8McUc-af10"
+  },
+  "submit_bar": "headroom_vs_3se >= 1.5",
+  "disk_free_gib": 295,
+  "lium_balance_usd": 123556.93,
+  "burn_usd_per_h": 64.0
+}
