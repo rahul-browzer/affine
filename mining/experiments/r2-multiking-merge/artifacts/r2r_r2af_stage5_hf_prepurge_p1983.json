@@ -1,0 +1,40 @@
+{
+  "utc": "2026-08-11T07:02:22Z",
+  "pass": 1983,
+  "need_gb": 150.0,
+  "freed_bytes": 210703795695,
+  "freed_gb": 210.703795695,
+  "n_deleted": 3,
+  "deleted": [
+    {
+      "id": "unconst/Affine-5czsc2fc98-h83-merged",
+      "bytes": 70234598565
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h89-merged",
+      "bytes": 70234598565
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h101-merged",
+      "bytes": 70234598565
+    }
+  ],
+  "errors": [],
+  "keep": [
+    "unconst/Affine-5czsc2fc98-r1lora",
+    "unconst/Affine-5czsc2fc98-r2af-awesome-v8",
+    "unconst/Affine-5czsc2fc98-r2r-talent-whoami",
+    "unconst/Affine-5czsc2fc98-r2v-sft3"
+  ],
+  "note": "pre-purge during R2r n80 (~23/80) so R2r/R2af Stage-5 HF push can start immediately on \u22651.5\u00d7",
+  "r2r_progress_at_arm": {
+    "challenger": 22,
+    "king": 23,
+    "n_turns": 80
+  },
+  "board": {
+    "challenge_id": "chal-00462",
+    "stage": "load_challenger",
+    "repo": "0pentensor/Affine-5dflhtkufw-awesome-v8"
+  }
+}

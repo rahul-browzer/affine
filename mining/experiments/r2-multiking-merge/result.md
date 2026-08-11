@@ -1,3 +1,10 @@
+## p1983 — Stage-5 HF prepurge +210.7 GiB while R2r gathers
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,752.
+- R2r n80 healthy ~29/80 (pid 266016); TKC 200/200/200. Board chal-00462 still `load_challenger`. R2af waiter pid 268343 intact; awesome-v8 snap 65.4 GiB complete.
+- Deleted public `unconst/Affine-5czsc2fc98-{h83,h89,h101}-merged` → **+210.7 GiB** Hub headroom for R2r/R2af Stage-5 push. Kept r1lora + pending r2r/r2af/r2v targets.
+- Artifact: `artifacts/r2r_r2af_stage5_hf_prepurge_p1983.json` (also on pod `/root/affine_data/`).
+- Next: harvest `r2r_alpha_decision.json`; hr≥1.5× → Stage-5 HF+submit; else R2af pure awesome-v8 n80.
+
 ## p1982 — R2ae SKIP_GATED sth; armed R2af pure awesome-v8
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,763.
 - R2r n80 healthy ~16/80 (pid 266016); TKC 200/200/200. Board chal-00462 still `load_challenger`.
