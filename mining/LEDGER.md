@@ -10,11 +10,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,262.41 | 2026-08-11T10:48Z |
-| cumulative mining spend | ~$75,328 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T10:48Z |
-| **available for mining** | **~$112,262** (balance − $10,000 floor) | 2026-08-11T10:48Z |
+| Lium balance | $122,252.22 | 2026-08-11T10:55Z |
+| cumulative mining spend | ~$75,338 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T10:55Z |
+| **available for mining** | **~$112,252** (balance − $10,000 floor) | 2026-08-11T10:55Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T10:48Z |
+| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T10:55Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -23,6 +23,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T10:55Z | 122252.22 | p2015 R2ac↔R2ad deadlock fix (no new rent); burn$52.25/h; Δ−$10 vs p2014 (shared ok) |
 | 2026-08-11T10:48Z | 122262.41 | p2014 R2al SKIP + R2ad DONE (no new rent); burn$52.25/h; Δ−$61 vs p2012 (shared ok) |
 | 2026-08-11T10:16Z | 122323.62 | p2012 sbs-v1 DONE + watch480 armed (no new rent); burn$52.25/h; Δ−$10 vs p2011 (shared ok) |
 | 2026-08-11T10:13Z | 122333.78 | p2011 armed sbs-v1 prefetch (no new rent); burn$52.25/h; Δ−$10 vs p2010 (shared ok) |
@@ -32,4 +33,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T09:53Z | 122374.66 | p2007 R2ak n80 DONE hr0.641× (no new rent); burn$52.25/h; Δ−$51 vs p2006 (shared ok) |
 | 2026-08-11T09:30Z | 122425.66 | p2006 re-armed R2ac Talent×google (no new rent); burn$52.25/h; Δ$0 vs p2005 |
 | 2026-08-11T09:28Z | 122425.66 | p2005 R2ak n80 confirmed advancing (no new rent); burn$52.25/h; Δ−$20 vs p2004 (shared ok) |
-| 2026-08-11T09:19Z | 122446.04 | p2004 stamped 469 hr0.459× + R2ab DONE (no new rent); burn$52.25/h; Δ$0 vs p2003 |

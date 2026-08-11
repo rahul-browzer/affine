@@ -147,4 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - After crown pod replace: stub closed prior-lane `*_decision.json` + `*_reload.done` (CLOSED_PRE_POD_RESET) before arming R2ab+ waiters — else merge_reload step-2 hangs forever on missing R2i…R2z/q/v terminals; also stub `r2aa_eager_weights.done` if R2aa not re-armed.
 - Pod replace also drops nohup CPU premerges (R2ac p1976 vanished with no logs) — after warm READY, re-check `r2ac_premerge.log` / pid and re-arm if absent while R2ak runs.
 - R2ak pure google local n80 hr **0.641×**; board chal-00470 gzip hr **0.094×** — local≫board slice noise; hr>0 → R2ac DONE; no Stage-5.
-- R2al: R2ab lane-steal mid-n80 → local ABORT@70/80 ReadTimeout; stamp **SKIP_BOARD** from chal-00471 (pig hr **0.580×**); R2ad Talent×pig DONE on hr>0.
+- R2al SKIP_BOARD 471 pig hr0.580×; **R2ac↔R2ad deadlock** if ac waits on `r2ad_premerge.done` while ad waits on ac — yield only on `*_holding.stamp` (p2015).

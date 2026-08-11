@@ -151,10 +151,12 @@ for i in $(seq 1 2880); do
     exit 0
   fi
 
-  # If R2ad already has premerge.done, wait for R2ad terminal (do not race chall)
-  if [[ -f /root/logs/r2ad_premerge.done ]] && ! lane_terminal "$R2AD_DONE" "$R2AD_PREMERGE_SKIP" "$R2AD_DEC"; then
+  # Yield only if R2ad has claimed the chall (holding stamp). premerge.done alone
+  # is CPU work — waiting on it deadlocks with R2ad's wait-for-R2ac lane (order: ab→ac→ad).
+  if [[ -f /root/logs/r2ad_talent_pig_holding.stamp || -f /root/affine_data/r2ad_talent_pig_holding.stamp ]] \
+     && ! lane_terminal "$R2AD_DONE" "$R2AD_PREMERGE_SKIP" "$R2AD_DEC"; then
     if (( i % 12 == 0 )); then
-      echo "[r2ac-merge] wait-r2ad-premerge-claim iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+      echo "[r2ac-merge] wait-r2ad-holding iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ)"
     fi
     sleep 10
     continue
