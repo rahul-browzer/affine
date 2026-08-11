@@ -22,17 +22,15 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | R2ay WEAK; **R2az** n80 ~52–53/80 |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥38; wedge-watch |
-| host fleet-rent | pid**2282939** | — | rent →**25** mines (R4…R13) |
-| host fleet-boot | pid**2282940** | — | auto-upload **R4–R13** |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | R2ay WEAK; **R2az** n80 ~60/80 |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥43; wedge-watch |
+| host fleet-rent | pid**2289003** | — | rent →**25** mines (R4…R14) |
+| host fleet-boot | pid**2288998** | — | auto-upload **R4–R14** |
 | host r3-wedge | pid**2176107** | — | GRPO wedge relaunch |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
 SSH R3: `ssh root@204.9.206.245 -p 40051`
 Fleet: `tail -f experiments/fleet-rent/logs/wait_{fleet_b300,bootstrap_fleet}.log`
-R2az: `tail -f /root/logs/r2az_vvv_reload.log`
-R3: `grep -E 'r3-log|r3-hb' /root/logs/r3_train.nohup | tail`
 
 ## Blocked
 
@@ -40,8 +38,5 @@ R3: `grep -E 'r3-log|r3-hb' /root/logs/r3_train.nohup | tail`
 
 ## Next action
 
-**Bootstrapped rented_mine-r{4..13}*:** watch axis train log.
-**Else rented without boot:** fleet-boot log (auto R4–R13).
-**R3:** steps→train.done→post_train n80.
-**Crown:** R2az n80 → decision → awesome-v10.
-**New axes:** invent next distinct axis beyond R13 if stock appears and queue empties.
+**Rented+boot R4–R14:** watch axis train log. **Else:** fleet-boot / rent log.
+**R3:** steps→train.done→n80. **Crown:** R2az→decision→v10. **Else:** next axis >R14.

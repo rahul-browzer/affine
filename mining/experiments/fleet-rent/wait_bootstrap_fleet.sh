@@ -11,7 +11,7 @@ PIDF="$EXP/logs/wait_bootstrap_fleet.pid"
 DONE_DIR="$EXP/artifacts/bootstrapped"
 POLL_S=${POLL_S:-20}
 MAX_ITERS=${MAX_ITERS:-1800}  # ~10h @20s
-PASS=${PASS:-2086}
+PASS=${PASS:-2087}
 
 mkdir -p "$EXP/logs" "$STAMP_DIR" "$DONE_DIR"
 echo $$ >"$PIDF"
@@ -147,6 +147,13 @@ bootstrap_r13() {
   log "bootstrap R13 upload_and_launch name=$name host=$host port=$port"
   DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
     bash "$ROOT/mining/experiments/r13-offline-dpo/upload_and_launch.sh"
+}
+
+bootstrap_r14() {
+  local name=$1 host=$2 port=$3
+  log "bootstrap R14 upload_and_launch name=$name host=$host port=$port"
+  DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
+    bash "$ROOT/mining/experiments/r14-kevin-rl/upload_and_launch.sh"
 }
 
 
@@ -289,6 +296,14 @@ process_stamp() {
       ;;
     mine-r13-odpo-1)
       if bootstrap_r13 "$name" "$host" "$port"; then
+        mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
+      else
+        log "FAIL bootstrap $name"
+        return 1
+      fi
+      ;;
+    mine-r14-kevin-rl-1)
+      if bootstrap_r14 "$name" "$host" "$port"; then
         mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
       else
         log "FAIL bootstrap $name"

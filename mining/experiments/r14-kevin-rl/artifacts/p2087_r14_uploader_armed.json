@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T19:44:30Z",
+  "pass": 2087,
+  "axis": "R14",
+  "pod": "mine-r14-kevin-rl-1",
+  "method": "kevin_reinforce_teacher_reason",
+  "base": "kevin954/Affine-5dfqbbh8ev-sft@6a5815fa",
+  "data": "s4-h27 winner_za_high_l1.jsonl",
+  "n_examples": 406,
+  "stack": "s4-h135-f40-kevin-rl-l2 + R14 overlays",
+  "fleet_queue": true,
+  "fleet_boot_case": "mine-r14-kevin-rl-1",
+  "note": "≠ R3/R8 Tok RL; ≠ R5b Talent FT; reign-2 earner × Reason REINFORCE"
+}

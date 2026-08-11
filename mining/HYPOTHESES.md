@@ -22,6 +22,7 @@
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open** · fleet `mine-r11-odpo-1` · **p2084** uploader+boot armed |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open** · fleet `mine-r12-bon-1` · **p2085** uploader+boot armed |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open** · fleet `mine-r13-odpo-1` · **p2086** uploader+boot armed |
+| 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open** · fleet `mine-r14-kevin-rl-1` · **p2087** uploader+boot armed |
 
 ## Open
 
@@ -101,17 +102,17 @@
 - **Prediction:** n80 paired margin ≥ **1.5 × (2·SE)** vs Tok.
 - **Status:** open — **p2086** `upload_and_launch.sh` + fleet-boot case for `mine-r13-odpo-1` (H138 `train_dpo.py` overlay; 604 pairs). Waiting on 8×B300 rent. Dir: `experiments/r13-offline-dpo/`.
 
+### R14 — kevin954 Reason REINFORCE
+- **Claim:** reign-2 kevin954-init LoRA + online REINFORCE (reward=Reason) beats Tok-init RL (R3/R8) and Talent FT (R5b) on paired margin.
+- **Prediction:** n80 paired margin ≥ **1.5 × (2·SE)** vs Tok.
+- **Status:** open — **p2087** `upload_and_launch.sh` + fleet-boot case for `mine-r14-kevin-rl-1` (H135 overlay). Waiting on 8×B300 rent. Dir: `experiments/r14-kevin-rl/`.
+
 ## Refuted (Reason era)
-- Older Talent-skew / board-parent REFUTEs (R2h–R2am family) → `archive/` / prior status.log; do not re-blend.
-- **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.
-- **R1c** (2026-08-10): nsup≥100 filter (176 rows) + EPOCHS=6 → margin −0.0171 vs Tok (z=−2.75, n_paired=67). High-signal subset SFT still hurts Reason.
-- **R2ao** (2026-08-11): pure Tok af17 → margin **−0.00072** vs Tok af10 (z=−0.22, hr **−0.074×**, n=80). Near-parity, not crown; Stage-5 SKIP → R2ap h44.
-- **R2ap** (2026-08-11): pure kevin954 h44 → margin **+0.00414** vs Tok (z=0.98, hr **0.327×**, n=80). Weak positive ≪1.5×; Stage-5 SKIP → R2aq now.
-- **R2aq** (2026-08-11): pure tojointhecommunity …-now → margin **+0.00795** vs Tok (z=2.32, hr **0.773×**, n=80). Best pure signal yet; clears live 2·SE (1.16×) but not submit bar; Stage-5 SKIP → R2ar iynocr2p.
-- **R2aw** (2026-08-11): chal-00494 mt1 **unservable** (`Glm4MoeForCausalLM`, ~59 GiB, no visual) — SKIP before prefetch; not Qwen3.5 MoE VLM.
-- **R2ar** (2026-08-11): chal-00490 iynocr2p **unservable** — index lists 1026 keys but shards miss 50 (shard00002: 0/50 claimed keys present). vLLM "weights were not initialized"; SKIP; do not re-sim.
-- **R2av** (2026-08-11): pure Bittoby1040 `…-v2` → margin **−0.00027** vs Tok (z=−0.065, hr_live2σ **−0.033×**, n=80). King-noise; Stage-5 SKIP → R2ax tt.
-- **R2ay** (2026-08-11): pure sbs-v2 → margin **+0.00930** vs Tok (z=2.04, hr_live2σ **1.02×**, n=79). Weak positive; Stage-5 SKIP → R2az vvv.
+- Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
+- **R1b/R1c:** king-init LoRA −0.0135 / nsup≥100 −0.0171 vs Tok — SFT family closed.
+- **R2ao/ap/aq:** af17 −0.0007; kevin h44 +0.004; …-now +0.008 (best pure, still ≪1.5×) — SKIP.
+- **R2aw/ar:** mt1 / iynocr2p **unservable** (wrong arch / missing shards) — SKIP; do not re-sim.
+- **R2av/ay:** Bittoby v2 −0.0003; sbs-v2 **+0.0093** (hr 1.02×) — WEAK; Stage-5 SKIP → R2az vvv.
 
 ## Do not reopen from S\* legacy
-Clip-L1 shaping, r∈[0.7,0.85], α-merge lotteries, king-watch, "don't raise Λ2", submit-gate 0.04 as research kill — all S\* v2. See archive if curious; do not schedule them.
+Clip-L1 shaping, r∈[0.7,0.85], α-merge lotteries, king-watch, "don't raise Λ2", submit-gate 0.04 — S\* v2 only.
