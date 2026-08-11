@@ -1,0 +1,14 @@
+{
+  "started_at": "2026-08-10T23:56:10Z",
+  "note": "p1910 queue chal-00432 prefetch while R2h n80; Reason unknown until verdict",
+  "parents": [
+    {
+      "repo": "BKN1890/Affine-5ghvq9a9g9-seven",
+      "revision": "11821bf3164ae9e35955012e2f88223e8734ab6f",
+      "path": "/root/hf/hub/models--BKN1890--Affine-5ghvq9a9g9-seven/snapshots/11821bf3164ae9e35955012e2f88223e8734ab6f",
+      "seconds": 244.1
+    }
+  ],
+  "skipped": [],
+  "finished_at": "2026-08-11T00:00:15Z"
+}

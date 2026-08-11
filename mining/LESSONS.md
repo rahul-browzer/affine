@@ -87,3 +87,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R2e Talent×awesome skew (Δ=0.626) vs Tok: margin **−0.0364** (z=−3.55, hr **−1.18×**, n=80) — large weight delta ≠ Reason gain; non-Tok×awesome blends can hurt harder than pure awesome (+0.22×).
 - Queue HF parents with index-probe OK while crown n80 runs: chal-00441 `thompsville/…-cgpb8@1da22459` (~70 GiB), plus syntaxsorcerer1/sft3, adsbasd/asdf, BKN1890/seven — prefetch one-at-a-time (disk ~500 GiB free); do not merge until post-verdict Reason+.
 - p1910 queue index probes (unconst @main→sha): BKN seven/six, syntaxsorcerer1/sft3, adsbasd/asdf, diceofgod/zeus all **weights_ok**; `/root` HF cache has **~428 GiB** free — prefetch **one** ~65–70 GiB parent at a time (BKN seven first).
+- R2h Tok×Talent×kevin equal-α (Δ=0.277) vs Tok: margin **−0.0211** (z=−1.77, hr **−0.59×**, n=60) — multi-reign equal-α loses; chall mean_len_z 777 vs king 418 with fewer scored pairs (130 vs 311).
+- Prefetch DONE stamps live under `/root/logs/` — also copy to `/root/affine_data/*.done` so Ralph inventory readers do not miss them; arm chal Reason watcher as soon as parent is cached.

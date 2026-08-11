@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** hr=0.22×; **R2e REFUTE** hr=−1.18×; **R2f SKIP**; **R2g** armed; **R2h TTK** n80 **RUNNING** (~36/80); **R2i** armed; **BKN seven** prefetch **RUNNING** |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e REFUTE**; **R2f SKIP**; **R2h TTK REFUTE** hr=−0.59×; **R2g/R2i** wait 440/441 Reason+; **BKN** prefetch DONE + watch 432 |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome (Δ=0.626) → margin **−0.0364** (z=−3.55, hr **−1.18×**, n=80) **REFUTED**. **R2f** WEAK_SKIP. **R2g** Talent×saysth: premerge **130003** + reload **130835** (waits R2h + 440 Reason). **R2h** Tok×Talent×kevin equal-α (Δ=0.277) n80 **RUNNING** sim **137312** (~36/80) → `r2h_ttk_decision.json`. **R2i** Talent×thompsville: watch **138617** + premerge **138637** + reload **139014**. **BKN** `…-seven@11821bf3` prefetch pid **139298** (queue chal-00432; no merge until Reason+). Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α (Δ=0.277) → margin **−0.0211** (z=−1.77, hr **−0.59×**, n=60) **REFUTED** — do not submit. **R2g** Talent×saysth waiters still gated on 440 Reason+. **R2i** Talent×thomp waiters gated on 441 Reason+. **BKN seven** prefetch **DONE**; watch **140530** → `chal00432_reason.json` (no merge until Reason+). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
@@ -29,6 +29,7 @@
 ## Refuted (Reason era)
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.
 - **R1c** (2026-08-10): nsup≥100 filter (176 rows) + EPOCHS=6 → margin −0.0171 vs Tok (z=−2.75, n_paired=67). High-signal subset SFT still hurts Reason.
+- **R2h** (2026-08-11): Tok×Talent×kevin equal-α (Δ=0.277) → margin −0.0211 vs Tok (z=−1.77, hr −0.59×, n=60). Multi-reign equal-α does not clear 3·SE.
 
 ## Do not reopen from S\* legacy
 Clip-L1 shaping, r∈[0.7,0.85], α-merge lotteries, king-watch, "don't raise Λ2", submit-gate 0.04 as research kill — all S\* v2. See archive if curious; do not schedule them.

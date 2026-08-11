@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1911 — R2h TTK REFUTED; BKN seven watch armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,657.
+- Harvested `r2h_ttk_decision.json` (00:09:39Z): margin **−0.02112** · se=0.01192 · z=**−1.77** · 3·SE=**0.03577** · headroom=**−0.591×** · reason_c=−0.04088 · reason_k=−0.01658 · n_paired=60 · `challenger_wins=false`.
+- Decision stamp `REFUTE_R1_H64_BASELINE` (template; hyp=R2h) — **do not submit** (bar 1.5×).
+- BKN seven prefetch **DONE** 00:00:15Z (~66 GiB); mirrored done stamp to `affine_data/`; armed `watch_chal00432_reason.sh` pid **140530**.
+- R2g/R2i waiters still alive (440/441 Reason stamps absent; board still scoring chal-00440).
+- Artifacts: `artifacts/r2h_ttk_{decision,reason_sim}.json`, `artifacts/r2h_harvest_p1911.json`, `watch_chal00432_reason.sh`.
+- Next: R2g if saysth Reason+ else R2i on 441; BKN merge only after 432 Reason+.
+
 ## p1909 — R2i reload→n80 waiter armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,702.
 - R2h TTK n80 still **RUNNING** (~30/80 @23:53Z; sim 137312; no decision).
