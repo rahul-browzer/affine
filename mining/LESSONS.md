@@ -53,7 +53,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - `launch_r1c_merge_reload_sim.sh` without an R1b-dec gate will yank `:8002` the moment train finishes — fatal if n80 is still gathering; always gate merge/reload on the prior lane’s decision file.
 - Guard “already training” / restore-running with **pidfile `kill -0`**, not `pgrep -f` — SSH/`bash -c` command lines contain the needle and false-positive skip the real start (p1995).
 - R1b LoRA@16384 on 1006 high-Reason rows **hurt** Reason vs Tok: margin **−0.0135** (z=−2.45, n_paired=75); chall mean_len_z 569 vs king 406 — longer/noisier thoughts, fewer scored pairs (195 vs 311). Char-keep ≠ teacher-helpful.
-- R1b→R1c chain correctly LAUNCHed on negative headroom and skipped double-train via pidfile while merge waiter stayed armed for post-train reload.
 - R2 α→n80 lane-free gate must use **r1c_train.pid / r1c_merge_reload.pid + kill -0**, never `pgrep -af 'train_lora|launch_r1c_merge'` — SSH diagnostics match the needle and stall R2 after R1c decision.
 - Many 2026-08-10 duels still stamp `ranking_formula=Λ2+L1lift` in the gzip; **recompute Reason from `lpC_yc_za−lpC_yc_e`** before trusting published margin/z (chal-00425 pub +0.017/z2.79 → Reason +0.0108/z2.75; still best near-miss ~0.92×).
 - Overlap Tok×near-miss CPU α-premerge (`launch_r2b_tok_awesome_premerge.sh`) with R1c train + nearmiss download — same pattern as R2 Talent/kevin premerge; stamp `r2b_premerge.done` before chall reload.
