@@ -1,5 +1,15 @@
 # R3 — Reason GRPO results
 
+## p2061 — finish stuck w0 → teacher → GRPO train
+
+- **Problem:** 16-way range DL stalled at 33.85/35.11 GB (~1 MB/s); w0 range incomplete; waiter would FATAL if dl killed alone.
+- **Action:** killed waiter+dl; `finish_incomplete_ranges.py` rewrote range0 (8 sub-workers, ~99 s); stamped `tok_init.done`; relaunched `bootstrap_r3.sh` (DOWNLOAD skip); teacher :8000 up ~17:29Z; **GRPO TRAIN_LAUNCHED** pid15121 @17:30Z.
+- **Train knobs:** LoRA r16 α32, lr5e-6, group4, max_len6144, max_steps200, data `winner_za_high_l1.jsonl`.
+- **Also:** crown **R2au REFUTE** m=−0.03071 z=−3.66; R2av v2 n80 auto-started.
+- **Check:** `tail -f /root/logs/r3_train.nohup` · `ls /root/logs/r3_train_launched.stamp`
+- **Scripts:** `experiments/r3-reason-grpo/finish_incomplete_ranges.py`
+- **Market:** 0× free 8×B300; burn $116.25/h vs $833/h.
+
 ## p2060 — 16-way CDN range DL (unstick shard2)
 
 - **Problem:** inline `snapshot_download` on Tok shard2 (`da0b5fc3…`) crawled ~4 MB/s (~2h ETA); teacher already stamped; no free 8×B300.

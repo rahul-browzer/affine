@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-11T17:30:34Z",
+  "pass": 2061,
+  "pod": "mine-r3-grpo-1",
+  "huid": "golden-hawk-ff",
+  "action": "finish_incomplete_ranges w0 + bootstrap + GRPO",
+  "tok_init": "/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "teacher_url": "http://127.0.0.1:8000/v1",
+  "train_pid": 15121,
+  "stamp": "r3_train_launched.stamp",
+  "r2au": {
+    "decision": "REFUTE",
+    "margin": -0.030710946979452945,
+    "se": 0.008400303517891596,
+    "z": -3.655933016472854,
+    "headroom_live_2se": -1.83
+  },
+  "burn_usd_per_h": 116.25,
+  "b300_x8_free": 0
+}
