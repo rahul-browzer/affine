@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # R2w: after pure-sft3 (R2v) finishes below Stage-5 bar, burn idle crown GPUs
 # on pure adsbasd31badsf/…-asdf (queue chal-00451) as chall → fresh n80 vs Tok.
-# Does NOT wait on board Reason stamps. Sibling merges wait on
+# Board-first: if chal00451_reason.json has 0<hr<1.5, SKIP local n80 and write
+# r2w_asdf_decision.json from the board (p1956). Sibling merges wait on
 # r2w_asdf_reload.pid via wait_r2q_before_chall_kill.inc.sh.
 # Waits for R2v terminal + bridge_r2v_to_r2l so a local Reason+ sft3 can
 # still hand the lane to Talent×sft3 (R2l) before we take chall.
@@ -19,6 +20,47 @@ echo "[r2w-asdf] $(date -u +%Y-%m-%dT%H:%M:%SZ) start"
 if [[ -f "$DONE" ]]; then
   echo "[r2w-asdf] already done: $(cat "$DONE")"
   exit 0
+fi
+
+# Board-first: chal-00451 already published Reason. If hr∈(0,1.5) skip pure-asdf
+# local n80 (same band as R2v/sft3); Talent×asdf (R2n) owns the blend lane.
+BOARD_REASON=${BOARD_REASON:-/root/affine_data/chal00451_reason.json}
+BOARD_DONE=${BOARD_DONE:-/root/logs/watch_chal00451_reason.done}
+if [[ -f "$BOARD_REASON" && -f "$BOARD_DONE" ]]; then
+  if python - <<'PY'
+import json
+from pathlib import Path
+d = json.loads(Path("/root/affine_data/chal00451_reason.json").read_text())
+hr = d.get("headroom_vs_3se")
+ok = bool(d.get("king_match")) and hr is not None and 0.0 < float(hr) < 1.5
+raise SystemExit(0 if ok else 1)
+PY
+  then
+    python - <<'PY'
+import json, time
+from pathlib import Path
+r = json.loads(Path("/root/affine_data/chal00451_reason.json").read_text())
+utc = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+dec = {
+  "utc": utc, "hyp": "R2w", "contract": "Reason v3",
+  "decision": "SIGNAL_POS_BELOW_3SE", "source": "board_chal00451_first",
+  "headroom_bar": 1.5, "false_probe": None,
+  "margin": r.get("reason_margin"), "se": r.get("reason_se"), "z": r.get("reason_z"),
+  "k_sigma": 3.0, "threshold_3se": r.get("three_se"),
+  "headroom_vs_3se": r.get("headroom_vs_3se"),
+  "n_paired_turns": r.get("n_paired"),
+  "challenger_wins": bool(r.get("challenger_wins")),
+  "challenger_repo": r.get("challenger_repo"),
+  "challenger_revision": r.get("challenger_revision"),
+  "king_repo": r.get("king_repo"), "king_revision": r.get("king_revision"),
+  "sim_result": None, "board_reason": "/root/affine_data/chal00451_reason.json",
+}
+Path("/root/affine_data/r2w_asdf_decision.json").write_text(json.dumps(dec, indent=2) + "\n")
+print(f"board hr={dec['headroom_vs_3se']}")
+PY
+    echo "SKIP_R2W_BOARD_FIRST $(date -u +%Y-%m-%dT%H:%M:%SZ) $(head -1 "$BOARD_DONE")" | tee "$DONE"
+    exit 0
+  fi
 fi
 
 HEADROOM_BAR=${HEADROOM_BAR:-1.5}
