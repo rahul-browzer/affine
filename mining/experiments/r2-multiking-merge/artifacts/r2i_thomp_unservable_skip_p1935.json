@@ -1,0 +1,42 @@
+{
+  "utc": "2026-08-11T01:33:52Z",
+  "pass": 1935,
+  "hyp": "R2i",
+  "contract": "Reason v3",
+  "weight_version_key": 3,
+  "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "parent_challenge": "chal-00441",
+  "parent_repo": "thompsville/affine-5dvegrgnsg-cgpb8",
+  "parent_revision": "1da224590eb2a140dc25907c46958830896680cf",
+  "published": {
+    "accepted": false,
+    "challenger_wins": false,
+    "rejection_reason": "unservable:challenger failed to load in vLLM",
+    "has_artifact": false,
+    "reason_margin": null,
+    "headroom_vs_3se": null,
+    "n_paired": 0
+  },
+  "decision": "SKIP_UNSERVABLE",
+  "merge": false,
+  "submit": false,
+  "premerge_skip": "SKIP 2026-08-11T01:33:48Z Reason-or-mismatch hr=None … — no Talent×thomp merge",
+  "merge_done": "SKIP_R2I_PREMERGE_SKIPPED … 2026-08-11T01:33:52Z",
+  "disk": {
+    "purged": "/root/hf/hub/models--thompsville--affine-5dvegrgnsg-cgpb8",
+    "freed_approx_gib": 66,
+    "free_after": "539G"
+  },
+  "board_after": {
+    "phase": "duel",
+    "challenge_id": "chal-00431",
+    "repo": "BKN1890/Affine-5hbq5ysxhw-six",
+    "stage": "load_challenger"
+  },
+  "r2q_progress_at_harvest": {"king": 9, "challenger": 10, "n_turns": 80},
+  "artifacts": [
+    "artifacts/chal00441_reason.json",
+    "artifacts/r2i_premerge.skip",
+    "artifacts/r2i_merge_reload.done"
+  ]
+}

@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h REFUTE**; **R2j SKIP** 432 hr −0.57×; **440 saysth** 0.73×; **R2q n80 RUNNING** (pure-saysth :8002); **R2i/k…p** Reason+ wait; **R2r** armed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h REFUTE**; **R2j SKIP** 432 −0.57×; **R2i SKIP** 441 unservable; **440 saysth** 0.73×; **R2q n80 ~10/80**; **R2k…p** Reason+ wait; **R2r** armed |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent×saysth **REFUTED** (hr −0.89×). **R2j** Talent×BKN7 **SKIPPED** (chal-00432 hr **−0.57×**). **R2q** pure saysth-v9a **n80 RUNNING** (p1934: chall :8002@200; sim pid 171850). **R2i/k…p** still Reason+-gated; merge scripts wait R2q before chall kill. **R2r** Talent0.25×whoami0.75 **ARMED** (after R2q + 458 hr>0). diane/nvidia/aurora gated. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e** Talent×awesome **REFUTED** (hr −1.18×). **R2f** WEAK_SKIP. **R2h** Tok×Talent×kevin equal-α **REFUTED** (hr −0.59×). **chal-00440 saysth** hr **0.73×** — **R2g** Talent×saysth **REFUTED** (hr −0.89×). **R2j** Talent×BKN7 **SKIPPED** (chal-00432 hr **−0.57×**). **R2i** Talent×thomp **SKIPPED** (chal-00441 **unservable**, no Reason). **R2q** pure saysth-v9a **n80 RUNNING** (~10/80; pid 171850). **R2k…p** still Reason+-gated; merge scripts wait R2q before chall kill. **R2r** Talent0.25×whoami0.75 **ARMED** (after R2q + 458 hr>0). diane/nvidia/aurora gated. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
