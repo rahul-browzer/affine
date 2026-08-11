@@ -1,0 +1,17 @@
+{
+  "pass": 1927,
+  "armed_at": "2026-08-11T01:03:45Z",
+  "hyp": "R2p",
+  "blend": "TalentPigs@dbfbb3e2 0.25 \u00d7 fortunateGambler/\u2026-sth@8d81e782 0.75",
+  "out": "/root/r2_out/alpha_talent_sth_skew",
+  "gate": "chal-00455 Reason hr>0 vs Tok af10",
+  "gpu_after": "R2g/R2i\u2026R2o below bar or skipped",
+  "submit_bar": "headroom >= 1.5\u00d7(3\u00b7SE)",
+  "pids": {
+    "watch_455": "155793",
+    "premerge": "155822",
+    "merge_reload": "155835"
+  },
+  "disk_free_giB": 295,
+  "note": "sth prefetch already DONE; arm with ~295GiB free (no refute required)"
+}

@@ -1,5 +1,12 @@
 # R2 result log
 
+## p1927 — R2p Talent×sth armed (455)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,545.
+- R2i…R2o still waiting on unpublished eval gzips (404); engines 8000/8001/8002 healthy; disk ~295 GiB free.
+- sth prefetch already DONE `@8d81e782…` — armed **R2p** without waiting for a refute: watch-455 pid **155793** + `launch_r2p_talent_sth_premerge.sh` **155822** (wait 455 hr>0 → Talent0.25×sth0.75 @ `/root/r2_out/alpha_talent_sth_skew`) + `launch_r2p_merge_reload_sim.sh` **155835** (GPU after R2i…R2o; submit bar 1.5×).
+- Artifacts: `artifacts/r2p_sth_armed_p1927.json`.
+- Next: first Reason+ among 441/432/431/450/456/451/452/455 → merge→n80; else scan for new DL parent.
+
 ## p1925 — R2g REFUTE; R2n Talent×asdf armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,557.
 - Harvested `r2g_alpha_decision.json` (00:53:55Z): margin **−0.02030** · se=0.00759 · z=**−2.67** · 3·SE=**0.02278** · headroom=**−0.891×** · reason_c=−0.03810 · reason_k=−0.01608 · n_paired=79 · `challenger_wins=false`.

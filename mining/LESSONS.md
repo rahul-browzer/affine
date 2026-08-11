@@ -102,3 +102,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1925: **R2g REFUTE** Talent×saysth hr **−0.89×** (margin −0.0203, z=−2.67, n=79) despite parent 440 hr 0.73× — skew-α does not inherit parent Reason+; do not submit; arm next parent lane without re-n80.
 - p1925: arm **R2n** Talent×asdf (queue 451) Reason+-gated premerge+reload + `watch_chal00451_reason` after R2g harvest — asdf cached; lane waits R2g…R2m; next Talent×zeus (452) if disk allows.
 - p1926: arm **R2o** Talent×zeus (queue 452) Reason+-gated premerge+reload + `watch_chal00452_reason` — zeus already cached @accc9249; lane waits R2g…R2n; next Talent×sth (455) if disk allows after a refute.
+- p1927: arm **R2p** Talent×sth (queue 455) Reason+-gated premerge+reload + `watch_chal00455_reason` with ~295 GiB free — no refute needed when disk already clears a ~70 GiB blend; lane waits R2g…R2o; all queued parents now gated.
