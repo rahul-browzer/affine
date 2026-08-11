@@ -140,3 +140,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1962: R2o lane-busy must treat R2m as busy **only if `r2m_premerge.done`** — Reason-only waiters (`merge_reload.pid` alive, no premerge) idle the GPU for hours after prior n80 ends.
 - p1962: stamp `r2o_talent_zeus_holding.stamp` before chall kill + extend `wait_r2q_before_chall_kill.inc.sh` so R2m/R2p/R2r do not race mid-R2o n80; clear stale self-holding before sourcing the include.
 - p1962: R2x Talent×awesome-v8 eager CPU merge (same pattern as R2o): max_abs_delta=**0.626** · identical_frac=0.45 · ~70 GiB · ~4.7 min — real blend; keep DONE gated on chal-00462 Reason+.
+- p1964: chal-00455 `fortunateGambler/…-sth@8d81e782` vs Tok Reason hr **0.79×** (margin +0.0091, z=2.36, n=80) — best DL Reason+ since saysth 0.73×; lost crown; clears R2p gate.
+- p1964: R2p Talent×sth skew CPU premerge **DONE** max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~10.5 min; **R2p merge_reload must gate R2m on `r2m_premerge.done` only** (old pid-alive gate would idle GPU forever behind chal-00456).

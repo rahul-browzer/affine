@@ -1,0 +1,21 @@
+{
+  "pass": 1964,
+  "utc": "2026-08-11T05:17:05Z",
+  "challenge_id": "chal-00455",
+  "parent_repo": "fortunateGambler/affine-5cwwlhucdc-sth",
+  "parent_revision": "8d81e78204c591a927bfe4daeb8fdb6aa163a5d1",
+  "board_headroom_vs_3se": 0.7876739516302036,
+  "board_reason_margin": 0.009101815159630013,
+  "board_reason_z": 2.363021854890611,
+  "board_challenger_wins": false,
+  "blend": "TalentPigs:0.25 × sth:0.75",
+  "out": "/root/r2_out/alpha_talent_sth_skew",
+  "max_abs_delta": 0.67138671875,
+  "identical_frac": 0.452242,
+  "n_keys": 1026,
+  "total_size_gb": 70.214,
+  "merge_seconds": 630.0,
+  "r2p_merge_reload_pid": 239528,
+  "lane_gate_fix": "r2m_busy only if r2m_premerge.done; wait-lane shows r2m_busy=0 r2o_busy=1",
+  "r2o_progress_at_arm": {"king": 53, "challenger": 53, "n_turns": 80}
+}

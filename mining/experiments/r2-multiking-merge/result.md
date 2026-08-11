@@ -1,3 +1,12 @@
+## p1964 — chal-00455 sth hr 0.79×; R2p Talent×sth premerge DONE + gate fix
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,987.
+- Board **chal-00455** `fortunateGambler/…-sth@8d81e782`: Reason margin **+0.00910** · z=**2.36** · 3·SE=0.01156 · hr=**0.79×** · n=80 · lost crown (best DL Reason+ since saysth 0.73×).
+- R2p CPU α-merge Talent0.25×sth0.75 **DONE**: max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~10.5 min → `/root/r2_out/alpha_talent_sth_skew`.
+- Bug: R2p merge_reload still treated R2m Reason-waiter PID as busy (no `r2m_premerge.done`) → would idle GPU after R2o. Fixed to premerge.done-only; relaunched pid **239528**; wait-lane shows `r2m_busy=0 r2o_busy=1`.
+- R2o n80 healthy (~53/80 @05:15Z). Live eval now chal-00456 cp200 load. No submit.
+- Artifacts: `artifacts/chal00455_reason.json`, `artifacts/r2p_premerge.done`, `artifacts/r2p_talent_sth_merge_alpha_meta.json`, `artifacts/r2p_premerge_done_p1964.json`.
+- Next: harvest R2o; if <1.5× let R2p claim chall→n80; Stage-5 only if hr≥1.5×.
+
 ## p1960 — arm R2n Stage-5 HF push + pre-purge (+140.5 GiB)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,087.
 - R2n n80 healthy (~25/80 @04:25Z, sim **224186**, engines 200/200/200). Board 452 scoring king ~44/80.

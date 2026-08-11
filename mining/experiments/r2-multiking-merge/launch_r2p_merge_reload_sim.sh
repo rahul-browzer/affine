@@ -157,32 +157,35 @@ for i in $(seq 1 2880); do
     r2l_busy=1
   fi
 
+  # p1964: R2m Reason-only waiters are NOT GPU claimants — only premerge.done is
+  # (same fix as R2n/R2o p1958/p1962). Else R2p idles forever behind chal-00456.
   r2m_busy=0
   if [[ -f "$R2M_DONE" ]] || [[ -f "$R2M_PREMERGE_SKIP" ]] || [[ -f "$R2M_DEC" ]]; then
     r2m_busy=0
-  elif pid_alive /root/logs/r2m_merge_reload.pid || pid_alive /root/logs/r2m_premerge.pid; then
+  elif [[ -f /root/logs/r2m_premerge.done ]] || [[ -f /root/affine_data/r2m_premerge.done ]]; then
     r2m_busy=1
   else
-    r2m_busy=1
+    r2m_busy=0
   fi
 
   r2n_busy=0
   if [[ -f "$R2N_DONE" ]] || [[ -f "$R2N_PREMERGE_SKIP" ]] || [[ -f "$R2N_DEC" ]]; then
     r2n_busy=0
-  elif pid_alive /root/logs/r2n_merge_reload.pid || pid_alive /root/logs/r2n_premerge.pid; then
+  elif [[ -f /root/logs/r2n_premerge.done ]] || [[ -f /root/affine_data/r2n_premerge.done ]]; then
+    r2n_busy=1
+  elif pid_alive /root/logs/r2n_merge_reload.pid; then
     r2n_busy=1
   else
-    r2n_busy=1
+    r2n_busy=0
   fi
 
   r2o_busy=0
   if [[ -f "$R2O_DONE" ]] || [[ -f "$R2O_PREMERGE_SKIP" ]] || [[ -f "$R2O_DEC" ]]; then
     r2o_busy=0
-  elif pid_alive /root/logs/r2o_merge_reload.pid || pid_alive /root/logs/r2o_premerge.pid; then
+  elif pid_alive /root/logs/r2o_merge_reload.pid || [[ -f /root/logs/r2o_talent_zeus_holding.stamp ]] || [[ -f /root/affine_data/r2o_talent_zeus_holding.stamp ]]; then
     r2o_busy=1
   else
-    # R2o waiters still expected (452 not stamped); do not race chall.
-    r2o_busy=1
+    r2o_busy=0
   fi
 
   if (( r2g_busy == 0 && r2i_busy == 0 && r2j_busy == 0 && r2k_busy == 0 && r2l_busy == 0 && r2m_busy == 0 && r2n_busy == 0 && r2o_busy == 0 )); then
@@ -190,7 +193,7 @@ for i in $(seq 1 2880); do
     break
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2p-merge] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2g_busy=$r2g_busy r2i_busy=$r2i_busy r2j_busy=$r2j_busy r2k_busy=$r2k_busy r2l_busy=$r2l_busy r2m_busy=$r2m_busy r2n_busy=$r2n_busy r2o_busy=$r2o_busy r2o_done=$([[ -f $R2O_DONE ]] && echo y || echo n)"
+    echo "[r2p-merge] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) r2g_busy=$r2g_busy r2i_busy=$r2i_busy r2j_busy=$r2j_busy r2k_busy=$r2k_busy r2l_busy=$r2l_busy r2m_busy=$r2m_busy r2n_busy=$r2n_busy r2o_busy=$r2o_busy r2m_pre=$([[ -f /root/logs/r2m_premerge.done ]] && echo y || echo n) r2o_done=$([[ -f $R2O_DONE ]] && echo y || echo n)"
   fi
   if (( i == 2880 )); then
     echo "[r2p-merge] TIMEOUT waiting R2g/R2i…R2o lane" >&2
