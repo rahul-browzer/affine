@@ -1,0 +1,8 @@
+{
+  "utc": "2026-08-11T21:24:25Z",
+  "pass": 2113,
+  "action": "patch_chall_max_model_len_32768_to_65536_relaunch_recover_arm_n80",
+  "recover_pidf": "/root/logs/h121_chall_recover_pass264.pid",
+  "n80_pidf": "/root/logs/h121_n80_retry.pid",
+  "note": "serve_three defaults MAXLEN=65536; recover_pass264 had hardcoded 32768"
+}
