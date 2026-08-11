@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T19:48:54Z",
+  "pass": 2088,
+  "axis": "R15",
+  "pod": "mine-r15-pandora-rl-1",
+  "method": "pandora_reinforce_teacher_reason",
+  "base": "pandora-box/Affine-5eqdtdzqle-ckpt300-m4@5218b138",
+  "data": "s4-h27 winner_za_high_l1.jsonl",
+  "n_examples": 406,
+  "stack": "s4-h135-f40-kevin-rl-l2 + R15 overlays",
+  "fleet_queue": true,
+  "fleet_boot_case": "mine-r15-pandora-rl-1",
+  "note": "\u2260 R14 kevin RL; \u2260 R3/R8 Tok RL; \u2260 H128 pandora FT (S* refute); reign-1 \u00d7 Reason REINFORCE"
+}

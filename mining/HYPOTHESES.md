@@ -23,6 +23,7 @@
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open** · fleet `mine-r12-bon-1` · **p2085** uploader+boot armed |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open** · fleet `mine-r13-odpo-1` · **p2086** uploader+boot armed |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open** · fleet `mine-r14-kevin-rl-1` · **p2087** uploader+boot armed |
+| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open** · fleet `mine-r15-pandora-rl-1` · **p2088** uploader+boot armed |
 
 ## Open
 
@@ -106,6 +107,11 @@
 - **Claim:** reign-2 kevin954-init LoRA + online REINFORCE (reward=Reason) beats Tok-init RL (R3/R8) and Talent FT (R5b) on paired margin.
 - **Prediction:** n80 paired margin ≥ **1.5 × (2·SE)** vs Tok.
 - **Status:** open — **p2087** `upload_and_launch.sh` + fleet-boot case for `mine-r14-kevin-rl-1` (H135 overlay). Waiting on 8×B300 rent. Dir: `experiments/r14-kevin-rl/`.
+
+### R15 — pandora-box Reason REINFORCE
+- **Claim:** reign-1 pandora-init LoRA + online REINFORCE (reward=Reason) beats Tok-init RL (R3/R8) and kevin RL (R14); ≠ H128 pandora full-FT (S\* refute).
+- **Prediction:** n80 paired margin ≥ **1.5 × (2·SE)** vs Tok.
+- **Status:** open — **p2088** `upload_and_launch.sh` + fleet-boot case for `mine-r15-pandora-rl-1` (H135 overlay, pandora DL). Waiting on 8×B300 rent. Dir: `experiments/r15-pandora-rl/`.
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
