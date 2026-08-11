@@ -1,0 +1,21 @@
+{
+  "challenge_id": "chal-00467",
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "challenger_repo": "0pentensor/Affine-5dflhtkufw-awesome-v9",
+  "challenger_revision": "75871c573246051f0104fbed530e8d000d8a6234",
+  "published_margin": 0.0022257451679498098,
+  "published_z": 0.6423142490178049,
+  "published_formula": null,
+  "challenger_wins": false,
+  "reason_margin": 0.0022257451679498098,
+  "reason_se": 0.003465196625099488,
+  "reason_z": 0.6423142490178049,
+  "three_se": 0.010395589875298464,
+  "headroom_vs_3se": 0.21410474967260165,
+  "n_paired": 80,
+  "king_match": true,
+  "scored_at": "2026-08-11T08:08:35Z",
+  "source_url": "https://affine.io/api/v1/history?q=chal-00467&limit=5",
+  "source": "history_api"
+}

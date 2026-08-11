@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-11T08:16:51Z",
+  "hyp": "R2ah",
+  "decision": "SKIP_BOARD_FIRST",
+  "headroom_vs_3se": 0.21410474967260165,
+  "margin": 0.0022257451679498098,
+  "se": 0.003465196625099488,
+  "z": 0.6423142490178049,
+  "threshold_3se": 0.010395589875298464,
+  "n_paired_turns": 80,
+  "challenger_wins": false,
+  "headroom_bar": 1.5,
+  "note": "board chal-00467 hr 0.21\u00d7 \u226a 1.5\u00d7; abort pure-awesome-v9 n80 mid-load (R2w lesson)",
+  "board_reason": "/root/affine_data/chal00467_reason.json",
+  "pass": 1992
+}

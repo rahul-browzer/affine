@@ -57,9 +57,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R1b→R1c chain correctly LAUNCHed on negative headroom and skipped double-train via pidfile while merge waiter stayed armed for post-train reload.
 - R2 α→n80 lane-free gate must use **r1c_train.pid / r1c_merge_reload.pid + kill -0**, never `pgrep -af 'train_lora|launch_r1c_merge'` — SSH diagnostics match the needle and stall R2 after R1c decision.
 - Many 2026-08-10 duels still stamp `ranking_formula=Λ2+L1lift` in the gzip; **recompute Reason from `lpC_yc_za−lpC_yc_e`** before trusting published margin/z (chal-00425 pub +0.017/z2.79 → Reason +0.0108/z2.75; still best near-miss ~0.92×).
-- Best live Reason near-miss vs Tok af10: `0pentensor/Affine-5dflhtkufw-awesome-v6@f479a24d452f` (hr≈0.92×) — prefer as merge/SFT parent over older S\*-margin leaders.
 - Overlap Tok×near-miss CPU α-premerge (`launch_r2b_tok_awesome_premerge.sh`) with R1c train + nearmiss download — same pattern as R2 Talent/kevin premerge; stamp `r2b_premerge.done` before chall reload.
-- Prefetch scripts: mark optional HF parents non-fatal — `diane613/…-cool` is **gated 403** for unconst; a hard fail after awesome-v6 OK left `r2_prefetch_nearmiss.done` unstamped and stalled R2b (p1887).
 - Duel gzips store king under **`request.king_repo`** (no top-level `king`); filter near-misses on that field or you mix pre-Tok margins into the ranking.
 - HF `model_info`/API **200** and even public `config.json` ≠ weight access — probe `model.safetensors.index.json` before arming prefetch. Gated for unconst vs Tok: diane cool/new, nvidia, Tok af16/af8, aurora.
 - Equal-α Tok×awesome barely moves weights (Δ≈0.006) — queue a **skew** blend (Tok0.25/awesome0.75) as R2c before burning another GPU n80 on near-identical chall.
@@ -148,3 +146,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1989: history `accepted=false` + `rejection_reason=unservable…` has **null margin/se** — stamp `hr=None` immediately (R2i/441 pattern) or Talent×parent waiters idle forever; board unservable ≠ local serve (R2ag still healthy).
 - p1990: crown-pod Lium egress often **CF 403** on `affine.io/api/v1/history` (gzip on hippius still OK) — run `host_history_stamp_bridge.py` on the mining host and scp stamps for 467–471 or Reason gates stall.
 - p1991: after R2ag pure-parent n80, prefer **pure next board parent** (R2ah awesome-v9) over Talent×parent — Talent skews keep REFUTING; arm PID-alive gate in `wait_r2q` so siblings cannot steal between R2ag exit and pure claim.
+- p1992: **R2ag** pure tpc9 local hr **−0.52×** (margin −0.0105, z=−1.56, n=79) — board-unservable parent also loses as local chall; Stage-5 SKIP.
+- p1992: board Reason+ with hr **≪1.5×** (chal-00467 v9 **0.21×**) → **SKIP_BOARD_FIRST** pure + Talent lanes mid-load (extend R2w); free GPU for next pure parent (R2ai sbs).

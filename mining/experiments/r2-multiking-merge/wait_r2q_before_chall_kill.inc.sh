@@ -438,4 +438,35 @@ for _i in $(seq 1 2880); do
   break
 done
 
+# R2ai pure sbs-v0 (live chal-00468) — block while PID alive so Talent×sbs
+# cannot steal the lane between R2ah exit and R2ai claim.
+R2AI_DEC=${R2AI_DEC:-/root/affine_data/r2ai_sbs_decision.json}
+R2AI_DONE=${R2AI_DONE:-/root/logs/r2ai_sbs_reload.done}
+R2AI_PIDF=${R2AI_PIDF:-/root/logs/r2ai_sbs_reload.pid}
+R2AI_HOLDING=${R2AI_HOLDING:-/root/logs/r2ai_sbs_holding.stamp}
+if [[ -f "$R2AI_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AI_DEC"; then
+  echo "SKIP_${_TAG}_R2AI_CLEARS file=$R2AI_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AI_DONE" || -f "$R2AI_DEC" ]]; then
+    echo "[${_TAG}] R2ai terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AI_PIDF" ]]; then
+    _ppid=$(cat "$R2AI_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        hold="holding"
+        [[ -f "$R2AI_HOLDING" ]] || hold="armed"
+        echo "[${_TAG}] wait-r2ai iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid $hold"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2ai not holding lane at iter=$_i"
+  break
+done
+
 unset _i _ppid _TAG
