@@ -7,7 +7,8 @@ so `z_A` raises teacher `lpC(y_C|z) − lpC(y_C|∅)`.
 
 ## Pod
 `mine-r4-fullft-1` · 8×B300 preferred (@~$64/h) · TTL 24h
-Rent via `wait_rent_b300.sh` (host poller). Cap 25 `mine-*`.
+Rent via `experiments/fleet-rent/wait_fleet_b300.sh` (multi-axis; supersedes
+one-shot `wait_rent_b300.sh` as of p2068). Cap 25 `mine-*`.
 
 ## Method
 1. Rent 8×B300 (B200 only if B300 stock=0; replace when B300 appears).

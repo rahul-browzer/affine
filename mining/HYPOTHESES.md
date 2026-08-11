@@ -6,9 +6,13 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; many REFUTE/SKIP (see Open); **R2ax** tt n80 ~34/80; **R2ay** sbs-v2 armed; **R2az** vvv armed; **v10** prefetch chal-00498; host-hist→504 |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · p2067: GRPO pid**23755** step≥20 mean_r≈**0.044** (4/4 live); king@65536; post_train armed |
-| 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · p2067: host `wait_rent_b300` → `mine-r4-fullft-1` (B300×8=0; polling) |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2ax** tt n80 ~46/80; **R2ay/R2az** armed; **v10** cached `@07bc3392` |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · p2068: GRPO pid**23755** step≥25; king@65536; post_train armed |
+| 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · fleet queue head `mine-r4-fullft-1` (B300×8=0) |
+| 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · fleet `mine-r5-nonking-1` |
+| 6 | R6 | Thought-format shaping raises teacher Reason | **open** · fleet `mine-r6-fmt-1` |
+| 7 | R7 | High-Reason data-filter curriculum FT | **open** · fleet `mine-r7-datafilt-1` |
+| 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · fleet `mine-r8-reinforce-1` |
 
 ## Open
 
@@ -25,11 +29,14 @@
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
-- **Status:** open — GRPO pid**23755** (p2063 relaunch); step≥20 mean_r≈**0.044** all-4 live (logs every 5 steps). King@**65536**. Next = train.done → merge → chall → n80.
+- **Status:** open — GRPO pid**23755** (p2063 relaunch); step≥25 (mean_r oscillates; step20≈0.044). King@**65536**. Next = train.done → merge → chall → n80.
 
 ### R4 — Full-FT on Reason
 - **Claim:** full-parameter FT on high-Reason winner thoughts beats LoRA-GRPO / board-copy screens on paired margin.
-- **Status:** open — host rent waiter pid**2139807** for `mine-r4-fullft-1` (8×B300 prefer / B200 fallback). Bootstrap after `artifacts/rented.json`. Dir: `experiments/r4-fullft-reason/`.
+- **Status:** open — fleet-rent queue head `mine-r4-fullft-1` (pid**2146782**, target 13 mines). Bootstrap after `fleet-rent/artifacts/rented_mine-r4-fullft-1.json`. Dir: `experiments/r4-fullft-reason/`.
+
+### R5–R8 — fleet axes (armed p2068)
+- **R5** non-king base · **R6** thought-format · **R7** data-filter · **R8** REINFORCE — plans under `experiments/r{5..8}-*/`; pods via `experiments/fleet-rent/wait_fleet_b300.sh`.
 
 ## Refuted (Reason era)
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.

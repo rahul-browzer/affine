@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-11T18:27:02Z",
+  "pass": 2068,
+  "action": "replaced single R4 rent waiter with fleet multi-axis B300 waiter",
+  "target_mines": 13,
+  "cap": 25,
+  "pid_file": "experiments/fleet-rent/logs/wait_fleet_b300.pid",
+  "log": "experiments/fleet-rent/logs/wait_fleet_b300.log",
+  "queue_heads": [
+    "mine-r4-fullft-1",
+    "mine-r5-nonking-1",
+    "mine-r6-fmt-1",
+    "mine-r7-datafilt-1",
+    "mine-r8-reinforce-1"
+  ],
+  "stock_at_launch": {"B300x8": 0, "B200x8": 0},
+  "live_mines": ["mine-r3-grpo-1", "mine-crown-1"],
+  "burn_h": 116.25,
+  "floor_h": 833,
+  "balance_usd": 121200.78
+}

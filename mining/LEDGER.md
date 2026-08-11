@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $121,216.25 | 2026-08-11T18:23Z |
-| cumulative mining spend | ~$76,371 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T18:23Z |
-| **available for mining** | **~$111,216** (balance − $10,000 floor) | 2026-08-11T18:23Z |
+| Lium balance | $121,200.78 | 2026-08-11T18:27Z |
+| cumulative mining spend | ~$76,386 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T18:27Z |
+| **available for mining** | **~$111,201** (balance − $10,000 floor) | 2026-08-11T18:27Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T18:23Z |
+| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T18:27Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T18:27Z | 121200.78 | p2068 fleet rent waiter armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2067 |
 | 2026-08-11T18:23Z | 121216.25 | p2067 R4 rent waiter armed (no rent yet; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2066 |
 | 2026-08-11T18:14Z | 121247.33 | p2066 R2az vvv arm + HF purge (no new rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2065 |
 | 2026-08-11T18:08Z | 121262.81 | p2065 R2ay sbs-v2 arm (no new rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2064 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T17:31Z | 121371.45 | p2061 R3 w0 finish→teacher→GRPO + R2au REFUTE (no new rent; B300×8=0); burn **$116.25/h**; Δ−$78 vs p2060 |
 | 2026-08-11T17:09Z | 121449.38 | p2060 R3 16-way range DL (no new rent; B300×8=0); burn **$116.25/h**; Δ$0 vs p2059 |
 | 2026-08-11T17:05Z | 121449.38 | p2059 unstuck R3 HF hang + teacher stamp (no new rent; B300×8=0); burn **$116.25/h**; Δ−$31 vs p2058 |
-| 2026-08-11T16:46Z | 121511.37 | p2058 killed slow crown→R3 rsync; HF parallel_dl relaunched (no new rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2057 |
