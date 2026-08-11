@@ -173,7 +173,13 @@ def main() -> None:
     if len(rows) < 50:
         raise SystemExit(f"too few rows after fit-filter: {len(rows)}")
 
-    http = httpx.Client()
+    # No keepalive: half-closed sockets to local vLLM were leaving the
+    # trainer wedged in CLOSE-WAIT with 0%CPU between steps (p2063/p2070).
+    http = httpx.Client(
+        timeout=httpx.Timeout(180.0, connect=30.0),
+        limits=httpx.Limits(max_keepalive_connections=0, max_connections=8),
+        headers={"Connection": "close"},
+    )
     for i in range(120):
         try:
             teacher_model = _resolve_teacher_model(http, args.teacher_url)
@@ -336,6 +342,12 @@ def main() -> None:
                 "z0": texts[0] if texts else "",
             }
             hist.append(rec)
+            # Heartbeat every step so host wedge watchers see mtime move
+            # between the sparse [r3-log] %5 prints (false-kill at p2066).
+            print(
+                f"[r3-hb] {json.dumps({'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'step': steps, 'mean_r': mean_r})}",
+                flush=True,
+            )
             if steps % 5 == 0 or steps <= 3:
                 print(f"[r3-log] {json.dumps(rec)}", flush=True)
             if steps % 50 == 0:

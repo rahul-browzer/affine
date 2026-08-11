@@ -1,0 +1,2 @@
+[r3-wedge] 2026-08-11T18:51:25Z start poll=60s stale=600s max_iters=720 pass=2071 host=204.9.206.245:40051
+[r3-wedge] 2026-08-11T18:51:26Z iter=1 {"alive": true, "pid": 26401, "age_s": 78, "estab": 0, "close_wait": 1, "train_done": false, "last": "[r3-log] {\"step\": 15, \"mean_r\": -0.06384888640654221, \"rewards\": [-0.15530680576720265, -0.1388057593391052, 0.15765571205891396, -0.11893869257877496], \"loss\": 0.0947265625, \"z0\": \"The search didn't show the BinaryInsta"}

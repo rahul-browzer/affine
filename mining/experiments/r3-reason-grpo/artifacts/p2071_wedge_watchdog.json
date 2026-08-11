@@ -1,0 +1,24 @@
+{
+  "pass": 2071,
+  "utc": "2026-08-11T18:51:29Z",
+  "action": "armed_r3_wedge_watchdog_and_patched_trainer",
+  "r3_pid": 26401,
+  "r3_step": 15,
+  "r3_mean_r_step15": -0.06384888640654221,
+  "trainer_patch": [
+    "httpx Client: max_keepalive_connections=0 + Connection: close (anti CLOSE-WAIT)",
+    "[r3-hb] every step so log mtime moves between %5 r3-log prints"
+  ],
+  "patch_on_pod": "/root/mining_src/r3-reason-grpo/train_reason_grpo.py",
+  "patch_live_in_process": false,
+  "note": "running pid26401 still on pre-patch code; patch applies on next relaunch (watchdog or train.done restart)",
+  "watchdog_pid": 2176107,
+  "watchdog": "experiments/r3-reason-grpo/watch_r3_wedge.sh",
+  "watchdog_rule": "relaunch only if alive + log_age>600s + CLOSE-WAIT>=1 + ESTAB==0",
+  "crown_r2ay": "17/80 chall · 16/80 king",
+  "b300_stock_x8": 0,
+  "burn_h": 116.25,
+  "balance_usd": 121123.08,
+  "fleet_rent_pid": 2146782,
+  "fleet_boot_pid": 2153833
+}
