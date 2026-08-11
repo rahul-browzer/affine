@@ -1,3 +1,11 @@
+## p1937 — R2s WEAK_SKIP (saysth×awesome Δ≪0.01)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,456.
+- R2s CPU premerge finished 01:44:35Z: saysth0.75×awesome0.25 → `max_abs_delta=1.53e-05` · identical_frac=0.659 · 1026 keys · ~297s · 66 GiB.
+- Δ≪0.01 → same class as Tok×awesome / kevin×awesome: killed R2s merge waiter **174233** first, stubbed `r2s_alpha_decision.json` (hr=0) + `WEAK_SKIP_NO_N80`, purged blend (~66 GiB).
+- R2q pure-saysth n80 untouched (~41/80, pid 171850); engines :8000/:8001/:8002 all 200. R2r no longer blocked by R2s GPU claim.
+- Artifacts: `artifacts/r2s_{alpha_decision,merge_reload.done,weak_skip_p1937}.json`.
+- Next: harvest R2q decision; if hr≥1.5× → Stage-5; else wait 458 Reason+ for R2r / queue gates.
+
 # R2 result log
 
 ## p1930 — whoami (458) prefetch+watch; nearmiss confirm

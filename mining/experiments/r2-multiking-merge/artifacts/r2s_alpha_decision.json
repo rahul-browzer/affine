@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-11T01:45:13Z",
+  "contract": "Reason v3",
+  "decision": "SKIP_WEAK_DELTA_NO_N80",
+  "headroom_bar": 1.5,
+  "false_probe": null,
+  "margin": 0.0,
+  "se": 0.01,
+  "z": 0.0,
+  "k_sigma": 3.0,
+  "threshold_3se": 0.03,
+  "headroom_vs_3se": 0.0,
+  "reason_c": null,
+  "reason_k": null,
+  "n_paired_turns": 0,
+  "challenger_wins": false,
+  "max_abs_delta": 1.52587890625e-05,
+  "identical_frac": 0.658869,
+  "note": "p1937: saysth0.75×awesome0.25 max_abs_delta≈1.53e-05 (≪0.01), same class as Tok×awesome/kevin×awesome; skip n80; R2q pure-saysth already testing saysth parent; prefer R2q harvest then R2r if 458 hr>0",
+  "hyp": "R2s",
+  "pass": 1937
+}
