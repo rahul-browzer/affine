@@ -6,9 +6,9 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — R2be n80~15/80; **R2bf armed** (dpo2@90ea78ff; chal-00511) |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · train.done@189; p2122 merge→`/tmp` (gocryptfs hang) → chall→n80 |
-| 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open** · `mine-r3-grpo-2` · p2078 armed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bf** n80~30/80 (dpo2@90ea78ff; chal-00511) |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
+| 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open — PRIORITY** · live on `mine-r3-grpo-1` (p2127) |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
 | 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · `mine-r25-hitemp-1` · p2099 armed |
 | 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open** · `mine-r26-lotemp-1` · p2100 armed |
@@ -48,10 +48,13 @@
 - R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75). Dir: `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge
-- **R2ba** WEAK +0.007. **R2bb** WEAK. **R2bc+R2bd** UNSERVABLE. **R2be** n80 in flight (~15/80). **R2bf** p2121 armed: trangd dpo2@90ea78ff… chal-00511 (prefetch+reload waiter+stage5). Dir: `experiments/r2-multiking-merge/`.
+- **R2ba–be** WEAK/UNSERVABLE. **R2bf** n80~30/80 (dpo2@90ea78ff; chal-00511). Dir: `experiments/r2-multiking-merge/`.
 
-### R3 — RL on Reason (PRIORITY)
-- GRPO **train.done** @step189. p2125: n80 unblocked (PYTHONPATH + schema-v2 `run_sim_duel`); gathering ~19/80 @22:55Z → `r3_decision.json`. Dir: `experiments/r3-reason-grpo/`.
+### R3 — RL on Reason
+- **REFUTED** p2127: n80 m=+0.0094 SE=0.00706 z=1.33 < k=2 (hr0.66×); Stage-5 SKIP. Adapter `/root/r3/train_r3_final`. Dir: `experiments/r3-reason-grpo/`.
+
+### R3b — GRPO alt-LR/rank (PRIORITY)
+- Same reward/data as R3; knobs lr=**2e-5** r=**64**/α128 G=**8**. p2127 launched on warm `mine-r3-grpo-1` (T/K up; GPUs6–7). Dir: `experiments/r3b-grpo-alt/`.
 
 ### R4 — Full-FT
 - **REFUTED** p2116: n80 m=−0.0077 z=−0.76 (salvage ckpt-26 lr1e-6 ep1). Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.
@@ -68,11 +71,9 @@
 
 ### R25 — High-temperature GRPO
 - Tok-init; **temperature=1.2** (R3 uses 0.8); same len/new/lr/r/G as R3.
-- Pod `mine-r25-hitemp-1`; queue after R24. Dir: `experiments/r25-hitemp-grpo/`.
 
 ### R26 — Low-temperature GRPO
 - Tok-init; **temperature=0.5** (R3 0.8 / R25 1.2); same len/new/lr/r/G as R3.
-- Pod `mine-r26-lotemp-1`; queue after R25. Dir: `experiments/r26-lotemp-grpo/`.
 
 ### R27 — Large-group GRPO
 - Tok-init; **group_size=16** (R3 G=4; R3b G=8 *with* alt lr/rank); same temp/lr/r/len as R3.

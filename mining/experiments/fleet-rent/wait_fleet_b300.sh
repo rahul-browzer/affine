@@ -24,7 +24,7 @@ QUEUE=(
   # R4/R4b/R5 REFUTED. R6 retargeted onto mine-r4-fullft-1 (p2126) — do not re-rent R6.
   "mine-r7-datafilt-1|R7|high-Reason data filter curriculum FT"
   "mine-r8-reinforce-1|R8|REINFORCE on Reason (full-rank / alt base)"
-  "mine-r3-grpo-2|R3b|GRPO LoRA alt-LR/rank family"
+  # R3b live on mine-r3-grpo-1 (p2127 retarget after R3 REFUTE) — do not re-rent.
   "mine-r24-longctx-1|R24|Tok GRPO max_len=16384 max_new=1024 (≠ R3 6144/512)"
   "mine-r25-hitemp-1|R25|Tok GRPO temperature=1.2 (≠ R3 temp=0.8)"
   "mine-r26-lotemp-1|R26|Tok GRPO temperature=0.5 (≠ R3 0.8 / R25 1.2)"

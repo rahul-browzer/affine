@@ -54,12 +54,9 @@ for i in $(seq 1 240); do
   sleep 15
 done
 
-python - <<'PY'
-import importlib
-for m in ("peft", "accelerate", "torch", "transformers", "httpx"):
-    importlib.import_module(m)
-print("deps OK")
-PY
+# Skip peft/torch import probe — can hang WCHAN=request_wait_answer on
+# gocryptfs /root (p2127). Trainer imports itself; fail fast there instead.
+echo "[r3b] skip deps probe (p2127 gocryptfs hang)"
 
 rm -f "$TRAIN_DIR/train.done" "$TRAIN_DIR/train_result.json"
 echo "[r3b] $(date -u +%Y-%m-%dT%H:%M:%SZ) launch Reason-GRPO lr=$LR r=$LORA_R G=$GROUP_SIZE max_new=512 on GPUs $CUDA_VISIBLE_DEVICES"

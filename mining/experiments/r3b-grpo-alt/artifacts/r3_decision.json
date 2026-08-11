@@ -1,0 +1,33 @@
+{
+  "utc": "2026-08-11T23:02:38Z",
+  "pass": 2127,
+  "axis": "R3",
+  "hypo": "R3",
+  "decision": "REFUTED",
+  "stage5": "SKIP",
+  "reason": "n80 margin below live crown bar (z<k_sigma); positive but not 1.5x headroom",
+  "n80": {
+    "margin": 0.009373596703931416,
+    "se": 0.007061323346457539,
+    "z": 1.327456093429552,
+    "k_sigma": 2.0,
+    "thr_k_se": 0.014122646692915079,
+    "submit_bar_1_5x": 0.02118397003937262,
+    "headroom_ratio": 0.663728046714776,
+    "n_paired": 78,
+    "challenger_wins": false,
+    "king_reason": -0.002857657153284116,
+    "chall_reason": 0.006459612482383558,
+    "chall_repo": "/tmp/r3_merged",
+    "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+    "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+    "corpus_epoch": 8,
+    "result": "/root/affine_data/r3_sim_result.json"
+  },
+  "train": {
+    "steps": 189,
+    "mean_reward_last20": -0.027953282949308274,
+    "adapter": "/root/r3/train_r3_final/adapter"
+  },
+  "next": "retarget same pod mine-r3-grpo-1 \u2192 R3b (lr=2e-5 r=64 G=8) on warm teacher GPUs6-7"
+}

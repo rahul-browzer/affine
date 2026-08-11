@@ -129,22 +129,22 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Local≫board slice noise (R2ak google 0.641× vs board 0.094×). Arm next pure lane while prior n80 runs so GPU never idles.
 - **R2ao** af17 −0.074×; **R2ap** h44 0.327×; **R2aq** pure-now **0.773×** (m+0.00795, z=2.32) — best pure yet, clears live 2·SE@1.16× not 1.5× bar; Stage-5 SKIP → R2ar. Board 485 h44 hr **0.601×** — do not re-sim h44.
 - HF `architectures` + index n_weights matching king ≠ servable — audit shard tensors vs index (`safe_open` keys ∩ index). **R2ar** iynocr2p: 50/1026 missing (shard00002 claimed 50, present 0). Stamp SKIP_UNSERVABLE + DONE so the next pure lane can claim chall; wait-engines alone can idle ~40m then exit without a decision.
-- Board-first SKIP only for full-2080 (or known hr≪1.5×) stamps — chal-00337 **tt** was n=80 probe (z=2.33, hr3=0.775×); still worth fresh local n80. Many Reason+ parents now `gated=manual` for unconst — prefer ungated/cached (tt ungated).
 - **R2as** pure-726 local n80 → hr **0.060×** (m+0.00092, z=0.18, n=79) — near-noise vs Tok; Stage-5 SKIP. Board queue parent ≠ local crown. Next: hope11/sft4/v2/tt (ungated, prestaged). diane/new + adambell ckpt1000 remain gated — do not re-prefetch.
 - New B300 pods: measure crown→pod rsync vs Hub before committing — p2058 crown rsync collapsed to ~1–4 MB/s (ETA 5–12h) while HF parallel got ~100–300 MB/s. Prefer Hub when rsync≪Hub. Never hold bootstrap with a finite `sleep` in `parallel_dl.pid` (expiry → race with inline DL); use a real downloader PID that writes `{tok_init,teacher}.done`.
 - Large Tok shard stuck at ~4 MB/s on single-stream `snapshot_download`: kill it and use 16-way HTTP range GET on the HF CDN URL (`accept-ranges: bytes`, ~35 GB) → ~90 MB/s; stamp `tok_init.done` then relaunch bootstrap (teacher stamp already present). Script: `experiments/r3-reason-grpo/fast_range_dl.py`.
 - Range-DL can stall on one worker near the end (~1 MB/s with others done): kill waiter+dl first (waiter FATAL if dl dies), rewrite only the bad range with sub-workers (`finish_incomplete_ranges.py`), then bootstrap. Do not trust zero-byte sampling on safetensors (legitimate zeros).
 - R3 GRPO wedges on CLOSE-WAIT to teacher:8000 (log freeze; 0%CPU / futex) even with healthy `/v1/models` — kill-by-PID + `start_r3.sh` (p2063@step10, p2070@step30→pid26401). Mitigate: httpx `max_keepalive_connections=0` + `Connection: close`; host `watch_r3_wedge.sh` only relaunches if age>600s **and** CLOSE-WAIT **and** no ESTAB (p2071).
 - `start_r3.sh` must **append** (`>>`) `r3_train.nohup`; R3 gaps of minutes are normal — prefer `[r3-hb]` mtime / ESTAB before kill (not sparse `r3-log`).
-- **R2av** pure Bittoby `…-v2` ≈ king noise (m−0.00027, z−0.065, hr_live2σ −0.033×, n=80) — Stage-5 SKIP; do not re-sim that parent.
 - `lium ps` **table wraps** `mine-*` names across lines — never `grep mine-` the table under `set -o pipefail` (empty grep exits 1 → kills rent waiters). Use `lium ps --format json` and read `.name`.
 - Fleet structural GRPO through **R32** KL (`--kl-coef`, default 0); if rent waiter restarts mid-`lium up`, reconstruct `rented_*.json` or bootstrap never runs.
-- **R2ba** pure awesome-v10 WEAK: m=+0.00699 SE=0.00500 z=1.40 — fails live k=2 thr=0.010 and 1.5× submit bar; Stage-5 SKIP (sim still stamps k_sigma=3.0 — recompute with live 2.0).
-- HF snapshot "ready" ≠ complete: wait **all shards** (not index); `/root` gocryptfs full (~1GB) stalls hope12 mid-prefetch (p2119 purged ~1.2T closed parents). **ec08+ckp55 UNSERVABLE** even full shards+HF-id (p2116–18). Never kill `:8002` mid-n80.
+- **R3** Tok GRPO (lr5e-6 r16 G=4, 189 steps): n80 m=+0.0094 z=1.33 hr0.66× — positive but **below** live 2σ crown; Stage-5 SKIP (p2127).
+- HF snapshot "ready" ≠ complete: wait **all shards** (not index); `/root` gocryptfs full (~1GB) stalls hope12 mid-prefetch (p2119). **ec08+ckp55 UNSERVABLE**. Never kill `:8002` mid-n80.
 - Full-FT: Trainer `save_strategy` must be **`no`** on gocryptfs `/root` — end-of-train `optimizer.pt` (~111G) hangs WCHAN=`request_wait_answer` (p2112); stage final weights only under `/tmp` then symlink.
 - LoRA `merge_lora.py` `save_pretrained` to gocryptfs `/root/r3/merged` also hangs WCHAN=`request_wait_answer` (IO flat, GPU 0%) — set `MERGED=/tmp/r3_merged` (p2122 unstick).
 - Visual graft `save_file` of safetensors mmap tensors → `Bad address` on overlay — `tensor.clone().contiguous()` then write via `/root` cipher FS and copy into `/tmp` merge (p2123: 333 keys / 893MB OK).
 - R5 FALSE_PROBE=404 when serve id=`/root/h122/merged` (symlink) but sim uses `readlink -f`→`/tmp/…`; serve resolved path + `max_model_len=65536` (p2124).
 - R3 resume must `export PYTHONPATH=/root/mining_src/affine_pkg` and use schema-v2 `run_sim_duel.py` (passes `corpus=` / `turns_path=None`) — stale copy opens `turns.jsonl` and aborts despite parquet ready (p2125).
 - R5 Genesis full-FT vs Tok: m=**−0.039** z=−3.24 — non-king Genesis FT closed for this reign; retarget pod to a different axis (p2125).
-- R6 natural-short jsonl still has long chat prefixes: fit-filter @8192 keeps **33/202**; use **max_len=16384** (121/202) before train (p2126).
+- R6 natural-short jsonl: fit-filter @8192 keeps **33/202**; use **max_len=16384** (121/202) before train (p2126).
+- `start_r3b.sh` peft/torch import probe can hang WCHAN=`request_wait_answer` on gocryptfs — skip probe; launch `train_reason_grpo.py` directly (p2127).
+- After R3 REFUTE, retarget same warm TKC pod to **R3b** (GPUs6–7) rather than idle-wait for a new B300 rent (p2127).

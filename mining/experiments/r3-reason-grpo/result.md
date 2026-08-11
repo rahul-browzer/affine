@@ -1,3 +1,10 @@
+## p2127 — n80 REFUTE → retarget R3b (2026-08-11T23:04Z)
+
+- **n80:** m=**+0.00937** SE=0.00706 z=**1.33** k=2.0 thr=0.0141 hr=**0.66×** (n_paired=78) — below crown; Stage-5 SKIP.
+- King Reason −0.00286 vs chall +0.00646; mean_reward_last20≈−0.028 @189 steps.
+- Adapter archived `/root/r3/train_r3_final`; same pod → **R3b** (lr2e-5 r64 G=8) on GPUs6–7; post_train re-armed.
+- Decision: `artifacts/r3_decision.json` · `/root/logs/r3_decision.json`.
+
 ## p2122 — unstick merge (gocryptfs) → `/tmp` (2026-08-11T22:34Z)
 
 - **Problem:** LoRA `save_pretrained` to `/root/r3/merged` hung ~10m: WCHAN=`request_wait_answer`, write_bytes flat @7.08GB, GPU SM=0% (same class as full-FT optimizer.pt on gocryptfs).
