@@ -1,0 +1,16 @@
+{
+  "pass": 1961,
+  "utc": "2026-08-11T04:39:06Z",
+  "action": "eager_r2o_talent_zeus_premerge",
+  "blend": "/root/r2_out/alpha_talent_zeus_skew",
+  "w_talent": 0.25,
+  "w_zeus": 0.75,
+  "max_abs_delta": 0.62579345703125,
+  "identical_frac": 0.452242,
+  "n_keys": 1026,
+  "chal00452_headroom_vs_3se": 0.24931384779587257,
+  "chal00452_reason_margin": 0.0036544641535135756,
+  "premerge_done": true,
+  "r2n_progress_at_handoff": {"king": 54, "challenger": 54, "n_turns": 80},
+  "note": "CPU merge overlapped R2n n80; DONE stamped only after Reason+ gate"
+}

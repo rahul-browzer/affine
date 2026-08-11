@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 # R2o: CPU skew-α merge TalentPigs (reign-3) × diceofgod/…-zeus (queue chal-00452).
-# Gated on: zeus prefetch done + chal00452_reason.json Reason+ (hr>0) vs Tok.
-# Do NOT blend a Reason− challenger. Layout donor = Talent (first --parent).
-# Safe during R2i…R2n GPU work (CPU/RAM only). n80 bar later: ≥ 1.5×(3·SE).
+# p1961: EAGER weights while R2n n80 / chal-00452 scoring — merge CPU now,
+# then gate r2o_premerge.done on chal00452_reason.json Reason+ (hr>0).
+# Do NOT stamp DONE before Reason+ (merge_reload would steal chall).
+# On Reason− / mismatch: SKIP + purge blend. Layout donor = Talent (first --parent).
+# Safe during R2n GPU work (CPU/RAM only). n80 bar later: ≥ 1.5×(3·SE).
 set -euo pipefail
 LOG=/root/logs/r2o_premerge.log
 DONE=/root/logs/r2o_premerge.done
 PIDF=/root/logs/r2o_premerge.pid
 SKIP=/root/logs/r2o_premerge.skip
+EAGER=/root/logs/r2o_eager_weights.done
 REASON_JSON=${REASON_JSON:-/root/affine_data/chal00452_reason.json}
 REASON_DONE=${REASON_DONE:-/root/logs/watch_chal00452_reason.done}
 PREFETCH_DONE=${PREFETCH_DONE:-/root/logs/r2_prefetch_zeus.done}
@@ -16,7 +19,7 @@ mkdir -p /root/logs /root/r2_out /root/affine_data
 echo $$ >"$PIDF"
 exec > >(tee -a "$LOG") 2>&1
 
-echo "[r2o-premerge] $(date -u +%Y-%m-%dT%H:%M:%SZ) start"
+echo "[r2o-premerge] $(date -u +%Y-%m-%dT%H:%M:%SZ) start (eager-weights)"
 if [[ -f "$DONE" && -f "$MERGED/model.safetensors.index.json" ]]; then
   echo "[r2o-premerge] already done: $(cat "$DONE")"
   exit 0
@@ -43,23 +46,82 @@ for i in $(seq 1 2880); do
   sleep 10
 done
 
-echo "[r2o-premerge] waiting for Reason stamp $REASON_JSON (+ $REASON_DONE)"
+W_TALENT=${W_TALENT:-0.25}
+W_ZEUS=${W_ZEUS:-0.75}
+TALENT_REV=dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4
+ZEUS_REV=${ZEUS_REV:-accc9249d879861f6d2c4f01c01df5b6e2426353}
+
+resolve_snap() {
+  local repo="$1" rev="$2"
+  local d="/root/hf/hub/models--${repo//\//--}/snapshots/${rev}"
+  if [[ -d "$d" && -f "$d/model.safetensors.index.json" ]]; then
+    echo "$d"
+    return 0
+  fi
+  return 1
+}
+
+# shellcheck disable=SC1091
+source /root/venv/bin/activate
+
+if [[ -f "$EAGER" && -f "$MERGED/model.safetensors.index.json" ]]; then
+  echo "[r2o-premerge] eager weights already present: $(cat "$EAGER")"
+else
+  TALENT=$(resolve_snap TalentPigs/affine-5ekxlcg3fx-abc "$TALENT_REV") || {
+    echo "[r2o-premerge] FATAL missing TalentPigs" >&2
+    exit 2
+  }
+  ZEUS=$(resolve_snap diceofgod/affine-5fjgc5jhxq-zeus "$ZEUS_REV") || {
+    echo "[r2o-premerge] FATAL missing zeus" >&2
+    exit 2
+  }
+
+  # Never clobber a live chall symlink target.
+  LIVE=$(readlink -f /tmp/r2n_alpha_merged 2>/dev/null || true)
+  MERGED_REAL=$(readlink -f "$MERGED" 2>/dev/null || echo "$MERGED")
+  if [[ -n "${LIVE:-}" && "$LIVE" == "$MERGED_REAL" ]]; then
+    echo "[r2o-premerge] FATAL $MERGED is live chall target ($LIVE)" >&2
+    exit 2
+  fi
+
+  rm -rf "$MERGED"
+  mkdir -p "$MERGED"
+  echo "[r2o-premerge] EAGER α-merge Talent:$W_TALENT zeus:$W_ZEUS → $MERGED"
+  python /root/mining_src/r2-multiking-merge/merge_alpha.py \
+    --parent "${TALENT}:${W_TALENT}" \
+    --parent "${ZEUS}:${W_ZEUS}" \
+    --out "$MERGED"
+
+  META=""
+  if [[ -f "$MERGED/merge_alpha_meta.json" ]]; then
+    META=$(python - <<'PY'
+import json
+from pathlib import Path
+d=json.loads(Path("/root/r2_out/alpha_talent_zeus_skew/merge_alpha_meta.json").read_text())
+print(f"max_abs_delta={d.get('max_abs_delta')} n_keys={d.get('n_keys')} identical_frac={d.get('identical_frac')}")
+PY
+)
+    cp -f "$MERGED/merge_alpha_meta.json" /root/affine_data/r2o_talent_zeus_merge_alpha_meta.json
+  fi
+  echo "EAGER $(date -u +%Y-%m-%dT%H:%M:%SZ) w_talent=$W_TALENT w_zeus=$W_ZEUS ${META}" | tee "$EAGER"
+  cp -f "$EAGER" /root/affine_data/r2o_eager_weights.done
+fi
+
+echo "[r2o-premerge] waiting for Reason stamp $REASON_JSON (+ $REASON_DONE) before DONE"
 for i in $(seq 1 2880); do
   if [[ -f "$REASON_JSON" && -f "$REASON_DONE" ]]; then
     break
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2o-premerge] wait-reason iter=$i still no chal-00452 Reason stamp"
+    echo "[r2o-premerge] wait-reason iter=$i (weights ready; no DONE yet)"
   fi
   sleep 10
 done
 if [[ ! -f "$REASON_JSON" || ! -f "$REASON_DONE" ]]; then
-  echo "[r2o-premerge] TIMEOUT waiting for chal-00452 Reason" | tee "$SKIP"
+  echo "SKIP $(date -u +%Y-%m-%dT%H:%M:%SZ) TIMEOUT waiting for chal-00452 Reason — purge eager blend" | tee "$SKIP"
+  rm -rf "$MERGED"
   exit 2
 fi
-
-# shellcheck disable=SC1091
-source /root/venv/bin/activate
 
 GATE_LINE=$(python - <<'PY'
 import json
@@ -77,41 +139,10 @@ PY
 )
 echo "[r2o-premerge] gate: $GATE_LINE"
 if [[ "$(cat /tmp/r2o_gate_ok)" != "1" ]]; then
-  echo "SKIP $(date -u +%Y-%m-%dT%H:%M:%SZ) Reason-or-mismatch ${GATE_LINE} — no Talent×zeus merge" | tee "$SKIP"
+  echo "SKIP $(date -u +%Y-%m-%dT%H:%M:%SZ) Reason-or-mismatch ${GATE_LINE} — purge eager Talent×zeus" | tee "$SKIP"
+  rm -rf "$MERGED"
   exit 0
 fi
-
-W_TALENT=${W_TALENT:-0.25}
-W_ZEUS=${W_ZEUS:-0.75}
-TALENT_REV=dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4
-ZEUS_REV=${ZEUS_REV:-accc9249d879861f6d2c4f01c01df5b6e2426353}
-
-resolve_snap() {
-  local repo="$1" rev="$2"
-  local d="/root/hf/hub/models--${repo//\//--}/snapshots/${rev}"
-  if [[ -d "$d" && -f "$d/model.safetensors.index.json" ]]; then
-    echo "$d"
-    return 0
-  fi
-  return 1
-}
-
-TALENT=$(resolve_snap TalentPigs/affine-5ekxlcg3fx-abc "$TALENT_REV") || {
-  echo "[r2o-premerge] FATAL missing TalentPigs" >&2
-  exit 2
-}
-ZEUS=$(resolve_snap diceofgod/affine-5fjgc5jhxq-zeus "$ZEUS_REV") || {
-  echo "[r2o-premerge] FATAL missing zeus" >&2
-  exit 2
-}
-
-rm -rf "$MERGED"
-mkdir -p "$MERGED"
-echo "[r2o-premerge] α-merge Talent:$W_TALENT zeus:$W_ZEUS → $MERGED"
-python /root/mining_src/r2-multiking-merge/merge_alpha.py \
-  --parent "${TALENT}:${W_TALENT}" \
-  --parent "${ZEUS}:${W_ZEUS}" \
-  --out "$MERGED"
 
 META=""
 if [[ -f "$MERGED/merge_alpha_meta.json" ]]; then
@@ -122,7 +153,7 @@ d=json.loads(Path("/root/r2_out/alpha_talent_zeus_skew/merge_alpha_meta.json").r
 print(f"max_abs_delta={d.get('max_abs_delta')} n_keys={d.get('n_keys')} identical_frac={d.get('identical_frac')}")
 PY
 )
-  cp -f "$MERGED/merge_alpha_meta.json" /root/affine_data/r2o_talent_zeus_merge_alpha_meta.json
 fi
-echo "OK $(date -u +%Y-%m-%dT%H:%M:%SZ) w_talent=$W_TALENT w_zeus=$W_ZEUS ${META}" | tee "$DONE"
+echo "OK $(date -u +%Y-%m-%dT%H:%M:%SZ) w_talent=$W_TALENT w_zeus=$W_ZEUS ${META} ${GATE_LINE}" | tee "$DONE"
+cp -f "$DONE" /root/affine_data/r2o_premerge.done
 echo "[r2o-premerge] DONE $(date -u +%Y-%m-%dT%H:%M:%SZ)"
