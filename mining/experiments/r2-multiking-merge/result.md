@@ -1,3 +1,10 @@
+## p1987 — R2ag pure-tpc9 armed (idle GPUs → n80); watch463 history
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,673.
+- Board chal-00463 tpc9 still `load_challenger`; R2y eager blend ready but Reason-gated; GPUs 4–7 idle after R2af SKIP.
+- Armed **R2ag** pure `llorite/…-tpc9@dba3b6f3` chall→n80 (pid **279745**, chall **279846** loading :8002); `bridge_r2ag_to_r2y` + Stage-5 push waiters; patched `watch_chal00463` history-API fast-path (restart pid **279721**); extended `wait_r2q` for R2ag holding.
+- Artifact: `artifacts/r2ag_armed_p1987.json`.
+- Next: harvest `r2ag_tpc9_decision.json`; hr≥1.5× → Stage-5; 0<hr<1.5 → proxy 463 for R2y; else board Reason+/467–471.
+
 ## p1985 — R2r REFUTE (−1.43×); whoami purged; R2af claimed :8002
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,696.
 - Harvested `r2r_alpha_decision.json`: margin **−0.03351** · SE=0.00782 · z=**−4.29** · 3·SE=0.02346 · hr=**−1.43×** · n=80 · `REFUTE_R1_H64_BASELINE`. Stage-5 `SKIP_BELOW_BAR`.

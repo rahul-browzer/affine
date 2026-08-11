@@ -147,3 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1984: while R2r n80 gathers, CPU-pre-materialise the next chall dir (`ln -sfn` HF snap + derive `preprocessor_config.json`) so R2af can claim `:8002` without copy latency after decision.
 - p1985: Talent×whoami (board hr 0.39×, Δ=0.671) local n80 → margin **−0.0335** (z=−4.29, hr **−1.43×**, n=80) — board Reason+ parent does not transfer via Talent skew; purge blend; R2af pure-v8 claimed `:8002` same pass.
 - p1986: board **chal-00462 awesome-v8 hr −0.04×** (margin −0.0005, z=−0.11) → **SKIP pure-v8 local n80** (kill chall by PID before gather); R2x Talent×v8 auto-SKIP+purge on same stamp; free GPUs for next Reason+ (chal-00463 tpc9 → R2y).
+- p1987: after R2af SKIP leaves GPUs idle while board `load_challenger`, arm **pure queue-parent n80** (R2ag tpc9) + bridge→Talent×parent + history fast-path on the live watch — do not burn $64/h waiting on gzip.

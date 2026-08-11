@@ -13,25 +13,26 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | contract | Reason v3 · `weight_version_key=3` · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
 | corpus | epoch **7** · schema v2 |
-| Lium | ~$122,685 · burn **$64/h** (≤$833/h) · floor ≥$10k |
+| Lium | ~$122,673 · burn **$64/h** (≤$833/h) · floor ≥$10k |
 | fleet | `mine-crown-1` lunar-orbit-50 8×B300 · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
-| **R2r** | **REFUTE** hr **−1.43×** (p1985) |
-| **R2ae** | **SKIP_GATED** — sth HF `gated=manual` |
-| **R2af** | **SKIP_BOARD_FIRST** chal-00462 hr **−0.04×** (margin −0.0005, z=−0.11) |
-| **R2x** | **SKIP** Talent×awesome-v8 (same board; blend purged) |
+| **R2af** | **SKIP_BOARD_FIRST** chal-00462 hr **−0.04×** |
+| **R2ag** | **ARMED** pure tpc9 chall→n80 (p1987) · bridge→R2y |
+| **R2y** | wait board/proxy 463 Reason+ (eager blend ready) |
 | live board | phase duel **chal-00463** tpc9 (`load_challenger`) |
-| disk | `/root` **~379 GiB** free · eager R2y/z/aa–ad blends |
+| disk | `/root` **~379 GiB** free · eager R2z/aa–ad blends |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · GPU4–7 free · R2y wait 463 Reason+ |
+| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · **R2ag** chall:8002 loading · GPU6–7 free |
 
+- R2ag: `tail -f /root/logs/r2ag_tpc9_reload.log` · decision `/root/affine_data/r2ag_tpc9_decision.json`
+- Bridge: `tail -f /root/logs/bridge_r2ag_to_r2y.log`
+- 463 watch (history fast-path): `tail -f /root/logs/watch_chal00463_reason.log`
 - R2y: `tail -f /root/logs/r2y_merge_reload.log` · gate `/root/affine_data/chal00463_reason.json`
-- 463 watch: `tail -f /root/logs/watch_chal00463_reason.log`
-- Queue: 463→467–471 (R2z/aa–ad eager; gzip often 404 until history)
+- Queue: 467–471 (R2z/aa–ad eager; gzip often 404 until history)
 
 ## Blocked
 
@@ -41,4 +42,4 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Next action
 
-**Wait chal-00463 tpc9 board Reason stamp.** If hr>0 → R2y stamps premerge.done → chall reload+n80. If hr≤0 → R2y SKIP+purge; first Reason+ among 467–471 owns next lane (eager blends ready).
+**Harvest R2ag** `r2ag_tpc9_decision.json`. hr≥1.5× → Stage-5 HF (watcher armed). 0<hr<1.5 → bridge proxies 463 → R2y chall. hr≤0 → keep board wait; first Reason+ among 463/467–471 owns next lane.

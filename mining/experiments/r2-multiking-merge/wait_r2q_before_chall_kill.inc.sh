@@ -379,4 +379,32 @@ for _i in $(seq 1 2880); do
   break
 done
 
+# R2ag pure tpc9 (live chal-00463) — holding stamp only
+R2AG_DEC=${R2AG_DEC:-/root/affine_data/r2ag_tpc9_decision.json}
+R2AG_DONE=${R2AG_DONE:-/root/logs/r2ag_tpc9_reload.done}
+R2AG_PIDF=${R2AG_PIDF:-/root/logs/r2ag_tpc9_reload.pid}
+R2AG_HOLDING=${R2AG_HOLDING:-/root/logs/r2ag_tpc9_holding.stamp}
+if [[ -f "$R2AG_DEC" ]] && declare -F headroom_ok >/dev/null && headroom_ok "$R2AG_DEC"; then
+  echo "SKIP_${_TAG}_R2AG_CLEARS file=$R2AG_DEC $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+  exit 0
+fi
+for _i in $(seq 1 2880); do
+  if [[ -f "$R2AG_DONE" || -f "$R2AG_DEC" ]]; then
+    echo "[${_TAG}] R2ag terminal; chall lane free at iter=$_i"
+    break
+  fi
+  if [[ -f "$R2AG_HOLDING" ]] && [[ -f "$R2AG_PIDF" ]]; then
+    _ppid=$(cat "$R2AG_PIDF" 2>/dev/null || true)
+    if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
+      if (( _i % 12 == 0 )); then
+        echo "[${_TAG}] wait-r2ag iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid holding"
+      fi
+      sleep 10
+      continue
+    fi
+  fi
+  echo "[${_TAG}] R2ag not holding lane at iter=$_i"
+  break
+done
+
 unset _i _ppid _TAG
