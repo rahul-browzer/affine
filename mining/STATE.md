@@ -25,7 +25,7 @@ Rewritten every pass. Do not append.
 |---|---|---|
 | mine-crown-1 | `ssh root@95.133.253.90 -p 40099` | fresh 8×B200 · empty · needs warm restore |
 
-- Host hist bridge pid **1263426** (SSH consts updated → new pod; restart if stamp needed)
+- Host hist bridge pid **1264563** (SSH consts updated → new pod; restart if stamp needed)
 - Old pod `lunar-orbit-50` **removed** (SSH port None after REBOOT_FAILED)
 
 ## Blocked
