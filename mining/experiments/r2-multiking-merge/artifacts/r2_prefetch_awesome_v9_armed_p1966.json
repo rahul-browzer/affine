@@ -1,0 +1,12 @@
+{
+  "pass": 1966,
+  "armed_at": "2026-08-11T05:33:00Z",
+  "hyp": "R2z-prefetch",
+  "repo": "0pentensor/Affine-5dflhtkufw-awesome-v9",
+  "revision": "75871c573246051f0104fbed530e8d000d8a6234",
+  "challenge_id": "chal-00467",
+  "weights": "16 safetensors ~70.2 GiB",
+  "gate": "post-verdict Reason+ before any Talent×v9 merge",
+  "why_now": "R2p Talent×sth n80 gathering (~1/80); CPU/network free; v9 next uncached queue parent after whoami/v8/tpc9",
+  "check": "tail -f /root/logs/r2_prefetch_awesome_v9.log ; test -f /root/logs/r2_prefetch_awesome_v9.done"
+}
