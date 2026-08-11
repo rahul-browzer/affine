@@ -1,0 +1,156 @@
+#!/usr/bin/env bash
+# Host → mine-r28-hilr-1: R3 stack + R28 HiLR-GRPO overlay, bootstrap.
+# Axis R28: Tok-init Reason-GRPO lr=2e-5 (≠ R3 5e-6 / R3b 2e-5+r64+G8).
+set -euo pipefail
+
+ROOT=/home/const/subnet120
+POD_NAME=${POD_NAME:-mine-r28-hilr-1}
+DST_HOST=${DST_HOST:?set DST_HOST}
+DST_PORT=${DST_PORT:?set DST_PORT}
+KNOWN=${KNOWN:-/tmp/${POD_NAME}.known_hosts}
+SSH=(ssh -i "$HOME/.ssh/id_ed25519" -o UserKnownHostsFile="$KNOWN"
+     -o StrictHostKeyChecking=accept-new -p "$DST_PORT" "root@$DST_HOST")
+SCP=(scp -i "$HOME/.ssh/id_ed25519" -o UserKnownHostsFile="$KNOWN"
+     -o StrictHostKeyChecking=accept-new -P "$DST_PORT")
+
+STAGE=$(mktemp -d /tmp/mine-r28-stack.XXXXXX)
+trap 'rm -rf "$STAGE"' EXIT
+
+EXP=r3-reason-grpo
+mkdir -p "$STAGE/affine_pkg/affine" "$STAGE/affine_pkg/evalsrv" \
+         "$STAGE/s3-duel-sim" "$STAGE/s4-h2-merge" "$STAGE/s4-h1-sft" \
+         "$STAGE/s4-h1v2-sft" "$STAGE/$EXP" "$STAGE/r28-hilr-grpo"
+
+cp -a "$ROOT/affine/affine.toml" "$STAGE/affine_pkg/"
+cp -a "$ROOT/affine/affine/." "$STAGE/affine_pkg/affine/"
+cp -a "$ROOT/affine/evalsrv/." "$STAGE/affine_pkg/evalsrv/"
+cp -a "$ROOT/mining/experiments/s3-duel-sim/"*.sh "$STAGE/s3-duel-sim/"
+cp -a "$ROOT/mining/experiments/s3-duel-sim/"*.py "$STAGE/s3-duel-sim/" 2>/dev/null || true
+cp -a "$ROOT/mining/experiments/s4-h2-merge/restart_for_h2.sh" "$STAGE/s4-h2-merge/"
+cp -a "$ROOT/mining/experiments/s4-h2-merge/run_sim_duel.py" "$STAGE/s4-h2-merge/"
+cp -a "$ROOT/mining/experiments/s4-h2-merge/write_merge_decision.py" "$STAGE/s4-h2-merge/"
+cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_form_decision.sh" "$STAGE/s4-h2-merge/"
+cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_n80_retry.sh" "$STAGE/s4-h2-merge/"
+cp -a "$ROOT/mining/experiments/s4-h1-sft/merge_lora.py" "$STAGE/s4-h1-sft/"
+cp -a "$ROOT/mining/experiments/s4-h1-sft/salvage_adapter.py" "$STAGE/s4-h1-sft/"
+cp -a "$ROOT/mining/experiments/s4-h1-sft/push_merged.py" "$STAGE/s4-h1-sft/"
+cp -a "$ROOT/mining/experiments/s4-h1v2-sft/thought_mask.py" "$STAGE/s4-h1v2-sft/" 2>/dev/null || true
+cp -a "$ROOT/mining/experiments/$EXP/"*.sh "$STAGE/$EXP/"
+cp -a "$ROOT/mining/experiments/$EXP/"*.py "$STAGE/$EXP/"
+cp -a "$ROOT/mining/experiments/$EXP/plan.md" "$STAGE/$EXP/"
+cp -a "$ROOT/mining/experiments/r28-hilr-grpo/plan.md" "$STAGE/r28-hilr-grpo/"
+cp -a "$ROOT/mining/experiments/r28-hilr-grpo/start_r28.sh" "$STAGE/r28-hilr-grpo/"
+# Overlay: bootstrap_r3 calls start_r3.sh — replace with R28 HiLR knobs.
+cp -a "$ROOT/mining/experiments/r28-hilr-grpo/start_r28.sh" "$STAGE/$EXP/start_r3.sh"
+
+SOFT=$(date -u -d '+23 hours' +%Y-%m-%dT%H:%M:%SZ)
+DEAD=$(date -u -d '+23 hours 30 minutes' +%Y-%m-%dT%H:%M:%SZ)
+export STAGE_EXP_POST="$STAGE/$EXP/post_train_pipeline.sh"
+export SOFT
+python3 - <<'PY'
+from pathlib import Path
+import re, os
+soft = os.environ["SOFT"]
+p = Path(os.environ["STAGE_EXP_POST"])
+t = p.read_text()
+t2, n = re.subn(
+    r"SOFT_DEADLINE_UTC=\$\{SOFT_DEADLINE_UTC:-[^}]+\}",
+    f"SOFT_DEADLINE_UTC=${{SOFT_DEADLINE_UTC:-{soft}}}",
+    t,
+    count=1,
+)
+if n != 1:
+    print("SOFT_DEADLINE_PATTERN_MISS n=", n)
+else:
+    p.write_text(t2)
+    print("SOFT_DEADLINE_SET", soft)
+PY
+
+TAR=/tmp/mine-r28-stack.tar.gz
+tar -C "$STAGE" -czf "$TAR" .
+ls -lh "$TAR"
+
+ENV_TMP=$(mktemp /tmp/mine-r28.env.XXXXXX)
+# shellcheck disable=SC1091
+set -a
+source "$ROOT/mining/.env"
+set +a
+umask 077
+{
+  echo "export HF_TOKEN=${HF_TOKEN}"
+  echo "export HF_HOME=/root/hf"
+  echo "export HF_HUB_ENABLE_HF_TRANSFER=1"
+  echo "export HF_XET_HIGH_PERFORMANCE=1"
+  echo "export AFFINE_DATA_DIR=/root/affine_data"
+  echo "export SOFT_DEADLINE_UTC=${SOFT}"
+  echo "export DEADMAN_UTC=${DEAD}"
+  echo "export HF_LORA_REPO=unconst/Affine-5czsc2fc98-r28-lora"
+  echo "export HF_MERGED_REPO=unconst/Affine-5czsc2fc98-r28-merged"
+  echo "export R28_AXIS=hilr_grpo_reason"
+  echo "export R28_LR=2e-5"
+  echo "export R28_LORA_R=16"
+  echo "export R28_LORA_ALPHA=32"
+  echo "export R28_GROUP_SIZE=4"
+  echo "export R28_MAX_STEPS=200"
+  echo "export R28_MAX_LEN=6144"
+  echo "export R28_MAX_NEW=512"
+  echo "export R28_TEMPERATURE=0.8"
+} >"$ENV_TMP"
+chmod 600 "$ENV_TMP"
+
+DATA="$ROOT/mining/experiments/s4-h27-clip-l1-shape/results/winner_za_high_l1.jsonl"
+test -s "$DATA"
+test "$(wc -l <"$DATA")" -ge 300
+
+"${SSH[@]}" 'mkdir -p /root/mining_src /root/affine_data /root/logs /root/r3 /root/r28 /root/hf'
+"${SCP[@]}" "$TAR" "root@${DST_HOST}:/tmp/mine-r28-stack.tar.gz"
+"${SCP[@]}" "$ENV_TMP" "root@${DST_HOST}:/root/mine.env"
+"${SCP[@]}" "$DATA" "root@${DST_HOST}:/root/r3/winner_za_high_l1.jsonl"
+"${SCP[@]}" "$DATA" "root@${DST_HOST}:/root/r28/winner_za_high_l1.jsonl"
+rm -f "$ENV_TMP"
+
+python3 - <<'PY'
+import os
+from huggingface_hub import HfApi
+api = HfApi(token=os.environ["HF_TOKEN"])
+for repo in (
+    "unconst/Affine-5czsc2fc98-r28-lora",
+    "unconst/Affine-5czsc2fc98-r28-merged",
+):
+    try:
+        api.create_repo(repo, private=False, exist_ok=True, repo_type="model")
+        print("HF_OK", repo)
+    except Exception as e:
+        print("HF_ERR", repo, type(e).__name__, e)
+PY
+
+"${SSH[@]}" 'set -e
+  tar -C /root/mining_src -xzf /tmp/mine-r28-stack.tar.gz
+  chmod 600 /root/mine.env
+  chmod +x /root/mining_src/s3-duel-sim/*.sh \
+           /root/mining_src/s4-h2-merge/*.sh \
+           /root/mining_src/r3-reason-grpo/*.sh \
+           /root/mining_src/r28-hilr-grpo/*.sh
+  test -f /root/mining_src/affine_pkg/affine/score.py
+  test -s /root/r3/winner_za_high_l1.jsonl
+  test -x /root/mining_src/r3-reason-grpo/bootstrap_r3.sh
+  test -x /root/mining_src/r3-reason-grpo/start_r3.sh
+  # Prove overlay is R28 HiLR, not stock R3 / R24–R27 / parent-GRPO.
+  grep -q "R28: HiLR-GRPO" /root/mining_src/r3-reason-grpo/start_r3.sh
+  grep -q "R28_LR:-2e-5" /root/mining_src/r3-reason-grpo/start_r3.sh
+  set -a; source /root/mine.env; set +a
+  echo "R28_DEADLINES soft=$SOFT_DEADLINE_UTC dead=$DEADMAN_UTC axis=$R28_AXIS"
+  echo "R28_KNOBS lr=${R28_LR} G=${R28_GROUP_SIZE} temp=${R28_TEMPERATURE} r=${R28_LORA_R} max_len=${R28_MAX_LEN}"
+  echo STACK_UPLOAD_OK
+  nohup bash /root/mining_src/r3-reason-grpo/bootstrap_r3.sh \
+    >/root/logs/r28_pipeline.nohup 2>&1 &
+  echo $! > /root/logs/r28_pipeline.pid
+  cp -f /root/logs/r28_pipeline.pid /root/logs/r3_pipeline.pid
+  echo PIPELINE_PID=$(cat /root/logs/r28_pipeline.pid)
+  sleep 5
+  head -n 40 /root/logs/bootstrap_r3.log 2>/dev/null || head -n 40 /root/logs/r28_pipeline.nohup || true
+  ps -p "$(cat /root/logs/r28_pipeline.pid)" -o pid,etime,cmd || true
+  nvidia-smi -L | wc -l
+'
+
+echo "UPLOAD_AND_LAUNCH_OK pod=$POD_NAME $(date -u +%Y-%m-%dT%H:%M:%SZ)"

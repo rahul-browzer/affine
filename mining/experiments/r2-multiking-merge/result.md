@@ -1,3 +1,10 @@
+## p2102 — R2ba awesome-v10 WEAK (2026-08-11T20:33Z)
+
+- **R2ba** n80 done (n_paired=79): margin **+0.00699**, SE **0.00500**, z=**1.40**.
+- Live k_sigma=**2.0** → thr=0.0100; 1.5× submit bar=0.0150 → **WEAK_SKIP** (fails both). Sim stamped k=3.0; same fail under recompute.
+- Stage-5 watcher: `SKIP_BELOW_BAR hr=0.466`. Artifacts `artifacts/r2ba_awesome_v10_{decision,reason_sim,weak_p2102}.json`.
+- Next crown: **R2bb** unscreened board parent (ckp333/ec08/ckp55). R28 HiLR armed on fleet.
+
 ## p2090 — R2az REFUTE + R2ba awesome-v10 armed (2026-08-11T19:56Z)
 
 - **R2az** n80 done: margin **−3.17e−5**, SE 0.00470, z≈0 → REFUTE (stage5 SKIP_BELOW_BAR). Artifacts `artifacts/r2az_vvv_{decision,reason_sim,refute_p2090}.json`.

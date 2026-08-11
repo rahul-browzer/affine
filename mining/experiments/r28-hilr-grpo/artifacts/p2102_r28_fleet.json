@@ -1,0 +1,29 @@
+{
+  "utc": "2026-08-11T20:35:14Z",
+  "pass": 2102,
+  "axis": "R28",
+  "pod": "mine-r28-hilr-1",
+  "hypo": "Tok-init Reason-GRPO HiLR lr=2e-5 (\u2260 R3 5e-6; isolates LR vs R3b lr+r+G)",
+  "base": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "queue_priority": "after R27, before R9/parent-swap axes",
+  "poll_s": 10,
+  "target_mines": 25,
+  "uploader": "experiments/r28-hilr-grpo/upload_and_launch.sh",
+  "note": "armed after R2ba WEAK; B300\u00d78=0 \u2014 rent polls @10s; structural LR isolate",
+  "rent_pid": "2406489",
+  "boot_pid": "2406492",
+  "knobs": {
+    "lr": "2e-5",
+    "group_size": 4,
+    "temperature": 0.8,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_len": 6144,
+    "max_new": 512
+  },
+  "r2ba": {
+    "margin": 0.00698979466961355,
+    "se": 0.00500120336688743,
+    "decision": "WEAK_SKIP"
+  }
+}

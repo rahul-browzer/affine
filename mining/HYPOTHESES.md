@@ -6,13 +6,14 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2ay** WEAK (+0.0093); **R2az REFUTE** m≈0; **R2ba** awesome-v10 n80 ~67/80 |
-| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** step≥90; wedge-watch; post_train armed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2ay** WEAK (+0.0093); **R2az REFUTE**; **R2ba WEAK** +0.007 (hr0.47×) |
+| 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** step≥93; wedge-watch; post_train armed |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open** · `mine-r3-grpo-2` · p2078 armed |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
 | 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · `mine-r25-hitemp-1` · p2099 armed |
 | 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open** · `mine-r26-lotemp-1` · p2100 armed |
-| 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · `mine-r27-bigg-1` · **p2101** armed |
+| 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · `mine-r27-bigg-1` · p2101 armed |
+| 28 | R28 | Tok GRPO lr=2e-5 beats R3 5e-6 (isolates LR vs R3b) | **open** · `mine-r28-hilr-1` · **p2102** armed |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · `mine-r4-fullft-1` · p2069 armed |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **open** · `mine-r4-fullft-2` · p2080 armed |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · `mine-r5-nonking-1` · p2074 armed |
@@ -43,10 +44,10 @@
 - R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75). Dir: `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge
-- **R2ay** +0.00930 (hr 1.02×) WEAK. **R2az** m≈−3e−5 REFUTE. **R2ba** pure awesome-v10 n80 **~67/80**. Dir: `experiments/r2-multiking-merge/`.
+- **R2ay** +0.00930 WEAK. **R2az** m≈0 REFUTE. **R2ba** awesome-v10 **WEAK** m=+0.00699 z=1.40 (live k=2 thr=0.010; hr0.47×) — Stage-5 SKIP. Next: R2bb board parent. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason (PRIORITY)
-- GRPO pid**28660** step≥90; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
+- GRPO pid**28660** step≥93; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
 
 ### R24 — Long-context / full-thought GRPO
 - Tok-init; max_len=**16384** max_new=**1024** (live thought budget); same lr/r/G as R3.
@@ -65,16 +66,21 @@
 - Isolates G — not confounded with R3b knobs. Pod `mine-r27-bigg-1`; queue after R26.
 - Dir: `experiments/r27-bigg-grpo/`.
 
-### Fleet axes waiting on 8×B300 (R3b–R27)
+### R28 — High-LR GRPO
+- Tok-init; **lr=2e-5** (R3 5e-6; R3b 2e-5 *with* r=64 G=8); same r/G/temp/len as R3.
+- Isolates LR — not confounded with R3b knobs. Pod `mine-r28-hilr-1`; queue after R27.
+- Dir: `experiments/r28-hilr-grpo/`.
+
+### Fleet axes waiting on 8×B300 (R3b–R28)
 - One pod/axis; uploaders+boot cases armed. Decision: n80 vs Tok; submit iff hr ≥ 1.5×(2·SE).
-- **R3b** alt GRPO knobs · **R24** longctx · **R25** hitemp · **R26** lotemp · **R27** BigG · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14–R17** parent REINFORCE · **R18–R23** parent GRPO.
+- **R3b** alt GRPO knobs · **R24** longctx · **R25** hitemp · **R26** lotemp · **R27** BigG · **R28** HiLR · **R4/R4b** full-FT · **R5/R5b** Genesis/Talent FT · **R6/R6b** short/long-z · **R7** top-Reason filter · **R8** EMA REINFORCE · **R9** teacher z_C · **R10** merge+GRPO · **R11** online DPO · **R12** BoN-CE · **R13** offline DPO · **R14–R17** parent REINFORCE · **R18–R23** parent GRPO.
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
 - **R1b/R1c:** king-init LoRA −0.0135 / nsup≥100 −0.0171 vs Tok — SFT family closed.
 - **R2ao/ap/aq:** af17 −0.0007; kevin h44 +0.004; …-now +0.008 (≪1.5×) — SKIP.
 - **R2aw/ar:** mt1 / iynocr2p **unservable** — SKIP.
-- **R2av/ay/az:** Bittoby v2 −0.0003; sbs-v2 **+0.0093** WEAK; **vvv m≈0 REFUTE** → R2ba awesome-v10.
+- **R2av/ay/az/ba:** Bittoby v2 −0.0003; sbs-v2 **+0.0093** WEAK; **vvv m≈0 REFUTE**; awesome-v10 **+0.007 WEAK** → R2bb next board parent.
 
 ## Do not reopen from S\* legacy
 Clip-L1 shaping, r∈[0.7,0.85], α-merge lotteries, king-watch, "don't raise Λ2", submit-gate 0.04 — S\* v2 only.
