@@ -1,3 +1,11 @@
+## p1985 — R2r REFUTE (−1.43×); whoami purged; R2af claimed :8002
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,696.
+- Harvested `r2r_alpha_decision.json`: margin **−0.03351** · SE=0.00782 · z=**−4.29** · 3·SE=0.02346 · hr=**−1.43×** · n=80 · `REFUTE_R1_H64_BASELINE`. Stage-5 `SKIP_BELOW_BAR`.
+- Purged `/root/r2_out/alpha_talent_whoami_skew` (+66 GiB → disk ~313 GiB free).
+- R2af auto-claimed: chall pid **273073** serving `/tmp/r2af_awesome_v8` → prematerialised awesome-v8@`6c04b16d`; TK 200/200, chall loading at harvest.
+- Artifacts: `artifacts/r2r_refute_harvest_p1985.json`, `artifacts/r2r_alpha_{decision,reason_sim,reason_progress}.json`.
+- Next: wait R2af n80 → harvest decision; else board Reason+ → R2x–ad.
+
 ## p1984 — R2af awesome-v8 chall dir pre-materialised
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,730.
 - R2r n80 still gathering ~37/80 (pid 266016); TKC 200/200/200; no `r2r_alpha_decision.json` yet. Board chal-00462 still `load_challenger`.
