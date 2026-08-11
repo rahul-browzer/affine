@@ -1,0 +1,22 @@
+{
+  "pass": 2050,
+  "utc": "2026-08-11T15:57:21Z",
+  "hyp": "R2ax",
+  "action": "prefetch_done_and_tt_chall_prestage",
+  "repo": "leary-criste/affine-5g4yy75zuz-tt",
+  "revision": "93aeaa1765a79d0444b688e2de53864c23a320b9",
+  "challenge_id": "chal-00337",
+  "prefetch": {
+    "started_at": "2026-08-11T15:53:16Z",
+    "finished_at": "2026-08-11T15:55:16Z",
+    "seconds": 120.2,
+    "done": "OK 2026-08-11T15:55:17Z leary-criste/affine-5g4yy75zuz-tt@93aeaa1765a79d0444b688e2de53864c23a320b9"
+  },
+  "chall_dir": "/root/r2_out/tt_chall",
+  "n_entries": 24,
+  "n_shards": 16,
+  "architectures": ["Qwen3_5MoeForConditionalGeneration"],
+  "has_preprocessor": true,
+  "prestage_stamp": "2026-08-11T15:56:08Z",
+  "note": "CPU-only materialize while R2as pure-726 n80 ~26/80; R2ax waiter will reuse snapshot/chall dir after R2av."
+}
