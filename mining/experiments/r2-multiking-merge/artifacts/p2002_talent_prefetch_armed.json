@@ -1,0 +1,28 @@
+{
+  "pass": 2002,
+  "utc": "2026-08-11T09:11:27Z",
+  "weight_version_key": 3,
+  "pod": "mine-crown-1",
+  "huid": "gentle-orbit-bd",
+  "ssh": "ssh root@95.133.253.90 -p 40099",
+  "action": "armed_talent_prefetch",
+  "repo": "TalentPigs/affine-5ekxlcg3fx-abc",
+  "revision": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "prefetch_pid": 18123,
+  "log": "/root/logs/r2_prefetch_talent.log",
+  "done_stamp": "/root/logs/r2_prefetch_talent.done",
+  "board": {
+    "challenge_id": "chal-00469",
+    "repo": "magicworld7/affine-5dtu4gucst-sky",
+    "stage": "scoring",
+    "progress": {"phase": "scoring", "miner": "king", "done": 58, "total": 80}
+  },
+  "lanes": {
+    "r2aj": "board-wait chal00469",
+    "r2ak": "wait R2aj",
+    "r2al": "wait R2ak",
+    "r2aa_ad": "need Talent DONE + Reason+ stamps"
+  },
+  "burn_usd_per_h": 52.25,
+  "balance_usd": 122466.45
+}

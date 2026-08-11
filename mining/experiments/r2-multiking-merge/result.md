@@ -1,3 +1,11 @@
+## p2002 — Talent prefetch armed (board-wait fill)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,466.
+- Board chal-00469 sky scoring king **58**/80 (gzip 404); R2aj/R2ak/R2al still armed; host-hist pending 469–471.
+- Fresh crown had no TalentPigs parent — armed `launch_prefetch_talent.sh` pid **18123** (`TalentPigs/…-abc@dbfbb3e2…`) for R2ab/ac/ad after pure SKIP.
+- Pure sky/google/pig caches untouched; no new rent; burn$52.25/h.
+- Artifacts: `launch_prefetch_talent.sh`, `artifacts/p2002_talent_prefetch_armed.json`.
+- Next: poll 469 stamp + `r2_prefetch_talent.done`; SKIP_BOARD → R2ak; Talent DONE + pure SKIP → arm R2ab.
+
 ## p2001 — pig DONE + chall prestage
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,466.
 - Board chal-00469 sky still scoring (gzip 404); R2aj board-wait; R2ak/R2al armed; host-hist pending 469–471.
