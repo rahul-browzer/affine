@@ -50,7 +50,7 @@ nohup python3 "$SRC/train_lora.py" \
   --base "$BASE" \
   --data "$DATA" \
   --out-dir "$TRAIN_DIR" \
-  --max-len 8192 \
+  --max-len 16384 \
   --epochs "$EPOCHS" \
   --lr 5e-6 \
   --lora-r 16 \

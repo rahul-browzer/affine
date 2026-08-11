@@ -21,8 +21,7 @@ PASS=${PASS:-2108}
 # Format: name|axis_id|short_note
 # R24–R32 (structural) sit after R3b — ahead of cosmetic parent-swap GRPO.
 QUEUE=(
-  # R4/R4b REFUTED; R5 live on mine-r4-fullft-1 (p2120 retarget) — do not re-rent R5.
-  "mine-r6-fmt-1|R6|thought-format / short-z teacher-shaped"
+  # R4/R4b/R5 REFUTED. R6 retargeted onto mine-r4-fullft-1 (p2126) — do not re-rent R6.
   "mine-r7-datafilt-1|R7|high-Reason data filter curriculum FT"
   "mine-r8-reinforce-1|R8|REINFORCE on Reason (full-rank / alt base)"
   "mine-r3-grpo-2|R3b|GRPO LoRA alt-LR/rank family"

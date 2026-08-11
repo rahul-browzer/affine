@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-11T22:59:20Z",
+  "pass": 2126,
+  "axis": "R6",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "ssh": "root@86.38.182.50 -p 40307",
+  "train_pid": 50851,
+  "data_rows": 202,
+  "epochs": 6,
+  "note": "R5 REFUTE closed; lean retarget (no bootstrap thrash); fleet next=mine-r7-datafilt-1"
+}

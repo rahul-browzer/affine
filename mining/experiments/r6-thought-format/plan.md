@@ -10,11 +10,12 @@ n=202, med≈103) from `winner_za_high_l1` — keeps original z text.
 
 ## Method
 Tok af10 init · thought-only LoRA r=16/α32 · lr=5e-6 · **EPOCHS=6**
-(≈150 opt-steps on 202 rows @ grad_accum=8) · merge → n80 vs Tok.
+· **max_len=16384** (p2126: 8192 kept 33/202; 16384→121/202) · merge → n80 vs Tok.
 Stack = `s4-h101-f6-short-format` bootstrap with `start_r6.sh` overlay.
 
 ## Pod
-`mine-r6-fmt-1` via fleet-rent. 8×B300 prefer. TTL 24h.
+**Live p2126:** retargeted onto `mine-r4-fullft-1` (R5 REFUTE closed; B300×8=0).
+Fleet-rent next = `mine-r7-datafilt-1` (do not re-rent R6).
 Uploader: `upload_and_launch.sh` (fleet-boot wired p2075).
 
 ## Decision

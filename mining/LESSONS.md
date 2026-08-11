@@ -150,3 +150,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R5 FALSE_PROBE=404 when serve id=`/root/h122/merged` (symlink) but sim uses `readlink -f`→`/tmp/…`; serve resolved path + `max_model_len=65536` (p2124).
 - R3 resume must `export PYTHONPATH=/root/mining_src/affine_pkg` and use schema-v2 `run_sim_duel.py` (passes `corpus=` / `turns_path=None`) — stale copy opens `turns.jsonl` and aborts despite parquet ready (p2125).
 - R5 Genesis full-FT vs Tok: m=**−0.039** z=−3.24 — non-king Genesis FT closed for this reign; retarget pod to a different axis (p2125).
+- R6 natural-short jsonl still has long chat prefixes: fit-filter @8192 keeps **33/202**; use **max_len=16384** (121/202) before train (p2126).
