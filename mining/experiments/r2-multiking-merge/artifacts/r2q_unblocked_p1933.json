@@ -1,0 +1,27 @@
+{
+  "pass": 1933,
+  "at": "2026-08-11T01:23:12Z",
+  "action": "unblock_r2q_claimant_gate",
+  "why": "R2q waited on R2i…R2p terminal stamps while those lanes only waited Reason gzips for queue duels still behind live chal-00441; crown GPUs idle at $64/h. Pure saysth-v9a (live hr≈0.73×) is the best DL Reason+ parent after Talent×saysth REFUTE.",
+  "change": "lane_claiming_gpu=premerge.done && !terminal; Reason-only waiters no longer block. Sibling merge_reload scripts source wait_r2q_before_chall_kill.inc.sh before killing chall.",
+  "pids": {
+    "r2q_saysth_reload": 165096,
+    "vllm_chall": 165170,
+    "r2i_merge_reload": 165030,
+    "r2k_merge_reload": 165038,
+    "r2l_merge_reload": 165048,
+    "r2m_merge_reload": 165058,
+    "r2n_merge_reload": 165068,
+    "r2o_merge_reload": 165078,
+    "r2p_merge_reload": 165088
+  },
+  "chall_link": "/tmp/r2q_saysth_v9a -> /root/r2_out/saysth_v9a_chall",
+  "parent": "saysth/Affine-5dtnxamt4t-v9a@6e13f365b36000cf631aad2fa9fb05fdabae0044",
+  "decision_path": "/root/affine_data/r2q_saysth_decision.json",
+  "sim_path": "/root/affine_data/r2q_saysth_reason_sim.json",
+  "log": "/root/logs/r2q_saysth_reload.log",
+  "contract": {"weight_version_key": 3, "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a2"},
+  "live_board": {"phase": "duel", "challenge_id": "chal-00441", "stage": "load_challenger"},
+  "balance_usd": 123500.96,
+  "burn_usd_per_h": 64.0
+}

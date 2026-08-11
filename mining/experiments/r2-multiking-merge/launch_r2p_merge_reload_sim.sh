@@ -242,6 +242,11 @@ fi
 ln -sfn "$MERGED" "$LINK"
 echo "[r2p-merge] link $LINK -> $(readlink -f "$LINK")"
 
+# Wait if R2q pure-saysth currently owns chall (do not yank mid-n80).
+_WAIT_R2Q_TAG=r2p-merge
+# shellcheck disable=SC1091
+source /root/mining_src/r2-multiking-merge/wait_r2q_before_chall_kill.inc.sh
+
 CHALL_PID_FILE=/root/logs/vllm_chall.pid
 if [[ -f "$CHALL_PID_FILE" ]]; then
   CPID=$(cat "$CHALL_PID_FILE" || true)

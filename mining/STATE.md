@@ -13,45 +13,41 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | contract | Reason v3 · `weight_version_key=3` · crown = margin > 3·SE |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a356a2…` (reign 4) |
 | corpus | epoch **7** · schema v2 |
-| Lium | ~$123,512 · burn **$64/h** (≤$833/h) · floor ≥$10k |
+| Lium | ~$123,501 · burn **$64/h** (≤$833/h) · floor ≥$10k |
 | fleet | `mine-crown-1` lunar-orbit-50 8×B300 · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
-| board | live duel **chal-00441** (thompsville cgpb8, still `load_challenger`) |
+| board | live duel **chal-00441** (thompsville cgpb8, `load_challenger`) |
 | queue | 431→450→451→452→455→456→**458 whoami** |
-| disk | **~494 GiB free** (72%) after p1932 purge |
+| disk | **~494 GiB free** (72%) |
 | R2d/e/f/h | 0.22× / REFUTE / SKIP / REFUTE −0.59× |
 | **R2g** | Talent×saysth **REFUTE** hr **−0.89×** (n=79) |
 | 440 saysth | hr **0.73×** (parent only; merge lost) |
-| **R2j** | BKN-seven **SKIP** hr **−0.57×** (HF cache purged p1932) |
-| R2i/k…p | wait 441/431/450/456/451/452/455 Reason+ |
-| **R2q** | pure saysth **ARMED** · after R2i…R2p · pid **157147** |
-| **R2r** | Talent×whoami **ARMED** · premerge **162125** · merge **162126** (after R2q + 458 hr>0) |
-| prefetch | BKN6+sft3+asdf+zeus+sth+cp200+thomp+**whoami DONE** |
+| **R2j** | BKN-seven **SKIP** hr **−0.57×** |
+| R2i/k…p | Reason+ waiters armed; merge scripts wait R2q before chall kill |
+| **R2q** | pure saysth **RUNNING** · chall reload pid **165170** · waiter **165096** |
+| **R2r** | Talent×whoami **ARMED** · after R2q + 458 hr>0 |
 | gated+ | diane-new 0.54× / nvidia 0.45× / aurora 0.17× — still weight-gated |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · R2i/k…p + R2q + **R2r** |
+| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · **R2q n80** + R2i/k…p + R2r |
 
-- Engines 8000/8001/8002 healthy (chall still `/tmp/r2g_alpha_merged` idle).
-- R2j terminal: `r2j_premerge.skip` + `r2j_merge_reload.done` (pids dead; BKN7 HF removed).
-- R2q log: `/root/logs/r2q_saysth_reload.log` → decision `r2q_saysth_decision.json`.
-- R2r: `tail /root/logs/r2r_premerge.log` · `r2r_merge_reload.log` → `r2r_alpha_decision.json`.
+- Teacher/king :8000/:8001 healthy; chall :8002 loading `/tmp/r2q_saysth_v9a` (pure saysth-v9a).
+- R2q log: `tail /root/logs/r2q_saysth_reload.log` → `r2q_saysth_decision.json`.
+- R2i…R2p premerge still Reason-gated; merge_reload wait `wait_r2q_before_chall_kill.inc.sh`.
 - 441 watch: `tail /root/logs/watch_chal00441_reason.log` → `chal00441_reason.json`.
-- whoami DONE; watch `watch_chal00458_reason.log`.
-- Disk purge stamp: `/root/logs/disk_purge_p1932.json`.
+- whoami DONE; watch `watch_chal00458_reason.log` → R2r.
 
 ## Blocked
 
-- No submit on R1*/R2d/e/g/h/j (below bar / Reason−). No S\* 0.04 gate / king-watch.
+- No submit until sim hr ≥ **1.5×**. No S\* 0.04 gate / king-watch.
 - Never `max_model_len=32768`; never cu13→`/usr/local/cuda`; never `pkill -f`.
 - Lane-free = **pidfile kill -0** only. Recompute Reason from lpC fields.
 - No merge thomp/BKN6/sft3/cp200/asdf/zeus/sth until Reason+. No re-n80 R2e/R2g/R2h/R2j.
-- nvidia/diane-new/aurora weight-gated. R2q waits remaining chain terminals.
-- R2r GPU only after **458 hr>0** (premerge skip otherwise) **and** R2q terminal.
+- nvidia/diane-new/aurora weight-gated. R2r GPU only after **458 hr>0** and R2q terminal.
 
 ## Next action
 
-**Harvest chal-00441** when gzip lands; if hr>0 let **R2i** Talent×thomp fire→n80. Else keep R2k…R2p Reason+ gates; first hr≥**1.5×** → submit. Else **R2q** pure-saysth after chain ends. If **458** Reason+ → R2r CPU merge already armed → n80 after R2q.
+**Harvest R2q** (`r2q_saysth_decision.json`): if hr≥**1.5×** → Stage-5 submit; else harvest chal-00441 when gzip lands (R2i if hr>0). Keep R2k…R2p/R2r Reason+ gates.

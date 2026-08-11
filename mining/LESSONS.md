@@ -109,3 +109,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1930: queue grew **chal-00458** `marsplan0624/…-whoami@21ad4572…` — same id fragment as gated diane-new (`5gedzafcvg`) but **ungated** (index+shards OK); prefetch+watch before duel; do not GPU-merge until Reason+ after R2q.
 - p1930 nearmiss confirm (published gzips): saysth 0.73× > nvidia 0.45× > aurora 0.17×; vera/syntaxs0cerer/darius3th Reason− — gated parents unchanged.
 - p1932: with queue parents cached, `/root` hit **87%/229 GiB free** — purge closed R1 (`/root/r1_out` ~199 GiB) + Reason− BKN7 HF (~66 GiB) → **494 GiB free** before R2r ~70 GiB blend; never `rm` live chall target (`readlink /tmp/r2*_merged`).
+- p1933: R2q must **not** wait on Reason-only queue waiters (R2i…R2p terminal) — those duels sit behind live load and idle $64/h GPUs for hours. Gate on **premerge.done** (GPU claimant) only; sibling merges `source wait_r2q_before_chall_kill.inc.sh` before killing chall.

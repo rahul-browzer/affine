@@ -80,6 +80,18 @@ lane_terminal() {
   [[ -f "$done" || -f "$skip" || -f "$dec" ]]
 }
 
+# GPU-claiming = blended weights ready (premerge.done) and not yet terminal.
+# Reason-only waiters must NOT block — queue duels can take hours; pure saysth
+# (hr≈0.73×) is the best DL Reason+ parent and should burn idle GPUs now.
+# Sibling merge scripts wait on r2q_saysth_reload.pid before killing chall.
+lane_claiming_gpu() {
+  local done="$1" skip="$2" dec="$3" premerge_done="$4"
+  if lane_terminal "$done" "$skip" "$dec"; then
+    return 1
+  fi
+  [[ -f "$premerge_done" ]]
+}
+
 # 1) Materialize thin chall dir (symlinks + preprocessor for vLLM).
 mkdir -p "$CHALL_DIR"
 if [[ ! -f "$SAYSTH_SNAP/model.safetensors.index.json" ]]; then
@@ -102,8 +114,8 @@ if [[ ! -f "$CHALL_DIR/preprocessor_config.json" ]]; then
 fi
 echo "[r2q-saysth] chall dir ready: $CHALL_DIR"
 
-# 2) Wait R2i…R2p terminal (or any prior clears 1.5×). Pidfile kill -0 only
-#    for "still claiming" — do not steal chall while queue parents may fire.
+# 2) Wait only while a prior lane has claimed / is about to claim chall
+#    (premerge.done). Reason-stamp waiters stay armed but do not idle GPUs.
 for i in $(seq 1 2880); do
   for f in "$R2D_DEC" "$R2E_DEC" "$R2H_DEC" "$R2G_DEC" "$R2I_DEC" "$R2J_DEC" \
            "$R2K_DEC" "$R2L_DEC" "$R2M_DEC" "$R2N_DEC" "$R2O_DEC" "$R2P_DEC"; do
@@ -114,41 +126,24 @@ for i in $(seq 1 2880); do
   done
 
   busy=0
-  if ! lane_terminal "$R2I_DONE" "$R2I_PREMERGE_SKIP" "$R2I_DEC"; then busy=1; fi
-  if ! lane_terminal "$R2J_DONE" "$R2J_PREMERGE_SKIP" "$R2J_DEC"; then busy=1; fi
-  if ! lane_terminal "$R2K_DONE" "$R2K_PREMERGE_SKIP" "$R2K_DEC"; then busy=1; fi
-  if ! lane_terminal "$R2L_DONE" "$R2L_PREMERGE_SKIP" "$R2L_DEC"; then busy=1; fi
-  if ! lane_terminal "$R2M_DONE" "$R2M_PREMERGE_SKIP" "$R2M_DEC"; then busy=1; fi
-  if ! lane_terminal "$R2N_DONE" "$R2N_PREMERGE_SKIP" "$R2N_DEC"; then busy=1; fi
-  if ! lane_terminal "$R2O_DONE" "$R2O_PREMERGE_SKIP" "$R2O_DEC"; then busy=1; fi
-  if ! lane_terminal "$R2P_DONE" "$R2P_PREMERGE_SKIP" "$R2P_DEC"; then busy=1; fi
-
-  # Also block while any merge_reload still holds the GPU even after a stamp race.
-  for pf in /root/logs/r2{i,j,k,l,m,n,o,p}_merge_reload.pid; do
-    if pid_alive "$pf"; then
-      # alive is OK only if that lane already stamped terminal (exiting soon)
-      case "$pf" in
-        *r2i*) lane_terminal "$R2I_DONE" "$R2I_PREMERGE_SKIP" "$R2I_DEC" || busy=1 ;;
-        *r2j*) lane_terminal "$R2J_DONE" "$R2J_PREMERGE_SKIP" "$R2J_DEC" || busy=1 ;;
-        *r2k*) lane_terminal "$R2K_DONE" "$R2K_PREMERGE_SKIP" "$R2K_DEC" || busy=1 ;;
-        *r2l*) lane_terminal "$R2L_DONE" "$R2L_PREMERGE_SKIP" "$R2L_DEC" || busy=1 ;;
-        *r2m*) lane_terminal "$R2M_DONE" "$R2M_PREMERGE_SKIP" "$R2M_DEC" || busy=1 ;;
-        *r2n*) lane_terminal "$R2N_DONE" "$R2N_PREMERGE_SKIP" "$R2N_DEC" || busy=1 ;;
-        *r2o*) lane_terminal "$R2O_DONE" "$R2O_PREMERGE_SKIP" "$R2O_DEC" || busy=1 ;;
-        *r2p*) lane_terminal "$R2P_DONE" "$R2P_PREMERGE_SKIP" "$R2P_DEC" || busy=1 ;;
-      esac
-    fi
-  done
+  if lane_claiming_gpu "$R2I_DONE" "$R2I_PREMERGE_SKIP" "$R2I_DEC" /root/logs/r2i_premerge.done; then busy=1; fi
+  if lane_claiming_gpu "$R2J_DONE" "$R2J_PREMERGE_SKIP" "$R2J_DEC" /root/logs/r2j_premerge.done; then busy=1; fi
+  if lane_claiming_gpu "$R2K_DONE" "$R2K_PREMERGE_SKIP" "$R2K_DEC" /root/logs/r2k_premerge.done; then busy=1; fi
+  if lane_claiming_gpu "$R2L_DONE" "$R2L_PREMERGE_SKIP" "$R2L_DEC" /root/logs/r2l_premerge.done; then busy=1; fi
+  if lane_claiming_gpu "$R2M_DONE" "$R2M_PREMERGE_SKIP" "$R2M_DEC" /root/logs/r2m_premerge.done; then busy=1; fi
+  if lane_claiming_gpu "$R2N_DONE" "$R2N_PREMERGE_SKIP" "$R2N_DEC" /root/logs/r2n_premerge.done; then busy=1; fi
+  if lane_claiming_gpu "$R2O_DONE" "$R2O_PREMERGE_SKIP" "$R2O_DEC" /root/logs/r2o_premerge.done; then busy=1; fi
+  if lane_claiming_gpu "$R2P_DONE" "$R2P_PREMERGE_SKIP" "$R2P_DEC" /root/logs/r2p_premerge.done; then busy=1; fi
 
   if (( busy == 0 )); then
-    echo "[r2q-saysth] R2i…R2p below bar or skipped; lane free at iter=$i"
+    echo "[r2q-saysth] no GPU claimant ahead; lane free at iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ)"
     break
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2q-saysth] wait-lane iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) busy=$busy r2p_term=$(lane_terminal "$R2P_DONE" "$R2P_PREMERGE_SKIP" "$R2P_DEC" && echo y || echo n)"
+    echo "[r2q-saysth] wait-claimant iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) busy=$busy"
   fi
   if (( i == 2880 )); then
-    echo "[r2q-saysth] TIMEOUT waiting R2i…R2p lane" >&2
+    echo "[r2q-saysth] TIMEOUT waiting GPU claimant lane" >&2
     exit 2
   fi
   sleep 10
