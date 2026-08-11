@@ -1,0 +1,10 @@
+{
+  "utc": "2026-08-11T21:04:33Z",
+  "pass": 2109,
+  "action": "restart_fleet_rent_POLL_S=3",
+  "next": "mine-r5-nonking-1",
+  "b300x8": 0,
+  "b200x8": 0,
+  "r4": "TRAIN_LAUNCHED",
+  "r3_step": 118
+}
