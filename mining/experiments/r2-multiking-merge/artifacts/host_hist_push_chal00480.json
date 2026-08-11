@@ -1,0 +1,8 @@
+{
+  "utc": "2026-08-11T11:07:01Z",
+  "outstem": "chal00480",
+  "remote_out": "/root/affine_data/chal00480_reason.json",
+  "headroom_vs_3se": 0.5029567680800799,
+  "challenger_repo": "ammazon/Affine-5dvqtektxx-sbs-v1",
+  "source": "host_history_api"
+}

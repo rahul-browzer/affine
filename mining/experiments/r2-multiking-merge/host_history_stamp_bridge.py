@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Host-side Reason stamp bridge for chal-00467..471 + 480.
+"""Host-side Reason stamp bridge for chal-00467..471 + 480 + 481.
 
 Crown pod often gets Cloudflare 403 on affine.io/api/v1/history (Lium egress),
 so on-pod history fast-path silently no-ops and unservable verdicts never stamp.
 This process polls history from the mining host (curl works) and scp-pushes
 chal00XXX_reason.json + watch done lines onto mine-crown-1.
 
-No GPU. No submit. Safe to overlap R2ag n80.
+No GPU. No submit. Safe to overlap R2ac n80 / live board duels.
 """
 from __future__ import annotations
 
@@ -58,6 +58,7 @@ TARGETS = {
     "chal-00470": "chal00470",
     "chal-00471": "chal00471",
     "chal-00480": "chal00480",  # queue ammazon sbs-v1 (p2011)
+    "chal-00481": "chal00481",  # live Talucampe037 cp13 (p2018)
 }
 
 

@@ -1,0 +1,25 @@
+{
+  "utc": "2026-08-11T11:12:45Z",
+  "pass": 2018,
+  "hyp": "R2an",
+  "note": "EAGER arm live chal-00481 Talucampe037/Affine-5f6xxabdmp-cp13 while R2ac n80 runs; CPU prefetch + Reason watch + host stamp bridge. No GPU merge until post-verdict Reason+ (hr>0) and king_match.",
+  "challenge_id": "chal-00481",
+  "parent_repo": "Talucampe037/Affine-5f6xxabdmp-cp13",
+  "parent_rev": "762f3e853ad93d82024de1ce7e2b98ef35a83572",
+  "probe": {
+    "index_download": "ok",
+    "n_tensors": 1026,
+    "architectures": ["Qwen3_5MoeForConditionalGeneration"],
+    "shards": ["model-00001-of-00002.safetensors", "model-00002-of-00002.safetensors", "king-extra-visual.safetensors"],
+    "gated": false
+  },
+  "pod": {
+    "prefetch": "/root/launch_prefetch_cp13.sh",
+    "watch": "/root/watch_chal00481_reason.sh",
+    "prefetch_done": "/root/logs/r2_prefetch_cp13.done",
+    "reason_stamp": "/root/affine_data/chal00481_reason.json"
+  },
+  "host_bridge": "host_history_stamp_bridge.py TARGETS += chal-00481",
+  "overlap": "R2ac Talent×google n80 (~13/80 at arm); R2ad/R2am waiters unchanged",
+  "next": "If 481 hr>0 → Talent×cp13 premerge (R2an) after R2am lane; else SKIP_BOARD"
+}
