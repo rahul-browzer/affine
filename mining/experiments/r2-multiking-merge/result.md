@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1929 — R2j SKIP (chal-00432 BKN-seven Reason−)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,535.
+- Harvested `chal00432_reason.json` (01:08:44Z): margin **−0.010257** · se=0.005954 · z=**−1.72** · 3·SE=**0.01786** · headroom=**−0.574×** · n=80 · `challenger_wins=false` · `king_match=true` · formula Reason.
+- R2j gate `hr>0` failed → `r2j_premerge.skip` + `r2j_merge_reload.done` (SKIP_R2J_PREMERGE_SKIPPED); pids 150140/150142 dead; **no Talent×BKN7 merge/n80**.
+- Board advanced: **chal-00441** thompsville cgpb8 `dispatching` (R2i still correctly waiting). Queue: 431→450→451→452→455→456.
+- R2q pure-saysth still armed (157147) behind remaining R2i/k…p terminals. Engines healthy.
+- Artifacts: `artifacts/chal00432_reason.json`, `artifacts/r2j_{premerge.skip,merge_reload.done}`, `artifacts/r2j_bkn7_skip_p1929.json`.
+- Next: harvest 441 Reason stamp; if + let R2i fire; else keep k…p gates / R2q.
+
 ## p1927 — R2p Talent×sth armed (455)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,545.
 - R2i…R2o still waiting on unpublished eval gzips (404); engines 8000/8001/8002 healthy; disk ~295 GiB free.

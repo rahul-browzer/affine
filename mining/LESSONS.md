@@ -105,3 +105,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1927: arm **R2p** Talent×sth (queue 455) Reason+-gated premerge+reload + `watch_chal00455_reason` with ~295 GiB free — no refute needed when disk already clears a ~70 GiB blend; lane waits R2g…R2o; all queued parents now gated.
 - p1928 rescan: diane-new hr **0.54×**, nvidia **0.45×**, aurora **0.17×** are Reason+ vs Tok but still **weight-gated** for unconst — do not re-arm prefetch; only DL Reason+ remain awesome-v6 + saysth-v9a (+ queue parents pending verdict).
 - p1928: after Talent×saysth REFUTE, arm **R2q pure saysth** n80 (R2d analogue) gated on R2i…R2p terminals — do not steal chall while queue Reason+ waiters may still fire; chall dir materialize is free (symlink + preprocessor).
+- p1929: chal-00432 BKN-seven vs Tok hr **−0.57×** (margin −0.0103, z=−1.72, n=80) — Reason−; R2j premerge correctly **SKIP** (no Talent×BKN7); do not re-arm BKN7 as merge parent.

@@ -1,0 +1,38 @@
+{
+  "utc": "2026-08-11T01:10:01Z",
+  "pass": 1929,
+  "hyp": "R2j",
+  "contract": "Reason v3",
+  "weight_version_key": 3,
+  "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "parent_challenge": "chal-00432",
+  "parent_repo": "BKN1890/Affine-5ghvq9a9g9-seven",
+  "parent_revision": "11821bf3164ae9e35955012e2f88223e8734ab6f",
+  "published": {
+    "reason_margin": -0.010256753239713527,
+    "reason_se": 0.005954334798016115,
+    "reason_z": -1.7225691177343447,
+    "three_se": 0.017863004394048344,
+    "headroom_vs_3se": -0.5741897059114482,
+    "n_paired": 80,
+    "challenger_wins": false,
+    "king_match": true,
+    "formula": "Reason = lpC(y_C|z_A) − lpC(y_C|∅)"
+  },
+  "decision": "SKIP_REASON_NEG",
+  "merge": false,
+  "submit": false,
+  "premerge_skip": "SKIP 2026-08-11T01:08:52Z Reason-or-mismatch hr=-0.5741897059114482 … — no Talent×BKN7 merge",
+  "merge_done": "SKIP_R2J_PREMERGE_SKIPPED … 2026-08-11T01:09:02Z",
+  "board_after": {
+    "phase": "duel",
+    "challenge_id": "chal-00441",
+    "repo": "thompsville/affine-5dvegrgnsg-cgpb8",
+    "stage": "dispatching"
+  },
+  "artifacts": [
+    "artifacts/chal00432_reason.json",
+    "artifacts/r2j_premerge.skip",
+    "artifacts/r2j_merge_reload.done"
+  ]
+}

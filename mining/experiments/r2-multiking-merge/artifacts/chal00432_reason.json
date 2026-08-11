@@ -1,0 +1,20 @@
+{
+  "challenge_id": "chal-00432",
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "challenger_repo": "BKN1890/Affine-5ghvq9a9g9-seven",
+  "challenger_revision": "11821bf3164ae9e35955012e2f88223e8734ab6f",
+  "published_margin": -0.010256753239713527,
+  "published_z": -1.7225691177343447,
+  "published_formula": "Reason = lpC(y_C|z_A) \u2212 lpC(y_C|\u2205)",
+  "challenger_wins": false,
+  "reason_margin": -0.010256753239713527,
+  "reason_se": 0.005954334798016115,
+  "reason_z": -1.7225691177343447,
+  "three_se": 0.017863004394048344,
+  "headroom_vs_3se": -0.5741897059114482,
+  "n_paired": 80,
+  "king_match": true,
+  "scored_at": "2026-08-11T01:08:44Z",
+  "source_url": "https://s3.hippius.com/affine-sn120/evals/chal-00432.json.gz"
+}
