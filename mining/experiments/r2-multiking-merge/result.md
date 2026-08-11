@@ -1,3 +1,12 @@
+## p2064 — R2av REFUTE (Bittoby v2) · R2ax tt loading (2026-08-11T18:04Z)
+
+- Contract wvk=3 · k_sigma_live=2.0 · king Tok af10 · burn $116.25/h · B300×8 stock=0.
+- **R2av** pure `Bittoby1040/Affine-5cxncav2du-v2` n80 done: margin **−0.00027** · z=−0.065 · SE=0.00420 · hr_live2σ **−0.033×** (n=80; block `8e16f716…`) → **REFUTE** / Stage-5 SKIP.
+- **R2ax** auto-continued: chall :8002 loading `leary-criste/affine-5g4yy75zuz-tt@93aeaa17…`.
+- **R3** GRPO pid23755 healthy at step≥3 (mean_r≈0.005, 4/4 rewards).
+- Artifacts: `artifacts/r2av_v2_decision.json`, `artifacts/r2av_v2_decision_p2064.json`, `artifacts/r2av_v2_reason_sim.json`.
+- Next: R2ax n80 decision; R3 → train.done; rent B300 if stock appears.
+
 ## p2010 — R2ad Talent×pig EAGER (2026-08-11T10:09Z)
 
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,344.
