@@ -10,11 +10,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,497.00 | 2026-08-11T08:55Z |
-| cumulative mining spend | ~$75,094 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T08:55Z |
-| **available for mining** | **~$112,497** (balance − $10,000 floor) | 2026-08-11T08:55Z |
+| Lium balance | $122,476.07 | 2026-08-11T09:00Z |
+| cumulative mining spend | ~$75,115 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T09:00Z |
+| **available for mining** | **~$112,476** (balance − $10,000 floor) | 2026-08-11T09:00Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T08:55Z |
+| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T09:00Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -23,6 +23,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T09:00Z | 122476.07 | p1998 warm TKC READY (no new rent); burn$52.25/h; Δ−$21 vs p1997 (shared ok) |
 | 2026-08-11T08:55Z | 122497.00 | p1997 armed R2ak google lane (no new rent); burn$52.25/h; Δ$0 vs p1996 |
 | 2026-08-11T08:51Z | 122497.00 | p1996 armed R2aj sky lane (no new rent); burn$52.25/h; Δ−$10 vs p1995 (shared ok) |
 | 2026-08-11T08:48Z | 122507.19 | p1995 warm-stack restore started on gentle-orbit-bd (no new rent); burn$52.25/h; Δ−$9 vs p1994 (shared ok) |
@@ -32,4 +33,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T08:18Z | 122572.97 | p1992 R2ag harvest+R2ah/R2z SKIP+R2ai arm (no new rent); burn$64/h; Δ−$33 vs p1991 (shared ok) |
 | 2026-08-11T08:01Z | 122606.05 | p1991 R2ah pure-v9 armed (no new rent); burn$64/h; Δ−$12 vs p1990 (shared ok) |
 | 2026-08-11T07:55Z | 122617.82 | p1990 host hist bridge + R2ag gather (no new rent); burn$64/h; Δ−$22 vs p1989 (shared ok) |
-| 2026-08-11T07:49Z | 122640.08 | p1989 463 unservable→R2y SKIP (no new rent); burn$64/h; Δ−$11 vs p1988 (shared ok) |
