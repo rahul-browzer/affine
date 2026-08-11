@@ -1,0 +1,40 @@
+{
+  "pass": 2005,
+  "utc": "2026-08-11T09:28:18Z",
+  "lane": "R2ak",
+  "repo": "tojointhecommunity/affine-5efg6cm3yl-google",
+  "revision": "9cb6484f2bb4c9d93f10ff94335eef4f0e2ae4e4",
+  "chall_path": "/tmp/r2ak_google",
+  "sim_pid": 24452,
+  "chall_vllm_pid": 19822,
+  "engines": {
+    "teacher": 200,
+    "king": 200,
+    "chall": 200
+  },
+  "progress": {
+    "utc": "2026-08-11T09:28:17Z",
+    "hotkey": "local-r2ak-google-20260811T09:21:19Z",
+    "chall_repo": "/tmp/r2ak_google",
+    "n_turns": 80,
+    "challenger": 12,
+    "challenger_total": 80,
+    "king": 9,
+    "king_total": 80
+  },
+  "block_hash_prefix": "4a5768473b076d78",
+  "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a2",
+  "decision": null,
+  "board": {
+    "current_eval": "chal-00470 google load_challenger",
+    "queue": [
+      "chal-00471 pig"
+    ]
+  },
+  "downstream": {
+    "R2al": "wait-r2ak",
+    "R2ab": "wait-r2ak holding (premerge DONE \u03940.626)"
+  },
+  "weight_version_key": 3,
+  "note": "n80 confirmed advancing; Stage-5 only if decision hr>=1.5x"
+}
