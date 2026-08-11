@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-11T19:55:46Z",
+  "pass": 2090,
+  "hyp": "R2ba",
+  "parent": "0pentensor/Affine-5dflhtkufw-awesome-v10",
+  "revision": "07bc3392cfb9616c1284adc0ab939888a0f58715",
+  "queue_chal": "chal-00498",
+  "reload_pid": 186429,
+  "stage5_pid": 186430,
+  "chall_vllm_pid": 186561,
+  "link": "/tmp/r2ba_awesome_v10",
+  "chall_dir": "/root/r2_out/awesome_v10_chall",
+  "decision_rule": "submit only if headroom_vs_3se >= 1.5 on fresh n80 (also check live k_sigma=2.0)",
+  "prior": "R2az REFUTE margin≈0; R2ay WEAK hr_live2σ=1.02×",
+  "watch": "tail -f /root/logs/r2ba_awesome_v10_reload.log; decision → /root/affine_data/r2ba_awesome_v10_decision.json"
+}
