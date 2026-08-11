@@ -14,6 +14,9 @@ CAP=${MINE_CAP:-25}
 # Burn floor ≈ $833/h ÷ ~$64/h ≈ 13 boxes; keep renting to CAP (floor≠ceiling).
 TARGET=${TARGET_MINES:-25}
 POLL_S=${POLL_S:-10}  # snatch B300×8 fast when stock flickers (was 30)
+# Fire this many distinct axis names per round in parallel (p2129).
+# Serial one-name blind-fire misses multi-node flickers and races poorly.
+PARALLEL_N=${PARALLEL_N:-4}
 MAX_ITERS=${MAX_ITERS:-2160}  # ~6h @10s
 PASS=${PASS:-2108}
 
@@ -116,6 +119,27 @@ next_slot() {
   return 1
 }
 
+# Emit up to $1 distinct non-live queue entries (one per line).
+next_slots() {
+  local want=${1:-1}
+  local live ent name
+  local -a out=()
+  live=$(mine_names | tr '\n' ' ')
+  for ent in "${QUEUE[@]}"; do
+    name=${ent%%|*}
+    if ! echo " $live " | grep -q " $name "; then
+      out+=("$ent")
+      if (( ${#out[@]} >= want )); then
+        break
+      fi
+    fi
+  done
+  if (( ${#out[@]} == 0 )); then
+    return 1
+  fi
+  printf '%s\n' "${out[@]}"
+}
+
 try_rent() {
   local gpu=$1 name=$2
   log "attempting lium up gpu=$gpu name=$name ttl=$TTL"
@@ -169,7 +193,7 @@ sys.exit(0 if bal >= 10000 else 1)
 PY
 }
 
-log "start target=$TARGET cap=$CAP poll=${POLL_S}s max_iters=$MAX_ITERS pass=$PASS"
+log "start target=$TARGET cap=$CAP poll=${POLL_S}s parallel=$PARALLEL_N max_iters=$MAX_ITERS pass=$PASS"
 log "live_mines=$(mine_names | tr '\n' ' ')|count=$(mine_count)"
 
 for i in $(seq 1 "$MAX_ITERS"); do
@@ -187,36 +211,99 @@ for i in $(seq 1 "$MAX_ITERS"); do
     exit 4
   fi
 
-  slot=$(next_slot || true)
-  if [[ -z "${slot:-}" ]]; then
+  # Cap parallel width by remaining slots under CAP.
+  local_n=$PARALLEL_N
+  remain=$(( CAP - n ))
+  if (( remain < local_n )); then
+    local_n=$remain
+  fi
+  if (( local_n < 1 )); then
+    log "ABORT at cap mine_count=$n >= $CAP"
+    exit 3
+  fi
+
+  mapfile -t slots < <(next_slots "$local_n" || true)
+  if (( ${#slots[@]} == 0 )); then
     log "QUEUE exhausted with mine_count=$n < target=$TARGET — exit"
     exit 0
   fi
-  name=${slot%%|*}
-  rest=${slot#*|}
-  axis=${rest%%|*}
-  note=${rest#*|}
 
-  # Blind-fire: skip stock_ok (lium ls adds ~0.6–1.3s/iter). Failed
-  # `lium up` is ~1s and is the real snatch — fire B300 then B200.
-  if name_live "$name"; then
-    log "skip already live $name"
+  # Parallel blind-fire: one B300 attempt per pending axis name, then B200
+  # fallbacks for misses. snatch multi-node flickers; race better vs serial.
+  declare -A slot_axis=() slot_note=() rented_gpu=()
+  names=()
+  for slot in "${slots[@]}"; do
+    name=${slot%%|*}
+    rest=${slot#*|}
+    axis=${rest%%|*}
+    note=${rest#*|}
+    if name_live "$name"; then
+      continue
+    fi
+    names+=("$name")
+    slot_axis["$name"]=$axis
+    slot_note["$name"]=$note
+  done
+  if (( ${#names[@]} == 0 )); then
     sleep 2
     continue
   fi
 
-  gpu=""
-  if try_rent B300 "$name"; then
-    gpu=B300
-  elif try_rent B200 "$name"; then
-    gpu=B200
-    log "B300×8 empty — fell back to B200×8 for $name"
-  else
+  pids=()
+  for name in "${names[@]}"; do
+    (
+      if try_rent B300 "$name"; then
+        echo "B300" >"/tmp/fleet_rent_${name}.gpu"
+        exit 0
+      fi
+      exit 1
+    ) &
+    pids+=($!)
+  done
+  for pid in "${pids[@]}"; do
+    wait "$pid" || true
+  done
+
+  miss=()
+  for name in "${names[@]}"; do
+    if [[ -f "/tmp/fleet_rent_${name}.gpu" ]]; then
+      rented_gpu["$name"]=$(cat "/tmp/fleet_rent_${name}.gpu")
+      rm -f "/tmp/fleet_rent_${name}.gpu"
+    else
+      miss+=("$name")
+    fi
+  done
+
+  if (( ${#miss[@]} > 0 )); then
+    pids=()
+    for name in "${miss[@]}"; do
+      (
+        if try_rent B200 "$name"; then
+          echo "B200" >"/tmp/fleet_rent_${name}.gpu"
+          exit 0
+        fi
+        exit 1
+      ) &
+      pids+=($!)
+    done
+    for pid in "${pids[@]}"; do
+      wait "$pid" || true
+    done
+    for name in "${miss[@]}"; do
+      if [[ -f "/tmp/fleet_rent_${name}.gpu" ]]; then
+        rented_gpu["$name"]=$(cat "/tmp/fleet_rent_${name}.gpu")
+        rm -f "/tmp/fleet_rent_${name}.gpu"
+        log "B300×8 empty — fell back to B200×8 for $name"
+      fi
+    done
+  fi
+
+  n_rented=${#rented_gpu[@]}
+  if (( n_rented == 0 )); then
     if (( i % 20 == 1 )); then
       bal=$(lium balance 2>/dev/null | tr -d '\n' | head -c 80 || true)
-      log "iter=$i no 8×B300/B200 (blind-fire miss); mine=$n/$TARGET (cap $CAP) next=$name bal=$bal"
+      log "iter=$i no 8×B300/B200 (parallel×${#names[@]} miss); mine=$n/$TARGET (cap $CAP) next=${names[*]} bal=$bal"
     fi
-    # Failed up already spent ~1–2s; optional micro-sleep via POLL_S (0 ok).
     if (( POLL_S > 0 )); then
       sleep "$POLL_S"
     fi
@@ -224,14 +311,18 @@ for i in $(seq 1 "$MAX_ITERS"); do
   fi
 
   sleep 10
-  if name_live "$name"; then
-    log "RENTED ok gpu=$gpu name=$name axis=$axis"
-    write_rent_stamp "$name" "$axis" "$gpu" "$note" || true
-    # Immediately try next slot if more stock (no long sleep).
-    continue
-  fi
-  log "up rc=0 but $name not in ps — keep polling"
-  sleep "$POLL_S"
+  for name in "${!rented_gpu[@]}"; do
+    gpu=${rented_gpu[$name]}
+    axis=${slot_axis[$name]}
+    note=${slot_note[$name]}
+    if name_live "$name"; then
+      log "RENTED ok gpu=$gpu name=$name axis=$axis"
+      write_rent_stamp "$name" "$axis" "$gpu" "$note" || true
+    else
+      log "up rc=0 but $name not in ps — keep polling"
+    fi
+  done
+  # Immediately try next round if more stock (no long sleep).
 done
 
 log "TIMEOUT after $MAX_ITERS iters — mine_count=$(mine_count)"

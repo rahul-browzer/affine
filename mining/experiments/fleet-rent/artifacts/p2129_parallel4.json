@@ -1,0 +1,11 @@
+{
+  "utc": "2026-08-11T23:11:16Z",
+  "pass": 2129,
+  "action": "fleet-rent parallel×4 blind-fire (R7/R8/R24/R25 per round); POLL_S=1; fixed set -u empty assoc crash",
+  "pid": 2696613,
+  "next": ["mine-r7-datafilt-1", "mine-r8-reinforce-1", "mine-r24-longctx-1", "mine-r25-hitemp-1"],
+  "stock": "B300×8=0 B200×8=0",
+  "burn_h": 180.25,
+  "floor_h": 833,
+  "balance": 120174.08
+}
