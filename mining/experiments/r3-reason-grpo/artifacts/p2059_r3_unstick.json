@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-11T17:05:18Z",
+  "pass": 2059,
+  "teacher_done": true,
+  "tok_done": false,
+  "teacher_path": "/root/hf/hub/models--zai-org--GLM-4.5-Air-FP8/snapshots/f9a9c5acf5e543cd24d659a056c5dbcda78ffcfc",
+  "tok_shard2_incomplete_bytes": 1722724352,
+  "tok_shard2_need_bytes": 35112732728,
+  "tok_shard2_frac": 0.0491,
+  "bootstrap_pid": 4131,
+  "action": "killed hung parallel_dl@0pctCPU; stamped teacher; bootstrap inline tok shard2 resume ~4MB/s"
+}

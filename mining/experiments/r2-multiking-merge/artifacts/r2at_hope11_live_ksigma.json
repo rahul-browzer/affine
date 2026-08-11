@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-11T17:05:00Z",
+  "pass": 2059,
+  "hyp": "R2at",
+  "parent": "hope11",
+  "margin": 0.012230582466549933,
+  "se": 0.006324626764879515,
+  "z": 1.9338030402783661,
+  "n_paired": 80,
+  "decision_script_k_sigma": 3.0,
+  "live_k_sigma": 2.0,
+  "live_threshold_2se": 0.01264925352975903,
+  "live_headroom_vs_2se": 0.9669,
+  "live_clears_2se": false,
+  "submit_bar_1_5x_2se": 0.018973880294638545,
+  "headroom_vs_submit": 0.6446,
+  "stage5": "WEAK_SKIP",
+  "note": "positive signal but under live 2·SE (z=1.93<2) and far under 1.5× submit bar"
+}
