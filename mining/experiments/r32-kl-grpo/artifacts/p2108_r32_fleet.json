@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-11T20:59:58Z",
+  "pass": 2108,
+  "axis": "R32",
+  "pod": "mine-r32-kl-1",
+  "action": "armed --kl-coef trainer + queue/boot/uploader; rent/boot refreshed",
+  "kl_coef": 0.02,
+  "rent_pid": "2448500",
+  "boot_pid": "2448503",
+  "b300_stock": 0,
+  "burn_h": 180.25,
+  "floor_h": 833
+}

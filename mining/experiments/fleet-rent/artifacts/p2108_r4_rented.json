@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-11T20:59:58Z",
+  "pass": 2108,
+  "axis": "R4",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "id": "70f95aab-68aa-4389-b845-337f938b4c9f",
+  "ssh": "ssh root@86.38.182.50 -p 40307",
+  "gpu": "B300",
+  "price_h": 64.0,
+  "action": "RENTED+BOOTSTRAPPED (stamp recovered mid-up); pipeline pid1374",
+  "burn_h": 180.25
+}

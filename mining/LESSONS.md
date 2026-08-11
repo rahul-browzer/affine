@@ -144,6 +144,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - `lium ps` **table wraps** `mine-*` names across lines — never `grep mine-` the table under `set -o pipefail` (empty grep exits 1 → kills rent waiters). Use `lium ps --format json` and read `.name`.
 - Host rent waiters belong under `experiments/<axis>/wait_rent_b300.sh` (not only Ralph notes) so the next free 8×B300 is grabbed without waiting for a pass tick.
 - R7 curriculum ≠ R4 data: top-250 h99 by Reason (min≈0.116) + EPOCHS=2 vs R4 clip_l1 n=406 EPOCHS=1 — wire `upload_and_launch` before rent or fleet-boot only stamps `needs_axis_uploader`.
-- Fleet structural GRPO knobs armed through **R28** HiLR (R24–R28 isolate len/temp/G/lr ahead of parent-swap R18–R23); uploaders+boot cases must exist before rent or stamps say `needs_axis_uploader`.
+- Fleet structural GRPO through **R32** KL (`--kl-coef`, default 0); if rent waiter restarts mid-`lium up`, reconstruct `rented_*.json` or bootstrap never runs.
 - **R2ba** pure awesome-v10 WEAK: m=+0.00699 SE=0.00500 z=1.40 — fails live k=2 thr=0.010 and 1.5× submit bar; Stage-5 SKIP (sim still stamps k_sigma=3.0 — recompute with live 2.0).
 - HF snapshot "ready" ≠ complete: `model.safetensors.index.json` can appear before all 16 shards finish → vLLM "weights were not initialized" (visual/LM). Rematerialize chall links after all shards resolve+size-check, then relaunch (p2106 R2bb ckp333).

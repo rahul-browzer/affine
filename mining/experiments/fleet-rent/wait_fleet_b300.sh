@@ -15,11 +15,11 @@ CAP=${MINE_CAP:-25}
 TARGET=${TARGET_MINES:-25}
 POLL_S=${POLL_S:-10}  # snatch B300×8 fast when stock flickers (was 30)
 MAX_ITERS=${MAX_ITERS:-2160}  # ~6h @10s
-PASS=${PASS:-2107}
+PASS=${PASS:-2108}
 
 # Distinct experimental axes (one pod each). Skip names already live.
 # Format: name|axis_id|short_note
-# R24–R31 (structural) sit after R3b — ahead of cosmetic parent-swap GRPO.
+# R24–R32 (structural) sit after R3b — ahead of cosmetic parent-swap GRPO.
 QUEUE=(
   "mine-r4-fullft-1|R4|full-FT Tok-init Reason winner_za"
   "mine-r5-nonking-1|R5|non-king Genesis/Qwen base + Reason FT"
@@ -35,6 +35,7 @@ QUEUE=(
   "mine-r29-hirank-1|R29|Tok GRPO lora_r=64 (≠ R3 r=16; isolates rank vs R3b)"
   "mine-r30-hialpha-1|R30|Tok GRPO lora_alpha=128 r=16 (≠ R3 α=32; isolates α vs R29)"
   "mine-r31-nodrop-1|R31|Tok GRPO lora_dropout=0.0 (≠ R3 0.05; isolates dropout)"
+  "mine-r32-kl-1|R32|Tok GRPO kl_coef=0.02 vs base (≠ R3 kl=0; isolates KL)"
   "mine-r9-teacher-zc-1|R9|teacher-z_C imitation / format prior"
   "mine-r4-fullft-2|R4b|full-FT lr/epoch family"
   "mine-r5-nonking-2|R5b|Talent/kevin non-king base FT"
