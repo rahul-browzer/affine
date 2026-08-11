@@ -1,3 +1,12 @@
+## p2117 — R2bc UNSERVABLE → R2bd ckp55 armed (2026-08-11T21:53Z)
+
+- Contract wvk=3 · k_sigma=2.0 · king Tok af10 · B300×8 stock=0 (6× R5 burst miss; fleet blind-fire continues).
+- **R2bc** closed: HF-id serve of `arbosfan/…-ec08cldg@24a3a65e` same `ValueError` language_model.model.* uninit as local symlink (index≡king, 16/16 shards).
+- Armed **R2bd** pure `nerojimmy/Affine-5fqbxvz29b-ckp55@bf4d0135…` (queue chal-00504) HF-id serve + n80 + stage5.
+- Crown pids: prefetch**211335** / reload**211336** / stage5**211337**. R3≥165; R4b ~25/52; burn $180.25/h vs $833.
+- Scripts: `launch_prefetch_ckp55.sh`, `launch_r2bd_ckp55_reload_sim.sh`, `watch_r2bd_stage5_push.sh`, `launch_r2bc_ec08_hf_serve_sim.sh`.
+- Next: R2bd n80 decision; rent B300 if stock.
+
 ## p2114 — R2bc ec08cldg armed (2026-08-11T21:28Z)
 
 - Contract wvk=3 · k_sigma=2.0 · king Tok af10 · B300×8 stock=0 (36s R5 burst miss; fleet blind-fire continues).

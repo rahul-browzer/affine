@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — R2bb WEAK → **R2bc armed** (ec08cldg@24a3a65e; chal-00502) |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — R2bc **UNSERVABLE** → **R2bd armed** (ckp55@bf4d0135; chal-00504) |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** step≥135; wedge-watch; post_train armed |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open** · `mine-r3-grpo-2` · p2078 armed |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
@@ -48,10 +48,10 @@
 - R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75). Dir: `experiments/r1-reason-distill/`.
 
 ### R2 — Multi-king merge
-- **R2ba** WEAK +0.007. **R2bb** ckp333 **WEAK** m=+0.013 z=2.50 hr1.25×. **R2bc** p2116: chall **DEAD** — vLLM `ValueError` weights not init (`language_model.model.*`) on ec08cldg despite index≡king; next HF-id serve or skip→**R2bd** ckp55. Dir: `experiments/r2-multiking-merge/`.
+- **R2ba** WEAK +0.007. **R2bb** ckp333 **WEAK** m=+0.013 z=2.50 hr1.25×. **R2bc** UNSERVABLE (local+HF-id weight-init). **R2bd** p2117 armed: nerojimmy ckp55@bf4d0135… chal-00504. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason (PRIORITY)
-- GRPO pid**28660** step≥158/200; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
+- GRPO pid**28660** step≥165/200; reward=teacher Reason; next train.done→merge→n80. Dir: `experiments/r3-reason-grpo/`.
 
 ### R4 — Full-FT
 - **REFUTED** p2116: n80 m=−0.0077 z=−0.76 (salvage ckpt-26 lr1e-6 ep1). Retargeted pod → **R4b**. Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.

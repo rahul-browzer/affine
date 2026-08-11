@@ -145,6 +145,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R7 curriculum ≠ R4 data: top-250 h99 by Reason (min≈0.116) + EPOCHS=2 vs R4 clip_l1 n=406 EPOCHS=1 — wire `upload_and_launch` before rent or fleet-boot only stamps `needs_axis_uploader`.
 - Fleet structural GRPO through **R32** KL (`--kl-coef`, default 0); if rent waiter restarts mid-`lium up`, reconstruct `rented_*.json` or bootstrap never runs.
 - **R2ba** pure awesome-v10 WEAK: m=+0.00699 SE=0.00500 z=1.40 — fails live k=2 thr=0.010 and 1.5× submit bar; Stage-5 SKIP (sim still stamps k_sigma=3.0 — recompute with live 2.0).
-- HF snapshot "ready" ≠ complete: index before shards → vLLM "weights not initialized" (p2106). **Also** ec08cldg@24a3a65e can fail the same with all 16 shards present + index≡king (p2116) — try HF repo+rev serve / skip parent; never `cp` through HF blob symlinks (corrupts cache).
+- HF snapshot "ready" ≠ complete: index before shards → vLLM "weights not initialized" (p2106). **ec08cldg@24a3a65e UNSERVABLE** even with full 16 shards + index≡king **and** HF repo+rev serve (p2116–2117) — skip parent; never `cp` through HF blob symlinks.
 - Full-FT: Trainer `save_strategy` must be **`no`** on gocryptfs `/root` — end-of-train `optimizer.pt` (~111G) hangs WCHAN=`request_wait_answer` (p2112); stage final weights only under `/tmp` then symlink.
 - R4 n80 needs **pandas+pyarrow** + schema-v2 corpus sync **and** `run_sim_duel` passing `CorpusSync`; `readlink -f` on `/root/h121/merged`→`/tmp/…` 404s vs vLLM id — use live `/v1/models` id (p2115).
