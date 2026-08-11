@@ -1,0 +1,24 @@
+{
+  "pass": 1972,
+  "utc": "2026-08-11T05:55:19Z",
+  "action": "arm_reason_watchers_468_471_and_r2p_stage5",
+  "weight_version_key": 3,
+  "r2p_progress": {"king": 47, "challenger": 46, "n_turns": 80},
+  "google_prefetch_bytes_approx_gib": 46,
+  "pig_after_google": "armed_waiting_google_done",
+  "watchers": [
+    {"chal": "chal-00468", "script": "watch_chal00468_reason.sh", "pid": 250700, "out": "/root/affine_data/chal00468_reason.json"},
+    {"chal": "chal-00469", "script": "watch_chal00469_reason.sh", "pid": 250701, "out": "/root/affine_data/chal00469_reason.json"},
+    {"chal": "chal-00470", "script": "watch_chal00470_reason.sh", "pid": 250702, "out": "/root/affine_data/chal00470_reason.json"},
+    {"chal": "chal-00471", "script": "watch_chal00471_reason.sh", "pid": 250703, "out": "/root/affine_data/chal00471_reason.json"}
+  ],
+  "r2p_stage5": {
+    "script": "watch_r2p_stage5_push.sh",
+    "pid": 250706,
+    "dec": "/root/affine_data/r2p_alpha_decision.json",
+    "chall": "/root/r2_out/alpha_talent_sth_skew",
+    "repo": "unconst/Affine-5czsc2fc98-r2p-talent-sth",
+    "bar": 1.5,
+    "note": "HF push only on hr>=1.5; no register/submit"
+  }
+}

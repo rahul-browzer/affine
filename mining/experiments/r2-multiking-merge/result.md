@@ -1,3 +1,11 @@
+## p1972 — Reason watches 468–471 + R2p Stage-5 armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,897.
+- R2p n80 still gathering (~47/80). Google prefetch ~46 GiB under `/root/hf`; pig-after-google waiting.
+- Armed CPU Reason watchers for **chal-00468/469/470/471** (pids 250700–250703) → `chal004{68,69,70,71}_reason.json`.
+- Armed **`watch_r2p_stage5_push.sh`** (pid **250706**): on `r2p_alpha_decision.json` hr≥1.5× → public `unconst/Affine-5czsc2fc98-r2p-talent-sth` (no register/submit).
+- Artifact: `artifacts/r2_watchers_stage5_armed_p1972.json`.
+- Next: harvest R2p; hr≥1.5× → confirm HF push then Stage-5 submit; else advance Reason+ lanes.
+
 ## p1965 — R2o REFUTE (−1.10×); purge; R2p chall reload
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,975.
 - Harvested R2o: margin **−0.02860** · se=0.00863 · z=**−3.31** · 3·SE=0.02589 · hr=**−1.10×** · n=79 · Stage-5 SKIP.

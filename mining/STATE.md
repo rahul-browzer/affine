@@ -17,25 +17,27 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | fleet | `mine-crown-1` lunar-orbit-50 8×B300 · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
 | live eval | chal-**00456** cp200 · queue whoami→v8→tpc9→v9→sbs→sky→google→**pig** |
-| disk | `/root` **~378 GiB** free · google mid-download |
+| disk | `/root` **~352 GiB** free · google ~46 GiB mid-download |
 | board 455 sth | hr **0.79×** (margin 0.0091 / 3·SE 0.0116) — lost |
-| **R2p** | Talent×sth n80 **~43/80** · Δ=**0.671** · chall `/tmp/r2p_alpha_merged` |
+| **R2p** | Talent×sth n80 **~47/80** · Δ=**0.671** · chall `/tmp/r2p_alpha_merged` |
 | **R2x/R2y** | eager DONE Δ0.626/0.622 · wait 462/463 Reason+ |
 | **R2z** | Talent×awesome-v9 eager **DONE** Δ=**0.671** · wait 467 Reason+ |
-| **v9/sbs/sky** | chal-00467/468/469 **DONE** |
-| **google** | chal-00470 @`9cb6484f…` **RUNNING** (2×st) |
-| **pig chain** | **ARMED** wait google.done → chal-00471 @`e4889db4…` (2×st) |
+| **v9/sbs/sky** | chal-00467/468/469 prefetch **DONE** · Reason watch **ARMED** |
+| **google** | chal-00470 prefetch **RUNNING** (~46 GiB) · Reason watch **ARMED** |
+| **pig chain** | **ARMED** wait google.done → chal-00471 · Reason watch **ARMED** |
+| **R2p Stage-5** | `watch_r2p_stage5_push` **ARMED** (hr≥1.5× → public HF; no submit) |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · **R2p n80** · google prefetch · pig-after-google · R2z wait-Reason · R2x/y wait |
+| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · **R2p n80** · google prefetch · pig-after-google · Reason watches 462/463/467–471 · R2p Stage-5 |
 
 - R2p: `tail /root/logs/r2p_alpha_reason_sim.log` · progress `/root/affine_data/r2p_alpha_reason_progress.json` · decision → `r2p_alpha_decision.json`
 - google: `tail /root/logs/r2_prefetch_google.log` · DONE `/root/logs/r2_prefetch_google.done`
 - pig: `tail /root/logs/r2_prefetch_pig_after_google.log` · DONE `/root/logs/r2_prefetch_pig.done`
-- R2z: `cat /root/logs/r2z_eager_weights.done` · wait `chal00467_reason.json` before `r2z_premerge.done`
+- Reason+: `chal0046{2,3,7,8,9}_reason.json` / `chal00470_reason.json` / `chal00471_reason.json`
+- Stage-5: `tail /root/logs/watch_r2p_stage5_push.log` · meta `/root/affine_data/r2p_stage5_hf_push.json`
 - Check: `curl -s localhost:8002/v1/models` then decision JSON
 
 ## Blocked
@@ -50,4 +52,4 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 
 ## Next action
 
-**Harvest R2p** when n80 finishes (`r2p_alpha_decision.json`); if hr≥1.5× → Stage-5 HF push+register+`--check`+submit; if 0<hr<1.5 keep blend and advance next Reason+ lane; if hr≤0 purge R2p and let R2x/R2y/R2z claim GPU after their Reason+ stamps. Confirm pig DONE after google; arm Reason watchers on new parents as gziips land.
+**Harvest R2p** when `r2p_alpha_decision.json` lands; if hr≥1.5× confirm Stage-5 HF push meta then register+`--check`+submit; if 0<hr<1.5 keep blend and advance next Reason+ lane; if hr≤0 purge R2p and let R2x/R2y/R2z claim GPU after Reason+ stamps. Confirm google→pig DONE; harvest new Reason+ stamps (468–471) as gzips land.
