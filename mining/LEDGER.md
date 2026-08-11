@@ -10,11 +10,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $122,160.43 | 2026-08-11T11:37Z |
-| cumulative mining spend | ~$75,429 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T11:37Z |
-| **available for mining** | **~$112,160** (balance − $10,000 floor) | 2026-08-11T11:37Z |
+| Lium balance | $122,088.99 | 2026-08-11T12:13Z |
+| cumulative mining spend | ~$75,500 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T12:13Z |
+| **available for mining** | **~$112,089** (balance − $10,000 floor) | 2026-08-11T12:13Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T11:37Z |
+| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T12:13Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -23,6 +23,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T12:13Z | 122088.99 | p2023 R2ad REFUTE + purge pig + R2am n80 (no new rent); burn$52.25/h; Δ−$71 vs p2021 (shared ok) |
 | 2026-08-11T11:37Z | 122160.43 | p2021 R2ac REFUTE + purge google (no new rent); burn$52.25/h; Δ−$41 vs p2020 (shared ok) |
 | 2026-08-11T11:19Z | 122201.20 | p2020 R2ac Stage-5 waiter + HF prepurge (no new rent); burn$52.25/h; Δ−$10 vs p2019 (shared ok) |
 | 2026-08-11T11:16Z | 122211.42 | p2019 armed R2an Talent×cp13 EAGER (no new rent); burn$52.25/h; Δ$0 vs p2018 |
@@ -32,4 +33,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T10:55Z | 122252.22 | p2015 R2ac↔R2ad deadlock fix (no new rent); burn$52.25/h; Δ−$10 vs p2014 (shared ok) |
 | 2026-08-11T10:48Z | 122262.41 | p2014 R2al SKIP + R2ad DONE (no new rent); burn$52.25/h; Δ−$61 vs p2012 (shared ok) |
 | 2026-08-11T10:16Z | 122323.62 | p2012 sbs-v1 DONE + watch480 armed (no new rent); burn$52.25/h; Δ−$10 vs p2011 (shared ok) |
-| 2026-08-11T10:13Z | 122333.78 | p2011 armed sbs-v1 prefetch (no new rent); burn$52.25/h; Δ−$10 vs p2010 (shared ok) |
