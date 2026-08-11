@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-11T19:18:23Z",
+  "pass": 2079,
+  "hyp": "R9",
+  "pod": "mine-r9-teacher-zc-1",
+  "axis": "tok_lora_expanded_teacher_zc",
+  "data": "s4-h5c-expand-refs/results/teacher_refs_expanded.jsonl",
+  "n_examples": 1329,
+  "knobs": {
+    "epochs": 3,
+    "lr": 1e-05,
+    "lora_r": 32,
+    "lora_alpha": 64,
+    "max_len": 16384
+  },
+  "stack": "s4-h99-f2-target-l2 + start_r9 overlay",
+  "fleet_boot": "wait_bootstrap_fleet.sh case mine-r9-teacher-zc-1",
+  "note": "\u2260 H102 Genesis-shortz REFUTE; \u2260 H123 Tok-fullFT-shortz REFUTE; \u2260 R1 winner_za"
+}
