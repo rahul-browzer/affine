@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-11T10:00:13Z",
+  "pass": 2008,
+  "challenge_id": "chal-00470",
+  "challenger_repo": "tojointhecommunity/affine-5efg6cm3yl-google",
+  "challenger_revision": "9cb6484f2bb4c9d93f10ff94335eef4f0e2ae4e4",
+  "reason_margin": 0.001109767940359299,
+  "reason_se": 0.003938143948824804,
+  "reason_z": 0.28179973987250234,
+  "three_se": 0.011814431846474412,
+  "headroom_vs_3se": 0.09393324662416745,
+  "n_paired": 80,
+  "challenger_wins": false,
+  "king_match": true,
+  "source": "host_gzip_p2008",
+  "local_r2ak_hr": 0.6410107783991051,
+  "note": "board google hr0.094× << local R2ak 0.641×; still hr>0 so R2ac Talent×google premerge DONE; R2ac waits R2ab waits R2al",
+  "r2al_progress_at_stamp": {"challenger": 13, "king": 13, "n_turns": 80}
+}
