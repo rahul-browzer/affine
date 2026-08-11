@@ -29,6 +29,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - After any restore kill/relaunch, **re-check the n80 watcher PID** — pid3045 died silently (log froze at iter=60) while engines were still loading; without relaunch, PROMPTABLE would never start the sim.
 - `/root/mine.env` must **export** vars (or `set -a` before `source`); bare `HF_TOKEN=…` does not reach the python child — sim then hits unauth HF Hub and stalls on tokenizer download before first progress.
 - Public duel rows expose Reason components as `lpC_yc_za` / `lpC_yc_e` on `king_rows[].pairs[]`; rank SFT targets by that delta, not by L1lift/lpA.
+- R3: after scp-patching `train_reason_grpo.py`, verify live log has `[r3-hb]` — a pre-patch PID keeps running the old code (p2072: n_hb=0@step20 until kill+relaunch).
 - Join high-Reason completions to schema-v2 corpus prefixes via `CorpusSync.materialize_turns` (index hit 1403/1403 on epoch 7) before LoRA; completions alone are not trainable.
 - Crown pod venv is **uv**-managed (`uv pip install --python /root/venv/bin/python …`); bare `pip` / system python hits PEP 668.
 - After LoRA train: merge on freed GPUs 6–7, kill chall by **PID file only**, reload `/tmp/r1_lora_merged` with same vLLM knobs as restore (tp=2 util=0.72), then fresh n80 — do not yank chall mid-baseline.
@@ -142,3 +143,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R2av** pure Bittoby `…-v2` ≈ king noise (m−0.00027, z−0.065, hr_live2σ −0.033×, n=80) — Stage-5 SKIP; do not re-sim that parent.
 - `lium ps` **table wraps** `mine-*` names across lines — never `grep mine-` the table under `set -o pipefail` (empty grep exits 1 → kills rent waiters). Use `lium ps --format json` and read `.name`.
 - Host rent waiters belong under `experiments/<axis>/wait_rent_b300.sh` (not only Ralph notes) so the next free 8×B300 is grabbed without waiting for a pass tick.
+- R7 curriculum ≠ R4 data: top-250 h99 by Reason (min≈0.116) + EPOCHS=2 vs R4 clip_l1 n=406 EPOCHS=1 — wire `upload_and_launch` before rent or fleet-boot only stamps `needs_axis_uploader`.

@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T19:09:53Z",
+  "pass": 2076,
+  "axis": "R7",
+  "pod": "mine-r7-datafilt-1",
+  "data": "experiments/r7-data-filter/results/winner_za_top_reason.jsonl",
+  "keep_n": 250,
+  "min_reason": 0.11554028250550485,
+  "mean_reason": 0.17377943382107422,
+  "epochs": 2,
+  "uploader": "experiments/r7-data-filter/upload_and_launch.sh",
+  "fleet_boot": "wait_bootstrap_fleet.sh case mine-r7-datafilt-1",
+  "note": "Armed for auto-bootstrap on next 8\u00d7B300 rent; \u2260 R4 clip_l1"
+}

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-11T19:09:07Z",
+  "pass": 2076,
+  "axis": "R7",
+  "src": "/home/const/subnet120/mining/experiments/s4-h99-f2-target-l2/results/winner_za_high_l2.jsonl",
+  "src_n": 1059,
+  "eligible_n": 1059,
+  "keep_n": 250,
+  "rule": "top_n_by_lambda2",
+  "top_n": 250,
+  "min_reason": 0.11554028250550485,
+  "mean_reason": 0.17377943382107422,
+  "median_reason": 0.1553916538857063,
+  "z_chars_median": 188.0,
+  "out": "/home/const/subnet120/mining/experiments/r7-data-filter/results/winner_za_top_reason.jsonl",
+  "note": "Distinct from R4 winner_za_high_l1 (clip_l1 n=406) and full h99 n=1059"
+}

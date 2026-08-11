@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $121,076.52 | 2026-08-11T19:07Z |
-| cumulative mining spend | ~$76,511 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T19:07Z |
-| **available for mining** | **~$111,077** (balance − $10,000 floor) | 2026-08-11T19:07Z |
+| Lium balance | $121,076.52 | 2026-08-11T19:09Z |
+| cumulative mining spend | ~$76,511 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T19:09Z |
+| **available for mining** | **~$111,077** (balance − $10,000 floor) | 2026-08-11T19:09Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T19:07Z |
+| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T19:09Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T19:09Z | 121076.52 | p2076 R7 uploader armed (no rent; B300×8=0); burn **$116.25/h**; Δ$0 vs p2075 |
 | 2026-08-11T19:07Z | 121076.52 | p2075 R6 uploader armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2074 |
 | 2026-08-11T19:04Z | 121091.26 | p2074 R5 uploader armed (no rent; B300×8=0); burn **$116.25/h**; Δ$0 vs p2073 |
 | 2026-08-11T19:01Z | 121091.26 | p2073 R3 step1–2 confirmed (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2072 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T18:31Z | 121185.07 | p2069 fleet-boot armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2068 |
 | 2026-08-11T18:27Z | 121200.78 | p2068 fleet rent waiter armed (no rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2067 |
 | 2026-08-11T18:23Z | 121216.25 | p2067 R4 rent waiter armed (no rent yet; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2066 |
-| 2026-08-11T18:14Z | 121247.33 | p2066 R2az vvv arm + HF purge (no new rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2065 |

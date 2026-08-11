@@ -11,7 +11,7 @@
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · fleet queue head; **p2069** auto-bootstrap armed |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · fleet `mine-r5-nonking-1` · **p2074** uploader+boot armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **open** · fleet `mine-r6-fmt-1` · **p2075** uploader+boot armed |
-| 7 | R7 | High-Reason data-filter curriculum FT | **open** · fleet `mine-r7-datafilt-1` |
+| 7 | R7 | High-Reason data-filter curriculum FT | **open** · fleet `mine-r7-datafilt-1` · **p2076** uploader+boot armed |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · fleet `mine-r8-reinforce-1` |
 
 ## Open
@@ -43,8 +43,12 @@
 - **Claim:** natural short non-listy `z` (keep original text) raises Reason vs king more than raw/long or H101 rewrite.
 - **Status:** open — **p2075** `upload_and_launch.sh` + fleet-boot case for `mine-r6-fmt-1` (H101 stack overlay, EPOCHS=6, n=202 z≤180). ≠ H101 ultrashort rewrite REFUTE. Waiting on 8×B300 rent.
 
-### R7–R8 — fleet axes (uploaders TBD)
-- **R7** data-filter · **R8** REINFORCE — plans under `experiments/r{7,8}-*/`; pods via fleet-rent; boot stamps `needs_axis_uploader` until launchers land.
+### R7 — top-Reason data-filter curriculum
+- **Claim:** full-FT on top-250 h99 rows by Reason (min≈0.116, mean≈0.174, EPOCHS=2) beats R4's broader clip_l1 set on paired margin.
+- **Status:** open — **p2076** `upload_and_launch.sh` + fleet-boot case for `mine-r7-datafilt-1` (H121 overlay `start_r7.sh`). Data: `results/winner_za_top_reason.jsonl`. Waiting on 8×B300 rent.
+
+### R8 — fleet axis (uploader TBD)
+- **R8** REINFORCE — plan under `experiments/r8-reinforce-reason/`; pod via fleet-rent; boot stamps `needs_axis_uploader` until launcher lands.
 
 ## Refuted (Reason era)
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.
