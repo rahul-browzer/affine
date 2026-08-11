@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T00:16Z | p1913: fleet=1 · freed ~398 GiB dead blends (disk 334→729 GiB); R2g merge ~7/16; chal-00432 BKN live; burn$64/h; bal~$123646 |
 | 2026-08-11T00:13Z | p1912: fleet=1 · chal-00440 Reason hr0.73× → R2g gate ok · CPU merge running; burn$64/h; bal~$123657 |
 | 2026-08-11T00:10Z | p1911: fleet=1 · R2h REFUTE hr−0.59×; BKN prefetch DONE; armed 432 watch 140530; burn$64/h; bal~$123657 |
-| 2026-08-10T23:56Z | p1910: fleet=1 · R2h ~36/80; armed BKN seven prefetch 139298; burn$64/h; bal~$123691 |

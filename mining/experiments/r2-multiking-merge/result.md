@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1913 — disk cleanup while R2g merges; BKN seven live
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,646.
+- R2g Talent×saysth CPU merge **alive** (pid 140939) ~7/16 shards → `/root/r2_out/alpha_talent_saysth_v9a_skew`; reload waiter 130835 armed.
+- Board: **chal-00432** = `BKN1890/…-seven` @ `load_challenger` (watch 140530 already polling gzip).
+- Disk was 81% / 334 GiB free — purged dead `r2_out` blends (kevin×awesome, tok×talent×kevin, tok×awesome×2, talent×awesome) + unconst h64 cache → **729 GiB free** (58%). Kept R2g out + awesome_v6_chall stub.
+- Note: `/tmp/r2h_ttk_merged` symlink pointed at deleted TTK dir; chall engine stayed **200** (GPU-resident) until R2g reload. Lesson stamped.
+- Artifact: pod `/root/affine_data/disk_cleanup_p1913.json` → `artifacts/disk_cleanup_p1913.json`.
+- Next: harvest `r2g_alpha_decision.json` after n80; submit only if hr≥1.5×.
+
 ## p1912 — chal-00440 saysth Reason+ (0.73×); R2g merge ungated
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,657.
 - Harvested eval gzip mid-finish (79/80→publish): `chal00440_reason.json` — margin **+0.009156** · se=0.004193 · z=**2.18** · 3·SE=**0.01258** · headroom=**0.728×** · n=80 · `king_match=true` · `challenger_wins=false` · formula stamped Reason.
