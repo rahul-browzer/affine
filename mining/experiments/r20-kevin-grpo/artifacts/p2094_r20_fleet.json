@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-11T20:07:32Z",
+  "pass": 2094,
+  "axis": "R20",
+  "pod": "mine-r20-kevin-grpo-1",
+  "hypo": "kevin954-init Reason-GRPO (\u2260 R3 Tok GRPO, \u2260 R14 kevin REINFORCE, \u2260 R19 Talent GRPO)",
+  "base": "kevin954/Affine-5dfqbbh8ev-sft@6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "queue_len": 21,
+  "target_mines": 25,
+  "uploader": "experiments/r20-kevin-grpo/upload_and_launch.sh",
+  "note": "armed uploader+fleet-boot; B300\u00d78 still 0 \u2014 rent polls"
+}

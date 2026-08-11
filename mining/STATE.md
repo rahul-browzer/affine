@@ -15,17 +15,17 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | challenge | chal-00493 |
 | miner burn | **$116.25/h** · floor $833/h · **gap −$717/h** |
 | B300 stock | **0** free 8×B300/B200 · fleet rent+bootstrap armed |
-| Lium bal | ~$120,905 · floor $10k OK |
+| Lium bal | ~$120,890 · floor $10k OK |
 | submissions | 0 |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | R2az REFUTE; **R2ba** awesome-v10 n80 **5/80** |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥67; wedge-watch |
-| host fleet-rent | pid**2332910** | — | rent →**25** mines (R4…R19) |
-| host fleet-boot | pid**2332911** | — | auto-upload **R4–R19** |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | R2az REFUTE; **R2ba** awesome-v10 n80 **~12/80** |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥68; wedge-watch |
+| host fleet-rent | pid**2337108** | — | rent →**25** mines (R4…R20) |
+| host fleet-boot | pid**2337122** | — | auto-upload **R4–R20** |
 | host r3-wedge | pid**2176107** | — | GRPO wedge relaunch |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -40,4 +40,4 @@ R2ba: `ssh … 'tail -f /root/logs/r2ba_awesome_v10_reload.log'`
 ## Next action
 
 **Crown:** R2ba n80→decision. **R3:** steps→train.done→n80.
-**Else:** fleet-boot / rent log when B300×8 appears. **Else:** next axis >R19.
+**Else:** fleet-boot / rent log when B300×8 appears. **Else:** next axis >R20.
