@@ -146,4 +146,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R7 curriculum ≠ R4 data: top-250 h99 by Reason (min≈0.116) + EPOCHS=2 vs R4 clip_l1 n=406 EPOCHS=1 — wire `upload_and_launch` before rent or fleet-boot only stamps `needs_axis_uploader`.
 - Fleet queue after R4–R8 is **R3b** (`mine-r3-grpo-2`) before R9 — arm that uploader next or rent only stamps `needs_axis_uploader` (p2078: lr=2e-5 r=64 G=8 overlay on R3 stack).
 - Fleet queue after R9 is **R4b** (`mine-r4-fullft-2`): H121 overlay lr=5e-6 EPOCHS=2 vs R4 1e-6×1 — arm before rent or boot stamps `needs_axis_uploader` (p2080).
-- Fleet queue after R4b is **R5b** (`mine-r5-nonking-2`): TalentPigs reign-3 full-FT (≠ R5 Genesis) — arm before rent or boot stamps `needs_axis_uploader` (p2081).
+- Fleet queue after R5b is **R10** (`mine-r10-merge-rl-1`): Tok×sbs-v2 α0.5 → Reason-GRPO (≠ R3 Tok-init, ≠ R2 merge-only) — arm before rent or boot stamps `needs_axis_uploader` (p2082).
