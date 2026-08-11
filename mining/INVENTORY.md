@@ -6,9 +6,9 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | TK; R2be n80 + R2bf waiter |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | graft+resume→n80 |
-| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | ~24h from 20:57Z | **R5** n80 armed |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2be done; R2bf chall load |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | chall load → n80 |
+| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | ~24h from 20:57Z | **R5** n80 ~42/80 |
 | *(pending fleet)* | mine-r6…r32 | 8×B300 | ~$64 | rent **2597099** blind-fire + boot **2463724** | R6–R32 |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -22,6 +22,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T22:50Z | p2124: B300×8=0; R5 reseat `/tmp`@65536→n80; R2be below→R2bf; burn **$180.25/h** |
 | 2026-08-11T22:42Z | p2123: B300×8=0; R3 visual graft+resume; R5 n80 armed; burn **$180.25/h** |
 | 2026-08-11T22:36Z | p2122: B300×8=0; R3 merge unstick→`/tmp`; R2bf prefetch DONE; R5@22/26; burn **$180.25/h** |
-| 2026-08-11T22:23Z | p2121: B300×8=0; **R2bf** dpo2 armed; R3 merge; R5 FT@5/26; burn **$180.25/h** |

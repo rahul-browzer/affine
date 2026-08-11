@@ -136,7 +136,7 @@ echo "[relaunch-chall] $(date -u +%Y-%m-%dT%H:%M:%SZ) start chall port=8002 gpus
 CUDA_VISIBLE_DEVICES=$GPUS TRITON_CACHE_DIR=$TCACHE nohup vllm serve "$MERGE_DIR" \
   --port 8002 \
   --tensor-parallel-size 2 \
-  --max-model-len 32768 \
+  --max-model-len 65536 \
   --gpu-memory-utilization "$UTIL" \
   --max-num-batched-tokens 8192 \
   --attention-backend FLASH_ATTN \

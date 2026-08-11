@@ -270,7 +270,7 @@ launch_chall() {
     nohup vllm serve "$MERGE" \
     --port 8002 \
     --tensor-parallel-size 2 \
-    --max-model-len 32768 \
+    --max-model-len 65536 \
     --gpu-memory-utilization "$UTIL" \
     --max-num-batched-tokens 8192 \
     --attention-backend FLASH_ATTN \

@@ -147,4 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Full-FT: Trainer `save_strategy` must be **`no`** on gocryptfs `/root` — end-of-train `optimizer.pt` (~111G) hangs WCHAN=`request_wait_answer` (p2112); stage final weights only under `/tmp` then symlink.
 - LoRA `merge_lora.py` `save_pretrained` to gocryptfs `/root/r3/merged` also hangs WCHAN=`request_wait_answer` (IO flat, GPU 0%) — set `MERGED=/tmp/r3_merged` (p2122 unstick).
 - Visual graft `save_file` of safetensors mmap tensors → `Bad address` on overlay — `tensor.clone().contiguous()` then write via `/root` cipher FS and copy into `/tmp` merge (p2123: 333 keys / 893MB OK).
-- R4/R4b Tok full-FT closed (R4 −0.0077 / R4b −0.0037); R5 n80 must be armed after `PIPELINE_DONE (n80 via watcher)` — watcher often absent (p2123). R5 chall still 32768 landmine.
+- R5 FALSE_PROBE=404 when serve id=`/root/h122/merged` (symlink) but sim uses `readlink -f`→`/tmp/…`; serve resolved path + `max_model_len=65536` (p2124).
