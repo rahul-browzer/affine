@@ -9,11 +9,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $123,333.33 | 2026-08-11T02:43Z |
-| cumulative mining spend | ~$74,261 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T02:43Z |
-| **available for mining** | **~$113,333** (balance − $10,000 floor) | 2026-08-11T02:43Z |
+| Lium balance | $123,310.93 | 2026-08-11T02:49Z |
+| cumulative mining spend | ~$74,284 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T02:49Z |
+| **available for mining** | **~$113,311** (balance − $10,000 floor) | 2026-08-11T02:49Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T02:43Z |
+| miner burn (1 pod) | **$64.00/h** (`mine-crown-1` 8×B300) | 2026-08-11T02:49Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -22,6 +22,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T02:49Z | 123310.93 | p1945 R2v n80 gathering 1/80 (no new rent); burn$64/h; Δ−$22 vs p1944 (shared ok) |
 | 2026-08-11T02:43Z | 123333.33 | p1944 R2v pure-sft3 armed (no new rent); burn$64/h; bal flat vs p1943 |
 | 2026-08-11T02:38Z | 123333.33 | p1943 R2t REFUTE harvest (no new rent); burn$64/h; Δ−$34 vs p1942 (shared ok) |
 | 2026-08-11T02:20Z | 123366.81 | p1942 R2k SKIP harvest 431 (no new rent); burn$64/h; Δ−$11 vs p1941 (shared ok) |
@@ -31,4 +32,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T01:55Z | 123433.91 | p1938 R2t saysth×Talent armed (no new rent); burn$64/h; Δ−$22 vs p1937 (shared ok) |
 | 2026-08-11T01:45Z | 123456.26 | p1937 R2s WEAK_SKIP + purge (no new rent); burn$64/h; Δ−$11 vs p1936 (shared ok) |
 | 2026-08-11T01:39Z | 123467.42 | p1936 R2s saysth×awesome armed + R2g purge (no new rent); burn$64/h; bal flat vs p1935 |
-| 2026-08-11T01:34Z | 123478.50 | p1935 R2i SKIP_UNSERVABLE 441 + thomp purge (no new rent); burn$64/h; Δ−$11 vs p1934 (shared ok) |

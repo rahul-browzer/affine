@@ -1,0 +1,24 @@
+{
+  "pass": 1945,
+  "utc": "2026-08-11T02:49:44Z",
+  "lane": "R2v",
+  "chall": "syntaxsorcerer1/Affine-5gbhwtw4zo-sft3@381dbc8245e29bccbf39de78fdbc20acbfadec8d",
+  "king": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "engines": "200/200/200",
+  "sim_pid": 194935,
+  "reload_pid": 189465,
+  "chall_vllm_pid": 189540,
+  "block_hash_prefix": "e92e62ff76fabd39",
+  "corpus_epoch": 7,
+  "progress": {
+    "utc": "2026-08-11T02:49:38Z",
+    "challenger": 1,
+    "challenger_total": 80
+  },
+  "decision_path": "/root/affine_data/r2v_sft3_decision.json",
+  "check": "ssh root@86.38.182.50 -p 40300 'tail /root/logs/r2v_sft3_reason_sim.log; cat /root/affine_data/r2v_sft3_reason_progress.json'",
+  "board": "chal-00450 load_challenger (same sft3; local n80 does not wait on gzip)",
+  "wvk": 3,
+  "lium_balance_usd": 123310.93,
+  "burn_usd_per_h": 64.0
+}
