@@ -1,0 +1,25 @@
+{
+  "pass": 1923,
+  "utc": "2026-08-11T00:49:26Z",
+  "hyp": "R2l",
+  "action": "armed Talent×sft3 Reason+-gated premerge+reload + watch-450",
+  "parents": {
+    "talent": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+    "sft3": "syntaxsorcerer1/Affine-5gbhwtw4zo-sft3@381dbc8245e29bccbf39de78fdbc20acbfadec8d",
+    "weights": "w_talent=0.25 w_sft3=0.75"
+  },
+  "gate": {
+    "challenge_id": "chal-00450",
+    "reason_json": "/root/affine_data/chal00450_reason.json",
+    "rule": "king_match && headroom_vs_3se > 0"
+  },
+  "pids": {
+    "watch_chal00450_reason": 152829,
+    "r2l_premerge": 152852,
+    "r2l_merge_reload": 152866
+  },
+  "lane_serializes_behind": ["R2g", "R2i", "R2j", "R2k"],
+  "r2g_progress_at_arm": {"king": 63, "challenger": 61, "n": 80},
+  "cp200_prefetch": "DONE @19c881d1257cc2164f54aa3e542a564fb9beef1d (chal-00456 queued; not armed this pass)",
+  "submit_bar": "headroom_vs_3se >= 1.5"
+}
