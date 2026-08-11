@@ -6,7 +6,7 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2as load · R2at…av · R2ar SKIP |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2as n80 · R2at…av wait |
 
 SSH: `ssh root@95.133.253.90 -p 40099`
 
@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T15:46Z | p2047: R2as engines 200/200/200; n80 ~1/80; burn$52.25/h · bal~$121650 |
 | 2026-08-11T15:42Z | p2046: R2ar SKIP_UNSERVABLE (index/shard); R2as 726 loading; burn$52.25/h · bal~$121661 |
 | 2026-08-11T15:32Z | p2045: R2aq WEAK_SKIP hr0.773×; R2ar iynocr2p loading; burn$52.25/h · bal~$121681 |
-| 2026-08-11T15:11Z | p2044: R2aw mt1 SKIP_UNSERVABLE (Glm4Moe); v2 prefetch DONE; R2aq~42/80; burn$52.25/h · bal~$121722 |
