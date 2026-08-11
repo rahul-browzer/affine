@@ -3,6 +3,10 @@
 set -euo pipefail
 [[ -f /root/mine.env ]] && set -a && source /root/mine.env && set +a
 source /root/venv/bin/activate 2>/dev/null || true
+# score.py lives in the staged affine package (not site-packages)
+export PYTHONPATH=/root/mining_src/affine_pkg:${PYTHONPATH:-}
+# Prefer venv python — bare `python` can miss pyarrow / affine path
+PY=${PY:-/root/venv/bin/python}
 
 MERGED=${MERGED:-/tmp/r3_merged}
 BASE=${BASE:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
@@ -94,7 +98,7 @@ for attempt in $(seq 1 "$N80_MAX_ATTEMPTS"); do
   rm -f "$SIM_N80" "$PROG" /root/logs/r3_sim_n80.done
   log "launch n80 attempt $attempt block_hash=${bh:0:16}…"
   set +e
-  python /root/mining_src/s4-h2-merge/run_sim_duel.py \
+  "$PY" /root/mining_src/s4-h2-merge/run_sim_duel.py \
     --king-repo "$KING_REPO" \
     --king-rev "$KING_REV" \
     --chall-repo "$MERGED" \
@@ -131,8 +135,8 @@ done
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/r3_sim_n80.done
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/r3_pipeline.done
 if [[ -f /root/mining_src/s4-h2-merge/write_merge_decision.py ]]; then
-  python3 /root/mining_src/s4-h2-merge/write_merge_decision.py \
+  "$PY" /root/mining_src/s4-h2-merge/write_merge_decision.py \
     --result "$SIM_N80" --out /root/affine_data/r3_decision.json --label r3-reason-grpo || true
 fi
-log "SIM_DONE margin=$(python -c "import json;print(json.load(open('$SIM_N80'))['verdict'].get('margin'))" 2>/dev/null || echo '?')"
+log "SIM_DONE margin=$("$PY" -c "import json;print(json.load(open('$SIM_N80'))['verdict'].get('margin'))" 2>/dev/null || echo '?')"
 log "PIPELINE_DONE"

@@ -20,7 +20,7 @@
 | 32 | R32 | Tok GRPO kl_coef=0.02 vs base beats R3 kl=0 (isolates KL) | **open** · `mine-r32-kl-1` · **p2108** armed |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **REFUTED** · n80 m=**−0.0077** z=−0.76 (p2116) |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **REFUTED** · n80 m=**−0.0037** z=−0.58 (p2120) |
-| 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · on `mine-r4-fullft-1` boot pid**34926** (p2120) |
+| 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **REFUTED** · n80 m=**−0.0390** z=−3.24 (p2125) |
 | 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · `mine-r5-nonking-2` · p2081 armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **open** · `mine-r6-fmt-1` · p2075 armed |
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **open** · `mine-r6-fmt-2` · p2083 armed |
@@ -51,7 +51,7 @@
 - **R2ba** WEAK +0.007. **R2bb** WEAK. **R2bc+R2bd** UNSERVABLE. **R2be** n80 in flight (~15/80). **R2bf** p2121 armed: trangd dpo2@90ea78ff… chal-00511 (prefetch+reload waiter+stage5). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason (PRIORITY)
-- GRPO **train.done** @step189. p2122: merge to `/root` hung (`request_wait_answer`); killed; relaunch `MERGED=/tmp/r3_merged` → chall→n80. Dir: `experiments/r3-reason-grpo/`.
+- GRPO **train.done** @step189. p2125: n80 unblocked (PYTHONPATH + schema-v2 `run_sim_duel`); gathering ~19/80 @22:55Z → `r3_decision.json`. Dir: `experiments/r3-reason-grpo/`.
 
 ### R4 — Full-FT
 - **REFUTED** p2116: n80 m=−0.0077 z=−0.76 (salvage ckpt-26 lr1e-6 ep1). Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.
@@ -60,7 +60,7 @@
 - **REFUTED** p2120: n80 m=**−0.0037** z=−0.58 SE=0.0064 (lr5e-6 ep2) — Tok full-FT family closed. Pod retargeted → **R5**. Dir: `experiments/r4b-fullft-lr/`.
 
 ### R5 — Non-king Genesis
-- p2120: on `mine-r4-fullft-1` (no free `mine-r5-*` stock) H122 Genesis@abe89194… + winner_za_high_l1; boot pid**34926**. Watch `bootstrap_h122.log` → `h122_decision.json`. Dir: `experiments/r5-nonking-base/` + `s4-h122-f27-genesis-full-ft/`.
+- **REFUTED** p2125: n80 m=**−0.0390** z=−3.24 SE=0.0120 (hr≪0) — Genesis full-FT vs Tok closed. Retarget `mine-r4-fullft-1` → R6. Dir: `experiments/r5-nonking-base/` + `s4-h122-f27-genesis-full-ft/`.
 
 ### R24 — Long-context / full-thought GRPO
 - Tok-init; max_len=**16384** max_new=**1024** (live thought budget); same lr/r/G as R3.

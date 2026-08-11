@@ -148,3 +148,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - LoRA `merge_lora.py` `save_pretrained` to gocryptfs `/root/r3/merged` also hangs WCHAN=`request_wait_answer` (IO flat, GPU 0%) — set `MERGED=/tmp/r3_merged` (p2122 unstick).
 - Visual graft `save_file` of safetensors mmap tensors → `Bad address` on overlay — `tensor.clone().contiguous()` then write via `/root` cipher FS and copy into `/tmp` merge (p2123: 333 keys / 893MB OK).
 - R5 FALSE_PROBE=404 when serve id=`/root/h122/merged` (symlink) but sim uses `readlink -f`→`/tmp/…`; serve resolved path + `max_model_len=65536` (p2124).
+- R3 resume must `export PYTHONPATH=/root/mining_src/affine_pkg` and use schema-v2 `run_sim_duel.py` (passes `corpus=` / `turns_path=None`) — stale copy opens `turns.jsonl` and aborts despite parquet ready (p2125).
+- R5 Genesis full-FT vs Tok: m=**−0.039** z=−3.24 — non-king Genesis FT closed for this reign; retarget pod to a different axis (p2125).
