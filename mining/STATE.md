@@ -12,21 +12,21 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 |---|---|
 | contract | wvk=**3** · `k_sigma=2.0` · reason_only · n_turns=2080 |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` reign 4 |
-| challenge | chal-00491 (hope11 load) |
+| challenge | chal-00493 |
 | miner burn | **$116.25/h** · floor $833/h · **gap −$717/h** |
 | B300 stock | **0** free 8×B300/B200 · fleet rent+bootstrap armed |
-| Lium bal | ~$121,045 · floor $10k OK |
+| Lium bal | ~$121,030 · floor $10k OK |
 | submissions | 0 |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | R2ay WEAK +0.0093; **R2az** n80 live |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥17; wedge-watch |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | R2ay WEAK +0.0093; **R2az** n80 ~4/80 |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | GRPO pid28660 step≥20; wedge-watch |
 | host fleet-rent | pid**2146782** | — | rent →13 mines (R4…) |
-| host fleet-boot | pid**2240518** | — | auto-upload **R4–R9 + R3b** |
-| host r3-wedge | pid**2176107** | — | stale GRPO relaunch |
+| host fleet-boot | pid**2247190** | — | auto-upload **R4–R9 + R3b + R4b** |
+| host r3-wedge | pid**2176107** | — | GRPO wedge relaunch |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
 SSH R3: `ssh root@204.9.206.245 -p 40051`
@@ -40,8 +40,8 @@ R3: `grep -E 'r3-log|r3-hb' /root/logs/r3_train.nohup | tail`
 
 ## Next action
 
-**Bootstrapped rented_mine-r{4..9}* / r3-grpo-2:** watch that axis train log (see INVENTORY / plan).
-**Else rented without boot:** fleet-boot log (auto R4–R9+R3b).
+**Bootstrapped rented_mine-r{4..9}* / r3-grpo-2 / r4-fullft-2:** watch axis train log.
+**Else rented without boot:** fleet-boot log (auto R4–R9+R3b+R4b).
 **R3:** steps→train.done→post_train n80.
 **Crown:** R2az n80 → decision → awesome-v10.
-**R4b/R5b/R10/R6b:** still `needs_axis_uploader`.
+**R5b/R10/R6b:** still `needs_axis_uploader`.

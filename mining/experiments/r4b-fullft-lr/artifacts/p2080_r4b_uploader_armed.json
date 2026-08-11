@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-11T19:21:31Z",
+  "pass": 2080,
+  "hyp": "R4b",
+  "pod": "mine-r4-fullft-2",
+  "axis": "fullft_lr5e6_ep2",
+  "data": "s4-h27-clip-l1-shape/results/winner_za_high_l1.jsonl",
+  "n_examples": 406,
+  "knobs": {
+    "lr": 5e-06,
+    "epochs": 2,
+    "max_len": 8192
+  },
+  "vs_r4": {
+    "r4_lr": 1e-06,
+    "r4_epochs": 1
+  },
+  "stack": "s4-h121-f26-full-ft + start_r4b overlay",
+  "fleet_boot": "wait_bootstrap_fleet.sh case mine-r4-fullft-2",
+  "note": "\u2260 R4 lr=1e-6 ep1; same winner_za_high_l1 data"
+}

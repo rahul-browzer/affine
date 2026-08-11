@@ -10,6 +10,7 @@
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · GRPO pid**28660** steps≥17; wedge-watch pid**2176107**; post_train armed |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open** · fleet `mine-r3-grpo-2` · **p2078** uploader+boot armed |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **open** · fleet queue head; **p2069** auto-bootstrap armed |
+| 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **open** · fleet `mine-r4-fullft-2` · **p2080** uploader+boot armed |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **open** · fleet `mine-r5-nonking-1` · **p2074** uploader+boot armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **open** · fleet `mine-r6-fmt-1` · **p2075** uploader+boot armed |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · fleet `mine-r7-datafilt-1` · **p2076** uploader+boot armed |
@@ -40,6 +41,10 @@
 ### R4 — Full-FT on Reason
 - **Claim:** full-parameter FT on high-Reason winner thoughts beats LoRA-GRPO / board-copy screens on paired margin.
 - **Status:** open — fleet-rent queue head `mine-r4-fullft-1` (rent pid**2146782**, boot pid in STATE). On rent, `wait_bootstrap_fleet.sh` runs `upload_and_launch.sh` (H121 full-FT + `winner_za_high_l1`). Dir: `experiments/r4-fullft-reason/`.
+
+### R4b — Full-FT lr/epoch family
+- **Claim:** same Tok-init full-FT + winner_za as R4, but lr=**5e-6** + **EPOCHS=2** (R4 is 1e-6×1) clears paired crown bar where R4 may under-train.
+- **Status:** open — **p2080** `upload_and_launch.sh` + fleet-boot case for `mine-r4-fullft-2`. Waiting on 8×B300 rent. Dir: `experiments/r4b-fullft-lr/`.
 
 ### R5 — Non-king Genesis full-FT
 - **Claim:** Genesis-init dense FT on high-Reason `z_A` beats Tok-init (R4) on paired margin.

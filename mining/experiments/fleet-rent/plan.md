@@ -15,6 +15,6 @@ R3b GRPO alt-LR · R9 teacher-zc · R4b full-FT family · R5b non-king-2 ·
 R10 merge+RL · R6b format ablate.
 
 ## After rent
-Next pass bootstraps each new `mine-*` from its experiment dir (see
-`r4-fullft-reason/`, `r5-nonking-base/`, …). Stamps:
+`wait_bootstrap_fleet.sh` auto-uploads R4–R9 + R3b + R4b. Remaining
+R5b/R10/R6b still stamp `needs_axis_uploader` until armed. Stamps:
 `artifacts/rented_<name>.json`.
