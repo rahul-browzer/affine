@@ -1,0 +1,29 @@
+{
+  "pass": 2073,
+  "utc": "2026-08-11T19:01:15Z",
+  "pod": "mine-r3-grpo-1",
+  "huid": "golden-hawk-ff",
+  "train_pid": 28660,
+  "note": "p2072 force-relaunch (stream+hb trainer) confirmed: hb sample→score through g=0..3 then [r3-log] steps",
+  "steps": [
+    {
+      "step": 1,
+      "mean_r": 0.01923902775224845,
+      "loss": 5.3882598876953125e-05,
+      "rewards": [0.018212438737657155, 0.01967238942554759, 0.019883864772583908, 0.01918741807320514]
+    },
+    {
+      "step": 2,
+      "mean_r": 0.0247704932597127,
+      "loss": -0.000232696533203125,
+      "rewards": [0.02546102901821386, 0.023667816551161458, 0.024980642010235865, 0.024972485459239618]
+    }
+  ],
+  "engines": {"teacher": "8000/GLM-4.5-Air-FP8", "king": "8001/Tok-af10@65536"},
+  "post_train": "pid15127 waiting train.done",
+  "wedge_watch": "host pid2176107 OK_FRESH",
+  "fleet": {"8xB300": 0, "8xB200": 0, "rent_pid": 2146782, "boot_pid": 2153833},
+  "r2ay": {"challenger": 38, "king": 38, "n": 80},
+  "burn_usd_h": 116.25,
+  "bal_usd": 121091.26
+}

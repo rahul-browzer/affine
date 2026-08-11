@@ -21,6 +21,7 @@
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open** · fleet `mine-r10-merge-rl-1` · **p2082** uploader+boot armed |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open** · fleet `mine-r11-odpo-1` · **p2084** uploader+boot armed |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open** · fleet `mine-r12-bon-1` · **p2085** uploader+boot armed |
+| 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open** · fleet `mine-r13-odpo-1` · **p2086** uploader+boot armed |
 
 ## Open
 
@@ -94,6 +95,11 @@
 - **Claim:** sample G=4 z, CE only the argmax teacher-Reason thought — moves mean more than GRPO/REINFORCE when group rewards cluster.
 - **Prediction:** n80 paired margin ≥ **1.5 × (2·SE)** vs Tok.
 - **Status:** open — **p2085** `upload_and_launch.sh` + fleet-boot case for `mine-r12-bon-1` (H137 `train_bon_l2.py` overlay). Waiting on 8×B300 rent. Dir: `experiments/r12-bon-reason/`.
+
+### R13 — Offline DPO on duel Reason prefs
+- **Claim:** frozen duel pairs labeled by Reason (chosen=higher, rejected=lower) + classic DPO (β=0.1, no live teacher at train) clears paired crown bar where online DPO/GRPO/BoN may not.
+- **Prediction:** n80 paired margin ≥ **1.5 × (2·SE)** vs Tok.
+- **Status:** open — **p2086** `upload_and_launch.sh` + fleet-boot case for `mine-r13-odpo-1` (H138 `train_dpo.py` overlay; 604 pairs). Waiting on 8×B300 rent. Dir: `experiments/r13-offline-dpo/`.
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am family) → `archive/` / prior status.log; do not re-blend.

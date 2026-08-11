@@ -15,7 +15,7 @@ CAP=${MINE_CAP:-25}
 TARGET=${TARGET_MINES:-25}
 POLL_S=${POLL_S:-30}
 MAX_ITERS=${MAX_ITERS:-720}  # ~6h @30s
-PASS=${PASS:-2085}
+PASS=${PASS:-2086}
 
 # Distinct experimental axes (one pod each). Skip names already live.
 # Format: name|axis_id|short_note
@@ -33,6 +33,7 @@ QUEUE=(
   "mine-r6-fmt-2|R6b|long-thought vs short-thought ablate"
   "mine-r11-odpo-1|R11|online DPO on live teacher Reason"
   "mine-r12-bon-1|R12|Best-of-N CE on live teacher Reason"
+  "mine-r13-odpo-1|R13|offline DPO on duel Reason prefs"
 )
 
 mkdir -p "$EXP/logs" "$STAMP_DIR"

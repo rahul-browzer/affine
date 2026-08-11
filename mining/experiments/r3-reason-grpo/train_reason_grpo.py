@@ -57,15 +57,20 @@ def _teacher_lp_per_byte(
     messages: list[dict],
     thoughts: str,
     action: str,
+    teacher_tok=None,
 ) -> float:
     full = force_text(teacher_repo, teacher_rev, messages, thoughts, action)
     action_start = len(full) - len(action)
-    from evalsrv.chat import get_tokenizer
+    if teacher_tok is None:
+        from evalsrv.chat import get_tokenizer
 
-    tok = get_tokenizer(teacher_repo, teacher_rev)
-    enc = tok(full, add_special_tokens=False, return_offsets_mapping=True)
+        teacher_tok = get_tokenizer(teacher_repo, teacher_rev)
+    enc = teacher_tok(full, add_special_tokens=False, return_offsets_mapping=True)
     n_prompt = sum(1 for s, _ in enc["offset_mapping"] if s < action_start)
-    r = client.post(
+    # Stream+close so half-closed sockets cannot leave the client in CLOSE-WAIT
+    # between group samples (p2063/p2070/p2072 wedges).
+    with client.stream(
+        "POST",
         f"{teacher_url.rstrip('/')}/completions",
         json={
             "model": teacher_model,
@@ -77,16 +82,26 @@ def _teacher_lp_per_byte(
             "add_special_tokens": False,
         },
         timeout=180.0,
-    )
-    r.raise_for_status()
-    lp = r.json()["choices"][0]["logprobs"]["token_logprobs"]
+        headers={"Connection": "close"},
+    ) as r:
+        r.raise_for_status()
+        body = r.read()
+    data = json.loads(body)
+    lp = data["choices"][0]["logprobs"]["token_logprobs"]
     span = [x for x in lp[n_prompt:-1] if x is not None]
     n_bytes = max(len(action.encode()), 1)
     return sum(span) / n_bytes if span else 0.0
 
 
 def _resolve_teacher_model(client: httpx.Client, teacher_url: str) -> str:
-    d = client.get(f"{teacher_url.rstrip('/')}/models", timeout=30.0).json()
+    with client.stream(
+        "GET",
+        f"{teacher_url.rstrip('/')}/models",
+        timeout=30.0,
+        headers={"Connection": "close"},
+    ) as r:
+        r.raise_for_status()
+        d = json.loads(r.read())
     ids = [m["id"] for m in d.get("data", [])]
     if not ids:
         raise RuntimeError(f"no models at {teacher_url}")
@@ -190,6 +205,10 @@ def main() -> None:
     else:
         raise SystemExit(f"teacher not ready at {args.teacher_url}")
     print(f"[r3] teacher_model={teacher_model}", flush=True)
+    from evalsrv.chat import get_tokenizer as _get_teacher_tok
+
+    teacher_tok = _get_teacher_tok(args.teacher_repo, teacher_rev)
+    print("[r3] teacher_tokenizer_cached", flush=True)
 
     meta = {
         "experiment": "r3-reason-grpo",
@@ -278,6 +297,11 @@ def main() -> None:
             logps: list[torch.Tensor] = []
             texts: list[str] = []
             for _g in range(args.group_size):
+                # Mid-group hb so host wedge watch sees life during long generates.
+                print(
+                    f"[r3-hb] {json.dumps({'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'step': steps, 'phase': 'sample', 'g': _g})}",
+                    flush=True,
+                )
                 z_text, sum_lp = _sample_thought(
                     model,
                     tok,
@@ -287,6 +311,10 @@ def main() -> None:
                     device,
                 )
                 z_norm = _normalize_z(z_text)
+                print(
+                    f"[r3-hb] {json.dumps({'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'step': steps, 'phase': 'score', 'g': _g})}",
+                    flush=True,
+                )
                 try:
                     lp_c = _teacher_lp_per_byte(
                         http,
@@ -297,6 +325,7 @@ def main() -> None:
                         messages,
                         z_norm,
                         y_text,
+                        teacher_tok=teacher_tok,
                     )
                     lp_e = _teacher_lp_per_byte(
                         http,
@@ -307,6 +336,7 @@ def main() -> None:
                         messages,
                         EMPTY_THOUGHTS,
                         y_text,
+                        teacher_tok=teacher_tok,
                     )
                     r = float(lp_c - lp_e)
                 except Exception as e:
