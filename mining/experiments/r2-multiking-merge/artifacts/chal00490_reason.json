@@ -1,0 +1,11 @@
+{
+  "utc": "2026-08-11T15:41:52Z",
+  "challenge_id": "chal-00490",
+  "repo": "darius3th/Affine-5gcl5uxakb-iynocr2p",
+  "revision": "fe080f2b66b4eb09a815fd67b70c754dd31feb09",
+  "headroom_vs_3se": null,
+  "challenger_wins": false,
+  "source": "local_vllm_unservable",
+  "note": "shard tensors missing vs index; SKIP_UNSERVABLE",
+  "pass": 2046
+}

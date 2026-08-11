@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p/r/am/ao REFUTE**; **R2ag/ab/ac/ad REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2ae SKIP_GATED**; **R2af/R2x/R2ah/R2z/R2ai/R2aj/R2al SKIP_BOARD**; **R2y/R2aw SKIP_UNSERVABLE**; **R2ak** local **0.641×**; **R2am −1.39×**; **R2an SKIP_BOARD** cp13; **R2ao** pure af17 **−0.074×**; **R2ap** pure h44 **0.327×**; **R2aq** pure-now **0.773× WEAK_SKIP**; **R2ar** iynocr2p loading; **R2as/at/au/av** armed; **R2aw** mt1 SKIP; host-hist 486–495; **R2aa** stubbed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p/r/am/ao REFUTE**; **R2ag/ab/ac/ad REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2ae SKIP_GATED**; **R2af/R2x/R2ah/R2z/R2ai/R2aj/R2al SKIP_BOARD**; **R2y/R2aw/R2ar SKIP_UNSERVABLE**; **R2ak** local **0.641×**; **R2am −1.39×**; **R2an SKIP_BOARD** cp13; **R2ao** pure af17 **−0.074×**; **R2ap** pure h44 **0.327×**; **R2aq** pure-now **0.773× WEAK_SKIP**; **R2ar** iynocr2p index/shard mismatch; **R2as** 726 loading; **R2at/au/av** armed; host-hist 486–495; **R2aa** stubbed |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. **R2d** 0.22×; many Talent-skew REFUTEs (e/g/h/q/t/l/n/o/p/r/ab/ac/ad/**am −1.39×**). **R2an SKIP_BOARD** cp13. **R2ao REFUTE** af17 **−0.074×**. **R2ap WEAK_SKIP** h44 **0.327×**. **R2aq WEAK_SKIP** pure-now m+0.00795 z=2.32 hr **0.773×** (clears live 2·SE @1.16×, not 1.5× bar) — Stage-5 SKIP. **R2ar** iynocr2p loading; **R2as→at→au(sft4)→av(v2)** armed. **R2aw** mt1 SKIP. Host-hist 486–495 (485 h44 board 0.60×). Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. **R2d** 0.22×; many Talent-skew REFUTEs (e/g/h/q/t/l/n/o/p/r/ab/ac/ad/**am −1.39×**). **R2an SKIP_BOARD** cp13. **R2ao REFUTE** af17 **−0.074×**. **R2ap WEAK_SKIP** h44 **0.327×**. **R2aq WEAK_SKIP** pure-now m+0.00795 z=2.32 hr **0.773×** (clears live 2·SE @1.16×, not 1.5× bar) — Stage-5 SKIP. **R2ar SKIP_UNSERVABLE** iynocr2p (50/1026 index keys absent from shards). **R2as** pure-726 loading; **R2at→au(sft4)→av(v2)** armed. **R2aw** mt1 SKIP. Host-hist 486–495 (485 h44 board 0.60×). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
@@ -50,6 +50,7 @@
 - **R2ap** (2026-08-11): pure kevin954 h44 → margin **+0.00414** vs Tok (z=0.98, hr **0.327×**, n=80). Weak positive ≪1.5×; Stage-5 SKIP → R2aq now.
 - **R2aq** (2026-08-11): pure tojointhecommunity …-now → margin **+0.00795** vs Tok (z=2.32, hr **0.773×**, n=80). Best pure signal yet; clears live 2·SE (1.16×) but not submit bar; Stage-5 SKIP → R2ar iynocr2p.
 - **R2aw** (2026-08-11): chal-00494 mt1 **unservable** (`Glm4MoeForCausalLM`, ~59 GiB, no visual) — SKIP before prefetch; not Qwen3.5 MoE VLM.
+- **R2ar** (2026-08-11): chal-00490 iynocr2p **unservable** — index lists 1026 keys but shards miss 50 (shard00002: 0/50 claimed keys present). vLLM "weights were not initialized"; SKIP; do not re-sim.
 
 ## Do not reopen from S\* legacy
 Clip-L1 shaping, r∈[0.7,0.85], α-merge lotteries, king-watch, "don't raise Λ2", submit-gate 0.04 as research kill — all S\* v2. See archive if curious; do not schedule them.

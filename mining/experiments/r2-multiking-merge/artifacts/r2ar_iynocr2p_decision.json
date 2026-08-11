@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-11T15:41:52Z",
+  "hyp": "R2ar",
+  "decision": "SKIP_UNSERVABLE",
+  "headroom_vs_3se": null,
+  "headroom_bar": 1.5,
+  "challenge_id": "chal-00490",
+  "repo": "darius3th/Affine-5gcl5uxakb-iynocr2p",
+  "revision": "fe080f2b66b4eb09a815fd67b70c754dd31feb09",
+  "architectures": [
+    "Qwen3_5MoeForConditionalGeneration"
+  ],
+  "model_type": "qwen3_5_moe",
+  "n_safetensors": 16,
+  "index_n_weights": 1026,
+  "note": "vLLM load fails: index weight_map keys missing from shard files (e.g. model.language_model.layers.2.input_layernorm.weight claimed in model-00002 but absent). Corrupt/mismatched HF upload. Do not re-sim/prefetch.",
+  "error": "ValueError: Following weights were not initialized from checkpoint (language_model.model.layers.*.layernorm/linear_attn)",
+  "pass": 2046
+}

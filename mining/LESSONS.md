@@ -130,3 +130,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - `lium reboot` can bill dead pods (REBOOT_FAILED) — `lium rm` that `mine-*` only; B300 sold out → 8×B200 OK. After replace, stub CLOSED_PRE_POD_RESET terminals + re-arm waiters.
 - Local≫board slice noise (R2ak google 0.641× vs board 0.094×). Arm next pure lane while prior n80 runs so GPU never idles.
 - **R2ao** af17 −0.074×; **R2ap** h44 0.327×; **R2aq** pure-now **0.773×** (m+0.00795, z=2.32) — best pure yet, clears live 2·SE@1.16× not 1.5× bar; Stage-5 SKIP → R2ar. Board 485 h44 hr **0.601×** — do not re-sim h44.
+- HF `architectures` + index n_weights matching king ≠ servable — audit shard tensors vs index (`safe_open` keys ∩ index). **R2ar** iynocr2p: 50/1026 missing (shard00002 claimed 50, present 0). Stamp SKIP_UNSERVABLE + DONE so the next pure lane can claim chall; wait-engines alone can idle ~40m then exit without a decision.

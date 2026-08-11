@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-11T15:41:27Z",
+  "pass": 2046,
+  "hyp": "R2ar",
+  "decision": "SKIP_UNSERVABLE",
+  "challenge_id": "chal-00490",
+  "repo": "darius3th/Affine-5gcl5uxakb-iynocr2p",
+  "revision": "fe080f2b66b4eb09a815fd67b70c754dd31feb09",
+  "architectures": ["Qwen3_5MoeForConditionalGeneration"],
+  "index_n_weights": 1026,
+  "shard_audit": {
+    "present_vs_index": 976,
+    "missing_vs_index": 50,
+    "worst_shard": "model-00002-of-00016.safetensors",
+    "worst_detail": "index claims 50 keys; file has 197 other keys (layers.28…); 0 claimed keys present"
+  },
+  "error": "ValueError: Following weights were not initialized from checkpoint (language_model.model.layers.*.layernorm/linear_attn)",
+  "action": "killed stuck r2ar reload pid111595 + stage5; stamped decision/done; R2as pure-726 claimed chall :8002 pid137382",
+  "note": "index/shard mismatch — not wrong arch. Do not re-sim or re-prefetch iynocr2p."
+}
