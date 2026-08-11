@@ -1,0 +1,85 @@
+[host-hist] 2026-08-11T07:55:50Z start pending=['chal-00467', 'chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T07:58:35Z iter=12 still pending=['chal-00467', 'chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:01:36Z iter=24 still pending=['chal-00467', 'chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:04:36Z iter=36 still pending=['chal-00467', 'chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:07:37Z iter=48 still pending=['chal-00467', 'chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:08:39Z skip chal-00467: pod already stamped
+[host-hist] 2026-08-11T08:10:39Z iter=60 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:13:40Z iter=72 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:16:40Z iter=84 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:19:41Z iter=96 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:22:41Z iter=108 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:25:42Z iter=120 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:28:42Z iter=132 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:31:43Z iter=144 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:34:43Z iter=156 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+[host-hist] 2026-08-11T08:37:44Z iter=168 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+[host-hist] 2026-08-11T08:39:15Z iter=174 err=CalledProcessError: Command '['scp', '-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=accept-new', '-o', 'ConnectTimeout=15', '-P', '40300', '/home/const/subnet120/mining/experiments/r2-multiking-merge/artifacts/chal00468_reason.json', 'root@86.38.182.50:/root/affine_data/chal00468_reason.json']' returned non-zero exit status 255.
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+[host-hist] 2026-08-11T08:40:47Z iter=180 err=CalledProcessError: Command '['scp', '-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=accept-new', '-o', 'ConnectTimeout=15', '-P', '40300', '/home/const/subnet120/mining/experiments/r2-multiking-merge/artifacts/chal00468_reason.json', 'root@86.38.182.50:/root/affine_data/chal00468_reason.json']' returned non-zero exit status 255.
+[host-hist] 2026-08-11T08:40:47Z iter=180 still pending=['chal-00468', 'chal-00469', 'chal-00470', 'chal-00471']
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+[host-hist] 2026-08-11T08:42:19Z iter=186 err=CalledProcessError: Command '['scp', '-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=accept-new', '-o', 'ConnectTimeout=15', '-P', '40300', '/home/const/subnet120/mining/experiments/r2-multiking-merge/artifacts/chal00468_reason.json', 'root@86.38.182.50:/root/affine_data/chal00468_reason.json']' returned non-zero exit status 255.
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+ssh: connect to host 86.38.182.50 port 40300: Connection refused
+scp: Connection closed
+[host-hist] 2026-08-11T11:12:42Z init skip chal-00467: already on pod
+[host-hist] 2026-08-11T11:12:44Z init skip chal-00468: already on pod
+[host-hist] 2026-08-11T11:12:46Z init skip chal-00469: already on pod
+[host-hist] 2026-08-11T11:12:48Z init skip chal-00470: already on pod
+[host-hist] 2026-08-11T11:12:50Z init skip chal-00471: already on pod
+[host-hist] 2026-08-11T11:12:52Z init skip chal-00480: already on pod
+[host-hist] 2026-08-11T11:12:54Z start pending=['chal-00481']
+[host-hist] 2026-08-11T11:15:40Z iter=12 still pending=['chal-00481']
+[host-hist] 2026-08-11T11:18:40Z iter=24 still pending=['chal-00481']
+[host-hist] 2026-08-11T11:21:41Z iter=36 still pending=['chal-00481']
+[host-hist] 2026-08-11T11:24:41Z iter=48 still pending=['chal-00481']
+[host-hist] 2026-08-11T11:27:42Z iter=60 still pending=['chal-00481']
+[host-hist] 2026-08-11T11:30:42Z iter=72 still pending=['chal-00481']
+[host-hist] 2026-08-11T11:33:43Z iter=84 still pending=['chal-00481']
+[host-hist] 2026-08-11T11:36:43Z iter=96 still pending=['chal-00481']
+[host-hist] 2026-08-11T11:39:44Z iter=108 still pending=['chal-00481']
+[host-hist] 2026-08-11T11:42:44Z iter=120 still pending=['chal-00481']
+[host-hist] 2026-08-11T11:45:53Z PUSHED chal00481 hr=0.16017607184664387 repo=Talucampe037/Affine-5f6xxabdmp-cp13
+[host-hist] 2026-08-11T11:45:53Z all targets stamped

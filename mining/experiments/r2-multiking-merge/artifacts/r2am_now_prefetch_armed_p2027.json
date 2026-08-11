@@ -1,0 +1,29 @@
+{
+  "pass": 2027,
+  "utc": "2026-08-11T12:55:00Z",
+  "weight_version_key": 3,
+  "action": "armed chal-00486 now prefetch chain after h44 + watch-486; R2am n80#2 still gathering",
+  "r2am": {
+    "progress": {"challenger": 14, "king": 13, "n_turns": 80},
+    "sim_pid": 82665,
+    "stage5_waiter": true,
+    "decision": null
+  },
+  "board": {
+    "current_eval": "chal-00484",
+    "repo": "thompsville/affine-5dvegrgnsg-cgpb9",
+    "stage": "load_challenger",
+    "queue": [
+      {"challenge_id": "chal-00485", "repo": "kevin954/Affine-5DFQbBh8Ev-h44"},
+      {"challenge_id": "chal-00486", "repo": "tojointhecommunity/affine-5efg6cm3yl-now", "revision": "d6c08a984f379b5571098d58dc83bf9f77234f2f"}
+    ]
+  },
+  "armed": {
+    "now_after_h44_launcher_pid": 84313,
+    "watch_486_launcher_pid": 84315,
+    "h44_prefetch": "RUNNING ~92%",
+    "cgpb9_prefetch": "DONE"
+  },
+  "burn_usd_per_h": 52.25,
+  "balance_usd": 122007.39
+}
