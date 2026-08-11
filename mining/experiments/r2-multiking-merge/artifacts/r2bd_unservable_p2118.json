@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T21:55:57Z",
+  "pass": 2118,
+  "hyp": "R2bd",
+  "decision": "UNSERVABLE_WEIGHT_INIT",
+  "serve_mode": "hf_repo_rev",
+  "parent": {
+    "repo": "nerojimmy/Affine-5fqbxvz29b-ckp55",
+    "revision": "bf4d01359355df32cdcd1332a9cc587eb8835f7d",
+    "challenge_id": "chal-00504"
+  },
+  "note": "ckp55 HF-id serve failed same family as R2bc; armed R2be hope12",
+  "next": "R2be"
+}

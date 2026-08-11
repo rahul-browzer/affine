@@ -1,3 +1,12 @@
+## p2118 — R2bd UNSERVABLE → R2be hope12 armed (2026-08-11T21:56Z)
+
+- Contract wvk=3 · k_sigma=2.0 · king Tok af10 · B300×8 stock=0 (fleet blind-fire continues).
+- **R2bd** closed: HF-id serve of `nerojimmy/…-ckp55@bf4d0135` died early → `UNSERVABLE_WEIGHT_INIT` (same family as R2bc).
+- Armed **R2be** pure `Shatoria/Affine-5ghntktyzq-hope12@fea71676…` (queue chal-00508; Hub arch ok, 1026 w / 15 shards) HF-id serve + n80 + stage5.
+- Crown pids: prefetch**212546** / reload**212547** / stage5**212548**. Host-hist bridge **2557085** (+00508/511). R3≥167; R4b ~30/52; burn $180.25/h vs $833.
+- Scripts: `launch_prefetch_hope12.sh`, `launch_r2be_hope12_reload_sim.sh`, `watch_r2be_stage5_push.sh`.
+- Next: R2be n80 decision → **R2bf** trangd dpo2@90ea78ff… (chal-00511); rent B300 if stock.
+
 ## p2117 — R2bc UNSERVABLE → R2bd ckp55 armed (2026-08-11T21:53Z)
 
 - Contract wvk=3 · k_sigma=2.0 · king Tok af10 · B300×8 stock=0 (6× R5 burst miss; fleet blind-fire continues).

@@ -331,3 +331,42 @@ scp: failed to upload file /home/const/subnet120/mining/experiments/r2-multiking
 [host-hist] 2026-08-11T20:45:53Z iter=624 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
 [host-hist] 2026-08-11T20:48:54Z iter=636 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
 [host-hist] 2026-08-11T20:51:54Z iter=648 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T20:54:55Z iter=660 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T20:57:55Z iter=672 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:00:56Z iter=684 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:03:57Z iter=696 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:06:57Z iter=708 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:09:58Z iter=720 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:12:59Z iter=732 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:15:59Z iter=744 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:19:00Z iter=756 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:22:00Z iter=768 still pending=['chal-00495', 'chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:22:39Z PUSHED chal00495 hr=-2.349285531777943 repo=syntaxsorcerer1/Affine-5gbhwtw4zo-sft4
+[host-hist] 2026-08-11T21:25:09Z iter=780 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:28:10Z iter=792 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:31:10Z iter=804 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:34:11Z iter=816 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:37:11Z iter=828 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:40:12Z iter=840 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:43:13Z iter=852 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:46:13Z iter=864 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:49:14Z iter=876 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:52:14Z iter=888 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:55:15Z iter=900 still pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504']
+[host-hist] 2026-08-11T21:55:37Z init skip chal-00467: already on pod
+[host-hist] 2026-08-11T21:55:39Z init skip chal-00468: already on pod
+[host-hist] 2026-08-11T21:55:41Z init skip chal-00469: already on pod
+[host-hist] 2026-08-11T21:55:43Z init skip chal-00470: already on pod
+[host-hist] 2026-08-11T21:55:44Z init skip chal-00471: already on pod
+[host-hist] 2026-08-11T21:55:46Z init skip chal-00480: already on pod
+[host-hist] 2026-08-11T21:55:48Z init skip chal-00481: already on pod
+[host-hist] 2026-08-11T21:55:51Z init skip chal-00485: already on pod
+[host-hist] 2026-08-11T21:55:52Z init skip chal-00486: already on pod
+[host-hist] 2026-08-11T21:55:54Z init skip chal-00489: already on pod
+[host-hist] 2026-08-11T21:55:56Z init skip chal-00490: already on pod
+[host-hist] 2026-08-11T21:55:58Z init skip chal-00491: already on pod
+[host-hist] 2026-08-11T21:56:00Z init skip chal-00492: already on pod
+[host-hist] 2026-08-11T21:56:02Z init skip chal-00493: already on pod
+[host-hist] 2026-08-11T21:56:04Z init skip chal-00494: already on pod
+[host-hist] 2026-08-11T21:56:06Z init skip chal-00495: already on pod
+[host-hist] 2026-08-11T21:56:22Z start pending=['chal-00497', 'chal-00498', 'chal-00499', 'chal-00501', 'chal-00502', 'chal-00504', 'chal-00508', 'chal-00511']
