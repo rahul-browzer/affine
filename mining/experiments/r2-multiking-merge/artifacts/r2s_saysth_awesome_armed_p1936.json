@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-11T01:39:34Z",
+  "pass": 1936,
+  "hyp": "R2s",
+  "claim": "saysth0.75×awesome0.25 CPU skew (saysth layout donor) beats pure saysth / Talent×saysth on Reason vs Tok",
+  "parents": {
+    "saysth": "saysth/Affine-5dtnxamt4t-v9a@6e13f365b36000cf631aad2fa9fb05fdabae0044",
+    "saysth_pub_hr": 0.73,
+    "awesome": "0pentensor/Affine-5dflhtkufw-awesome-v6@f479a24d452f1ca312d828acd668a4b1d8de0d8f",
+    "awesome_recomputed_hr": 0.74,
+    "awesome_r2d_pure_hr": 0.22
+  },
+  "weights": {"saysth": 0.75, "awesome": 0.25},
+  "merged": "/root/r2_out/alpha_saysth_awesome_skew",
+  "premerge_log": "/root/logs/r2s_premerge.log",
+  "decision_path": "/root/affine_data/r2s_alpha_decision.json",
+  "sim_path": "/root/affine_data/r2s_alpha_reason_sim.json",
+  "gate": "after R2q terminal; priority over R2r; submit if hr>=1.5×",
+  "purged": "/root/r2_out/alpha_talent_saysth_v9a_skew (R2g REFUTE)",
+  "r2q_at_arm": {"king": 22, "challenger": 22, "n": 80}
+}
