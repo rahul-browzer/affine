@@ -1,0 +1,29 @@
+{
+  "pass": 1967,
+  "armed_at": "2026-08-11T05:36:30Z",
+  "hyp": "R2z",
+  "blend": "TalentPigs 0.25 × 0pentensor/…-awesome-v9 0.75",
+  "layout_donor": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2…",
+  "parent_repo": "0pentensor/Affine-5dflhtkufw-awesome-v9",
+  "parent_revision": "75871c573246051f0104fbed530e8d000d8a6234",
+  "challenge_id": "chal-00467",
+  "pattern": "eager CPU α-merge on prefetch DONE; stamp premerge.done only after Reason+ (hr>0)",
+  "merged_path": "/root/r2_out/alpha_talent_awesome_v9_skew",
+  "gate": "chal00467_reason.json king_match && headroom_vs_3se>0",
+  "why_now": "R2p Talent×sth n80 ~11/80; v9 prefetch mid-download; overlap CPU merge with remaining n80 like R2x/R2y",
+  "queue_probe_next": [
+    {"chal": "chal-00468", "repo": "ammazon/Affine-5dvqtektxx-sbs-v0", "rev": "c175fe8b79a66a8de97953677f1a489cb386261d", "probe": "weights_ok", "st": 16},
+    {"chal": "chal-00469", "repo": "magicworld7/affine-5dtu4gucst-sky", "rev": "a569e29bcab3a1f4ed3a99ee9e46c17dc40e8fdf", "probe": "weights_ok", "st": 2},
+    {"chal": "chal-00470", "repo": "tojointhecommunity/affine-5efg6cm3yl-google", "rev": "9cb6484f2bb4c9d93f10ff94335eef4f0e2ae4e4", "probe": "weights_ok", "st": 2},
+    {"chal": "chal-00471", "repo": "diceofgod/affine-5fjgc5jhxq-pig", "rev": "e4889db406e743bc878d75183aed79bc59915463", "probe": "weights_ok", "st": 2}
+  ],
+  "eager": {
+    "done_at": "2026-08-11T05:42:47Z",
+    "max_abs_delta": 0.67138671875,
+    "identical_frac": 0.451267,
+    "n_keys": 1026,
+    "total_size_gb": 70.214,
+    "seconds": 340.2
+  },
+  "check": "tail -f /root/logs/r2z_premerge.log ; cat /root/logs/r2z_eager_weights.done ; wait chal00467 Reason+"
+}
