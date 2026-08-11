@@ -1,3 +1,11 @@
+## p2000 — google DONE; sky/google chall prestage; R2al+watch471 armed
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,466.
+- Board chal-00469 sky scoring chall **21**/80; R2aj still board-wait (host-hist pending).
+- Google prefetch **DONE** @9cb6484f…; pig prefetch **DL** (pid 16784). Pre-staged `/root/r2_out/{sky,google}_chall` + `preprocessor_config.json`.
+- Armed **watch471** (17261) + **R2al** pure `diceofgod/…-pig@e4889db4` (17285): wait R2ak terminal → board-first 471 → pig chall→n80.
+- Artifacts: `artifacts/p2000_google_done_r2al_armed.json`, `launch_r2al_pig_reload_sim.sh`.
+- Next: poll 469 stamp → SKIP_BOARD or harvest R2aj; else R2ak/R2al.
+
 ## p1996 — R2aj pure-sky armed (wait warm + board 469)
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,497.
 - Restore still HF DL (king~40 GiB / h64~27 GiB / teacher~11 GiB); corpus epoch7 synced.

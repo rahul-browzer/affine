@@ -1,0 +1,33 @@
+{
+  "pass": 2000,
+  "at": "2026-08-11T09:06:36Z",
+  "weight_version_key": 3,
+  "board": {
+    "challenge_id": "chal-00469",
+    "repo": "magicworld7/affine-5dtu4gucst-sky",
+    "stage": "scoring",
+    "progress": {"phase": "scoring", "miner": "challenger", "done": 21, "total": 80}
+  },
+  "google_prefetch": {
+    "done": "OK 2026-08-11T09:04:48Z tojointhecommunity/affine-5efg6cm3yl-google@9cb6484f2bb4c9d93f10ff94335eef4f0e2ae4e4"
+  },
+  "prestage": {
+    "sky_chall": "/root/r2_out/sky_chall (+preprocessor from processor)",
+    "google_chall": "/root/r2_out/google_chall (+preprocessor from processor)",
+    "links": ["/tmp/r2aj_sky", "/tmp/r2ak_google"]
+  },
+  "armed": {
+    "watch_chal00471": 17261,
+    "r2al_pig_reload": 17285,
+    "pig_prefetch": 16784
+  },
+  "still_waiting": {
+    "r2aj": "chal00469_reason.json board stamp (host-hist bridge)",
+    "r2ak": "R2aj terminal",
+    "r2al": "R2ak terminal + pig prefetch + chal00471 board",
+    "host_hist_bridge": "pending 469-471"
+  },
+  "engines": "200/200/200",
+  "burn_usd_per_h": 52.25,
+  "lium_balance_usd": 122466.45
+}
