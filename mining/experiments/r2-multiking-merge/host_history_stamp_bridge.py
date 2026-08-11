@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Host-side Reason stamp bridge for chal-00467..471.
+"""Host-side Reason stamp bridge for chal-00467..471 + 480.
 
 Crown pod often gets Cloudflare 403 on affine.io/api/v1/history (Lium egress),
 so on-pod history fast-path silently no-ops and unservable verdicts never stamp.
@@ -57,6 +57,7 @@ TARGETS = {
     "chal-00469": "chal00469",
     "chal-00470": "chal00470",
     "chal-00471": "chal00471",
+    "chal-00480": "chal00480",  # queue ammazon sbs-v1 (p2011)
 }
 
 
