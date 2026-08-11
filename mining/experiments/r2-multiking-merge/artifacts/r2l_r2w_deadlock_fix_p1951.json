@@ -1,0 +1,9 @@
+{
+  "utc": "2026-08-11T03:25:58Z",
+  "pass": 1951,
+  "bug": "R2l\u2194R2w deadlock: wait_r2q waited on R2w pid while R2w yielded via r2l_claiming_gpu",
+  "fix": "R2w wait only if r2w_asdf_holding.stamp; R2w stamps holding just before chall kill",
+  "action": "killed r2w pid 200437; R2l reloaded Talent\u00d7sft3 chall; relaunched R2w yielding; stage5 SKIP_BELOW_BAR",
+  "r2l": "n80 started block_hash=dc207e112abfec36 chall_pid=205129",
+  "r2w_pid": 205024
+}

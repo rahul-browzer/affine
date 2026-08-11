@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **450 sft3 board hr 0.37×**; **R2l** Talent×sft3 **merging**; **R2v** ~53/80; **R2w** yields mid-R2l (p1950); stage5-push armed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** pure sft3 **0.39×**; **R2l** Talent×sft3 **n80**; **R2w** yielding (deadlock fixed p1951); stage5 SKIP |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open** — after a clear R1 win |
 
 ## Open
@@ -20,7 +20,7 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e/g/h/q/t REFUTED**. **R2j/i/k SKIPPED**. **R2s/R2u WEAK_SKIP**. **chal-00450 sft3** board hr **0.37×** (margin +0.0046, z=1.11) — Reason+ no crown; stamp unblocked **R2l** Talent0.25×sft3:0.75 CPU merge. **R2v** local n80 ~53/80. **R2w** asdf re-armed pid **200437** with mid-merge yield to R2l. stage5-push + bridge-w armed. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. Weak Tok/kevin×awesome / saysth×awesome / **saysth×kevin** lanes SKIPPED (Δ≪0.01). **R2d** hr **0.22×**. **R2e/g/h/q/t REFUTED**. **R2j/i/k SKIPPED**. **R2s/R2u WEAK_SKIP**. **R2v** pure sft3 local hr **0.39×** (margin +0.0049, z=1.18) ≈ board 450 0.37× — no Stage-5. **R2l** Talent0.25×sft3:0.75 (Δ=0.626) **n80 running** after p1951 deadlock fix. **R2w** asdf yielding (pid 205024). Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.

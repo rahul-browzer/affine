@@ -135,16 +135,19 @@ for _i in $(seq 1 2880); do
   echo "[${_TAG}] R2v not holding lane at iter=$_i"
   break
 done
+# R2w may be alive while still yielding to R2l (wait-claimant). Only block
+# siblings once R2w has stamped that it owns chall (see launch_r2w).
+R2W_HOLDING=${R2W_HOLDING:-/root/logs/r2w_asdf_holding.stamp}
 for _i in $(seq 1 2880); do
   if [[ -f "$R2W_DONE" || -f "$R2W_DEC" ]]; then
     echo "[${_TAG}] R2w terminal; chall lane free at iter=$_i"
     break
   fi
-  if [[ -f "$R2W_PIDF" ]]; then
+  if [[ -f "$R2W_HOLDING" ]] && [[ -f "$R2W_PIDF" ]]; then
     _ppid=$(cat "$R2W_PIDF" 2>/dev/null || true)
     if [[ -n "${_ppid:-}" ]] && kill -0 "$_ppid" 2>/dev/null; then
       if (( _i % 12 == 0 )); then
-        echo "[${_TAG}] wait-r2w iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid"
+        echo "[${_TAG}] wait-r2w iter=$_i $(date -u +%Y-%m-%dT%H:%M:%SZ) pid=$_ppid holding"
       fi
       sleep 10
       continue

@@ -287,6 +287,12 @@ fi
 ln -sfn "$CHALL_DIR" "$LINK"
 echo "[r2w-asdf] link $LINK -> $(readlink -f "$LINK")"
 
+# Mark chall ownership so siblings waiting on wait_r2q… only block once we
+# actually take :8002 — not while we are still yielding to R2l (p1951).
+HOLDING=/root/logs/r2w_asdf_holding.stamp
+echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) claiming chall" >"$HOLDING"
+trap 'rm -f "$HOLDING"' EXIT
+
 CHALL_PID_FILE=/root/logs/vllm_chall.pid
 if [[ -f "$CHALL_PID_FILE" ]]; then
   CPID=$(cat "$CHALL_PID_FILE" || true)

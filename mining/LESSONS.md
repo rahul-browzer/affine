@@ -124,3 +124,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1948: Stage-5 bridge stamps alone idle the loop — arm **HF push waiter** on `*_stage5_ready.json` (purge old `*-merged` first; public upload; **no** auto-submit). Pre-stage next pure-parent chall dir + preprocessor while current n80 runs.
 - p1949: Stage-5 HF purge must delete **largest** `Affine-5czsc2fc98-*` (≥1 GiB), not only `*-merged` — leftover `*fullft*`/`*trefsft*` ~70 GiB still trip the public storage cap; pre-purge during n80 so push starts immediately on ≥1.5×.
 - p1950: pure-asdf (R2w) must yield while Talent×parent **premerge PID is alive** or board Reason stamp hr>0 — `premerge.done`-only gates lose the race mid-blend and steal chall from the better lane.
+- p1951: **R2v** pure sft3 local hr **0.39×** (margin +0.0049, z=1.18, n=80) ≈ board 450 0.37× — published Reason+ parent does not clear 1.5× as chall; Stage-5 skipped.
+- p1951: `wait_r2q_before_chall_kill` must **not** treat R2w pid-alive as holding chall — R2w yields to R2l in wait-claimant → **deadlock**. Gate R2w wait on `r2w_asdf_holding.stamp` (set only just before chall kill).
