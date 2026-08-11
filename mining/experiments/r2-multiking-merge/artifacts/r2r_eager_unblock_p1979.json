@@ -1,0 +1,38 @@
+{
+  "pass": 1979,
+  "utc": "2026-08-11T06:39:29Z",
+  "action": "unblock_gpu_claim_path + R2r eager",
+  "bug": "R2x–ad merge_reload treated R2r as always-busy via lane_terminal while R2r waited on chal-00458 Reason with no premerge.done — first Reason+ among 462/463/467–471 would never claim chall",
+  "fix": "R2r busy only if /root/logs/r2r_premerge.done; relaunched R2x–ad merge_reload with patched scripts",
+  "purge_gib_approx": 266,
+  "purged_hf": [
+    "adsbasd31badsf/affine-5ec3jw68ha-asdf",
+    "diceofgod/affine-5fjgc5jhxq-zeus",
+    "fortunateGambler/affine-5cwwlhucdc-sth",
+    "afgod1079/Affine-5hjnzhlrnj-cp200"
+  ],
+  "disk_free_before_gib": 49,
+  "disk_free_after_purge_gib": 314,
+  "disk_free_after_eager_gib": 248,
+  "r2r": {
+    "lane": "R2r",
+    "claim": "Talent0.25 × whoami 0.75 (Talent layout) raises Reason vs Tok when chal-00458 hr>0",
+    "parent_chal": "chal-00458",
+    "parent_repo": "marsplan0624/affine-5gedzafcvg-whoami",
+    "parent_rev": "21ad45721ab242a6aa0c18d00104045627d68583",
+    "merged": "/root/r2_out/alpha_talent_whoami_skew",
+    "eager": true,
+    "max_abs_delta": 0.67138671875,
+    "n_keys": 1026,
+    "identical_frac": 0.452242,
+    "done_gated_on": "chal00458_reason.json hr>0 + king_match"
+  },
+  "check": {
+    "eager": "cat /root/logs/r2r_eager_weights.done",
+    "premerge": "cat /root/logs/r2r_premerge.done",
+    "decision": "cat /root/affine_data/r2r_alpha_decision.json"
+  },
+  "next_after": [
+    "harvest first Reason+ among 458/462/463/467–471 → premerge.done → n80"
+  ]
+}

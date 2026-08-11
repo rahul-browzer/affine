@@ -62,9 +62,31 @@ R2U_DONE=${R2U_DONE:-/root/logs/r2u_merge_reload.done}
 R2U_PREMERGE_SKIP=${R2U_PREMERGE_SKIP:-/root/logs/r2u_premerge.skip}
 R2V_DEC=${R2V_DEC:-/root/affine_data/r2v_sft3_decision.json}
 R2V_DONE=${R2V_DONE:-/root/logs/r2v_sft3_reload.done}
+R2X_DEC=${R2X_DEC:-/root/affine_data/r2x_alpha_decision.json}
+R2X_DONE=${R2X_DONE:-/root/logs/r2x_merge_reload.done}
+R2X_PREMERGE_SKIP=${R2X_PREMERGE_SKIP:-/root/logs/r2x_premerge.skip}
+R2Y_DEC=${R2Y_DEC:-/root/affine_data/r2y_alpha_decision.json}
+R2Y_DONE=${R2Y_DONE:-/root/logs/r2y_merge_reload.done}
+R2Y_PREMERGE_SKIP=${R2Y_PREMERGE_SKIP:-/root/logs/r2y_premerge.skip}
+R2Z_DEC=${R2Z_DEC:-/root/affine_data/r2z_alpha_decision.json}
+R2Z_DONE=${R2Z_DONE:-/root/logs/r2z_merge_reload.done}
+R2Z_PREMERGE_SKIP=${R2Z_PREMERGE_SKIP:-/root/logs/r2z_premerge.skip}
+R2AA_DEC=${R2AA_DEC:-/root/affine_data/r2aa_alpha_decision.json}
+R2AA_DONE=${R2AA_DONE:-/root/logs/r2aa_merge_reload.done}
+R2AA_PREMERGE_SKIP=${R2AA_PREMERGE_SKIP:-/root/logs/r2aa_premerge.skip}
+R2AB_DEC=${R2AB_DEC:-/root/affine_data/r2ab_alpha_decision.json}
+R2AB_DONE=${R2AB_DONE:-/root/logs/r2ab_merge_reload.done}
+R2AB_PREMERGE_SKIP=${R2AB_PREMERGE_SKIP:-/root/logs/r2ab_premerge.skip}
+R2AC_DEC=${R2AC_DEC:-/root/affine_data/r2ac_alpha_decision.json}
+R2AC_DONE=${R2AC_DONE:-/root/logs/r2ac_merge_reload.done}
+R2AC_PREMERGE_SKIP=${R2AC_PREMERGE_SKIP:-/root/logs/r2ac_premerge.skip}
+R2AD_DEC=${R2AD_DEC:-/root/affine_data/r2ad_alpha_decision.json}
+R2AD_DONE=${R2AD_DONE:-/root/logs/r2ad_merge_reload.done}
+R2AD_PREMERGE_SKIP=${R2AD_PREMERGE_SKIP:-/root/logs/r2ad_premerge.skip}
 HEADROOM_BAR=${HEADROOM_BAR:-1.5}
 MERGED=${MERGED:-/root/r2_out/alpha_talent_whoami_skew}
 LINK=${LINK:-/tmp/r2r_alpha_merged}
+HOLDING=${HOLDING:-/root/logs/r2r_talent_whoami_holding.stamp}
 
 headroom_ok() {
   local f="$1"
@@ -152,6 +174,20 @@ for i in $(seq 1 2880); do
   if [[ -f /root/logs/r2u_premerge.done ]] && ! lane_terminal "$R2U_DONE" "$R2U_PREMERGE_SKIP" "$R2U_DEC"; then
     busy=1
   fi
+  # R2x–ad: busy only once premerge.done (eager Reason waiters must not idle GPU)
+  for sib in x y z aa ab ac ad; do
+    if [[ -f /root/logs/r2${sib}_premerge.done ]]; then
+      case "$sib" in
+        x) lane_terminal "$R2X_DONE" "$R2X_PREMERGE_SKIP" "$R2X_DEC" || busy=1 ;;
+        y) lane_terminal "$R2Y_DONE" "$R2Y_PREMERGE_SKIP" "$R2Y_DEC" || busy=1 ;;
+        z) lane_terminal "$R2Z_DONE" "$R2Z_PREMERGE_SKIP" "$R2Z_DEC" || busy=1 ;;
+        aa) lane_terminal "$R2AA_DONE" "$R2AA_PREMERGE_SKIP" "$R2AA_DEC" || busy=1 ;;
+        ab) lane_terminal "$R2AB_DONE" "$R2AB_PREMERGE_SKIP" "$R2AB_DEC" || busy=1 ;;
+        ac) lane_terminal "$R2AC_DONE" "$R2AC_PREMERGE_SKIP" "$R2AC_DEC" || busy=1 ;;
+        ad) lane_terminal "$R2AD_DONE" "$R2AD_PREMERGE_SKIP" "$R2AD_DEC" || busy=1 ;;
+      esac
+    fi
+  done
 
   for pf in /root/logs/r2{i,j,k,l,m,n,o,p}_merge_reload.pid /root/logs/r2q_saysth_reload.pid /root/logs/r2s_merge_reload.pid /root/logs/r2t_merge_reload.pid /root/logs/r2u_merge_reload.pid /root/logs/r2v_sft3_reload.pid; do
     if pid_alive "$pf"; then
@@ -229,6 +265,15 @@ fi
 
 ln -sfn "$MERGED" "$LINK"
 echo "[r2r-merge] link $LINK -> $(readlink -f "$LINK")"
+
+# Wait if a sibling currently owns chall (do not yank mid-n80).
+rm -f "$HOLDING"
+_WAIT_R2Q_TAG=r2r-merge
+# shellcheck disable=SC1091
+source /root/mining_src/r2-multiking-merge/wait_r2q_before_chall_kill.inc.sh
+
+# Claim chall before kill so siblings honor holding stamp.
+date -u +%Y-%m-%dT%H:%M:%SZ >"$HOLDING"
 
 CHALL_PID_FILE=/root/logs/vllm_chall.pid
 if [[ -f "$CHALL_PID_FILE" ]]; then

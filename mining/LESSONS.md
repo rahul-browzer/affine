@@ -144,7 +144,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1966: while R2p n80 gathers, prefetch next uncached queue parent (chal-00467 awesome-v9 @75871c57, 16×st ~70.2 GiB) on CPU/network — do not merge until Reason+.
 - p1967: R2z Talent×awesome-v9 skew (0.25/0.75) eager CPU merge **DONE** max_abs_delta=**0.671** · identical_frac=0.45 · 70 GiB · ~5.7 min — same Δ class as R2p/R2x; keep DONE gated on chal-00467 Reason+.
 - p1967 queue index probes (unconst): chal-00468 sbs-v0 / 469 sky / 470 google / 471 pig all **weights_ok** — prefetch **sbs first** (16×st) one-at-a-time after v9; sky/google/pig are 2×st (~smaller).
-- Prefetch DONE without an eager Talent× blend (sbs/sky sat cached with only Reason watches) idles crown CPU — arm `*_eager_weights` on prefetch DONE in the same pass, not later.
 - p1975: **R2p REFUTE** Talent×sth hr **−0.93×** (margin −0.0282, z=−2.78, n=80) despite board 455 hr 0.79× — best DL Reason+ parent still fails Talent0.25 skew; Stage-5 SKIP; kill chall by PID then purge blend.
 - p1976: after R2ab eager DONE, arm next Talent×queue parent (google R2ac) same pass — disk ≥75 GiB + prefetch DONE; keep `*_premerge.done` gated on board Reason+; extend `wait_r2q` holding for R2aa/ab/ac.
 - p1977: after R2ac eager DONE (Δ=0.626), arm Talent×pig (R2ad) same pass — serialize on `r2ac_eager_weights.done`; R2ac merge_reload must yield when `r2ad_premerge.done` exists; extend `wait_r2q` holding for R2ad.
+- p1979: R2x–ad `lane_terminal(R2R)` without `r2r_premerge.done` **deadlocks** GPU forever while whoami duel pending — treat R2r like R2aa (busy only after premerge.done); convert R2r to eager; purge closed parents before the ~70 GiB blend.

@@ -152,7 +152,8 @@ for i in $(seq 1 2880); do
   if ! lane_terminal "$R2N_DONE" "$R2N_PREMERGE_SKIP" "$R2N_DEC"; then busy=1; fi
   if ! lane_terminal "$R2O_DONE" "$R2O_PREMERGE_SKIP" "$R2O_DEC"; then busy=1; fi
   if ! lane_terminal "$R2P_DONE" "$R2P_PREMERGE_SKIP" "$R2P_DEC"; then busy=1; fi
-  if ! lane_terminal "$R2R_DONE" "$R2R_PREMERGE_SKIP" "$R2R_DEC"; then busy=1; fi
+  # R2r: busy only once premerge.done (Reason-only whoami waiter must not idle GPU)
+  if [[ -f /root/logs/r2r_premerge.done ]] && ! lane_terminal "$R2R_DONE" "$R2R_PREMERGE_SKIP" "$R2R_DEC"; then busy=1; fi
   if [[ ! -f "$R2Q_DONE" && ! -f "$R2Q_DEC" ]]; then busy=1; fi
   if [[ ! -f "$R2V_DONE" && ! -f "$R2V_DEC" ]]; then busy=1; fi
   if ! lane_terminal "$R2X_DONE" "$R2X_PREMERGE_SKIP" "$R2X_DEC"; then busy=1; fi
@@ -182,7 +183,7 @@ for i in $(seq 1 2880); do
         *r2n*) lane_terminal "$R2N_DONE" "$R2N_PREMERGE_SKIP" "$R2N_DEC" || busy=1 ;;
         *r2o*) lane_terminal "$R2O_DONE" "$R2O_PREMERGE_SKIP" "$R2O_DEC" || busy=1 ;;
         *r2p*) lane_terminal "$R2P_DONE" "$R2P_PREMERGE_SKIP" "$R2P_DEC" || busy=1 ;;
-        *r2r*) lane_terminal "$R2R_DONE" "$R2R_PREMERGE_SKIP" "$R2R_DEC" || busy=1 ;;
+        *r2r*) if [[ -f /root/logs/r2r_premerge.done ]]; then lane_terminal "$R2R_DONE" "$R2R_PREMERGE_SKIP" "$R2R_DEC" || busy=1; fi ;;
         *r2q*) [[ -f "$R2Q_DONE" || -f "$R2Q_DEC" ]] || busy=1 ;;
         *r2s*) lane_terminal "$R2S_DONE" "$R2S_PREMERGE_SKIP" "$R2S_DEC" || busy=1 ;;
         *r2t*) lane_terminal "$R2T_DONE" "$R2T_PREMERGE_SKIP" "$R2T_DEC" || busy=1 ;;
