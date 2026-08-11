@@ -89,3 +89,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1910 queue index probes (unconst @main→sha): BKN seven/six, syntaxsorcerer1/sft3, adsbasd/asdf, diceofgod/zeus all **weights_ok**; `/root` HF cache has **~428 GiB** free — prefetch **one** ~65–70 GiB parent at a time (BKN seven first).
 - R2h Tok×Talent×kevin equal-α (Δ=0.277) vs Tok: margin **−0.0211** (z=−1.77, hr **−0.59×**, n=60) — multi-reign equal-α loses; chall mean_len_z 777 vs king 418 with fewer scored pairs (130 vs 311).
 - Prefetch DONE stamps live under `/root/logs/` — also copy to `/root/affine_data/*.done` so Ralph inventory readers do not miss them; arm chal Reason watcher as soon as parent is cached.
+- chal-00440 `saysth/…-v9a@6e13f365` vs Tok: Reason margin **+0.00916** (z=2.18, 3·SE=0.0126, hr **0.73×**, n=80) — best live DL Reason+ since awesome-v6; lost crown (challenger_wins=false) but clears R2g gate (hr>0); Talent×saysth skew is the next n80.

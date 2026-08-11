@@ -6,7 +6,7 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | lunar-orbit-50 (`1c4255fa-…`) | 8×B300 | $64.00 | 2026-08-11T16:12Z | TK@65536 · R2g/440 · R2i/441 · BKN/432 watch |
+| mine-crown-1 | lunar-orbit-50 (`1c4255fa-…`) | 8×B300 | $64.00 | 2026-08-11T16:12Z | TK@65536 · R2g Talent×saysth merge · R2i/441 · BKN/432 |
 
 SSH: `ssh root@86.38.182.50 -p 40300`
 
@@ -16,6 +16,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-11T00:13Z | p1912: fleet=1 · chal-00440 Reason hr0.73× → R2g gate ok · CPU merge running; burn$64/h; bal~$123657 |
 | 2026-08-11T00:10Z | p1911: fleet=1 · R2h REFUTE hr−0.59×; BKN prefetch DONE; armed 432 watch 140530; burn$64/h; bal~$123657 |
 | 2026-08-10T23:56Z | p1910: fleet=1 · R2h ~36/80; armed BKN seven prefetch 139298; burn$64/h; bal~$123691 |
-| 2026-08-10T23:53Z | p1909: fleet=1 · R2h ~30/80; armed R2i reload 139014; thomp prefetch DONE; burn$64/h; bal~$123702 |

@@ -1,5 +1,14 @@
 # R2 result log
 
+## p1912 — chal-00440 saysth Reason+ (0.73×); R2g merge ungated
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,657.
+- Harvested eval gzip mid-finish (79/80→publish): `chal00440_reason.json` — margin **+0.009156** · se=0.004193 · z=**2.18** · 3·SE=**0.01258** · headroom=**0.728×** · n=80 · `king_match=true` · `challenger_wins=false` · formula stamped Reason.
+- Signal `POS_BELOW_3SE` — not a crown, but clears R2g gate (hr>0).
+- Pod watcher 129745 stamped DONE; premerge **130003** gate ok → CPU `merge_alpha.py` Talent0.25×saysth0.75 → `/root/r2_out/alpha_talent_saysth_v9a_skew`; reload waiter **130835** armed for chall→n80.
+- R2i/441 + BKN/432 waiters still alive; no new rent/prefetch.
+- Artifacts: `artifacts/chal00440_reason.{json,done}`.
+- Next: harvest `r2g_alpha_decision.json` after n80; submit only if hr≥1.5×.
+
 ## p1911 — R2h TTK REFUTED; BKN seven watch armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$123,657.
 - Harvested `r2h_ttk_decision.json` (00:09:39Z): margin **−0.02112** · se=0.01192 · z=**−1.77** · 3·SE=**0.03577** · headroom=**−0.591×** · reason_c=−0.04088 · reason_k=−0.01658 · n_paired=60 · `challenger_wins=false`.
