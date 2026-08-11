@@ -200,39 +200,40 @@ for i in $(seq 1 "$MAX_ITERS"); do
   axis=${rest%%|*}
   note=${rest#*|}
 
-  gpu=""
-  if stock_ok B300; then
-    gpu=B300
-  elif stock_ok B200; then
-    gpu=B200
-    log "B300×8 empty — falling back to B200×8 for $name"
-  else
-    if (( i % 10 == 1 )); then
-      bal=$(lium balance 2>/dev/null | tr -d '\n' | head -c 80 || true)
-      log "iter=$i no 8×B300/B200; mine=$n/$TARGET (cap $CAP) next=$name bal=$bal"
-    fi
-    sleep "$POLL_S"
-    continue
-  fi
-
+  # Blind-fire: skip stock_ok (lium ls adds ~0.6–1.3s/iter). Failed
+  # `lium up` is ~1s and is the real snatch — fire B300 then B200.
   if name_live "$name"; then
     log "skip already live $name"
     sleep 2
     continue
   fi
 
-  if try_rent "$gpu" "$name"; then
-    sleep 10
-    if name_live "$name"; then
-      log "RENTED ok gpu=$gpu name=$name axis=$axis"
-      write_rent_stamp "$name" "$axis" "$gpu" "$note" || true
-      # Immediately try next slot if more stock (no long sleep).
-      continue
-    fi
-    log "up rc=0 but $name not in ps — keep polling"
+  gpu=""
+  if try_rent B300 "$name"; then
+    gpu=B300
+  elif try_rent B200 "$name"; then
+    gpu=B200
+    log "B300×8 empty — fell back to B200×8 for $name"
   else
-    log "rent failed gpu=$gpu name=$name iter=$i"
+    if (( i % 20 == 1 )); then
+      bal=$(lium balance 2>/dev/null | tr -d '\n' | head -c 80 || true)
+      log "iter=$i no 8×B300/B200 (blind-fire miss); mine=$n/$TARGET (cap $CAP) next=$name bal=$bal"
+    fi
+    # Failed up already spent ~1–2s; optional micro-sleep via POLL_S (0 ok).
+    if (( POLL_S > 0 )); then
+      sleep "$POLL_S"
+    fi
+    continue
   fi
+
+  sleep 10
+  if name_live "$name"; then
+    log "RENTED ok gpu=$gpu name=$name axis=$axis"
+    write_rent_stamp "$name" "$axis" "$gpu" "$note" || true
+    # Immediately try next slot if more stock (no long sleep).
+    continue
+  fi
+  log "up rc=0 but $name not in ps — keep polling"
   sleep "$POLL_S"
 done
 

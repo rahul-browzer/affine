@@ -1,0 +1,165 @@
+[burst] 2026-08-11T21:12:33Z try=1 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:34Z try=1 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:35Z try=2 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:36Z try=2 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:38Z try=3 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:38Z try=3 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:40Z try=4 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:41Z try=4 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:42Z try=5 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:43Z try=5 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:44Z try=6 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:45Z try=6 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:46Z try=7 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:47Z try=7 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:49Z try=8 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:49Z try=8 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:51Z try=9 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:51Z try=9 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:53Z try=10 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:53Z try=10 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:55Z try=11 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:55Z try=11 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:57Z try=12 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:57Z try=12 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:59Z try=13 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:12:59Z try=13 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:01Z try=14 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:02Z try=14 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:03Z try=15 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:04Z try=15 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:05Z try=16 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:06Z try=16 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:07Z try=17 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:08Z try=17 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:10Z try=18 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:10Z try=18 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:12Z try=19 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:13Z try=19 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:14Z try=20 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:15Z try=20 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:16Z try=21 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:17Z try=21 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:18Z try=22 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:19Z try=22 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:20Z try=23 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:21Z try=23 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:22Z try=24 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:23Z try=24 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:24Z try=25 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:25Z try=25 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:26Z try=26 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:27Z try=26 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:29Z try=27 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:29Z try=27 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:31Z try=28 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:31Z try=28 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:33Z try=29 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:34Z try=29 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:35Z try=30 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:36Z try=30 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:37Z try=31 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:38Z try=31 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:39Z try=32 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:40Z try=32 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:41Z try=33 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:42Z try=33 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:43Z try=34 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:44Z try=34 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:46Z try=35 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:47Z try=35 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:48Z try=36 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:49Z try=36 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:50Z try=37 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:51Z try=37 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:52Z try=38 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:53Z try=38 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:55Z try=39 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:56Z try=39 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:13:58Z try=40 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:14:00Z try=40 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:14:01Z try=41 B300
+No nodes available with GPU type=B300, GPU count=8, min ports=12
+[burst] 2026-08-11T21:14:02Z try=41 B200
+No nodes available with GPU type=B200, GPU count=8, min ports=12
+[burst] 2026-08-11T21:14:03Z DONE tries=41
