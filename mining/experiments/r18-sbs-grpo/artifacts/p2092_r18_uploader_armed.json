@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-11T20:02:45Z",
+  "pass": 2092,
+  "axis": "R18",
+  "pod": "mine-r18-sbs-grpo-1",
+  "base": "ammazon/Affine-5dvqtektxx-sbs-v2",
+  "base_rev": "6f1b8e682aea94a00d8387f4ab9bdef6da153944",
+  "method": "grpo_teacher_reason_sbs_v2_init",
+  "uploader": "experiments/r18-sbs-grpo/upload_and_launch.sh",
+  "fleet_rent_pid": 2327080,
+  "fleet_boot_pid": 2327084,
+  "note": "pure sbs-v2 GRPO uploader + fleet queue/boot armed; B300\u00d78=0; \u2260 R3/R10/R2ay"
+}
