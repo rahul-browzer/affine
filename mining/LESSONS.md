@@ -126,3 +126,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - p1950: pure-asdf (R2w) must yield while Talent×parent **premerge PID is alive** or board Reason stamp hr>0 — `premerge.done`-only gates lose the race mid-blend and steal chall from the better lane.
 - p1951: **R2v** pure sft3 local hr **0.39×** (margin +0.0049, z=1.18, n=80) ≈ board 450 0.37× — published Reason+ parent does not clear 1.5× as chall; Stage-5 skipped.
 - p1951: `wait_r2q_before_chall_kill` must **not** treat R2w pid-alive as holding chall — R2w yields to R2l in wait-claimant → **deadlock**. Gate R2w wait on `r2w_asdf_holding.stamp` (set only just before chall kill).
+- p1953: live queue added **chal-00462** `0pentensor/…-awesome-v8@6c04b16d…` + **chal-00463** `llorite/…-tpc9@dba3b6f3…` — both index-probe weights_ok (~70 GiB); prefetch **one-at-a-time** (v8 then tpc9) while R2l n80 gathers; arm Reason watchers before merge.
