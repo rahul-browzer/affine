@@ -1,3 +1,10 @@
+## p2004 — chal-00469 stamp unlocks R2aj/R2ab/R2ak (2026-08-11T09:19Z)
+
+- Board sky vs Tok: Reason margin **+0.00395** · z=1.38 · 3·SE=0.00860 · hr **0.459×** (n=79; gzip matches published Reason formula).
+- Stamped `/root/affine_data/chal00469_reason.json` → **R2aj SKIP_BOARD_FIRST** (no pure-sky n80).
+- **R2ab** Talent0.25×sky0.75 eager+premerge **DONE** (max_abs_delta=**0.626**, identical_frac=0.45); merge_reload waits R2ak holding.
+- **R2ak** claimed chall → loading `tojointhecommunity/…-google` on :8002.
+
 ## p2003 — Talent DONE; R2ab Talent×sky eager armed
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$52.25/h; bal~$122,446.
 - Board chal-00469 sky scoring chall **74**/80 (gzip 404); R2aj still board-wait.

@@ -1,0 +1,11 @@
+{
+  "utc": "2026-08-11T09:17:11Z",
+  "hyp": "R2aj",
+  "decision": "SKIP_BOARD_FIRST",
+  "headroom_vs_3se": 0.4590923501662613,
+  "headroom_bar": 1.5,
+  "note": "board chal-00469 hr already known < 1.5\u00d7; do not burn pure-sky n80",
+  "board_reason": "/root/affine_data/chal00469_reason.json",
+  "sky_repo": "magicworld7/affine-5dtu4gucst-sky",
+  "sky_rev": "a569e29bcab3a1f4ed3a99ee9e46c17dc40e8fdf"
+}
