@@ -1,0 +1,46 @@
+{
+  "utc": "2026-08-11T18:08:22Z",
+  "pass": 2065,
+  "hyp": "R2ay",
+  "weight_version_key": 3,
+  "k_sigma_live": 2.0,
+  "king": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "action": "arm pure sbs-v2 after R2ax (prefetch + reload waiter + stage5)",
+  "challenger": "ammazon/Affine-5dvqtektxx-sbs-v2",
+  "challenger_rev": "6f1b8e682aea94a00d8387f4ab9bdef6da153944",
+  "challenge_id": "chal-00499",
+  "scripts": {
+    "prefetch": "/root/launch_prefetch_sbs_v2.sh",
+    "reload": "/root/launch_r2ay_sbs_v2_reload_sim.sh",
+    "stage5": "/root/watch_r2ay_stage5_push.sh"
+  },
+  "pids": {
+    "prefetch": 172409,
+    "reload": 172410,
+    "stage5": 172411
+  },
+  "waits_for": {
+    "r2ax_decision": "/root/affine_data/r2ax_tt_decision.json",
+    "r2ax_done": "/root/logs/r2ax_tt_reload.done",
+    "board_reason": "/root/affine_data/chal00499_reason.json",
+    "prefetch_done": "/root/logs/r2_prefetch_sbs_v2.done"
+  },
+  "r2ax_at_arm": {
+    "challenger": 8,
+    "king": 9,
+    "n_turns": 80
+  },
+  "host_hist_pid": 2113721,
+  "host_hist_new_targets": [
+    "chal-00497",
+    "chal-00498",
+    "chal-00499",
+    "chal-00501",
+    "chal-00502",
+    "chal-00504"
+  ],
+  "b300_stock_8x": 0,
+  "burn_usd_per_h": 116.25,
+  "note": "B300 stock empty; keep crown chain warm with next distinct queue parent"
+}

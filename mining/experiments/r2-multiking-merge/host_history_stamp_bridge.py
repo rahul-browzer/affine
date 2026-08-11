@@ -68,6 +68,12 @@ TARGETS = {
     "chal-00493": "chal00493",  # Bittoby1040 v2 (queue)
     "chal-00494": "chal00494",  # peakperformer1 mt1 (queue)
     "chal-00495": "chal00495",  # syntaxsorcerer1 sft4 (queue; p2041)
+    "chal-00497": "chal00497",  # vera6 vvv (queue; p2065)
+    "chal-00498": "chal00498",  # 0pentensor awesome-v10 (queue; p2065)
+    "chal-00499": "chal00499",  # ammazon sbs-v2 (R2ay; p2065)
+    "chal-00501": "chal00501",  # tolegend ckp333 (queue; p2065)
+    "chal-00502": "chal00502",  # arbosfan ec08cldg (queue; p2065)
+    "chal-00504": "chal00504",  # nerojimmy ckp55 (queue; p2065)
 }
 
 

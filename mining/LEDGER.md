@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $121,277.80 | 2026-08-11T18:04Z |
-| cumulative mining spend | ~$76,310 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T18:04Z |
-| **available for mining** | **~$111,278** (balance − $10,000 floor) | 2026-08-11T18:04Z |
+| Lium balance | $121,262.81 | 2026-08-11T18:08Z |
+| cumulative mining spend | ~$76,325 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T18:08Z |
+| **available for mining** | **~$111,263** (balance − $10,000 floor) | 2026-08-11T18:08Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T18:04Z |
+| miner burn (2 pods) | **$116.25/h** (B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-11T18:08Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T18:08Z | 121262.81 | p2065 R2ay sbs-v2 arm (no new rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2064 |
 | 2026-08-11T18:04Z | 121277.80 | p2064 R2av REFUTE + R2ax auto-continue (no new rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2063 |
 | 2026-08-11T18:00Z | 121293.97 | p2063 R3 GRPO relaunch after wedge (no new rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2062 |
 | 2026-08-11T17:54Z | 121309.53 | p2062 R3 king@65536 + teacher recover (no new rent; B300×8=0); burn **$116.25/h**; Δ−$62 vs p2061 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T16:46Z | 121511.37 | p2058 killed slow crown→R3 rsync; HF parallel_dl relaunched (no new rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2057 |
 | 2026-08-11T16:41Z | 121526.95 | p2057 crown→R3 parallel rsync Tok+teacher (no new rent; B300×8=0); burn **$116.25/h**; Δ−$16 vs p2056 |
 | 2026-08-11T16:37Z | 121542.56 | p2056 R3 parallel_dl mid-pip (no new rent; B300×8=0); burn **$116.25/h**; Δ−$15 vs p2055 |
-| 2026-08-11T16:34Z | 121557.90 | p2055 R3 bootstrap launched on `mine-r3-grpo-1` (no new rent; B300×8=0); burn **$116.25/h**; Δ−$11 vs p2054 |

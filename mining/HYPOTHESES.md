@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p/r/am/ao REFUTE**; **R2ag/ab/ac/ad REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2ae SKIP_GATED**; **R2af/R2x/R2ah/R2z/R2ai/R2aj/R2al SKIP_BOARD**; **R2y/R2aw/R2ar SKIP_UNSERVABLE**; **R2ak** local **0.641×**; **R2am −1.39×**; **R2an SKIP_BOARD** cp13; **R2ao** pure af17 **−0.074×**; **R2ap** pure h44 **0.327×**; **R2aq** pure-now **0.773× WEAK_SKIP**; **R2ar** iynocr2p index/shard; **R2as** pure-726 **0.060× WEAK_SKIP**; **R2at** hope11 **WEAK_SKIP** m+0.01223 z=1.93 hr**0.97×** live2σ; **R2au REFUTE** m−0.03071 z−3.66 hr_live2σ **−1.83×**; **R2av REFUTE** Bittoby-v2 m−0.00027 z−0.065 hr_live2σ **−0.033×**; **R2ax** tt loading :8002; host-hist 489–499; **R2aa** stubbed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2d** 0.22×; **R2e/g/h/q/t/l/n/o/p/r/am/ao REFUTE**; **R2ag/ab/ac/ad REFUTE**; **R2j/i/k SKIP**; **R2s/R2u WEAK_SKIP**; **R2v** 0.39×; **R2w** board-skip 0.40×; **R2ae SKIP_GATED**; **R2af/R2x/R2ah/R2z/R2ai/R2aj/R2al SKIP_BOARD**; **R2y/R2aw/R2ar SKIP_UNSERVABLE**; **R2ak** local **0.641×**; **R2am −1.39×**; **R2an SKIP_BOARD** cp13; **R2ao** pure af17 **−0.074×**; **R2ap** pure h44 **0.327×**; **R2aq** pure-now **0.773× WEAK_SKIP**; **R2ar** iynocr2p index/shard; **R2as** pure-726 **0.060× WEAK_SKIP**; **R2at** hope11 **WEAK_SKIP** m+0.01223 z=1.93 hr**0.97×** live2σ; **R2au REFUTE** m−0.03071 z−3.66 hr_live2σ **−1.83×**; **R2av REFUTE** Bittoby-v2 m−0.00027 z−0.065 hr_live2σ **−0.033×**; **R2ax** tt n80 ~8/80; **R2ay** sbs-v2 armed (chal-00499); host-hist→504; **R2aa** stubbed |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **open — PRIORITY** · p2064: GRPO pid**23755** step≥3 mean_r≈0.005 (4/4 live); king@65536; post_train armed |
 
 ## Open
@@ -20,11 +20,11 @@
 ### R2 — Multi-king merge aimed at Reason
 - **Claim:** weight-space mix of high-Reason parents beats single king-init SFT.
 - **Prediction:** margin > R1 on same slice family; submit only if ≥ **1.5 × (3·SE)** vs Tok.
-- **Status:** open. **R2d** 0.22×; many Talent-skew REFUTEs (e/g/h/q/t/l/n/o/p/r/ab/ac/ad/**am −1.39×**). **R2an SKIP_BOARD** cp13. **R2ao REFUTE** af17 **−0.074×**. **R2ap WEAK_SKIP** h44 **0.327×**. **R2aq WEAK_SKIP** pure-now **0.773×**. **R2ar SKIP_UNSERVABLE** iynocr2p. **R2as WEAK_SKIP** pure-726 m+0.00092 z=0.18 hr **0.060×** (n=79). **R2at WEAK_SKIP** hope11 m=+0.01223 z=1.93 hr **0.97×** vs live 2·SE. **R2au REFUTE** sft4 m=−0.03071 z=−3.66 hr_live2σ **−1.83×** (n=75). **R2av REFUTE** Bittoby-v2 m=−0.00027 z=−0.065 hr_live2σ **−0.033×** (n=80; block `8e16f716…`). **R2ax** tt (`leary-criste/…-tt@93aeaa17…`) chall loading. **R2aw** mt1 SKIP. Host-hist 489–499. Dir: `experiments/r2-multiking-merge/`.
+- **Status:** open. **R2d** 0.22×; many Talent-skew REFUTEs (e/g/h/q/t/l/n/o/p/r/ab/ac/ad/**am −1.39×**). **R2an SKIP_BOARD** cp13. **R2ao REFUTE** af17 **−0.074×**. **R2ap WEAK_SKIP** h44 **0.327×**. **R2aq WEAK_SKIP** pure-now **0.773×**. **R2ar SKIP_UNSERVABLE** iynocr2p. **R2as WEAK_SKIP** pure-726 m+0.00092 z=0.18 hr **0.060×** (n=79). **R2at WEAK_SKIP** hope11 m=+0.01223 z=1.93 hr **0.97×** vs live 2·SE. **R2au REFUTE** sft4 m=−0.03071 z=−3.66 hr_live2σ **−1.83×** (n=75). **R2av REFUTE** Bittoby-v2 m=−0.00027 z=−0.065 hr_live2σ **−0.033×** (n=80). **R2ax** tt n80 in flight (~8/80). **R2ay** pure `ammazon/…-sbs-v2@6f1b8e68…` (chal-00499) prefetch+reload+stage5 armed after R2ax. **R2aw** mt1 SKIP. Host-hist→504. Dir: `experiments/r2-multiking-merge/`.
 
 ### R3 — RL on Reason
 - **Claim:** REINFORCE/GRPO with reward = teacher Reason on sampled z beats SFT.
-- **Status:** open — GRPO pid**23755** (p2063 relaunch); step3 mean_r≈**0.0046** (4/4 live). King@**65536**. Next = train.done → merge → chall → n80.
+- **Status:** open — GRPO pid**23755** (p2063 relaunch); step≥5 mean_r≈**0.003** (teacher+king live). King@**65536**. Next = train.done → merge → chall → n80.
 
 ## Refuted (Reason era)
 - **R1b** (2026-08-10): king-init LoRA @ max_len=16384 on 1006 high-Reason rows → margin −0.0135 vs Tok (z=−2.45). Not a crown path.

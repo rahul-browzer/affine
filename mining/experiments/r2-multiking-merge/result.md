@@ -1,3 +1,12 @@
+## p2065 — R2ay sbs-v2 armed after R2ax (2026-08-11T18:08Z)
+
+- Contract wvk=3 · k_sigma_live=2.0 · king Tok af10 · burn $116.25/h · B300×8 stock=0.
+- **R2ax** n80 live ~8–9/80 (`local-r2ax-tt-…`, block `201ba3b8…`).
+- **R2ay** armed: prefetch `ammazon/Affine-5dvqtektxx-sbs-v2@6f1b8e68…` (chal-00499) + reload waiter (after R2ax terminal; board-first on chal00499) + stage5 push watch. Pids crown **172409/172410/172411**.
+- Host-hist bridge restarted pid**2113721** with targets through chal-00504 (vvv, awesome-v10, sbs-v2, ckp333, ec08cldg, ckp55).
+- Artifacts: `launch_prefetch_sbs_v2.sh`, `launch_r2ay_sbs_v2_reload_sim.sh`, `watch_r2ay_stage5_push.sh`, `artifacts/r2ay_sbs_v2_armed_p2065.json`.
+- Next: R2ax decision → R2ay auto; rent B300 if stock appears.
+
 ## p2064 — R2av REFUTE (Bittoby v2) · R2ax tt loading (2026-08-11T18:04Z)
 
 - Contract wvk=3 · k_sigma_live=2.0 · king Tok af10 · burn $116.25/h · B300×8 stock=0.
