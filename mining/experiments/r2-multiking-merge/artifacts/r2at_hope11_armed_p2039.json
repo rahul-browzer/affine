@@ -1,0 +1,30 @@
+{
+  "pass": 2039,
+  "utc": "2026-08-11T14:36:32Z",
+  "lane": "R2at pure hope11",
+  "challenge_id": "chal-00491",
+  "repo": "Shatoria/Affine-5ghntktyzq-hope11",
+  "revision": "1be4ac101ef408e9c8f08e9c92361f24a74e2244",
+  "wait_on": "R2as (pure 726) terminal / Stage-5 / ≥1.5× skip",
+  "reload_pid": 115843,
+  "stage5_pid": 115855,
+  "chall_dir": "/root/r2_out/hope11_chall",
+  "link": "/tmp/r2at_hope11",
+  "pre_staged_chall_dirs": [
+    "/root/r2_out/iynocr2p_chall",
+    "/root/r2_out/726_chall",
+    "/root/r2_out/hope11_chall"
+  ],
+  "scripts": [
+    "launch_r2at_hope11_reload_sim.sh",
+    "watch_r2at_stage5_push.sh"
+  ],
+  "r2ap_progress_at_arm": {"challenger": 47, "king": 47, "n_turns": 80},
+  "engines": "200/200/200",
+  "wvk": 3,
+  "k_sigma": 2.0,
+  "burn_usd_per_h": 52.25,
+  "lium_balance_usd": 121803.22,
+  "why": "queue 491 hope11 was prefetched+watched but skipped in GPU chain R2ar→R2as; arm pure-hope11 after R2as so GPU does not idle and board parent gets a local n80",
+  "check": "ssh root@95.133.253.90 -p 40099 'tail -n 20 /root/logs/r2at_hope11_reload.log; cat /root/affine_data/r2ap_h44_reason_progress.json'"
+}
