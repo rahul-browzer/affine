@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-11T03:09:15Z",
+  "pass": 1950,
+  "weight_version_key": 3,
+  "board_chal": "chal-00450",
+  "board_repo": "syntaxsorcerer1/Affine-5gbhwtw4zo-sft3",
+  "board_rev": "381dbc8245e29bccbf39de78fdbc20acbfadec8d",
+  "board_reason_margin": 0.004631268361185708,
+  "board_se": 0.004181974287272572,
+  "board_z": 1.1074358767055357,
+  "board_three_se": 0.012545922861817715,
+  "board_headroom_vs_3se": 0.36914529223517856,
+  "board_challenger_wins": false,
+  "king_match": true,
+  "note": "Board Reason+ (hr>0) unblocked R2l Talent0.25×sft3:0.75 CPU merge. R2w lane_claiming_gpu only saw premerge.done — mid-blend race would let pure-asdf steal chall. Patched r2l_claiming_gpu (pid alive | reason stamp hr>0) and relaunched R2w pid 200437.",
+  "r2w_old_pid": 197123,
+  "r2w_new_pid": 200437,
+  "r2l_premerge": "blending /root/r2_out/alpha_talent_sft3_skew",
+  "r2v_progress_at_fix": {"challenger": 53, "king": 53, "n_turns": 80}
+}

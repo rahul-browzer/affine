@@ -16,48 +16,41 @@ King-watch **revoked**. `weight_version_key=3`. Score = mean Reason (Λ2 only).
 | Lium | ~$123,266 · burn **$64/h** (≤$833/h) · floor ≥$10k |
 | fleet | `mine-crown-1` lunar-orbit-50 8×B300 · TTL→2026-08-11T16:12Z |
 | submissions | 0 · hotkey `default` unused |
-| board | live duel **chal-00450** (sft3, scoring ~61/80) |
+| **board 450** | sft3 **hr 0.37×** (margin +0.0046, z=1.11, n=80) — Reason+ no crown |
 | queue | 451 asdf → 452 zeus → 455 sth → 456 cp200 → **458 whoami** |
 | disk | **~624 GiB free** on `/root` (65%) |
 | R2d/e/f/h | 0.22× / REFUTE / SKIP / REFUTE −0.59× |
 | **R2g/q/t** | Talent×saysth / pure saysth / saysth×Talent **REFUTE** |
 | **R2s/u** | saysth×awesome/kevin **WEAK_SKIP** |
 | **R2j/i/k** | BKN7 SKIP / thomp SKIP / **BKN6 SKIP** |
-| R2l…p | Reason+ waiters armed (450/456/451/452/455) |
-| **R2r** | Talent×whoami **ARMED** · after 458 hr>0 (+ R2v/R2w terminal) |
-| **R2v** | pure sft3 **n80 RUNNING** · sim pid **194935** · ~41/80 @03:05Z · ETA~20m |
-| **bridge-v** | `bridge_r2v_to_r2l` pid **196326** · local+ → unblock R2l; ≥1.5× → Stage-5 |
-| **stage5-push** | `watch_r2v_stage5_push` pid **199244** · **HF pre-purged +140 GiB** |
-| **R2w** | pure asdf **ARMED** · pid **197123** · waits R2v+bridge-v · **asdf_chall READY** |
-| **bridge-w** | `bridge_r2w_to_r2n` pid **197133** · local+ → unblock R2n; ≥1.5× → Stage-5 |
+| **R2l** | Talent×sft3 **CPU merging** (board hr>0) · shards in flight |
+| R2m…p+R2r | Reason+ waiters armed (456/451/452/455 + whoami) |
+| **R2v** | pure sft3 **n80 ~53/80** · sim pid **194935** · ETA~10m |
+| **bridge-v** | waits R2v dec · board stamp already present → OK_BOARD_FIRST |
+| **stage5-push** | armed · HF pre-purged +140 GiB · only if local ≥1.5× |
+| **R2w** | pure asdf **re-armed** pid **200437** · **yields mid-R2l** (p1950 fix) |
+| **bridge-w** | →R2n still armed (pid 197133) |
 | gated+ | diane-new 0.54× / nvidia 0.45× / aurora 0.17× |
 
 ## What's running
 
 | name | SSH | role |
 |---|---|---|
-| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · **R2v n80** · stage5-push · bridges · R2w · R2l…p+R2r |
+| mine-crown-1 | `ssh root@86.38.182.50 -p 40300` | TK@65536 · R2v n80 · R2l merge · R2w yield · stage5 |
 
-- Teacher/king/chall **200/200/200**; chall = pure sft3 (`/tmp/r2v_sft3`).
-- R2v sim **194935** · check `cat /root/affine_data/r2v_sft3_reason_progress.json`.
-- Bridge-v: `cat /root/logs/bridge_r2v_to_r2l.done` / `r2v_stage5_ready.json`.
-- Stage5-push: `cat /root/logs/watch_r2v_stage5_push.done` / `r2v_stage5_hf_push.json`.
-- Pre-purge: `/root/affine_data/r2v_stage5_hf_purge_p1949.json` (h93+h92-merged).
-- R2w: `tail /root/logs/r2w_asdf_reload.log` · chall dir `/root/r2_out/asdf_chall` pre-staged.
-- Bridge-w: `cat /root/logs/bridge_r2w_to_r2n.done` / `r2w_stage5_ready.json`.
+- R2v: `cat /root/affine_data/r2v_sft3_reason_progress.json` · decision → `r2v_sft3_decision.json`
+- R2l: `tail /root/logs/r2l_premerge.log` · out `/root/r2_out/alpha_talent_sft3_skew`
+- R2w: yields while `r2l_premerge.pid` alive or board 450 hr>0; then asdf chall
+- Board stamp: `artifacts/chal00450_reason.json` (hr 0.37×)
 
 ## Blocked
 
-- No submit until sim hr ≥ **1.5×**. No S\* 0.04 gate / king-watch.
-- Stage5-push uploads HF only — next pass must register fresh hotkey + `submit.py --check`.
+- No submit until sim hr ≥ **1.5×**. Board 450 is only 0.37× — need R2l/R2w/local.
+- Stage5-push = HF only; next pass still register fresh hotkey + `submit.py --check`.
 - Never `max_model_len=32768`; never cu13→`/usr/local/cuda`; never `pkill -f`.
-- Lane-free = **pidfile kill -0** only. Recompute Reason from lpC fields.
-- No merge thomp/BKN6/BKN7/sft3/cp200/asdf/zeus/sth until Reason+. No re-n80 closed lanes.
-- nvidia/diane-new/aurora weight-gated. R2r GPU only after **458 hr>0** (+ R2v/R2w terminal).
-- saysth×kevin/awesome/Tok near-identical — do not re-α those pairs.
-- saysth×Talent (both α directions) **REFUTED** — do not re-blend.
-- Local pure-parent hr≤0 does **not** SKIP Talent×parent (board may still be +).
+- R2w must not steal chall mid-R2l blend (fixed p1950).
+- No re-n80 closed lanes; no saysth×Talent / near-identical α pairs.
 
 ## Next action
 
-**Harvest R2v** (`r2v_sft3_decision.json` + bridge-v done): hr≥1.5× → confirm Stage5 HF push meta then Stage-5 register+`--check`+submit; 0<hr<1.5× → R2l proxy merge; hr≤0 → confirm **R2w** takes chall (asdf_chall ready) without idle GPU.
+**Harvest R2v** then confirm order: R2l finishes blend → chall reload n80 (R2w waits); if R2v≥1.5× confirm Stage5 HF push meta then Stage-5 register+`--check`+submit; if R2v hr≤0 still let R2l own GPU before asdf.

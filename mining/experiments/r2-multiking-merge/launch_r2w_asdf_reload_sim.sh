@@ -83,12 +83,50 @@ lane_terminal() {
   [[ -f "$done" || -f "$skip" || -f "$dec" ]]
 }
 
+pid_alive() {
+  local pf="$1"
+  local ppid
+  ppid=$(cat "$pf" 2>/dev/null || true)
+  [[ -n "${ppid:-}" ]] && kill -0 "$ppid" 2>/dev/null
+}
+
 lane_claiming_gpu() {
   local done="$1" skip="$2" dec="$3" premerge_done="$4"
   if lane_terminal "$done" "$skip" "$dec"; then
     return 1
   fi
   [[ -f "$premerge_done" ]]
+}
+
+# R2l after board/local Reason+ must beat pure-asdf to the chall slot.
+# lane_claiming_gpu only sees premerge.done — mid-blend has none yet, so
+# without this R2w steals GPU while Talent×sft3 is still writing shards.
+r2l_claiming_gpu() {
+  if lane_terminal "$R2L_DONE" "$R2L_PREMERGE_SKIP" "$R2L_DEC"; then
+    return 1
+  fi
+  if [[ -f /root/logs/r2l_premerge.done ]]; then
+    return 0
+  fi
+  if pid_alive /root/logs/r2l_premerge.pid; then
+    return 0
+  fi
+  if pid_alive /root/logs/r2l_merge_reload.pid; then
+    return 0
+  fi
+  if [[ -f /root/affine_data/chal00450_reason.json && -f /root/logs/watch_chal00450_reason.done ]]; then
+    if python - <<'PY'
+import json
+from pathlib import Path
+d = json.loads(Path("/root/affine_data/chal00450_reason.json").read_text())
+hr = d.get("headroom_vs_3se")
+raise SystemExit(0 if d.get("king_match") and hr is not None and float(hr) > 0.0 else 1)
+PY
+    then
+      return 0
+    fi
+  fi
+  return 1
 }
 
 # 0) Wait for R2v to finish holding chall (decision or reload.done).
@@ -190,7 +228,7 @@ for i in $(seq 1 2880); do
   if lane_claiming_gpu "$R2I_DONE" "$R2I_PREMERGE_SKIP" "$R2I_DEC" /root/logs/r2i_premerge.done; then busy=1; fi
   if lane_claiming_gpu "$R2J_DONE" "$R2J_PREMERGE_SKIP" "$R2J_DEC" /root/logs/r2j_premerge.done; then busy=1; fi
   if lane_claiming_gpu "$R2K_DONE" "$R2K_PREMERGE_SKIP" "$R2K_DEC" /root/logs/r2k_premerge.done; then busy=1; fi
-  if lane_claiming_gpu "$R2L_DONE" "$R2L_PREMERGE_SKIP" "$R2L_DEC" /root/logs/r2l_premerge.done; then busy=1; fi
+  if r2l_claiming_gpu; then busy=1; fi
   if lane_claiming_gpu "$R2M_DONE" "$R2M_PREMERGE_SKIP" "$R2M_DEC" /root/logs/r2m_premerge.done; then busy=1; fi
   if lane_claiming_gpu "$R2N_DONE" "$R2N_PREMERGE_SKIP" "$R2N_DEC" /root/logs/r2n_premerge.done; then busy=1; fi
   if lane_claiming_gpu "$R2O_DONE" "$R2O_PREMERGE_SKIP" "$R2O_DEC" /root/logs/r2o_premerge.done; then busy=1; fi
@@ -202,7 +240,7 @@ for i in $(seq 1 2880); do
     break
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2w-asdf] wait-claimant iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) busy=$busy"
+    echo "[r2w-asdf] wait-claimant iter=$i $(date -u +%Y-%m-%dT%H:%M:%SZ) busy=$busy r2l=$(r2l_claiming_gpu && echo y || echo n)"
   fi
   if (( i == 2880 )); then
     echo "[r2w-asdf] TIMEOUT waiting GPU claimant lane" >&2
