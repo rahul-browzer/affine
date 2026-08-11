@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-11T07:55:50Z",
+  "pass": 1990,
+  "action": "arm_host_history_stamp_bridge_467_471",
+  "why": "mine-crown-1 Lium egress gets intermittent Cloudflare 403 on affine.io/api/v1/history (and sometimes snapshot); on-pod history fast-path silently no-ops so unservable/Reason stamps for 467-471 can stall R2z-ad. Host curl works; bridge polls history and scp-pushes chal00XXX_reason.json + done.",
+  "host_pid": 1202431,
+  "host_log": "experiments/r2-multiking-merge/logs/host_history_stamp_bridge.log",
+  "targets": ["chal-00467", "chal-00468", "chal-00469", "chal-00470", "chal-00471"],
+  "r2ag": {"progress": "king~36/chall~38 of 80", "decision": null, "pid": 285579},
+  "also": "closed obsolete bridge_r2ag_to_r2y (OK_BOARD_FIRST; R2y already SKIP_UNSERVABLE)",
+  "contract": {"weight_version_key": 3, "king": "Tok331102/affine-5EqYW8McUc-af10"},
+  "burn_usd_h": 64.0,
+  "balance_usd": 122617.82
+}

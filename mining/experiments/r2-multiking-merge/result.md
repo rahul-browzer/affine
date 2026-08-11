@@ -1,3 +1,11 @@
+## p1990 — host history stamp bridge (pod CF 403)
+- Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,618.
+- R2ag n80 still gathering ~**36/38**/80 (pid 285579); decision pending; Stage-5 waiter armed.
+- Diagnosed crown-pod **Cloudflare 403** on `affine.io/api/v1/history` (hippius gzip OK). Armed `host_history_stamp_bridge.py` on mining host (pid **1202431**) to scp-stamp chal00467–471 Reason/unservable for R2z/aa–ad gates.
+- Closed obsolete `bridge_r2ag_to_r2y` (OK_BOARD_FIRST; R2y already SKIP_UNSERVABLE).
+- Artifacts: `artifacts/host_hist_bridge_armed_p1990.json`, `host_history_stamp_bridge.py`.
+- Next: harvest `r2ag_tpc9_decision.json`; hr≥1.5× → Stage-5; else first Reason+ among 467–471.
+
 ## p1989 — chal-00463 unservable → R2y SKIP; patch 467–471 history
 - Contract `weight_version_key=3`; king Tok af10; fleet=1 @$64/h; bal~$122,640.
 - History: chal-00463 `llorite/…-tpc9` **rejected** `unservable:challenger failed to load in vLLM` (margin/se null). Stamped `chal00463_reason.json` hr=None → **R2y SKIP** + purged `alpha_talent_tpc9_skew` (~+66 GiB → disk **444 GiB**).
