@@ -1,0 +1,16 @@
+{
+  "pass": 1971,
+  "utc": "2026-08-11T05:52:00Z",
+  "action": "arm_pig_after_google",
+  "challenge_id": "chal-00471",
+  "repo": "diceofgod/affine-5fjgc5jhxq-pig",
+  "revision": "e4889db406e743bc878d75183aed79bc59915463",
+  "probe": "weights_ok",
+  "safetensors": 2,
+  "gate": "/root/logs/r2_prefetch_google.done",
+  "scripts": [
+    "launch_prefetch_pig.sh",
+    "launch_prefetch_pig_after_google.sh"
+  ],
+  "note": "one-at-a-time after google; do not merge until post-verdict Reason+; R2p n80 still gathering"
+}
