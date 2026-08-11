@@ -67,6 +67,7 @@ TARGETS = {
     "chal-00492": "chal00492",  # wearetop 726 (R2as)
     "chal-00493": "chal00493",  # Bittoby1040 v2 (queue)
     "chal-00494": "chal00494",  # peakperformer1 mt1 (queue)
+    "chal-00495": "chal00495",  # syntaxsorcerer1 sft4 (queue; p2041)
 }
 
 

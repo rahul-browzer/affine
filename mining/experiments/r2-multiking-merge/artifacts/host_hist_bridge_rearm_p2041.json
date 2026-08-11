@@ -1,0 +1,25 @@
+{
+  "utc": "2026-08-11T15:00:11Z",
+  "pass": 2041,
+  "bridge_pid": 1863303,
+  "added_targets": ["chal-00495"],
+  "pending": [
+    "chal-00485",
+    "chal-00486",
+    "chal-00489",
+    "chal-00490",
+    "chal-00491",
+    "chal-00492",
+    "chal-00493",
+    "chal-00494",
+    "chal-00495"
+  ],
+  "prefetch_sft4": {
+    "repo": "syntaxsorcerer1/Affine-5gbhwtw4zo-sft4",
+    "revision": "df83346c5a1f46d5d63d9d6ccf84ad82e356066b",
+    "pod_pid": 123772,
+    "challenge_id": "chal-00495"
+  },
+  "r2aq_progress": {"king": 10, "challenger": 10, "n_turns": 80},
+  "note": "R2aq still gathering; armed next queue parent + host-hist while waiting"
+}

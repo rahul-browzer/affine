@@ -10,11 +10,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $121,752.38 | 2026-08-11T14:56Z |
-| cumulative mining spend | ~$75,836 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T14:56Z |
-| **available for mining** | **~$111,752** (balance − $10,000 floor) | 2026-08-11T14:56Z |
+| Lium balance | $121,752.38 | 2026-08-11T15:00Z |
+| cumulative mining spend | ~$75,836 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-11T15:00Z |
+| **available for mining** | **~$111,752** (balance − $10,000 floor) | 2026-08-11T15:00Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T14:56Z |
+| miner burn (1 pod) | **$52.25/h** (`mine-crown-1` 8×B200) | 2026-08-11T15:00Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -23,6 +23,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-11T15:00Z | 121752.38 | p2041 host-hist+495 + prefetch sft4 (no new rent); burn$52.25/h; Δ$0 vs p2040 |
 | 2026-08-11T14:56Z | 121752.38 | p2040 R2ap WEAK_SKIP + R2aq n80 start (no new rent); burn$52.25/h; Δ−$51 vs p2039 (shared ok) |
 | 2026-08-11T14:36Z | 121803.22 | p2039 arm R2at pure-hope11+Stage-5 (no new rent); burn$52.25/h; Δ$0 vs p2038 |
 | 2026-08-11T14:32Z | 121803.22 | p2038 rearm host-hist bridge 485–492 (no new rent); burn$52.25/h; Δ−$10 vs p2037 (shared ok) |
@@ -32,4 +33,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-11T14:11Z | 121844.18 | p2034 R2ao REFUTE + R2ap h44 reload start (no new rent); burn$52.25/h; Δ−$61 vs p2033 (shared ok) |
 | 2026-08-11T13:43Z | 121905.35 | p2033 R2ao n80 continue after mid-script crash (no new rent); burn$52.25/h; Δ−$41 vs p2032 (shared ok) |
 | 2026-08-11T13:23Z | 121946.14 | p2032 R2am REFUTE + TKC rescue (no new rent); burn$52.25/h; Δ−$31 vs p2031 (shared ok) |
-| 2026-08-11T13:08Z | 121976.83 | p2031 arm R2aq pure-now+Stage-5 (no new rent); burn$52.25/h; Δ−$10 vs p2030 (shared ok) |
