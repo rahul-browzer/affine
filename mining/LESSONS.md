@@ -147,4 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - R2ak pure google local n80 hr **0.641×**; board chal-00470 gzip hr **0.094×** — local≫board slice noise; hr>0 → R2ac DONE; no Stage-5.
 - R2al SKIP_BOARD 471 pig hr0.580×; **R2ac↔R2ad deadlock** if ac waits on `r2ad_premerge.done` while ad waits on ac — yield only on `*_holding.stamp` (p2015).
 - R2ab/ac/ad Talent skew REFUTE: sky **−1.59×**; google **−0.978×**; pig **−1.18×** (board pig 0.58×) — board/local Reason+ does not transfer via Talent0.25×parent0.75.
-- chal-00484 cgpb9 **UNSERVABLE** (hr=None) — skip Talent-skew; prefer pure Tok-lineage. **R2an SKIP_BOARD** cp13 hr0.16×; arm **R2ao pure af17** after R2am (Talent skew keep REFUTE).
+- chal-00484 cgpb9 **UNSERVABLE** (hr=None) — skip Talent-skew; prefer pure Tok-lineage. **R2an SKIP_BOARD** cp13 hr0.16×; arm **R2ao pure af17** after R2am; while n80 runs, arm next pure parent (**R2ap h44**) so GPU lane never idles after a REFUTE/SKIP.
