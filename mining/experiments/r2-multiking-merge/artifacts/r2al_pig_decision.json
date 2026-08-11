@@ -1,0 +1,25 @@
+{
+  "utc": "2026-08-11T10:48:00Z",
+  "pass": 2014,
+  "lane": "R2al",
+  "claim": "pure pig (diceofgod) local n80 vs Tok",
+  "local_sim": {
+    "status": "ABORT_TIMEOUT",
+    "progress_at_abort": "70/80",
+    "error": "httpx.ReadTimeout during teacher_reference",
+    "note": "challenger slot taken by R2ab reload at ~10:29Z"
+  },
+  "board": {
+    "challenge_id": "chal-00471",
+    "repo": "diceofgod/affine-5fjgc5jhxq-pig",
+    "revision": "e4889db406e743bc878d75183aed79bc59915463",
+    "reason_margin": 0.00783790458002534,
+    "three_se": 0.013516251086258643,
+    "headroom_vs_3se": 0.5798874650970179,
+    "challenger_wins": false,
+    "n_paired": 79
+  },
+  "decision": "SKIP_BOARD",
+  "stage5": false,
+  "rule": "submit only if hr>=1.5\u00d7; board pig hr=0.580\u00d7"
+}

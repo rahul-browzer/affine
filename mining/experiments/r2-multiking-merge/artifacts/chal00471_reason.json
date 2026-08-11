@@ -1,0 +1,21 @@
+{
+  "challenge_id": "chal-00471",
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_revision": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "challenger_repo": "diceofgod/affine-5fjgc5jhxq-pig",
+  "challenger_revision": "e4889db406e743bc878d75183aed79bc59915463",
+  "published_margin": 0.00783790458002534,
+  "published_z": 1.7396623952910542,
+  "published_formula": null,
+  "challenger_wins": false,
+  "reason_margin": 0.00783790458002534,
+  "reason_se": 0.0045054170287528806,
+  "reason_z": 1.7396623952910542,
+  "three_se": 0.013516251086258643,
+  "headroom_vs_3se": 0.5798874650970179,
+  "n_paired": 79,
+  "king_match": true,
+  "scored_at": "2026-08-11T10:36:57Z",
+  "source_url": "https://affine.io/api/v1/history?q=chal-00471&limit=5",
+  "source": "history_api"
+}
