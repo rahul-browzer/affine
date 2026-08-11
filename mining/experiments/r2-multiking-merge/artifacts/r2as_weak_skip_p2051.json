@@ -1,0 +1,26 @@
+{
+  "pass": 2051,
+  "utc": "2026-08-11T16:17:36Z",
+  "hyp": "R2as",
+  "parent": "wearetop/affine-5gcl5uxakb-726",
+  "decision": "SIGNAL_POS_BELOW_3SE",
+  "margin": 0.0009170308238216048,
+  "se": 0.005057363107603781,
+  "z": 0.18132588155334198,
+  "headroom_vs_3se": 0.06044196051778066,
+  "n_paired_turns": 79,
+  "stage5": "SKIP_BELOW_BAR",
+  "next": "R2at pure hope11 chall loading :8002 pid146738",
+  "alt_parents_checked": [
+    {
+      "repo": "diane613/affine-5gedzafcvg-new",
+      "hr3": 0.867,
+      "status": "SKIP_GATED"
+    },
+    {
+      "repo": "adambell/Affine-5eqdtdzqle-ckpt1000-m7",
+      "hr3": 0.654,
+      "status": "SKIP_GATED"
+    }
+  ]
+}
