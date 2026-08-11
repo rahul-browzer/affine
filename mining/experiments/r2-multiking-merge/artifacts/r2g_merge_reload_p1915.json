@@ -1,0 +1,38 @@
+{
+  "pass": 1915,
+  "utc": "2026-08-11T00:21:09Z",
+  "event": "R2g Talent×saysth merge DONE + chall reload launched",
+  "blend": {
+    "parents": [
+      "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4:0.25",
+      "saysth/Affine-5dtnxamt4t-v9a@6e13f365b36000cf631aad2fa9fb05fdabae0044:0.75"
+    ],
+    "out": "/root/r2_out/alpha_talent_saysth_v9a_skew",
+    "link": "/tmp/r2g_alpha_merged",
+    "finished_utc": "2026-08-11T00:20:27Z",
+    "seconds": 461.1,
+    "n_keys": 1026,
+    "n_shards": 16,
+    "total_size_gb": 70.214,
+    "identical_frac": 0.452242,
+    "max_abs_delta": 0.62579345703125,
+    "n_missing_fallback": 0
+  },
+  "premerge_done": "OK 2026-08-11T00:20:29Z w_talent=0.25 w_saysth=0.75 max_abs_delta=0.62579345703125 n_keys=1026 identical_frac=0.452242",
+  "reload": {
+    "waiter_pid": 130835,
+    "premerge_ready_iter": 360,
+    "stopped_old_chall_pid": 132046,
+    "new_chall_pid": 142866,
+    "health_8002_at_record": "000_loading",
+    "check": "tail /root/logs/r2g_merge_reload.log; curl :8002/health; then r2g_alpha_decision.json"
+  },
+  "decision_rule": "submit only if headroom_vs_3se >= 1.5 on fresh n80 vs Tok af10",
+  "still_running": {
+    "bkn_six_prefetch_pid": 142256,
+    "watch_chal00432_pid": 140530,
+    "watch_chal00441_pid": 138617,
+    "r2i_premerge_waiter": 138637,
+    "r2i_reload_waiter": 139014
+  }
+}
