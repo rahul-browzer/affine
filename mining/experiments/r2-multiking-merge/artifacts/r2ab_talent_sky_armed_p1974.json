@@ -1,0 +1,24 @@
+{
+  "pass": 1974,
+  "utc": "2026-08-11T06:02:31Z",
+  "lane": "R2ab",
+  "claim": "Talent0.25 × sky 0.75 (Talent layout) raises Reason vs Tok when chal-00469 hr>0",
+  "parent_chal": "chal-00469",
+  "parent_repo": "magicworld7/affine-5dtu4gucst-sky",
+  "parent_rev": "a569e29bcab3a1f4ed3a99ee9e46c17dc40e8fdf",
+  "talent_rev": "dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4",
+  "merged": "/root/r2_out/alpha_talent_sky_skew",
+  "eager": true,
+  "waits_before_eager": ["r2_prefetch_sky.done", "r2aa_eager_weights.done (disk serialize ≥75GiB)"],
+  "done_gated_on": "chal00469_reason.json hr>0 + king_match",
+  "merge_reload_waits": ["R2p", "R2x", "R2y", "R2z", "R2q", "R2v", "R2aa"],
+  "check": {
+    "premerge_log": "tail -f /root/logs/r2ab_premerge.log",
+    "eager": "cat /root/logs/r2ab_eager_weights.done",
+    "decision": "cat /root/affine_data/r2ab_alpha_decision.json"
+  },
+  "next_after": [
+    "Talent×google (chal-00470)",
+    "Talent×pig (chal-00471)"
+  ]
+}
