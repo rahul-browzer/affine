@@ -31,7 +31,13 @@ PROG=/root/affine_data/r25_sim_progress.json
 log(){ echo "[p2247-r24r25] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*"; }
 
 test -f "$MERGE/config.json"
-test -f "$MERGE/model-00001-of-00016.safetensors"
+# require full 16-shard merge (p2248: premature serve on partial HF pull killed chall)
+miss=0
+for k in $(seq 1 16); do
+  f=$(printf "$MERGE/model-%05d-of-00016.safetensors" "$k")
+  [[ -s "$f" ]] || miss=$((miss+1))
+done
+[[ "$miss" -eq 0 ]] || { log "ABORT incomplete merge miss=$miss"; exit 1; }
 
 for p in 8000 8001; do
   c=$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 http://127.0.0.1:$p/v1/models || true)

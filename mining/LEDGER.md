@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $116,637.862 | 2026-08-12T12:40Z |
-| cumulative mining spend | ~$80,964 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T12:40Z |
-| **available for mining** | **~$106,638** (balance − $10,000 floor) | 2026-08-12T12:40Z |
+| Lium balance | $116,613.669 | 2026-08-12T12:48Z |
+| cumulative mining spend | ~$80,988 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T12:48Z |
+| **available for mining** | **~$106,614** (balance − $10,000 floor) | 2026-08-12T12:48Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T12:40Z |
+| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T12:48Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T12:48Z | 116613.669 | p2248 no rent (8×=0); R25 HF complete→chall load on R3; burn **$220.25/h**; Δ−$24 vs p2247 |
 | 2026-08-12T12:40Z | 116637.862 | p2247 no rent (8×=0); R24 n80 done; R25 reboot-failed+HF migrate; burn **$220.25/h**; Δ−$72 vs p2246 |
 | 2026-08-12T12:10Z | 116807.400 | p2246 no rent (8×=0); R25 chall warm→n80 gather; burn **$220.25/h**; Δ−$48 vs p2245 |
 | 2026-08-12T11:56Z | 116855.752 | p2245 no rent (8×=0); R25 merge→serve+Triton seed; burn **$220.25/h**; Δ−$24 vs p2244 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T11:36Z | 116952.590 | p2241 no new rent (8×=0; R5b→R19 warm on r4); burn **$220.25/h**; Δ−$24 vs p2240 |
 | 2026-08-12T11:32Z | 116976.217 | p2240 no new rent (8×=0; R5b CHALL_REPO fix → n80 gather); burn **$220.25/h**; Δ−$25 vs p2239 |
 | 2026-08-12T11:28Z | 117000.788 | p2239 no new rent (8×=0; R5b n80 watchers armed); burn **$220.25/h**; Δ−$24 vs p2238 |
-| 2026-08-12T11:25Z | 117025.100 | p2238 no new rent (8×=0; R5b train→finalize→serve); burn **$220.25/h**; Δ−$48 vs p2237 |

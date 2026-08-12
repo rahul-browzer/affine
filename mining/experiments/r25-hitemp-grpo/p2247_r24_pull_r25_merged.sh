@@ -11,7 +11,12 @@ OUT=${OUT:-/root/r25_from_hf}
 LOG=${LOG:-/root/logs/r25_hf_dl.nohup}
 mkdir -p "$OUT" /root/logs
 
-if [[ -f "$OUT/config.json" && -f "$OUT/model-00001-of-00016.safetensors" ]]; then
+miss=0
+for k in $(seq 1 16); do
+  f=$(printf "$OUT/model-%05d-of-00016.safetensors" "$k")
+  [[ -s "$f" ]] || miss=$((miss+1))
+done
+if [[ -f "$OUT/config.json" && "$miss" -eq 0 ]]; then
   echo "[p2247-dl] already present $(du -sh "$OUT" | awk '{print $1}')"
   exit 0
 fi
