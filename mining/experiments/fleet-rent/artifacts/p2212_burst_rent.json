@@ -1,0 +1,11 @@
+{
+  "utc": "2026-08-12T08:52:34Z",
+  "pass": 2212,
+  "pid": 3623101,
+  "log": "experiments/fleet-rent/logs/burst_p2212.log",
+  "prev_burst_killed": 3557663,
+  "waiter_stop": 3373328,
+  "change": "SKIP_PID_LOCK=1 PASS=2212 MAX_ITERS=3000; QUEUE drop R21 (warm on mine-r4) + R25 (RENTED); next=R26; 8× still empty",
+  "mine_count": 4,
+  "burn_h": 220.25
+}

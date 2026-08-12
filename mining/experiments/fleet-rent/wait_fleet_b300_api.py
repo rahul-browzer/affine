@@ -54,7 +54,8 @@ QUEUE = [
     # R8 REFUTED p2158 n80 m=-0.027 z=-1.64 vs ckp333 — do not re-rent.
     # R24 live on mine-r3-grpo-1 (p2205 warm-arm after R15 REFUTE) — do not re-rent.
     # ("mine-r24-longctx-1", "R24", "Tok GRPO max_len=16384 max_new=1024 (≠ R3 6144/512)"),
-    ("mine-r25-hitemp-1", "R25", "Tok GRPO temperature=1.2 (≠ R3 temp=0.8)"),
+    # R25 RENTED p2211 as mine-r25-hitemp-1 — do not re-rent.
+    # ("mine-r25-hitemp-1", "R25", "Tok GRPO temperature=1.2 (≠ R3 temp=0.8)"),
     ("mine-r26-lotemp-1", "R26", "Tok GRPO temperature=0.5 (≠ R3 0.8 / R25 1.2)"),
     ("mine-r27-bigg-1", "R27", "Tok GRPO group_size=16 (≠ R3 G=4 / R3b G=8+alt-lr)"),
     ("mine-r28-hilr-1", "R28", "Tok GRPO lr=2e-5 (≠ R3 5e-6; isolates LR vs R3b)"),
@@ -78,9 +79,10 @@ QUEUE = [
     # ("mine-r17-coder-rl-1", "R17", "Qwen3-Coder base REINFORCE on teacher Reason"),
     ("mine-r18-sbs-grpo-1", "R18", "pure sbs-v2-init Reason-GRPO (≠ R3/R10)"),
     ("mine-r19-talent-grpo-1", "R19", "TalentPigs-init Reason-GRPO (≠ R3/R5b/R18)"),
-    # R20 live on mine-r4-fullft-1 (p2194 warm-arm after R14 REFUTE) — do not re-rent.
+    # R20 REFUTED p2211 vs guass — do not re-rent.
     # ("mine-r20-kevin-grpo-1", "R20", "kevin954-init Reason-GRPO (≠ R3/R14/R19)"),
-    ("mine-r21-pandora-grpo-1", "R21", "pandora-box-init Reason-GRPO (≠ R3/R15/R20)"),
+    # R21 live on mine-r4-fullft-1 (p2212 warm-arm after R20 REFUTE) — do not re-rent.
+    # ("mine-r21-pandora-grpo-1", "R21", "pandora-box-init Reason-GRPO (≠ R3/R15/R20)"),
     ("mine-r22-golden-grpo-1", "R22", "golden-crown-init Reason-GRPO (≠ R3/R16/R18–R21)"),
     ("mine-r23-diane-grpo-1", "R23", "diane613-init Reason-GRPO (≠ R3/R16/R18–R22)"),
 ]
