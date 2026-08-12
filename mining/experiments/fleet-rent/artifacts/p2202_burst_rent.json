@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-12T07:55:30Z",
+  "pass": 2202,
+  "iters": 3000,
+  "result": "running",
+  "burst_pid": 3519918,
+  "waiter_pid": 3373328,
+  "waiter_state": "SIGSTOP",
+  "mine_count": 3,
+  "b300x8": 0,
+  "b200x8": 0,
+  "next_queue": "mine-r24-longctx-1",
+  "change": "p2199 burst TIMEOUT@2000; STOP waiter 3373328; SKIP_PID_LOCK 3000-iter burst 3519918; R15 CPU merge ~38% blocks↑",
+  "balance_usd": 117983.00580520702,
+  "burn_usd_per_h": 180.25,
+  "floor_usd_per_h": 833
+}
