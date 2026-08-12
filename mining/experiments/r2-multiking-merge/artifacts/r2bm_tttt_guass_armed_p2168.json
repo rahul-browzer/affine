@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-12T02:55:35Z",
+  "pass": 2168,
+  "hyp": "R2bm",
+  "challenge_id": "chal-00521",
+  "parent": "ttttxxxxsada/Affine-5guassq3tu",
+  "revision": "e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "arch": "Qwen3_5MoeForConditionalGeneration",
+  "king": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "pod": "mine-crown-1",
+  "huid": "gentle-orbit-bd",
+  "ssh": "ssh root@95.133.253.90 -p 40099",
+  "prefetch_pid": 294792,
+  "reload_pid": 294793,
+  "prefetch_log": "/root/logs/r2_prefetch_tttt_guass.log",
+  "reload_log": "/root/logs/r2bm_tttt_guass_reload.log",
+  "decision_path": "/root/affine_data/r2bm_tttt_guass_decision.json",
+  "note": "New queue parent after R2bl REFUTE; crown idle TKC while R9 trains; B300\u00d78 stock still 0",
+  "decision_rule": "ADVANCE iff margin >= 1.5*(k_sigma*SE), live k_sigma=2.0"
+}

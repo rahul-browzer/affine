@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bl REFUTE** m=−0.0020 z=−0.48 hr−0.24× vs ckp333 (p2166); prior R2bk/R2bh/R2bj also below bar |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bm** arming `ttttxxxxsada/…-guass` chal-00521 vs ckp333 (p2168); R2bl REFUTE m=−0.0020 z=−0.48 |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open — PRIORITY** · live on `mine-r3-grpo-1` (p2127) |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
@@ -56,6 +56,7 @@
 - **R2bj** vs Tok af10: m=**+0.00427** SE=0.00533 z=0.80 hr0.27×(3σ) / 0.40×(live 2σ) → SIGNAL_POS_BELOW (p2155). Not crown.
 - **R2bk REFUTE** p2160: saysth@6e13f365 vs ckp333 m=**+0.00041** SE=0.00324 z=0.13 hr0.06×(live 2σ) → Stage-5 SKIP. Artifacts `r2bk_saysth_ckp333_*.json`.
 - **R2bl REFUTE** p2166: Bittoby1040/…-v3@6901350c vs ckp333 n80 m=**−0.00204** SE=0.00425 z=−0.48 hr=−0.24×(live 2σ) → Stage-5 SKIP. Artifacts `r2bl_bittoby_v3_decision.json` / `r2bl_bittoby_v3_result.md`.
+- **R2bm** p2168: pure `ttttxxxxsada/Affine-5guassq3tu@e86758f5…` (chal-00521; Qwen3_5Moe) prefetch+reload→n80 vs ckp333 on crown while R9 trains. Logs `r2bm_tttt_guass_*.log`; decision `/root/affine_data/r2bm_tttt_guass_decision.json`.
 
 ### R3 — RL on Reason
 - **REFUTED** p2127: n80 m=+0.0094 SE=0.00706 z=1.33 < k=2 (hr0.66×); Stage-5 SKIP. Adapter `/root/r3/train_r3_final`. Dir: `experiments/r3-reason-grpo/`.
