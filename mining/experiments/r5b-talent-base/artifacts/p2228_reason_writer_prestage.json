@@ -1,0 +1,13 @@
+{
+  "pass": 2228,
+  "utc": "2026-08-12T10:24:00Z",
+  "action": "r5b_prestage_pack_write_reason_decision",
+  "why": "Next snatch mine-r5-nonking-2 starts watch_form_decision.sh → write_reason_decision.py. Prestaged tar (p2225) omitted r1-reason-distill/, so form-dec would fail after n80 even with guass king armed.",
+  "changes": [
+    "upload_and_launch.sh: pack r1-reason-distill/write_reason_decision.py (+ graft); fail-closed if missing from reused prestage",
+    "upload prove: test -f write_reason_decision.py",
+    "artifacts/mine-r5b-stack.prestaged.tar.gz rebuilt (415K) with writer + guass-king bootstrap"
+  ],
+  "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "stock": "0 free 8×B300/B200; burst 3745530 next=R5b; burn $220.25/h"
+}

@@ -20,8 +20,10 @@ trap 'rm -rf "$STAGE"' EXIT
 
 EXP=s4-h122-f27-genesis-full-ft
 # p2225: reuse prestaged tar when newer than R5b overlay sources (faster snatch boot).
+# p2228: also require Reason crown writer inside the tar (form-dec landmine).
 _use_pre=0
-if [[ -s "$PRESTAGE" ]]; then
+if [[ -s "$PRESTAGE" ]] \
+  && tar -tzf "$PRESTAGE" | grep -q 'r1-reason-distill/write_reason_decision.py'; then
   _newest_src=$(find "$ROOT/mining/experiments/r5b-talent-base" \
     \( -name 'bootstrap_r5b.sh' -o -name 'start_r5b.sh' -o -name 'upload_and_launch.sh' \) \
     -printf '%T@\n' | sort -n | tail -1)
@@ -36,7 +38,8 @@ if [[ "$_use_pre" -eq 1 ]]; then
 else
   mkdir -p "$STAGE/affine_pkg/affine" "$STAGE/affine_pkg/evalsrv" \
            "$STAGE/s3-duel-sim" "$STAGE/s4-h2-merge" "$STAGE/s4-h1-sft" \
-           "$STAGE/s4-h1v2-sft" "$STAGE/$EXP" "$STAGE/r5b-talent-base"
+           "$STAGE/s4-h1v2-sft" "$STAGE/r1-reason-distill" \
+           "$STAGE/$EXP" "$STAGE/r5b-talent-base"
 
   cp -a "$ROOT/affine/affine.toml" "$STAGE/affine_pkg/"
   cp -a "$ROOT/affine/affine/." "$STAGE/affine_pkg/affine/"
@@ -48,6 +51,11 @@ else
   cp -a "$ROOT/mining/experiments/s4-h2-merge/write_merge_decision.py" "$STAGE/s4-h2-merge/"
   cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_form_decision.sh" "$STAGE/s4-h2-merge/"
   cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_n80_retry.sh" "$STAGE/s4-h2-merge/"
+  # p2228: form-dec (live crown) needs Reason writer; old prestages omitted it.
+  cp -a "$ROOT/mining/experiments/r1-reason-distill/write_reason_decision.py" \
+        "$STAGE/r1-reason-distill/"
+  cp -a "$ROOT/mining/experiments/r1-reason-distill/graft_visual_weights.py" \
+        "$STAGE/r1-reason-distill/" 2>/dev/null || true
   cp -a "$ROOT/mining/experiments/s4-h1-sft/push_merged.py" "$STAGE/s4-h1-sft/"
   cp -a "$ROOT/mining/experiments/s4-h1v2-sft/thought_mask.py" "$STAGE/s4-h1v2-sft/"
   cp -a "$ROOT/mining/experiments/s4-h1v2-sft/verify_thought_mask.py" "$STAGE/s4-h1v2-sft/"
@@ -66,6 +74,7 @@ else
   echo "[r5b-up] rebuilt stack + prestaged $(ls -lh "$TAR" | awk '{print $5}')"
 fi
 ls -lh "$TAR"
+test -n "$(tar -tzf "$TAR" | grep 'r1-reason-distill/write_reason_decision.py' || true)"
 
 ENV_TMP=$(mktemp /tmp/mine-r5b.env.XXXXXX)
 # shellcheck disable=SC1091
@@ -138,6 +147,7 @@ PY
   grep -q "R5b: Talent" /root/mining_src/s4-h122-f27-genesis-full-ft/start_h122.sh
   grep -q "DOWNLOAD talent-init" /root/mining_src/s4-h122-f27-genesis-full-ft/bootstrap_h122.sh
   grep -q "DOWNLOAD guass-king" /root/mining_src/s4-h122-f27-genesis-full-ft/bootstrap_h122.sh
+  test -f /root/mining_src/r1-reason-distill/write_reason_decision.py
   set -a; source /root/mine.env; set +a
   test "$KING_REPO" = "ttttxxxxsada/Affine-5guassq3tu"
   echo "R5B_DEADLINES soft=$SOFT_DEADLINE_UTC dead=$DEADMAN_UTC axis=$R5B_AXIS base=$BASE king=$KING_REPO@$KING_REV"

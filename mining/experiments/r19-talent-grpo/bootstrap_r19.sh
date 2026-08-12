@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# R19: TalentPigs-init → Reason-GRPO (Tok kept as n80 king only).
+# R19: TalentPigs-init → Reason-GRPO; n80 king = live guass (p2228).
 # Overlay: upload_and_launch copies this to r3-reason-grpo/bootstrap_r3.sh.
-# Order: pip → DL Talent+teacher+Tok → serve teacher → train (6,7) → post_train.
+# Order: pip → DL Talent+teacher+guass → serve teacher → train (6,7) → post_train.
 set -euo pipefail
 
 LOG=/root/logs/bootstrap_r3.log
@@ -102,7 +102,7 @@ if p.is_file():
         print("[bootstrap-r19] vllm_client already patched or pattern miss", flush=True)
 PY
 
-# Blocking DL: Talent (train init) + Tok (n80 king) + teacher.
+# Blocking DL: Talent (train init) + guass (live n80 king) + teacher.
 python - <<'PY'
 import os
 from huggingface_hub import snapshot_download
@@ -116,13 +116,16 @@ open("/root/logs/talent.done", "w").write(talent + "\n")
 open("/root/r19/r19_base.path", "w").write(talent + "\n")
 assert talent_rev in talent, talent
 
-tok_repo = "Tok331102/affine-5EqYW8McUc-af10"
-tok_rev = "eb8bf9a356a254f71faaa439e8abc3cfba572c53"
-print("[bootstrap-r19] DOWNLOAD tok331102 king start", tok_repo, tok_rev, flush=True)
-tok = snapshot_download(tok_repo, revision=tok_rev, token=token)
-print(f"[bootstrap-r19] DOWNLOAD tok331102 done -> {tok}", flush=True)
-open("/root/logs/tok_init.done", "w").write(tok + "\n")
-open("/root/logs/tok331102.done", "w").write(tok + "\n")
+# Live reign-6 king (p2228): n80 must be vs guass, not retired Tok.
+king_repo = "ttttxxxxsada/Affine-5guassq3tu"
+king_rev = "e86758f5080d1e373e5fbbd7b4fbf6af327aeb44"
+print("[bootstrap-r19] DOWNLOAD guass-king start", king_repo, king_rev, flush=True)
+kpath = snapshot_download(king_repo, revision=king_rev, token=token)
+print(f"[bootstrap-r19] DOWNLOAD guass-king done -> {kpath}", flush=True)
+open("/root/logs/guass.done", "w").write(kpath + "\n")
+# Compat stamps for older post_train gates that still look for tok*.done.
+open("/root/logs/tok_init.done", "w").write(kpath + "\n")
+open("/root/logs/tok331102.done", "w").write(kpath + "\n")
 
 print("[bootstrap-r19] DOWNLOAD teacher start", flush=True)
 tpath = snapshot_download("zai-org/GLM-4.5-Air-FP8", token=token)
