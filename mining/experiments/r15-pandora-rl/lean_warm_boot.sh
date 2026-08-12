@@ -34,7 +34,22 @@ print("[r15-lean] DOWNLOAD pandora-init start", repo, rev, flush=True)
 path = snapshot_download(repo, revision=rev, token=token)
 print(f"[r15-lean] DOWNLOAD pandora-init done -> {path}", flush=True)
 open("/root/logs/pandora_init.done", "w").write(path + "\n")
+open("/root/h135/r15_base.path", "w").write(path + "\n")
+assert rev in path, path
 PY
+
+# post_train_pipeline defaults BASE→kevin954; pin pandora or merge loads wrong init (p2200).
+export BASE=$(cat /root/h135/r15_base.path)
+if grep -q '^export BASE=' /root/mine.env 2>/dev/null; then
+  sed -i "s|^export BASE=.*|export BASE=${BASE}|" /root/mine.env
+else
+  echo "export BASE=${BASE}" >>/root/mine.env
+fi
+if grep -q '^export HF_BASE_HUB=' /root/mine.env 2>/dev/null; then
+  sed -i 's|^export HF_BASE_HUB=.*|export HF_BASE_HUB=pandora-box/Affine-5eqdtdzqle-ckpt300-m4|' /root/mine.env
+else
+  echo 'export HF_BASE_HUB=pandora-box/Affine-5eqdtdzqle-ckpt300-m4' >>/root/mine.env
+fi
 
 nvidia-smi --query-gpu=index,memory.used --format=csv,noheader | tee /root/logs/r15_gpu_before_train.txt
 bash /root/mining_src/s4-h135-f40-kevin-rl-l2/start_h135.sh
@@ -42,6 +57,8 @@ touch /root/logs/r15_train_launched.stamp
 touch /root/logs/h135_train_launched.stamp
 
 TRAIN_DIR=/root/h135/train MERGED=/root/h135/merged \
+  BASE="$BASE" \
+  HF_BASE_HUB=pandora-box/Affine-5eqdtdzqle-ckpt300-m4 \
   KING_REPO=tolegend/Affine-5fqbxvz29b-ckp333 \
   KING_REV=24c137e8a978aea1e2b4abeec594fb6ca943f03c \
   KING_LOCAL=/root/hf/hub/models--tolegend--Affine-5fqbxvz29b-ckp333/snapshots/24c137e8a978aea1e2b4abeec594fb6ca943f03c \

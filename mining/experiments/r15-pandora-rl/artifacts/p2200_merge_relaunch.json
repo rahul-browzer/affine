@@ -1,0 +1,26 @@
+{
+  "pass": 2200,
+  "utc": "2026-08-12T07:28:13Z",
+  "pod": "mine-r3-grpo-1",
+  "huid": "golden-hawk-ff",
+  "axis": "R15 pandora-REINFORCE",
+  "train": {
+    "done_utc": "2026-08-12T07:24:27Z",
+    "steps": 189,
+    "mean_reward_last20": -0.057319480562916345,
+    "adapter": "/root/h135/train/adapter"
+  },
+  "failure": {
+    "what": "post_train merge aborted rc=1",
+    "cause": "BASE unset in mine.env; post_train_pipeline defaulted to kevin954 path (missing on pod) → HFValidationError",
+    "log": "/root/logs/r15_post_train.nohup"
+  },
+  "fix": {
+    "base": "/root/hf/hub/models--pandora-box--Affine-5eqdtdzqle-ckpt300-m4/snapshots/5218b1383952ff7a8d49b1d7b82acfe5e1bd448d",
+    "hf_base_hub": "pandora-box/Affine-5eqdtdzqle-ckpt300-m4",
+    "post_pid": 78627,
+    "lean_warm_boot": "pin BASE+HF_BASE_HUB like R17 (host+pod)",
+    "status": "merge loading pandora weights on GPUs 6–7"
+  },
+  "next": "wait merge.done → chall:8002 reload → n80 vs ckp333 (hr≥1.5×)"
+}
