@@ -33,7 +33,7 @@
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **REFUTED** · n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333 (p2189) |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.0215** z=−1.14 hr−0.57× (p2194) |
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r3-grpo-1` ~step75/200 (p2194) |
-| 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open — PRIORITY** · train DONE; merge relaunch BASE=golden (p2194) |
+| 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open — PRIORITY** · merge+HF DONE; chall:8002 loading→n80 (p2195) |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open** · `mine-r17-coder-rl-1` · p2091 armed |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |

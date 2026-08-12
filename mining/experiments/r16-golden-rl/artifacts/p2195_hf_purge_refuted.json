@@ -1,0 +1,60 @@
+{
+  "utc": "2026-08-12T06:44:38Z",
+  "pass": 2195,
+  "why": "free public HF quota for R16 golden merge salvage push mid-chall-load",
+  "purged": [
+    {
+      "id": "unconst/Affine-5czsc2fc98-r14-kevin-rl",
+      "ok": true,
+      "bytes": 71923881375
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r13-odpo",
+      "ok": true,
+      "bytes": 70234598568
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r12-bon",
+      "ok": true,
+      "bytes": 70234598568
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r11-odpo",
+      "ok": true,
+      "bytes": 70234598568
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r7-datafilt",
+      "ok": true,
+      "bytes": 70234597079
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r6b-fmt",
+      "ok": true,
+      "bytes": 70234598568
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r6-fmt",
+      "ok": true,
+      "bytes": 70234598568
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r3-merged",
+      "ok": true,
+      "bytes": 70234598556
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r1lora",
+      "ok": true,
+      "bytes": 70234594374
+    }
+  ],
+  "freed_bytes": 633800664224,
+  "freed_gib": 633.8,
+  "remaining_big": [
+    {
+      "id": "unconst/Affine-5czsc2fc98-r16-golden-rl",
+      "bytes": 70234600797
+    }
+  ]
+}
