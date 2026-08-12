@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-12T09:14:42Z",
+  "pass": 2215,
+  "pod": "mine-r25-hitemp-1",
+  "huid": "zesty-fox-bc",
+  "axis": "R25",
+  "action": "pre-swap :8001 Tok\u2192guass while train continues",
+  "retarget_script": "/root/retarget_king_tttt_guass.sh",
+  "retarget_pid": 10284,
+  "king_vllm_pid": 10318,
+  "train_pid": 8084,
+  "post_pid": 9634,
+  "form_pid": 9650,
+  "king_target": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "status": "loading",
+  "check": "cat /root/logs/retarget_king_tttt_guass.done; curl -s :8001/v1/models",
+  "note": "Removes RESTART_KING latency from post_train critical path; train GPUs 6-7 untouched."
+}

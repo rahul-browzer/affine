@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-12T09:10:05Z",
+  "pass": 2215,
+  "pid": 3652502,
+  "log": "experiments/fleet-rent/logs/burst_p2215.log",
+  "prev_burst_killed": 3644233,
+  "waiter_stop": 3373328,
+  "change": "R25 :8001 Tok\u2192guass retarget launched; SKIP_PID_LOCK burst PASS=2215 next=R27; 8x empty",
+  "mine_count": 4,
+  "burn_h": 220.25,
+  "r25": {
+    "retarget": "retarget_king_tttt_guass.sh",
+    "train_pid": 8084,
+    "post_pid": 9634,
+    "form_pid": 9650,
+    "king_target": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+    "king_vllm_pid": 10318,
+    "retarget_status": "loading"
+  },
+  "balance": 117654.4752457989,
+  "utc_final": "2026-08-12T09:14:42Z"
+}
