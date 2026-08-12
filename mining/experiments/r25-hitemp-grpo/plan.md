@@ -15,5 +15,6 @@ the relative Reason advantage signal is stronger than temp=0.8 R3.
 Uploader: `upload_and_launch.sh` (fleet-boot case, pass 2099).
 
 ## Decision
-n80 vs Tok; submit only if hr ≥ 1.5×(k_sigma·SE), live k=2.0.
-Watch: `/root/logs/r25_pipeline.nohup` / `r3_train.nohup` (`[r3-hb]`).
+n80 vs **live king** (guass); submit iff paired margin > **k_sigma·SE**
+(k=2.0). No 1.5× headroom (operator 2026-08-12).
+Watch: `/root/logs/r25_post_train.nohup` + form-dec → `r3_decision.json`.

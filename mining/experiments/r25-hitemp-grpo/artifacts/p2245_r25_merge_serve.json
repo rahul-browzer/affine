@@ -1,0 +1,43 @@
+{
+  "utc": "2026-08-12T11:56:26Z",
+  "pass": 2245,
+  "pod": "mine-r25-hitemp-1",
+  "huid": "zesty-fox-bc",
+  "axis": "R25_hitemp_grpo_reason",
+  "base": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "merged": "/tmp/r3_merged",
+  "merged_gb": 66,
+  "merge": {
+    "keys": 1026,
+    "visual_keys": 333,
+    "visual_resolved": 333,
+    "architectures": ["Qwen3_5MoeForConditionalGeneration"],
+    "preprocessor_config": true,
+    "identical_to_king": false
+  },
+  "serve": {
+    "teacher_8000": 200,
+    "king_8001": 200,
+    "chall_8002": "loading",
+    "max_model_len": 65536,
+    "vllm_timeout": "600s×5 (already patched)",
+    "post_train_pid": 23996,
+    "form_dec_pid": 23089,
+    "king_vllm_pid": 26266,
+    "chall_vllm_pid": 26352
+  },
+  "triton_seed": {
+    "action": "cp -a king→chall cache before first completions",
+    "chall_files_before": 1056,
+    "chall_files_after": 2975,
+    "note": "launcher sos are __triton_launcher.cpython-312-*.so"
+  },
+  "hf_push": {
+    "lora": "unconst/Affine-5czsc2fc98-r25-lora",
+    "merged": "unconst/Affine-5czsc2fc98-r25-merged",
+    "mode": "background_non_blocking"
+  },
+  "decision_rule": "submit iff paired mean(Reason_c-Reason_k) > k_sigma·SE (k=2.0); no 1.5×",
+  "next": "wait chall:8002 ready → post_train n80 vs guass → form-dec CLEAR→Stage5"
+}
