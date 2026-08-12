@@ -1,0 +1,55 @@
+-rw-r--r-- 1 root root  336 Aug 12 06:47 /root/affine_data/h135_decision.json
+-rw-r--r-- 1 root root  195 Aug 12 06:47 /root/affine_data/h135_sim_progress.json
+-rw-r--r-- 1 root root 2106 Aug 12 06:47 /root/affine_data/h135_sim_result.json
+---
+  "utc": "2026-08-12T06:47:45Z",
+  "margin": -0.009349414534529237,
+  "z": -1.2966990663876294,
+  "r_c": null,
+  "valid_c": null,
+  "S_c": null,
+  "S_k": null,
+  "se": 0.00721016523947613,
+  "base_x": null,
+  "decision": "REFUTE_H135",
+  "parser": "write_merge_decision.py#nested_verdict",
+  "signal_only": false,
+  "submit": false
+}
+[form-h135] 2026-08-12T06:47:45Z WROTE /root/affine_data/h135_decision.json
+{
+  "utc": "2026-08-12T06:47:45Z",
+  "margin": -0.009349414534529237,
+  "z": -1.2966990663876294,
+  "r_c": null,
+  "valid_c": null,
+  "S_c": null,
+  "S_k": null,
+  "se": 0.00721016523947613,
+  "base_x": null,
+  "decision": "REFUTE_H135",
+  "parser": "write_merge_decision.py#nested_verdict",
+  "signal_only": false,
+  "submit": false
+}
+---
+[sim] king 75/80
+[sim] king 80/80
+[sim] challenger 80/80
+[sim] artifact -> /root/affine_data/h135_sim_result_artifact.json
+{
+  "wins": false,
+  "margin": -0.009349414534529237,
+  "z": -1.2966990663876294,
+  "se": 0.00721016523947613,
+  "king_S": null,
+  "chall_S": null,
+  "chall_valid": null,
+  "king_valid": null,
+  "h4": {
+    "chall_r": null,
+    "chall_baseline_abs": null,
+    "king_baseline_abs": null
+  },
+  "out": "/root/affine_data/h135_sim_result.json"
+}

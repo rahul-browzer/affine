@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-12T06:52:04Z",
+  "pass": 2196,
+  "after": "R16_REFUTE",
+  "pod": "mine-crown-1",
+  "train_pid": 335693,
+  "post_pid": 335701,
+  "base": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "base_rev": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "hf_merged": "unconst/Affine-5czsc2fc98-r17-coder-rl",
+  "soft": "2026-08-13T01:35:59Z",
+  "dead": "2026-08-13T02:05:59Z",
+  "lora_dropout": 0.0,
+  "note": "relaunch after ParamWrapper dropout crash"
+}

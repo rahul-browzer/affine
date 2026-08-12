@@ -64,6 +64,8 @@ PY
 
 rm -f "$TRAIN_DIR/train.done" "$TRAIN_DIR/train_result.json"
 echo "[r17] $(date -u +%Y-%m-%dT%H:%M:%SZ) launch coder-REINFORCE-Reason lr=$LR r=$LORA_R G=$GROUP on GPUs $CUDA_VISIBLE_DEVICES"
+# Qwen3-Coder ParamWrapper: peft requires lora_dropout=0 (≠ Albedo 0.05 default).
+LORA_DROPOUT=${R17_LORA_DROPOUT:-0.0}
 nohup python3 "$SRC/train_rl_l2.py" \
   --base "$BASE" \
   --data "$DATA" \
@@ -76,6 +78,7 @@ nohup python3 "$SRC/train_rl_l2.py" \
   --lr "$LR" \
   --lora-r "$LORA_R" \
   --lora-alpha "$LORA_ALPHA" \
+  --lora-dropout "$LORA_DROPOUT" \
   --group-size "$GROUP" \
   --temperature 0.8 \
   --max-steps "$MAX_STEPS" \

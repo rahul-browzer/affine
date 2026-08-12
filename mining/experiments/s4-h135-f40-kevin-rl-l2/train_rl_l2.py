@@ -169,6 +169,8 @@ def main() -> None:
     ap.add_argument("--lr", type=float, default=5e-6)
     ap.add_argument("--lora-r", type=int, default=16)
     ap.add_argument("--lora-alpha", type=int, default=32)
+    # Qwen3-Coder ParamWrapper rejects lora_dropout!=0 — R17 passes 0.
+    ap.add_argument("--lora-dropout", type=float, default=0.05)
     ap.add_argument("--group-size", type=int, default=2)
     ap.add_argument("--temperature", type=float, default=0.8)
     ap.add_argument("--max-steps", type=int, default=200)
@@ -214,6 +216,7 @@ def main() -> None:
         "lr": args.lr,
         "lora_r": args.lora_r,
         "lora_alpha": args.lora_alpha,
+        "lora_dropout": args.lora_dropout,
         "group_size": args.group_size,
         "max_new": args.max_new,
         "max_steps": args.max_steps,
@@ -246,7 +249,7 @@ def main() -> None:
         task_type=TaskType.CAUSAL_LM,
         r=args.lora_r,
         lora_alpha=args.lora_alpha,
-        lora_dropout=0.05,
+        lora_dropout=args.lora_dropout,
         target_modules=[
             "q_proj",
             "k_proj",
