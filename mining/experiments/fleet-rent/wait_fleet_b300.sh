@@ -24,8 +24,7 @@ PASS=${PASS:-2134}
 # Format: name|axis_id|short_note
 # R24–R32 (structural) sit after R3b — ahead of cosmetic parent-swap GRPO.
 QUEUE=(
-  # R4/R4b/R5/R6/R6b REFUTED. R8 live on mine-r4-fullft-1 GPUs6–7 (p2151) — do not re-rent R6/R8.
-  "mine-r7-datafilt-1|R7|high-Reason data filter curriculum FT"
+  # R4/R4b/R5/R6/R6b/R8 REFUTED. R7 live on warm mine-r4-fullft-1 (p2158) — do not re-rent R7/R8.
   # R3b live on mine-r3-grpo-1 (p2127 retarget after R3 REFUTE) — do not re-rent.
   "mine-r24-longctx-1|R24|Tok GRPO max_len=16384 max_new=1024 (≠ R3 6144/512)"
   "mine-r25-hitemp-1|R25|Tok GRPO temperature=1.2 (≠ R3 temp=0.8)"

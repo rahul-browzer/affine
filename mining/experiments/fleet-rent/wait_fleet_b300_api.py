@@ -50,8 +50,8 @@ SSH_PUBKEY_PATH = Path(
 
 # Distinct axes (one pod each). Skip names already live.
 QUEUE = [
-    ("mine-r7-datafilt-1", "R7", "high-Reason data filter curriculum FT"),
-    # R8 live on warm mine-r4-fullft-1 GPUs6–7 (p2151 after R6b REFUTE) — do not re-rent.
+    # R7 live on warm mine-r4-fullft-1 (p2158 after R8 REFUTE) — do not re-rent.
+    # R8 REFUTED p2158 n80 m=-0.027 z=-1.64 vs ckp333 — do not re-rent.
     ("mine-r24-longctx-1", "R24", "Tok GRPO max_len=16384 max_new=1024 (≠ R3 6144/512)"),
     ("mine-r25-hitemp-1", "R25", "Tok GRPO temperature=1.2 (≠ R3 temp=0.8)"),
     ("mine-r26-lotemp-1", "R26", "Tok GRPO temperature=0.5 (≠ R3 0.8 / R25 1.2)"),
