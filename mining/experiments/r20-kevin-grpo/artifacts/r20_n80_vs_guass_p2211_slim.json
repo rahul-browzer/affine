@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-12T08:48:27Z",
+  "pass": 2211,
+  "hyp": "R20",
+  "king": "ttttxxxxsada/Affine-5guassq3tu",
+  "chall": "/tmp/r3_merged",
+  "margin": -0.01963094013670906,
+  "se": 0.009195929099864109,
+  "z": -2.134742441304724,
+  "n_paired": 80,
+  "challenger_wins": false,
+  "decision": "REFUTE_R20",
+  "headroom_vs_live_2se": -1.06737
+}

@@ -1,0 +1,69 @@
+{
+  "elapsed_s": 126.94982194900513,
+  "king_repo": "ttttxxxxsada/Affine-5guassq3tu",
+  "king_rev": "e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "chall_repo": "/tmp/r3_merged",
+  "block_hash": "d203000000000000000000000000000000000000000000000000000000000004",
+  "hotkey": "local-r20",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.01963094013670906,
+    "se": 0.009195929099864109,
+    "z": -2.134742441304724,
+    "k_sigma": 2.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "Reason = lpC(y_C|z_A) \u2212 lpC(y_C|\u2205)",
+    "duel_params": {
+      "n_turns": 80,
+      "k_sigma": 2.0
+    },
+    "king": {
+      "reason": -0.0015190200238761103,
+      "n_turns": 80,
+      "n_pairs": 80,
+      "gate_pass_rate": 0.0,
+      "bank_frac": null,
+      "calib_ratio": null,
+      "baseline_abs": null,
+      "mean_l1lift": null,
+      "mean_eta": -0.575612009728264,
+      "mean_len_z": 345.5125,
+      "mean_len_y": 252.825,
+      "len_z_delta": 102.39999999999998,
+      "len_y_delta": -242.2
+    },
+    "challenger": {
+      "reason": -0.021149960160585173,
+      "n_turns": 80,
+      "n_pairs": 80,
+      "gate_pass_rate": 0.0,
+      "bank_frac": null,
+      "calib_ratio": null,
+      "baseline_abs": null,
+      "mean_l1lift": null,
+      "mean_eta": -1.5481309671791854,
+      "mean_len_z": 268.8875,
+      "mean_len_y": 266.075,
+      "len_z_delta": 25.774999999999977,
+      "len_y_delta": -228.95
+    },
+    "teacher": {
+      "mean_len_z": 243.1125,
+      "mean_len_y": 495.025
+    },
+    "duel_seconds": 126.9492335759569,
+    "slice": {
+      "seed": 14201993826578521162,
+      "n": 80,
+      "digest": "ffc4360fbdc368a6812dba3ab4350acd57280149f1c958b5049f90a52660a58a",
+      "block_hash": "d203000000000000000000000000000000000000000000000000000000000004",
+      "corpus_epoch": 8,
+      "manifest_sha256": "68a38fe1a9a426ceb6eb342e061c7062ee7f481b60d3e51aa49d08efeaddbfbc"
+    }
+  },
+  "h4": {
+    "chall_r": null,
+    "chall_baseline_abs": null,
+    "king_baseline_abs": null
+  }
+}

@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # After R3 train.done: merge LoRA → chall:8002 → n80 vs live king.
-# Base = Tok331102 (train init); sim king = reign-5 tolegend ckp333 (p2153).
-# Prewarm may still hold Tok on :8001 — RESTART_KING=1 swaps before n80.
+# Base = Tok331102 (train init); sim king = live reign-6 guass (p2211).
+# Prewarm may still hold old king on :8001 — RESTART_KING=1 swaps before n80.
+# After a mid-pipeline king retarget: kill pipe+sim and re-source mine.env
+# (process env keeps the old KING_* until restart — p2211 R20 404).
 set -euo pipefail
 
 # shellcheck disable=SC1091
@@ -19,9 +21,9 @@ export PYTHONPATH=/root/mining_src/affine_pkg:${PYTHONPATH:-}
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-6,7}
 
 BASE=${BASE:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
-KING_REPO=${KING_REPO:-tolegend/Affine-5fqbxvz29b-ckp333}
-KING_REV=${KING_REV:-24c137e8a978aea1e2b4abeec594fb6ca943f03c}
-KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--tolegend--Affine-5fqbxvz29b-ckp333/snapshots/24c137e8a978aea1e2b4abeec594fb6ca943f03c}
+KING_REPO=${KING_REPO:-ttttxxxxsada/Affine-5guassq3tu}
+KING_REV=${KING_REV:-e86758f5080d1e373e5fbbd7b4fbf6af327aeb44}
+KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshots/e86758f5080d1e373e5fbbd7b4fbf6af327aeb44}
 TRAIN_DIR=${TRAIN_DIR:-/root/r3/train}
 ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
 CKPT_ROOT=${CKPT_ROOT:-$TRAIN_DIR/checkpoints}
