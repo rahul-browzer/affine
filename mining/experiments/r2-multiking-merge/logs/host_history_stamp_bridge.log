@@ -705,3 +705,8 @@ scp: failed to upload file /home/const/subnet120/mining/experiments/r2-multiking
 [host-hist] 2026-08-12T05:36:10Z iter=432 still pending=['chal-00516', 'chal-00517', 'chal-00520', 'chal-00521', 'chal-00525']
 [host-hist] 2026-08-12T05:39:10Z iter=444 still pending=['chal-00516', 'chal-00517', 'chal-00520', 'chal-00521', 'chal-00525']
 [host-hist] 2026-08-12T05:42:11Z iter=456 still pending=['chal-00516', 'chal-00517', 'chal-00520', 'chal-00521', 'chal-00525']
+[host-hist] 2026-08-12T05:45:11Z iter=468 still pending=['chal-00516', 'chal-00517', 'chal-00520', 'chal-00521', 'chal-00525']
+[host-hist] 2026-08-12T05:48:12Z iter=480 still pending=['chal-00516', 'chal-00517', 'chal-00520', 'chal-00521', 'chal-00525']
+[host-hist] 2026-08-12T05:51:12Z iter=492 still pending=['chal-00516', 'chal-00517', 'chal-00520', 'chal-00521', 'chal-00525']
+[host-hist] 2026-08-12T05:54:13Z iter=504 still pending=['chal-00516', 'chal-00517', 'chal-00520', 'chal-00521', 'chal-00525']
+[host-hist] 2026-08-12T05:57:14Z iter=516 still pending=['chal-00516', 'chal-00517', 'chal-00520', 'chal-00521', 'chal-00525']

@@ -1,0 +1,11 @@
+deadline_patch soft 1 dead 1 2026-08-12T15:29:36Z 2026-08-12T15:59:36Z
+-rw-rw-r-- 1 const const 416K Aug 12 05:45 /tmp/mine-r15-warm-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-r15-pandora-rl
+HF_OK unconst/Affine-5czsc2fc98-r15-pandora-rl-lora
+LEAN_PID=74166
+[r15-lean] 2026-08-12T05:46:00Z start
+[r15-lean] DOWNLOAD pandora-init start pandora-box/Affine-5eqdtdzqle-ckpt300-m4 5218b1383952ff7a8d49b1d7b82acfe5e1bd448d
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files:   4%|▍         | 1/25 [00:00<00:07,  3.29it/s]    PID     ELAPSED CMD
+  74166 441077222-22:49:04 bash /root/mining_src/r15-pandora-rl/lean_warm_boot.sh
+t=200 k=200
+R15_WARM_ARM_OK pod=mine-r3-grpo-1 soft=2026-08-12T15:29:36Z dead=2026-08-12T15:59:36Z 2026-08-12T05:46:15Z

@@ -31,8 +31,8 @@
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **REFUTED** · n80 m=**−0.0055** z=−0.82 hr−0.41× vs ckp333 (p2175) |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **REFUTED** · n80 m=**+0.00085** z=0.06 hr0.03× vs ckp333 (p2188) |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **REFUTED** · n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333 (p2189) |
-| 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r4-fullft-1` train pid116630 (p2190) |
-| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open** · `mine-r15-pandora-rl-1` · p2088 armed |
+| 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r4-fullft-1` ~step85/200 (p2191) |
+| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r3-grpo-1` lean DL (p2191) |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open** · `mine-r16-golden-rl-1` · p2089 armed |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open** · `mine-r17-coder-rl-1` · p2091 armed |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
@@ -85,7 +85,10 @@
 - **REFUTED** p2158: n80 m=**−0.0273** SE=0.0167 z=−1.64 hr=−0.82× vs ckp333 — Stage-5 SKIP. Dir: `experiments/r8-reinforce-reason/`.
 
 ### R14 — kevin954-init REINFORCE (PRIORITY)
-- Warm-armed p2190 on `mine-r4-fullft-1` (after /lium-cipher reclaim); train pid**116630** GPUs6–7 → n80 vs ckp333. ≠ R8 Tok-init. Dir: `experiments/r14-kevin-rl/`.
+- Warm on `mine-r4-fullft-1` train pid**116630** ~step**85**/200 (p2191) → merge→n80 vs ckp333. ≠ R8 Tok-init. Dir: `experiments/r14-kevin-rl/`.
+
+### R15 — pandora-box-init REINFORCE (PRIORITY)
+- Warm-armed p2191 on `mine-r3-grpo-1` (lean DL→train GPUs6–7); Soft/Dead 15:29/15:59Z. ≠ R14 kevin. Dir: `experiments/r15-pandora-rl/`.
 
 ### R10 / R11 / R12 / R13
 - **R10 blocked** p2162: `ammazon/Affine-5dvqtektxx-sbs-v2` gated 403 for unconst — need Hub access or public merge parent before arm.
@@ -97,7 +100,7 @@
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300 (R24 first)
-- Live: crown idle · R3 idle · **R14** kevin-REINFORCE on R4. Queue: **R24** → R25–R32 · R5b · R10 · R15…. Submit iff hr ≥ 1.5×(2·SE).
+- Live: crown idle · **R15** on R3 · **R14** on R4. Queue: **R24** → R25–R32 · R5b · R10 · R16…. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
