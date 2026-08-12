@@ -1,0 +1,38 @@
+{
+  "utc": "2026-08-12T00:51:53Z",
+  "pass": 2145,
+  "action": "r2bh_refute_then_armed_pure_mt2_prefetch_reload_stage5",
+  "prior": {
+    "hyp": "R2bh",
+    "repo": "IntoLayer/Affine-5g94ihdxwu-v1",
+    "revision": "9b6bc52c8aee3ebbeb409f34114ef343c9a0d0b7",
+    "challenge_id": "chal-00516",
+    "margin": 0.003778450392817131,
+    "se": 0.003255528888975645,
+    "z": 1.160625668416668,
+    "k_sigma_live": 2.0,
+    "threshold_2se": 0.00651105777795129,
+    "headroom_vs_live_2se": 0.580312834208334,
+    "decision": "REFUTE_SIGNAL_POS_BELOW_BAR"
+  },
+  "target": {
+    "repo": "thrivepath/Affine-5HMgTYdWAH-mt2",
+    "revision": "22a5d51463c62485c54dc1f604461bf9c6e69bdb",
+    "challenge_id": "chal-00517",
+    "arch": "Glm4MoeForCausalLM",
+    "n_shards": 2,
+    "note": "\u2260 Qwen VLM king; may UNSERVABLE on crown stack"
+  },
+  "crown": {
+    "prefetch": "launch_prefetch_mt2.sh",
+    "reload": "launch_r2bi_mt2_reload_sim.sh",
+    "stage5": "watch_r2bi_stage5_push.sh",
+    "ssh": "ssh root@95.133.253.90 -p 40099"
+  },
+  "fleet": {
+    "B300x8": 0,
+    "B200x8": 0,
+    "waiter_pid": 2840405,
+    "burn_h": 180.25
+  }
+}

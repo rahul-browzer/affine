@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-12T00:47:24Z",
+  "hyp": "R2bh",
+  "contract": "Reason v3",
+  "decision": "SIGNAL_POS_BELOW_3SE",
+  "headroom_bar": 1.5,
+  "false_probe": null,
+  "margin": 0.003778450392817131,
+  "se": 0.003255528888975645,
+  "z": 1.160625668416668,
+  "k_sigma": 3.0,
+  "threshold_3se": 0.009766586666926935,
+  "headroom_vs_3se": 0.38687522280555603,
+  "reason_c": 0.0043633561633340985,
+  "reason_k": 0.0003497469111785267,
+  "n_paired_turns": 79,
+  "challenger_wins": false,
+  "sim_result": "/root/affine_data/r2bh_intolayer_reason_sim.json"
+}

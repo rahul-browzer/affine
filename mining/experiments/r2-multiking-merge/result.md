@@ -1,5 +1,12 @@
 ## p2140 — R2bg REFUTE; R2bh IntoLayer reload live (2026-08-12T00:08Z)
 
+## p2145 — R2bh REFUTE → R2bi thrivepath mt2 armed
+- **R2bh** n80 done: margin **+0.00378**, SE 0.00326, z=1.16; live 2σ thr=0.00651; hr_live=0.58× → **REFUTE** (SIGNAL_POS_BELOW_BAR). Stage5 SKIP_BELOW_BAR.
+- Artifacts: `artifacts/r2bh_intolayer_{decision,reason_sim,refute_p2145}.json`.
+- Armed **R2bi** pure `thrivepath/Affine-5HMgTYdWAH-mt2@22a5d514…` (chal-00517, arch=Glm4Moe): prefetch + reload/sim + stage5.
+- Next: R2bi n80 decision; rent B300 if stock.
+
+
 - **R2bg** pure cp1266 n80 done: margin **−0.00191** · SE **0.00507** · z=**−0.38** · live kσ=2 → thr **0.0101** · hr **−0.19×** → **REFUTE** / Stage-5 SKIP.
 - Sim stamped k_sigma=3.0 (stale local); live contract k=2.0 — still REFUTE (margin < 0).
 - Artifacts: `artifacts/r2bg_cp1266_decision.json`, `artifacts/r2bg_cp1266_reason_sim.json`, `artifacts/r2bg_cp1266_refute_p2140.json`.

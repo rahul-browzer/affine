@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-12T00:47:24Z",
+  "pass": 2145,
+  "hyp": "R2bh",
+  "chall": "IntoLayer/Affine-5g94ihdxwu-v1@9b6bc52c8aee3ebbeb409f34114ef343c9a0d0b7",
+  "margin": 0.003778450392817131,
+  "se": 0.003255528888975645,
+  "z": 1.160625668416668,
+  "k_sigma_live": 2.0,
+  "threshold_2se": 0.00651105777795129,
+  "headroom_vs_live_2se": 0.580312834208334,
+  "decision": "REFUTE_SIGNAL_POS_BELOW_BAR",
+  "note": "pos margin but z=1.16 < live 2\u03c3 and << 1.5\u00d7 submit bar; stamped SIGNAL_POS_BELOW_3SE (k=3 in sim)"
+}
