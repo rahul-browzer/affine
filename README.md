@@ -73,9 +73,12 @@ prior kings). Every verdict is replayable offline from public data.
    timelock-encrypted with a 60-second reveal window.
 7. Monitor the dashboard: intake → duel queue → fails.
 
-Hard policies: one submission per hotkey, ever (the slot burns at enqueue);
-submitted revisions can never be resubmitted by anyone; weight-identical copies
-of the king are rejected unless your Hugging Face timestamp predates the king's.
+Hard policies: one submission per hotkey, ever — the slot is consumed only
+when a real submission is enqueued. Running `submit.py --check` performs
+validation only: it never submits and never consumes the slot, which is why
+you should always run it first. Submitted revisions can never be resubmitted
+by anyone, and weight-identical copies of the king are rejected unless your
+Hugging Face timestamp predates the king's.
 
 ## Live API
 
