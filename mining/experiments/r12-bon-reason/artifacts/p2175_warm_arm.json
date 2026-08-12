@@ -1,0 +1,27 @@
+{
+  "utc": "2026-08-12T03:31:36Z",
+  "pass": 2175,
+  "hyp": "R12",
+  "action": "lean_warm_arm_after_r11_refute",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "ssh": "root@86.38.182.50 -p 40307",
+  "train_pid": 103232,
+  "post_pid": 103239,
+  "knobs": {
+    "lr": "5e-6",
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "group": 4,
+    "max_steps": 150,
+    "temp": 0.8
+  },
+  "king": "tolegend/Affine-5fqbxvz29b-ckp333@24c137e8…",
+  "soft": "2026-08-13T02:31:08Z",
+  "dead": "2026-08-13T03:01:08Z",
+  "logs": {
+    "train": "/root/logs/h137_train.nohup",
+    "post": "/root/logs/r12_post_train.nohup",
+    "lean": "/root/logs/r12_lean_warm.log"
+  }
+}

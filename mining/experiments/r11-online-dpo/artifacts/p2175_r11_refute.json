@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-12T03:31:08Z",
+  "pass": 2175,
+  "hyp": "R11",
+  "decision": "REFUTE_R11",
+  "king": "tolegend/Affine-5fqbxvz29b-ckp333@24c137e8\u2026",
+  "margin": -0.005488483005106895,
+  "se": 0.0067098488378619136,
+  "z": -0.817974165697568,
+  "k_sigma": 2.0,
+  "headroom_vs_live_2se": -0.408987082848784,
+  "n_paired_turns": 76,
+  "reason_c": 0.0038055655449383105,
+  "reason_k": 0.009371631783844769,
+  "challenger_wins": false,
+  "note": "Online DPO on live teacher Reason vs ckp333 \u2014 below bar; Stage-5 SKIP. Retarget warm pod \u2192 R12 BoN-CE."
+}
