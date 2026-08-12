@@ -14,26 +14,26 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | challenge | queue empty (latest stamped chal-00525) |
 | miner burn | **$220.25/h** · floor $833/h · **gap −$613/h** |
 | B300 stock | **0** free 8×B300/B200 (burst snatching) |
-| Lium bal | ~$116,928 · floor $10k OK |
+| Lium bal | ~$116,904 · floor $10k OK |
 | submissions | 0 |
-| HF purge | p2243 deleted **7** REFUTE/below merges → **~484 GB** free |
+| form-dec | **p2244** R19/R33 re-armed after stale prior-sim archive |
 | R10 / R18 | **BLOCKED** sbs-v2 index **403** |
 | R21 | **REFUTE** vs guass n80 m=**−0.00568** z=**−0.55** (p2235) |
 | R26 | **SIGNAL_POS_BELOW** vs guass m=**+0.00192** z=**0.19** (p2235) |
 | R5b | **SIGNAL_POS_BELOW** vs guass m=**+0.00393** z=**0.43** (p2241) |
-| R24 | train~**186**/200; tmax waiter (32768→65536 after done) |
-| R25 | train~**184**/200; teacher **65536**; post_train waiter |
-| R33 | guass-init GRPO **step~81**/200 on crown + T/K warm |
-| R19 | Talent-GRPO **step~22**/200 on r4 |
+| R24 | train~**190**/200; tmax waiter (32768→65536 after done) |
+| R25 | **train.done** → merge_lora live (post_train) |
+| R33 | guass-init GRPO **step~90**/200; form-dec **alive** |
+| R19 | Talent-GRPO **step~33**/200; form-dec **alive** |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
 | mine-crown-1 | gentle-orbit-bd | $52.25 | **R33** guass-init GRPO train + T/K warm |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R24** train + guass + tmax + n80-gate |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R24** train~190 + guass + tmax + n80-gate |
 | mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R19** Talent-GRPO train + T/K warm |
-| mine-r25-hitemp-1 | zesty-fox-bc | $40.00 | **R25** train + guass |
+| mine-r25-hitemp-1 | zesty-fox-bc | $40.00 | **R25** merge→chall→n80 |
 | host fleet-burst | pid**3962156** | — | **86400**-iter snatch next **R22** |
 | host fleet-rent | pid**3373328** (**STOP**) | — | CONT if burst ends empty |
 | host fleet-boot | pid**3852238** | — | POLL=5s (arms next rent stamps) |
@@ -53,6 +53,6 @@ slice vs the **current** king. No 1.5×. No absolute margin>0.04 bar.
 Re-sim WEAK_CLEAR vs **guass** before submit (not stale ckp333).
 
 ## Next action
-1. Burst snatch → bootstrap R22 (Soft/Dead from Removal); then R23/R27–R32.
-2. R24/R25 → merge/n80 when train.done (HF headroom cleared p2243); CLEAR → Stage-5.
-3. R19/R33: wait GRPO → merge/n80 vs guass; CLEAR → Stage-5.
+1. R25 merge→serve→n80 vs guass; CLEAR → Stage-5. Watch form-dec pid23089.
+2. Burst snatch → bootstrap R22; then R23/R27–R32.
+3. R24 train.done → tmax@65536 → merge/n80; R19/R33 continue GRPO.

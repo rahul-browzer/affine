@@ -162,6 +162,16 @@ PY
     >/root/logs/r19_pipeline.nohup 2>&1 &
   echo $! > /root/logs/r19_pipeline.pid
   cp -f /root/logs/r19_pipeline.pid /root/logs/r3_pipeline.pid
+  # p2244: clear prior-axis sim before form-dec or it instant-exits
+  if [[ -s /root/affine_data/r3_sim_result.json || -s /root/affine_data/r3_decision.json ]]; then
+    _stale=/root/affine_data/stale_pre_form_\$(date -u +%Y%m%dT%H%M%SZ)
+    mkdir -p "\$_stale"
+    for _f in r3_sim_result.json r3_sim_result_artifact.json r3_sim_progress.json r3_decision.json; do
+      [[ -e /root/affine_data/\$_f ]] && mv -f /root/affine_data/\$_f "\$_stale/" || true
+    done
+    [[ -e /root/logs/r3_decision.json ]] && mv -f /root/logs/r3_decision.json "\$_stale/" || true
+  fi
+  : >/root/logs/r19_form_decision.nohup
   nohup bash /root/mining_src/s4-h2-merge/watch_form_decision.sh r3 \
     /root/affine_data/r3_sim_result.json /root/affine_data/r3_decision.json \
     /root/logs/r19_form_decision.nohup \

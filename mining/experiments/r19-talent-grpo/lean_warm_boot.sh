@@ -114,7 +114,19 @@ echo $! >/root/logs/r19_post_train.pid
 cp -f /root/logs/r19_post_train.pid /root/logs/r3_post_train.pid
 cp -f /root/logs/r3_train.pid /root/logs/r19_train.pid 2>/dev/null || true
 
+# p2244: prior-axis r3_sim_result.json makes form-dec instant-exit (R21 REFUTE).
+# Archive before arm so the sidecar waits for THIS axis's n80.
+if [[ -s /root/affine_data/r3_sim_result.json || -s /root/affine_data/r3_decision.json ]]; then
+  _stale=/root/affine_data/stale_pre_form_$(date -u +%Y%m%dT%H%M%SZ)
+  mkdir -p "$_stale"
+  for _f in r3_sim_result.json r3_sim_result_artifact.json r3_sim_progress.json r3_decision.json; do
+    [[ -e /root/affine_data/$_f ]] && mv -f /root/affine_data/$_f "$_stale/" || true
+  done
+  [[ -e /root/logs/r3_decision.json ]] && mv -f /root/logs/r3_decision.json "$_stale/" || true
+  echo "[r19-lean] archived prior r3 sim/decision → $_stale"
+fi
 if [[ -x /root/mining_src/s4-h2-merge/watch_form_decision.sh ]]; then
+  : >/root/logs/r19_form_decision.nohup
   nohup bash /root/mining_src/s4-h2-merge/watch_form_decision.sh r3 \
     /root/affine_data/r3_sim_result.json /root/affine_data/r3_decision.json \
     /root/logs/r19_form_decision.nohup \

@@ -1,0 +1,35 @@
+{
+  "utc": "2026-08-12T11:49:01Z",
+  "pass": 2244,
+  "contract": {
+    "weight_version_key": 3,
+    "k_sigma": 2.0
+  },
+  "king": "ttttxxxxsada/Affine-5guassq3tu",
+  "burn_usd_h": 220.25,
+  "floor_usd_h": 833,
+  "lium_bal": 116904.07,
+  "stock_8x_b300_b200": 0,
+  "action": "archive_stale_prior_sim_rearm_form_decision",
+  "pods": {
+    "mine-r4-fullft-1": {
+      "axis": "R19",
+      "stale_was": "R21 REFUTE m=-0.00568",
+      "form_pid": 168017,
+      "status": "waiting_clean"
+    },
+    "mine-crown-1": {
+      "axis": "R33",
+      "stale_was": "R26 SIGNAL_POS_BELOW m=+0.00192",
+      "form_pid": 366558,
+      "status": "waiting_clean"
+    }
+  },
+  "patched": [
+    "experiments/r19-talent-grpo/lean_warm_boot.sh",
+    "experiments/r19-talent-grpo/upload_and_launch.sh",
+    "experiments/r33-guass-grpo/lean_warm_boot.sh",
+    "experiments/r33-guass-grpo/upload_and_launch.sh"
+  ],
+  "why": "warm-arm form-dec saw prior-axis r3_sim_result and instant-wrote REFUTE/SIGNAL then exited; n80 sidecar would miss post-train CLEAR"
+}
