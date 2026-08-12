@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-12T03:21:47Z",
+  "pass": 2173,
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "event": "R11 false_probe (Triton __triton_launcher.so) \u2192 quarantine \u2192 seed king TCACHE\u2192chall \u2192 relaunch_chall_072 \u2192 n80-retry waits double-promptable then real n80 vs ckp333",
+  "false_probe": "unpromptable:probe_sample_failed:ConnectError (chall EngineDead on missing __triton_launcher.so)",
+  "chall": "/root/h139/merged",
+  "king": "tolegend/Affine-5fqbxvz29b-ckp333@24c137e8",
+  "chall_pid": 98922,
+  "n80_retry_launcher_pid": 98926,
+  "decision_watch_pid": 98937,
+  "sim_out": "/root/affine_data/h139_sim_result.json",
+  "progress": "/root/affine_data/h139_sim_progress.json",
+  "decision": "/root/affine_data/h139_decision.json",
+  "retry_log": "/root/logs/h139_n80_retry.nohup",
+  "k_sigma": 2.0,
+  "headroom_rule": "ADVANCE iff hr>=1.5x vs live 2\u03c3",
+  "burn_usd_per_h": 180.25,
+  "lium_balance": 119130.766,
+  "b300_8x_stock": 0
+}

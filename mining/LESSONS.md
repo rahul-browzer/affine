@@ -25,7 +25,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - King is multimodal Qwen MoE — CausalLM save can drop `model.visual.*`; restore before vLLM.
 - Tok af10 ships visual tensors inside language shards (index→lang is OK) but **no** `preprocessor_config.json` — derive from `processor_config.json` before vLLM.
 - B300 SM10.3 + vllm 0.22.1: patch `flash_fwd_sm100` upper bound to `Arch.sm_121f` before serve or every engine dies at profile_run.
-- Never `pkill -f` over SSH (matches your session). Kill by PID. Seed chall Triton from live king TCACHE when recovering.
+- Never `pkill -f` over SSH (matches your session). Kill by PID. Seed chall Triton from king TCACHE before relaunch; `/v1/models`≠promptable — first completions can EngineDead on missing `__triton_launcher.so` → FALSE_PROBE (p2173 R11).
 - Never edit a running `restore_warm_stack.sh` on the pod (bash re-reads mid-file); write `.new` and swap after exit.
 - After any restore kill/relaunch, **re-check the n80 watcher PID** — pid3045 died silently (log froze at iter=60) while engines were still loading; without relaunch, PROMPTABLE would never start the sim.
 - `/root/mine.env` must **export** vars (or `set -a` before `source`); bare `HF_TOKEN=…` does not reach the python child — sim then hits unauth HF Hub and stalls on tokenizer download before first progress.

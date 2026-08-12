@@ -26,9 +26,9 @@
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **REFUTED** · n80 m=**+0.0123** z=1.978 hr0.99× vs ckp333 (p2162) |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **REFUTED** · n80 m=**−0.0273** z=−1.64 hr−0.82× vs ckp333 (p2158) |
-| 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train~243/354; post waits train+**R2bm** →merge→n80 |
+| 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train~260/354; post waits train+**R2bm** →merge→n80 |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **blocked** · sbs-v2 gated 403 (p2162); fleet/`mine-r10-*` until Hub access |
-| 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open — live** · ~step98/150; post_train+dec-watch (p2171) |
+| 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open — live** · merge+HF done; chall Triton false_probe→reseed+retry n80 (p2173) |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open** · `mine-r12-bon-1` · p2085 armed |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open** · `mine-r13-odpo-1` · p2086 armed |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open** · `mine-r14-kevin-rl-1` · p2087 armed |
