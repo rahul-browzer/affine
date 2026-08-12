@@ -76,7 +76,7 @@
 - **R6b REFUTED** p2151: natural long-z LoRA n80 m=**−0.01014** z=−1.23 SE=0.00825 (hr−0.62×) — format family closed. Dir: `experiments/r6b-long-thought/`.
 
 ### R8 — REINFORCE on Reason
-- Live p2151 on warm `mine-r4-fullft-1` GPUs6–7 after R6b REFUTE (skip peft probe; Soft/Dead TTL-relative). Dir: `experiments/r8-reinforce-reason/`.
+- **p2157 n80 live** on `mine-r4-fullft-1`: train DONE 189 steps (mean_r_last20≈0.023); merged≠base/king; king=ckp333 chall=/root/r8/merged; prog `/root/affine_data/r8_sim_progress.json`. Dir: `experiments/r8-reinforce-reason/`.
 
 ### R24–R32 — structural GRPO knobs (fleet-queued)
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
