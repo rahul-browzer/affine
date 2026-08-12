@@ -8,7 +8,7 @@
 |---|---|---|---|---|---|
 | mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-12T14:36Z** | **R2bm n80** + R9 train |
 | mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | **R3b** train; dec-watch armed |
-| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove **2026-08-12T20:57Z** | **R11** Soft 19:57/Dead 20:27; dec-watch |
+| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove **2026-08-12T20:57Z** | **R11** chall loading→n80 |
 | *(pending fleet)* | mine-r24…r32 | 8×B300 | ~$64 | rent POST + boot **2756348** | R24 first |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -22,6 +22,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T03:16Z | p2172: R11 merge+HF purge+push; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T03:11Z | p2171: R3/R11 decision writers+watchers; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T03:05Z | p2170: R9←R2bm gate; B300×8=0; burn **$180.25/h** |
-| 2026-08-12T03:00Z | p2169: R2bm n80 live; B300×8=0; burn **$180.25/h** |

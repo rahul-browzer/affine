@@ -1,0 +1,324 @@
+{
+  "utc": "2026-08-12T03:16:23Z",
+  "pass": 2172,
+  "why": "R11 merged salvage push ~65GiB to unconst/Affine-5czsc2fc98-r11-odpo; free public Hub space",
+  "keep": [
+    "unconst/Affine-5czsc2fc98-h139-lora",
+    "unconst/Affine-5czsc2fc98-r11-odpo",
+    "unconst/Affine-5czsc2fc98-r3-merged",
+    "unconst/Affine-5czsc2fc98-r3b-merged"
+  ],
+  "purged_n": 77,
+  "purged_GiB": 5407.93,
+  "purged": [
+    {
+      "id": "unconst/Affine-5czsc2fc98-r5-nonking",
+      "bytes": 71923881458
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h97-merged",
+      "bytes": 70234598564
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h96-merged",
+      "bytes": 70234598564
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h94-merged",
+      "bytes": 70234598564
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h91-merged",
+      "bytes": 70234598564
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h90-merged",
+      "bytes": 70234598564
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h88-merged",
+      "bytes": 70234598564
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h87-merged",
+      "bytes": 70234598564
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h86-merged",
+      "bytes": 70234598564
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h85-merged",
+      "bytes": 70234598564
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h84-merged",
+      "bytes": 70234598564
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r8-merged",
+      "bytes": 70234598562
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h95-merged",
+      "bytes": 70234598562
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h78-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h77-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h74-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h72-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h71-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h69-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h63-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h62-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h61-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h60-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h59-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h58-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h57-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h56-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h55-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h52-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h51-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h49-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h47-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h45-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h43-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h36-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h35-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h31-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h30-merged",
+      "bytes": 70234598138
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h76-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h75-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h73-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h70-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h68-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h66-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h65-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h64-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h54-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h53-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h50-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h48-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h46-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h44-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h41-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h40-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h39-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h38-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h37-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h34-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h28-merged",
+      "bytes": 70234598137
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h67-merged",
+      "bytes": 70234598136
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h42-merged",
+      "bytes": 70234598136
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h6-mid50-merged",
+      "bytes": 70234598082
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h105-merged",
+      "bytes": 70234598058
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h33-merged",
+      "bytes": 70234598055
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h32-merged",
+      "bytes": 70234598055
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h29-merged",
+      "bytes": 70234598055
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h27-merged",
+      "bytes": 70234598055
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h6-merged",
+      "bytes": 70234598052
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r4-fullft",
+      "bytes": 70234597601
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-r4b-fullft",
+      "bytes": 70234597078
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h121-fullft",
+      "bytes": 70234597078
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h123-trefsft",
+      "bytes": 70234597077
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h110-merged",
+      "bytes": 70227432229
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h109-merged",
+      "bytes": 70227432117
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h126-bittobfullft",
+      "bytes": 70214600819
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h80-merged",
+      "bytes": 69341417094
+    },
+    {
+      "id": "unconst/Affine-5czsc2fc98-h79-merged",
+      "bytes": 69341417094
+    }
+  ],
+  "errors": []
+}
