@@ -1,0 +1,405 @@
+openapi: 3.1.0
+info:
+  title: Affine Live API
+  version: 0.1.0
+  description: |
+    Read-only public API for Affine (Bittensor SN120), the teacher-anchored
+    distillation subnet. Serves the live competition state (king, duel queue,
+    intake), verdict and benchmark history, the live contract knobs, per-duel
+    detail, and the public training corpus index. All endpoints are
+    unauthenticated. Complete gzipped audit history and bulk data mirrors live
+    on Hippius S3 at https://s3.hippius.com/affine-sn120.
+servers:
+  - url: https://www.affine.io/api/v1
+paths:
+  /snapshot:
+    get:
+      operationId: getSnapshot
+      summary: Current competition state
+      description: >
+        The dashboard's source of truth: current phase, reigning king, reign
+        chain, duel queue, in-flight evaluation, recent intake log, submission
+        stats, eval/bench machine info (including exact vLLM/transformers/torch
+        versions under eval_machine.versions), and market data.
+      responses:
+        "200":
+          description: Current state snapshot
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Snapshot"
+  /history:
+    get:
+      operationId: getHistory
+      summary: Verdict history (paginated)
+      parameters:
+        - name: cursor
+          in: query
+          required: false
+          schema: { type: integer }
+          description: Opaque cursor from a previous response's next_cursor.
+      responses:
+        "200":
+          description: Recent verdict events, newest first
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items: { $ref: "#/components/schemas/Verdict" }
+                  next_cursor:
+                    type: [integer, "null"]
+  /benchmarks:
+    get:
+      operationId: getBenchmarks
+      summary: Advisory benchmark scores
+      description: >
+        SWE benchmark results (suite swe_rebench_lite) for evaluated models.
+        Advisory only — benchmark scores never affect crown scoring.
+      responses:
+        "200":
+          description: Bench scores per model
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  generated_at: { type: string, format: date-time }
+                  suites:
+                    type: array
+                    items: { type: string }
+                  models: { type: array, items: { type: object } }
+                  active: { type: array, items: { type: object } }
+  /contract:
+    get:
+      operationId: getContract
+      summary: Live contract knobs
+      description: >
+        The machine-readable contract the validator currently enforces:
+        submission rules, teacher model, duel scoring parameters, dataset
+        location, and bench configuration. Mirrors code/affine.toml.
+      responses:
+        "200":
+          description: Contract configuration
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Contract"
+  /duels/{id}:
+    get:
+      operationId: getDuel
+      summary: One duel's detail
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+          description: Challenge id, e.g. chal-00540.
+      responses:
+        "200":
+          description: Full duel record (participants, params, outcome)
+          content:
+            application/json:
+              schema: { type: object }
+        "404": { description: Unknown duel id }
+  /duels/{id}/series:
+    get:
+      operationId: getDuelSeries
+      summary: Per-turn scores for a duel
+      description: >
+        The paired per-turn Reason scores behind a verdict — enough to recompute
+        the mean difference, standard error, and crowning decision offline.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Per-turn score series
+          content:
+            application/json:
+              schema: { type: object }
+        "404": { description: Unknown duel id }
+  /benches:
+    get:
+      operationId: listBenches
+      summary: Bench job manifest
+      responses:
+        "200":
+          description: Index of benchmark jobs
+          content:
+            application/json:
+              schema: { type: object }
+  /benches/{job_id}:
+    get:
+      operationId: getBench
+      summary: One bench job's result
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Bench job record
+          content:
+            application/json:
+              schema: { type: object }
+        "404": { description: Unknown job id }
+  /benches/{job_id}/trajectory:
+    get:
+      operationId: getBenchTrajectory
+      summary: Agent transcript for a bench rollout
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Full per-task agent trajectory
+          content:
+            application/json:
+              schema: { type: object }
+        "404": { description: Unknown job id }
+  /dataset:
+    get:
+      operationId: getDatasetStats
+      summary: Corpus statistics
+      description: >
+        Corpus D metadata: epoch, schema version, manifest sha256, turn and
+        trajectory counts, source/language/phase mix, and contributing repos.
+        Bulk data lives at the corpus_base_url from /contract
+        (turns/manifest.json, parquet index, gzipped JSONL chunks).
+      responses:
+        "200":
+          description: Corpus statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  corpus_epoch: { type: integer }
+                  schema_version: { type: integer }
+                  manifest_sha256: { type: string }
+                  n_turns: { type: integer }
+                  n_trajectories: { type: integer }
+                  n_chunks: { type: integer }
+                  mix: { type: object }
+                  repos: { type: array, items: { type: object } }
+                  synced_at: { type: number }
+                  stale: { type: boolean }
+  /dataset/turns:
+    get:
+      operationId: listDatasetTurns
+      summary: Paginated corpus turn index
+      parameters:
+        - name: cursor
+          in: query
+          required: false
+          schema: { type: integer }
+        - name: limit
+          in: query
+          required: false
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Page of turn index entries
+          content:
+            application/json:
+              schema: { type: object }
+  /dataset/turn:
+    get:
+      operationId: getDatasetTurn
+      summary: One corpus turn
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema: { type: string }
+          description: Turn identifier from the turn index.
+      responses:
+        "200":
+          description: Single turn (prompt + reference solution)
+          content:
+            application/json:
+              schema: { type: object }
+        "404": { description: Unknown turn id }
+  /stream:
+    get:
+      operationId: streamEvents
+      summary: Server-sent-event deltas
+      description: >
+        SSE stream of live state changes (phase transitions, intake events,
+        verdicts). Connect with Accept: text/event-stream.
+      responses:
+        "200":
+          description: SSE event stream
+          content:
+            text/event-stream:
+              schema: { type: string }
+components:
+  schemas:
+    Snapshot:
+      type: object
+      properties:
+        generated_at: { type: string, format: date-time }
+        version: { type: string }
+        phase:
+          type: object
+          properties:
+            name: { type: string }
+            since: { type: string, format: date-time }
+            challenge_id: { type: string }
+        king:
+          type: object
+          properties:
+            repo: { type: string }
+            revision: { type: string }
+            hotkey: { type: string }
+            reign_number: { type: integer }
+            crowned_at: { type: string, format: date-time }
+            block: { type: integer }
+            score: { type: number }
+        reign:
+          type: object
+          properties:
+            size: { type: integer }
+            members: { type: array, items: { type: object } }
+        reign_chain: { type: array, items: { type: object } }
+        queue: { type: array, items: { type: object } }
+        current_eval:
+          type: object
+          properties:
+            challenge_id: { type: string }
+            repo: { type: string }
+            hotkey: { type: string }
+            stage: { type: string }
+            progress: { type: object }
+            started_at: { type: string, format: date-time }
+        intake: { type: array, items: { type: object } }
+        bench_jobs: { type: array, items: { type: object } }
+        stats:
+          type: object
+          properties:
+            queued: { type: integer }
+            accepted: { type: integer }
+            rejected: { type: integer }
+            failed: { type: integer }
+            enqueued_total: { type: integer }
+            duel_queue_len: { type: integer }
+        eval_machine:
+          type: object
+          properties:
+            provider: { type: string }
+            created_at: { type: number }
+            versions:
+              type: object
+              properties:
+                vllm: { type: string }
+                transformers: { type: string }
+                torch: { type: string }
+        bench_machine: { type: object }
+        market:
+          type: object
+          properties:
+            netuid: { type: integer }
+            price_tao: { type: number }
+            reg_cost_tao: { type: number }
+            miners_tao_per_day: { type: number }
+            tao_price_usd: { type: number }
+            block_number: { type: integer }
+            updated_at: { type: string, format: date-time }
+    Verdict:
+      type: object
+      description: One intake or duel outcome event from /history.
+      properties:
+        event: { type: string, description: "e.g. verdict" }
+        at: { type: string, format: date-time }
+        challenge_id: { type: string }
+        repo: { type: string }
+        hotkey: { type: string }
+        uid: { type: integer }
+        revision: { type: string }
+        accepted: { type: boolean }
+        challenger_wins: { type: [boolean, "null"] }
+        z: { type: [number, "null"] }
+        margin: { type: [number, "null"] }
+        se: { type: [number, "null"] }
+        n_paired_turns: { type: [integer, "null"] }
+        score: { type: [number, "null"] }
+        score_king: { type: [number, "null"] }
+        rejection_reason: { type: [string, "null"] }
+        error_code: { type: [string, "null"] }
+        error_detail: { type: string }
+        duration_s: { type: number }
+        reign_number: { type: [integer, "null"] }
+        gates: { type: object }
+        duel_params: { type: object }
+        teacher: { type: object }
+        challenger: { type: object }
+        king: { type: object }
+    Contract:
+      type: object
+      properties:
+        subnet:
+          type: object
+          properties:
+            name: { type: string }
+            netuid: { type: integer }
+            network: { type: string }
+            burn_uid: { type: integer }
+            king_chain_size: { type: integer }
+            min_submission_block: { type: integer }
+            weight_version_key: { type: integer }
+        submission:
+          type: object
+          properties:
+            reveal_prefix: { type: string }
+            repo_pattern: { type: string }
+            coldkey_prefix_len: { type: integer }
+            coldkey_suffix_len: { type: integer }
+            max_model_size_gb: { type: number }
+            max_total_repo_gb: { type: number }
+            allow_python_files: { type: boolean }
+            allow_auto_map: { type: boolean }
+            max_repo_files: { type: integer }
+            max_config_bytes: { type: integer }
+        teacher:
+          type: object
+          properties:
+            repo: { type: string }
+        dataset:
+          type: object
+          properties:
+            corpus_base_url: { type: string }
+            manifest_key: { type: string }
+            refresh_interval_s: { type: integer }
+        duel:
+          type: object
+          properties:
+            n_turns: { type: integer }
+            k_sigma: { type: number }
+            min_margin: { type: number }
+            n_teacher_samples: { type: integer }
+            n_miner_samples: { type: integer }
+            score_bank: { type: boolean }
+            reason_only: { type: boolean }
+            temperature: { type: number }
+            max_thought_tokens: { type: integer }
+            max_action_tokens: { type: integer }
+            concurrency: { type: integer }
+            timeout_s: { type: integer }
+        bench:
+          type: object
+          properties:
+            enabled: { type: boolean }
+            suites: { type: array, items: { type: string } }
+            num_trials: { type: integer }
+            max_concurrency: { type: integer }
+            user_llm: { type: string }
+            policy: { type: string }
+        version: { type: string }
