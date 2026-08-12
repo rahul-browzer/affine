@@ -24,7 +24,9 @@ KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/
 TRAIN_DIR=${TRAIN_DIR:-/root/h135/train}
 ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
 CKPT_ROOT=${CKPT_ROOT:-$TRAIN_DIR/checkpoints}
-MERGED=${MERGED:-/root/h135/merged}
+# /tmp overlay — gocryptfs /root/.../merged hangs save_pretrained
+# (WCHAN=request_wait_answer @~50G first shard; p2122/p2201/p2203).
+MERGED=${MERGED:-/tmp/r15_merged}
 SIM_N80=/root/affine_data/h135_sim_result.json
 PROG=/root/affine_data/h135_sim_progress.json
 LOG=/root/logs/h135_pipeline.nohup
@@ -132,7 +134,8 @@ python /root/mining_src/s4-h1-sft/merge_lora.py \
   --base "$BASE" \
   --adapter "$ADAPTER" \
   --out "$MERGED" \
-  --device-map cpu \
+  --device-map "${MERGE_DEVICE_MAP:-cpu}" \
+  --max-shard-size "${MERGE_MAX_SHARD:-5GB}" \
   | tee -a "$LOG"
 cp -f "$MERGED/merge_meta.json" /root/affine_data/h135_merge_meta.json 2>/dev/null || true
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h135_merge.done

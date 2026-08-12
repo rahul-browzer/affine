@@ -52,6 +52,12 @@ def main() -> None:
         help="transformers device_map; use 'auto' on free GPUs 6,7 after train "
         "(much faster than cpu for 35B merge under TTL pressure)",
     )
+    ap.add_argument(
+        "--max-shard-size",
+        default="5GB",
+        help="save_pretrained max_shard_size (5GB avoids gocryptfs hang on "
+        "huge first shard; use /tmp out dir too)",
+    )
     args = ap.parse_args()
 
     t0 = time.time()
@@ -61,6 +67,7 @@ def main() -> None:
 
     print(
         f"[merge] load base {args.base} device_map={args.device_map} "
+        f"max_shard_size={args.max_shard_size} "
         f"CUDA_VISIBLE_DEVICES={os.environ.get('CUDA_VISIBLE_DEVICES')}",
         flush=True,
     )
@@ -75,8 +82,29 @@ def main() -> None:
     model = PeftModel.from_pretrained(model, str(args.adapter))
     print("[merge] merge_and_unload", flush=True)
     model = model.merge_and_unload()
-    print(f"[merge] save {args.out}", flush=True)
-    model.save_pretrained(str(args.out), safe_serialization=True)
+    # Contig-clone before safetensors serialize — peft/mmap tensors on
+    # overlay|/tmp hit EFAULT "Bad address" (os error 14) otherwise
+    # (H109/H110 recover; R15 p2203).
+    print(
+        "[merge] contiguous-clone state_dict (EFAULT workaround)",
+        flush=True,
+    )
+    sd = {
+        k: v.detach().to("cpu").contiguous().clone()
+        for k, v in model.state_dict().items()
+    }
+    print(
+        f"[merge] save {args.out} shard={args.max_shard_size} "
+        f"n_tensors={len(sd)}",
+        flush=True,
+    )
+    model.save_pretrained(
+        str(args.out),
+        state_dict=sd,
+        safe_serialization=True,
+        max_shard_size=args.max_shard_size,
+    )
+    del sd
     tok.save_pretrained(str(args.out))
 
     # AutoModelForCausalLM.save_pretrained writes the *text* config

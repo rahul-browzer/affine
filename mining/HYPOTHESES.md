@@ -32,7 +32,7 @@
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **REFUTED** · n80 m=**+0.00085** z=0.06 hr0.03× vs ckp333 (p2188) |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **REFUTED** · n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333 (p2189) |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.0215** z=−1.14 hr−0.57× (p2194) |
-| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open — PRIORITY** · CPU merge ~38% pid**80751** (p2202; train 189 DONE) |
+| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open — PRIORITY** · merge DONE `/tmp/r15_merged` (p2203) · chall reload→n80 |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.00935** z=−1.30 hr=−0.65× vs ckp333 (p2196) |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open — PRIORITY** · crown pid**337498** (p2197 empty-z/`THOUGHT:` fix; z0 ok @step1) |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
@@ -88,9 +88,9 @@
 - **REFUTED** p2194: n80 m=**−0.0215** SE=0.0189 z=−1.14 hr−0.57× vs ckp333. Dir: `experiments/r14-kevin-rl/results/`.
 
 ### R15 / R16 / R20 — PRIORITY live
-- **R15** pandora-REINFORCE on `mine-r3` ~step75/200 (p2194). Dir: `experiments/r15-pandora-rl/`.
-- **R16** golden-REINFORCE train DONE; merge relaunch with BASE=golden (H135 default was kevin — p2194). Dir: `experiments/r16-golden-rl/`.
-- **R20** kevin-GRPO on `mine-r4` (≠ REINFORCE); p2199 fixed GRPO cut@`</think>`0 + normalize; pid**126769**. Dir: `experiments/r20-kevin-grpo/`.
+- **R15** pandora-REINFORCE merge DONE `/tmp/r15_merged` (p2203 contig+5GB); chall reload→n80 vs ckp333. Dir: `experiments/r15-pandora-rl/`.
+- **R16** REFUTED p2196. Dir: `experiments/r16-golden-rl/`.
+- **R20** kevin-GRPO on `mine-r4` ~step88/200; pid**126769**. Dir: `experiments/r20-kevin-grpo/`.
 
 ### R10 / R11 / R12 / R13
 - **R10 blocked** p2162: `ammazon/Affine-5dvqtektxx-sbs-v2` gated 403 for unconst — need Hub access or public merge parent before arm.
