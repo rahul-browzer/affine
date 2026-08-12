@@ -142,9 +142,8 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Board `Glm4MoeForCausalLM` (thrivepath mt2) → UNSERVABLE at vLLM init; skip n80 (p2147). R2bj reload can die mid-prefetch-wait after `prefetch.done` — if shards ready + PID dead, relaunch; do **not** install board `chal00440_reason` (hr0.73× triggers SKIP_BOARD_FIRST; need local n80) (p2148).
 - Before LoRA merge into a live chall path: **kill chall by pidfile first** (frees GPUs4–5; avoids mmap/delete races) — p2149 R6b. **R6b** long-z n80 m=**−0.010** z=−1.23 hr−0.62× → REFUTE p2151; retarget warm TKC → **R8** REINFORCE (skip peft probe; Soft/Dead TTL-relative).
 - History API emits `event=crowned` (not only `verdict`) on a king swap — host stamp bridge must accept both or chal stamps stall (p2152: 00501). Prefetch `.done` can lie after hub eviction — re-check `snapshots/<rev>/model.safetensors.index.json` before king retarget.
-- Slim n80 launchers: `export PYTHONPATH=/root/mining_src/affine_pkg` + AFFINE_DATA_DIR after venv — else `No module named 'affine'` (p2155).
 - **R8 REFUTE** p2158 m=−0.027; king-swap retry_* KING defaults (p2159); R9 train-wait ≠ merge-block (p2160); n80 `--chall-repo`=vLLM serve id not `readlink -f` (p2161).
 - **R7 REFUTE** p2162 m=+0.0123 z=1.978 <2σ (hr0.99×) — knife-edge. **R10** 403 on sbs-v2 → warm **R11** online-DPO (GPUs6–7).
-- Pre-swap king on 2–3 while GRPO trains 6–7; `RESTART_KING=0` if `:8001` already target (p2163). `write_reason_decision` kσ=2.0 + arm watcher (p2165/71).
-- **R9/R12–R16 REFUTE** (p2188–2205; R15 m=−0.027 z=−2.25 long-z). H135 BASE export (p2200). Coder/R20: never cut z at ```bash/`</think>`@0. LoRA merge: need **contig-clone + max_shard=5GB + MERGED=/tmp/*** (R15 p2203). Idle after n80 → warm-arm next QUEUE axis on same TKC (R24 p2205).
+- Pre-swap king GPUs2–3 while train 6–7; `RESTART_KING=0` if `:8001` already target (p2163). Decision kσ=2.0 (p2165/71).
+- **R9/R12–R16 REFUTE** (p2188–2205). Coder/R20: never cut z at ```bash/`</think>`@0. LoRA merge: contig-clone+max_shard=5GB+MERGED=/tmp (p2203). Idle n80→warm next QUEUE axis (R24 p2205). King retarget: set `TARGET_KING_*` **after** `source mine.env` (set -a overwrites stale KING; p2206 ckp333→guass).
 
