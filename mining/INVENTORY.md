@@ -7,9 +7,9 @@
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
 | mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-13T02:35Z** | **R33** guass-GRPO train |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** train~183 + guass |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** train~186 + guass |
 | mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R19** Talent-GRPO + T/K |
-| mine-r25-hitemp-1 | zesty-fox-bc (`20498068-…`) | 8×B200 | $40.00 | **2026-08-13T08:46Z** | **R25** train~179 + guass |
+| mine-r25-hitemp-1 | zesty-fox-bc (`20498068-…`) | 8×B200 | $40.00 | **2026-08-13T08:46Z** | **R25** train~184 + guass |
 | *(pending fleet)* | mine-r22… then R23/R27–R32… | 8×B300 | ~$64 | burst **3962156** | **R22 next** |
 
 SSH crown/R33: `ssh root@95.133.253.90 -p 40099`
@@ -26,6 +26,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T11:44Z | p2243: 8×=0; HF purge **~484 GB** REFUTE merges; burn **$220.25/h** |
 | 2026-08-12T11:40Z | p2242: 8×=0; patched R22/R23/R27–R32 Soft/Dead←Removal; burn **$220.25/h** |
 | 2026-08-12T11:36Z | p2241: R5b SIGNAL_POS_BELOW→R19 warm-arm on r4; burst→R22; burn **$220.25/h** |
-| 2026-08-12T11:32Z | p2240: R5b CHALL_REPO fix → n80 gathering ~29/80; burn **$220.25/h** |

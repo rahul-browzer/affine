@@ -1,0 +1,51 @@
+{
+  "utc": "2026-08-12T11:44:50Z",
+  "pass": 2243,
+  "reason": "purge REFUTED/below-k\u03c3 public merges before R24/R25/R33 HF pushes (LESSONS storage cap)",
+  "freed_bytes": 484176622123,
+  "freed_gb": 484.18,
+  "results": [
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r20-kevin-grpo",
+      "ok": true,
+      "bytes": 71923881367,
+      "err": null
+    },
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r21-pandora-grpo",
+      "ok": true,
+      "bytes": 70234600322,
+      "err": null
+    },
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r26-merged",
+      "ok": true,
+      "bytes": 70234597678,
+      "err": null
+    },
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r5b-talent",
+      "ok": true,
+      "bytes": 70234596300,
+      "err": null
+    },
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r16-golden-rl",
+      "ok": true,
+      "bytes": 70234600797,
+      "err": null
+    },
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r15-pandora-rl",
+      "ok": true,
+      "bytes": 70234600325,
+      "err": null
+    },
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r17-coder-rl",
+      "ok": true,
+      "bytes": 61079745334,
+      "err": null
+    }
+  ]
+}

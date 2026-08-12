@@ -16,15 +16,15 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | B300 stock | **0** free 8×B300/B200 (burst snatching) |
 | Lium bal | ~$116,928 · floor $10k OK |
 | submissions | 0 |
+| HF purge | p2243 deleted **7** REFUTE/below merges → **~484 GB** free |
 | R10 / R18 | **BLOCKED** sbs-v2 index **403** |
 | R21 | **REFUTE** vs guass n80 m=**−0.00568** z=**−0.55** (p2235) |
-| R26 | **SIGNAL_POS_BELOW** vs guass m=**+0.00192** z=**0.19** (p2235) — no submit |
-| R5b | **SIGNAL_POS_BELOW** vs guass m=**+0.00393** z=**0.43** (p2241) — no submit |
-| R24 | train~**183**/200; tmax+post_train waiters live (teacher still 32768→65536 after done) |
-| R25 | train~**179**/200; teacher already **65536**; post_train waiter live |
-| R33 | guass-init GRPO **step~69**/200 on crown + T/K warm |
-| R19 | Talent-GRPO **step~5**/200 on r4 (train**166479**/post**166487**) |
-| p2242 | Soft/Dead **Removal−1h/−30m** patched on QUEUE launchers R22/R23/R27–R32 |
+| R26 | **SIGNAL_POS_BELOW** vs guass m=**+0.00192** z=**0.19** (p2235) |
+| R5b | **SIGNAL_POS_BELOW** vs guass m=**+0.00393** z=**0.43** (p2241) |
+| R24 | train~**186**/200; tmax waiter (32768→65536 after done) |
+| R25 | train~**184**/200; teacher **65536**; post_train waiter |
+| R33 | guass-init GRPO **step~81**/200 on crown + T/K warm |
+| R19 | Talent-GRPO **step~22**/200 on r4 |
 
 ## What's running
 
@@ -41,7 +41,6 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 SSH crown/R33: `ssh root@95.133.253.90 -p 40099` · R3: `ssh root@204.9.206.245 -p 40051`
 SSH R4/R19: `ssh root@86.38.182.50 -p 40307` · R25: `ssh root@150.136.71.147 -p 20309`
 Burst: `tail -f experiments/fleet-rent/logs/burst_p2241.log`
-R19 train: `tail -f /root/logs/r3_train.nohup` · post: `tail -f /root/logs/r19_post_train.nohup`
 Crown Removal **2026-08-13T02:35Z**. R3 **04:29Z**. R4 **08:57Z**. R25 **08:46Z**.
 
 ## Blocked
@@ -54,6 +53,6 @@ slice vs the **current** king. No 1.5×. No absolute margin>0.04 bar.
 Re-sim WEAK_CLEAR vs **guass** before submit (not stale ckp333).
 
 ## Next action
-1. Burst snatch → bootstrap R22 (Soft/Dead now from Removal); then R23/R27–R32.
-2. R24/R25 → merge/n80 when train.done; CLEAR → Stage-5.
-3. R19: wait Talent-GRPO → merge/n80 vs guass; CLEAR → Stage-5.
+1. Burst snatch → bootstrap R22 (Soft/Dead from Removal); then R23/R27–R32.
+2. R24/R25 → merge/n80 when train.done (HF headroom cleared p2243); CLEAR → Stage-5.
+3. R19/R33: wait GRPO → merge/n80 vs guass; CLEAR → Stage-5.
