@@ -55,8 +55,24 @@ def main() -> None:
         del blob
 
     out_shard = args.merged / args.shard_name
-    print(f"[graft] writing {len(tensors)} tensors → {out_shard}", flush=True)
-    save_file(tensors, str(out_shard))
+    # Overlay /tmp save_file can EFAULT even after clone (LESSONS p2123).
+    # Write under /root then copy into the merge dir.
+    import os
+    import shutil
+
+    tmp_vis = Path("/root") / f".graft_vis_{os.getpid()}.safetensors"
+    print(f"[graft] writing {len(tensors)} tensors → {out_shard} (via {tmp_vis})", flush=True)
+    try:
+        if tmp_vis.exists():
+            tmp_vis.unlink()
+        save_file(tensors, str(tmp_vis))
+        shutil.copyfile(tmp_vis, out_shard)
+    finally:
+        try:
+            tmp_vis.unlink(missing_ok=True)
+        except TypeError:
+            if tmp_vis.exists():
+                tmp_vis.unlink()
 
     nbytes = sum(t.nbytes for t in tensors.values())
     for k in vis_keys:

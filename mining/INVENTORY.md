@@ -26,6 +26,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T10:19Z | p2227: form-dec→Reason crown on 4 pods; 8×=0; burst**3745530**; burn **$220.25/h** |
+| 2026-08-12T10:09Z | p2226: visual graft `/root` cipher on all 4 pods; freed R24 bak 65G; 8×=0; burst**3745530**; burn **$220.25/h** |
 | 2026-08-12T10:04Z | p2225: R5b→guass king + prestaged stack; 8×=0; burst**3745530**; burn **$220.25/h** |
-| 2026-08-12T09:56Z | p2224: sbs-v2 index **403**; demote R10/R18; burst**3735496**→**3745530** next=R5b; 8×=0; burn **$220.25/h** |
-| 2026-08-12T09:52Z | p2223: R10 Hub false-OK; QUEUE→R10/R18; burst**3725622**→**3735496**; 8×=0; burn **$220.25/h** |

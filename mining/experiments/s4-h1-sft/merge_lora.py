@@ -237,13 +237,26 @@ def main() -> None:
                 flush=True,
             )
         out_vis = args.out / "model-visual-restored.safetensors"
-        save_file(restored, str(out_vis))
+        # Overlay /tmp save_file can still EFAULT after clone (R3 p2189;
+        # LESSONS p2123). Serialize on /root then copy into merge out.
+        tmp_vis = Path("/root") / f".merge_vis_{os.getpid()}.safetensors"
+        try:
+            if tmp_vis.exists():
+                tmp_vis.unlink()
+            save_file(restored, str(tmp_vis))
+            shutil.copyfile(tmp_vis, out_vis)
+        finally:
+            try:
+                tmp_vis.unlink(missing_ok=True)
+            except TypeError:
+                if tmp_vis.exists():
+                    tmp_vis.unlink()
         for key in restored:
             out_idx["weight_map"][key] = out_vis.name
             added += 1
         print(
             f"[merge] wrote {out_vis.name} with {len(restored)} tensors "
-            f"(TalentPigs-style packed visual restore)",
+            f"(TalentPigs-style packed visual restore; via /root cipher)",
             flush=True,
         )
 

@@ -4,7 +4,10 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 
 ## Scoring (Reason v3, weight_version_key=3)
 - **Reason = lpC(y_C|z_A) − lpC(y_C|∅)** per pair; miner score = mean. Formerly called Λ2.
-- **Crown:** paired mean(Reason_c − Reason_k) > **k_sigma · SE**; live contract `k_sigma=2.0` (2026-08-11). No min_margin, no min_se. Submit bar still ~1.5×(kσ·SE).
+- **Crown = submit gate:** paired mean(Reason_c − Reason_k) > **k_sigma · SE**
+  with live `k_sigma` (2.0 as of 2026-08-11). No min_margin, no min_se, **no
+  1.5× headroom** (retired operator 2026-08-12 — that fudge skipped R2bb which
+  had already cleared live 2σ).
 - **No gates on score or validity.** causality / leakage / bank / r / baseline band are telemetry only.
 - Miner-side terms (L1lift, lpA, calibration r) do **not** enter Reason. Do not train them as objectives.
 - Absolute Reason is only comparable within one duel slice. Use paired margin vs the live king.
@@ -14,7 +17,8 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Shape `z_A` so the frozen teacher likes its own `y_C` more with the thought than without.
 - Teacher refs / distillation data remain the free starting point; score is teacher-side only.
 - Pre-fork S\* margins and "clip-L1 decides duels" results do not transfer — re-measure under Reason.
-- Submit when sim margin clears ~**1.5 × (3·SE)** on a fresh slice (slice-variance headroom), not the old 0.04 S\* gate.
+- Submit when a fresh-slice sim clears **margin > k_sigma · SE** vs the **live**
+  king. Re-sim if the crown changed since the screen.
 
 ## Ops (still true — details in legacy archive if needed)
 - Soft/Dead = **Removal−1h / Removal−30m** from `lium schedules`/`describe` — never wall-clock `+Nh` (p2177 R12 Soft after Removal; p2178 R3b mine.env empty Soft/Dead — patch env + defaults). Fleet QUEUE must drop REFUTED axes and axes live under another pod name (p2178: R11/R12 still queued while R12 ran on `mine-r4-fullft-1`).
@@ -132,20 +136,15 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - HF snapshot "ready" ≠ complete: wait **all shards** (not index); `/root` gocryptfs full (~1GB) stalls hope12 mid-prefetch (p2119). **ec08+ckp55 UNSERVABLE**. Never kill `:8002` mid-n80.
 - Full-FT: Trainer `save_strategy` must be **`no`** on gocryptfs `/root` — end-of-train `optimizer.pt` (~111G) hangs WCHAN=`request_wait_answer` (p2112); stage final weights only under `/tmp` then symlink.
 - LoRA `merge_lora.py` `save_pretrained` to gocryptfs `/root/r3/merged` also hangs WCHAN=`request_wait_answer` (IO flat, GPU 0%) — set `MERGED=/tmp/r3_merged` (p2122 unstick).
-- Visual graft `save_file` of safetensors mmap tensors → `Bad address` on overlay — `tensor.clone().contiguous()` then write via `/root` cipher FS and copy into `/tmp` merge (p2123: 333 keys / 893MB OK).
-- R3 resume must `export PYTHONPATH=/root/mining_src/affine_pkg` and use schema-v2 `run_sim_duel.py` (passes `corpus=` / `turns_path=None`) — stale copy opens `turns.jsonl` and aborts despite parquet ready (p2125).
+- Visual graft `save_file` → overlay `/tmp` EFAULT even after `clone()` — write `/root/.merge_vis_*` then `copyfile` into merge out (p2123; R3 died without it p2189; **p2226** patched `merge_lora` on all live pods).
 - `start_r3b.sh` peft/torch import probe can hang WCHAN=`request_wait_answer` on gocryptfs — skip probe; launch `train_reason_grpo.py` directly (p2127).
 - After R3 REFUTE, retarget same warm TKC pod to **R3b** (GPUs6–7) rather than idle-wait for a new B300 rent (p2127). Kill orphan R3b trainers not in `train.pid` (p2128).
-- Crown free GPUs6–7 can host a LoRA axis (**R9** teacher-z_C) while n80 holds TKC on 0–5 — train-only; gate chall reload on R2bh decision (p2144). Never `pkill -f` patterns that match the launcher argv (self-kill).
 - Fleet-bootstrap **MAX_ITERS=86400**. Pass-burst `SKIP_PID_LOCK` must also use **86400** — `MAX_ITERS=3000` TIMEOUT≈37m opens rent gaps (p2222). API: unfiltered `GET /executors` 8× + client B300/B200; `/pods` 429≠mine=0 (p2137); stock→**POST …/rent**+TTL (p2139). Script has **no argparse** — `--help` runs `main()` and dual-polls→429; enforce single-instance PID + avoid Tee-double when stdout already→LOG (p2150).
-- Chall-swap scripts must wait the **prior** axis PIDF (e.g. `r2bh_*_reload.pid`), never own `*_reload.pid` — R2bi waited on self and hung forever (p2146); skip wait if prior `.done` exists / PID==$$.
-- Board `Glm4MoeForCausalLM` (thrivepath mt2) → UNSERVABLE at vLLM init; skip n80 (p2147). R2bj reload can die mid-prefetch-wait after `prefetch.done` — if shards ready + PID dead, relaunch; do **not** install board `chal00440_reason` (hr0.73× triggers SKIP_BOARD_FIRST; need local n80) (p2148).
-- Before LoRA merge into a live chall path: **kill chall by pidfile first** (frees GPUs4–5; avoids mmap/delete races) — p2149 R6b. **R6b** long-z n80 m=**−0.010** z=−1.23 hr−0.62× → REFUTE p2151; retarget warm TKC → **R8** REINFORCE (skip peft probe; Soft/Dead TTL-relative).
-- History API emits `event=crowned` (not only `verdict`) on a king swap — host stamp bridge must accept both or chal stamps stall (p2152: 00501). Prefetch `.done` can lie after hub eviction — re-check `snapshots/<rev>/model.safetensors.index.json` before king retarget.
 - **R8 REFUTE** p2158 m=−0.027; king-swap retry_* KING defaults (p2159); R9 train-wait ≠ merge-block (p2160); n80 `--chall-repo`=vLLM serve id not `readlink -f` (p2161). **R7 REFUTE** p2162 m=+0.0123 z=1.978 <2σ (hr0.99×) — knife-edge. **R10/R18** sbs-v2: `repo_info`/private=False ≠ weights — always probe `model.safetensors.index.json` (p2223 false OK → **403 again p2224**).
 - Pre-swap king GPUs2–3 while train 6–7; `RESTART_KING=0` if `:8001` already target (p2163). Decision kσ=2.0 (p2165/71). **R9/R12–R16 REFUTE** (p2188–2205). Coder/R20: never cut z at ```bash/`</think>`@0. LoRA merge: contig-clone+max_shard=5GB+MERGED=/tmp (p2203). Idle n80→warm next QUEUE axis (R24 p2205). King retarget: set `TARGET_KING_*` **after** `source mine.env` (set -a overwrites stale KING; p2206). Long-lived `post_train` freezes `KING_REPO` at start — after :8001 king swap, kill pipe + relaunch n80 with live id or 404 (p2209/p2211 ckp333→guass; R20 burned 3/3 attempts).
 - **R17/R20 REFUTE** vs guass (p2210–11). Idle R4→warm next QUEUE axis (R21 pandora-GRPO p2212); drop warm-armed axes from fleet QUEUE + restart burst or you double-rent the name.
 - B200 king FULL cudagraph can deadlock TP0=R/TP1=S at 0% (shm_broadcast ≥3m) while B300 same recipe is fine — retarget with `--enforce-eager` (p2216 R25). Kill king by **pidfile + EngineCore children only**; never broad-kill `EngineCore`/`Worker_TP` (takes teacher too).
 - After :8001 king swap, re-check `post_train` environ KING_* (p2217 R24). **Reuse pod:** archive prior-axis root `adapter/` + stale `r3_sim_result.json` before warm-arm — post waits on `adapter && !train` and will merge leftover R20 kevin weights onto a new BASE (p2218 R21).
 - Teacher `/health`=200 ≠ duel-ready: R24 left :8000 at **32768** while king@65536 — post_train only checks HTTP. Arm train.done→relaunch teacher@**65536** before n80 (p2220). **Also gate n80** on `max_model_len≥65536` (abort `aborted_teacher_short_ctx`) so post cannot race tmax mid-gather (p2221).
+- `watch_form_decision.sh` must call `write_reason_decision.py` (margin > k_sigma·SE, bar=1.0). Legacy `write_merge_decision.py` (ADVANCE iff margin>0.04) overwrites post_train and REFUTEs live clears ≤0.04 (p2227).
 

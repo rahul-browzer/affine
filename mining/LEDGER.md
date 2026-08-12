@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $117,410.593 | 2026-08-12T10:04Z |
-| cumulative mining spend | ~$80,190 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T10:04Z |
-| **available for mining** | **~$107,411** (balance − $10,000 floor) | 2026-08-12T10:04Z |
+| Lium balance | $117,339.674 | 2026-08-12T10:19Z |
+| cumulative mining spend | ~$80,261 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T10:19Z |
+| **available for mining** | **~$107,340** (balance − $10,000 floor) | 2026-08-12T10:19Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T10:04Z |
+| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T10:19Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,8 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T10:19Z | 117339.674 | p2227 no new rent (8×=0; form-dec→Reason crown on 4 pods); burn **$220.25/h**; Δ−$24 vs p2226 |
+| 2026-08-12T10:09Z | 117388.251 | p2226 no new rent (8×=0; merge visual `/root` cipher on 4 pods + free R24 bak); burn **$220.25/h**; Δ−$22 vs p2225 |
 | 2026-08-12T10:04Z | 117410.593 | p2225 no new rent (8×=0; R5b guass-arm + prestage); burn **$220.25/h**; Δ−$26 vs p2224 |
 | 2026-08-12T09:56Z | 117436.594 | p2224 no new rent (8×=0; sbs-v2 **403** demote R10/R18; burst**3745530** next=R5b); burn **$220.25/h**; Δ−$24 vs p2223 |
 | 2026-08-12T09:52Z | 117460.770 | p2223 no new rent (8×=0; R10 Hub false-OK + QUEUE promote; burst**3735496** next=R10); burn **$220.25/h**; Δ−$24 vs p2222 |
@@ -29,5 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T09:39Z | 117533.486 | p2220 no new rent (8×=0; R24 teacher-maxlen sidecar); burn **$220.25/h**; Δ$0 vs p2219 |
 | 2026-08-12T09:36Z | 117533.486 | p2219 no new rent (8×=0; burst**3682673**→**3704917** next=R27); burn **$220.25/h**; Δ−$24 vs p2218 |
 | 2026-08-12T09:32Z | 117557.280 | p2218 no new rent (8×=0; R21 stale R20 adapter archived; R24 stale sim cleared); burn **$220.25/h**; Δ−$25 vs p2217 |
-| 2026-08-12T09:28Z | 117581.794 | p2217 no new rent (8×=0; R24 post KING→guass; burst**3682673**); burn **$220.25/h**; Δ−$24 vs p2216 |
-| 2026-08-12T09:24Z | 117605.928 | p2216 no new rent (8×=0; R25 guass DONE enforce-eager; teacher restore); burn **$220.25/h**; Δ−$24 vs p2215 |

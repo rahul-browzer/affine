@@ -9,9 +9,9 @@
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — live king=**guass** reign6 (p2206); R2bm was guass-as-chall vs ckp333 |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **REFUTED** · n80 m=**+0.00232** z=0.245 hr0.12× (p2190) |
-| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open — PRIORITY** · train~89 · tmax**96210** · post**96662** n80-gate (p2221) |
-| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · train~52 + guass :8001 · post**19722** (p2221) |
-| 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open — PRIORITY** · train~76 · post**356966** (p2221) |
+| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open — PRIORITY** · train~**119**/200 · tmax→65536 · form**99772** (p2227) |
+| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · train~**92**/200 + guass · form**23089** (p2227) |
+| 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open — PRIORITY** · train~**140**/200 · form**358813** (p2227) |
 | 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · `mine-r27-bigg-1` · p2101 armed |
 | 28 | R28 | Tok GRPO lr=2e-5 beats R3 5e-6 (isolates LR vs R3b) | **open** · `mine-r28-hilr-1` · p2102 armed |
 | 29 | R29 | Tok GRPO lora_r=64 beats R3 r=16 (isolates rank vs R3b) | **open** · `mine-r29-hirank-1` · p2104 armed |
@@ -38,7 +38,7 @@
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **BLOCKED** · same sbs-v2 **403** p2224 · demoted from fleet QUEUE |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **REFUTED** · vs guass n80 m=**−0.0196** z=−2.13 hr=−1.07× (p2211) |
-| 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open — training** · ~step**87** · post**143108** (p2221 n80-gate) |
+| 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open — training** · ~step**146**/200 · form**145257** (p2227) |
 | 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open** · `mine-r22-golden-grpo-1` · p2096 armed |
 | 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open** · `mine-r23-diane-grpo-1` · **p2097** armed |
 
@@ -103,14 +103,14 @@
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300
-- Live: **R24** R3 · **R21** R4 · **R25**/R26 B200. Queue: **R5b** → R19 → R22 → R23 → R27–R32. Submit iff hr ≥ 1.5×(2·SE).
+- Live: **R24** R3 · **R21** R4 · **R25**/R26 B200. Queue: **R5b** → R19 → R22 → R23 → R27–R32. Submit iff margin > live **k_sigma·SE** (1.5× retired 2026-08-12).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
 - **R8:** REINFORCE-on-Reason −0.027 vs ckp333 (p2158) — closed.
 - **R6/R6b:** short≤180 −0.0006; long-z −0.010 — thought-length format closed.
 - **R1b/R1c:** king-init LoRA −0.0135 / nsup≥100 −0.0171 vs Tok — SFT family closed.
-- **R2ao/ap/aq:** af17 −0.0007; kevin h44 +0.004; …-now +0.008 (≪1.5×) — SKIP.
+- **R2ao/ap/aq:** af17 −0.0007; kevin h44 +0.004; …-now +0.008 (hr~0.77× live 2σ) — was SKIP under 1.5×; re-score vs guass under live crown.
 - **R2aw/ar:** mt1 / iynocr2p **unservable** — SKIP.
 - **R2av/ay/az/ba:** Bittoby v2 −0.0003; sbs-v2 **+0.0093** WEAK; **vvv m≈0 REFUTE**; awesome-v10 **+0.007 WEAK** → R2bb next board parent.
 

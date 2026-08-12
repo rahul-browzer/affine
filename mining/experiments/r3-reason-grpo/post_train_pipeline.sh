@@ -37,10 +37,10 @@ LOG=/root/logs/r3_pipeline.nohup
 # Patched pass259: TTL remove_at=2026-08-08T19:01Z → soft=TTL−1h, deadman=TTL
 # Pass312 rent ~13:19Z ttl12h → remove≈01:19Z+1d; soft=TTL−1h, deadman=TTL−30m
 # Pass354 rent ~19:06Z ttl12h → remove≈07:06Z+1d; soft=TTL−1h, deadman=TTL−30m
-SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-12T15:29:00Z}
-# p508: prior default 06:36Z was already past at chall-ready → aborted_no_n80_budget.
-# Pod remove_at≈19:06Z → deadman=TTL−30m = 18:36Z.
-DEADMAN_UTC=${DEADMAN_UTC:-2026-08-12T15:59:00Z}
+# Defaults are placeholders — always export Soft/Dead from Removal−1h / −30m in mine.env
+# (p2177/p2178). Stale wall-clock defaults abort valid n80s.
+SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-13T23:00:00Z}
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-13T23:30:00Z}
 
 log() { echo "[r3-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 
@@ -452,9 +452,9 @@ if [[ "$n80_ok" -ne 1 ]]; then
   exit 1
 fi
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/r3_sim_n80.done
-# p2171: emit Reason v3 decision (live k_sigma=2.0, submit bar 1.5×) — was missing.
+# p2171/p2227: Reason v3 decision — submit bar = live crown (k_sigma·SE), no 1.5×.
 python /root/mining_src/r1-reason-distill/write_reason_decision.py \
-  --sim-result "$SIM_N80" --out "$SIM_DEC" --hyp R3b --k-sigma 2.0 \
+  --sim-result "$SIM_N80" --out "$SIM_DEC" --hyp R3b --k-sigma 2.0 --headroom-bar 1.0 \
   2>&1 | tee -a /root/logs/r3_sim.nohup
 cp -f "$SIM_DEC" /root/logs/r3_decision.json 2>/dev/null || true
 cp -f "$SIM_DEC" /root/affine_data/r3b_decision.json 2>/dev/null || true

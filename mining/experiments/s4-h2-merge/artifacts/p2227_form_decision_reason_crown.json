@@ -1,0 +1,28 @@
+{
+  "pass": 2227,
+  "utc": "2026-08-12T10:18:38Z",
+  "action": "retarget_form_decision_to_write_reason_decision_all_4_pods",
+  "why": "watch_form_decision.sh used write_merge_decision.py (ADVANCE iff margin>0.04). That overwrote post_train write_reason_decision and would REFUTE a live crown clear (margin > k_sigma\u00b7SE, k=2.0) whenever margin\u22640.04 \u2014 same class as the retired 1.5\u00d7 headroom skip.",
+  "k_sigma": 2.0,
+  "headroom_bar": 1.0,
+  "pods": {
+    "mine-crown-1": {
+      "axis": "R26",
+      "form_pid": 358813
+    },
+    "mine-r3-grpo-1": {
+      "axis": "R24",
+      "form_pid": 99772
+    },
+    "mine-r4-fullft-1": {
+      "axis": "R21",
+      "form_pid": 145257
+    },
+    "mine-r25-hitemp-1": {
+      "axis": "R25",
+      "form_pid": 23089
+    }
+  },
+  "also": "synced post_train_pipeline.sh with --headroom-bar 1.0 + safer Soft/Dead defaults",
+  "stock": "0 free 8\u00d7B300/B200; burst 3745530 next=R5b; burn 20.25/h"
+}

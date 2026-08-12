@@ -1,0 +1,15 @@
+{
+  "pass": 2226,
+  "utc": "2026-08-12T10:09:32Z",
+  "action": "patch_merge_lora_visual_graft_via_root_cipher",
+  "why": "R3/R24 prior merge failed at visual save_file → /tmp overlay EFAULT Bad address (os error 14) even after tensor.clone(); LESSONS p2123. R24 train~109/200; post+tmax wait train.done — next merge must not die.",
+  "changes": [
+    "experiments/s4-h1-sft/merge_lora.py: save visual to /root/.merge_vis_<pid>.safetensors then shutil.copyfile into out",
+    "experiments/r1-reason-distill/graft_visual_weights.py: same /root cipher path",
+    "scp both → R24/R26/R21/R25 mining_src",
+    "rm -rf /tmp/r3_merged.bak.p2189.051553 on R24 (freed 65G)"
+  ],
+  "stock": "0 free 8×B300/B200; burst 3745530 next=R5b; burn $220.25/h",
+  "trains": {"R24": 109, "R26": 126, "R21": 132, "R25": 82},
+  "contract": {"wvk": 3, "k_sigma": 2.0, "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5"}
+}
