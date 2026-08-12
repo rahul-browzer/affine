@@ -22,6 +22,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T04:06Z | p2183: SKIP_PID_LOCK 150-iter R24 burst empty; waiter CONT; burn **$180.25/h** |
 | 2026-08-12T04:00Z | p2182: crown TTL+12h→02:35Z; R24 burst empty; burn **$180.25/h** |
 | 2026-08-12T03:54Z | p2181: R9 post +R2bn gate; B300×8=0; burn **$180.25/h** |
-| 2026-08-12T03:52Z | p2180: R2bn alloy chall+n80 armed; B300×8=0; burn **$180.25/h** |

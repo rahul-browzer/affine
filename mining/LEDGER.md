@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $118,984.780 | 2026-08-12T04:00Z |
-| cumulative mining spend | ~$78,613 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T04:00Z |
-| **available for mining** | **~$108,985** (balance − $10,000 floor) | 2026-08-12T04:00Z |
+| Lium balance | $118,943.077 | 2026-08-12T04:06Z |
+| cumulative mining spend | ~$78,655 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T04:06Z |
+| **available for mining** | **~$108,943** (balance − $10,000 floor) | 2026-08-12T04:06Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T04:00Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T04:06Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T04:06Z | 118943.077 | p2183 no rent (150-iter SKIP_PID_LOCK burst 8×=0); burn **$180.25/h**; Δ−$42 vs p2182 |
 | 2026-08-12T04:00Z | 118984.780 | p2182 no rent (burst+API 8×=0); crown TTL+12h; burn **$180.25/h**; Δ−$21 vs p2181 |
 | 2026-08-12T03:54Z | 119005.577 | p2181 no rent (API 8×=0); R9+R2bn gate; burn **$180.25/h**; Δ−$21 vs p2180 |
 | 2026-08-12T03:52Z | 119026.214 | p2180 no rent (API 8×=0); R2bn alloy→n80 armed; burn **$180.25/h**; Δ$0 vs p2179 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T03:34Z | 119088.759 | p2176 no rent (API 8×=0); R2bm REFUTE harvest; burn **$180.25/h**; Δ$0 vs p2175 |
 | 2026-08-12T03:31Z | 119088.759 | p2175 no rent (API 8×=0); R11 REFUTE→R12 warm-arm; burn **$180.25/h**; Δ−$21 vs p2174 |
 | 2026-08-12T03:27Z | 119110.012 | p2174 no rent (API 8×=0); R11 n80 relaunch after ENOENT sim; burn **$180.25/h**; Δ−$21 vs p2173 |
-| 2026-08-12T03:21Z | 119130.766 | p2173 no rent (API 8×=0); R11 Triton false_probe→reseed+n80-retry; burn **$180.25/h**; Δ−$21 vs p2172 |

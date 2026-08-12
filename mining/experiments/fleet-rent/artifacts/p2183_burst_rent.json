@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-12T04:05:18Z",
+  "pass": 2183,
+  "rented": false,
+  "iters": 150,
+  "empty_sleep_s": 0.35,
+  "seen_stock_iters": 0,
+  "mine_count": 3,
+  "next": "mine-r24-longctx-1",
+  "burn_usd_h": 180.25,
+  "balance_usd": 118943.077,
+  "change": "SKIP_PID_LOCK=1 for pass-burst while long waiter SIGSTOP'd; no Tee into waiter log",
+  "note": "API 8×B300/B200 empty entire 150-iter burst; waiter pid3164256 CONT + polling"
+}

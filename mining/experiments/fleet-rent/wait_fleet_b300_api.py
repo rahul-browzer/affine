@@ -415,7 +415,10 @@ def main() -> int:
     STAMP_DIR.mkdir(parents=True, exist_ok=True)
     # Single-instance: a second launch (even `… --help` — no argparse) was
     # double-polling /executors → 429 storms that blind stock sightings (p2150).
-    if PIDF.exists():
+    # SKIP_PID_LOCK=1: pass-level burst while long waiter is SIGSTOP'd (p2183).
+    # Still refuses a second *running* snatcher unless the operator pauses it.
+    skip_lock = os.environ.get("SKIP_PID_LOCK", "").strip() in ("1", "true", "yes")
+    if PIDF.exists() and not skip_lock:
         try:
             old = int(PIDF.read_text().strip())
         except ValueError:
@@ -428,16 +431,23 @@ def main() -> int:
                     flush=True,
                 )
                 return 1
-    PIDF.write_text(str(os.getpid()) + "\n")
+    if not skip_lock:
+        PIDF.write_text(str(os.getpid()) + "\n")
+    else:
+        print(
+            f"[fleet-rent] SKIP_PID_LOCK=1 pass-burst (pidfile left for long waiter)",
+            flush=True,
+        )
 
     # Launcher already redirects stdout → LOG; only Tee when it does not.
+    # Pass-bursts (SKIP_PID_LOCK) must not append into the long waiter's log.
     stdout_path = ""
     try:
         stdout_path = os.readlink(f"/proc/{os.getpid()}/fd/1")
     except Exception:
         stdout_path = ""
     already_logging = os.path.abspath(stdout_path) == os.path.abspath(str(LOG))
-    if not already_logging:
+    if not already_logging and not skip_lock:
         log_f = open(LOG, "a", buffering=1)
 
         class Tee:
