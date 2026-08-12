@@ -81,6 +81,7 @@ TARGETS = {
     "chal-00514": "chal00514",  # afgod1079 cp1266 (queue; p2133 R2bg)
     "chal-00516": "chal00516",  # IntoLayer v1 (queue; p2138 R2bh REFUTE p2145)
     "chal-00517": "chal00517",  # thrivepath mt2 (queue; p2145 R2bi)
+    "chal-00520": "chal00520",  # Bittoby1040 v3 (queue; p2156 R2bl)
 }
 
 

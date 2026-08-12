@@ -318,6 +318,49 @@ PY
   sleep 10
 done
 
+# 3c) Wait R2bl (bittoby-v3) if armed — do not yank chall:8002 mid-screen (p2156).
+R2BL_DEC=${R2BL_DEC:-/root/affine_data/r2bl_bittoby_v3_decision.json}
+R2BL_ALT=${R2BL_ALT:-/root/logs/r2bl_bittoby_v3_decision.json}
+R2BL_PIDF=${R2BL_PIDF:-/root/logs/r2bl_bittoby_v3_reload.pid}
+R2BL_HOLD=${R2BL_HOLD:-/root/logs/r2bl_bittoby_v3_holding.stamp}
+if [[ -f "$R2BL_PIDF" || -f "$R2BL_HOLD" ]] || pgrep -f 'launch_r2bl_bittoby_v3_reload_sim' >/dev/null 2>&1; then
+  echo "[r9-pipe] waiting R2bl terminal before merge (chall shared)"
+  for i in $(seq 1 2880); do
+    for f in "$R2BL_DEC" "$R2BL_ALT"; do
+      if [[ -f "$f" ]]; then
+        echo "[r9-pipe] R2bl decision at $f"
+        break 2
+      fi
+    done
+    if [[ -f /root/logs/r2bl_bittoby_v3_reload.done ]]; then
+      echo "[r9-pipe] R2bl reload.done"
+      break
+    fi
+    r2bl_alive=0
+    if [[ -f "$R2BL_PIDF" ]]; then
+      bp=$(cat "$R2BL_PIDF" 2>/dev/null || true)
+      if [[ -n "${bp:-}" ]] && kill -0 "$bp" 2>/dev/null; then
+        r2bl_alive=1
+      fi
+    fi
+    if (( r2bl_alive == 0 )) && [[ ! -f "$R2BL_HOLD" ]] \
+       && ! pgrep -f 'launch_r2bl_bittoby_v3_reload_sim' >/dev/null 2>&1 \
+       && ! pgrep -f 'run_reason_sim.py .*r2bl-bittoby' >/dev/null 2>&1; then
+      echo "[r9-pipe] R2bl idle — proceed"
+      break
+    fi
+    if _past "$SOFT_DEADLINE_UTC"; then
+      echo "[r9-pipe] past soft waiting R2bl; abort"
+      echo "aborted_r2bl_wait $(date -u +%Y-%m-%dT%H:%M:%SZ)" >"$ABORT"
+      exit 1
+    fi
+    if (( i % 12 == 0 )); then
+      echo "[r9-pipe] wait-r2bl iter=$i"
+    fi
+    sleep 10
+  done
+fi
+
 # 4) Merge on GPUs 6,7.
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-6,7}
 echo "[r9-pipe] merge LoRA → $MERGED"

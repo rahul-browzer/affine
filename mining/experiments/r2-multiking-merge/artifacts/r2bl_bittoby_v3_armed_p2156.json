@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-12T01:47:57Z",
+  "pass": 2156,
+  "hyp": "R2bl",
+  "action": "prefetch + reload/sim armed",
+  "parent": "Bittoby1040/Affine-5cxncav2du-v3",
+  "revision": "6901350c17028947c0df82894a0b11b953b560b7",
+  "challenge_id": "chal-00520",
+  "arch": "Qwen3_5MoeForConditionalGeneration",
+  "n_shards": 16,
+  "king": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "waits": ["R2bk terminal", "R9 pre-merge coordination", "16-shard prefetch"],
+  "r9_patch": "post_train waits R2bl before merge/chall kill",
+  "crown_pids": {
+    "prefetch": "see /root/logs/r2_prefetch_bittoby_v3.pid",
+    "reload": "see /root/logs/r2bl_bittoby_v3_reload.pid",
+    "r9_post_restarted": true
+  },
+  "note": "v2 (R2av) was REFUTE vs Tok; v3 is new queue parent vs reign-5 ckp333",
+  "burn_usd_h": 180.25,
+  "b300_stock": "empty"
+}
