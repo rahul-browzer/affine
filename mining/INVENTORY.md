@@ -7,7 +7,7 @@
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
 | mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-13T02:35Z** | **R17** coder-REINFORCE |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R15** chall→n80 |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R15** n80 vs ckp333 |
 | mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R20** kevin-GRPO |
 | *(pending fleet)* | mine-r24…r32 + R5b/R18… | 8×B300 | ~$64 | burst **3519918** | R24 first |
 
@@ -25,6 +25,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T08:11Z | p2204: R15 chall PROMPTABLE→n80 pid**87097**; 8×=0; burn **$180.25/h** |
 | 2026-08-12T08:02Z | p2203: R15 hung@50G→`/tmp`+contig+5GB merge DONE 66G; chall reload; 8×=0; burn **$180.25/h** |
 | 2026-08-12T07:55Z | p2202: p2199 burst TIMEOUT→STOP waiter; SKIP_PID_LOCK 3000-iter **3519918**; R15 merge~38%; 8×=0; burn **$180.25/h** |
-| 2026-08-12T07:51Z | p2201: R15 GPU merge hung@47G → kill; CPU merge relaunch post**80706**; 8×=0; burn **$180.25/h** |
