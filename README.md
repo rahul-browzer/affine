@@ -80,6 +80,39 @@ you should always run it first. Submitted revisions can never be resubmitted
 by anyone, and weight-identical copies of the king are rejected unless your
 Hugging Face timestamp predates the king's.
 
+
+## Training a miner (the chat contract)
+
+Duels sample turns from Corpus D. Per turn, the miner model performs a natural
+rollout under its own chat template with the prompt ending inside an open
+`<think>` block. The canonical assistant body the eval server expects is:
+
+```
+</think>
+THOUGHT: {z}
+
+{y}
+```
+
+i.e. latent reasoning inside `<think>...</think>`, then a visible `THOUGHT:`
+line whose text `z` is what gets scored, then the action `y` containing a
+final closed ```bash fenced block (the eval server extracts the last closed
+bash fence; anything without one scores as a null action).
+
+Budgets from the live contract (`GET /api/v1/contract`, `[duel]`):
+`max_thought_tokens = 1024`, `max_action_tokens = 768`, sampling
+`temperature = 0.8`, one miner sample per turn.
+
+What to optimize: only the teacher-side effect of the thought is ranked —
+`Reason = lpC(y_C | z_A) − lpC(y_C | ∅)`, the shift in the frozen teacher's
+log-probability of its own correct action when shown your thought. The miner's
+own action and logprobs never enter the ranked score. Train the model to emit
+concise thoughts that raise the teacher's confidence in the reference
+solution, using Corpus D turns (prompts + reference solutions) as training
+data. The checkpoint must remain a stock vLLM-supported architecture (no
+custom code) and fit the serving envelope: tensor-parallel-2, 65,536 context,
+<= 90 GB safetensors.
+
 ## Live API
 
 Base URL `https://www.affine.io/api/v1/`:
