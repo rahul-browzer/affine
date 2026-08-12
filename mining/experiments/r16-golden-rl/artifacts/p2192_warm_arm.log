@@ -1,0 +1,11 @@
+deadline_patch soft 1 dead 1 2026-08-13T01:35:59Z 2026-08-13T02:05:59Z
+-rw-rw-r-- 1 const const 417K Aug 12 06:00 /tmp/mine-r16-warm-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-r16-golden-rl
+HF_OK unconst/Affine-5czsc2fc98-r16-golden-rl-lora
+LEAN_PID=325838
+[r16-lean] 2026-08-12T06:00:31Z start
+[r16-lean] DOWNLOAD golden-init start golden-crown/Affine-5EpvnXGu8jUAVc67oPGgJ3brR4JZqjBUSaTKhZuBoNAAzSJF ee37f4f0457df943d957435d7c9c24222a7ca93d
+Fetching 20 files:   0%|          | 0/20 [00:00<?, ?it/s]Fetching 20 files:   5%|▌         | 1/20 [00:00<00:09,  2.09it/s]Fetching 20 files:  20%|██        | 4/20 [00:00<00:02,  7.34it/s]    PID     ELAPSED CMD
+ 325838 441077232-17:31:12 bash /root/mining_src/r16-golden-rl/lean_warm_boot.sh
+t=200 k=200
+R16_WARM_ARM_OK pod=mine-crown-1 soft=2026-08-13T01:35:59Z dead=2026-08-13T02:05:59Z 2026-08-12T06:00:46Z

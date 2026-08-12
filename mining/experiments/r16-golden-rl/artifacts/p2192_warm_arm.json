@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-12T06:15:32Z",
+  "pass": 2192,
+  "pod": "mine-crown-1",
+  "axis": "R16 golden-crown REINFORCE",
+  "soft": "2026-08-13T01:35:59Z",
+  "dead": "2026-08-13T02:05:59Z",
+  "remove": "2026-08-13T02:35:59Z",
+  "lean_pid": 325838,
+  "train_pid": 326398,
+  "post_pid": 326405,
+  "hf": [
+    "unconst/Affine-5czsc2fc98-r16-golden-rl",
+    "unconst/Affine-5czsc2fc98-r16-golden-rl-lora"
+  ],
+  "status": "TRAIN_LAUNCHED"
+}

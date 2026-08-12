@@ -31,9 +31,9 @@
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **REFUTED** · n80 m=**−0.0055** z=−0.82 hr−0.41× vs ckp333 (p2175) |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **REFUTED** · n80 m=**+0.00085** z=0.06 hr0.03× vs ckp333 (p2188) |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **REFUTED** · n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333 (p2189) |
-| 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r4-fullft-1` ~step85/200 (p2191) |
-| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r3-grpo-1` lean DL (p2191) |
-| 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open** · `mine-r16-golden-rl-1` · p2089 armed |
+| 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r4-fullft-1` ~step175/200 (p2192) |
+| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r3-grpo-1` ~step25/200 (p2192) |
+| 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-crown-1` ~step70/200 (p2192) |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open** · `mine-r17-coder-rl-1` · p2091 armed |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |

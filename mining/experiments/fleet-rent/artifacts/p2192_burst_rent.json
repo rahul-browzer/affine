@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-12T06:15:32Z",
+  "pass": 2192,
+  "iters": 1000,
+  "result": "empty",
+  "mine_count": 3,
+  "b300x8": 0,
+  "b200x8": 0,
+  "next_queue": "mine-r24-longctx-1",
+  "change": "SKIP_PID_LOCK=1 1000-iter pass-burst; R16 warm-arm on mine-crown-1; waiter restart QUEUE drop R16; R14@~175 R15 train launched",
+  "balance_usd": 118421.16260066633
+}
