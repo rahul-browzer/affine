@@ -1,0 +1,38 @@
+{
+  "pass": 2224,
+  "utc": "2026-08-12T09:56:07Z",
+  "action": "re-block R10/R18 — sbs-v2 index still 403 gated; demote from QUEUE; restart burst next=R5b",
+  "old_burst_pid": 3735496,
+  "new_burst_pid": 3745530,
+  "new_max_iters": 86400,
+  "log": "experiments/fleet-rent/logs/burst_p2224.log",
+  "pidfile": "experiments/fleet-rent/logs/burst_p2224.pid",
+  "waiter_pid": 3373328,
+  "waiter_state": "SIGSTOP",
+  "skip_pid_lock": true,
+  "next_axis": "mine-r5-nonking-2",
+  "queue_head": [
+    "mine-r5-nonking-2",
+    "mine-r19-talent-grpo-1",
+    "mine-r22-golden-grpo-1",
+    "mine-r23-diane-grpo-1"
+  ],
+  "sbs_v2_hub": {
+    "repo": "ammazon/Affine-5dvqtektxx-sbs-v2",
+    "sha": "6f1b8e682aea",
+    "repo_info_private": false,
+    "index_download": "GatedRepoError 403"
+  },
+  "parents_weights_ok": [
+    "TalentPigs/affine-5ekxlcg3fx-abc",
+    "kevin954/Affine-5dfqbbh8ev-sft",
+    "golden-crown/Affine-5EpvnXGu8jUAVc67oPGgJ3brR4JZqjBUSaTKhZuBoNAAzSJF",
+    "diane613/Affine-5CQLBK7Mmw1vsk7eQcBok9Qn44JNU5YVrfNmZpJHPxLV271B"
+  ],
+  "stock_8x_b300_b200": 0,
+  "mine_count": 4,
+  "burn_usd_per_h": 220.25,
+  "floor_usd_per_h": 833,
+  "lium_balance": 117436.594,
+  "why": "p2223 treated repo_info public as Hub OK; weight index still gated for unconst. Renting R10/R18 would waste a snatch. Promote downloadable distinct axes (R5b/R19/R22/R23)."
+}

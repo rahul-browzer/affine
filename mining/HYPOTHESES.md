@@ -21,13 +21,13 @@
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **REFUTED** · n80 m=**−0.0077** z=−0.76 (p2116) |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **REFUTED** · n80 m=**−0.0037** z=−0.58 (p2120) |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **REFUTED** · n80 m=**−0.0390** z=−3.24 (p2125) |
-| 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · `mine-r5-nonking-2` · p2081 armed |
+| 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open — PRIORITY** · fleet next=`mine-r5-nonking-2` (p2224; weights_ok) |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **REFUTED** · n80 m=**−0.0006** z=−0.07 hr−0.04× (p2143) |
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **REFUTED** · n80 m=**+0.0123** z=1.978 hr0.99× vs ckp333 (p2162) |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **REFUTED** · n80 m=**−0.0273** z=−1.64 hr−0.82× vs ckp333 (p2158) |
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **REFUTED** · n80 m=**−0.0172** z=−3.36 hr−1.68× vs ckp333 (p2189) |
-| 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open — PRIORITY** · Hub OK p2223; fleet next=`mine-r10-merge-rl-1`; n80 vs guass |
+| 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **BLOCKED** · sbs-v2 index **403** p2224 (p2223 repo_info false OK) |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **REFUTED** · n80 m=**−0.0055** z=−0.82 hr−0.41× vs ckp333 (p2175) |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **REFUTED** · n80 m=**+0.00085** z=0.06 hr0.03× vs ckp333 (p2188) |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **REFUTED** · n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333 (p2189) |
@@ -35,7 +35,7 @@
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.0268** z=−2.25 hr=−1.12× vs ckp333 (p2205) |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.00935** z=−1.30 hr=−0.65× vs ckp333 (p2196) |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **REFUTED** · n80 vs guass m=**−0.0140** z=−0.71 hr**−0.36×** (p2210; n_paired=27) |
-| 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · Hub OK p2223; queue #2 after R10 · `mine-r18-sbs-grpo-1` |
+| 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **BLOCKED** · same sbs-v2 **403** p2224 · demoted from fleet QUEUE |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **REFUTED** · vs guass n80 m=**−0.0196** z=−2.13 hr=−1.07× (p2211) |
 | 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open — training** · ~step**87** · post**143108** (p2221 n80-gate) |
@@ -94,7 +94,7 @@
 - **R24** Tok LongCtx-GRPO on `mine-r3` pid**88309** max_len=16384/new=1024 (p2205). Dir: `experiments/r24-longctx-grpo/`.
 
 ### R10 / R11 / R12 / R13
-- **R10 UNBLOCKED** p2223: `ammazon/…-sbs-v2@6f1b8e68` public via HF; retarget n80→guass; fleet QUEUE head.
+- **R10/R18 BLOCKED** p2224: `ammazon/…-sbs-v2@6f1b8e68` `repo_info` public but index **403** — demoted; fleet next=**R5b**.
 - **R11 REFUTED** p2175: online-DPO n80 m=**−0.0055** SE=0.00671 z=−0.82 hr−0.41× vs ckp333 (n=76). Stage-5 SKIP.
 - **R12 REFUTED** p2188: BoN-CE n80 m=**+0.00085** SE=0.0143 z=0.06 hr0.03× vs ckp333. Stage-5 SKIP.
 - **R13 REFUTED** p2189: offline-DPO n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333. Stage-5 SKIP.
@@ -102,8 +102,8 @@
 ### R24–R32 — structural GRPO knobs (fleet-queued)
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
-### Fleet axes waiting on 8×B300 (R26 first)
-- Live: **R24** R3 · **R21** R4 · **R25** B200 bootstrap · Crown free. Queue: **R26** → R27–R32 · R5b · R18…. Submit iff hr ≥ 1.5×(2·SE).
+### Fleet axes waiting on 8×B300
+- Live: **R24** R3 · **R21** R4 · **R25**/R26 B200. Queue: **R5b** → R19 → R22 → R23 → R27–R32. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.

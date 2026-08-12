@@ -58,13 +58,13 @@ QUEUE = [
     # ("mine-r25-hitemp-1", "R25", "Tok GRPO temperature=1.2 (≠ R3 temp=0.8)"),
     # R26 live on mine-crown-1 (p2213 warm-arm after R17 REFUTE) — do not re-rent.
     # ("mine-r26-lotemp-1", "R26", "Tok GRPO temperature=0.5 (≠ R3 0.8 / R25 1.2)"),
-    # p2223: sbs-v2 Hub 403 cleared — promote distinct axes before Tok-GRPO knob family.
-    ("mine-r10-merge-rl-1", "R10", "Tok×sbs-v2 α-merge → Reason-GRPO (Hub OK p2223)"),
-    ("mine-r18-sbs-grpo-1", "R18", "pure sbs-v2-init Reason-GRPO (≠ R3/R10; Hub OK p2223)"),
+    # p2224: sbs-v2 still GATED (index 403) — p2223 repo_info≠weights false OK. Do not re-rent R10/R18.
+    # ("mine-r10-merge-rl-1", "R10", "Tok×sbs-v2 α-merge → Reason-GRPO (BLOCKED Hub gated)"),
+    # ("mine-r18-sbs-grpo-1", "R18", "pure sbs-v2-init Reason-GRPO (BLOCKED Hub gated)"),
     ("mine-r5-nonking-2", "R5b", "Talent/kevin non-king base FT"),
-    ("mine-r19-talent-grpo-1", "R19", "TalentPigs-init Reason-GRPO (≠ R3/R5b/R18)"),
-    ("mine-r22-golden-grpo-1", "R22", "golden-crown-init Reason-GRPO (≠ R3/R16/R18–R21)"),
-    ("mine-r23-diane-grpo-1", "R23", "diane613-init Reason-GRPO (≠ R3/R16/R18–R22)"),
+    ("mine-r19-talent-grpo-1", "R19", "TalentPigs-init Reason-GRPO (≠ R3/R5b; sbs gated)"),
+    ("mine-r22-golden-grpo-1", "R22", "golden-crown-init Reason-GRPO (≠ R3/R16/R19–R21)"),
+    ("mine-r23-diane-grpo-1", "R23", "diane613-init Reason-GRPO (≠ R3/R16/R19–R22)"),
     ("mine-r27-bigg-1", "R27", "Tok GRPO group_size=16 (≠ R3 G=4 / R3b G=8+alt-lr)"),
     ("mine-r28-hilr-1", "R28", "Tok GRPO lr=2e-5 (≠ R3 5e-6; isolates LR vs R3b)"),
     ("mine-r29-hirank-1", "R29", "Tok GRPO lora_r=64 (≠ R3 r=16; isolates rank vs R3b)"),
