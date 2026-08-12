@@ -393,24 +393,66 @@ def write_stamp(name: str, axis: str, gpu: str, note: str, sess: requests.Sessio
     log(f"STAMP_OK {path}")
 
 
+def _pid_alive(pid: int) -> bool:
+    if pid <= 0:
+        return False
+    try:
+        os.kill(pid, 0)
+    except OSError:
+        return False
+    return True
+
+
+def _cmdline(pid: int) -> str:
+    try:
+        return Path(f"/proc/{pid}/cmdline").read_bytes().replace(b"\0", b" ").decode()
+    except Exception:
+        return ""
+
+
 def main() -> int:
     EXP.joinpath("logs").mkdir(parents=True, exist_ok=True)
     STAMP_DIR.mkdir(parents=True, exist_ok=True)
+    # Single-instance: a second launch (even `… --help` — no argparse) was
+    # double-polling /executors → 429 storms that blind stock sightings (p2150).
+    if PIDF.exists():
+        try:
+            old = int(PIDF.read_text().strip())
+        except ValueError:
+            old = 0
+        if old and old != os.getpid() and _pid_alive(old):
+            cmd = _cmdline(old)
+            if "wait_fleet_b300_api.py" in cmd:
+                print(
+                    f"[fleet-rent] ABORT already running pid={old} cmd={cmd[:120]}",
+                    flush=True,
+                )
+                return 1
     PIDF.write_text(str(os.getpid()) + "\n")
 
-    log_f = open(LOG, "a", buffering=1)
+    # Launcher already redirects stdout → LOG; only Tee when it does not.
+    stdout_path = ""
+    try:
+        stdout_path = os.readlink(f"/proc/{os.getpid()}/fd/1")
+    except Exception:
+        stdout_path = ""
+    already_logging = os.path.abspath(stdout_path) == os.path.abspath(str(LOG))
+    if not already_logging:
+        log_f = open(LOG, "a", buffering=1)
 
-    class Tee:
-        def write(self, s):
-            sys.__stdout__.write(s)
-            log_f.write(s)
+        class Tee:
+            def write(self, s):
+                sys.__stdout__.write(s)
+                log_f.write(s)
 
-        def flush(self):
-            sys.__stdout__.flush()
-            log_f.flush()
+            def flush(self):
+                sys.__stdout__.flush()
+                log_f.flush()
 
-    sys.stdout = Tee()  # type: ignore
-    sys.stderr = sys.stdout  # type: ignore
+        sys.stdout = Tee()  # type: ignore
+        sys.stderr = sys.stdout  # type: ignore
+    else:
+        sys.stderr = sys.stdout
 
     sess = make_session()
     log(

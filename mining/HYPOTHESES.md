@@ -23,7 +23,7 @@
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **REFUTED** · n80 m=**−0.0390** z=−3.24 (p2125) |
 | 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · `mine-r5-nonking-2` · p2081 armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **REFUTED** · n80 m=**−0.0006** z=−0.07 hr−0.04× (p2143) |
-| 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **open** · `mine-r4-fullft-1` train (p2143; was fleet `mine-r6-fmt-2`) |
+| 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **open** · `mine-r4-fullft-1` n80 ~28/80 (p2150) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · `mine-r7-datafilt-1` · p2076 armed |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · `mine-r8-reinforce-1` · p2077 armed |
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · warm `mine-crown-1` GPUs6–7 (p2144; was fleet `mine-r9-teacher-zc-1`) |

@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-12T01:12:52Z",
+  "pass": 2150,
+  "killed_pid": 2895885,
+  "kept_pid": 2840405,
+  "cause": "wait_fleet_b300_api.py has no argparse; --help ran main() and dual-polled /executors \u2192 429",
+  "fix": "single-instance PID guard + skip Tee when stdout already \u2192 LOG",
+  "stock": {
+    "free_b300_8x": 0,
+    "free_b200_8x": 0,
+    "n8_executors": 42
+  },
+  "burn_per_h": 180.25,
+  "r6b_n80": {
+    "king": 27,
+    "challenger": 28
+  }
+}
