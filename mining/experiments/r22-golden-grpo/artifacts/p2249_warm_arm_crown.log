@@ -1,0 +1,54 @@
+deadline_patch soft 1 dead 1 2026-08-13T01:35:59Z 2026-08-13T02:05:59Z
+-rw-rw-r-- 1 const const 418K Aug 12 12:52 /tmp/mine-r22-warm-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-r22-lora
+HF_OK unconst/Affine-5czsc2fc98-r22-merged
+LEAN_PID=371369
+[r22-lean] 2026-08-12T12:53:17Z start
+[r22-lean] BASE /root/hf/hub/models--golden-crown--Affine-5EpvnXGu8jUAVc67oPGgJ3brR4JZqjBUSaTKhZuBoNAAzSJF/snapshots/ee37f4f0457df943d957435d7c9c24222a7ca93d
+[r22-lean] killed stale chall pidfile=368353
+0, 166308 MiB
+1, 166308 MiB
+2, 149520 MiB
+3, 149520 MiB
+4, 0 MiB
+5, 0 MiB
+6, 0 MiB
+7, 0 MiB
+[r22] 2026-08-12T12:53:22Z examples=406 data=/root/r3/winner_za_high_l1.jsonl base=/root/hf/hub/models--golden-crown--Affine-5EpvnXGu8jUAVc67oPGgJ3brR4JZqjBUSaTKhZuBoNAAzSJF/snapshots/ee37f4f0457df943d957435d7c9c24222a7ca93d gpus=6,7
+[r22] knobs lr=5e-6 r=16/α32 G=4 steps=200 axis=golden_grpo_reason
+[r22] wait teacher at http://127.0.0.1:8000/v1
+[r22] teacher ready after 1×15s
+deps OK
+[r22] 2026-08-12T12:53:29Z launch golden Reason-GRPO lr=5e-6 r=16 G=4 on GPUs 6,7
+{
+  "utc": "2026-08-12T12:53:29Z",
+  "axis": "R22",
+  "hypo": "R22",
+  "pid": 371573,
+  "base": "/root/hf/hub/models--golden-crown--Affine-5EpvnXGu8jUAVc67oPGgJ3brR4JZqjBUSaTKhZuBoNAAzSJF/snapshots/ee37f4f0457df943d957435d7c9c24222a7ca93d",
+  "base_hub": "golden-crown/Affine-5EpvnXGu8jUAVc67oPGgJ3brR4JZqjBUSaTKhZuBoNAAzSJF",
+  "base_rev": "ee37f4f0457df943d957435d7c9c24222a7ca93d",
+  "data": "/root/r3/winner_za_high_l1.jsonl",
+  "examples": 406,
+  "lr": 5e-06,
+  "method": "grpo_teacher_reason_golden_init",
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "group_size": 4,
+  "max_new": 512,
+  "max_steps": 200,
+  "gpus": "6,7",
+  "teacher_url": "http://127.0.0.1:8000/v1",
+  "out": "/root/r3/train",
+  "log": "/root/logs/r3_train.nohup",
+  "note": "R22 golden\u00d7teacher-Reason GRPO \u2014 \u2260 R3 Tok-init, \u2260 R16 golden REINFORCE, \u2260 R18\u2013R21 parent-GRPO"
+}
+[r22] TRAIN_LAUNCHED pid=371573
+[r22-lean] archived prior r3 sim/decision → /root/affine_data/stale_pre_r22_20260812T125329Z
+[r22-lean] 2026-08-12T12:53:29Z TRAIN_PID=371573 POST_PID=371580
+[r22-lean] DONE
+    PID     ELAPSED CMD
+TRAIN_PID=371573
+POST_PID=371580
+t=200 k=200
+R22_WARM_ARM_OK pod=mine-crown-1 soft=2026-08-13T01:35:59Z dead=2026-08-13T02:05:59Z 2026-08-12T12:53:57Z

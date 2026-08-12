@@ -53,15 +53,12 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Overlap Tok×near-miss CPU α-premerge (`launch_r2b_tok_awesome_premerge.sh`) with R1c train + nearmiss download — same pattern as R2 Talent/kevin premerge; stamp `r2b_premerge.done` before chall reload.
 - Duel gzips store king under **`request.king_repo`** (no top-level `king`); filter near-misses on that field or you mix pre-Tok margins into the ranking.
 - HF `model_info`/API **200** and even public `config.json` ≠ weight access — probe `model.safetensors.index.json` before arming prefetch. Gated for unconst vs Tok: diane cool/new, nvidia, Tok af16/af8, aurora.
-- Equal-α Tok×awesome barely moves weights (Δ≈0.006) — queue a **skew** blend (Tok0.25/awesome0.75) as R2c before burning another GPU n80 on near-identical chall.
 - Confirmed gated for unconst (index probe + snapshot_download): Tok af16/af8, aurora prince — do not re-arm R2c parent prefetch on those.
-- R2c skew Tok0.25/awesome0.75 CPU premerge: max_abs_delta=**0.00899** (vs equal-α 0.006) · identical_frac=0.45 · 70 GiB · ~5 min — still tiny but not weight-identical; n80 still required.
 - After Tok×awesome blends stay Δ≪0.01, queue **pure awesome-v6** as chall (R2d) before more α knobs — published hr≈0.92× is the transfer question; derive `preprocessor_config.json` like Tok.
 - TalentPigs×awesome-v6 skew (0.25/0.75) CPU premerge: max_abs_delta=**0.626** vs Tok×awesome Δ≈0.006–0.009 — non-Tok layout donor escapes near-identical blends; queue as R2e after pure-awesome n80.
 - Skip Tok×awesome equal-α/skew n80 when Δ≪0.01 — stamp `r2_weak_lanes_skipped.done` + below-bar stubs; **kill prior waiters before writing stub decisions** (old R2d raced on R2C stub and killed chall).
 - R1c nsup≥100 / EPOCHS=6 LoRA vs Tok: margin **−0.0171** (z=−2.75, hr −0.92×, n_paired=67) — worse than R1b; king-init high-Reason SFT family closed for this reign; pivot to R2d/R2e parents.
 - Near-miss rescan p1896 (chal≥405, per-turn mean Reason): **awesome-v6 still only DL Reason+** (hr≈0.92×); chal-00438 aurora prince gated hr≈0.17×; chal-00439 darius3th DL but hr≈−1.79× — do not prefetch as parent.
-- While R2d n80 burns GPU, arm next non-Tok×awesome CPU skew (**kevin×awesome** R2f) so R2e→R2f has no idle merge gap; kevin snapshot already on crown from early prefetch.
 - kevin×awesome skew (0.25/0.75) max_abs_delta=**0.00899** ≈ Tok×awesome — reign parents that share awesome-v6 weights stay near-identical; only Talent×awesome (Δ=0.626) is a real blend; WEAK_SKIP kevin n80 (p1898).
 - R2d pure awesome-v6 vs Tok af10: margin **+0.00223** (z=0.66, 3·SE=0.0102, hr **0.22×**, n=80) — published near-miss hr≈0.92× did **not** transfer as chall; need non-Tok blend (R2e) or stronger parents, not more α knobs on awesome alone.
 - Duel gzip pairs lack `turn_id` — id is on `king_rows[]`/`challenger_rows[]`; Reason scan = mean(lpC_yc_za−lpC_yc_e) **per row** then pair turns (repo fields = `request.challenger_repo` / `challenger_revision`).
@@ -149,3 +146,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - `watch_form_decision.sh` → `write_reason_decision.py` (margin > k_sigma·SE, bar=1.0); never `write_merge_decision` 0.04 bar (p2227). Pack `write_reason_decision.py` on fresh rents.
 - B200 mid-n80: GPUs can go NVML **Unknown Error** (p2247 R25 gpu1/2) — new CUDA inits fail while old vLLM may linger. Persist merge under `/root/` before `lium reboot`; if REBOOT_FAILED, migrate n80 via HF pull onto a healthy warm TKC pod.
 - HF `snapshot_download` can land config+partial shards mid-flight — never READY/serve on shard-00001 alone; gate on **all 16** `model-*-of-00016.safetensors` + dl DONE (p2248 killed chall on 13/16).
+- R33 guass-init Reason-GRPO **REFUTE** vs guass n80 m=**−0.00685** z=−1.00 (p2249) — LoRA from live king does not clear crown; free slot → next parent axis (R22 golden).
+- Chall vLLM ready wait **90×10s** can expire mid-cudagraph after full shard load — arm a host recover that launches n80 if serve dies while `:8002` eventually hits 200 (p2249 R25).

@@ -18,7 +18,7 @@
 | 30 | R30 | Tok GRPO lora_alpha=128 r=16 beats R3 α=32 (isolates α vs R29) | **open** · `mine-r30-hialpha-1` · p2105 armed |
 | 31 | R31 | Tok GRPO lora_dropout=0.0 beats R3 drop=0.05 (isolates dropout) | **open** · `mine-r31-nodrop-1` · p2107 armed |
 | 32 | R32 | Tok GRPO kl_coef=0.02 vs base beats R3 kl=0 (isolates KL) | **open** · `mine-r32-kl-1` · **p2108** armed |
-| 33 | R33 | guass-init Reason-GRPO (train FROM live reign-6) clears crown | **open — PRIORITY** · warm on `mine-crown-1` train pid364476 (p2235) |
+| 33 | R33 | guass-init Reason-GRPO (train FROM live reign-6) clears crown | **REFUTED** · vs guass n80 m=**−0.00685** z=**−1.00** hr−0.50× (p2249) |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **REFUTED** · n80 m=**−0.0077** z=−0.76 (p2116) |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **REFUTED** · n80 m=**−0.0037** z=−0.58 (p2120) |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **REFUTED** · n80 m=**−0.0390** z=−3.24 (p2125) |
@@ -40,7 +40,7 @@
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open — PRIORITY** · warm on `mine-r4-fullft-1` train pid166479 (p2241 after R5b) |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **REFUTED** · vs guass n80 m=**−0.0196** z=−2.13 hr=−1.07× (p2211) |
 | 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **REFUTED** · vs guass n80 m=**−0.00568** z=−0.55 hr−0.28× (p2235) |
-| 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open** · `mine-r22-golden-grpo-1` · **p2229** guass+writer |
+| 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open — PRIORITY** · warm on `mine-crown-1` train pid**371573** (p2249 after R33) |
 | 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open** · `mine-r23-diane-grpo-1` · **p2229** guass+writer |
 
 ## Open (detail)
@@ -104,7 +104,7 @@
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300
-- Live: R24 done on R3 (now pulling R25); **R19** R4; **R33** crown; R25 reboot-failed. Queue: R22 → R23 → R27–R32. Submit iff margin > live **k_sigma·SE**.
+- Live: **R22** crown train; **R19** R4 post; **R25** n80 on R3; R33 REFUTE; R25 box reboot-failed. Burst next: R23 → R27–R32. Submit iff margin > live **k_sigma·SE**.
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-12T12:49:45Z",
+  "pass": 2249,
+  "hyp": "R33",
+  "pod": "mine-crown-1",
+  "base": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "method": "grpo_teacher_reason_guass_init",
+  "decision": "REFUTE",
+  "margin": -0.006849832941839148,
+  "se": 0.006818088505791986,
+  "z": -1.0046559143402427,
+  "k_sigma_live": 2.0,
+  "threshold_live_2se": 0.013636177011583973,
+  "n_paired_turns": 79,
+  "challenger_wins": false,
+  "note": "pipeline labeled REFUTE_R3b via reused r3_* paths; identity from r33_train_launched.json is guass-init GRPO"
+}
