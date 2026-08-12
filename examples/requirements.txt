@@ -1,0 +1,3 @@
+# Dependencies for the example scripts in this folder.
+# They call the public live API only — no wallet or chain libraries needed.
+requests>=2.31.0
