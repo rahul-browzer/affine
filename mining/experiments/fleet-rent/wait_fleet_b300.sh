@@ -28,10 +28,11 @@ QUEUE=(
   # R3b live on mine-r3-grpo-1 (p2127 retarget after R3 REFUTE) — do not re-rent.
   # R24 live on mine-r3-grpo-1 (p2205 warm-arm after R15 REFUTE) — do not re-rent.
   # R24 live on mine-r3; R25=mine-r25-hitemp-1; R26=mine-crown-1 — do not re-rent.
-  # p2224: sbs-v2 still GATED (index 403) — demote R10/R18; next=R5b (weights_ok).
+  # p2224: sbs-v2 still GATED (index 403) — demote R10/R18.
   # "mine-r10-merge-rl-1|R10|Tok×sbs-v2 α-merge → Reason-GRPO (BLOCKED Hub gated)"
   # "mine-r18-sbs-grpo-1|R18|pure sbs-v2-init Reason-GRPO (BLOCKED Hub gated)"
-  "mine-r5-nonking-2|R5b|Talent/kevin non-king base FT"
+  # p2235: R5b warm on mine-r4-fullft-1; R33 warm on mine-crown-1 — do not re-rent.
+  # "mine-r5-nonking-2|R5b|Talent/kevin non-king base FT"
   "mine-r19-talent-grpo-1|R19|TalentPigs-init Reason-GRPO (≠ R3/R5b; sbs gated)"
   "mine-r22-golden-grpo-1|R22|golden-crown-init Reason-GRPO (≠ R3/R16/R19–R21)"
   "mine-r23-diane-grpo-1|R23|diane613-init Reason-GRPO (≠ R3/R16/R19–R22)"
@@ -41,8 +42,7 @@ QUEUE=(
   "mine-r30-hialpha-1|R30|Tok GRPO lora_alpha=128 r=16 (≠ R3 α=32; isolates α vs R29)"
   "mine-r31-nodrop-1|R31|Tok GRPO lora_dropout=0.0 (≠ R3 0.05; isolates dropout)"
   "mine-r32-kl-1|R32|Tok GRPO kl_coef=0.02 vs base (≠ R3 kl=0; isolates KL)"
-  # p2233: guass-init GRPO (train FROM live reign-6).
-  "mine-r33-guass-grpo-1|R33|guass-init Reason-GRPO (≠ R3 Tok / R19–R23; LoRA from live king)"
+  # "mine-r33-guass-grpo-1|R33|guass-init Reason-GRPO (≠ R3 Tok / R19–R23; LoRA from live king)"
 )
 
 mkdir -p "$EXP/logs" "$STAMP_DIR"

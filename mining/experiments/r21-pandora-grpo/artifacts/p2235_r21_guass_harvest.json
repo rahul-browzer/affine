@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-12T11:04:10Z",
+  "pass": 2235,
+  "hyp": "R21",
+  "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5",
+  "decision": "REFUTE_r3",
+  "margin": -0.005676412912584363,
+  "se": 0.010277304289964215,
+  "z": -0.5523250798487477,
+  "k_sigma": 2.0,
+  "submit": false,
+  "next": "R5b warm on r4"
+}

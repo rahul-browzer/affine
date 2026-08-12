@@ -9,20 +9,20 @@
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — live king=**guass** reign6 (p2206); R2bm was guass-as-chall vs ckp333 |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **REFUTED** · n80 m=**+0.00232** z=0.245 hr0.12× (p2190) |
-| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open — PRIORITY** · train~**142**/200 · post waiter refreshed (p2234) |
-| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · train~**125**/200 · post waiter refreshed (p2234) |
-| 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open — PRIORITY** · train **DONE** · **merge→n80** (p2234) |
+| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open — PRIORITY** · train~**145**/200 · post waiter live |
+| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · train~**129**/200 · post waiter live |
+| 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **REFUTED** · vs guass n80 m=**+0.00192** z=0.19 hr0.10× (p2235) |
 | 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · `mine-r27-bigg-1` · p2101 armed |
 | 28 | R28 | Tok GRPO lr=2e-5 beats R3 5e-6 (isolates LR vs R3b) | **open** · `mine-r28-hilr-1` · p2102 armed |
 | 29 | R29 | Tok GRPO lora_r=64 beats R3 r=16 (isolates rank vs R3b) | **open** · `mine-r29-hirank-1` · p2104 armed |
 | 30 | R30 | Tok GRPO lora_alpha=128 r=16 beats R3 α=32 (isolates α vs R29) | **open** · `mine-r30-hialpha-1` · p2105 armed |
 | 31 | R31 | Tok GRPO lora_dropout=0.0 beats R3 drop=0.05 (isolates dropout) | **open** · `mine-r31-nodrop-1` · p2107 armed |
 | 32 | R32 | Tok GRPO kl_coef=0.02 vs base beats R3 kl=0 (isolates KL) | **open** · `mine-r32-kl-1` · **p2108** armed |
-| 33 | R33 | guass-init Reason-GRPO (train FROM live reign-6) clears crown | **open — PRIORITY** · `mine-r33-guass-grpo-1` · **p2233** armed |
+| 33 | R33 | guass-init Reason-GRPO (train FROM live reign-6) clears crown | **open — PRIORITY** · warm on `mine-crown-1` train pid364476 (p2235) |
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **REFUTED** · n80 m=**−0.0077** z=−0.76 (p2116) |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **REFUTED** · n80 m=**−0.0037** z=−0.58 (p2120) |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **REFUTED** · n80 m=**−0.0390** z=−3.24 (p2125) |
-| 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open — PRIORITY** · fleet next=`mine-r5-nonking-2` (p2225 guass-armed + prestaged) |
+| 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open — PRIORITY** · warm on `mine-r4-fullft-1` Talent DL (p2235) |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **REFUTED** · n80 m=**−0.0006** z=−0.07 hr−0.04× (p2143) |
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **REFUTED** · n80 m=**+0.0123** z=1.978 hr0.99× vs ckp333 (p2162) |
@@ -39,7 +39,7 @@
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **BLOCKED** · same sbs-v2 **403** p2224 · demoted from fleet QUEUE |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **REFUTED** · vs guass n80 m=**−0.0196** z=−2.13 hr=−1.07× (p2211) |
-| 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open — PRIORITY** · train **DONE** · **merge→n80** (p2234) |
+| 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **REFUTED** · vs guass n80 m=**−0.00568** z=−0.55 hr−0.28× (p2235) |
 | 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open** · `mine-r22-golden-grpo-1` · **p2229** guass+writer |
 | 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open** · `mine-r23-diane-grpo-1` · **p2229** guass+writer |
 

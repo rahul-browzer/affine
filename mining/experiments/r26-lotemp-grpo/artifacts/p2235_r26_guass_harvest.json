@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-12T11:04:10Z",
+  "pass": 2235,
+  "hyp": "R26",
+  "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5",
+  "decision": "SIGNAL_POS_BELOW_KSIGMA",
+  "margin": 0.0019222138056095885,
+  "se": 0.009996662507892065,
+  "z": 0.19228555571342518,
+  "k_sigma": 2.0,
+  "submit": false,
+  "next": "R33 warm on crown"
+}
