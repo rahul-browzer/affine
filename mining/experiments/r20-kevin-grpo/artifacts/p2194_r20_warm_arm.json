@@ -1,0 +1,26 @@
+{
+  "utc": "2026-08-12T06:38:22Z",
+  "pass": 2194,
+  "axis": "R20",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "after": "R14_REFUTE",
+  "r14_margin": -0.021506979750888756,
+  "r14_z": -1.13781058050908,
+  "r14_se": 0.018902073964953015,
+  "train_pid": 122620,
+  "post_pid": 122627,
+  "soft": "2026-08-12T19:57:47Z",
+  "dead": "2026-08-12T20:27:47Z",
+  "removal": "2026-08-12T20:57:47Z",
+  "method": "kevin_grpo_reason",
+  "base": "kevin954/Affine-5dfqbbh8ev-sft@6a5815fa",
+  "knobs": {
+    "lr": 5e-06,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "group_size": 4,
+    "max_steps": 200
+  },
+  "watch": "tail -f /root/logs/r3_train.nohup ; tail -f /root/logs/r20_post_train.nohup"
+}

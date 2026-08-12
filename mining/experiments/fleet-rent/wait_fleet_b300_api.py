@@ -76,7 +76,8 @@ QUEUE = [
     ("mine-r17-coder-rl-1", "R17", "Qwen3-Coder base REINFORCE on teacher Reason"),
     ("mine-r18-sbs-grpo-1", "R18", "pure sbs-v2-init Reason-GRPO (≠ R3/R10)"),
     ("mine-r19-talent-grpo-1", "R19", "TalentPigs-init Reason-GRPO (≠ R3/R5b/R18)"),
-    ("mine-r20-kevin-grpo-1", "R20", "kevin954-init Reason-GRPO (≠ R3/R14/R19)"),
+    # R20 live on mine-r4-fullft-1 (p2194 warm-arm after R14 REFUTE) — do not re-rent.
+    # ("mine-r20-kevin-grpo-1", "R20", "kevin954-init Reason-GRPO (≠ R3/R14/R19)"),
     ("mine-r21-pandora-grpo-1", "R21", "pandora-box-init Reason-GRPO (≠ R3/R15/R20)"),
     ("mine-r22-golden-grpo-1", "R22", "golden-crown-init Reason-GRPO (≠ R3/R16/R18–R21)"),
     ("mine-r23-diane-grpo-1", "R23", "diane613-init Reason-GRPO (≠ R3/R16/R18–R22)"),

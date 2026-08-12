@@ -1,0 +1,54 @@
+deadline_patch soft 1 dead 1 2026-08-12T19:57:47Z 2026-08-12T20:27:47Z
+-rw-rw-r-- 1 const const 414K Aug 12 06:37 /tmp/mine-r20-warm-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-r20-kevin-grpo
+HF_OK unconst/Affine-5czsc2fc98-r20-kevin-grpo-lora
+LEAN_PID=122400
+[r20-lean] 2026-08-12T06:37:38Z start
+[r20-lean] DOWNLOAD kevin-init start kevin954/Affine-5dfqbbh8ev-sft 6a5815fad8f4e34c983b1933c1fae5762fe25220
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2112.20it/s]
+[r20-lean] DOWNLOAD kevin-init done -> /root/hf/hub/models--kevin954--Affine-5dfqbbh8ev-sft/snapshots/6a5815fad8f4e34c983b1933c1fae5762fe25220
+[r20-lean] killed stale chall pid=119003
+0, 245412 MiB
+1, 245412 MiB
+2, 222520 MiB
+3, 222520 MiB
+4, 0 MiB
+5, 0 MiB
+6, 0 MiB
+7, 0 MiB
+[r20] 2026-08-12T06:37:44Z examples=406 data=/root/r3/winner_za_high_l1.jsonl base=/root/hf/hub/models--kevin954--Affine-5dfqbbh8ev-sft/snapshots/6a5815fad8f4e34c983b1933c1fae5762fe25220 gpus=6,7
+[r20] knobs lr=5e-6 r=16/α32 G=4 steps=200 axis=kevin_grpo_reason
+[r20] wait teacher at http://127.0.0.1:8000/v1
+[r20] teacher ready after 1×15s
+deps OK
+[r20] 2026-08-12T06:37:50Z launch kevin Reason-GRPO lr=5e-6 r=16 G=4 on GPUs 6,7
+{
+  "utc": "2026-08-12T06:37:50Z",
+  "axis": "R20",
+  "hypo": "R20",
+  "pid": 122620,
+  "base": "/root/hf/hub/models--kevin954--Affine-5dfqbbh8ev-sft/snapshots/6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "base_hub": "kevin954/Affine-5dfqbbh8ev-sft",
+  "base_rev": "6a5815fad8f4e34c983b1933c1fae5762fe25220",
+  "data": "/root/r3/winner_za_high_l1.jsonl",
+  "examples": 406,
+  "lr": 5e-06,
+  "method": "grpo_teacher_reason_kevin_init",
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "group_size": 4,
+  "max_new": 512,
+  "max_steps": 200,
+  "gpus": "6,7",
+  "teacher_url": "http://127.0.0.1:8000/v1",
+  "out": "/root/r3/train",
+  "log": "/root/logs/r3_train.nohup",
+  "note": "R20 kevin\u00d7teacher-Reason GRPO \u2014 \u2260 R3 Tok-init, \u2260 R14 kevin REINFORCE, \u2260 R19 Talent-GRPO"
+}
+[r20] TRAIN_LAUNCHED pid=122620
+[r20-lean] 2026-08-12T06:37:50Z DONE train=122620 post=122627
+    PID     ELAPSED CMD
+TRAIN_PID=122620
+POST_PID=122627
+t=200 k=200
+R20_WARM_ARM_OK pod=mine-r4-fullft-1 soft=2026-08-12T19:57:47Z dead=2026-08-12T20:27:47Z 2026-08-12T06:37:58Z

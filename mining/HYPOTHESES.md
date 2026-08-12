@@ -31,13 +31,13 @@
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **REFUTED** · n80 m=**−0.0055** z=−0.82 hr−0.41× vs ckp333 (p2175) |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **REFUTED** · n80 m=**+0.00085** z=0.06 hr0.03× vs ckp333 (p2188) |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **REFUTED** · n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333 (p2189) |
-| 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r4-fullft-1` ~step175/200 (p2192) |
-| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r3-grpo-1` ~step25/200 (p2192) |
-| 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-crown-1` ~step70/200 (p2192) |
+| 14 | R14 | kevin954-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.0215** z=−1.14 hr−0.57× (p2194) |
+| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r3-grpo-1` ~step75/200 (p2194) |
+| 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open — PRIORITY** · train DONE; merge relaunch BASE=golden (p2194) |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open** · `mine-r17-coder-rl-1` · p2091 armed |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
-| 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **open** · `mine-r20-kevin-grpo-1` · p2094 armed |
+| 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **open — PRIORITY** · warm on `mine-r4-fullft-1` step~2/200 (p2194) |
 | 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open** · `mine-r21-pandora-grpo-1` · p2095 armed |
 | 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open** · `mine-r22-golden-grpo-1` · p2096 armed |
 | 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open** · `mine-r23-diane-grpo-1` · **p2097** armed |
@@ -84,11 +84,13 @@
 ### R8 — REINFORCE on Reason
 - **REFUTED** p2158: n80 m=**−0.0273** SE=0.0167 z=−1.64 hr=−0.82× vs ckp333 — Stage-5 SKIP. Dir: `experiments/r8-reinforce-reason/`.
 
-### R14 — kevin954-init REINFORCE (PRIORITY)
-- Warm on `mine-r4-fullft-1` train pid**116630** ~step**85**/200 (p2191) → merge→n80 vs ckp333. ≠ R8 Tok-init. Dir: `experiments/r14-kevin-rl/`.
+### R14 — kevin954-init REINFORCE
+- **REFUTED** p2194: n80 m=**−0.0215** SE=0.0189 z=−1.14 hr−0.57× vs ckp333. Dir: `experiments/r14-kevin-rl/results/`.
 
-### R15 — pandora-box-init REINFORCE (PRIORITY)
-- Warm-armed p2191 on `mine-r3-grpo-1` (lean DL→train GPUs6–7); Soft/Dead 15:29/15:59Z. ≠ R14 kevin. Dir: `experiments/r15-pandora-rl/`.
+### R15 / R16 / R20 — PRIORITY live
+- **R15** pandora-REINFORCE on `mine-r3` ~step75/200 (p2194). Dir: `experiments/r15-pandora-rl/`.
+- **R16** golden-REINFORCE train DONE; merge relaunch with BASE=golden (H135 default was kevin — p2194). Dir: `experiments/r16-golden-rl/`.
+- **R20** kevin-GRPO warm-armed on `mine-r4` after R14 (method ≠ REINFORCE); train~step2/200. Dir: `experiments/r20-kevin-grpo/`.
 
 ### R10 / R11 / R12 / R13
 - **R10 blocked** p2162: `ammazon/Affine-5dvqtektxx-sbs-v2` gated 403 for unconst — need Hub access or public merge parent before arm.
@@ -100,7 +102,7 @@
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300 (R24 first)
-- Live: crown idle · **R15** on R3 · **R14** on R4. Queue: **R24** → R25–R32 · R5b · R10 · R16…. Submit iff hr ≥ 1.5×(2·SE).
+- Live: **R16** crown · **R15** R3 · **R20** R4. Queue: **R24** → R25–R32 · R5b · R10 · R17…. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
