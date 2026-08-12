@@ -24,7 +24,7 @@
 | 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · `mine-r5-nonking-2` · p2081 armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **REFUTED** · n80 m=**−0.0006** z=−0.07 hr−0.04× (p2143) |
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
-| 7 | R7 | High-Reason data-filter curriculum FT | **open — live** · train DONE; TKC serving; n80 watcher→ckp333 (p2160) |
+| 7 | R7 | High-Reason data-filter curriculum FT | **open — live** · n80 vs ckp333 LIVE after chall model-id fix (p2161) |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **REFUTED** · n80 m=**−0.0273** z=−1.64 hr−0.82× vs ckp333 (p2158) |
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train~160/354; post waits train→**R2bl**→merge→n80 (p2160) |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open** · `mine-r10-merge-rl-1` · p2082 armed |

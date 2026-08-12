@@ -23,17 +23,9 @@ export HF_HOME=${HF_HOME:-/root/hf}
 
 KING_REPO=${KING_REPO:-tolegend/Affine-5fqbxvz29b-ckp333}
 KING_REV=${KING_REV:-24c137e8a978aea1e2b4abeec594fb6ca943f03c}
-MERGED=${MERGED:-/root/h121/merged}
-# p476: resolve symlink — vLLM model id is the real serve path (/tmp/hN_merged)
-if [[ -e "$MERGED" ]]; then MERGED=$(readlink -f "$MERGED"); fi
-# p2115: vLLM model id is whatever path was passed at serve time (often the
-# symlink /root/h121/merged), NOT the readlink target. Prefer live /v1/models id.
-_served=$(curl -s --max-time 5 http://127.0.0.1:8002/v1/models \
-  | python3 -c "import sys,json; d=json.load(sys.stdin); print(d[\"data\"][0][\"id\"] if d.get(\"data\") else \"\")" 2>/dev/null || true)
-if [[ -n "$_served" ]]; then
-  echo "[h121-n80-retry] using served chall model id=$_served (was MERGED=$MERGED)" >&2
-  MERGED="$_served"
-fi
+# Fallback path only — real id comes from /v1/models AFTER engines are up.
+MERGED_FALLBACK=${MERGED:-/root/h121/merged}
+MERGED=$MERGED_FALLBACK
 SIM=/root/affine_data/h121_sim_result.json
 PROG=/root/affine_data/h121_sim_progress.json
 DEC=/root/affine_data/h121_decision.json
@@ -41,6 +33,22 @@ LOG=/root/logs/h121_n80_retry.nohup
 MAX_ATTEMPTS=${MAX_ATTEMPTS:-6}
 
 log() { echo "[h121-n80-retry] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
+
+# p2161: do NOT readlink -f. vLLM id is the serve-time path (symlink
+# /root/h121/merged). readlink→/tmp/h121_merged → 404 → FALSE_PROBE (p2161).
+# Resolve after engines up; refresh before each attempt.
+_resolve_chall_model_id() {
+  local served
+  served=$(curl -s --max-time 5 http://127.0.0.1:8002/v1/models \
+    | python3 -c "import sys,json; d=json.load(sys.stdin); print(d[\"data\"][0][\"id\"] if d.get(\"data\") else \"\")" 2>/dev/null || true)
+  if [[ -n "$served" ]]; then
+    MERGED="$served"
+    log "chall model id from /v1/models: $MERGED"
+  else
+    MERGED="$MERGED_FALLBACK"
+    log "WARN /v1/models empty — fallback chall id=$MERGED"
+  fi
+}
 
 _promptable() {
   # health=200 ≠ alive (H30/H100 Triton __triton_launcher.so → ConnectError false REFUTE)
@@ -128,7 +136,9 @@ if ! _wait_engines "${WAIT_ENGINE_POLLS:-360}"; then
     >/root/logs/h121_n80_retry.aborted
   exit 1
 fi
-test -d "$MERGED"
+_resolve_chall_model_id
+# Accept symlink or real dir; do not require readlink target == model id.
+test -e "$MERGED" || test -e "$MERGED_FALLBACK"
 test -f /root/logs/h121_merge.done
 
 # Fresh block_hash per outer retry (H32/H34): default 0*64 slice hits a turn
@@ -163,8 +173,9 @@ sys.exit(0 if (fp or "unpromptable" in rr or "ConnectError" in rr
 
 for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
   rm -f "$SIM" "$PROG"
+  _resolve_chall_model_id
   bh="${BLOCK_HASHES[$(( (attempt - 1) % ${#BLOCK_HASHES[@]} ))]}"
-  log "n80 attempt $attempt/$MAX_ATTEMPTS block_hash=${bh:0:16}…"
+  log "n80 attempt $attempt/$MAX_ATTEMPTS block_hash=${bh:0:16}… chall=$MERGED"
   set +e
   python /root/mining_src/s4-h2-merge/run_sim_duel.py \
     --king-repo "$KING_REPO" \
