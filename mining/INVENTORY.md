@@ -6,9 +6,9 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2bk n80 + R9 train + R2bl wait |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | R2bl Bittoby + R9 train |
 | mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | **R3b** train + post→ckp333 |
-| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove 2026-08-12T20:57Z | **R7** full-FT top-250 Reason |
+| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove 2026-08-12T20:57Z | **R7** TKC serve + n80 |
 | *(pending fleet)* | mine-r24…r32 | 8×B300 | ~$64 | rent POST + boot **2756348** | R24 first |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -22,6 +22,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T02:14Z | p2160: R2bk CLOSE + R2bl fix/reload; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T02:02Z | p2159: R7 n80 defaults→ckp333; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T01:58Z | p2158: R8 REFUTE→R7 warm-arm; fleet next=R24; B300×8=0; burn **$180.25/h** |
-| 2026-08-12T01:54Z | p2157: R8 n80 launched vs ckp333; B300×8=0; burn **$180.25/h** |

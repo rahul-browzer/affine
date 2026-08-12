@@ -1,0 +1,31 @@
+{
+  "pass": 2160,
+  "utc": "2026-08-12T02:14:40Z",
+  "r2bk": {
+    "utc": "2026-08-12T02:12:43Z",
+    "hyp": "R2bk",
+    "contract": "Reason v3",
+    "decision": "SIGNAL_POS_BELOW_3SE",
+    "headroom_bar": 1.5,
+    "false_probe": null,
+    "margin": 0.0004064473356042503,
+    "se": 0.0032416417418159984,
+    "z": 0.12538317555614725,
+    "k_sigma": 3.0,
+    "threshold_3se": 0.009724925225447996,
+    "headroom_vs_3se": 0.04179439185204908,
+    "reason_c": -0.002682128857447681,
+    "reason_k": -0.003278552764537285,
+    "n_paired_turns": 80,
+    "challenger_wins": false,
+    "sim_result": "/root/affine_data/r2bk_saysth_ckp333_reason_sim.json",
+    "k_sigma_live": 2.0,
+    "threshold_live_2se": 0.006483283483631997,
+    "headroom_vs_live_2se": 0.06269158777807363,
+    "submit_bar_1p5x_2se": 0.009724925225447996,
+    "decision_live_k2": "SIGNAL_POS_BELOW_2SE"
+  },
+  "action": "closed R2bk SIGNAL_POS_BELOW; fixed R2bl R9-premerge deadlock; Bittoby :8002 loading",
+  "burn_h": 180.25,
+  "b300_8x_stock": 0
+}

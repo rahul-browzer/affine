@@ -119,13 +119,14 @@ done
 
 # 2) Wait R9 pipeline terminal so we do not yank chall mid-R9 merge/n80.
 #    If R9 never armed / already done/aborted/skipped — proceed.
+#    If R9 post is only in train-wait (pre-merge), proceed — R9 waits R2bk/R2bl
+#    before merge; blocking here deadlocks Bittoby for hours (p2160).
 echo "[r2bl-bittoby] waiting R9 pipeline terminal (or idle)"
 for i in $(seq 1 2880); do
   if [[ -f "$R9_DONE" || -f "$R9_ABORT" ]]; then
     echo "[r2bl-bittoby] R9 terminal done/abort at iter=$i"
     break
   fi
-  # R9 post not running and train still alive → R9 will take chall later; wait.
   r9_post_alive=0
   if [[ -f /root/logs/r9_post_train.pid ]]; then
     rpid=$(cat /root/logs/r9_post_train.pid 2>/dev/null || true)
@@ -140,13 +141,18 @@ for i in $(seq 1 2880); do
       train_alive=1
     fi
   fi
+  r9_at_merge=0
+  if [[ -f /root/logs/r9_merge.done || -f /root/logs/r9_chall_serve.done \
+        || -f /root/affine_data/r9_reason_progress.json ]]; then
+    r9_at_merge=1
+  fi
   if (( r9_post_alive == 0 && train_alive == 0 )); then
     echo "[r2bl-bittoby] no R9 train/post alive — proceed"
     break
   fi
-  if (( r9_post_alive == 0 && train_alive == 1 )); then
-    # Train still running: safe to take chall now (R9 waits train then R2bk already done).
-    echo "[r2bl-bittoby] R9 train still running, post not at merge yet — proceed to screen"
+  if (( r9_at_merge == 0 )); then
+    # Train and/or post in train-wait only — safe to take chall for Bittoby n80.
+    echo "[r2bl-bittoby] R9 pre-merge (post=$r9_post_alive train=$train_alive) — proceed to screen"
     break
   fi
   if _past "$SOFT_DEADLINE_UTC"; then
@@ -154,7 +160,7 @@ for i in $(seq 1 2880); do
     exit 1
   fi
   if (( i % 12 == 0 )); then
-    echo "[r2bl-bittoby] wait-r9 iter=$i post=$r9_post_alive train=$train_alive"
+    echo "[r2bl-bittoby] wait-r9 iter=$i post=$r9_post_alive train=$train_alive merge=$r9_at_merge"
   fi
   if (( i == 2880 )); then
     echo "[r2bl-bittoby] TIMEOUT R9" >&2

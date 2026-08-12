@@ -152,3 +152,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Slim n80 launchers must `export PYTHONPATH=/root/mining_src/affine_pkg` (and AFFINE_DATA_DIR) after venv activate — missing it → `No module named 'affine'` before first progress (p2155 R2bk).
 - **R8 REFUTE** p2158: REINFORCE-on-Reason n80 m=**−0.027** z=−1.64 hr−0.82× vs ckp333 — do not re-open; free warm B300 → next distinct axis (R7), fleet next=R24.
 - After a king swap: patch **retry_*_n80** `KING_REPO`/`KING_REV` defaults (not only `mine.env` / post_train) — Tok-af10 fallback would silently score vs a retired king if env is missing (p2159 R7).
+- Chall-swap waiters must treat R9 **post-in-train-wait** as pre-merge (proceed) — waiting only when `r9_merge.done` / chall-serve / progress exist; else Bittoby (R2bl) deadlocks for hours while LoRA trains (p2160).
