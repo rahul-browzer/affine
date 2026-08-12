@@ -1,0 +1,8 @@
+{
+  "utc": "2026-08-12T02:21:06Z",
+  "outstem": "chal00502",
+  "remote_out": "/root/affine_data/chal00502_reason.json",
+  "headroom_vs_3se": -1.5828163331784044,
+  "challenger_repo": "arbosfan/Affine-5eqdtdzqle-ec08cldg",
+  "source": "host_history_api"
+}

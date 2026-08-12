@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-12T02:19:57Z",
+  "pass": 2162,
+  "hypo": "R7",
+  "decision": "REFUTE_H121",
+  "margin": 0.012326554712128741,
+  "se": 0.006232600084479139,
+  "z": 1.9777547965615823,
+  "k_sigma": 2.0,
+  "crown_bar": 0.012465200168958278,
+  "submit_bar_1_5x": 0.018697800253437417,
+  "headroom_vs_crown": 0.989,
+  "headroom_vs_submit": 0.659,
+  "n_paired": 72,
+  "reason_c": 0.00786064770234545,
+  "reason_k": -0.003566028798815341,
+  "king": "tolegend/Affine-5fqbxvz29b-ckp333@24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "chall": "/root/h121/merged",
+  "submit": false,
+  "next": "warm-arm R11 online-DPO on mine-r4-fullft-1 (R10 sbs-v2 gated)"
+}

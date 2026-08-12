@@ -24,11 +24,11 @@
 | 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · `mine-r5-nonking-2` · p2081 armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **REFUTED** · n80 m=**−0.0006** z=−0.07 hr−0.04× (p2143) |
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
-| 7 | R7 | High-Reason data-filter curriculum FT | **open — live** · n80 vs ckp333 LIVE after chall model-id fix (p2161) |
+| 7 | R7 | High-Reason data-filter curriculum FT | **REFUTED** · n80 m=**+0.0123** z=1.978 hr0.99× vs ckp333 (p2162) |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **REFUTED** · n80 m=**−0.0273** z=−1.64 hr−0.82× vs ckp333 (p2158) |
-| 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train~160/354; post waits train→**R2bl**→merge→n80 (p2160) |
-| 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open** · `mine-r10-merge-rl-1` · p2082 armed |
-| 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open** · `mine-r11-odpo-1` · p2084 armed |
+| 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train~177/354; post waits train→**R2bl**→merge→n80 |
+| 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **blocked** · sbs-v2 gated 403 (p2162); fleet/`mine-r10-*` until Hub access |
+| 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open — live** · warm `mine-r4-fullft-1` train pid90891 (p2162) |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open** · `mine-r12-bon-1` · p2085 armed |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open** · `mine-r13-odpo-1` · p2086 armed |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open** · `mine-r14-kevin-rl-1` · p2087 armed |
@@ -77,16 +77,20 @@
 - **R6b REFUTED** p2151: natural long-z LoRA n80 m=**−0.01014** z=−1.23 SE=0.00825 (hr−0.62×) — format family closed. Dir: `experiments/r6b-long-thought/`.
 
 ### R7 — data-filter curriculum
-- **p2158 live** on warm `mine-r4-fullft-1`: Tok full-FT top-250 Reason rows, EPOCHS=2 lr=1e-6; post→ckp333. Train `h121_train.nohup`. Dir: `experiments/r7-data-filter/`.
+- **REFUTED** p2162: n80 m=**+0.0123** SE=0.00623 z=1.978 < 2σ (hr_crown 0.99× / submit 0.66×) vs ckp333 — Stage-5 SKIP. Dir: `experiments/r7-data-filter/`.
 
 ### R8 — REINFORCE on Reason
 - **REFUTED** p2158: n80 m=**−0.0273** SE=0.0167 z=−1.64 hr=−0.82× vs ckp333 — Stage-5 SKIP. Dir: `experiments/r8-reinforce-reason/`.
+
+### R10 / R11
+- **R10 blocked** p2162: `ammazon/Affine-5dvqtektxx-sbs-v2` gated 403 for unconst — need Hub access or public merge parent before arm.
+- **R11 live** p2162: online-DPO on warm `mine-r4-fullft-1` GPUs6–7 (pid90891); post→ckp333. Dir: `experiments/r11-online-dpo/`.
 
 ### R24–R32 — structural GRPO knobs (fleet-queued)
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300 (R24 first)
-- Live: crown R2bk+R9 · R3b GRPO · **R7** datafilt. Queue: **R24** → R25–R32 …. Submit iff hr ≥ 1.5×(2·SE).
+- Live: crown R2bl+R9 · R3b GRPO · **R11** odpo. Queue: **R24** → R25–R32 …. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.

@@ -1,1 +1,1 @@
-{"alive": true, "pid": 28660, "age_s": 6, "estab": 0, "close_wait": 0, "train_done": false, "last": "[r3-hb] {\"utc\": \"2026-08-11T21:56:29Z\", \"step\": 168, \"phase\": \"sample\", \"g\": 3}"}
+{"alive": false, "pid": 28660, "age_s": 38, "estab": 0, "close_wait": 0, "train_done": true, "last": "[r3] DONE {\"utc\": \"2026-08-11T22:22:24Z\", \"steps\": 189, \"elapsed_s\": 12332.069598197937, \"mean_reward_last20\": -0.027953282949308274, \"adapter\": \"/root/r3/train/adapter\"}"}
