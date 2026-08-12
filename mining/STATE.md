@@ -14,16 +14,17 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | challenge | queue empty (latest stamped chal-00525) |
 | miner burn | **$220.25/h** · floor $833/h · **gap −$613/h** |
 | B300 stock | **0** free 8×B300/B200 (burst snatching) |
-| Lium bal | ~$116,953 · floor $10k OK |
+| Lium bal | ~$116,928 · floor $10k OK |
 | submissions | 0 |
 | R10 / R18 | **BLOCKED** sbs-v2 index **403** |
 | R21 | **REFUTE** vs guass n80 m=**−0.00568** z=**−0.55** (p2235) |
 | R26 | **SIGNAL_POS_BELOW** vs guass m=**+0.00192** z=**0.19** (p2235) — no submit |
 | R5b | **SIGNAL_POS_BELOW** vs guass m=**+0.00393** z=**0.43** (p2241) — no submit |
-| R24 | train~**178**/200; post_train waiter live |
-| R25 | train~**174**/200; post_train waiter live |
-| R33 | guass-init GRPO **step~61**/200 on crown + T/K warm |
-| R19 | **Talent-GRPO loading** on r4 (train**166479**/post**166487**) after R5b close |
+| R24 | train~**183**/200; tmax+post_train waiters live (teacher still 32768→65536 after done) |
+| R25 | train~**179**/200; teacher already **65536**; post_train waiter live |
+| R33 | guass-init GRPO **step~69**/200 on crown + T/K warm |
+| R19 | Talent-GRPO **step~5**/200 on r4 (train**166479**/post**166487**) |
+| p2242 | Soft/Dead **Removal−1h/−30m** patched on QUEUE launchers R22/R23/R27–R32 |
 
 ## What's running
 
@@ -35,7 +36,7 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | mine-r25-hitemp-1 | zesty-fox-bc | $40.00 | **R25** train + guass |
 | host fleet-burst | pid**3962156** | — | **86400**-iter snatch next **R22** |
 | host fleet-rent | pid**3373328** (**STOP**) | — | CONT if burst ends empty |
-| host fleet-boot | pid**3852238** | — | POLL=5s (R33/R5b warm) |
+| host fleet-boot | pid**3852238** | — | POLL=5s (arms next rent stamps) |
 
 SSH crown/R33: `ssh root@95.133.253.90 -p 40099` · R3: `ssh root@204.9.206.245 -p 40051`
 SSH R4/R19: `ssh root@86.38.182.50 -p 40307` · R25: `ssh root@150.136.71.147 -p 20309`
@@ -53,6 +54,6 @@ slice vs the **current** king. No 1.5×. No absolute margin>0.04 bar.
 Re-sim WEAK_CLEAR vs **guass** before submit (not stale ckp333).
 
 ## Next action
-1. R19: wait Talent-GRPO train → merge/n80 vs guass; CLEAR → Stage-5.
-2. R24/R25 → merge when train.done; any clear → Stage-5.
-3. Keep burst snatching (R22→…); stock empty this pass.
+1. Burst snatch → bootstrap R22 (Soft/Dead now from Removal); then R23/R27–R32.
+2. R24/R25 → merge/n80 when train.done; CLEAR → Stage-5.
+3. R19: wait Talent-GRPO → merge/n80 vs guass; CLEAR → Stage-5.

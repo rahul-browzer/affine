@@ -52,27 +52,42 @@ cp -a "$ROOT/mining/experiments/r28-hilr-grpo/bootstrap_r28.sh" "$STAGE/r28-hilr
 cp -a "$ROOT/mining/experiments/r28-hilr-grpo/start_r28.sh" "$STAGE/$EXP/start_r3.sh"
 cp -a "$ROOT/mining/experiments/r28-hilr-grpo/bootstrap_r28.sh" "$STAGE/$EXP/bootstrap_r3.sh"
 
-SOFT=$(date -u -d '+23 hours' +%Y-%m-%dT%H:%M:%SZ)
-DEAD=$(date -u -d '+23 hours 30 minutes' +%Y-%m-%dT%H:%M:%SZ)
+# Soft/Dead = Removal−1h / Removal−30m from lium describe (never wall-clock +Nh).
+# p2237: +23h Soft landed AFTER Removal → post_train outlived the box.
+_rem_raw=$(lium describe "$POD_NAME" --json 2>/dev/null \
+  | python3 -c 'import sys,json; d=json.load(sys.stdin); print((d.get("billing") or {}).get("removal_scheduled_at") or "")' \
+  || true)
+if [[ -z "${_rem_raw}" ]]; then
+  echo "[r28-up] FATAL: no billing.removal_scheduled_at for POD_NAME=$POD_NAME" >&2
+  exit 1
+fi
+REMOVAL=$(date -u -d "${_rem_raw}" +%Y-%m-%dT%H:%M:%SZ)
+SOFT=$(date -u -d "${_rem_raw} -1 hour" +%Y-%m-%dT%H:%M:%SZ)
+DEAD=$(date -u -d "${_rem_raw} -30 minutes" +%Y-%m-%dT%H:%M:%SZ)
+echo "[r28-up] Removal=$REMOVAL Soft=$SOFT Dead=$DEAD (from lium describe $POD_NAME)"
 export STAGE_EXP_POST="$STAGE/$EXP/post_train_pipeline.sh"
 export SOFT
+export DEAD
 python3 - <<'PY'
 from pathlib import Path
 import re, os
-soft = os.environ["SOFT"]
+soft, dead = os.environ["SOFT"], os.environ["DEAD"]
 p = Path(os.environ["STAGE_EXP_POST"])
 t = p.read_text()
-t2, n = re.subn(
+t2, n1 = re.subn(
     r"SOFT_DEADLINE_UTC=\$\{SOFT_DEADLINE_UTC:-[^}]+\}",
     f"SOFT_DEADLINE_UTC=${{SOFT_DEADLINE_UTC:-{soft}}}",
     t,
     count=1,
 )
-if n != 1:
-    print("SOFT_DEADLINE_PATTERN_MISS n=", n)
-else:
-    p.write_text(t2)
-    print("SOFT_DEADLINE_SET", soft)
+t3, n2 = re.subn(
+    r"DEADMAN_UTC=\$\{DEADMAN_UTC:-[^}]+\}",
+    f"DEADMAN_UTC=${{DEADMAN_UTC:-{dead}}}",
+    t2,
+    count=1,
+)
+p.write_text(t3)
+print("SOFT_DEADLINE_SET", soft, "n=", n1, "DEADMAN_SET", dead, "n=", n2)
 PY
 
 TAR=/tmp/mine-r28-stack.tar.gz

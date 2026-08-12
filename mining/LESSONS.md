@@ -22,6 +22,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 
 ## Ops (still true — details in legacy archive if needed)
 - Soft/Dead = **Removal−1h / Removal−30m** from `lium describe` `billing.removal_scheduled_at` — never wall-clock `+Nh` (p2177 R12 Soft after Removal; p2237 R5b `upload_and_launch` used `+23h` → Soft 10:01Z after Removal 08:57Z; patch mine.env + kill/relaunch post_train; launcher now reads Removal). Fleet QUEUE must drop REFUTED axes and axes live under another pod name.
+- p2242: QUEUE launchers R22/R23/R27–R32 Soft/Dead now from `lium describe` Removal−1h/−30m (was wall-clock +23h like p2237).
 - Live corpus is **schema v2** (Parquet index + chunks). `sync_corpus.sh` must accept `turns_index.parquet`, not only `turns.jsonl`.
 - Schema-v2 Reason sim needs **pandas + pyarrow** in the pod venv (`CorpusSync` reads parquet). vLLM-only installs miss them — pin in `restore_warm_stack.sh`.
 - Pods: `mine-*` only; never `rm` non-mine; always `--ttl`; reconcile `lium ps` first every pass.
@@ -34,7 +35,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - After restore/serve, **re-check n80 watcher PID (`kill -0`)** — pid3045 died mid-load (p2173); p2239 R5b `CHALL_SERVE_DONE` left Aug-11 dead pidfiles while T/K/C loaded — re-arm `watch_n80_retry` + `watch_form_decision` or n80 never starts.
 - `/root/mine.env` must **export** vars (or `set -a` before `source`); bare `HF_TOKEN=…` does not reach the python child — sim then hits unauth HF Hub and stalls on tokenizer download before first progress.
 - Public duel rows expose Reason components as `lpC_yc_za` / `lpC_yc_e` on `king_rows[].pairs[]`; rank SFT targets by that delta, not by L1lift/lpA.
-- R3: after scp-patching `train_reason_grpo.py`, verify live log has `[r3-hb]` — a pre-patch PID keeps running the old code (p2072: n_hb=0@step20 until kill+relaunch).
 - Join high-Reason completions to schema-v2 corpus prefixes via `CorpusSync.materialize_turns` (index hit 1403/1403 on epoch 7) before LoRA; completions alone are not trainable.
 - Crown pod venv is **uv**-managed (`uv pip install --python /root/venv/bin/python …`); bare `pip` / system python hits PEP 668.
 - After LoRA train: merge on freed GPUs 6–7, kill chall by **PID file only**, reload `/tmp/r1_lora_merged` with same vLLM knobs as restore (tp=2 util=0.72), then fresh n80 — do not yank chall mid-baseline.
