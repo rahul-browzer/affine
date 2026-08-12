@@ -34,7 +34,7 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | host fleet-rent | pid**3373328** (**STOP**) | — | CONT if burst ends empty |
 | host fleet-boot | pid**3852238** | — | POLL=5s |
 | host p2247 reboot-watch | pid**4091485** | — | arm R25 post-reboot n80 |
-| host p2247 r24-dl-watch | pid**4091486** | — | R25-on-R24 serve+n80 when HF ready |
+| host p2247 r24-dl-watch | pid**4096192** | — | R25-on-R24 n80 when **16/16** shards ready |
 
 SSH crown/R33: `ssh root@95.133.253.90 -p 40099` · R3: `ssh root@204.9.206.245 -p 40051`
 SSH R4/R19: `ssh root@86.38.182.50 -p 40307` · R25: `ssh root@150.136.71.147 -p 20309` (down while reboot)
@@ -52,6 +52,6 @@ R25 box GPU1/2 dead; reboot flapping FAILED/PENDING — if still dead next pass,
 slice vs the **current** king. No 1.5×. No absolute margin>0.04 bar.
 
 ## Next action
-1. Await R25-on-R24 n80 (`r25_decision.json`) or R25 post-reboot restore+n80.
-2. If R25 CLEAR → Stage-5; if SIGNAL_POS_BELOW → mark + free/reuse slot.
+1. Await R25-on-R24 n80 (`r25_decision.json`) — HF pull mid (~11/16 shards; watcher gated); or R25 post-reboot if SSH returns.
+2. If R25 CLEAR → Stage-5; if SIGNAL_POS_BELOW → mark + free/reuse slot. If R25 still REBOOT_FAILED after n80, `lium rm mine-r25-hitemp-1`.
 3. Burst snatch → bootstrap R22; R19/R33 continue GRPO. Reassign R24 axis after R25 screen.

@@ -19,7 +19,7 @@ SSH R25: `ssh root@150.136.71.147 -p 20309` (refused while reboot)
 Host fleet-rent: pid**3373328** (**SIGSTOP**; CONT after burst)
 Host fleet-burst: pid**3962156** (p2241; MAX_ITERS=**86400**; mine=4/25; next=**R22**)
 Host fleet-boot: pid**3852238** (pass=2233; arms rented stamps)
-Host p2247: reboot-watch **4091485**; r24-dl-watch **4091486**
+Host p2247: reboot-watch **4091485**; r24-dl-watch **4096192** (16/16 gate)
 
 Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
