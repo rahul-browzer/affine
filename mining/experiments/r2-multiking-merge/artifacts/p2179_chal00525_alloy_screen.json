@@ -1,0 +1,27 @@
+{
+  "utc": "2026-08-12T03:46:45Z",
+  "pass": 2179,
+  "challenge_id": "chal-00525",
+  "repo": "athena2634/Affine-5h3msswruf-alloy",
+  "revision": "74a6ac4d57beda2a9dff604c0d9799959aa676dc",
+  "hotkey": "5En4Y39CuV2p1zqMaVgxNb3WjTNd9pXed77Wi46R6ZAEnJTe",
+  "queued_at": "2026-08-12T03:36:27.442251+00:00",
+  "architectures": [
+    "Qwen3_5MoeForConditionalGeneration"
+  ],
+  "model_type": "qwen3_5_moe",
+  "n_tensors": 1026,
+  "n_shards": 9,
+  "visual_tensors": 333,
+  "weights_ok": true,
+  "index_probe": "ok",
+  "preprocessor_config": "missing_on_hub_derive_from_processor",
+  "axis": "R2bn",
+  "actions": [
+    "host_history_stamp_bridge TARGETS += chal-00525",
+    "crown prefetch launch_prefetch_alloy.sh (CPU)",
+    "do not merge until post-verdict Reason+"
+  ],
+  "stock_8x_b300_b200": 0,
+  "burn_usd_h": 180.25
+}

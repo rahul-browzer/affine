@@ -83,6 +83,7 @@ TARGETS = {
     "chal-00517": "chal00517",  # thrivepath mt2 (queue; p2145 R2bi)
     "chal-00520": "chal00520",  # Bittoby1040 v3 (queue; p2156 R2bl)
     "chal-00521": "chal00521",  # ttttxxxxsada guass (queue; p2168 R2bm)
+    "chal-00525": "chal00525",  # athena2634 alloy (queue; p2179 R2bn)
 }
 
 
