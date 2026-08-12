@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-12T07:05:29Z",
+  "pass": 2198,
+  "pod_name": "mine-r4-fullft-1",
+  "pod_id": "70f95aab-68aa-4389-b845-337f938b4c9f",
+  "old_removal": "2026-08-12T20:57:47Z",
+  "new_removal": "2026-08-13T08:57:47Z",
+  "soft": "2026-08-13T07:57:47Z",
+  "dead": "2026-08-13T08:27:47Z",
+  "hours_added": 12,
+  "http": 200,
+  "why": "R20 kevin-GRPO mid-train (~66/200); protect Soft/Dead through merge\u2192n80"
+}

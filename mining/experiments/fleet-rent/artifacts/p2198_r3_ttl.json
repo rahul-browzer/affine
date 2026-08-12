@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-12T07:05:09Z",
+  "pass": 2198,
+  "pod_name": "mine-r3-grpo-1",
+  "pod_id": "d55eec0f-6dc6-4e07-a3fb-602395dca847",
+  "old_removal": "2026-08-12T16:29:36Z",
+  "new_removal": "2026-08-13T04:29:36Z",
+  "soft": "2026-08-13T03:29:36Z",
+  "dead": "2026-08-13T03:59:36Z",
+  "hours_added": 12,
+  "http": 200,
+  "why": "R15 pandora-REINFORCE mid-train (~135/200); protect Soft/Dead through merge\u2192n80"
+}

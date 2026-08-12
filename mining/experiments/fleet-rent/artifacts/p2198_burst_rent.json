@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-12T07:16:20Z",
+  "pass": 2198,
+  "iters_reached": 1081,
+  "iters_target": 2000,
+  "result": "empty_killed",
+  "mine_count": 3,
+  "b300x8": 0,
+  "b200x8": 0,
+  "next_queue": "mine-r24-longctx-1",
+  "change": "R3+R4 TTL +12h (Soft/Dead patched); SKIP_PID_LOCK burst@0.25s STOP waiter→kill@1081 empty→CONT 3373328",
+  "balance_usd": 118149.82898823584,
+  "burn_per_h": 180.25
+}

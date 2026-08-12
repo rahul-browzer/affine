@@ -7,8 +7,8 @@
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
 | mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-13T02:35Z** | **R17** coder-REINFORCE |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-12T16:29Z** | **R15** pandora-REINFORCE |
-| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove **2026-08-12T20:57Z** | **R20** kevin-GRPO |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** (+12h p2198) | **R15** pandora-REINFORCE |
+| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** (+12h p2198) | **R20** kevin-GRPO |
 | *(pending fleet)* | mine-r24…r32 + R5b/R18… | 8×B300 | ~$64 | rent POST + boot **2756348** | R24 first |
 
 SSH crown/R17: `ssh root@95.133.253.90 -p 40099`
@@ -24,6 +24,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T07:16Z | p2198: R3+R4 TTL +12h + Soft/Dead env; burst1081 empty→kill; waiter CONT; 8×=0; burn **$180.25/h** |
 | 2026-08-12T07:01Z | p2197: R17 empty-z fix→relaunch **337498**; burst1500 timeout; waiter CONT; 8×=0; burn **$180.25/h** |
 | 2026-08-12T06:54Z | p2196: R16 REFUTE→R17 crown (train**335693** dropout=0); 8×=0; burn **$180.25/h** |
-| 2026-08-12T06:44Z | p2195: 8×=0; R16 merge+HF DONE chall loading; purged 9 REFUTED HF; burn **$180.25/h** |
