@@ -11,26 +11,26 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 |---|---|
 | contract | wvk=**3** · `k_sigma=2.0` · reason_only · n_turns=2080 |
 | king | `tolegend/Affine-5fqbxvz29b-ckp333` @ `24c137e8…` **reign 5** |
-| challenge | chal-00511 scoring; queue +chal-00514…**00521** (all R2-screened) |
+| challenge | chal-00511 scoring (~158/2080); queue +chal-00514…**00521** (all R2-screened) |
 | miner burn | **$180.25/h** · floor $833/h · **gap −$653/h** |
-| B300 stock | **0** free 8×B300/B200 (API) |
-| Lium bal | ~$119,089 · floor $10k OK |
+| B300 stock | **0** free 8×B300/B200 (API burst×8) |
+| Lium bal | ~$119,068 · floor $10k OK |
 | submissions | 0 |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | **R9** LoRA ~288/354; post armed (R2bm cleared) |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO ~step136/200; king ckp333 READY |
-| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R12** BoN-CE train ~step5/150; post→ckp333 |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R9** LoRA ~290/354; post armed (R2bm cleared) |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO ~step137/200; king ckp333 READY |
+| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R12** BoN-CE ~step10/150; Soft/Dead TTL-fixed |
 | host fleet-rent | pid**2978630** | — | api-POST-rent; next=**R24** |
 | host fleet-boot | pid**2756348** | — | POLL=5s |
 | host hist bridge | pid**3080195** | — | +chal-00521 map |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099` · R3: `ssh root@204.9.206.245 -p 40051`
 SSH R4/R12: `ssh root@86.38.182.50 -p 40307`
-**p2176:** **R2bm REFUTE** m=−0.0057 z=−1.49 hr−0.74× vs ckp333; R9 gate unlocked.
+**p2177:** R12 Soft/Dead were **after** Removal 20:57Z → patched Soft=**19:57Z** Dead=**20:27Z**; post_train relaunch (train ok).
 R9: `tail -f /root/logs/h99_train.nohup` · post `/root/logs/r9_post_train.nohup`
 R12: `tail -f /root/logs/h137_train.nohup` · post `/root/logs/r12_post_train.nohup`
 R3b: `tail -f /root/logs/r3_train.nohup` · Soft 15:29Z / Dead 15:59Z
@@ -42,7 +42,7 @@ R10: need Hub access to `ammazon/…-sbs-v2` (or public merge parent).
 Queue parents through chal-00521 all screened (no new board parent).
 
 ## Next action
-**R9:** wait train.done → merge → n80 vs ckp333 (hr≥1.5×).
-**R12:** wait train.done → merge → n80 vs ckp333.
-**R3b:** wait train.done → merge → n80.
 **Rent:** snatch via api-POST-rent (**R24** first). Bootstrap auto-arms.
+**R9:** wait train.done → merge → n80 vs ckp333 (hr≥1.5×).
+**R12:** wait train.done → merge → n80 vs ckp333 (Soft 19:57Z).
+**R3b:** wait train.done → merge → n80.

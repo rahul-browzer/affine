@@ -451,3 +451,50 @@ scp: Connection closed
 [host-hist] 2026-08-12T02:21:51Z iter=132 still pending=['chal-00504', 'chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
 [host-hist] 2026-08-12T02:23:30Z PUSHED chal00504 hr=None repo=nerojimmy/Affine-5fqbxvz29b-ckp55
 [host-hist] 2026-08-12T02:25:00Z iter=144 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:28:01Z iter=156 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:31:01Z iter=168 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:34:02Z iter=180 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:37:02Z iter=192 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:40:03Z iter=204 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:43:04Z iter=216 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:46:04Z iter=228 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:49:05Z iter=240 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:52:05Z iter=252 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:55:06Z iter=264 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520']
+[host-hist] 2026-08-12T02:55:34Z init skip chal-00467: already on pod
+[host-hist] 2026-08-12T02:55:37Z init skip chal-00468: already on pod
+[host-hist] 2026-08-12T02:55:39Z init skip chal-00469: already on pod
+[host-hist] 2026-08-12T02:55:41Z init skip chal-00470: already on pod
+[host-hist] 2026-08-12T02:55:43Z init skip chal-00471: already on pod
+[host-hist] 2026-08-12T02:55:45Z init skip chal-00480: already on pod
+[host-hist] 2026-08-12T02:55:48Z init skip chal-00481: already on pod
+[host-hist] 2026-08-12T02:55:50Z init skip chal-00485: already on pod
+[host-hist] 2026-08-12T02:55:52Z init skip chal-00486: already on pod
+[host-hist] 2026-08-12T02:55:55Z init skip chal-00489: already on pod
+[host-hist] 2026-08-12T02:55:57Z init skip chal-00490: already on pod
+[host-hist] 2026-08-12T02:56:00Z init skip chal-00491: already on pod
+[host-hist] 2026-08-12T02:56:02Z init skip chal-00492: already on pod
+[host-hist] 2026-08-12T02:56:04Z init skip chal-00493: already on pod
+[host-hist] 2026-08-12T02:56:06Z init skip chal-00494: already on pod
+[host-hist] 2026-08-12T02:56:09Z init skip chal-00495: already on pod
+[host-hist] 2026-08-12T02:56:12Z init skip chal-00497: already on pod
+[host-hist] 2026-08-12T02:56:14Z init skip chal-00498: already on pod
+[host-hist] 2026-08-12T02:56:16Z init skip chal-00499: already on pod
+[host-hist] 2026-08-12T02:56:18Z init skip chal-00501: already on pod
+[host-hist] 2026-08-12T02:56:20Z init skip chal-00502: already on pod
+[host-hist] 2026-08-12T02:56:22Z init skip chal-00504: already on pod
+[host-hist] 2026-08-12T02:56:39Z start pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T02:59:24Z iter=12 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:02:25Z iter=24 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:05:25Z iter=36 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:08:26Z iter=48 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:11:26Z iter=60 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:14:27Z iter=72 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:17:28Z iter=84 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:20:28Z iter=96 still pending=['chal-00508', 'chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:23:06Z PUSHED chal00508 hr=-0.06604771628821023 repo=Shatoria/Affine-5ghntktyzq-hope12
+[host-hist] 2026-08-12T03:23:36Z iter=108 still pending=['chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:26:37Z iter=120 still pending=['chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:29:38Z iter=132 still pending=['chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:32:38Z iter=144 still pending=['chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']
+[host-hist] 2026-08-12T03:35:39Z iter=156 still pending=['chal-00511', 'chal-00514', 'chal-00516', 'chal-00517', 'chal-00520', 'chal-00521']

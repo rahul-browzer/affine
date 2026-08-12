@@ -44,8 +44,11 @@ cp -a "$ROOT/mining/experiments/r12-bon-reason/plan.md" "$STAGE/r12-bon-reason/"
 cp -a "$ROOT/mining/experiments/r12-bon-reason/start_r12.sh" "$STAGE/$EXP/start_h137.sh"
 cp -a "$ROOT/mining/experiments/r12-bon-reason/bootstrap_r12.sh" "$STAGE/$EXP/bootstrap_h137.sh"
 
-SOFT=$(date -u -d '+23 hours' +%Y-%m-%dT%H:%M:%SZ)
-DEAD=$(date -u -d '+23 hours 30 minutes' +%Y-%m-%dT%H:%M:%SZ)
+# Soft/Dead must be BEFORE pod Removal (LESSONS TTL−1h / TTL−30m).
+# Never use wall-clock +23h — that can land after teardown (p2177 R12).
+REMOVE_AT=${REMOVE_AT:-2026-08-12T20:57:47Z}
+SOFT=$(date -u -d "$REMOVE_AT - 1 hour" +%Y-%m-%dT%H:%M:%SZ)
+DEAD=$(date -u -d "$REMOVE_AT - 30 minutes" +%Y-%m-%dT%H:%M:%SZ)
 SOFT="$SOFT" DEAD="$DEAD" STAGE_POST="$STAGE/$EXP/post_train_pipeline.sh" python3 - <<'PY'
 from pathlib import Path
 import os, re

@@ -1,0 +1,17 @@
+{
+  "pass": 2177,
+  "utc": "2026-08-12T03:37:51Z",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "remove_at": "2026-08-12T20:57:47Z",
+  "soft_before": "2026-08-13T02:31:08Z",
+  "dead_before": "2026-08-13T03:01:08Z",
+  "soft_after": "2026-08-12T19:57:47Z",
+  "dead_after": "2026-08-12T20:27:47Z",
+  "king_repo": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "train_pid_alive": 103232,
+  "post_train_pid_new": 104365,
+  "train_step_at_patch": 10,
+  "note": "warm_arm used +23h Soft past Removal; patched mine.env+script; relaunched post_train only"
+}

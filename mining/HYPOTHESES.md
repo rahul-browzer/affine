@@ -29,7 +29,7 @@
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train~288/354; R2bm cleared → post waits train.done →merge→n80 |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **blocked** · sbs-v2 gated 403 (p2162); fleet/`mine-r10-*` until Hub access |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **REFUTED** · n80 m=**−0.0055** z=−0.82 hr−0.41× vs ckp333 (p2175) |
-| 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open — live** · train ~step5/150 on `mine-r4-fullft-1` (p2175/76) |
+| 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open — live** · train~step10/150; Soft/Dead TTL-fixed p2177 |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open** · `mine-r13-odpo-1` · p2086 armed |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open** · `mine-r14-kevin-rl-1` · p2087 armed |
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open** · `mine-r15-pandora-rl-1` · p2088 armed |
