@@ -67,7 +67,8 @@ QUEUE = [
     # ("mine-r19-talent-grpo-1", "R19", "TalentPigs-init Reason-GRPO (≠ R3/R5b; sbs gated)"),
     # p2249: R22 warm-armed on mine-crown-1 after R33 REFUTE — do not re-rent.
     # ("mine-r22-golden-grpo-1", "R22", "golden-crown-init Reason-GRPO (≠ R3/R16/R19–R21)"),
-    ("mine-r23-diane-grpo-1", "R23", "diane613-init Reason-GRPO (≠ R3/R16/R19–R22)"),
+    # p2252: R23 warm-armed on mine-r3-grpo-1 after R25 REFUTE — do not re-rent.
+    # ("mine-r23-diane-grpo-1", "R23", "diane613-init Reason-GRPO (≠ R3/R16/R19–R22)"),
     ("mine-r27-bigg-1", "R27", "Tok GRPO group_size=16 (≠ R3 G=4 / R3b G=8+alt-lr)"),
     ("mine-r28-hilr-1", "R28", "Tok GRPO lr=2e-5 (≠ R3 5e-6; isolates LR vs R3b)"),
     ("mine-r29-hirank-1", "R29", "Tok GRPO lora_r=64 (≠ R3 r=16; isolates rank vs R3b)"),

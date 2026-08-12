@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
-# Host → mine-r23-diane-grpo-1: R3 stack + R23 Diane-GRPO overlays, bootstrap.
-# Axis R23: diane613-init Reason-GRPO (≠ R3 Tok, ≠ R16/R22 golden, ≠ R18–R21).
+# Host → lean warm-arm R23 onto TKC-hot mine-r3-grpo-1 after R25 REFUTE.
+# Keeps teacher:8000 + guass:8001; trains diane613-init Reason-GRPO on GPUs 6–7.
 set -euo pipefail
 
 ROOT=/home/const/subnet120
-POD_NAME=${POD_NAME:-mine-r23-diane-grpo-1}
-DST_HOST=${DST_HOST:?set DST_HOST}
-DST_PORT=${DST_PORT:?set DST_PORT}
+POD_NAME=${POD_NAME:-mine-r3-grpo-1}
+DST_HOST=${DST_HOST:-204.9.206.245}
+DST_PORT=${DST_PORT:-40051}
 KNOWN=${KNOWN:-/tmp/${POD_NAME}.known_hosts}
 SSH=(ssh -i "$HOME/.ssh/id_ed25519" -o UserKnownHostsFile="$KNOWN"
-     -o StrictHostKeyChecking=accept-new -p "$DST_PORT" "root@$DST_HOST")
+     -o StrictHostKeyChecking=accept-new -o ConnectTimeout=20 -o BatchMode=yes
+     -p "$DST_PORT" "root@$DST_HOST")
 SCP=(scp -i "$HOME/.ssh/id_ed25519" -o UserKnownHostsFile="$KNOWN"
      -o StrictHostKeyChecking=accept-new -P "$DST_PORT")
 
-STAGE=$(mktemp -d /tmp/mine-r23-stack.XXXXXX)
+STAGE=$(mktemp -d /tmp/mine-r23-warm.XXXXXX)
 trap 'rm -rf "$STAGE"' EXIT
 
 EXP=r3-reason-grpo
@@ -32,7 +33,6 @@ cp -a "$ROOT/mining/experiments/s4-h2-merge/run_sim_duel.py" "$STAGE/s4-h2-merge
 cp -a "$ROOT/mining/experiments/s4-h2-merge/write_merge_decision.py" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_form_decision.sh" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_n80_retry.sh" "$STAGE/s4-h2-merge/"
-# p2229: form-dec / post_train Reason crown writer.
 cp -a "$ROOT/mining/experiments/r1-reason-distill/write_reason_decision.py" \
       "$STAGE/r1-reason-distill/"
 cp -a "$ROOT/mining/experiments/r1-reason-distill/graft_visual_weights.py" \
@@ -40,71 +40,62 @@ cp -a "$ROOT/mining/experiments/r1-reason-distill/graft_visual_weights.py" \
 cp -a "$ROOT/mining/experiments/s4-h1-sft/merge_lora.py" "$STAGE/s4-h1-sft/"
 cp -a "$ROOT/mining/experiments/s4-h1-sft/salvage_adapter.py" "$STAGE/s4-h1-sft/"
 cp -a "$ROOT/mining/experiments/s4-h1-sft/push_merged.py" "$STAGE/s4-h1-sft/"
-cp -a "$ROOT/mining/experiments/s4-h1v2-sft/thought_mask.py" "$STAGE/s4-h1v2-sft/" 2>/dev/null || true
 cp -a "$ROOT/mining/experiments/$EXP/"*.sh "$STAGE/$EXP/"
 cp -a "$ROOT/mining/experiments/$EXP/"*.py "$STAGE/$EXP/"
-cp -a "$ROOT/mining/experiments/$EXP/plan.md" "$STAGE/$EXP/"
+cp -a "$ROOT/mining/experiments/$EXP/plan.md" "$STAGE/$EXP/" 2>/dev/null || true
+cp -a "$ROOT/mining/experiments/r23-diane-grpo/"*.sh "$STAGE/r23-diane-grpo/"
 cp -a "$ROOT/mining/experiments/r23-diane-grpo/plan.md" "$STAGE/r23-diane-grpo/"
-cp -a "$ROOT/mining/experiments/r23-diane-grpo/start_r23.sh" "$STAGE/r23-diane-grpo/"
-cp -a "$ROOT/mining/experiments/r23-diane-grpo/bootstrap_r23.sh" "$STAGE/r23-diane-grpo/"
-# Overlay: bootstrap_r3 + start_r3 → R23 diane Reason-GRPO.
+# Overlay start for R23 identity grep.
 cp -a "$ROOT/mining/experiments/r23-diane-grpo/start_r23.sh" "$STAGE/$EXP/start_r3.sh"
 cp -a "$ROOT/mining/experiments/r23-diane-grpo/bootstrap_r23.sh" "$STAGE/$EXP/bootstrap_r3.sh"
 
 # Soft/Dead = Removal−1h / Removal−30m from lium describe (never wall-clock +Nh).
-# p2237: +23h Soft landed AFTER Removal → post_train outlived the box.
 _rem_raw=$(lium describe "$POD_NAME" --json 2>/dev/null \
   | python3 -c 'import sys,json; d=json.load(sys.stdin); print((d.get("billing") or {}).get("removal_scheduled_at") or "")' \
   || true)
 if [[ -z "${_rem_raw}" ]]; then
-  echo "[r23-up] FATAL: no billing.removal_scheduled_at for POD_NAME=$POD_NAME" >&2
+  echo "[r23-warm] FATAL: no billing.removal_scheduled_at for POD_NAME=$POD_NAME" >&2
   exit 1
 fi
+# Normalize to …Z so GNU date accepts relative offsets (bare ISO without Z fails).
 _rem_z=${_rem_raw}
 [[ "${_rem_z}" == *Z ]] || _rem_z="${_rem_z}Z"
 REMOVAL=$(date -u -d "${_rem_z}" +%Y-%m-%dT%H:%M:%SZ)
 SOFT=$(date -u -d "${_rem_z} -1 hour" +%Y-%m-%dT%H:%M:%SZ)
 DEAD=$(date -u -d "${_rem_z} -30 minutes" +%Y-%m-%dT%H:%M:%SZ)
-echo "[r23-up] Removal=$REMOVAL Soft=$SOFT Dead=$DEAD (from lium describe $POD_NAME)"
-export STAGE_EXP_POST="$STAGE/$EXP/post_train_pipeline.sh"
-export SOFT
-export DEAD
-python3 - <<'PY'
+echo "[r23-warm] Removal=$REMOVAL Soft=$SOFT Dead=$DEAD"
+SOFT="$SOFT" DEAD="$DEAD" STAGE_POST="$STAGE/$EXP/post_train_pipeline.sh" python3 - <<'PY'
 from pathlib import Path
-import re, os
+import os, re
 soft, dead = os.environ["SOFT"], os.environ["DEAD"]
-p = Path(os.environ["STAGE_EXP_POST"])
+p = Path(os.environ["STAGE_POST"])
 t = p.read_text()
 t2, n1 = re.subn(
     r"SOFT_DEADLINE_UTC=\$\{SOFT_DEADLINE_UTC:-[^}]+\}",
-    f"SOFT_DEADLINE_UTC=${{SOFT_DEADLINE_UTC:-{soft}}}",
+    "SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-%s}" % soft,
     t,
     count=1,
 )
 t3, n2 = re.subn(
     r"DEADMAN_UTC=\$\{DEADMAN_UTC:-[^}]+\}",
-    f"DEADMAN_UTC=${{DEADMAN_UTC:-{dead}}}",
+    "DEADMAN_UTC=${DEADMAN_UTC:-%s}" % dead,
     t2,
     count=1,
 )
 p.write_text(t3)
-print("SOFT_DEADLINE_SET", soft, "n=", n1, "DEADMAN_SET", dead, "n=", n2)
+print("deadline_patch soft", n1, "dead", n2, soft, dead)
 PY
 
-TAR=/tmp/mine-r23-stack.tar.gz
+TAR=/tmp/mine-r23-warm-stack.tar.gz
 tar -C "$STAGE" -czf "$TAR" .
 ls -lh "$TAR"
-test -n "$(tar -tzf "$TAR" | grep 'r1-reason-distill/write_reason_decision.py' || true)"
 
-ENV_TMP=$(mktemp /tmp/mine-r23.env.XXXXXX)
 # shellcheck disable=SC1091
 set -a
 source "$ROOT/mining/.env"
 set +a
 umask 077
-KING_REPO_DEFAULT=ttttxxxxsada/Affine-5guassq3tu
-KING_REV_DEFAULT=e86758f5080d1e373e5fbbd7b4fbf6af327aeb44
-KING_LOCAL_DEFAULT=/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshots/e86758f5080d1e373e5fbbd7b4fbf6af327aeb44
+ENV_TMP=$(mktemp /tmp/mine-r23.env.XXXXXX)
 {
   echo "export HF_TOKEN=${HF_TOKEN}"
   echo "export HF_HOME=/root/hf"
@@ -121,10 +112,11 @@ KING_LOCAL_DEFAULT=/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshot
   echo "export R23_LORA_ALPHA=32"
   echo "export R23_GROUP_SIZE=4"
   echo "export R23_MAX_STEPS=200"
-  echo "export KING_REPO=${KING_REPO_DEFAULT}"
-  echo "export KING_REV=${KING_REV_DEFAULT}"
-  echo "export KING_LOCAL=${KING_LOCAL_DEFAULT}"
-  echo "export RESTART_KING=1"
+  echo "export KING_REPO=ttttxxxxsada/Affine-5guassq3tu"
+  echo "export KING_REV=e86758f5080d1e373e5fbbd7b4fbf6af327aeb44"
+  echo "export KING_LOCAL=/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshots/e86758f5080d1e373e5fbbd7b4fbf6af327aeb44"
+  echo "export RESTART_KING=0"
+  echo "export BASE=/root/hf/hub/models--diane613--Affine-5CQLBK7Mmw1vsk7eQcBok9Qn44JNU5YVrfNmZpJHPxLV271B/snapshots/ad0f3f116e44dc5154ca3f72b933faaefc4905fa"
 } >"$ENV_TMP"
 chmod 600 "$ENV_TMP"
 
@@ -133,7 +125,7 @@ test -s "$DATA"
 test "$(wc -l <"$DATA")" -ge 300
 
 "${SSH[@]}" 'mkdir -p /root/mining_src /root/affine_data /root/logs /root/r3 /root/r23 /root/hf'
-"${SCP[@]}" "$TAR" "root@${DST_HOST}:/tmp/mine-r23-stack.tar.gz"
+"${SCP[@]}" "$TAR" "root@${DST_HOST}:/tmp/mine-r23-warm-stack.tar.gz"
 "${SCP[@]}" "$ENV_TMP" "root@${DST_HOST}:/root/mine.env"
 "${SCP[@]}" "$DATA" "root@${DST_HOST}:/root/r3/winner_za_high_l1.jsonl"
 "${SCP[@]}" "$DATA" "root@${DST_HOST}:/root/r23/winner_za_high_l1.jsonl"
@@ -154,41 +146,44 @@ for repo in (
         print("HF_ERR", repo, type(e).__name__, e)
 PY
 
-"${SSH[@]}" 'set -e
-  tar -C /root/mining_src -xzf /tmp/mine-r23-stack.tar.gz
+"${SSH[@]}" 'set -euo pipefail
+  tar -C /root/mining_src -xzf /tmp/mine-r23-warm-stack.tar.gz
   chmod 600 /root/mine.env
-  chmod +x /root/mining_src/s3-duel-sim/*.sh \
-           /root/mining_src/s4-h2-merge/*.sh \
-           /root/mining_src/r3-reason-grpo/*.sh \
-           /root/mining_src/r23-diane-grpo/*.sh
-  test -f /root/mining_src/affine_pkg/affine/score.py
-  test -s /root/r3/winner_za_high_l1.jsonl
-  test -x /root/mining_src/r3-reason-grpo/bootstrap_r3.sh
-  test -x /root/mining_src/r3-reason-grpo/start_r3.sh
-  # Prove overlay is R23, not stock R3 / R16 / R21; sim king = guass; Reason writer present.
+  chmod +x /root/mining_src/r3-reason-grpo/*.sh \
+           /root/mining_src/r23-diane-grpo/*.sh \
+           /root/mining_src/s3-duel-sim/*.sh \
+           /root/mining_src/s4-h2-merge/*.sh
+  test -f /root/mining_src/r3-reason-grpo/train_reason_grpo.py
   grep -q "R23: Diane-GRPO" /root/mining_src/r3-reason-grpo/start_r3.sh
-  grep -q "DOWNLOAD diane-init" /root/mining_src/r3-reason-grpo/bootstrap_r3.sh
-  grep -q "DOWNLOAD guass-king" /root/mining_src/r3-reason-grpo/bootstrap_r3.sh
   test -f /root/mining_src/r1-reason-distill/write_reason_decision.py
-  set -a; source /root/mine.env; set +a
-  test "$KING_REPO" = "ttttxxxxsada/Affine-5guassq3tu"
-  echo "R23_DEADLINES soft=$SOFT_DEADLINE_UTC dead=$DEADMAN_UTC axis=$R23_AXIS king=$KING_REPO@$KING_REV"
-  echo "R23_KNOBS lr=${R23_LR} r=${R23_LORA_R} G=${R23_GROUP_SIZE}"
-  echo STACK_UPLOAD_OK
-  nohup bash /root/mining_src/r3-reason-grpo/bootstrap_r3.sh \
-    >/root/logs/r23_pipeline.nohup 2>&1 &
-  echo $! > /root/logs/r23_pipeline.pid
-  cp -f /root/logs/r23_pipeline.pid /root/logs/r3_pipeline.pid
-  nohup bash /root/mining_src/s4-h2-merge/watch_form_decision.sh r3 \
-    /root/affine_data/r3_sim_result.json /root/affine_data/r3_decision.json \
-    /root/logs/r23_form_decision.nohup \
-    >/root/logs/r23_form_decision.launch.out 2>&1 &
-  echo $! > /root/logs/r23_form_decision.pid
-  echo PIPELINE_PID=$(cat /root/logs/r23_pipeline.pid)
-  sleep 5
-  head -n 40 /root/logs/bootstrap_r3.log 2>/dev/null || head -n 40 /root/logs/r23_pipeline.nohup || true
-  ps -p "$(cat /root/logs/r23_pipeline.pid)" -o pid,etime,cmd || true
-  nvidia-smi -L | wc -l
+  curl -sf --max-time 5 http://127.0.0.1:8000/v1/models >/dev/null
+  curl -sf --max-time 5 http://127.0.0.1:8001/v1/models >/dev/null
+  # Stop leftover R25 post/form/sim by pidfile only (never pkill -f).
+  for f in /root/logs/r25_lean_warm.pid /root/logs/r25_post_train.pid \
+           /root/logs/r25_form_decision.pid /root/logs/r25_train.pid \
+           /root/logs/r3_train.pid /root/logs/r3_post_train.pid \
+           /root/logs/r3_pipeline.pid /root/logs/watch_n80_retry.pid \
+           /root/logs/r25_n80.pid /root/logs/r3_sim.pid; do
+    if [[ -f "$f" ]]; then
+      pid=$(cat "$f" 2>/dev/null || true)
+      if [[ -n "${pid:-}" ]] && [[ "$pid" =~ ^[0-9]+$ ]] && kill -0 "$pid" 2>/dev/null; then
+        kill "$pid" || true
+        echo "killed_pidfile $f $pid"
+      fi
+    fi
+  done
+  nohup bash /root/mining_src/r23-diane-grpo/lean_warm_boot.sh \
+    >/root/logs/r23_lean_warm.nohup 2>&1 &
+  echo $! >/root/logs/r23_lean_warm.pid
+  sleep 45
+  echo LEAN_PID=$(cat /root/logs/r23_lean_warm.pid)
+  head -n 100 /root/logs/r23_lean_warm.log 2>/dev/null \
+    || head -n 100 /root/logs/r23_lean_warm.nohup || true
+  ps -p "$(cat /root/logs/r23_lean_warm.pid)" -o pid,etime,cmd || true
+  test -f /root/logs/r3_train.pid && echo TRAIN_PID=$(cat /root/logs/r3_train.pid)
+  test -f /root/logs/r23_post_train.pid && echo POST_PID=$(cat /root/logs/r23_post_train.pid)
+  curl -s -o /dev/null -w "t=%{http_code} " --max-time 3 http://127.0.0.1:8000/health || true
+  curl -s -o /dev/null -w "k=%{http_code}\n" --max-time 3 http://127.0.0.1:8001/health || true
 '
 
-echo "UPLOAD_AND_LAUNCH_OK pod=$POD_NAME $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+echo "R23_WARM_ARM_OK pod=$POD_NAME soft=$SOFT dead=$DEAD $(date -u +%Y-%m-%dT%H:%M:%SZ)"

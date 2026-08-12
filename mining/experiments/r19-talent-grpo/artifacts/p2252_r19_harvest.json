@@ -1,0 +1,17 @@
+{
+  "pass": 2252,
+  "utc": "2026-08-12T13:12:26Z",
+  "axis": "R19",
+  "pod": "mine-r4-fullft-1",
+  "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5",
+  "chal": "chal-00533",
+  "verdict": "SIGNAL_POS_BELOW",
+  "margin": 0.006728869209315083,
+  "se": 0.008930002106404383,
+  "z": 0.7535126116587699,
+  "k_sigma": 2.0,
+  "threshold_live_2se": 0.017860004212808766,
+  "headroom_vs_live_2se": 0.37675630582938496,
+  "n_paired": 79,
+  "note": "Talent-GRPO vs guass; form hyp stamp r3\u2192label R19; Stage-5 SKIP (margin < 2\u00b7SE)"
+}

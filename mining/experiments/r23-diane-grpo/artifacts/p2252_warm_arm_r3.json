@@ -1,0 +1,15 @@
+{
+  "pass": 2252,
+  "utc": "2026-08-12T13:12:26Z",
+  "axis": "R23",
+  "pod": "mine-r3-grpo-1",
+  "huid": "golden-hawk-ff",
+  "ssh": "root@204.9.206.245 -p 40051",
+  "method": "lean_warm_boot diane613-init Reason-GRPO on GPUs 6-7",
+  "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "soft": "2026-08-13T03:29:36Z",
+  "dead": "2026-08-13T03:59:36Z",
+  "removal": "2026-08-13T04:29:36Z",
+  "status": "diane HF download in progress; train after DL; T/K kept",
+  "why": "Reuse idle R3 TKC after R25 REFUTE; 0 free 8xB300; drop R23 from fleet QUEUE"
+}

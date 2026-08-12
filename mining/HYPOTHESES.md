@@ -37,11 +37,11 @@
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.00935** z=−1.30 hr=−0.65× vs ckp333 (p2196) |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **REFUTED** · n80 vs guass m=**−0.0140** z=−0.71 hr**−0.36×** (p2210; n_paired=27) |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **BLOCKED** · same sbs-v2 **403** p2224 · demoted from fleet QUEUE |
-| 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open — PRIORITY** · n80 LIVE on `mine-r4-fullft-1` after Triton reseed (p2251) |
+| 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **SIGNAL_POS_BELOW** · vs guass n80 m=**+0.00673** z=**0.75** hr**0.38×** (p2252) |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **REFUTED** · vs guass n80 m=**−0.0196** z=−2.13 hr=−1.07× (p2211) |
 | 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **REFUTED** · vs guass n80 m=**−0.00568** z=−0.55 hr−0.28× (p2235) |
 | 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open — PRIORITY** · warm on `mine-crown-1` train pid**371573** (p2249 after R33) |
-| 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open** · `mine-r23-diane-grpo-1` · **p2229** guass+writer |
+| 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open — PRIORITY** · warm on `mine-r3-grpo-1` diane DL→train (p2252) |
 
 ## Open (detail)
 
@@ -104,7 +104,7 @@
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300
-- Live: **R22** crown train; **R19** R4 post; **R25** n80 on R3; R33 REFUTE; R25 box reboot-failed. Burst next: R23 → R27–R32. Submit iff margin > live **k_sigma·SE**.
+- Live: **R22** crown train; **R23** R3 diane warm; **R19** SIGNAL_POS_BELOW on R4 (idle TKC). Burst next: R27–R32. Submit iff margin > live **k_sigma·SE**.
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
