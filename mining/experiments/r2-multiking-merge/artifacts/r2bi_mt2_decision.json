@@ -1,0 +1,7 @@
+{
+  "utc": "2026-08-12T00:54:59Z",
+  "hyp": "R2bi",
+  "decision": "UNSERVABLE_WEIGHT_INIT",
+  "serve_mode": "hf_repo_rev",
+  "note": "thrivepath mt2 (Glm4Moe) HF-id serve failed; next crown parent"
+}

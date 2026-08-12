@@ -142,10 +142,9 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Visual graft `save_file` of safetensors mmap tensors → `Bad address` on overlay — `tensor.clone().contiguous()` then write via `/root` cipher FS and copy into `/tmp` merge (p2123: 333 keys / 893MB OK).
 - R5 FALSE_PROBE=404 when serve id=`/root/h122/merged` (symlink) but sim uses `readlink -f`→`/tmp/…`; serve resolved path + `max_model_len=65536` (p2124).
 - R3 resume must `export PYTHONPATH=/root/mining_src/affine_pkg` and use schema-v2 `run_sim_duel.py` (passes `corpus=` / `turns_path=None`) — stale copy opens `turns.jsonl` and aborts despite parquet ready (p2125).
-- R5 Genesis full-FT vs Tok: m=**−0.039** z=−3.24 — non-king Genesis FT closed for this reign; retarget pod to a different axis (p2125).
-- R6 short≤180 Tok LoRA: n80 m=**−0.0006** z=−0.07 — REFUTE; reuse warm TKC for R6b long-z (p2143). (fit-filter: 8192→33/202, 16384→121/202).
 - `start_r3b.sh` peft/torch import probe can hang WCHAN=`request_wait_answer` on gocryptfs — skip probe; launch `train_reason_grpo.py` directly (p2127).
 - After R3 REFUTE, retarget same warm TKC pod to **R3b** (GPUs6–7) rather than idle-wait for a new B300 rent (p2127). Kill orphan R3b trainers not in `train.pid` (p2128).
 - Crown free GPUs6–7 can host a LoRA axis (**R9** teacher-z_C) while n80 holds TKC on 0–5 — train-only; gate chall reload on R2bh decision (p2144). Never `pkill -f` patterns that match the launcher argv (self-kill).
 - Fleet-bootstrap keep **MAX_ITERS=86400** (1800 dies mid-drought, p2135). Fleet API: one unfiltered `GET /executors?gpu_count=8` + client B300/B200 filter; `/pods` 429→[] must **not** look like mine=0 (CAP overshoot) — refuse rent + `lium ps` fallback (p2137). On stock: **POST `/executors/{id}/rent`** + `schedule-removal` TTL beats CLI `lium up` latency; CLI fallback kept (p2139).
 - Chall-swap scripts must wait the **prior** axis PIDF (e.g. `r2bh_*_reload.pid`), never own `*_reload.pid` — R2bi waited on self and hung forever (p2146); skip wait if prior `.done` exists / PID==$$.
+- Board parents with arch=`Glm4MoeForCausalLM` (thrivepath mt2) die at vLLM weight-init on crown — stamp UNSERVABLE; skip without n80 (p2147).

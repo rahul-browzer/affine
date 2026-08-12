@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $119,756.763 | 2026-08-12T00:54Z |
-| cumulative mining spend | ~$77,836 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T00:54Z |
-| **available for mining** | **~$109,757** (balance − $10,000 floor) | 2026-08-12T00:54Z |
+| Lium balance | $119,736.005 | 2026-08-12T00:55Z |
+| cumulative mining spend | ~$77,857 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T00:55Z |
+| **available for mining** | **~$109,736** (balance − $10,000 floor) | 2026-08-12T00:55Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T00:54Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T00:58Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T00:58Z | 119736.005 | p2147 no rent (API B300/B200×8=0); R2bi UNSERVABLE→R2bj saysth armed; burn **$180.25/h**; Δ−$21 vs p2146 |
 | 2026-08-12T00:54Z | 119756.763 | p2146 no rent (API B300/B200×8=0); R2bi self-PID fix→mt2 chall load; burn **$180.25/h**; Δ$0 vs p2145 |
 | 2026-08-12T00:51Z | 119756.763 | p2145 no rent (API B300/B200×8=0); R2bh REFUTE→R2bi armed; burn **$180.25/h**; Δ−$63 vs p2144 |
 | 2026-08-12T00:36Z | 119819.501 | p2144 no rent (API B300/B200×8=0); R9 warm-arm crown 6–7; burn **$180.25/h**; Δ−$42 vs p2143 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T00:09Z | 119944.703 | p2140 no rent (B300/B200×8=0); R2bg REFUTE; R2bh reload; burn **$180.25/h**; Δ−$42 vs p2139 |
 | 2026-08-11T23:58Z | 119986.353 | p2139 no rent (B300/B200×8=0); fleet→API POST-rent; burn **$180.25/h**; Δ$0 vs p2138 |
 | 2026-08-11T23:55Z | 119986.353 | p2138 no rent (B300/B200×8=0); R2bh IntoLayer armed; burn **$180.25/h**; Δ−$42 vs p2137 |
-| 2026-08-11T23:49Z | 120028.046 | p2137 no rent (B300/B200×8=0); fleet→unfiltered-8x+CAP-protect; burn **$180.25/h**; Δ$0 vs p2136 |

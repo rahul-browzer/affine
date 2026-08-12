@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-12T00:57:53Z",
+  "pass": 2147,
+  "hyp": "R2bj",
+  "parent": "saysth/Affine-5dtnxamt4t-v9a",
+  "revision": "6e13f365b36000cf631aad2fa9fb05fdabae0044",
+  "arch": "Qwen3_5MoeForConditionalGeneration",
+  "board": "history chal-00440 live z≈+2.18 m≈+0.00916",
+  "prior": "R2bi thrivepath mt2 UNSERVABLE_WEIGHT_INIT (Glm4Moe)",
+  "note": "R2q CLOSED_PRE_POD_RESET never finished n80 on this crown; re-arm pure saysth",
+  "prefetch_pid": 268054,
+  "reload_pid": 268055,
+  "stage5_pid": 268056,
+  "check": "tail -f /root/logs/r2bj_saysth_reload.log; dec /root/affine_data/r2bj_saysth_decision.json"
+}

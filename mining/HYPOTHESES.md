@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bh REFUTE** p2145 m=+0.00378 z=1.16 (<2σ); **R2bi** thrivepath mt2 armed |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bi UNSERVABLE** Glm4Moe p2147; **R2bj** pure saysth@6e13f365 armed |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open — PRIORITY** · live on `mine-r3-grpo-1` (p2127) |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
@@ -51,7 +51,9 @@
 - **R2ba–be** WEAK/UNSERVABLE. **R2bf REFUTE** p2133: n80 m=**−0.00206** z=−0.57 SE=0.00363 hr=−0.19× (dpo2@90ea78ff; chal-00511) → Stage-5 SKIP.
 - **R2bg REFUTE** p2140: n80 m=**−0.00191** z=−0.38 SE=0.00507 hr=−0.19× vs live 2·SE (cp1266@68d1daa2; chal-00514) → Stage-5 SKIP.
 - **R2bh** live: pure `IntoLayer/Affine-5g94ihdxwu-v1@9b6bc52c…` (chal-00516) chall reload after R2bg; n80 pending. Dir: `experiments/r2-multiking-merge/`.
-- **R2bh** IntoLayer n80: m=+0.00378 SE=0.00326 z=1.16; live 2σ thr=0.00651 hr=0.58× → REFUTE p2145. **R2bi** thrivepath mt2@22a5d514 (Glm4Moe) armed.
+- **R2bh** IntoLayer n80: m=+0.00378 SE=0.00326 z=1.16; live 2σ thr=0.00651 hr=0.58× → REFUTE p2145.
+- **R2bi UNSERVABLE** p2147: thrivepath mt2@22a5d514 arch=`Glm4MoeForCausalLM` — vLLM weight-init fail; skip Glm4Moe board parents.
+- **R2bj** live: pure `saysth/Affine-5dtnxamt4t-v9a@6e13f365` (chal-00440 live z≈+2.18; R2q never finished on this crown).
 
 ### R3 — RL on Reason
 - **REFUTED** p2127: n80 m=+0.0094 SE=0.00706 z=1.33 < k=2 (hr0.66×); Stage-5 SKIP. Adapter `/root/r3/train_r3_final`. Dir: `experiments/r3-reason-grpo/`.
