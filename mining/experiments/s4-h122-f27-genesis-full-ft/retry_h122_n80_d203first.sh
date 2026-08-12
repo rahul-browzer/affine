@@ -23,10 +23,18 @@ export HF_HOME=${HF_HOME:-/root/hf}
 
 KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
 KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
-MERGED=${MERGED:-/root/h122/merged}
-# p476: vLLM model id == path passed to `vllm serve`. post_train serves
-# /tmp/h122_merged; /root/h122/merged is a symlink → probe/completions 404.
-if [[ -e "$MERGED" ]]; then MERGED=$(readlink -f "$MERGED"); fi
+# p2240: NEVER readlink -f for CHALL_REPO. vLLM model id is the exact path
+# passed to `vllm serve` (often /root/h122/merged symlink). Sim must use that
+# string or completions 404 → FALSE_PROBE (p2124/p2240). Prefer live /v1/models.
+MERGED=${MERGED:-}
+if [[ -z "$MERGED" ]]; then
+  MERGED=$(curl -s --max-time 5 http://127.0.0.1:8002/v1/models \
+    | python3 -c 'import sys,json; d=json.load(sys.stdin); print(d["data"][0]["id"] if d.get("data") else "")' 2>/dev/null || true)
+fi
+if [[ -z "$MERGED" ]]; then
+  MERGED=/root/h122/merged
+fi
+# Do not canonicalize — keep served id even if it is a symlink path.
 SIM=/root/affine_data/h122_sim_result.json
 PROG=/root/affine_data/h122_sim_progress.json
 DEC=/root/affine_data/h122_decision.json

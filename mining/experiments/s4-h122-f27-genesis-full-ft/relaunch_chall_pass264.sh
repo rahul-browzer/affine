@@ -42,7 +42,7 @@ fi
 LOG=/root/logs/h122_chall_recover_pass264.log
 CHALL_LOG=/root/logs/vllm_chall.log
 PIDF=/root/logs/vllm_chall.pid
-MERGE=/root/h122/merged
+MERGE=/tmp/h122_merged
 export HYP=h122
 export GPUS=4,5
 UTIL=0.72
