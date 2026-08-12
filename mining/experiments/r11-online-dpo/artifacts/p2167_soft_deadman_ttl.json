@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-12T02:51:59Z",
+  "pass": 2167,
+  "hypo": "R11",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "remove_at": "2026-08-12T20:57:47Z",
+  "soft_before": "2026-08-13T01:23:56Z",
+  "deadman_before": "2026-08-13T01:53:56Z",
+  "soft_after": "2026-08-12T19:57:00Z",
+  "deadman_after": "2026-08-12T20:27:00Z",
+  "train_pid": 90891,
+  "old_post_pid": 90897,
+  "new_post_pid": 92667,
+  "note": "Soft/Deadman were past pod Removal; patched on-disk + relaunched post waiter only (train untouched)"
+}

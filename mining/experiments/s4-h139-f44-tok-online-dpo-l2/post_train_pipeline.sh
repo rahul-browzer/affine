@@ -32,8 +32,9 @@ LOG=/root/logs/h139_pipeline.nohup
 # Pass312 rent ~13:19Z ttl12h → remove≈01:19Z+1d; soft=TTL−1h, deadman=TTL−30m
 # Pass354 rent ~19:06Z ttl12h → remove≈07:06Z+1d; soft=TTL−1h, deadman=TTL−30m
 # Pass517 rent remove≈21:28Z → soft=TTL−1h, deadman=TTL−30m (was stale 06:36Z)
-SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-09T20:28:00Z}
-DEADMAN_UTC=${DEADMAN_UTC:-2026-08-09T20:58:00Z}
+# p2167: mine-r4-fullft-1 remove_at=2026-08-12T20:57Z → soft=TTL−1h, deadman=TTL−30m
+SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-12T19:57:00Z}
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-12T20:27:00Z}
 
 log() { echo "[h139-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"; }
 

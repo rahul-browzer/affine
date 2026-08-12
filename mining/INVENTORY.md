@@ -8,7 +8,7 @@
 |---|---|---|---|---|---|
 | mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-12T14:36Z** | R9 train→merge→n80 |
 | mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | **R3b** train; king ckp333 READY |
-| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove 2026-08-12T20:57Z | **R11** online-DPO LIVE |
+| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove **2026-08-12T20:57Z** | **R11** Soft 19:57/Dead 20:27 |
 | *(pending fleet)* | mine-r24…r32 | 8×B300 | ~$64 | rent POST + boot **2756348** | R24 first |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -22,6 +22,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T02:52Z | p2167: R11 Soft/Dead→19:57/20:27; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T02:48Z | p2166: R2bl REFUTE; B300×8=0; burn **$180.25/h**; R9 unblocked |
 | 2026-08-12T02:42Z | p2165: kσ=2 decision writer on crown/R3/R11; B300×8=0; burn **$180.25/h** |
-| 2026-08-12T02:36Z | p2164: crown TTL→14:36Z + R9 Soft/Dead; R3b king READY; B300×8=0; burn **$180.25/h** |
