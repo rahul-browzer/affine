@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bn** chal-00525 alloy prefetch+hist (p2179); R2bm REFUTE; R9 owns crown next |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bn** alloy chall+n80 armed p2180; R2bm REFUTE; R9 owns crown next |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open — PRIORITY** · train~136/200; dec-watch armed (p2171) |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
@@ -57,7 +57,7 @@
 - **R2bk REFUTE** p2160: saysth@6e13f365 vs ckp333 m=**+0.00041** SE=0.00324 z=0.13 hr0.06×(live 2σ) → Stage-5 SKIP. Artifacts `r2bk_saysth_ckp333_*.json`.
 - **R2bl REFUTE** p2166: Bittoby1040/…-v3@6901350c vs ckp333 n80 m=**−0.00204** SE=0.00425 z=−0.48 hr=−0.24×(live 2σ) → Stage-5 SKIP. Artifacts `r2bl_bittoby_v3_decision.json` / `r2bl_bittoby_v3_result.md`.
 - **R2bm REFUTE** p2176: `ttttxxxxsada/…-guass@e86758f5` vs ckp333 n80 m=**−0.00568** SE=0.00381 z=−1.49 hr=−0.74×(live 2σ) → Stage-5 SKIP. Artifacts `r2bm_tttt_guass_decision.json` / `r2bm_tttt_guass_p2176_harvest.json`.
-- **R2bn** p2179: queue `chal-00525` `athena2634/…-alloy@74a6ac4d` weights_ok (Qwen3_5Moe CG, 1026 tensors); hist-bridge armed; crown prefetch live; derive `preprocessor_config` from processor; n80 only after Reason+ stamp.
+- **R2bn** p2180: pure `athena2634/…-alloy@74a6ac4d` (9 shards / 1026 tensors) chall :8002→n80 vs ckp333 armed (`launch_r2bn_alloy_reload_sim.sh`); prefetch DONE; board hist still pending (queue lag) — SKIP if stamp hr≤0.
 
 ### R3 — RL on Reason
 - **REFUTED** p2127: n80 m=+0.0094 SE=0.00706 z=1.33 < k=2 (hr0.66×); Stage-5 SKIP. Adapter `/root/r3/train_r3_final`. Dir: `experiments/r3-reason-grpo/`.

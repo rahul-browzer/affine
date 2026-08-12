@@ -11,7 +11,7 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 |---|---|
 | contract | wvk=**3** · `k_sigma=2.0` · reason_only · n_turns=2080 |
 | king | `tolegend/Affine-5fqbxvz29b-ckp333` @ `24c137e8…` **reign 5** |
-| challenge | chal-00511 scoring; queue +…**00525** `athena2634/…-alloy` (new) |
+| challenge | chal-00511 scoring; queue +…**00525** `athena2634/…-alloy` |
 | miner burn | **$180.25/h** · floor $833/h · **gap −$653/h** |
 | B300 stock | **0** free 8×B300/B200 (API confirm) |
 | Lium bal | ~$119,026 · floor $10k OK |
@@ -21,18 +21,18 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | **R9** LoRA ~309/354; post armed; **R2bn** alloy prefetch |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO ~step146/200 |
-| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R12** BoN-CE ~step30/150 |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2bn** alloy→:8002→n80; **R9** LoRA ~312/354 post armed |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO ~step147/200 |
+| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R12** BoN-CE ~step35/150 |
 | host fleet-rent | pid**3164256** | — | api-POST-rent; next=**R24** |
 | host fleet-boot | pid**2756348** | — | POLL=5s |
 | host hist bridge | pid**3174953** | — | +chal-00525 |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099` · R3: `ssh root@204.9.206.245 -p 40051`
 SSH R4/R12: `ssh root@86.38.182.50 -p 40307`
-**p2179:** R2bn chal-00525 alloy weights_ok → hist+prefetch; B300×8 still 0.
+**p2180:** R2bn armed — pure alloy chall serve+n80 vs ckp333 (prefetch 9/9); B300×8=0.
+R2bn: `tail -f /root/logs/r2bn_alloy_reload.log` · sim `/root/logs/r2bn_alloy_reason_sim.log`
 R9: `tail -f /root/logs/h99_train.nohup` · post `/root/logs/r9_post_train.nohup`
-R2bn: `tail -f /root/logs/r2_prefetch_alloy.log`
 R12: `tail -f /root/logs/h137_train.nohup`
 R3b: `tail -f /root/logs/r3_train.nohup` · Soft 15:29Z / Dead 15:59Z
 Fleet: `tail -f experiments/fleet-rent/logs/wait_fleet_b300.log`
@@ -43,6 +43,6 @@ R10: need Hub access to `ammazon/…-sbs-v2` (or public merge parent).
 
 ## Next action
 **Rent:** snatch via api-POST-rent (**R24** first). Bootstrap auto-arms.
-**R2bn:** wait prefetch.done + hist Reason stamp → pure alloy n80 vs ckp333 (hr≥1.5×).
-**R9:** wait train.done → merge → n80 vs ckp333.
+**R2bn:** wait engines→n80 decision (hr≥1.5× live 2σ) vs ckp333.
+**R9:** wait train.done → merge → n80 (after R2bn frees chall or serial).
 **R12 / R3b:** wait train.done → merge → n80.

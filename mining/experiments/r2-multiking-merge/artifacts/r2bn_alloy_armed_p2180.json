@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-12T03:52:02Z",
+  "pass": 2180,
+  "hyp": "R2bn",
+  "repo": "athena2634/Affine-5h3msswruf-alloy",
+  "revision": "74a6ac4d57beda2a9dff604c0d9799959aa676dc",
+  "challenge_id": "chal-00525",
+  "action": "armed launch_r2bn_alloy_reload_sim.sh on mine-crown-1",
+  "gates": [
+    "R2bm terminal (REFUTE)",
+    "prefetch 9/9 shards + preprocessor",
+    "SKIP if board Reason hr<=0",
+    "R9 pre-merge OK to take chall :8002",
+    "n80 vs ckp333; ADVANCE iff hr>=1.5x live 2se"
+  ],
+  "note": "B300x8 stock still 0; burn $180.25/h vs floor $833/h"
+}
