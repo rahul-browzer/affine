@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# R23: diane613-init → Reason-GRPO (Tok kept as n80 king only).
+# R23: diane613-init → Reason-GRPO; n80 king = live guass (p2229).
 # Overlay: upload_and_launch copies this to r3-reason-grpo/bootstrap_r3.sh.
-# Order: pip → DL diane+teacher+Tok → serve teacher → train (6,7) → post_train.
+# Order: pip → DL diane+teacher+guass → serve teacher → train (6,7) → post_train.
 set -euo pipefail
 
 LOG=/root/logs/bootstrap_r3.log
@@ -102,7 +102,7 @@ if p.is_file():
         print("[bootstrap-r23] vllm_client already patched or pattern miss", flush=True)
 PY
 
-# Blocking DL: diane (train init) + Tok (n80 king) + teacher.
+# Blocking DL: diane (train init) + guass (live n80 king) + teacher.
 python - <<'PY'
 import os
 from huggingface_hub import snapshot_download
@@ -112,17 +112,20 @@ diane_rev = "ad0f3f116e44dc5154ca3f72b933faaefc4905fa"
 print("[bootstrap-r23] DOWNLOAD diane-init start", diane_repo, diane_rev, flush=True)
 diane = snapshot_download(diane_repo, revision=diane_rev, token=token)
 print(f"[bootstrap-r23] DOWNLOAD diane-init done -> {diane}", flush=True)
-open("/root/logs/diane.done", "w")  .write(diane + "\n")
-open("/root/r23/r23_base.path", "w")  .write(diane + "\n")
+open("/root/logs/diane.done", "w").write(diane + "\n")
+open("/root/r23/r23_base.path", "w").write(diane + "\n")
 assert diane_rev in diane, diane
 
-tok_repo = "Tok331102/affine-5EqYW8McUc-af10"
-tok_rev = "eb8bf9a356a254f71faaa439e8abc3cfba572c53"
-print("[bootstrap-r23] DOWNLOAD tok331102 king start", tok_repo, tok_rev, flush=True)
-tok = snapshot_download(tok_repo, revision=tok_rev, token=token)
-print(f"[bootstrap-r23] DOWNLOAD tok331102 done -> {tok}", flush=True)
-open("/root/logs/tok_init.done", "w").write(tok + "\n")
-open("/root/logs/tok331102.done", "w").write(tok + "\n")
+# Live reign-6 king (p2229): n80 must be vs guass, not retired Tok.
+king_repo = "ttttxxxxsada/Affine-5guassq3tu"
+king_rev = "e86758f5080d1e373e5fbbd7b4fbf6af327aeb44"
+print("[bootstrap-r23] DOWNLOAD guass-king start", king_repo, king_rev, flush=True)
+kpath = snapshot_download(king_repo, revision=king_rev, token=token)
+print(f"[bootstrap-r23] DOWNLOAD guass-king done -> {kpath}", flush=True)
+open("/root/logs/guass.done", "w").write(kpath + "\n")
+# Compat stamps for older post_train gates that still look for tok*.done.
+open("/root/logs/tok_init.done", "w").write(kpath + "\n")
+open("/root/logs/tok331102.done", "w").write(kpath + "\n")
 
 print("[bootstrap-r23] DOWNLOAD teacher start", flush=True)
 tpath = snapshot_download("zai-org/GLM-4.5-Air-FP8", token=token)

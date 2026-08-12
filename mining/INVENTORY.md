@@ -26,6 +26,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T10:27Z | p2229: R22+R23→guass+writer; 8×=0; burst**3745530**; burn **$220.25/h** |
 | 2026-08-12T10:24Z | p2228: R5b prestage+writer; R19→guass; 8×=0; burst**3745530**; burn **$220.25/h** |
 | 2026-08-12T10:19Z | p2227: form-dec→Reason crown on 4 pods; 8×=0; burst**3745530**; burn **$220.25/h** |
-| 2026-08-12T10:09Z | p2226: visual graft `/root` cipher on all 4 pods; freed R24 bak 65G; 8×=0; burst**3745530**; burn **$220.25/h** |

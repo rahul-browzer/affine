@@ -19,7 +19,8 @@ trap 'rm -rf "$STAGE"' EXIT
 EXP=r3-reason-grpo
 mkdir -p "$STAGE/affine_pkg/affine" "$STAGE/affine_pkg/evalsrv" \
          "$STAGE/s3-duel-sim" "$STAGE/s4-h2-merge" "$STAGE/s4-h1-sft" \
-         "$STAGE/s4-h1v2-sft" "$STAGE/$EXP" "$STAGE/r23-diane-grpo"
+         "$STAGE/s4-h1v2-sft" "$STAGE/r1-reason-distill" \
+         "$STAGE/$EXP" "$STAGE/r23-diane-grpo"
 
 cp -a "$ROOT/affine/affine.toml" "$STAGE/affine_pkg/"
 cp -a "$ROOT/affine/affine/." "$STAGE/affine_pkg/affine/"
@@ -31,6 +32,11 @@ cp -a "$ROOT/mining/experiments/s4-h2-merge/run_sim_duel.py" "$STAGE/s4-h2-merge
 cp -a "$ROOT/mining/experiments/s4-h2-merge/write_merge_decision.py" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_form_decision.sh" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_n80_retry.sh" "$STAGE/s4-h2-merge/"
+# p2229: form-dec / post_train Reason crown writer.
+cp -a "$ROOT/mining/experiments/r1-reason-distill/write_reason_decision.py" \
+      "$STAGE/r1-reason-distill/"
+cp -a "$ROOT/mining/experiments/r1-reason-distill/graft_visual_weights.py" \
+      "$STAGE/r1-reason-distill/" 2>/dev/null || true
 cp -a "$ROOT/mining/experiments/s4-h1-sft/merge_lora.py" "$STAGE/s4-h1-sft/"
 cp -a "$ROOT/mining/experiments/s4-h1-sft/salvage_adapter.py" "$STAGE/s4-h1-sft/"
 cp -a "$ROOT/mining/experiments/s4-h1-sft/push_merged.py" "$STAGE/s4-h1-sft/"
@@ -71,6 +77,7 @@ PY
 TAR=/tmp/mine-r23-stack.tar.gz
 tar -C "$STAGE" -czf "$TAR" .
 ls -lh "$TAR"
+test -n "$(tar -tzf "$TAR" | grep 'r1-reason-distill/write_reason_decision.py' || true)"
 
 ENV_TMP=$(mktemp /tmp/mine-r23.env.XXXXXX)
 # shellcheck disable=SC1091
@@ -78,6 +85,9 @@ set -a
 source "$ROOT/mining/.env"
 set +a
 umask 077
+KING_REPO_DEFAULT=ttttxxxxsada/Affine-5guassq3tu
+KING_REV_DEFAULT=e86758f5080d1e373e5fbbd7b4fbf6af327aeb44
+KING_LOCAL_DEFAULT=/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshots/e86758f5080d1e373e5fbbd7b4fbf6af327aeb44
 {
   echo "export HF_TOKEN=${HF_TOKEN}"
   echo "export HF_HOME=/root/hf"
@@ -94,6 +104,10 @@ umask 077
   echo "export R23_LORA_ALPHA=32"
   echo "export R23_GROUP_SIZE=4"
   echo "export R23_MAX_STEPS=200"
+  echo "export KING_REPO=${KING_REPO_DEFAULT}"
+  echo "export KING_REV=${KING_REV_DEFAULT}"
+  echo "export KING_LOCAL=${KING_LOCAL_DEFAULT}"
+  echo "export RESTART_KING=1"
 } >"$ENV_TMP"
 chmod 600 "$ENV_TMP"
 
@@ -134,17 +148,25 @@ PY
   test -s /root/r3/winner_za_high_l1.jsonl
   test -x /root/mining_src/r3-reason-grpo/bootstrap_r3.sh
   test -x /root/mining_src/r3-reason-grpo/start_r3.sh
-  # Prove overlay is R23, not stock R3 / R16 / R21.
+  # Prove overlay is R23, not stock R3 / R16 / R21; sim king = guass; Reason writer present.
   grep -q "R23: Diane-GRPO" /root/mining_src/r3-reason-grpo/start_r3.sh
   grep -q "DOWNLOAD diane-init" /root/mining_src/r3-reason-grpo/bootstrap_r3.sh
+  grep -q "DOWNLOAD guass-king" /root/mining_src/r3-reason-grpo/bootstrap_r3.sh
+  test -f /root/mining_src/r1-reason-distill/write_reason_decision.py
   set -a; source /root/mine.env; set +a
-  echo "R23_DEADLINES soft=$SOFT_DEADLINE_UTC dead=$DEADMAN_UTC axis=$R23_AXIS"
+  test "$KING_REPO" = "ttttxxxxsada/Affine-5guassq3tu"
+  echo "R23_DEADLINES soft=$SOFT_DEADLINE_UTC dead=$DEADMAN_UTC axis=$R23_AXIS king=$KING_REPO@$KING_REV"
   echo "R23_KNOBS lr=${R23_LR} r=${R23_LORA_R} G=${R23_GROUP_SIZE}"
   echo STACK_UPLOAD_OK
   nohup bash /root/mining_src/r3-reason-grpo/bootstrap_r3.sh \
     >/root/logs/r23_pipeline.nohup 2>&1 &
   echo $! > /root/logs/r23_pipeline.pid
   cp -f /root/logs/r23_pipeline.pid /root/logs/r3_pipeline.pid
+  nohup bash /root/mining_src/s4-h2-merge/watch_form_decision.sh r3 \
+    /root/affine_data/r3_sim_result.json /root/affine_data/r3_decision.json \
+    /root/logs/r23_form_decision.nohup \
+    >/root/logs/r23_form_decision.launch.out 2>&1 &
+  echo $! > /root/logs/r23_form_decision.pid
   echo PIPELINE_PID=$(cat /root/logs/r23_pipeline.pid)
   sleep 5
   head -n 40 /root/logs/bootstrap_r3.log 2>/dev/null || head -n 40 /root/logs/r23_pipeline.nohup || true
