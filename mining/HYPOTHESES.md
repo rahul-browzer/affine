@@ -22,8 +22,8 @@
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **REFUTED** · n80 m=**−0.0037** z=−0.58 (p2120) |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **REFUTED** · n80 m=**−0.0390** z=−3.24 (p2125) |
 | 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · `mine-r5-nonking-2` · p2081 armed |
-| 6 | R6 | Thought-format shaping raises teacher Reason | **open** · n80 live ~40/80 p2142 (epoch8; post_train; continue exited) |
-| 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **open** · `mine-r6-fmt-2` · p2083 armed |
+| 6 | R6 | Thought-format shaping raises teacher Reason | **REFUTED** · n80 m=**−0.0006** z=−0.07 hr−0.04× (p2143) |
+| 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **open** · `mine-r4-fullft-1` train (p2143; was fleet `mine-r6-fmt-2`) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · `mine-r7-datafilt-1` · p2076 armed |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · `mine-r8-reinforce-1` · p2077 armed |
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open** · `mine-r9-teacher-zc-1` · p2079 armed |
@@ -67,52 +67,19 @@
 ### R5 — Non-king Genesis
 - **REFUTED** p2125: n80 m=**−0.0390** z=−3.24 SE=0.0120 (hr≪0) — Genesis full-FT vs Tok closed. Retarget `mine-r4-fullft-1` → R6. Dir: `experiments/r5-nonking-base/` + `s4-h122-f27-genesis-full-ft/`.
 
-### R24 — Long-context / full-thought GRPO
-- Tok-init; max_len=**16384** max_new=**1024** (live thought budget); same lr/r/G as R3.
-- Pod `mine-r24-longctx-1`; queue after R3b (ahead of parent-swap). Dir: `experiments/r24-longctx-grpo/`.
+### R6 / R6b — thought-length format
+- **R6 REFUTED** p2143: short≤180 LoRA n80 m=**−0.0006** z=−0.07 SE=0.0088 (hr−0.04×) — Stage-5 SKIP. Dir: `experiments/r6-short-format/`.
+- **R6b** live p2143 on warm `mine-r4-fullft-1` (GPUs6–7; T/K held): natural long-z n=204 med≈260. Dir: `experiments/r6b-long-thought/`.
 
-### R25 — High-temperature GRPO
-- Tok-init; **temperature=1.2** (R3 uses 0.8); same len/new/lr/r/G as R3.
+### R24–R32 — structural GRPO knobs (fleet-queued)
+- One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
-### R26 — Low-temperature GRPO
-- Tok-init; **temperature=0.5** (R3 0.8 / R25 1.2); same len/new/lr/r/G as R3.
-
-### R27 — Large-group GRPO
-- Tok-init; **group_size=16** (R3 G=4; R3b G=8 *with* alt lr/rank); same temp/lr/r/len as R3.
-- Isolates G — not confounded with R3b knobs. Pod `mine-r27-bigg-1`; queue after R26.
-- Dir: `experiments/r27-bigg-grpo/`.
-
-### R28 — High-LR GRPO
-- Tok-init; **lr=2e-5** (R3 5e-6; R3b 2e-5 *with* r=64 G=8); same r/G/temp/len as R3.
-- Isolates LR — not confounded with R3b knobs. Pod `mine-r28-hilr-1`; queue after R27.
-- Dir: `experiments/r28-hilr-grpo/`.
-
-### R29 — High-rank GRPO
-- Tok-init; **lora_r=64** / α128 (R3 r=16/α32; R3b r=64 *with* lr=2e-5 G=8); same lr/G/temp/len as R3.
-- Isolates rank — not confounded with R3b knobs. Pod `mine-r29-hirank-1`; queue after R28.
-- Dir: `experiments/r29-hirank-grpo/`.
-
-### R30 — High-α GRPO
-- Tok-init; **lora_r=16** / **α128** (R3 α=32; R29 raises r with α/r=2 held); same lr/G/temp/len as R3.
-- Isolates α scale — not confounded with R29 rank. Pod `mine-r30-hialpha-1`; queue after R29.
-- Dir: `experiments/r30-hialpha-grpo/`.
-
-### R31 — Zero-dropout GRPO
-- Tok-init; **lora_dropout=0.0** (R3 default **0.05**); same lr/r/α/G/temp/len as R3.
-- Isolates adapter dropout. Pod `mine-r31-nodrop-1`; queue after R30.
-- Dir: `experiments/r31-nodrop-grpo/`. Trainer: `--lora-dropout` on `train_reason_grpo.py`.
-
-### R32 — KL-regularized GRPO
-- Tok-init; **kl_coef=0.02** vs adapter-disabled base (R3 **kl=0**); same lr/r/α/drop/G/temp/len.
-- Isolates KL. Pod `mine-r32-kl-1`; queue after R31. Dir: `experiments/r32-kl-grpo/`.
-- Trainer: `--kl-coef` on `train_reason_grpo.py`.
-
-### Fleet axes waiting on 8×B300 (R3b–R32; R4 live)
-- One pod/axis; uploaders+boot cases armed. Decision: n80 vs Tok; submit iff hr ≥ 1.5×(2·SE).
-- **R4** full-FT **live** · **R3b** alt GRPO · **R24–R32** structural GRPO · **R4b/R5…** rest of queue.
+### Fleet axes waiting on 8×B300 (R7 first)
+- Live: crown R2bh · R3b GRPO · R6b long-z. Queue: **R7** datafilt → R8 → R24–R32 …. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
+- **R6:** short≤180 LoRA −0.0006 vs Tok — format-short closed; R6b long still open.
 - **R1b/R1c:** king-init LoRA −0.0135 / nsup≥100 −0.0171 vs Tok — SFT family closed.
 - **R2ao/ap/aq:** af17 −0.0007; kevin h44 +0.004; …-now +0.008 (≪1.5×) — SKIP.
 - **R2aw/ar:** mt1 / iynocr2p **unservable** — SKIP.

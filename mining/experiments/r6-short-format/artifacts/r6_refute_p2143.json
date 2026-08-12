@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-12T00:27:09Z",
+  "pass": 2143,
+  "hypo": "R6",
+  "axis": "short_z_le_180_thought_lora",
+  "pod": "mine-r4-fullft-1",
+  "decision": "REFUTE_H101",
+  "submit": false,
+  "margin": -0.0006180127520836889,
+  "se": 0.008822045425108728,
+  "z": -0.07005322714897176,
+  "k_sigma": 2.0,
+  "n_paired": 77,
+  "headroom_vs_2se": -0.03502661357448588,
+  "chall_reason": -0.002351587124072716,
+  "king_reason": -0.0035282680962090466,
+  "mean_len_z_c": 337.05194805194805,
+  "mean_len_z_k": 498.8,
+  "chall_repo": "/root/h101/merged",
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "note": "R6 short\u2264180 REFUTE \u2014 noise vs king; arm R6b long-z on same warm TKC"
+}

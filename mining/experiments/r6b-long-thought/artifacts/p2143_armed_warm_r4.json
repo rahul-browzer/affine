@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-12T00:28:36Z",
+  "pass": 2143,
+  "hypo": "R6b",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "ssh": "ssh root@86.38.182.50 -p 40307",
+  "axis": "natural_long_nonlisty_zgt180",
+  "examples": 204,
+  "thought_chars_mean": 259.51,
+  "train_pid": 60367,
+  "post_train_pid": 60448,
+  "gpus": "6,7",
+  "soft_deadline_utc": "2026-08-12T23:28:15Z",
+  "deadman_utc": "2026-08-12T23:58:15Z",
+  "hf_merged": "unconst/Affine-5czsc2fc98-r6b-fmt",
+  "watch": {
+    "train": "tail -f /root/logs/h101_train.nohup",
+    "post": "tail -f /root/logs/h101_post_train.nohup",
+    "decision": "/root/affine_data/h101_decision.json"
+  },
+  "note": "R6 short REFUTE → reuse warm TKC; no full bootstrap; Soft/Deadman patched on-disk"
+}
