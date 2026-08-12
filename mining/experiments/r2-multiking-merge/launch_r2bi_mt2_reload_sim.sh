@@ -237,11 +237,14 @@ echo "[r2bi-mt2] link $LINK -> $(readlink -f "$LINK")"
 echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) claiming chall pure-mt2" >"$HOLDING"
 trap 'rm -f "$HOLDING"' EXIT
 
-# Do not yank chall while R2bi n80 / reload still holds it.
-R2BG_RELOAD_PIDF=/root/logs/r2bi_mt2_reload.pid
-if [[ -f "$R2BG_RELOAD_PIDF" ]]; then
-  RP=$(cat "$R2BG_RELOAD_PIDF" || true)
-  if [[ -n "${RP:-}" ]] && kill -0 "$RP" 2>/dev/null; then
+# Do not yank chall while prior R2bh reload still holds it.
+# Never wait on our own PIDF (self-deadlock if copy-paste points here).
+R2BH_RELOAD_PIDF=/root/logs/r2bh_intolayer_reload.pid
+if [[ -f "$R2BH_PRIOR_DONE" ]]; then
+  echo "[r2bi-mt2] R2bh already done — skip pid wait"
+elif [[ -f "$R2BH_RELOAD_PIDF" ]]; then
+  RP=$(cat "$R2BH_RELOAD_PIDF" || true)
+  if [[ -n "${RP:-}" && "$RP" != "$$" ]] && kill -0 "$RP" 2>/dev/null; then
     echo "[r2bi-mt2] waiting R2bh reload pid=$RP to exit before chall kill"
     for j in $(seq 1 1440); do
       kill -0 "$RP" 2>/dev/null || break
@@ -250,6 +253,8 @@ if [[ -f "$R2BG_RELOAD_PIDF" ]]; then
       fi
       sleep 10
     done
+  else
+    echo "[r2bi-mt2] R2bh reload pid absent/dead/self — proceed to chall kill"
   fi
 fi
 
