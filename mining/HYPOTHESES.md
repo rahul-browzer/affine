@@ -37,7 +37,7 @@
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open — PRIORITY** · crown pid**337498** (p2197 empty-z/`THOUGHT:` fix; z0 ok @step1) |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
-| 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **open — PRIORITY** · warm on `mine-r4-fullft-1` step~2/200 (p2194) |
+| 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **open — PRIORITY** · mine-r4 pid**126769** (p2199 empty-z fixed; mean_r≈0.020@step1) |
 | 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open** · `mine-r21-pandora-grpo-1` · p2095 armed |
 | 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open** · `mine-r22-golden-grpo-1` · p2096 armed |
 | 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open** · `mine-r23-diane-grpo-1` · **p2097** armed |
@@ -90,7 +90,7 @@
 ### R15 / R16 / R20 — PRIORITY live
 - **R15** pandora-REINFORCE on `mine-r3` ~step75/200 (p2194). Dir: `experiments/r15-pandora-rl/`.
 - **R16** golden-REINFORCE train DONE; merge relaunch with BASE=golden (H135 default was kevin — p2194). Dir: `experiments/r16-golden-rl/`.
-- **R20** kevin-GRPO warm-armed on `mine-r4` after R14 (method ≠ REINFORCE); train~step2/200. Dir: `experiments/r20-kevin-grpo/`.
+- **R20** kevin-GRPO on `mine-r4` (≠ REINFORCE); p2199 fixed GRPO cut@`</think>`0 + normalize; pid**126769**. Dir: `experiments/r20-kevin-grpo/`.
 
 ### R10 / R11 / R12 / R13
 - **R10 blocked** p2162: `ammazon/Affine-5dvqtektxx-sbs-v2` gated 403 for unconst — need Hub access or public merge parent before arm.
@@ -102,7 +102,7 @@
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300 (R24 first)
-- Live: **R16** crown · **R15** R3 · **R20** R4. Queue: **R24** → R25–R32 · R5b · R10 · R17…. Submit iff hr ≥ 1.5×(2·SE).
+- Live: **R17** crown · **R15** R3 · **R20** R4. Queue: **R24** → R25–R32 · R5b · R10 · R18…. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.

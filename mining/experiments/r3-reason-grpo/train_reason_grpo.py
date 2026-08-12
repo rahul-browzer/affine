@@ -38,13 +38,34 @@ def _msg_chars(row: dict) -> int:
 
 
 def _normalize_z(z_text: str) -> str:
-    """Sample started inside <think>; strip close-tag / bash for force_text z."""
+    """Extract latent thought for force_text.
+
+    Tok-style: body inside <think>…</think>.
+    Kevin/albedo-style: model emits </think> immediately then THOUGHT: … before
+    ```bash — leading-close must not collapse to empty (p508 / R20 p2199).
+    Coder-style: often emits ```bash at offset 0 (no latent). Cutting at i==0
+    must NOT zero a non-empty body; leading-bash → empty thought (p2197).
+    """
+    s = z_text.strip()
+    if s.startswith("```bash"):
+        return ""
+    if s.startswith(THINK_CLOSE):
+        rest = s[len(THINK_CLOSE) :].lstrip("\n")
+        i_bash = rest.find("```bash")
+        if i_bash > 0:
+            rest = rest[:i_bash]
+        elif i_bash == 0:
+            rest = ""
+        rest = rest.strip()
+        if rest.startswith("THOUGHT:"):
+            rest = rest[len("THOUGHT:") :].strip()
+        return rest
     if THINK_CLOSE in z_text:
         latent, _, _rest = z_text.partition(THINK_CLOSE)
         return latent.strip()
     for marker in ("```bash", "THOUGHT:"):
         i = z_text.find(marker)
-        if i >= 0:
+        if i > 0:
             return z_text[:i].strip()
     return z_text.strip()
 
@@ -158,13 +179,16 @@ def _sample_thought(
         )
     new_tokens = out[0, enc["input_ids"].shape[1] :]
     text = tok.decode(new_tokens, skip_special_tokens=True)
+    # Prefer ```bash only after a non-empty latent (i_bash > 0).
+    # kevin emits </think>@0 then THOUGHT: — cutting at close@0 wiped z (p2199).
+    # Mid-text </think> still truncates through the close tag (tok-style).
     cut = len(text)
-    for marker in ("```bash", THINK_CLOSE):
-        i = text.find(marker)
-        if i >= 0:
-            cut = min(
-                cut, i + (len(THINK_CLOSE) if marker == THINK_CLOSE else 0)
-            )
+    i_bash = text.find("```bash")
+    i_close = text.find(THINK_CLOSE)
+    if i_bash > 0:
+        cut = i_bash
+    elif i_close > 0:
+        cut = i_close + len(THINK_CLOSE)
     text = text[:cut]
     model.train()
     return text, _forced_sum_logprob(model, tok, prompt, text, device)

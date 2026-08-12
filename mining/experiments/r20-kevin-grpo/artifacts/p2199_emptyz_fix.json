@@ -1,0 +1,9 @@
+{
+  "utc": "2026-08-12T07:24:13Z",
+  "pass": 2199,
+  "bug": "train_reason_grpo._sample_thought cut at THINK_CLOSE@0 wiped kevin THOUGHT body; also old _normalize_z collapsed leading-close",
+  "fix": "match train_rl_l2 cut (i_bash>0 / i_close>0) + kevin normalize (p508/p2197)",
+  "pod": "mine-r4-fullft-1",
+  "pid": 126769,
+  "evidence": "rawz showed </think>\\nTHOUGHT: \u2026 with non-empty norm"
+}

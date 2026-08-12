@@ -11,6 +11,7 @@ Adapted from s4-h132-f37-tok-rl-l2/train_rl_l2.py for the R3 axis.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import json
 import math
 import os
@@ -37,13 +38,34 @@ def _msg_chars(row: dict) -> int:
 
 
 def _normalize_z(z_text: str) -> str:
-    """Sample started inside <think>; strip close-tag / bash for force_text z."""
+    """Extract latent thought for force_text.
+
+    Tok-style: body inside <think>…</think>.
+    Kevin/albedo-style: model emits </think> immediately then THOUGHT: … before
+    ```bash — leading-close must not collapse to empty (p508 / R20 p2199).
+    Coder-style: often emits ```bash at offset 0 (no latent). Cutting at i==0
+    must NOT zero a non-empty body; leading-bash → empty thought (p2197).
+    """
+    s = z_text.strip()
+    if s.startswith("```bash"):
+        return ""
+    if s.startswith(THINK_CLOSE):
+        rest = s[len(THINK_CLOSE) :].lstrip("\n")
+        i_bash = rest.find("```bash")
+        if i_bash > 0:
+            rest = rest[:i_bash]
+        elif i_bash == 0:
+            rest = ""
+        rest = rest.strip()
+        if rest.startswith("THOUGHT:"):
+            rest = rest[len("THOUGHT:") :].strip()
+        return rest
     if THINK_CLOSE in z_text:
         latent, _, _rest = z_text.partition(THINK_CLOSE)
         return latent.strip()
     for marker in ("```bash", "THOUGHT:"):
         i = z_text.find(marker)
-        if i >= 0:
+        if i > 0:
             return z_text[:i].strip()
     return z_text.strip()
 
@@ -108,6 +130,32 @@ def _resolve_teacher_model(client: httpx.Client, teacher_url: str) -> str:
     return ids[0]
 
 
+def _forced_sum_logprob(
+    model,
+    tok,
+    prompt: str,
+    text: str,
+    device: torch.device,
+    *,
+    no_grad: bool = False,
+) -> torch.Tensor:
+    """Sum token logprob of `text` under `model` given `prompt` (forced)."""
+    enc = tok(prompt, add_special_tokens=False, return_tensors="pt")
+    forced = tok(prompt + text, add_special_tokens=False, return_tensors="pt")
+    ids = forced["input_ids"].to(device)
+    n_p = enc["input_ids"].shape[1]
+    targets = ids[0, n_p:]
+    if targets.numel() == 0:
+        z = torch.zeros((), device=device)
+        return z if no_grad else z.requires_grad_()
+    ctx = torch.no_grad() if no_grad else contextlib.nullcontext()
+    with ctx:
+        logits = model(input_ids=ids).logits
+        logp = F.log_softmax(logits[0, n_p - 1 : -1], dim=-1)
+        tok_lp = logp.gather(1, targets.unsqueeze(1)).squeeze(1)
+        return tok_lp.sum()
+
+
 def _sample_thought(
     model,
     tok,
@@ -131,25 +179,19 @@ def _sample_thought(
         )
     new_tokens = out[0, enc["input_ids"].shape[1] :]
     text = tok.decode(new_tokens, skip_special_tokens=True)
+    # Prefer ```bash only after a non-empty latent (i_bash > 0).
+    # kevin emits </think>@0 then THOUGHT: — cutting at close@0 wiped z (p2199).
+    # Mid-text </think> still truncates through the close tag (tok-style).
     cut = len(text)
-    for marker in ("```bash", THINK_CLOSE):
-        i = text.find(marker)
-        if i >= 0:
-            cut = min(
-                cut, i + (len(THINK_CLOSE) if marker == THINK_CLOSE else 0)
-            )
+    i_bash = text.find("```bash")
+    i_close = text.find(THINK_CLOSE)
+    if i_bash > 0:
+        cut = i_bash
+    elif i_close > 0:
+        cut = i_close + len(THINK_CLOSE)
     text = text[:cut]
-    forced = tok(prompt + text, add_special_tokens=False, return_tensors="pt")
-    ids = forced["input_ids"].to(device)
-    n_p = enc["input_ids"].shape[1]
     model.train()
-    logits = model(input_ids=ids).logits
-    logp = F.log_softmax(logits[0, n_p - 1 : -1], dim=-1)
-    targets = ids[0, n_p:]
-    if targets.numel() == 0:
-        return text, torch.zeros((), device=device, requires_grad=True)
-    tok_lp = logp.gather(1, targets.unsqueeze(1)).squeeze(1)
-    return text, tok_lp.sum()
+    return text, _forced_sum_logprob(model, tok, prompt, text, device)
 
 
 def main() -> None:
@@ -166,6 +208,18 @@ def main() -> None:
     ap.add_argument("--lr", type=float, default=5e-6)
     ap.add_argument("--lora-r", type=int, default=16)
     ap.add_argument("--lora-alpha", type=int, default=32)
+    ap.add_argument(
+        "--lora-dropout",
+        type=float,
+        default=0.05,
+        help="LoRA dropout (R3 default 0.05; R31 isolates 0.0)",
+    )
+    ap.add_argument(
+        "--kl-coef",
+        type=float,
+        default=0.0,
+        help="KL penalty coef vs base (adapter-disabled) policy; R3=0, R32 isolates >0",
+    )
     ap.add_argument("--group-size", type=int, default=4)
     ap.add_argument("--temperature", type=float, default=0.8)
     ap.add_argument("--max-steps", type=int, default=200)
@@ -221,6 +275,8 @@ def main() -> None:
         "lr": args.lr,
         "lora_r": args.lora_r,
         "lora_alpha": args.lora_alpha,
+        "lora_dropout": args.lora_dropout,
+        "kl_coef": args.kl_coef,
         "group_size": args.group_size,
         "max_new": args.max_new,
         "max_steps": args.max_steps,
@@ -253,7 +309,7 @@ def main() -> None:
         task_type=TaskType.CAUSAL_LM,
         r=args.lora_r,
         lora_alpha=args.lora_alpha,
-        lora_dropout=0.05,
+        lora_dropout=args.lora_dropout,
         target_modules=[
             "q_proj",
             "k_proj",
@@ -295,6 +351,7 @@ def main() -> None:
 
             rewards: list[float] = []
             logps: list[torch.Tensor] = []
+            kl_terms: list[torch.Tensor] = []
             texts: list[str] = []
             for _g in range(args.group_size):
                 # Mid-group hb so host wedge watch sees life during long generates.
@@ -311,6 +368,20 @@ def main() -> None:
                     device,
                 )
                 z_norm = _normalize_z(z_text)
+                # Optional KL vs frozen base (adapter disabled). Default kl_coef=0
+                # keeps R3/R24–R31 behavior; R32 isolates kl_coef>0.
+                # Use raw z_text (same string as sum_lp) so the ratio is well-defined.
+                if args.kl_coef > 0.0:
+                    with model.disable_adapter():
+                        sum_lp_ref = _forced_sum_logprob(
+                            model, tok, prompt, z_text, device, no_grad=True
+                        )
+                    model.train()
+                    kl_terms.append(sum_lp - sum_lp_ref.detach())
+                else:
+                    kl_terms.append(
+                        torch.zeros((), device=sum_lp.device, dtype=sum_lp.dtype)
+                    )
                 print(
                     f"[r3-hb] {json.dumps({'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'step': steps, 'phase': 'score', 'g': _g})}",
                     flush=True,
@@ -350,9 +421,9 @@ def main() -> None:
 
             mean_r = sum(rewards) / len(rewards)
             loss = torch.zeros((), device=next(model.parameters()).device)
-            for r, lp in zip(rewards, logps):
+            for r, lp, kl in zip(rewards, logps, kl_terms):
                 adv = r - mean_r
-                loss = loss + (-adv) * lp
+                loss = loss + (-adv) * lp + float(args.kl_coef) * kl
             loss = loss / max(1, len(rewards))
 
             opt.zero_grad(set_to_none=True)
