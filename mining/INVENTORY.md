@@ -23,6 +23,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T06:34Z | p2193: 1200-iter R24 burst empty; waiter CONT **3373328**; burn **$180.25/h**; R14@185 R15@70 R16@170 |
 | 2026-08-12T06:15Z | p2192: R16 warm-arm crown; 1000-iter R24 burst empty; waiter→**3373328**; burn **$180.25/h** |
 | 2026-08-12T05:56Z | p2191: 900-iter R24 burst empty; R15 warm-arm on R3; waiter→**3351343**; burn **$180.25/h** |
-| 2026-08-12T05:42Z | p2190: 800-iter R24 burst empty; R3b REFUTE; R14 warm-arm on R4; burn **$180.25/h** |

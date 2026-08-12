@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $118,400.216 | 2026-08-12T06:15Z |
-| cumulative mining spend | ~$79,199 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T06:15Z |
-| **available for mining** | **~$108,400** (balance − $10,000 floor) | 2026-08-12T06:15Z |
+| Lium balance | $118,337.376 | 2026-08-12T06:34Z |
+| cumulative mining spend | ~$79,262 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T06:34Z |
+| **available for mining** | **~$108,337** (balance − $10,000 floor) | 2026-08-12T06:34Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T06:15Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T06:34Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T06:34Z | 118337.376 | p2193 no rent (1200-iter SKIP_PID_LOCK burst 8×=0); waiter CONT; burn **$180.25/h**; Δ−$63 vs p2192 |
 | 2026-08-12T06:15Z | 118400.216 | p2192 no rent (1000-iter SKIP_PID_LOCK burst 8×=0); R16 warm-arm crown; burn **$180.25/h**; Δ−$84 vs p2191 |
 | 2026-08-12T05:56Z | 118483.914 | p2191 no rent (900-iter SKIP_PID_LOCK burst 8×=0); R15 warm-arm R3; burn **$180.25/h**; Δ−$63 vs p2190 |
 | 2026-08-12T05:41Z | 118546.455 | p2190 no rent (800-iter SKIP_PID_LOCK burst 8×=0); R3b REFUTE; R14 arm; burn **$180.25/h**; Δ−$63 vs p2189 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T04:27Z | 118859.540 | p2186 no rent (400-iter SKIP_PID_LOCK burst 8×=0); R2bn REFUTE; R9 merge; burn **$180.25/h**; Δ−$42 vs p2185 |
 | 2026-08-12T04:16Z | 118901.063 | p2185 no rent (300-iter SKIP_PID_LOCK burst 8×=0); R9 train.done; burn **$180.25/h**; Δ−$21 vs p2184 |
 | 2026-08-12T04:10Z | 118922.133 | p2184 no rent (200-iter SKIP_PID_LOCK burst 8×=0); burn **$180.25/h**; Δ−$21 vs p2183 |
-| 2026-08-12T04:06Z | 118943.077 | p2183 no rent (150-iter SKIP_PID_LOCK burst 8×=0); burn **$180.25/h**; Δ−$42 vs p2182 |
