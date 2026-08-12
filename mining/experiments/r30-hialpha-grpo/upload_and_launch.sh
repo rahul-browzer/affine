@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Host → mine-r30-hialpha-1: R3 stack + R30 HiAlpha-GRPO overlay, bootstrap.
 # Axis R30: Tok-init Reason-GRPO lora_alpha=128 r=16 (≠ R3 α=32 / R29 r=64).
+# p2231: n80 king = live guass + Reason writer + form-dec.
 set -euo pipefail
 
 ROOT=/home/const/subnet120
@@ -19,7 +20,8 @@ trap 'rm -rf "$STAGE"' EXIT
 EXP=r3-reason-grpo
 mkdir -p "$STAGE/affine_pkg/affine" "$STAGE/affine_pkg/evalsrv" \
          "$STAGE/s3-duel-sim" "$STAGE/s4-h2-merge" "$STAGE/s4-h1-sft" \
-         "$STAGE/s4-h1v2-sft" "$STAGE/$EXP" "$STAGE/r30-hialpha-grpo"
+         "$STAGE/s4-h1v2-sft" "$STAGE/r1-reason-distill" \
+         "$STAGE/$EXP" "$STAGE/r30-hialpha-grpo"
 
 cp -a "$ROOT/affine/affine.toml" "$STAGE/affine_pkg/"
 cp -a "$ROOT/affine/affine/." "$STAGE/affine_pkg/affine/"
@@ -31,6 +33,11 @@ cp -a "$ROOT/mining/experiments/s4-h2-merge/run_sim_duel.py" "$STAGE/s4-h2-merge
 cp -a "$ROOT/mining/experiments/s4-h2-merge/write_merge_decision.py" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_form_decision.sh" "$STAGE/s4-h2-merge/"
 cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_n80_retry.sh" "$STAGE/s4-h2-merge/"
+# p2231: form-dec / post_train Reason crown writer.
+cp -a "$ROOT/mining/experiments/r1-reason-distill/write_reason_decision.py" \
+      "$STAGE/r1-reason-distill/"
+cp -a "$ROOT/mining/experiments/r1-reason-distill/graft_visual_weights.py" \
+      "$STAGE/r1-reason-distill/" 2>/dev/null || true
 cp -a "$ROOT/mining/experiments/s4-h1-sft/merge_lora.py" "$STAGE/s4-h1-sft/"
 cp -a "$ROOT/mining/experiments/s4-h1-sft/salvage_adapter.py" "$STAGE/s4-h1-sft/"
 cp -a "$ROOT/mining/experiments/s4-h1-sft/push_merged.py" "$STAGE/s4-h1-sft/"
@@ -40,8 +47,10 @@ cp -a "$ROOT/mining/experiments/$EXP/"*.py "$STAGE/$EXP/"
 cp -a "$ROOT/mining/experiments/$EXP/plan.md" "$STAGE/$EXP/"
 cp -a "$ROOT/mining/experiments/r30-hialpha-grpo/plan.md" "$STAGE/r30-hialpha-grpo/"
 cp -a "$ROOT/mining/experiments/r30-hialpha-grpo/start_r30.sh" "$STAGE/r30-hialpha-grpo/"
-# Overlay: bootstrap_r3 calls start_r3.sh — replace with R30 HiAlpha knobs.
+cp -a "$ROOT/mining/experiments/r30-hialpha-grpo/bootstrap_r30.sh" "$STAGE/r30-hialpha-grpo/"
+# Overlay: bootstrap_r3 + start_r3 → R30 HiAlpha + guass n80 king.
 cp -a "$ROOT/mining/experiments/r30-hialpha-grpo/start_r30.sh" "$STAGE/$EXP/start_r3.sh"
+cp -a "$ROOT/mining/experiments/r30-hialpha-grpo/bootstrap_r30.sh" "$STAGE/$EXP/bootstrap_r3.sh"
 
 SOFT=$(date -u -d '+23 hours' +%Y-%m-%dT%H:%M:%SZ)
 DEAD=$(date -u -d '+23 hours 30 minutes' +%Y-%m-%dT%H:%M:%SZ)
@@ -69,6 +78,8 @@ PY
 TAR=/tmp/mine-r30-stack.tar.gz
 tar -C "$STAGE" -czf "$TAR" .
 ls -lh "$TAR"
+test -n "$(tar -tzf "$TAR" | grep 'r1-reason-distill/write_reason_decision.py' || true)"
+grep -q "DOWNLOAD guass-king" "$STAGE/$EXP/bootstrap_r3.sh"
 
 ENV_TMP=$(mktemp /tmp/mine-r30.env.XXXXXX)
 # shellcheck disable=SC1091
@@ -76,6 +87,9 @@ set -a
 source "$ROOT/mining/.env"
 set +a
 umask 077
+KING_REPO_DEFAULT=ttttxxxxsada/Affine-5guassq3tu
+KING_REV_DEFAULT=e86758f5080d1e373e5fbbd7b4fbf6af327aeb44
+KING_LOCAL_DEFAULT=/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshots/e86758f5080d1e373e5fbbd7b4fbf6af327aeb44
 {
   echo "export HF_TOKEN=${HF_TOKEN}"
   echo "export HF_HOME=/root/hf"
@@ -95,6 +109,10 @@ umask 077
   echo "export R30_MAX_LEN=6144"
   echo "export R30_MAX_NEW=512"
   echo "export R30_TEMPERATURE=0.8"
+  echo "export KING_REPO=${KING_REPO_DEFAULT}"
+  echo "export KING_REV=${KING_REV_DEFAULT}"
+  echo "export KING_LOCAL=${KING_LOCAL_DEFAULT}"
+  echo "export RESTART_KING=1"
 } >"$ENV_TMP"
 chmod 600 "$ENV_TMP"
 
@@ -135,17 +153,25 @@ PY
   test -s /root/r3/winner_za_high_l1.jsonl
   test -x /root/mining_src/r3-reason-grpo/bootstrap_r3.sh
   test -x /root/mining_src/r3-reason-grpo/start_r3.sh
-  # Prove overlay is R30 HiAlpha, not stock R3 / R24–R29 / parent-GRPO.
+  # Prove overlay is R30 HiAlpha; sim king = guass; Reason writer present.
   grep -q "R30: HiAlpha-GRPO" /root/mining_src/r3-reason-grpo/start_r3.sh
   grep -q "R30_LORA_ALPHA:-128" /root/mining_src/r3-reason-grpo/start_r3.sh
+  grep -q "DOWNLOAD guass-king" /root/mining_src/r3-reason-grpo/bootstrap_r3.sh
+  test -f /root/mining_src/r1-reason-distill/write_reason_decision.py
   set -a; source /root/mine.env; set +a
-  echo "R30_DEADLINES soft=$SOFT_DEADLINE_UTC dead=$DEADMAN_UTC axis=$R30_AXIS"
+  test "$KING_REPO" = "ttttxxxxsada/Affine-5guassq3tu"
+  echo "R30_DEADLINES soft=$SOFT_DEADLINE_UTC dead=$DEADMAN_UTC axis=$R30_AXIS king=$KING_REPO@$KING_REV"
   echo "R30_KNOBS lr=${R30_LR} G=${R30_GROUP_SIZE} temp=${R30_TEMPERATURE} r=${R30_LORA_R} α=${R30_LORA_ALPHA} max_len=${R30_MAX_LEN}"
   echo STACK_UPLOAD_OK
   nohup bash /root/mining_src/r3-reason-grpo/bootstrap_r3.sh \
     >/root/logs/r30_pipeline.nohup 2>&1 &
   echo $! > /root/logs/r30_pipeline.pid
   cp -f /root/logs/r30_pipeline.pid /root/logs/r3_pipeline.pid
+  nohup bash /root/mining_src/s4-h2-merge/watch_form_decision.sh r3 \
+    /root/affine_data/r3_sim_result.json /root/affine_data/r3_decision.json \
+    /root/logs/r30_form_decision.nohup \
+    >/root/logs/r30_form_decision.launch.out 2>&1 &
+  echo $! > /root/logs/r30_form_decision.pid
   echo PIPELINE_PID=$(cat /root/logs/r30_pipeline.pid)
   sleep 5
   head -n 40 /root/logs/bootstrap_r3.log 2>/dev/null || head -n 40 /root/logs/r30_pipeline.nohup || true

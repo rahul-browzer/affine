@@ -18,5 +18,6 @@ farther than R3's α=32 without needing a rank bump.
 Uploader: `upload_and_launch.sh` (fleet-boot case, pass 2105).
 
 ## Decision
-n80 vs Tok; submit only if hr ≥ 1.5×(k_sigma·SE), live k=2.0.
+n80 vs **live guass** (reign-6); submit iff paired margin > live
+`k_sigma · SE` (k=2.0). No 1.5× headroom (operator 2026-08-12).
 Watch: `/root/logs/r30_pipeline.nohup` / `r3_train.nohup` (`[r3-hb]`).

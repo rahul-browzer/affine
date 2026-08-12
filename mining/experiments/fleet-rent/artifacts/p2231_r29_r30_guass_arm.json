@@ -1,0 +1,14 @@
+{
+  "pass": 2231,
+  "utc": "2026-08-12T10:34:48Z",
+  "action": "arm R29+R30 Tok\u2192guass + Reason writer (stock empty)",
+  "rent_try": "lium up B300\u00d78 mine-r5-nonking-2 \u2014 no nodes",
+  "burst_pid": 3745530,
+  "next_axis": "mine-r5-nonking-2",
+  "burn_usd_per_h": 220.25,
+  "balance_usd": 117266.784,
+  "contract": {
+    "wvk": 3,
+    "k_sigma": 2.0
+  }
+}

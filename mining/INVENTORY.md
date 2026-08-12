@@ -10,7 +10,7 @@
 | mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** + guass + tmax + n80-gate |
 | mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R21** pandora-GRPO |
 | mine-r25-hitemp-1 | zesty-fox-bc (`20498068-…`) | 8×B200 | $40.00 | **2026-08-13T08:46Z** | **R25** + guass |
-| *(pending fleet)* | mine-r5… then R19/R22/R23/R27/R28… | 8×B300 | ~$64 | burst **3745530** | **R5b next (guass+writer)** |
+| *(pending fleet)* | mine-r5… then R19/R22/R23/R27–R30… | 8×B300 | ~$64 | burst **3745530** | **R5b next (guass+writer)** |
 
 SSH crown/R26: `ssh root@95.133.253.90 -p 40099`
 SSH R3/R24: `ssh root@204.9.206.245 -p 40051`
@@ -26,6 +26,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T10:34Z | p2231: R29+R30→guass+writer; rent try empty; burst**3745530**; burn **$220.25/h** |
 | 2026-08-12T10:31Z | p2230: R27+R28→guass+writer; rent try empty; burst**3745530**; burn **$220.25/h** |
 | 2026-08-12T10:27Z | p2229: R22+R23→guass+writer; 8×=0; burst**3745530**; burn **$220.25/h** |
-| 2026-08-12T10:24Z | p2228: R5b prestage+writer; R19→guass; 8×=0; burst**3745530**; burn **$220.25/h** |
