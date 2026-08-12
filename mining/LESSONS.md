@@ -147,4 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - B200 mid-n80: GPUs can go NVML **Unknown Error** (p2247 R25 gpu1/2) — new CUDA inits fail while old vLLM may linger. Persist merge under `/root/` before `lium reboot`; if REBOOT_FAILED, migrate n80 via HF pull onto a healthy warm TKC pod.
 - HF `snapshot_download` can land config+partial shards mid-flight — never READY/serve on shard-00001 alone; gate on **all 16** `model-*-of-00016.safetensors` + dl DONE (p2248 killed chall on 13/16).
 - R33 guass-init Reason-GRPO **REFUTE** vs guass n80 m=**−0.00685** z=−1.00 (p2249) — LoRA from live king does not clear crown; free slot → next parent axis (R22 golden).
-- Chall vLLM ready wait **90×10s** can expire mid-cudagraph after full shard load — arm a host recover that launches n80 if serve dies while `:8002` eventually hits 200 (p2249 R25).
+- p2250/R25: serve can die post-`:8002=200` before n80 (`set -u`/`_comp`); recover must set `PYTHONPATH=/root/mining_src/affine_pkg` (else ModuleNotFoundError affine) and never treat `kill -0 0` as alive — check pidfile non-empty first.

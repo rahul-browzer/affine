@@ -179,6 +179,7 @@ log "launch n80 R25-on-R24 vs guass"
 nohup bash -c "
   set -a; source /root/mine.env; set +a
   source /root/venv/bin/activate
+  export PYTHONPATH=/root/mining_src/affine_pkg:${PYTHONPATH:-}
   python /root/mining_src/s4-h2-merge/run_sim_duel.py \
     --king-repo '$KING_REPO' --king-rev '$KING_REV' \
     --chall-repo '$MERGE' --chall-rev local \

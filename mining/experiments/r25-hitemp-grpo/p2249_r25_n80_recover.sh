@@ -91,6 +91,7 @@ bh=a203000000000000000000000000000000000000000000000000000000000003
 nohup bash -c "
   set -a; source /root/mine.env; set +a
   source /root/venv/bin/activate
+  export PYTHONPATH=/root/mining_src/affine_pkg:${PYTHONPATH:-}
   python /root/mining_src/s4-h2-merge/run_sim_duel.py \
     --king-repo '$KING_REPO' --king-rev '$KING_REV' \
     --chall-repo '$MERGE' --chall-rev local \
@@ -104,6 +105,8 @@ sleep 4
 ps -eo pid,cmd | awk '/python/ && /[r]un_sim_duel\.py/ && /local-r25/ {print "n80_live",$1}'
 log DONE
 EOS
+      log "recover ssh done; sleep then expect N80_LIVE"
+      sleep 8
       ;;
   esac
   sleep 30
