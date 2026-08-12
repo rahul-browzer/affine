@@ -1,0 +1,10 @@
+{
+  "utc": "2026-08-12T03:12:02Z",
+  "pass": 2171,
+  "hyp": "R3b",
+  "action": "patched post_train + armed watch_r3b_decision.sh; archived stale R3 REFUTED dec",
+  "pod": "mine-r3-grpo-1",
+  "sim": "/root/affine_data/r3_sim_result.json",
+  "dec": "/root/affine_data/r3_decision.json",
+  "k_sigma": 2.0
+}

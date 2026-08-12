@@ -1,0 +1,10 @@
+{
+  "utc": "2026-08-12T03:12:02Z",
+  "pass": 2171,
+  "hyp": "R11",
+  "action": "patched post_train + armed watch_r11_decision.sh",
+  "pod": "mine-r4-fullft-1",
+  "sim": "/root/affine_data/h139_sim_result.json",
+  "dec": "/root/affine_data/h139_decision.json",
+  "k_sigma": 2.0
+}

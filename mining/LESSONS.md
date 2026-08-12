@@ -146,5 +146,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R8 REFUTE** p2158 m=−0.027; king-swap retry_* KING defaults (p2159); R9 train-wait ≠ merge-block (p2160); n80 `--chall-repo`=vLLM serve id not `readlink -f` (p2161).
 - **R7 REFUTE** p2162 m=+0.0123 z=1.978 <2σ (hr0.99×) — knife-edge. **R10** 403 on sbs-v2 → warm **R11** online-DPO (GPUs6–7).
 - Pre-swap live king on GPUs2–3 while GRPO trains 6–7; `RESTART_KING=0` if `:8001` already target (p2163).
-- `write_reason_decision.py` default **k_sigma=2.0** + `headroom_vs_live_2se` (p2165); submit bar=1.5×(2σ).
+- `write_reason_decision.py` default **k_sigma=2.0** + `headroom_vs_live_2se` (p2165); submit bar=1.5×(2σ). R3/R11 `post_train` historically stopped at SIM_DONE — always call writer (or arm `watch_*_decision.sh`); archive stale `*_decision.json` before R3b/R11 re-runs (p2171).
 - **R2bl REFUTE** p2166 m=−0.002 hr−0.24×. R9 post must also wait **live R2bm** (shared `:8002`) before merge — p2170 gate; R2bl-only unblock races the next board n80.
