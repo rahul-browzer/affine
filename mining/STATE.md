@@ -11,18 +11,18 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 |---|---|
 | contract | wvk=**3** · `k_sigma=2.0` · reason_only · n_turns=2080 |
 | king | `ttttxxxxsada/Affine-5guassq3tu` @ `e86758f5…` **reign 6** |
-| challenge | chal-**00525** (in duel) |
+| challenge | queue empty (chal-00525 done; alloy lost) |
 | miner burn | **$220.25/h** · floor $833/h · **gap −$613/h** |
 | B300 stock | **0** free 8×B300/B200 (burst polling R27) |
-| Lium bal | ~$117,582 · floor $10k OK |
+| Lium bal | ~$117,557 · floor $10k OK |
 | submissions | 0 |
 | crown / R3 / R4 :8001 | **guass** |
-| R25 | **guass :8001 DONE**; train ~step **36**/200 · mean_r back |
+| R25 | **guass :8001 DONE**; train ~step **40**/200 |
 | R17 | **REFUTE** vs guass m=−0.014 (p2210) |
-| R20 | **REFUTE** vs guass m=**−0.0196** z=−2.13 hr−1.07× (p2211) |
-| R21 | **training** pandora-GRPO ~step **61**/200 on R4 |
-| R24 | **training** Tok LongCtx-GRPO ~step **71**/200; **post KING→guass** (p2217) |
-| R26 | **training** LoTemp GRPO temp=0.5 ~step **47**/200 on crown |
+| R20 | **REFUTE** vs guass m=**−0.0196** z=−2.13 (p2211) |
+| R21 | **training** ~step **67**/200; **stale R20 adapter archived** (p2218) |
+| R24 | **training** ~step **76**/200; stale R3b sim archived; form relaunch |
+| R26 | **training** LoTemp ~step **57**/200 on crown |
 
 ## What's running
 
@@ -35,11 +35,12 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | host fleet-burst | pid**3682673** | — | snatching next **R27** |
 | host fleet-rent | pid**3373328** (**STOP**) | — | CONT if burst ends empty |
 | host fleet-boot | pid**2756348** | — | POLL=5s |
-| host hist bridge | pid**3174953** | — | pending chal-00525 |
+| host hist bridge | pid**3174953** | — | chal-00525 stamped |
 
 SSH crown/R26: `ssh root@95.133.253.90 -p 40099` · R3: `ssh root@204.9.206.245 -p 40051`
 SSH R4: `ssh root@86.38.182.50 -p 40307` · R25: `ssh root@150.136.71.147 -p 20309`
-R24 post: pid**94952** KING=guass · form pid**94957** · train pid**88309**
+R21 post: pid**140137** · form pid**142310** · train pid**140130**
+R24 post: pid**94952** · form pid**95235** · train pid**88309**
 Burst: `tail -f experiments/fleet-rent/logs/burst_p2217.log`
 Crown Removal **2026-08-13T02:35Z**. R3 **04:29Z**. R4 **08:57Z**. R25 **08:46Z**.
 
@@ -49,5 +50,5 @@ R10: need Hub access to `ammazon/…-sbs-v2`.
 
 ## Next action
 **Rent:** keep burst **3682673** snatching (next **R27**); CONT **3373328** on TIMEOUT.
-**R24:** train→merge→n80 vs guass (post KING fixed p2217).
-**R25/R26/R21:** train→merge→n80 vs guass.
+**R21:** train→merge→n80 vs guass (root adapter cleared; only step-50 R21 ckpt).
+**R24/R25/R26:** train→merge→n80 vs guass.

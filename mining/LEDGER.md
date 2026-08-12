@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $117,581.794 | 2026-08-12T09:28Z |
-| cumulative mining spend | ~$80,019 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T09:28Z |
-| **available for mining** | **~$107,582** (balance − $10,000 floor) | 2026-08-12T09:28Z |
+| Lium balance | $117,557.280 | 2026-08-12T09:32Z |
+| cumulative mining spend | ~$80,044 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T09:32Z |
+| **available for mining** | **~$107,557** (balance − $10,000 floor) | 2026-08-12T09:32Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T09:28Z |
+| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T09:32Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T09:32Z | 117557.280 | p2218 no new rent (8×=0; R21 stale R20 adapter archived; R24 stale sim cleared); burn **$220.25/h**; Δ−$25 vs p2217 |
 | 2026-08-12T09:28Z | 117581.794 | p2217 no new rent (8×=0; R24 post KING→guass; burst**3682673**); burn **$220.25/h**; Δ−$24 vs p2216 |
 | 2026-08-12T09:24Z | 117605.928 | p2216 no new rent (8×=0; R25 guass DONE enforce-eager; teacher restore); burn **$220.25/h**; Δ−$24 vs p2215 |
 | 2026-08-12T09:14Z | 117654.475 | p2215 no new rent (8×=0; R25 guass retarget; burst**3652502** next=R27); burn **$220.25/h**; Δ−$24 vs p2214 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T08:48Z | 117774.314 | p2211 **RENTED** mine-r25-hitemp-1 8×B200 $40/h; R20 REFUTE harvest; burn **$220.25/h**; Δ−$21 vs p2210 |
 | 2026-08-12T08:43Z | 117795.192 | p2210 no rent (8×=0; burst**3557663**); R17 REFUTE harvest; burn **$180.25/h**; Δ$0 vs p2209 |
 | 2026-08-12T08:40Z | 117795.192 | p2209 no rent (8×=0; burst**3557663**); R17 n80 vs guass relaunch; burn **$180.25/h**; Δ−$42 vs p2208 |
-| 2026-08-12T08:29Z | 117857.915 | p2208 no rent (8×=0; burst**3557663**); R3 guass retarget armed; burn **$180.25/h**; Δ$0 vs p2207 |

@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-12T09:32:08Z",
+  "pass": 2218,
+  "pod": "mine-r4-fullft-1",
+  "action": "archive_stale_r20_adapter_sim_ckpts",
+  "why": "post_train_pipeline proceeds on adapter&&!train; leftover kevin954 R20 adapter would merge onto pandora BASE",
+  "adapter_base_was": "kevin954/Affine-5dfqbbh8ev-sft@6a5815fa",
+  "r21_base": "pandora-box/Affine-5eqdtdzqle-ckpt300-m4@5218b138",
+  "train_pid": 140130,
+  "form_pid": 142310,
+  "post_pid": 140137,
+  "arch_on_pod": "/root/affine_data/archive/p2218_r20_stale_20260812T093140Z",
+  "also_r24": "archived stale R3b r3_sim_result on mine-r3-grpo-1; form relaunch pid95235",
+  "stock_8x": 0,
+  "burn_usd_per_h": 220.25
+}
