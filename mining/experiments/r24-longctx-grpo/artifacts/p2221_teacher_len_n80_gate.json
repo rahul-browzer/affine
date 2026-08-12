@@ -1,0 +1,21 @@
+{
+  "pass": 2221,
+  "utc": "2026-08-12T09:44:00Z",
+  "action": "n80_teacher_maxlen_gate",
+  "why": "R24 teacher still max_model_len=32768; tmax sidecar 96210 waits train.done. post_train could start n80 on short ctx or race tmax mid-gather (ContextLengthError).",
+  "change": "post_train_pipeline.sh waits for :8000 max_model_len>=65536 before n80 (NEED_TEACHER_LEN); abort aborted_teacher_short_ctx",
+  "deploy": {
+    "host_script": "experiments/r3-reason-grpo/post_train_pipeline.sh",
+    "pods_scp": ["mine-r3-grpo-1", "mine-r4-fullft-1", "mine-crown-1", "mine-r25-hitemp-1"],
+    "post_relaunch": {
+      "r24": 96662,
+      "r21": 143108,
+      "r26": 356966,
+      "r25": 19722
+    },
+    "train_untouched": true,
+    "tmax_r24": 96210
+  },
+  "stock": "0 free 8×B300/B200; burst 3704917 next=R27; burn $220.25/h",
+  "check": "ssh -p 40051 root@204.9.206.245 'grep NEED_TEACHER_LEN /root/mining_src/r3-reason-grpo/post_train_pipeline.sh; tail -f /root/logs/r24_post_train.nohup /root/logs/r24_fix_teacher_maxlen.nohup'"
+}

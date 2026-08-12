@@ -351,6 +351,34 @@ if (( dead - now < 2400 )); then
   exit 1
 fi
 
+# Gate: live contract / LESSONS need teacher max_model_len=65536. R24 prewarm left
+# :8000 at 32768; tmax sidecar relaunches after train.done. Without this wait, n80
+# can start on short ctx (ContextLengthError) or race tmax mid-gather (p2221).
+NEED_TEACHER_LEN=${NEED_TEACHER_LEN:-65536}
+_tlen=0
+for _ti in $(seq 1 360); do
+  _tlen=$(curl -sS --max-time 5 http://127.0.0.1:8000/v1/models 2>/dev/null \
+    | python3 -c 'import sys,json
+try:
+ d=json.load(sys.stdin); print(int((d.get("data") or [{}])[0].get("max_model_len") or 0))
+except Exception:
+ print(0)' || echo 0)
+  if [[ "${_tlen:-0}" -ge "$NEED_TEACHER_LEN" ]]; then
+    log "teacher max_model_len=$_tlen ≥ $NEED_TEACHER_LEN — n80 gate clear"
+    break
+  fi
+  if (( _ti % 12 == 0 )); then
+    log "waiting teacher max_model_len≥$NEED_TEACHER_LEN (have=${_tlen:-0}) poll=$_ti"
+  fi
+  sleep 5
+done
+if [[ "${_tlen:-0}" -lt "$NEED_TEACHER_LEN" ]]; then
+  log "ABORT: teacher still max_model_len=${_tlen:-0} < $NEED_TEACHER_LEN after wait"
+  echo "aborted_teacher_short_ctx len=${_tlen:-0} $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+    >/root/logs/r3_pipeline.aborted
+  exit 1
+fi
+
 N80_MAX_ATTEMPTS=${N80_MAX_ATTEMPTS:-3}
 # Fresh block_hash per attempt (H32/H34/R3): default 0*64 dies teacher 400 @~40/80.
 # Prefer leaving n80 to retry_h*_n80.sh when watch_n80_retry is armed — dual launch races.
