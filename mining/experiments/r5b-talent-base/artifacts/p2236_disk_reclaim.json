@@ -1,0 +1,12 @@
+{
+  "pass": 2236,
+  "utc": "2026-08-12T11:06:20Z",
+  "pod": "mine-r4-fullft-1",
+  "issue": "Talent snapshot_download ENOSPC on /lium-cipher (/root 98% → 21G free)",
+  "reclaimed_giB_approx": 731,
+  "disk_after": {"used": "225G", "avail": "752G", "use_pct": 23},
+  "removed": ["h122/train", "h135", "h138", "h139", "h101", "kevin954", "pandora-box", "ckp333", "Tok af10", "genesis cache", "uv/vllm caches"],
+  "kept": ["teacher GLM", "guass", "Talent partial", "winner_za_high_l2.jsonl (406 lines)", "mining_src R5b overlay"],
+  "bootstrap_pid": 151889,
+  "status": "Talent DL relaunched; resume from ~40G"
+}
