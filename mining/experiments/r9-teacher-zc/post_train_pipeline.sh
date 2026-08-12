@@ -14,9 +14,9 @@ exec > >(tee -a "$LOG") 2>&1
 
 echo "[r9-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) start p2154"
 
-# Crown remove_at≈2026-08-12T14:36Z (p2164 +12h) → soft=TTL−1h, deadman=TTL−30m (LESSONS).
-SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-12T13:35:59Z}
-DEADMAN_UTC=${DEADMAN_UTC:-2026-08-12T14:05:59Z}
+# Crown Removal 2026-08-13T02:35:59Z (p2182 +12h) → soft=TTL−1h, deadman=TTL−30m (LESSONS).
+SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-13T01:35:59Z}
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-13T02:05:59Z}
 
 TRAIN_DIR=${TRAIN_DIR:-/root/h99/train}
 ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
@@ -582,7 +582,19 @@ COMMON=(
   --additional-config '{"gdn_prefill_backend": "triton"}'
 )
 
-echo "[r9-pipe] launching chall :8002 on $LINK"
+# B300 serve env (LESSONS / restore_warm_stack): cu13 CUDA_HOME + flashinfer off.
+# Do NOT put cu13/bin on PATH. Missing CUDA_HOME → nvcc EngineDead (p2187).
+export CUDA_HOME=${CUDA_HOME:-/root/venv/lib/python3.12/site-packages/nvidia/cu13}
+export CUDA_PATH=$CUDA_HOME
+export LD_LIBRARY_PATH=$CUDA_HOME/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+export VLLM_USE_FLASHINFER_SAMPLER=0
+export VLLM_ALLREDUCE_USE_FLASHINFER=0
+export VLLM_USE_FLASHINFER_MOE_FP16=0
+export VLLM_USE_FLASHINFER_MOE_FP4=0
+export VLLM_USE_FLASHINFER_MOE_FP8=0
+
+echo "[r9-pipe] launching chall :8002 on $LINK (CUDA_HOME=$CUDA_HOME)"
 CUDA_VISIBLE_DEVICES=4,5 TRITON_CACHE_DIR=/root/.triton/cache/chall \
   nohup /root/venv/bin/vllm serve "$LINK" \
     --port 8002 --gpu-memory-utilization 0.72 \

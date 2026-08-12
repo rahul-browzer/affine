@@ -42,13 +42,16 @@ def main() -> None:
     for k in vis_keys:
         shard_to_keys.setdefault(b_map[k], []).append(k)
 
+    # Clone off safetensors mmap before dropping the blob — otherwise
+    # save_file can hit EFAULT / "Bad address" (os error 14) after del blob
+    # (seen on crown R9 merge p2187).
     tensors = {}
     for shard, keys in shard_to_keys.items():
         path = args.base / shard
         print(f"[graft] loading {len(keys)} keys from {shard}", flush=True)
         blob = load_file(str(path), device="cpu")
         for k in keys:
-            tensors[k] = blob[k]
+            tensors[k] = blob[k].detach().contiguous().clone()
         del blob
 
     out_shard = args.merged / args.shard_name

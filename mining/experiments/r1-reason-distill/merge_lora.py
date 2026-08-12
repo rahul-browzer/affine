@@ -51,11 +51,14 @@ def _graft_visual_weights(base: Path, out: Path) -> dict:
     for k in vis_keys:
         shard_to_keys.setdefault(b_map[k], []).append(k)
 
+    # Clone off safetensors mmap before dropping the blob — otherwise
+    # save_file can hit EFAULT / "Bad address" (os error 14) after del blob
+    # (seen on crown R9 merge p2187).
     tensors = {}
     for shard, keys in shard_to_keys.items():
         blob = load_file(str(base / shard), device="cpu")
         for k in keys:
-            tensors[k] = blob[k]
+            tensors[k] = blob[k].detach().contiguous().clone()
         del blob
 
     shard_name = "model-visual.safetensors"

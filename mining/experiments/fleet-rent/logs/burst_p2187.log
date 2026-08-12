@@ -1,0 +1,17 @@
+[fleet-rent] SKIP_PID_LOCK=1 pass-burst (pidfile left for long waiter)
+[fleet-rent] 2026-08-12T04:29:31Z start target=25 cap=25 empty_sleep=0.35s parallel=22 max_iters=500 pass=2187 mode=api-unfiltered-8x-POST-rent template=da582e38
+[fleet-rent] 2026-08-12T04:29:32Z live_mines=mine-crown-1 mine-r3-grpo-1 mine-r4-fullft-1|count=3
+[fleet-rent] 2026-08-12T04:29:33Z iter=1 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118859.53969050403 USD
+[fleet-rent] 2026-08-12T04:29:57Z iter=41 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118859.53969050403 USD
+[fleet-rent] 2026-08-12T04:30:28Z iter=81 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:30:52Z iter=121 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:31:17Z iter=161 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:31:41Z iter=201 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:32:05Z iter=241 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:32:29Z iter=281 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:32:53Z iter=321 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:33:17Z iter=361 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:33:41Z iter=401 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:34:04Z iter=441 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:34:30Z iter=481 api-empty B300/B200×8; mine=3/25 (cap 25) next=mine-r24-longctx-1 mine-r25-hitemp-1 mine-r26-lotemp-1 mine-r27-bigg-1 mine-r28-hilr-1 mine-r29-hirank-1… bal=Current balance: 118838.13769121944 USD
+[fleet-rent] 2026-08-12T04:34:41Z TIMEOUT after 500 iters — mine_count=3
