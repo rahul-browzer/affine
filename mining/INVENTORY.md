@@ -6,9 +6,9 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | **R2bh** IntoLayer n80 ~12/80 |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | **R3b** train ~step36 |
-| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove 2026-08-12T20:57Z | **R6** merge+n80 continue |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | **R2bh** IntoLayer n80 ~25/80 |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | **R3b** train ~step39 |
+| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove 2026-08-12T20:57Z | **R6** n80 ~40/80 |
 | *(pending fleet)* | mine-r7…r32 | 8×B300 | ~$64 | rent **2784801** POST-rent + boot **2756348** | R7–R32 |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
@@ -22,6 +22,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T00:23Z | p2142: R6 n80 live ~40/80; B300×8=0 (API); burn **$180.25/h** |
 | 2026-08-12T00:16Z | p2141: R6 train.done→merge; n80-continue armed; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T00:09Z | p2140: R2bg REFUTE; R2bh reload; B300×8=0; burn **$180.25/h**; fleet pid2784801 |
-| 2026-08-11T23:58Z | p2139: fleet→**api-POST-rent** pid2784801; B300×8=0; burn **$180.25/h** |
