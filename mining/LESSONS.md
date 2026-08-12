@@ -21,7 +21,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
   king. Re-sim if the crown changed since the screen.
 
 ## Ops (still true — details in legacy archive if needed)
-- Soft/Dead = **Removal−1h / Removal−30m** from `lium describe` `billing.removal_scheduled_at` — never wall-clock `+Nh` (p2177 R12 Soft after Removal; p2237 R5b `upload_and_launch` used `+23h` → Soft 10:01Z after Removal 08:57Z; patch mine.env + kill/relaunch post_train; launcher now reads Removal). Fleet QUEUE must drop REFUTED axes and axes live under another pod name.
 - p2242: QUEUE launchers R22/R23/R27–R32 Soft/Dead now from `lium describe` Removal−1h/−30m (was wall-clock +23h like p2237).
 - Live corpus is **schema v2** (Parquet index + chunks). `sync_corpus.sh` must accept `turns_index.parquet`, not only `turns.jsonl`.
 - Schema-v2 Reason sim needs **pandas + pyarrow** in the pod venv (`CorpusSync` reads parquet). vLLM-only installs miss them — pin in `restore_warm_stack.sh`.
@@ -147,5 +146,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - B200 **chall** same hang + short `/v1/completions` smoke ≠ n80-promptable: missing `__triton_launcher.so` → EngineDead FALSE_PROBE (p2246 R25). Fix: `--enforce-eager` + seed king/teacher → **diverse writable warm** (short/med/long/4k) → `chmod -R a-w` TCACHE → post-freeze warm; then n80 with `PYTHONPATH=/root/mining_src/affine_pkg`.
 - After :8001 king swap, re-check `post_train` environ KING_* (p2217 R24). **Reuse pod:** archive prior-axis `adapter/` + `r3_sim_result.json` **before** warm-arm form-dec (p2218 leftover merge; **p2244** form-dec instant-wrote R21/R26 then exited — R19/R33 re-armed).
 - Teacher `/health`=200 ≠ duel-ready: R24 left :8000 at **32768** while king@65536 — post_train only checks HTTP. Arm train.done→relaunch teacher@**65536** before n80 (p2220). **Also gate n80** on `max_model_len≥65536` (abort `aborted_teacher_short_ctx`) so post cannot race tmax mid-gather (p2221).
-- `watch_form_decision.sh` → `write_reason_decision.py` (margin > k_sigma·SE, bar=1.0); never `write_merge_decision` 0.04 bar (p2227). Fresh-rent stacks must **pack** `r1-reason-distill/write_reason_decision.py` — R5b p2225 prestage omitted it (p2228); R19 Tok-king bootstrap also retargeted → guass.
-
+- `watch_form_decision.sh` → `write_reason_decision.py` (margin > k_sigma·SE, bar=1.0); never `write_merge_decision` 0.04 bar (p2227). Pack `write_reason_decision.py` on fresh rents.
+- B200 mid-n80: GPUs can go NVML **Unknown Error** (p2247 R25 gpu1/2) — new CUDA inits fail while old vLLM may linger. Persist merge under `/root/` before `lium reboot`; if REBOOT_FAILED, migrate n80 via HF pull onto a healthy warm TKC pod.

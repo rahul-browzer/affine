@@ -9,8 +9,8 @@
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — live king=**guass** reign6 (p2206); R2bm was guass-as-chall vs ckp333 |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **REFUTED** · n80 m=**+0.00232** z=0.245 hr0.12× (p2190) |
-| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open — PRIORITY** · train.done→merge→serve (p2246) · n80 next |
-| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open — PRIORITY** · n80 gather~35/80 vs guass (p2246 warm/freeze) |
+| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **SIGNAL_POS_BELOW** · vs guass n80 m=**+0.00828** z=**0.68** hr**0.34×** (p2247) |
+| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open — PRIORITY** · R25 box GPU1/2 dead; n80 via R24 HF pull / post-reboot (p2247) |
 | 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **REFUTED** · vs guass n80 m=**+0.00192** z=0.19 hr0.10× (p2235) |
 | 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · `mine-r27-bigg-1` · p2101 armed |
 | 28 | R28 | Tok GRPO lr=2e-5 beats R3 5e-6 (isolates LR vs R3b) | **open** · `mine-r28-hilr-1` · p2102 armed |
@@ -92,7 +92,7 @@
 - **R15 REFUTED** p2205: n80 m=**−0.0268** SE=0.0119 z=−2.25 hr=−1.12× vs ckp333 (chall z̄=670 vs king 373). Dir: `experiments/r15-pandora-rl/`.
 - **R16** REFUTED p2196. Dir: `experiments/r16-golden-rl/`.
 - **R20 REFUTE** vs guass m=−0.0196 z=−2.13 (p2211). Dir: `experiments/r20-kevin-grpo/`.
-- **R24** Tok LongCtx-GRPO on `mine-r3` pid**88309** max_len=16384/new=1024 (p2205). Dir: `experiments/r24-longctx-grpo/`.
+- **R24** Tok LongCtx-GRPO n80 vs guass: m=+0.00828 z=0.68 hr0.34× → SIGNAL_POS_BELOW (p2247). Dir: `experiments/r24-longctx-grpo/`.
 
 ### R10 / R11 / R12 / R13
 - **R10/R18 BLOCKED** p2224: `ammazon/…-sbs-v2@6f1b8e68` `repo_info` public but index **403** — demoted; fleet next=**R5b**.
@@ -104,7 +104,7 @@
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300
-- Live: **R24** R3 · **R21** R4 · **R25**/R26 B200. Queue: **R5b** → R19 → R22 → R23 → R27–R32. Submit iff margin > live **k_sigma·SE** (1.5× retired 2026-08-12).
+- Live: R24 done on R3 (now pulling R25); **R19** R4; **R33** crown; R25 reboot-failed. Queue: R22 → R23 → R27–R32. Submit iff margin > live **k_sigma·SE**.
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
