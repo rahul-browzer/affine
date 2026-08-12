@@ -1,3 +1,12 @@
+## p2140 — R2bg REFUTE; R2bh IntoLayer reload live (2026-08-12T00:08Z)
+
+- **R2bg** pure cp1266 n80 done: margin **−0.00191** · SE **0.00507** · z=**−0.38** · live kσ=2 → thr **0.0101** · hr **−0.19×** → **REFUTE** / Stage-5 SKIP.
+- Sim stamped k_sigma=3.0 (stale local); live contract k=2.0 — still REFUTE (margin < 0).
+- Artifacts: `artifacts/r2bg_cp1266_decision.json`, `artifacts/r2bg_cp1266_reason_sim.json`, `artifacts/r2bg_cp1266_refute_p2140.json`.
+- **R2bh** auto-gated: stopped old chall, launched IntoLayer@9b6bc52c on :8002 (pid256483 loading); stage5 watcher armed.
+- B300/B200×8 stock still **0**; fleet api-POST-rent pid**2784801**; burn **$180.25/h** vs $833.
+- Next: wait R2bh n80; rent B300 if stock.
+
 ## p2138 — R2bh IntoLayer chal-00516 armed (2026-08-11T23:54Z)
 
 - B300/B200×8 stock still **0** (fleet api-unfiltered-8x pid**2771543**); burn **$180.25/h** vs $833.

@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-12T00:08:15Z",
+  "pass": 2140,
+  "hyp": "R2bg",
+  "contract": "Reason v3",
+  "chall_repo": "afgod1079/Affine-5hgjp6jaqp-cp1266",
+  "chall_rev": "68d1daa2a846d9f9e7ab9b8acfb304683f719be2",
+  "chal": "chal-00514",
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "n_paired_turns": 80,
+  "margin": -0.0019138787866676706,
+  "se": 0.0050674346637738085,
+  "z": -0.37768198578851947,
+  "sim_k_sigma": 3.0,
+  "live_k_sigma": 2.0,
+  "threshold_live_2se": 0.010134869327547617,
+  "headroom_vs_live_2se": -0.18884199289425974,
+  "decision": "REFUTE",
+  "stage5": "SKIP_BELOW_BAR",
+  "note": "Negative margin ⇒ REFUTE under both sim k=3 and live k=2. R2bh IntoLayer reload started immediately after."
+}
