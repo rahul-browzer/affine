@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-12T05:41:27Z",
+  "pass": 2190,
+  "iters": 800,
+  "result": "empty",
+  "mine_count": 3,
+  "b300x8": 0,
+  "b200x8": 0,
+  "next_queue": "mine-r24-longctx-1",
+  "change": "SKIP_PID_LOCK=1 800-iter pass-burst; waiter pid3164256 SIGSTOP→CONT; QUEUE drop R14 (live on mine-r4)",
+  "balance_usd": 118546.45456810965
+}

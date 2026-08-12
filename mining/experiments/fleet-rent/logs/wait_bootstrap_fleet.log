@@ -520,3 +520,15 @@ UPLOAD_AND_LAUNCH_OK pod=mine-r4-fullft-1 2026-08-11T20:59:34Z
 [fleet-boot] 2026-08-12T05:24:26Z iter=4126 rented_stamps=1 bootstrapped=1
 [fleet-boot] 2026-08-12T05:25:41Z iter=4141 rented_stamps=1 bootstrapped=1
 [fleet-boot] 2026-08-12T05:26:56Z iter=4156 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:28:11Z iter=4171 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:29:26Z iter=4186 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:30:41Z iter=4201 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:31:57Z iter=4216 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:33:12Z iter=4231 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:34:27Z iter=4246 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:35:42Z iter=4261 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:36:57Z iter=4276 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:38:12Z iter=4291 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:39:27Z iter=4306 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:40:42Z iter=4321 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T05:41:57Z iter=4336 rented_stamps=1 bootstrapped=1

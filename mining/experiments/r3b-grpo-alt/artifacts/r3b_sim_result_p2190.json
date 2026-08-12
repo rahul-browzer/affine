@@ -1,0 +1,69 @@
+{
+  "elapsed_s": 126.80220246315002,
+  "king_repo": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "chall_repo": "/tmp/r3_merged",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+  "hotkey": "local-r3",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": 0.0023158162527166294,
+    "se": 0.009445110931140548,
+    "z": 0.24518677118776647,
+    "k_sigma": 2.0,
+    "n_paired_turns": 79,
+    "ranking_formula": "Reason = lpC(y_C|z_A) \u2212 lpC(y_C|\u2205)",
+    "duel_params": {
+      "n_turns": 80,
+      "k_sigma": 2.0
+    },
+    "king": {
+      "reason": -0.018243401056772485,
+      "n_turns": 80,
+      "n_pairs": 80,
+      "gate_pass_rate": 0.0,
+      "bank_frac": null,
+      "calib_ratio": null,
+      "baseline_abs": null,
+      "mean_l1lift": null,
+      "mean_eta": 1.4639527843415017,
+      "mean_len_z": 350.575,
+      "mean_len_y": 357.55,
+      "len_z_delta": 96.46249999999998,
+      "len_y_delta": -18.76249999999999
+    },
+    "challenger": {
+      "reason": -0.01628990908849113,
+      "n_turns": 80,
+      "n_pairs": 79,
+      "gate_pass_rate": 0.0,
+      "bank_frac": null,
+      "calib_ratio": null,
+      "baseline_abs": null,
+      "mean_l1lift": null,
+      "mean_eta": -0.05981300827484774,
+      "mean_len_z": 461.1012658227848,
+      "mean_len_y": 243.8227848101266,
+      "len_z_delta": 206.98876582278479,
+      "len_y_delta": -132.4897151898734
+    },
+    "teacher": {
+      "mean_len_z": 254.1125,
+      "mean_len_y": 376.3125
+    },
+    "duel_seconds": 126.8006167029962,
+    "slice": {
+      "seed": 14245649582028781142,
+      "n": 80,
+      "digest": "04cafe775023a19a6b6f774ec89280a7c1deaffd926f9158d22caf7aed0d4504",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000001",
+      "corpus_epoch": 8,
+      "manifest_sha256": "68a38fe1a9a426ceb6eb342e061c7062ee7f481b60d3e51aa49d08efeaddbfbc"
+    }
+  },
+  "h4": {
+    "chall_r": null,
+    "chall_baseline_abs": null,
+    "king_baseline_abs": null
+  }
+}

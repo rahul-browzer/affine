@@ -8,7 +8,7 @@
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bn REFUTE** p2186; **R9 REFUTE** p2189; R2bm REFUTE |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
-| 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open — PRIORITY** · train.done→graft+n80 vs ckp333 (p2189) |
+| 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **REFUTED** · n80 m=**+0.00232** z=0.245 hr0.12× (p2190) |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
 | 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · `mine-r25-hitemp-1` · p2099 armed |
 | 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open** · `mine-r26-lotemp-1` · p2100 armed |
@@ -31,7 +31,7 @@
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **REFUTED** · n80 m=**−0.0055** z=−0.82 hr−0.41× vs ckp333 (p2175) |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **REFUTED** · n80 m=**+0.00085** z=0.06 hr0.03× vs ckp333 (p2188) |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **REFUTED** · n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333 (p2189) |
-| 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open** · `mine-r14-kevin-rl-1` · p2087 armed |
+| 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r4-fullft-1` train pid116630 (p2190) |
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open** · `mine-r15-pandora-rl-1` · p2088 armed |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open** · `mine-r16-golden-rl-1` · p2089 armed |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open** · `mine-r17-coder-rl-1` · p2091 armed |
@@ -62,10 +62,8 @@
 ### R3 — RL on Reason
 - **REFUTED** p2127: n80 m=+0.0094 SE=0.00706 z=1.33 < k=2 (hr0.66×); Stage-5 SKIP. Adapter `/root/r3/train_r3_final`. Dir: `experiments/r3-reason-grpo/`.
 
-### R3b — GRPO alt-LR/rank (PRIORITY)
-- Same reward/data as R3; knobs lr=**2e-5** r=**64**/α128 G=**8**. p2127 launched on warm `mine-r3-grpo-1` (T/K up; GPUs6–7). Dir: `experiments/r3b-grpo-alt/`.
-- **p2163:** king pre-swapped Tok→ckp333 while train ~step99/200; post_train skips `RESTART_KING` if `:8001` already ckp333.
-- **p2171:** post_train now writes `r3_decision.json` via `write_reason_decision --hyp R3b --k-sigma 2.0`; pod `watch_r3b_decision.sh` armed; stale R3 REFUTED dec archived.
+### R3b — GRPO alt-LR/rank
+- **REFUTED** p2190: n80 m=**+0.00232** SE=0.00945 z=0.245 hr**0.12×**(live 2σ) → Stage-5 SKIP. Dir: `experiments/r3b-grpo-alt/`.
 
 ### R4 — Full-FT
 - **REFUTED** p2116: n80 m=−0.0077 z=−0.76 (salvage ckpt-26 lr1e-6 ep1). Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.
@@ -86,17 +84,20 @@
 ### R8 — REINFORCE on Reason
 - **REFUTED** p2158: n80 m=**−0.0273** SE=0.0167 z=−1.64 hr=−0.82× vs ckp333 — Stage-5 SKIP. Dir: `experiments/r8-reinforce-reason/`.
 
-### R10 / R11 / R12
+### R14 — kevin954-init REINFORCE (PRIORITY)
+- Warm-armed p2190 on `mine-r4-fullft-1` (after /lium-cipher reclaim); train pid**116630** GPUs6–7 → n80 vs ckp333. ≠ R8 Tok-init. Dir: `experiments/r14-kevin-rl/`.
+
+### R10 / R11 / R12 / R13
 - **R10 blocked** p2162: `ammazon/Affine-5dvqtektxx-sbs-v2` gated 403 for unconst — need Hub access or public merge parent before arm.
-- **R11 REFUTED** p2175: online-DPO n80 m=**−0.0055** SE=0.00671 z=−0.82 hr−0.41× vs ckp333 (n=76). Stage-5 SKIP. Artifacts `r11-online-dpo/artifacts/p2175_r11_refute.json`.
-- **R12 REFUTED** p2188: BoN-CE n80 m=**+0.00085** SE=0.0143 z=0.06 hr0.03× vs ckp333 (n=78). Stage-5 SKIP. Artifact `r12-bon-reason/artifacts/p2188_r12_refute.json`.
-- **R13 live** p2188: offline-DPO (604 prefs, β=0.1) lean warm-arm on `mine-r4-fullft-1` GPUs6–7 after R12; Soft/Dead from Removal. Dir: `experiments/r13-offline-dpo/`.
+- **R11 REFUTED** p2175: online-DPO n80 m=**−0.0055** SE=0.00671 z=−0.82 hr−0.41× vs ckp333 (n=76). Stage-5 SKIP.
+- **R12 REFUTED** p2188: BoN-CE n80 m=**+0.00085** SE=0.0143 z=0.06 hr0.03× vs ckp333. Stage-5 SKIP.
+- **R13 REFUTED** p2189: offline-DPO n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333. Stage-5 SKIP.
 
 ### R24–R32 — structural GRPO knobs (fleet-queued)
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300 (R24 first)
-- Live: crown **R9** (n80) · R3b GRPO · **R13** offline-DPO. Queue: **R24** → R25–R32 …. Submit iff hr ≥ 1.5×(2·SE).
+- Live: crown idle · R3 idle · **R14** kevin-REINFORCE on R4. Queue: **R24** → R25–R32 · R5b · R10 · R15…. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.

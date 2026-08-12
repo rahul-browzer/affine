@@ -1,0 +1,11 @@
+deadline_patch soft 1 dead 1 2026-08-12T19:57:47Z 2026-08-12T20:27:47Z
+-rw-rw-r-- 1 const const 416K Aug 12 05:30 /tmp/mine-r14-warm-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-r14-kevin-rl
+HF_OK unconst/Affine-5czsc2fc98-r14-kevin-rl-lora
+LEAN_PID=115115
+[r14-lean] 2026-08-12T05:31:02Z start
+[r14-lean] DOWNLOAD kevin-init start kevin954/Affine-5dfqbbh8ev-sft 6a5815fad8f4e34c983b1933c1fae5762fe25220
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files:   8%|▊         | 1/12 [00:00<00:02,  4.58it/s]Fetching 12 files:  42%|████▏     | 5/12 [00:00<00:00, 18.19it/s]Fetching 12 files:  67%|██████▋   | 8/12 [00:00<00:00, 17.57it/s]    PID     ELAPSED CMD
+ 115115 441077227-18:26:40 bash /root/mining_src/r14-kevin-rl/lean_warm_boot.sh
+t=200 k=200
+R14_WARM_ARM_OK pod=mine-r4-fullft-1 soft=2026-08-12T19:57:47Z dead=2026-08-12T20:27:47Z 2026-08-12T05:31:17Z

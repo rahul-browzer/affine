@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-12T05:39:45Z",
+  "pass": 2190,
+  "axis": "R14",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "method": "kevin_reinforce_teacher_reason",
+  "base": "kevin954/Affine-5dfqbbh8ev-sft@6a5815fa",
+  "data": "s4-h27 winner_za_high_l1.jsonl",
+  "n_examples": 406,
+  "train_pid": 116630,
+  "gpus": "6,7",
+  "king_n80": "tolegend/Affine-5fqbxvz29b-ckp333@24c137e8",
+  "soft": "2026-08-12T19:57:47Z",
+  "dead": "2026-08-12T20:27:47Z",
+  "remove": "2026-08-12T20:57:47Z",
+  "hf": [
+    "unconst/Affine-5czsc2fc98-r14-kevin-rl",
+    "unconst/Affine-5czsc2fc98-r14-kevin-rl-lora"
+  ],
+  "disk_note": "first DL failed: /root on /lium-cipher 61G free; freed h137+genesis (~268G) → retry OK",
+  "watch": "tail -f /root/logs/h135_train.nohup; /root/logs/r14_post_train.nohup"
+}

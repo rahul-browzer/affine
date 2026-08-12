@@ -1,10 +1,16 @@
-# R3b — GRPO alt-LR/rank results
+# R3b — GRPO alt-LR/rank vs ckp333
 
-## p2127 — launched on mine-r3-grpo-1 (2026-08-11T23:03Z)
+**Decision: REFUTE** (p2190) — `SIGNAL_POS_BELOW_KSIGMA`
 
-- **Why here:** R3 REFUTE on this pod; T/K warm; GPUs 6–7 free; no free 8×B300 to rent `mine-r3-grpo-2`.
-- **Knobs:** lr=2e-5, LoRA r=64/α128, G=8, max_new=512, max_steps=200, Tok af10 init, reward=Reason.
-- **Train pid:** 51672 · log `/root/logs/r3_train.nohup` · meta `r3b_train_launched.json`.
-- **Post-train:** `post_train_pipeline.sh` waiting on `train.done` → `/tmp/r3_merged` → n80.
-- **Fleet:** removed `mine-r3-grpo-2` from rent QUEUE (no duplicate axis).
-- **Check:** `ssh -p 40051 root@204.9.206.245 'tail -f /root/logs/r3_train.nohup'`
+| metric | value |
+|---|---|
+| margin | **+0.00232** |
+| SE | 0.00945 |
+| z | 0.245 |
+| live 2σ thr | 0.01889 |
+| headroom vs 2σ | **0.123×** (need ≥1.5×) |
+| reason_c / reason_k | −0.0163 / −0.0182 |
+| n_paired | 79 |
+
+Artifacts: `artifacts/r3b_decision_p2190.json`, `artifacts/r3b_sim_result_p2190.json`.
+Stage-5 SKIP. Alt knobs (lr=2e-5 r=64 G=8) do not clear live crown bar.

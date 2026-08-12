@@ -67,7 +67,8 @@ QUEUE = [
     # R12 live on mine-r4-fullft-1 (p2177 Soft/Dead TTL-fixed) — do not re-rent as mine-r12-bon-1.
     # R13 live on mine-r4-fullft-1 (p2188 warm-arm after R12 REFUTE) — do not re-rent.
     # ("mine-r13-odpo-1", "R13", "offline DPO on duel Reason prefs"),
-    ("mine-r14-kevin-rl-1", "R14", "kevin954-init REINFORCE on teacher Reason"),
+    # R14 live on mine-r4-fullft-1 (p2190 warm-arm after R13 REFUTE) — do not re-rent.
+    # ("mine-r14-kevin-rl-1", "R14", "kevin954-init REINFORCE on teacher Reason"),
     ("mine-r15-pandora-rl-1", "R15", "pandora-box-init REINFORCE on teacher Reason"),
     ("mine-r16-golden-rl-1", "R16", "golden-crown-init REINFORCE on teacher Reason"),
     ("mine-r17-coder-rl-1", "R17", "Qwen3-Coder base REINFORCE on teacher Reason"),
