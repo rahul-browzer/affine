@@ -11,31 +11,31 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 |---|---|
 | contract | wvk=**3** · `k_sigma=2.0` · reason_only · n_turns=2080 |
 | king | `Tok331102/affine-5EqYW8McUc-af10` @ `eb8bf9a…` reign 4 |
-| challenge | chal-00501 scoring (~1156/2080); queue +chal-00502…517 |
+| challenge | chal-00501 scoring (~1345/2080); queue +chal-00502…517 |
 | miner burn | **$180.25/h** · floor $833/h · **gap −$653/h** |
 | B300 stock | **0** free 8×B300/B200 · fleet **api-POST-rent** pid**2840405** |
-| Lium bal | ~$119,736 · floor $10k OK |
+| Lium bal | ~$119,714 · floor $10k OK |
 | submissions | 0 |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2bj** saysth prefetch→chall+n80; **R9** LoRA ~step33/354 |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO ~step57 |
-| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R6b** long-z LoRA ~step101/132 |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R2bj** saysth chall loading :8002 + **R9** LoRA ~step39/354 |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R3b** GRPO ~step59 |
+| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R6b** long-z LoRA ~step114/132 |
 | host fleet-rent | pid**2840405** | — | **api-POST-rent** (R7 next) |
 | host fleet-boot | pid**2756348** | — | POLL=5s / 86400iters |
 | host hist bridge | pid**2860424** | — | +chal-00517 |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099` · R3/R3b: `ssh root@204.9.206.245 -p 40051`
 SSH R4/R6b: `ssh root@86.38.182.50 -p 40307`
-R2bj: `tail -f /root/logs/r2bj_saysth_reload.log` · prefetch `r2_prefetch_saysth_v9a.log` · dec `r2bj_saysth_decision.json`
+R2bj: `tail -f /root/logs/r2bj_saysth_reload.log` · chall pid**269023** · dec `r2bj_saysth_decision.json`
 R9: `tail -f /root/logs/h99_train.nohup` · gate post_train on R2bj terminal
 R3b: `tail -f /root/logs/r3_train.nohup` · pipe `r3_pipeline.nohup`
 R6b: `tail -f /root/logs/h101_train.nohup` · post `h101_post_train.nohup` · dec `h101_decision.json`
 Fleet: `tail -f experiments/fleet-rent/logs/wait_fleet_b300.log`
-**p2147:** R2bi **UNSERVABLE** (Glm4Moe); armed **R2bj** pure saysth@6e13f365; B300×8=0; burn **$180.25/h**.
+**p2148:** R2bj reload **dead** mid-prefetch → **relaunched** pid**268926**; chall loading GPUs4–5; B300×8=0; burn **$180.25/h**.
 
 ## Blocked
 No free 8×B300/B200. Cannot hit $833/h burn until stock returns.

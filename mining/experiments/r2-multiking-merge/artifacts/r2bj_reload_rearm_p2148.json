@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-12T01:04:14Z",
+  "pass": 2148,
+  "hyp": "R2bj",
+  "action": "relaunch_reload_after_dead_mid_prefetch_wait",
+  "parent": "saysth/Affine-5dtnxamt4t-v9a",
+  "revision": "6e13f365b36000cf631aad2fa9fb05fdabae0044",
+  "prefetch_done": "2026-08-12T01:00:31Z",
+  "prior_reload_pid_dead": 268055,
+  "new_reload_pid": 268926,
+  "chall_vllm_pid": 269023,
+  "board_chal00440_hr_vs_3se": 0.7278,
+  "board_reason_not_installed": true,
+  "note": "Do not copy chal00440_reason.json onto pod — SKIP_BOARD_FIRST would abort; need local n80 (R2q never finished). Chall loading GPUs4–5 ~135GiB; wait PROMPTABLE→n80.",
+  "check": "tail -f /root/logs/r2bj_saysth_reload.log; curl :8002/v1/models; dec /root/affine_data/r2bj_saysth_decision.json",
+  "fleet": "API B300/B200×8=0; burn $180.25/h; bal~$119714"
+}
