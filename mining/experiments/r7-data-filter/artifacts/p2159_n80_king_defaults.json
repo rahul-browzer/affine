@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-12T02:02:07Z",
+  "pass": 2159,
+  "action": "patch_r7_n80_king_defaults_ckp333",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "patched_on_pod": [
+    "/root/mining_src/s4-h121-f26-full-ft/retry_h121_n80_d203first.sh",
+    "/root/mining_src/s4-h121-f26-full-ft/retry_h121_n80_longwait.sh"
+  ],
+  "patched_local": [
+    "experiments/s4-h121-f26-full-ft/retry_h121_n80_d203first.sh",
+    "experiments/s4-h121-f26-full-ft/retry_h121_n80_longwait.sh",
+    "experiments/s4-h121-f26-full-ft/post_train_pipeline.sh"
+  ],
+  "king_repo": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "note": "retry defaults were still Tok af10; mine.env already exported ckp333 so live post_train was OK — harden fallbacks so n80 cannot silently score vs retired king if env missing",
+  "r7_train": "10/28 @ ~19s/it top250 Reason kept=112/250",
+  "b300x8_stock": 0,
+  "burn_usd_h": 180.25
+}

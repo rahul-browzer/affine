@@ -21,8 +21,8 @@ fi
 export PYTHONPATH=/root/mining_src/affine_pkg${PYTHONPATH:+:$PYTHONPATH}
 export HF_HOME=${HF_HOME:-/root/hf}
 
-KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
-KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
+KING_REPO=${KING_REPO:-tolegend/Affine-5fqbxvz29b-ckp333}
+KING_REV=${KING_REV:-24c137e8a978aea1e2b4abeec594fb6ca943f03c}
 MERGED=${MERGED:-/root/h121/merged}
 # p476: resolve symlink — vLLM model id is the real serve path (/tmp/hN_merged)
 if [[ -e "$MERGED" ]]; then MERGED=$(readlink -f "$MERGED"); fi

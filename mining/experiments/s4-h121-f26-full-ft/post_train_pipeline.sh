@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# After H121 train.done: finalize visual → chall:8002 → n80 vs Tok331102 king.
+# After H121 train.done: finalize visual → chall:8002 → n80 vs live king (reign-5 ckp333).
 set -euo pipefail
 
 # shellcheck disable=SC1091
@@ -15,9 +15,9 @@ export HF_HOME=${HF_HOME:-/root/hf}
 export PYTHONPATH=/root/mining_src/affine_pkg:${PYTHONPATH:-}
 
 BASE=${BASE:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
-KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
-KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
-KING_LOCAL=${KING_LOCAL:-$BASE}
+KING_REPO=${KING_REPO:-tolegend/Affine-5fqbxvz29b-ckp333}
+KING_REV=${KING_REV:-24c137e8a978aea1e2b4abeec594fb6ca943f03c}
+KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--tolegend--Affine-5fqbxvz29b-ckp333/snapshots/24c137e8a978aea1e2b4abeec594fb6ca943f03c}
 TRAIN_DIR=${TRAIN_DIR:-/root/h121/train}
 # Prefer /tmp staging — gocryptfs /root copytree hangs (WCHAN=request_wait_answer; p472).
 FULL_FT=${FULL_FT:-/tmp/h121_full_ft_save}

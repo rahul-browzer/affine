@@ -22,6 +22,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T02:02Z | p2159: R7 n80 defaults→ckp333; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T01:58Z | p2158: R8 REFUTE→R7 warm-arm; fleet next=R24; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T01:54Z | p2157: R8 n80 launched vs ckp333; B300×8=0; burn **$180.25/h** |
-| 2026-08-12T01:48Z | p2156: R2bl Bittoby v3 armed; R9↔R2bl wait; B300×8=0; burn **$180.25/h** |
