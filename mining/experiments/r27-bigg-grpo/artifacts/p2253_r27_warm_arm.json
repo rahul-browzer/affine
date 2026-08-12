@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-12T13:24:04Z",
+  "pass": 2253,
+  "action": "warm-arm R27 BigG-GRPO G=16 on idle mine-r4-fullft-1 after R19 SIGNAL_POS_BELOW",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "ssh": "ssh root@86.38.182.50 -p 40307",
+  "train_pid": 177775,
+  "post_pid": 177782,
+  "group_size": 16,
+  "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5",
+  "burst_next": "mine-r28-hilr-1",
+  "burst_pid": 4176223,
+  "soft": "2026-08-13T07:57:47Z",
+  "dead": "2026-08-13T08:27:47Z"
+}

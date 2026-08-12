@@ -1,0 +1,12 @@
+deadline_patch soft 1 dead 1 2026-08-13T07:57:47Z 2026-08-13T08:27:47Z
+-rw-rw-r-- 1 const const 429K Aug 12 13:19 /tmp/mine-r27-warm-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-r27-lora
+HF_OK unconst/Affine-5czsc2fc98-r27-merged
+LEAN_PID=177123
+[r27-lean] 2026-08-12T13:19:43Z start
+[r27-lean] DOWNLOAD tok-init (missing local /root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53)
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files:   9%|▉         | 1/11 [00:00<00:01,  5.98it/s]Fetching 11 files:  64%|██████▎   | 7/11 [00:00<00:00, 22.04it/s]Fetching 11 files:  82%|████████▏ | 9/11 [00:20<00:00, 22.04it/s]    PID     ELAPSED CMD
+ 177123 441077227-18:26:40 bash /root/mining_src/r27-bigg-grpo/lean_warm_boot.sh
+TRAIN_PID=166479
+t=200 k=200
+R27_WARM_ARM_OK pod=mine-r4-fullft-1 soft=2026-08-13T07:57:47Z dead=2026-08-13T08:27:47Z 2026-08-12T13:20:08Z

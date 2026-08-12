@@ -11,9 +11,10 @@ Claim: larger within-prompt sample groups give cleaner teacher-Reason
 advantages so LoRA updates move mean Reason farther per step than G=4.
 
 ## Pod
-`mine-r27-bigg-1` via fleet-rent (queue after R26, before parent-swap axes).
-8×B300 prefer. TTL 24h.
-Uploader: `upload_and_launch.sh` (fleet-boot case, pass 2101).
+**p2253:** warm-armed on idle TKC `mine-r4-fullft-1` (noble-orbit-9d)
+after R19 SIGNAL_POS_BELOW — `warm_arm_on_r4.sh` / `lean_warm_boot.sh`.
+Fleet QUEUE skips re-rent of `mine-r27-bigg-1` (next burst = R28).
+Full bootstrap still via `upload_and_launch.sh` if a fresh box is needed.
 
 ## Decision
 n80 vs **live guass** (reign-6); submit iff paired margin > live

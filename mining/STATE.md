@@ -14,11 +14,12 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | challenge | live `chal-00533` |
 | miner burn | **$180.25/h** · floor $833/h · **gap −$653/h** |
 | B300 stock | **0** free 8×B300/B200 (burst polling) |
-| Lium bal | ~$116,497 · floor $10k OK |
+| Lium bal | ~$116,453 · floor $10k OK |
 | submissions | 0 |
-| R19 | **SIGNAL_POS_BELOW** m=**+0.00673** z=0.75 hr**0.38×** (p2252) |
-| R23 | **WARM** on R3 — diane DL→train GPUs 6–7 |
-| R22 | **TRAINING** golden-GRPO on crown |
+| R19 | **SIGNAL_POS_BELOW** (archived on R4; slot→R27) |
+| R27 | **TRAINING** BigG G=16 on R4 (pid**177775**) |
+| R23 | **WARM** on R3 — diane DL→train |
+| R22 | **TRAINING** golden-GRPO on crown (~step 68) |
 | R10 / R18 | **BLOCKED** sbs-v2 index **403** |
 
 ## What's running
@@ -26,17 +27,17 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | name | huid | $/h | role |
 |---|---|---|---|
 | mine-crown-1 | gentle-orbit-bd | $52.25 | **R22** golden-GRPO train |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R23** diane DL→GRPO (lean 122037) |
-| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | idle TKC post-R19 (reuse next) |
-| host fleet-burst | pid**4156282** | — | snatch next **R27** (SKIP_PID_LOCK) |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R23** diane DL→GRPO |
+| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R27** BigG-GRPO G=16 |
+| host fleet-burst | pid**4176223** | — | snatch next **R28** (SKIP_PID_LOCK) |
 | host fleet-rent | pid**3373328** (**STOP**) | — | CONT if burst ends empty |
 | host fleet-boot | pid**3852238** | — | POLL=5s |
 
 SSH crown/R22: `ssh root@95.133.253.90 -p 40099` · R3/R23: `ssh root@204.9.206.245 -p 40051`
-SSH R4: `ssh root@86.38.182.50 -p 40307`
-Burst: `tail -f experiments/fleet-rent/logs/burst_p2252.log`
+SSH R4/R27: `ssh root@86.38.182.50 -p 40307`
+Burst: `tail -f experiments/fleet-rent/logs/burst_p2253.log`
+R27: `ssh … R4 'tail -f /root/logs/r3_train.nohup'`
 R23: `ssh … R3 'tail -f /root/logs/r23_lean_warm.log'`
-R19 art: `experiments/r19-talent-grpo/artifacts/p2252_r19_*.json`
 
 ## Blocked
 Under $833/h — need more 8×B300 (B200 fallback OK until B300 appears).
@@ -48,7 +49,7 @@ CLI `lium up` on one-shot templates can CREATION_FAIL — tear + keep burst poll
 slice vs the **current** king. No 1.5×. No absolute margin>0.04 bar.
 
 ## Next action
-1. Confirm R23 train+post_train after diane DL; await n80 → decision.
-2. Warm next QUEUE axis (**R27** BigG) on idle R4 TKC (or await burst rent).
+1. Await R27 train→merge→n80 on R4; form-dec vs guass (k=2.0).
+2. Confirm R23 train+post_train after diane DL; await n80 → decision.
 3. R22 train→merge→n80 on crown.
-4. Burst snatch → bootstrap R27+; do not leave CREATION_FAILED pods billing.
+4. Burst snatch → bootstrap **R28+**; do not leave CREATION_FAILED pods billing.

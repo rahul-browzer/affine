@@ -12,7 +12,7 @@
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **SIGNAL_POS_BELOW** · vs guass n80 m=**+0.00828** z=**0.68** hr**0.34×** (p2247) |
 | 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **REFUTED** · vs guass n80 m=**−0.00595** z=**−0.42** hr−0.21× (p2251) |
 | 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **REFUTED** · vs guass n80 m=**+0.00192** z=0.19 hr0.10× (p2235) |
-| 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · `mine-r27-bigg-1` · p2101 armed |
+| 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · warm on `mine-r4` · train pid**177775** p2253 |
 | 28 | R28 | Tok GRPO lr=2e-5 beats R3 5e-6 (isolates LR vs R3b) | **open** · `mine-r28-hilr-1` · p2102 armed |
 | 29 | R29 | Tok GRPO lora_r=64 beats R3 r=16 (isolates rank vs R3b) | **open** · `mine-r29-hirank-1` · p2104 armed |
 | 30 | R30 | Tok GRPO lora_alpha=128 r=16 beats R3 α=32 (isolates α vs R29) | **open** · `mine-r30-hialpha-1` · p2105 armed |
@@ -104,7 +104,7 @@
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300
-- Live: **R22** crown train; **R23** R3 diane warm; **R19** SIGNAL_POS_BELOW on R4 (idle TKC). Burst next: R27–R32. Submit iff margin > live **k_sigma·SE**.
+- Live: **R22** crown train; **R23** R3 diane DL→train; **R27** BigG on R4. Burst next: R28–R32. Submit iff margin > live **k_sigma·SE**.
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
