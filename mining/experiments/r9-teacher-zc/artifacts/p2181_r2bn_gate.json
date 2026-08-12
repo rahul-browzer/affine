@@ -1,0 +1,18 @@
+{
+  "pass": 2181,
+  "utc": "2026-08-12T03:54:34Z",
+  "action": "gate_r9_post_on_r2bn",
+  "why": "R9 post waited only through R2bm; R2bn alloy owns :8002 and would be yanked at train.done (~35 steps left)",
+  "pod": "mine-crown-1",
+  "post_pid_old": 292531,
+  "post_pid_new": 309957,
+  "train_pid": 262729,
+  "train_step_at_arm": "321/354",
+  "r2bn_paths": {
+    "dec": "/root/affine_data/r2bn_alloy_decision.json",
+    "hold": "/root/logs/r2bn_alloy_holding.stamp",
+    "pid": "/root/logs/r2bn_alloy_reload.pid"
+  },
+  "script": "/root/mining_src/r9-teacher-zc/post_train_pipeline.sh",
+  "backup": "/root/mining_src/r9-teacher-zc/post_train_pipeline.sh.pre_p2181"
+}
