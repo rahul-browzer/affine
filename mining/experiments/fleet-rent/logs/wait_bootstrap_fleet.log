@@ -574,3 +574,237 @@ UPLOAD_AND_LAUNCH_OK pod=mine-r4-fullft-1 2026-08-11T20:59:34Z
 [fleet-boot] 2026-08-12T06:32:01Z iter=4936 rented_stamps=1 bootstrapped=1
 [fleet-boot] 2026-08-12T06:33:16Z iter=4951 rented_stamps=1 bootstrapped=1
 [fleet-boot] 2026-08-12T06:34:31Z iter=4966 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:35:46Z iter=4981 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:37:01Z iter=4996 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:38:16Z iter=5011 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:39:31Z iter=5026 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:40:46Z iter=5041 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:42:01Z iter=5056 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:43:17Z iter=5071 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:44:32Z iter=5086 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:45:47Z iter=5101 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:47:02Z iter=5116 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:48:17Z iter=5131 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:49:32Z iter=5146 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:50:47Z iter=5161 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:52:02Z iter=5176 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:53:17Z iter=5191 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:54:32Z iter=5206 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:55:47Z iter=5221 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:57:03Z iter=5236 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:58:18Z iter=5251 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T06:59:33Z iter=5266 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:00:48Z iter=5281 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:02:03Z iter=5296 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:03:18Z iter=5311 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:04:33Z iter=5326 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:05:48Z iter=5341 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:07:03Z iter=5356 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:08:18Z iter=5371 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:09:33Z iter=5386 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:10:49Z iter=5401 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:12:04Z iter=5416 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:13:19Z iter=5431 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:14:34Z iter=5446 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:15:49Z iter=5461 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:17:04Z iter=5476 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:18:19Z iter=5491 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:19:34Z iter=5506 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:20:49Z iter=5521 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:22:04Z iter=5536 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:23:19Z iter=5551 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:24:35Z iter=5566 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:25:50Z iter=5581 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:27:05Z iter=5596 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:28:20Z iter=5611 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:29:35Z iter=5626 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:30:50Z iter=5641 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:32:05Z iter=5656 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:33:20Z iter=5671 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:34:35Z iter=5686 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:35:50Z iter=5701 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:37:05Z iter=5716 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:38:21Z iter=5731 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:39:36Z iter=5746 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:40:51Z iter=5761 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:42:06Z iter=5776 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:43:21Z iter=5791 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:44:36Z iter=5806 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:45:51Z iter=5821 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:47:06Z iter=5836 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:48:21Z iter=5851 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:49:36Z iter=5866 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:50:51Z iter=5881 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:52:07Z iter=5896 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:53:22Z iter=5911 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:54:37Z iter=5926 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:55:52Z iter=5941 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:57:07Z iter=5956 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:58:22Z iter=5971 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T07:59:37Z iter=5986 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:00:52Z iter=6001 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:02:07Z iter=6016 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:03:22Z iter=6031 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:04:37Z iter=6046 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:05:53Z iter=6061 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:07:08Z iter=6076 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:08:23Z iter=6091 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:09:38Z iter=6106 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:10:53Z iter=6121 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:12:08Z iter=6136 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:13:23Z iter=6151 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:14:38Z iter=6166 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:15:53Z iter=6181 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:17:08Z iter=6196 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:18:23Z iter=6211 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:19:39Z iter=6226 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:20:54Z iter=6241 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:22:09Z iter=6256 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:23:24Z iter=6271 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:24:39Z iter=6286 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:25:54Z iter=6301 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:27:09Z iter=6316 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:28:24Z iter=6331 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:29:39Z iter=6346 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:30:54Z iter=6361 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:32:09Z iter=6376 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:33:24Z iter=6391 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:34:40Z iter=6406 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:35:55Z iter=6421 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:37:10Z iter=6436 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:38:25Z iter=6451 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:39:40Z iter=6466 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:40:55Z iter=6481 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:42:10Z iter=6496 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:43:25Z iter=6511 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:44:40Z iter=6526 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:45:55Z iter=6541 rented_stamps=1 bootstrapped=1
+[fleet-boot] 2026-08-12T08:47:11Z new stamp rented_mine-r25-hitemp-1.json name=mine-r25-hitemp-1 axis=R25 — resolve SSH
+[fleet-boot] 2026-08-12T08:47:11Z bootstrap R25 upload_and_launch name=mine-r25-hitemp-1 host=150.136.71.147 port=20309
+SOFT_DEADLINE_SET 2026-08-13T07:47:11Z
+-rw-rw-r-- 1 const const 410K Aug 12 08:47 /tmp/mine-r25-stack.tar.gz
+Warning: Permanently added '[150.136.71.147]:20309' (ED25519) to the list of known hosts.
+HF_OK unconst/Affine-5czsc2fc98-r25-lora
+HF_OK unconst/Affine-5czsc2fc98-r25-merged
+R25_DEADLINES soft=2026-08-13T07:47:11Z dead=2026-08-13T08:17:11Z axis=hitemp_grpo_reason
+R25_KNOBS temp=1.2 lr=5e-6 r=16 G=4 max_len=6144
+STACK_UPLOAD_OK
+PIPELINE_PID=893
+[bootstrap-r3] 2026-08-12T08:47:18Z start host=5362b383771c
+GPU 0: NVIDIA B200 (UUID: GPU-356e02e1-b27d-053c-61b3-393a7dbd8b13)
+GPU 1: NVIDIA B200 (UUID: GPU-0540220c-b598-4e3e-d927-dc234d19db4a)
+GPU 2: NVIDIA B200 (UUID: GPU-284eb671-68a5-db39-1305-8ae8443a139e)
+GPU 3: NVIDIA B200 (UUID: GPU-992208b8-eb63-0e8c-d522-faa3cd4f4542)
+GPU 4: NVIDIA B200 (UUID: GPU-353440e6-ce0d-1507-bf89-5e6763dffaf4)
+GPU 5: NVIDIA B200 (UUID: GPU-46285ebc-00da-d7a3-1dd5-3ba555a9f023)
+GPU 6: NVIDIA B200 (UUID: GPU-914d188d-c5db-f029-6c11-7296865ffc41)
+GPU 7: NVIDIA B200 (UUID: GPU-9b2ac2e2-08a8-f941-a6cd-9f7bc65775fe)
+[bootstrap-r3] GPU_COUNT=8
+downloading uv 0.12.3 x86_64-unknown-linux-gnu
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: venv
+Activate with: source venv/bin/activate
+    PID     ELAPSED CMD
+    893 441077232-14:01:36 bash /root/mining_src/r3-reason-grpo/bootstrap_r3.sh
+8
+UPLOAD_AND_LAUNCH_OK pod=mine-r25-hitemp-1 2026-08-12T08:47:23Z
+[fleet-boot] 2026-08-12T08:47:23Z BOOTSTRAPPED mine-r25-hitemp-1 → /home/const/subnet120/mining/experiments/fleet-rent/artifacts/bootstrapped/rented_mine-r25-hitemp-1.json.bootstrapped
+[fleet-boot] 2026-08-12T08:47:23Z iter=6556 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T08:48:38Z iter=6571 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T08:49:54Z iter=6586 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T08:51:09Z iter=6601 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T08:52:24Z iter=6616 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T08:53:39Z iter=6631 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T08:54:54Z iter=6646 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T08:56:09Z iter=6661 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T08:57:24Z iter=6676 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T08:58:39Z iter=6691 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T08:59:55Z iter=6706 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:01:10Z iter=6721 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:02:25Z iter=6736 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:03:40Z iter=6751 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:04:55Z iter=6766 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:06:10Z iter=6781 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:07:25Z iter=6796 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:08:40Z iter=6811 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:09:56Z iter=6826 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:11:11Z iter=6841 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:12:26Z iter=6856 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:13:41Z iter=6871 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:14:56Z iter=6886 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:16:11Z iter=6901 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:17:26Z iter=6916 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:18:41Z iter=6931 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:19:57Z iter=6946 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:21:12Z iter=6961 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:22:27Z iter=6976 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:23:42Z iter=6991 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:24:57Z iter=7006 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:26:12Z iter=7021 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:27:27Z iter=7036 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:28:42Z iter=7051 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:29:58Z iter=7066 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:31:13Z iter=7081 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:32:28Z iter=7096 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:33:43Z iter=7111 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:34:58Z iter=7126 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:36:13Z iter=7141 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:37:28Z iter=7156 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:38:43Z iter=7171 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:39:59Z iter=7186 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:41:14Z iter=7201 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:42:29Z iter=7216 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:43:44Z iter=7231 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:44:59Z iter=7246 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:46:14Z iter=7261 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:47:29Z iter=7276 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:48:44Z iter=7291 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:49:59Z iter=7306 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:51:15Z iter=7321 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:52:30Z iter=7336 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:53:45Z iter=7351 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:55:00Z iter=7366 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:56:15Z iter=7381 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:57:30Z iter=7396 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T09:58:45Z iter=7411 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:00:00Z iter=7426 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:01:16Z iter=7441 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:02:31Z iter=7456 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:03:46Z iter=7471 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:05:01Z iter=7486 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:06:16Z iter=7501 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:07:31Z iter=7516 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:08:46Z iter=7531 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:10:01Z iter=7546 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:11:17Z iter=7561 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:12:32Z iter=7576 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:13:47Z iter=7591 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:15:02Z iter=7606 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:16:17Z iter=7621 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:17:32Z iter=7636 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:18:47Z iter=7651 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:20:02Z iter=7666 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:21:18Z iter=7681 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:22:33Z iter=7696 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:23:48Z iter=7711 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:25:03Z iter=7726 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:26:18Z iter=7741 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:27:33Z iter=7756 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:28:48Z iter=7771 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:30:03Z iter=7786 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:31:19Z iter=7801 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:32:34Z iter=7816 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:33:49Z iter=7831 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:35:04Z iter=7846 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:36:19Z iter=7861 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:37:34Z iter=7876 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:38:49Z iter=7891 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:40:04Z iter=7906 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:41:19Z iter=7921 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:42:35Z iter=7936 rented_stamps=2 bootstrapped=2
+[fleet-boot] 2026-08-12T10:43:35Z start poll=5s max_iters=86400 pass=2233 stamp_dir=/home/const/subnet120/mining/experiments/fleet-rent/artifacts
+[fleet-boot] 2026-08-12T10:43:35Z iter=1 rented_stamps=2 bootstrapped=2

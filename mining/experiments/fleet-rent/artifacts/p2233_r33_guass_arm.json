@@ -1,0 +1,23 @@
+{
+  "pass": 2233,
+  "utc": "2026-08-12T10:43:05Z",
+  "action": "arm R33 guass-init GRPO + QUEUE append + restart burst",
+  "rent_try": "lium up B300\u00d78 and B200\u00d78 mine-r5-nonking-2 \u2014 no nodes",
+  "old_burst_pid": 3745530,
+  "new_burst_pid": 3851526,
+  "burst_log": "experiments/fleet-rent/logs/burst_p2233.log",
+  "next_axis": "mine-r5-nonking-2",
+  "queue_tail": "mine-r33-guass-grpo-1",
+  "burn_usd_per_h": 220.25,
+  "balance_usd": 117242.945,
+  "train_steps": {
+    "R26": 180,
+    "R21": 183,
+    "R24": 137,
+    "R25": 117
+  },
+  "contract": {
+    "wvk": 3,
+    "k_sigma": 2.0
+  }
+}

@@ -71,6 +71,8 @@ QUEUE = [
     ("mine-r30-hialpha-1", "R30", "Tok GRPO lora_alpha=128 r=16 (≠ R3 α=32; isolates α vs R29)"),
     ("mine-r31-nodrop-1", "R31", "Tok GRPO lora_dropout=0.0 (≠ R3 0.05; isolates dropout)"),
     ("mine-r32-kl-1", "R32", "Tok GRPO kl_coef=0.02 vs base (≠ R3 kl=0; isolates KL)"),
+    # p2233: guass-init GRPO (train FROM live reign-6; ≠ R3 Tok / R19–R23 parents / R2bm chall-only).
+    ("mine-r33-guass-grpo-1", "R33", "guass-init Reason-GRPO (≠ R3 Tok / R19–R23; LoRA from live king)"),
     # R11 REFUTED p2175 n80 m=-0.0055 z=-0.82 — do not re-rent.
     # R12–R17 / R20–R21 warm or REFUTED — do not re-rent.
     # R20 REFUTED p2211 vs guass — do not re-rent.

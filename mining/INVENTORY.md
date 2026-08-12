@@ -10,15 +10,15 @@
 | mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** + guass + tmax + n80-gate |
 | mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R21** pandora-GRPO |
 | mine-r25-hitemp-1 | zesty-fox-bc (`20498068-…`) | 8×B200 | $40.00 | **2026-08-13T08:46Z** | **R25** + guass |
-| *(pending fleet)* | mine-r5… then R19/R22/R23/R27–R32… | 8×B300 | ~$64 | burst **3745530** | **R5b next (guass+writer)** |
+| *(pending fleet)* | mine-r5… then R19/R22/R23/R27–R33… | 8×B300 | ~$64 | burst **3851526** | **R5b next** · **R33 armed** |
 
 SSH crown/R26: `ssh root@95.133.253.90 -p 40099`
 SSH R3/R24: `ssh root@204.9.206.245 -p 40051`
 SSH R4/R21: `ssh root@86.38.182.50 -p 40307`
 SSH R25: `ssh root@150.136.71.147 -p 20309`
 Host fleet-rent: pid**3373328** (**SIGSTOP**; CONT after burst)
-Host fleet-burst: pid**3745530** (p2224; MAX_ITERS=**86400**; mine=4/25; next=**R5b**)
-Host fleet-boot: pid**2756348**
+Host fleet-burst: pid**3851526** (p2233; MAX_ITERS=**86400**; mine=4/25; next=**R5b**; QUEUE+**R33**)
+Host fleet-boot: pid**3852238** (pass=2233; R33 case)
 
 Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
@@ -26,6 +26,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T10:43Z | p2233: R33 guass-init armed+QUEUE; burst**3851526**/boot**3852238**; rent empty; burn **$220.25/h** |
 | 2026-08-12T10:38Z | p2232: R31+R32→guass+writer; rent B300/B200 empty; burst**3745530**; burn **$220.25/h** |
 | 2026-08-12T10:34Z | p2231: R29+R30→guass+writer; rent try empty; burst**3745530**; burn **$220.25/h** |
-| 2026-08-12T10:31Z | p2230: R27+R28→guass+writer; rent try empty; burst**3745530**; burn **$220.25/h** |

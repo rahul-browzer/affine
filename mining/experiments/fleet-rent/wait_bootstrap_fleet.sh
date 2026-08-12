@@ -284,6 +284,13 @@ bootstrap_r32() {
     bash "$ROOT/mining/experiments/r32-kl-grpo/upload_and_launch.sh"
 }
 
+bootstrap_r33() {
+  local name=$1 host=$2 port=$3
+  log "bootstrap R33 upload_and_launch name=$name host=$host port=$port"
+  DST_HOST="$host" DST_PORT="$port" POD_NAME="$name" \
+    bash "$ROOT/mining/experiments/r33-guass-grpo/upload_and_launch.sh"
+}
+
 mark_bootstrapped() {
   local done=$1 name=$2 axis=$3 host=$4 port=$5
   printf '%s\n' "{\"utc\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"pass\":$PASS,\"name\":\"$name\",\"axis\":\"$axis\",\"host\":\"$host\",\"port\":$port}" \
@@ -431,6 +438,14 @@ process_stamp() {
       ;;
     mine-r32-kl-1)
       if bootstrap_r32 "$name" "$host" "$port"; then
+        mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
+      else
+        log "FAIL bootstrap $name"
+        return 1
+      fi
+      ;;
+    mine-r33-guass-grpo-1)
+      if bootstrap_r33 "$name" "$host" "$port"; then
         mark_bootstrapped "$done" "$name" "$axis" "$host" "$port"
       else
         log "FAIL bootstrap $name"

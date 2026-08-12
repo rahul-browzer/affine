@@ -1,0 +1,6 @@
+[fleet-rent] SKIP_PID_LOCK=1 pass-burst (pidfile left for long waiter)
+[fleet-rent] 2026-08-12T10:43:03Z start target=25 cap=25 empty_sleep=0.5s parallel=22 max_iters=86400 pass=2233 mode=api-unfiltered-8x-POST-rent template=da582e38
+[fleet-rent] 2026-08-12T10:43:03Z live_mines=mine-crown-1 mine-r25-hitemp-1 mine-r3-grpo-1 mine-r4-fullft-1|count=4
+[fleet-rent] 2026-08-12T10:43:05Z iter=1 api-empty B300/B200×8; mine=4/25 (cap 25) next=mine-r5-nonking-2 mine-r19-talent-grpo-1 mine-r22-golden-grpo-1 mine-r23-diane-grpo-1 mine-r27-bigg-1 mine-r28-hilr-1… bal=Current balance: 117218.48150021338 USD
+[fleet-rent] 2026-08-12T10:43:41Z iter=41 api-empty B300/B200×8; mine=4/25 (cap 25) next=mine-r5-nonking-2 mine-r19-talent-grpo-1 mine-r22-golden-grpo-1 mine-r23-diane-grpo-1 mine-r27-bigg-1 mine-r28-hilr-1… bal=Current balance: 117218.48150021338 USD
+[fleet-rent] 2026-08-12T10:44:12Z iter=81 api-empty B300/B200×8; mine=4/25 (cap 25) next=mine-r5-nonking-2 mine-r19-talent-grpo-1 mine-r22-golden-grpo-1 mine-r23-diane-grpo-1 mine-r27-bigg-1 mine-r28-hilr-1… bal=Current balance: 117218.48150021338 USD

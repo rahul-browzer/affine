@@ -1,0 +1,21 @@
+{
+  "pass": 2233,
+  "utc": "2026-08-12T10:43:05Z",
+  "axis": "R33",
+  "pod_name": "mine-r33-guass-grpo-1",
+  "train_init": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "n80_king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "method": "LoRA-GRPO reward=Reason",
+  "knobs": {
+    "lr": "5e-6",
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "G": 4,
+    "steps": 200
+  },
+  "reason_writer": true,
+  "form_dec": true,
+  "submit_gate": "margin > k_sigma\u00b7SE (k=2.0)",
+  "guass_index": "weights_ok",
+  "why": "Distinct axis: train FROM live reign-6 guass (\u2260 Tok R3 / other reign parents R19\u2013R23 / R2bm chall-only). Queue after R32; stock empty this pass."
+}
