@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-12T04:26:50Z",
+  "pass": 2186,
+  "hyp": "R2bn",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "king": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "decision": "REFUTE_R2bn",
+  "margin": -0.007330408317839145,
+  "se": 0.004724614880631962,
+  "z": -1.5515356284147828,
+  "k_sigma_live": 2.0,
+  "threshold_live_2se": 0.009449229761263923,
+  "headroom_vs_live_2se": -0.7757678142073914,
+  "submit_bar_1p5x_2se": 0.014173844641895885,
+  "reason_c": -0.011680647733301507,
+  "reason_k": -0.004338015218873489,
+  "n_paired_turns": 80,
+  "challenger_wins": false,
+  "stage5": "SKIP",
+  "note": "Pure alloy board-copy loses to ckp333 on fresh n80; R9 merge unblocked immediately after decision."
+}

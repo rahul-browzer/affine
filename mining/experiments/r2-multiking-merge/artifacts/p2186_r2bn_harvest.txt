@@ -1,0 +1,138 @@
+-rw-r--r-- 1 root root     739 Aug 12 04:26 /root/affine_data/r2bn_alloy_decision.json
+-rw-r--r-- 1 root root     237 Aug 12 04:26 /root/affine_data/r2bn_alloy_reason_progress.json
+-rw-r--r-- 1 root root    2972 Aug 12 04:26 /root/affine_data/r2bn_alloy_reason_sim.json
+-rw-r--r-- 1 root root 1024091 Aug 12 04:26 /root/affine_data/r2bn_alloy_reason_sim_artifact.json
+-rw-r--r-- 1 root root      24 Aug 12 04:26 /root/affine_data/r2bn_alloy_reload.done
+---
+==== /root/affine_data/r2bn_alloy_decision.json ====
+{
+  "utc": "2026-08-12T04:26:50Z",
+  "hyp": "R2bn",
+  "contract": "Reason v3",
+  "decision": "REFUTE_R2bn",
+  "decision_live_k2": "REFUTE_R2bn",
+  "headroom_bar": 1.5,
+  "false_probe": null,
+  "margin": -0.007330408317839145,
+  "se": 0.004724614880631962,
+  "z": -1.5515356284147828,
+  "k_sigma": 2.0,
+  "threshold_3se": 0.009449229761263923,
+  "headroom_vs_3se": -0.7757678142073914,
+  "k_sigma_live": 2.0,
+  "threshold_live_2se": 0.009449229761263923,
+  "headroom_vs_live_2se": -0.7757678142073914,
+  "submit_bar_1p5x_2se": 0.014173844641895885,
+  "reason_c": -0.011680647733301507,
+  "reason_k": -0.004338015218873489,
+  "n_paired_turns": 80,
+  "challenger_wins": false,
+  "sim_result": "/root/affine_data/r2bn_alloy_reason_sim.json"
+}
+
+==== /root/affine_data/r2bn_alloy_reason_progress.json ====
+{
+  "utc": "2026-08-12T04:26:49Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 80,
+  "challenger_total": 80,
+  "king": 80,
+  "king_total": 80
+}
+==== /root/affine_data/r2bn_alloy_reason_sim.json ====
+{
+  "elapsed_s": 1915.5729937553406,
+  "contract": "Reason v3",
+  "ranking_formula": "Reason = lpC(y_C|z_A) \u2212 lpC(y_C|\u2205)",
+  "king_repo": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "chall_rev": "74a6ac4d57beda2a9dff604c0d9799959aa676dc",
+  "block_hash": "b835c8bf9079bc0261ffee454496b9a35effa473c26d390c4eb101e6bc90bc17",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "corpus": {
+    "manifest_sha256": "167085451ab6b67160a31f4595f12b71d887a0510ecd341bc2bd7c9881bb380e",
+    "corpus_epoch": 7,
+    "schema_version": 2,
+    "synced_at": 1786438160.1592934,
+    "stale": false,
+    "ready": true
+  },
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.007330408317839145,
+    "se": 0.004724614880631962,
+    "z": -1.5515356284147828,
+    "k_sigma": 3.0,
+    "n_paired_turns": 80,
+    "ranking_formula": "Reason = lpC(y_C|z_A) \u2212 lpC(y_C|\u2205)",
+    "duel_params": {
+      "n_turns": 80,
+      "k_sigma": 3.0
+    },
+    "king": {
+      "reason": -0.004338015218873489,
+      "n_turns": 80,
+      "n_pairs": 316,
+      "gate_pass_rate": 0.8322784810126582,
+      "bank_frac": 0.425,
+      "calib_ratio": 0.6349877129045751,
+      "baseline_abs": 0.1462777075192727,
+      "mean_l1lift": 0.053393160572685366,
+      "mean_eta": -0.3385803945129757,
+      "mean_len_z": 403.0506329113924,
+      "mean_len_y": 249.49683544303798,
+      "len_z_delta": 182.49125791139244,
+      "len_y_delta": -163.57191455696204
+    },
+    "challenger": {
+      "reason": -0.011680647733301507,
+      "n_turns": 80,
+      "n_pairs": 317,
+      "gate_pass_rate": 0.8170347003154574,
+      "bank_frac": 0.4083333333333333,
+      "calib_ratio": 0.7148439856985627,
+      "baseline_abs": 0.13770991065282698,
+      "mean_l1lift": 0.03926880925156718,
+      "mean_eta": 0.11095646105400782,
+      "mean_len_z": 395.3217665615142,
+      "mean_len_y": 279.4479495268139,
+      "len_z_delta": 174.76239156151422,
+      "len_y_delta": -133.62080047318614
+    },
+    "teacher": {
+      "mean_len_z": 220.559375,
+      "mean_len_y": 413.06875
+    },
+    "duel_seconds": 1915.572408453998,
+    "slice": {
+      "seed": 5401262063041801475,
+      "n": 80,
+      "digest": "14a6498681bc9549b7bf34705d6ed0703f31ed938d2ef3871855c8e749d43e88",
+      "block_hash": "b835c8bf9079bc0261ffee454496b9a35effa473c26d390c4eb101e6bc90bc17",
+      "corpus_epoch": 7,
+      "manifest_sha256": "167085451ab6b67160a31f4595f12b71d887a0510ecd341bc2bd7c9881bb380e"
+    }
+  },
+  "reason": {
+    "margin": -0.007330408317839145,
+    "se": 0.004724614880631962,
+    "z": -1.5515356284147828,
+    "k_sigma": 3.0,
+    "threshold_3se": 0.014173844641895885,
+    "headroom_vs_3se": -0.5171785428049276,
+    "submit_bar_1_5x": 1.5,
+    "clears_3se": false,
+    "clears_1_5x_3se": false,
+    "reason_c": -0.011680647733301507,
+    "reason_k": -0.004338015218873489,
+    "n_paired_turns": 80
+  }
+}
+==== /root/affine_data/r2bn_alloy_reason_sim_artifact.json ====
+{"slice": {"seed": 5401262063041801475, "n": 80, "digest": "14a6498681bc9549b7bf34705d6ed0703f31ed938d2ef3871855c8e749d43e88", "block_hash": "b835c8bf9079bc0261ffee454496b9a35effa473c26d390c4eb101e6bc90bc17", "corpus_epoch": 7, "manifest_sha256": "167085451ab6b67160a31f4595f12b71d887a0510ecd341bc2bd7c9881bb380e"}, "turn_ids": ["burnash__gspread.9ee7aab1.pr_1269__d825b7f8:25", "opendatacube__datacube-core.30c8f6ab.pr_1673__92a2dbee:9", "linkml__linkml.bdcf849e.pr_1772__b7350248:4", "graphql-python__graphene.81ec0207.pr_752__4da3918f:6", "wireservice__agate-excel.df31a7f7.pr_25__b67201fd:3", "ucfopen__canvasapi.56f7fd8b.pr_457__bfbccba7:2", "nipy__heudiconv.c5365b2a.pr_477__783a79c2:4", "conan-io__conan.86f29e13.pr_14576:34", "AzureAD__microsoft-authentication-library-for-python.010a7c58.pr_186__e78c67cd:0", "conan-io__conan.86f29e13.pr_13470:23", "hgrecco__pint.3ae170d8.pr_1113__2e898a69:5", "M0r13n__pyais.7bfc1851.pr_67__6d52ae50:4", "marksparkza__jschon.3a1206fe.pr_55__24b67777:39", "rubik__radon.c257764b.pr_212__8a6fc226:0", "PyCQA__flake8.cf1542ce.pr_1847:2", "conan-io__conan.86f29e13.pr_14676:9", "NCAS-CMS__cfdm.ad49de4f.pr_250__414a0cda:4", "vertexproject__synapse.42d5320a.pr_370__f076d2f0:19", "jupyterlab__jupyterlab_server.d62c1ae9.pr_388__7afab9ae:8", "dwavesystems__dwave-cloud-client.5b7f55c8.pr_606__935b936c:2", "RDFLib__rdflib.f939db02.pr_2112__175312d7:8", "jd__tenacity.c54b8741.pr_179__3f50b68b:11", "rapidpro__rapidpro-python.84ec3d29.pr_38__4601cf48:22", "seperman__deepdiff.c430a390.pr_117__0c8b3c45:18", "conan-io__conan.86f29e13.pr_12736:15", "stephenhillier__starlette_exporter.7246ae43.pr_92__be470b3d:17", "conan-io__conan.86f29e13.pr_15271:15", "reata__sqllineage.39556659.pr_581__8b1465ad:0", "pre-commit__pre-commit-hooks.2014056d.pr_301__88494652:4", "conan-io__conan.86f29e13.pr_13109:7", "mirumee__prices.20a53cbb.pr_26__22a591bf:7", "bridgecrewio__checkov.fc8fcbdb.pr_831__ad2c5098:5", "hhursev__recipe-scrapers.28d9773d.pr_591__9353845d:2", "NREL__hescore-hpxml.cee2c5c7.pr_131__e3beede3:2", "missionpinball__mpf.a97045df.pr_1226__cab03afc:35", "frostming__unearth.cf9ae4ad.pr_71__b0c5491e:2", "iris-hep__func_adl.25e83161.pr_41__b2993bd6:10", "globus__globus-sdk-python.1a58af77.pr_65__ac0aa1fc:37", "conan-io__conan.86f29e13.pr_14177:16", "hhatto__autopep8.39ac16dd.pr_464__45f15deb:1", "octoenergy__tentaclio.8179e970.pr_115__cc9a2361:38", "kedro-org__kedro.0b720c37.pr_2921__185781f2:20", "python-cmd2__cmd2.320455ce.pr_782__f5d88f96:17", "pygments__pygments.27649ebb.pr_2490:2", "cclib__cclib.36891122.pr_989__2e13c625:0", "google__zx.d5877dfc.pr_1023__5faa3d33:49", "wandera__1password-client.6f445008.pr_16__122ed700:12", "pylint-dev__astroid.b114f6b5.func_basic__03shl8rr:2", "conan-io__conan.86f29e13.pr_14813:12", "conan-io__conan.86f29e13.pr_12509:24", "conan-io__conan.86f29e13.pr_12770:20", "conan-io__conan.86f29e13.pr_13581:28", "thombashi__pytablewriter.ada17b60.pr_36__e053c312:36", "pygments__pygments.27649ebb.pr_2369:17", "networkx__networkx.ed5087a6.pr_7804__20e42a3f:3", "conan-io__conan.86f29e13.pr_14712:5", "Colin-b__httpx_auth.3dc655e2.pr_93__08cff3dc:13", "asottile__pyupgrade.4dfc0903.pr_67__e00bd3c2:6", "mutalyzer__hgvs-parser.b676139e.pr_9__96f6b841:2", "workalendar__workalendar.a49bf7a4.pr_16__1143fb47:34", "conan-io__conan.86f29e13.pr_13811:2", "iterative__dvc.e20d4177.pr_3132__694da996:10", "ResearchObject__ro-crate-py.df13ba5d.pr_69__75b799cd:58", "mozilla__bleach.73871d76.func_pm_remove_assign__g8fgif1s:15", "PaccMann__paccmann_datasets.77d7b5e2.pr_13__469ff937:19", "hgrecco__pint.dd5210ec.pr_630__ca5430bd:17", "allrod5__parameters-validation.b1b6f3b5.pr_9__9993042a:1", "jpadilla__pyjwt.a16e97f1.pr_847__75ed2ceb:0", "reata__sqllineage.8a1cc6dc.pr_494__58ad2ac9:12", "click-contrib__sphinx-click.c2f6e4b1.pr_94__e47f4158:6", "conan-io__conan.86f29e13.pr_12515:2", "bridgecrewio__checkov.a920b68c.pr_289__6a879409:23", "conan-io__conan.86f29e13.pr_13364:11", "soar-telescope__goodman_focus.89f7d0f7.pr_13
+==== /root/affine_data/r2bn_alloy_reload.done ====
+OK 2026-08-12T04:26:50Z
+

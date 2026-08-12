@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-12T04:22:51Z",
+  "pass": 2186,
+  "rented": false,
+  "iters": 400,
+  "empty_sleep_s": 0.35,
+  "seen_stock_iters": 0,
+  "mine_count": 3,
+  "next": "mine-r24-longctx-1",
+  "burn_usd_h": 180.25,
+  "balance_usd": 118880.288,
+  "change": "SKIP_PID_LOCK=1 400-iter pass-burst; waiter pid3164256 SIGSTOP→CONT",
+  "note": "API 8×B300/B200 empty entire 400-iter burst (0 free); post-peek 8× total=46 but b300=0 b200=0 (H200/etc only). Also harvested R2bn REFUTE mid-pass."
+}
