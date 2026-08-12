@@ -9,7 +9,7 @@
 | mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-13T02:35Z** | **R26** LoTemp + guass |
 | mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** + guass |
 | mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R21** pandora-GRPO |
-| mine-r25-hitemp-1 | zesty-fox-bc (`20498068-…`) | 8×B200 | $40.00 | **2026-08-13T08:46Z** | **R25** + guass loading |
+| mine-r25-hitemp-1 | zesty-fox-bc (`20498068-…`) | 8×B200 | $40.00 | **2026-08-13T08:46Z** | **R25** + guass DONE |
 | *(pending fleet)* | mine-r27…r32 + R5b/R18… | 8×B300 | ~$64 | burst **3652502** | R27 next |
 
 SSH crown/R26: `ssh root@95.133.253.90 -p 40099`
@@ -27,6 +27,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T09:24Z | p2216: R25 guass DONE (`--enforce-eager`); teacher restored; burn **$220.25/h** |
 | 2026-08-12T09:14Z | p2215: R25 :8001 Tok→guass retarget; burst→**3652502**; burn **$220.25/h** |
 | 2026-08-12T09:07Z | p2214: R25 guass DL+KING env+form/post; burst→**3644233**; burn **$220.25/h** |
-| 2026-08-12T09:03Z | p2213: R26 warm-arm on crown train**354423**; burst→**3638049**; burn **$220.25/h** |

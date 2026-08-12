@@ -147,4 +147,6 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Pre-swap king GPUs2–3 while train 6–7; `RESTART_KING=0` if `:8001` already target (p2163). Decision kσ=2.0 (p2165/71).
 - **R9/R12–R16 REFUTE** (p2188–2205). Coder/R20: never cut z at ```bash/`</think>`@0. LoRA merge: contig-clone+max_shard=5GB+MERGED=/tmp (p2203). Idle n80→warm next QUEUE axis (R24 p2205). King retarget: set `TARGET_KING_*` **after** `source mine.env` (set -a overwrites stale KING; p2206). Long-lived `post_train` freezes `KING_REPO` at start — after :8001 king swap, kill pipe + relaunch n80 with live id or 404 (p2209/p2211 ckp333→guass; R20 burned 3/3 attempts).
 - **R17/R20 REFUTE** vs guass (p2210–11). Idle R4→warm next QUEUE axis (R21 pandora-GRPO p2212); drop warm-armed axes from fleet QUEUE + restart burst or you double-rent the name.
+- B200 king FULL cudagraph can deadlock TP0=R/TP1=S at 0% (shm_broadcast ≥3m) while B300 same recipe is fine — retarget with `--enforce-eager` (p2216 R25). Kill king by **pidfile + EngineCore children only**; never broad-kill `EngineCore`/`Worker_TP` (takes teacher too).
+- R3 prior LoRA merge still dies on visual `save_file` EFAULT even with contig-clone — use `graft_visual_weights.py` via `/root` then copy into `/tmp/*_merged` before R24 train.done (watch item).
 

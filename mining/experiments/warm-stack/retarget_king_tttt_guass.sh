@@ -120,8 +120,11 @@ COMMON=(
   --compilation-config.pass_config.fuse_allreduce_rms false
   --moe-backend triton
   --additional-config '{"gdn_prefill_backend": "triton"}'
+  # p2216 R25 B200: FULL cudagraph capture deadlocks TP0=R/TP1=S at 0% for
+  # minutes (shm_broadcast stalls). enforce-eager skips capture; R3 B300 OK without.
+  --enforce-eager
 )
-echo "[retarget-king] launch $KING_REPO@$KING_REV :8001"
+echo "[retarget-king] launch $KING_REPO@$KING_REV :8001 (enforce-eager)"
 CUDA_VISIBLE_DEVICES=2,3 TRITON_CACHE_DIR=/root/.triton/cache/king \
   nohup /root/venv/bin/vllm serve "$KING_REPO" \
     --port 8001 --gpu-memory-utilization 0.80 \
