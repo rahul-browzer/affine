@@ -28,7 +28,7 @@
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **REFUTED** · n80 m=**−0.0273** z=−1.64 hr−0.82× vs ckp333 (p2158) |
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train~260/354; post waits train+**R2bm** →merge→n80 |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **blocked** · sbs-v2 gated 403 (p2162); fleet/`mine-r10-*` until Hub access |
-| 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open — live** · merge+HF done; chall Triton false_probe→reseed+retry n80 (p2173) |
+| 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open — live** · n80 gathering ~35/80 vs ckp333 after p2174 sim-file fix |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open** · `mine-r12-bon-1` · p2085 armed |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open** · `mine-r13-odpo-1` · p2086 armed |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open** · `mine-r14-kevin-rl-1` · p2087 armed |
