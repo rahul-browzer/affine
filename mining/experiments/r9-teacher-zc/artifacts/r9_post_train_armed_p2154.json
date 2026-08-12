@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-12T01:34:25Z",
+  "pass": 2154,
+  "pod": "mine-crown-1",
+  "huid": "gentle-orbit-bd",
+  "script": "/root/mining_src/r9-teacher-zc/post_train_pipeline.sh",
+  "merge": "/root/mining_src/r1-reason-distill/merge_lora.py",
+  "soft": "2026-08-12T07:42:00Z",
+  "deadman": "2026-08-12T08:12:00Z",
+  "king": "tolegend/Affine-5fqbxvz29b-ckp333@24c137e8\u2026",
+  "gates": [
+    "train.done",
+    "r2bj_terminal",
+    "retarget_ckp333.done"
+  ],
+  "note": "p2154 armed R9 post_train; B300/B200\u00d78 stock empty; burn $180.25/h"
+}
