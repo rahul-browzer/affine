@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # After R10 train.done: merge LoRA on α-merge base → chall:8002 → n80 vs live king.
-# Train BASE = Tok×sbs-v2 merge (/root/r10/merge_base). Sim king = reign-5 ckp333.
+# Train BASE = Tok×sbs-v2 merge (/root/r10/merge_base). Sim king = live guass (reign 6).
 set -euo pipefail
 
 # shellcheck disable=SC1091
@@ -18,9 +18,9 @@ export PYTHONPATH=/root/mining_src/affine_pkg:${PYTHONPATH:-}
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-6,7}
 
 BASE=${BASE:-/root/r10/merge_base}
-KING_REPO=${KING_REPO:-tolegend/Affine-5fqbxvz29b-ckp333}
-KING_REV=${KING_REV:-24c137e8a978aea1e2b4abeec594fb6ca943f03c}
-KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--tolegend--Affine-5fqbxvz29b-ckp333/snapshots/24c137e8a978aea1e2b4abeec594fb6ca943f03c}
+KING_REPO=${KING_REPO:-ttttxxxxsada/Affine-5guassq3tu}
+KING_REV=${KING_REV:-e86758f5080d1e373e5fbbd7b4fbf6af327aeb44}
+KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshots/e86758f5080d1e373e5fbbd7b4fbf6af327aeb44}
 TRAIN_DIR=${TRAIN_DIR:-/root/r10/train}
 ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
 CKPT_ROOT=${CKPT_ROOT:-$TRAIN_DIR/checkpoints}
@@ -313,10 +313,22 @@ fi
 
 unset CUDA_VISIBLE_DEVICES
 
-# RESTART_KING=0 keeps prewarmed Tok331102 on :8001; KEVIN_REPO is the env name
-# restart_for_h2.sh uses for KING_REPO when it would restart king (it won't here).
-log "chall-only re-serve $MERGED (keep teacher+Tok331102 king)"
-RESTART_KING=0 \
+# Auto king: keep :8001 if already guass/target; else RESTART_KING=1 (p2163/p2223).
+_king_id=$(curl -sS --max-time 5 http://127.0.0.1:8001/v1/models 2>/dev/null \
+  | python3 -c 'import sys,json
+try:
+ d=json.load(sys.stdin); print(((d.get("data") or [{}])[0]).get("id") or "")
+except Exception:
+ print("")' || true)
+_RK=1
+if [[ "$_king_id" == *"$KING_REPO"* ]] || [[ "$_king_id" == *guass* ]]; then
+  _RK=0
+  log "king already ${_king_id} — RESTART_KING=0"
+else
+  log "king is ${_king_id:-none} — RESTART_KING=1 → $KING_REPO"
+fi
+log "re-serve chall=$MERGED + king=$KING_REPO (RESTART_KING=$_RK)"
+RESTART_KING=$_RK \
   MERGE="$MERGED" \
   KEVIN_REPO="$KING_REPO" \
   KEVIN_REV="$KING_REV" \

@@ -68,9 +68,9 @@ ENV_TMP=$(mktemp /tmp/mine-r10.env.XXXXXX)
   echo "export R10_GROUP_SIZE=4"
   echo "export R10_MAX_STEPS=200"
   echo "export BASE=/root/r10/merge_base"
-  echo "export KING_REPO=tolegend/Affine-5fqbxvz29b-ckp333"
-  echo "export KING_REV=24c137e8a978aea1e2b4abeec594fb6ca943f03c"
-  echo "export KING_LOCAL=/root/hf/hub/models--tolegend--Affine-5fqbxvz29b-ckp333/snapshots/24c137e8a978aea1e2b4abeec594fb6ca943f03c"
+  echo "export KING_REPO=ttttxxxxsada/Affine-5guassq3tu"
+  echo "export KING_REV=e86758f5080d1e373e5fbbd7b4fbf6af327aeb44"
+  echo "export KING_LOCAL=/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshots/e86758f5080d1e373e5fbbd7b4fbf6af327aeb44"
 } >"$ENV_TMP"
 chmod 600 "$ENV_TMP"
 
@@ -88,7 +88,7 @@ rm -f "$ENV_TMP"
   chmod 600 /root/mine.env
   chmod +x /root/mining_src/r10-merge-rl/*.sh /root/mining_src/s3-duel-sim/*.sh /root/mining_src/s4-h2-merge/*.sh
   grep -q "R10: merge+RL" /root/mining_src/r10-merge-rl/start_r10.sh
-  grep -q "tolegend/Affine-5fqbxvz29b-ckp333" /root/mining_src/r10-merge-rl/post_train_pipeline.sh
+  grep -q "ttttxxxxsada/Affine-5guassq3tu" /root/mining_src/r10-merge-rl/post_train_pipeline.sh
   test -x /root/mining_src/r10-merge-rl/lean_warm_boot.sh
   test -s /root/r10/winner_za_high_l1.jsonl
   curl -sf --max-time 5 http://127.0.0.1:8000/v1/models >/dev/null

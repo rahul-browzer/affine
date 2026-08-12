@@ -58,34 +58,23 @@ QUEUE = [
     # ("mine-r25-hitemp-1", "R25", "Tok GRPO temperature=1.2 (≠ R3 temp=0.8)"),
     # R26 live on mine-crown-1 (p2213 warm-arm after R17 REFUTE) — do not re-rent.
     # ("mine-r26-lotemp-1", "R26", "Tok GRPO temperature=0.5 (≠ R3 0.8 / R25 1.2)"),
+    # p2223: sbs-v2 Hub 403 cleared — promote distinct axes before Tok-GRPO knob family.
+    ("mine-r10-merge-rl-1", "R10", "Tok×sbs-v2 α-merge → Reason-GRPO (Hub OK p2223)"),
+    ("mine-r18-sbs-grpo-1", "R18", "pure sbs-v2-init Reason-GRPO (≠ R3/R10; Hub OK p2223)"),
+    ("mine-r5-nonking-2", "R5b", "Talent/kevin non-king base FT"),
+    ("mine-r19-talent-grpo-1", "R19", "TalentPigs-init Reason-GRPO (≠ R3/R5b/R18)"),
+    ("mine-r22-golden-grpo-1", "R22", "golden-crown-init Reason-GRPO (≠ R3/R16/R18–R21)"),
+    ("mine-r23-diane-grpo-1", "R23", "diane613-init Reason-GRPO (≠ R3/R16/R18–R22)"),
     ("mine-r27-bigg-1", "R27", "Tok GRPO group_size=16 (≠ R3 G=4 / R3b G=8+alt-lr)"),
     ("mine-r28-hilr-1", "R28", "Tok GRPO lr=2e-5 (≠ R3 5e-6; isolates LR vs R3b)"),
     ("mine-r29-hirank-1", "R29", "Tok GRPO lora_r=64 (≠ R3 r=16; isolates rank vs R3b)"),
     ("mine-r30-hialpha-1", "R30", "Tok GRPO lora_alpha=128 r=16 (≠ R3 α=32; isolates α vs R29)"),
     ("mine-r31-nodrop-1", "R31", "Tok GRPO lora_dropout=0.0 (≠ R3 0.05; isolates dropout)"),
     ("mine-r32-kl-1", "R32", "Tok GRPO kl_coef=0.02 vs base (≠ R3 kl=0; isolates KL)"),
-    ("mine-r5-nonking-2", "R5b", "Talent/kevin non-king base FT"),
-    ("mine-r10-merge-rl-1", "R10", "merge+RL hybrid Reason"),
     # R11 REFUTED p2175 n80 m=-0.0055 z=-0.82 — do not re-rent.
-    # R12 live on mine-r4-fullft-1 (p2177 Soft/Dead TTL-fixed) — do not re-rent as mine-r12-bon-1.
-    # R13 live on mine-r4-fullft-1 (p2188 warm-arm after R12 REFUTE) — do not re-rent.
-    # ("mine-r13-odpo-1", "R13", "offline DPO on duel Reason prefs"),
-    # R14 live on mine-r4-fullft-1 (p2190 warm-arm after R13 REFUTE) — do not re-rent.
-    # ("mine-r14-kevin-rl-1", "R14", "kevin954-init REINFORCE on teacher Reason"),
-    # R15 REFUTED p2205 n80 m=-0.027 z=-2.25 vs ckp333 — do not re-rent.
-    # ("mine-r15-pandora-rl-1", "R15", "pandora-box-init REINFORCE on teacher Reason"),
-    # R16 live on mine-crown-1 (p2192 warm-arm after R9 REFUTE) — do not re-rent.
-    # ("mine-r16-golden-rl-1", "R16", "golden-crown-init REINFORCE on teacher Reason"),
-    # R17 live on mine-crown-1 (p2196 warm-arm after R16 REFUTE) — do not re-rent.
-    # ("mine-r17-coder-rl-1", "R17", "Qwen3-Coder base REINFORCE on teacher Reason"),
-    ("mine-r18-sbs-grpo-1", "R18", "pure sbs-v2-init Reason-GRPO (≠ R3/R10)"),
-    ("mine-r19-talent-grpo-1", "R19", "TalentPigs-init Reason-GRPO (≠ R3/R5b/R18)"),
+    # R12–R17 / R20–R21 warm or REFUTED — do not re-rent.
     # R20 REFUTED p2211 vs guass — do not re-rent.
-    # ("mine-r20-kevin-grpo-1", "R20", "kevin954-init Reason-GRPO (≠ R3/R14/R19)"),
-    # R21 live on mine-r4-fullft-1 (p2212 warm-arm after R20 REFUTE) — do not re-rent.
-    # ("mine-r21-pandora-grpo-1", "R21", "pandora-box-init Reason-GRPO (≠ R3/R15/R20)"),
-    ("mine-r22-golden-grpo-1", "R22", "golden-crown-init Reason-GRPO (≠ R3/R16/R18–R21)"),
-    ("mine-r23-diane-grpo-1", "R23", "diane613-init Reason-GRPO (≠ R3/R16/R18–R22)"),
+    # R21 live on mine-r4-fullft-1 (p2212) — do not re-rent.
 ]
 
 BASE = os.environ.get("LIUM_BASE_URL", "https://lium.io/api")

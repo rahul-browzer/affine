@@ -73,6 +73,10 @@ DEAD=$(date -u -d '+23 hours 30 minutes' +%Y-%m-%dT%H:%M:%SZ)
   echo "export R10_GROUP_SIZE=4"
   echo "export R10_MAX_STEPS=200"
   echo "export BASE=/root/r10/merge_base"
+  echo "export KING_REPO=ttttxxxxsada/Affine-5guassq3tu"
+  echo "export KING_REV=e86758f5080d1e373e5fbbd7b4fbf6af327aeb44"
+  echo "export KING_LOCAL=/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshots/e86758f5080d1e373e5fbbd7b4fbf6af327aeb44"
+  echo "export RESTART_KING=1"
 } >"$ENV_TMP"
 chmod 600 "$ENV_TMP"
 

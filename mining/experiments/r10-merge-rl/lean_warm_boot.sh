@@ -49,8 +49,8 @@ BASE="$MERGE_OUT" CUDA_VISIBLE_DEVICES=6,7 bash /root/mining_src/r10-merge-rl/st
 touch /root/logs/r10_train_launched.stamp
 
 BASE="$MERGE_OUT" TRAIN_DIR=/root/r10/train MERGED=/root/r10/merged \
-  KING_REPO=tolegend/Affine-5fqbxvz29b-ckp333 \
-  KING_REV=24c137e8a978aea1e2b4abeec594fb6ca943f03c \
+  KING_REPO=ttttxxxxsada/Affine-5guassq3tu \
+  KING_REV=e86758f5080d1e373e5fbbd7b4fbf6af327aeb44 \
   nohup bash /root/mining_src/r10-merge-rl/post_train_pipeline.sh \
   >/root/logs/r10_post_train.nohup 2>&1 &
 echo $! >/root/logs/r10_post_train.pid

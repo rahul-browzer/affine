@@ -25,8 +25,8 @@ bash /root/mining_src/s3-duel-sim/sync_corpus.sh | tee -a "$LOG" || true
 
 TEACHER_REPO=${TEACHER_REPO:-zai-org/GLM-4.5-Air-FP8}
 TEACHER_REV=${TEACHER_REV:-}
-KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
-KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
+KING_REPO=${KING_REPO:-ttttxxxxsada/Affine-5guassq3tu}
+KING_REV=${KING_REV:-e86758f5080d1e373e5fbbd7b4fbf6af327aeb44}
 
 log "launch teacher+king (chall placeholder then stop)"
 TEACHER_REPO="$TEACHER_REPO" TEACHER_REV="$TEACHER_REV" \

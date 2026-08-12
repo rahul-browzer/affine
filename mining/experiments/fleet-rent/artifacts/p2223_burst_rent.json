@@ -1,0 +1,26 @@
+{
+  "pass": 2223,
+  "utc": "2026-08-12T09:52:35Z",
+  "action": "unblock R10 Hub + promote R10/R18 ahead of Tok-GRPO knobs; retarget R10 n80\u2192guass; restart burst",
+  "old_burst_pid": 3725622,
+  "new_burst_pid": 3735496,
+  "new_max_iters": 86400,
+  "log": "experiments/fleet-rent/logs/burst_p2223.log",
+  "pidfile": "experiments/fleet-rent/logs/burst_p2223.pid",
+  "waiter_pid": 3373328,
+  "waiter_state": "SIGSTOP",
+  "skip_pid_lock": true,
+  "next_axis": "mine-r10-merge-rl-1",
+  "queue_head": [
+    "mine-r10-merge-rl-1",
+    "mine-r18-sbs-grpo-1",
+    "mine-r5-nonking-2",
+    "mine-r19-talent-grpo-1"
+  ],
+  "sbs_v2_hub": "OK public sha=6f1b8e682aea",
+  "stock_8x_b300_b200": 0,
+  "mine_count": 4,
+  "burn_usd_per_h": 220.25,
+  "floor_usd_per_h": 833,
+  "why": "R10 was blocked on sbs-v2 403; Hub now public. Distinct merge+RL / sbs-init axes beat serial knob family when stock is scarce."
+}

@@ -27,7 +27,7 @@
 | 7 | R7 | High-Reason data-filter curriculum FT | **REFUTED** · n80 m=**+0.0123** z=1.978 hr0.99× vs ckp333 (p2162) |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **REFUTED** · n80 m=**−0.0273** z=−1.64 hr−0.82× vs ckp333 (p2158) |
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **REFUTED** · n80 m=**−0.0172** z=−3.36 hr−1.68× vs ckp333 (p2189) |
-| 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **blocked** · sbs-v2 gated 403 (p2162); fleet/`mine-r10-*` until Hub access |
+| 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open — PRIORITY** · Hub OK p2223; fleet next=`mine-r10-merge-rl-1`; n80 vs guass |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **REFUTED** · n80 m=**−0.0055** z=−0.82 hr−0.41× vs ckp333 (p2175) |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **REFUTED** · n80 m=**+0.00085** z=0.06 hr0.03× vs ckp333 (p2188) |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **REFUTED** · n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333 (p2189) |
@@ -35,7 +35,7 @@
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.0268** z=−2.25 hr=−1.12× vs ckp333 (p2205) |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.00935** z=−1.30 hr=−0.65× vs ckp333 (p2196) |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **REFUTED** · n80 vs guass m=**−0.0140** z=−0.71 hr**−0.36×** (p2210; n_paired=27) |
-| 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
+| 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · Hub OK p2223; queue #2 after R10 · `mine-r18-sbs-grpo-1` |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **REFUTED** · vs guass n80 m=**−0.0196** z=−2.13 hr=−1.07× (p2211) |
 | 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open — training** · ~step**87** · post**143108** (p2221 n80-gate) |
@@ -94,7 +94,7 @@
 - **R24** Tok LongCtx-GRPO on `mine-r3` pid**88309** max_len=16384/new=1024 (p2205). Dir: `experiments/r24-longctx-grpo/`.
 
 ### R10 / R11 / R12 / R13
-- **R10 blocked** p2162: `ammazon/Affine-5dvqtektxx-sbs-v2` gated 403 for unconst — need Hub access or public merge parent before arm.
+- **R10 UNBLOCKED** p2223: `ammazon/…-sbs-v2@6f1b8e68` public via HF; retarget n80→guass; fleet QUEUE head.
 - **R11 REFUTED** p2175: online-DPO n80 m=**−0.0055** SE=0.00671 z=−0.82 hr−0.41× vs ckp333 (n=76). Stage-5 SKIP.
 - **R12 REFUTED** p2188: BoN-CE n80 m=**+0.00085** SE=0.0143 z=0.06 hr0.03× vs ckp333. Stage-5 SKIP.
 - **R13 REFUTED** p2189: offline-DPO n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333. Stage-5 SKIP.
