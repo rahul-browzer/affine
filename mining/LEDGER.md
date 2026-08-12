@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $116,565.372 | 2026-08-12T13:00Z |
-| cumulative mining spend | ~$81,036 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T13:00Z |
-| **available for mining** | **~$106,565** (balance − $10,000 floor) | 2026-08-12T13:00Z |
+| Lium balance | $116,518.564 | 2026-08-12T13:06Z |
+| cumulative mining spend | ~$81,083 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T13:06Z |
+| **available for mining** | **~$106,519** (balance − $10,000 floor) | 2026-08-12T13:06Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T13:00Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + 1×B200 $52.25) · **vs floor $833/h** | 2026-08-12T13:06Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T13:06Z | 116518.564 | p2251 tore dead R25 ($40) + CREATION_FAILED R23; burn **$180.25/h**; Δ−$47 vs p2250 |
 | 2026-08-12T13:00Z | 116565.372 | p2250 no rent (8×=0); R25 n80 LIVE on R3; burn **$220.25/h**; Δ−$24 vs p2249 |
 | 2026-08-12T12:54Z | 116589.488 | p2249 no rent (8×=0); R33 REFUTE→R22 warm crown; burst next R23; burn **$220.25/h**; Δ−$24 vs p2248 |
 | 2026-08-12T12:48Z | 116613.669 | p2248 no rent (8×=0); R25 HF complete→chall load on R3; burn **$220.25/h**; Δ−$24 vs p2247 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T11:49Z | 116904.069 | p2244 no rent (8×=0); R19/R33 form-dec re-arm; burn **$220.25/h**; Δ−$24 vs p2243 |
 | 2026-08-12T11:44Z | 116928.362 | p2243 no rent (8×=0); HF purge ~484 GB REFUTE merges; burn **$220.25/h**; Δ$0 vs p2242 |
 | 2026-08-12T11:40Z | 116928.362 | p2242 no new rent (8×=0; Soft/Dead fix R22/R23/R27–R32); burn **$220.25/h**; Δ−$24 vs p2241 |
-| 2026-08-12T11:36Z | 116952.590 | p2241 no new rent (8×=0; R5b→R19 warm on r4); burn **$220.25/h**; Δ−$24 vs p2240 |

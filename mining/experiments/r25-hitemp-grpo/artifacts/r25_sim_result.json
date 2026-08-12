@@ -1,0 +1,69 @@
+{
+  "elapsed_s": 139.39929962158203,
+  "king_repo": "ttttxxxxsada/Affine-5guassq3tu",
+  "king_rev": "e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "chall_repo": "/root/r25_from_hf",
+  "block_hash": "a203000000000000000000000000000000000000000000000000000000000003",
+  "hotkey": "local-r25",
+  "verdict": {
+    "challenger_wins": false,
+    "margin": -0.005953658918374129,
+    "se": 0.014044056373505202,
+    "z": -0.42392730134621204,
+    "k_sigma": 2.0,
+    "n_paired_turns": 79,
+    "ranking_formula": "Reason = lpC(y_C|z_A) \u2212 lpC(y_C|\u2205)",
+    "duel_params": {
+      "n_turns": 80,
+      "k_sigma": 2.0
+    },
+    "king": {
+      "reason": -0.005073253945674315,
+      "n_turns": 80,
+      "n_pairs": 80,
+      "gate_pass_rate": 0.0,
+      "bank_frac": null,
+      "calib_ratio": null,
+      "baseline_abs": null,
+      "mean_l1lift": null,
+      "mean_eta": 0.039410948076051805,
+      "mean_len_z": 301.5,
+      "mean_len_y": 317.175,
+      "len_z_delta": 90.55000000000001,
+      "len_y_delta": -272.90000000000003
+    },
+    "challenger": {
+      "reason": -0.011011540040897161,
+      "n_turns": 80,
+      "n_pairs": 79,
+      "gate_pass_rate": 0.0,
+      "bank_frac": null,
+      "calib_ratio": null,
+      "baseline_abs": null,
+      "mean_l1lift": null,
+      "mean_eta": -0.865796791876956,
+      "mean_len_z": 394.9620253164557,
+      "mean_len_y": 232.29113924050634,
+      "len_z_delta": 184.01202531645572,
+      "len_y_delta": -357.7838607594937
+    },
+    "teacher": {
+      "mean_len_z": 210.95,
+      "mean_len_y": 590.075
+    },
+    "duel_seconds": 139.39822420396376,
+    "slice": {
+      "seed": 9072862096790672671,
+      "n": 80,
+      "digest": "376a55f3beb105221a71d986e305f92b8786a9ca77e6458823f9685e81dd608c",
+      "block_hash": "a203000000000000000000000000000000000000000000000000000000000003",
+      "corpus_epoch": 8,
+      "manifest_sha256": "68a38fe1a9a426ceb6eb342e061c7062ee7f481b60d3e51aa49d08efeaddbfbc"
+    }
+  },
+  "h4": {
+    "chall_r": null,
+    "chall_baseline_abs": null,
+    "king_baseline_abs": null
+  }
+}
