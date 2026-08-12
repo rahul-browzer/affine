@@ -146,4 +146,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R8 REFUTE** p2158 m=−0.027; king-swap retry_* KING defaults (p2159); R9 train-wait ≠ merge-block (p2160); n80 `--chall-repo`=vLLM serve id not `readlink -f` (p2161).
 - **R7 REFUTE** p2162 m=+0.0123 z=1.978 <2σ (hr0.99×) — knife-edge. **R10** 403 on sbs-v2 → warm **R11** online-DPO (GPUs6–7).
 - Pre-swap king on 2–3 while GRPO trains 6–7; `RESTART_KING=0` if `:8001` already target (p2163). `write_reason_decision` kσ=2.0 + arm watcher (p2165/71).
-- **R9 graft** `.clone()` visuals (p2187); kill chall before serve-dir rewrite (p2189). **R9/R12/R13/R3b/R14 REFUTE** (p2188–94). H135 `post_train` defaults BASE=kevin — non-kevin warm-arms must `export BASE=` (R16 p2194).
+- **R9/R12–R14/R16 REFUTE** (p2188–96). H135 `post_train` BASE=kevin unless exported. Qwen3-Coder LoRA needs `lora_dropout=0` (ParamWrapper; p2196 R17).
