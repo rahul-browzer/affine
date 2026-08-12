@@ -1,0 +1,34 @@
+{
+  "utc": "2026-08-12T00:16:23Z",
+  "pass": 2141,
+  "hyp": "R6",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "event": "train.done \u2192 merge live; armed n80 continue past stale deadman",
+  "train_finished_utc": "2026-08-12T00:13:42Z",
+  "train_elapsed_s": 4415.0,
+  "data": "/root/h101/za_ultrashort80.jsonl",
+  "max_len": 16384,
+  "epochs": 6,
+  "lr": 5e-06,
+  "lora_r": 16,
+  "thought_ok": 121,
+  "stale_deadman_was": "2026-08-09T08:12:58Z",
+  "pod_removal_scheduled_at": "2026-08-12T20:57:47Z",
+  "patched_defaults": {
+    "SOFT_DEADLINE_UTC": "2026-08-12T19:57:47Z",
+    "DEADMAN_UTC": "2026-08-12T20:27:47Z"
+  },
+  "continue_script": "continue_n80_after_stale_deadman.sh",
+  "check": "tail -f /root/logs/h101_pipeline.nohup /root/logs/h101_continue_n80_p2141.nohup",
+  "decision": "/root/affine_data/h101_decision.json",
+  "contract": {
+    "weight_version_key": 3,
+    "k_sigma": 2.0
+  },
+  "burn": {
+    "miner_usd_per_h": 180.25,
+    "floor": 833,
+    "b300x8_stock": 0
+  }
+}

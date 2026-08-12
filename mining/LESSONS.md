@@ -17,6 +17,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Submit when sim margin clears ~**1.5 × (3·SE)** on a fresh slice (slice-variance headroom), not the old 0.04 S\* gate.
 
 ## Ops (still true — details in legacy archive if needed)
+- R6/H101 post_train Soft/Deadman defaults can be **days stale** after pod re-rent — running bash keeps old values; arm continue→retry_n80 or relaunch with SKIP_MERGE=1 + TTL-relative deadlines before n80.
 - Live corpus is **schema v2** (Parquet index + chunks). `sync_corpus.sh` must accept `turns_index.parquet`, not only `turns.jsonl`.
 - Schema-v2 Reason sim needs **pandas + pyarrow** in the pod venv (`CorpusSync` reads parquet). vLLM-only installs miss them — pin in `restore_warm_stack.sh`.
 - Pods: `mine-*` only; never `rm` non-mine; always `--ttl`; reconcile `lium ps` first every pass.
