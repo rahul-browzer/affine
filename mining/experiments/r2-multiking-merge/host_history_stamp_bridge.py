@@ -47,8 +47,10 @@ SCP = [
     SSH_PORT,
 ]
 
-KING_REPO = "Tok331102/affine-5EqYW8McUc-af10"
-KING_REV = "eb8bf9a356a254f71faaa439e8abc3cfba572c53"
+# Live reign-5 king (2026-08-12T01:17Z). Historical stamps still carry
+# whatever was king at verdict time via item fields when present.
+KING_REPO = "tolegend/Affine-5fqbxvz29b-ckp333"
+KING_REV = "24c137e8a978aea1e2b4abeec594fb6ca943f03c"
 
 # challenge_id → outstem (matches on-pod watchers / Stage-5 gates)
 TARGETS = {
@@ -213,7 +215,12 @@ def poll_once(pending: set[str]) -> None:
     by_chal: dict[str, dict] = {}
     for item in payload.get("items") or []:
         cid = item.get("challenge_id")
-        if cid in pending and item.get("event") == "verdict" and cid not in by_chal:
+        # crowned is a scored verdict that also swaps the king (p2152: 00501).
+        if (
+            cid in pending
+            and item.get("event") in ("verdict", "crowned")
+            and cid not in by_chal
+        ):
             by_chal[cid] = item
     for chal, item in by_chal.items():
         outstem = TARGETS[chal]
