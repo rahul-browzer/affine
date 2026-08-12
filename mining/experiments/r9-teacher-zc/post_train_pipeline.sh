@@ -14,9 +14,9 @@ exec > >(tee -a "$LOG") 2>&1
 
 echo "[r9-pipe] $(date -u +%Y-%m-%dT%H:%M:%SZ) start p2154"
 
-# Crown remove_at≈2026-08-12T08:42Z → soft=TTL−1h, deadman=TTL−30m (LESSONS).
-SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-12T07:42:00Z}
-DEADMAN_UTC=${DEADMAN_UTC:-2026-08-12T08:12:00Z}
+# Crown remove_at≈2026-08-12T14:36Z (p2164 +12h) → soft=TTL−1h, deadman=TTL−30m (LESSONS).
+SOFT_DEADLINE_UTC=${SOFT_DEADLINE_UTC:-2026-08-12T13:35:59Z}
+DEADMAN_UTC=${DEADMAN_UTC:-2026-08-12T14:05:59Z}
 
 TRAIN_DIR=${TRAIN_DIR:-/root/h99/train}
 ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
