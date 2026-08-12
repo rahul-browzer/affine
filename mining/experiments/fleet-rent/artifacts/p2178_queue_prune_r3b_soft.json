@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-12T03:40:54.889681+00:00",
+  "pass": 2178,
+  "actions": [
+    "R3b mine.env Soft=Removal-1h Dead=Removal-30m (16:29:36 \u2192 15:29:36/15:59:36)",
+    "R3b post_train defaults patched to match",
+    "fleet QUEUE prune: drop R11 REFUTE + R12 live-on-r4",
+    "restart wait_fleet_b300_api.py PASS=2178"
+  ],
+  "stock_8x_b300_b200": 0,
+  "burn_usd_h": 180.25
+}

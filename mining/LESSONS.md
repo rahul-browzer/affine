@@ -17,7 +17,8 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Submit when sim margin clears ~**1.5 × (3·SE)** on a fresh slice (slice-variance headroom), not the old 0.04 S\* gate.
 
 ## Ops (still true — details in legacy archive if needed)
-- Soft/Dead = **Removal−1h / Removal−30m** from `lium schedules`/`describe` — never wall-clock `+Nh` (p2177 R12 Soft landed **after** 20:57Z teardown; patch mine.env + on-disk defaults, relaunch post_train only).
+- Soft/Dead = **Removal−1h / Removal−30m** from `lium schedules`/`describe` — never wall-clock `+Nh` (p2177 R12 Soft landed **after** 20:57Z teardown; p2178 R3b mine.env lacked Soft/Dead — patch env + on-disk defaults; relaunch post_train only if it had not already sourced).
+- Fleet rent QUEUE must drop REFUTED axes and axes already live under a different pod name (p2178: R11/R12 still queued as `mine-r11-*`/`mine-r12-*` while R12 runs on `mine-r4-fullft-1`).
 - Live corpus is **schema v2** (Parquet index + chunks). `sync_corpus.sh` must accept `turns_index.parquet`, not only `turns.jsonl`.
 - Schema-v2 Reason sim needs **pandas + pyarrow** in the pod venv (`CorpusSync` reads parquet). vLLM-only installs miss them — pin in `restore_warm_stack.sh`.
 - Pods: `mine-*` only; never `rm` non-mine; always `--ttl`; reconcile `lium ps` first every pass.

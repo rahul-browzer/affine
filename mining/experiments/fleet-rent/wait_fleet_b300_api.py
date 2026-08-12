@@ -36,7 +36,7 @@ CAP = int(os.environ.get("MINE_CAP", "25"))
 TARGET = int(os.environ.get("TARGET_MINES", "25"))
 PARALLEL_N = int(os.environ.get("PARALLEL_N", "22"))
 MAX_ITERS = int(os.environ.get("MAX_ITERS", "86400"))
-PASS = int(os.environ.get("PASS", "2139"))
+PASS = int(os.environ.get("PASS", "2178"))
 # Stay under Lium 429 while still beating CLI ls (~0.63s). 0.5s ≈ 2 Hz.
 EMPTY_SLEEP = float(os.environ.get("EMPTY_SLEEP", "0.5"))
 PODS_FAIL_SLEEP = float(os.environ.get("PODS_FAIL_SLEEP", "2.0"))
@@ -63,8 +63,8 @@ QUEUE = [
     ("mine-r32-kl-1", "R32", "Tok GRPO kl_coef=0.02 vs base (≠ R3 kl=0; isolates KL)"),
     ("mine-r5-nonking-2", "R5b", "Talent/kevin non-king base FT"),
     ("mine-r10-merge-rl-1", "R10", "merge+RL hybrid Reason"),
-    ("mine-r11-odpo-1", "R11", "online DPO on live teacher Reason"),
-    ("mine-r12-bon-1", "R12", "Best-of-N CE on live teacher Reason"),
+    # R11 REFUTED p2175 n80 m=-0.0055 z=-0.82 — do not re-rent.
+    # R12 live on mine-r4-fullft-1 (p2177 Soft/Dead TTL-fixed) — do not re-rent as mine-r12-bon-1.
     ("mine-r13-odpo-1", "R13", "offline DPO on duel Reason prefs"),
     ("mine-r14-kevin-rl-1", "R14", "kevin954-init REINFORCE on teacher Reason"),
     ("mine-r15-pandora-rl-1", "R15", "pandora-box-init REINFORCE on teacher Reason"),

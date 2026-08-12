@@ -35,12 +35,12 @@ QUEUE=(
   "mine-r30-hialpha-1|R30|Tok GRPO lora_alpha=128 r=16 (≠ R3 α=32; isolates α vs R29)"
   "mine-r31-nodrop-1|R31|Tok GRPO lora_dropout=0.0 (≠ R3 0.05; isolates dropout)"
   "mine-r32-kl-1|R32|Tok GRPO kl_coef=0.02 vs base (≠ R3 kl=0; isolates KL)"
-  "mine-r9-teacher-zc-1|R9|teacher-z_C imitation / format prior"
+  # R9 live on mine-crown-1 — do not re-rent as mine-r9-teacher-zc-1.
   "mine-r5-nonking-2|R5b|Talent/kevin non-king base FT"
   "mine-r10-merge-rl-1|R10|merge+RL hybrid Reason"
   # mine-r6-fmt-2 R6b REFUTED p2151 — do not re-rent.
-  "mine-r11-odpo-1|R11|online DPO on live teacher Reason"
-  "mine-r12-bon-1|R12|Best-of-N CE on live teacher Reason"
+  # R11 REFUTED p2175 — do not re-rent.
+  # R12 live on mine-r4-fullft-1 (p2177) — do not re-rent as mine-r12-bon-1.
   "mine-r13-odpo-1|R13|offline DPO on duel Reason prefs"
   "mine-r14-kevin-rl-1|R14|kevin954-init REINFORCE on teacher Reason"
   "mine-r15-pandora-rl-1|R15|pandora-box-init REINFORCE on teacher Reason"
