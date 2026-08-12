@@ -147,4 +147,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R17/R20 REFUTE** vs guass (p2210–11). Idle R4→warm next QUEUE axis (R21 pandora-GRPO p2212); drop warm-armed axes from fleet QUEUE + restart burst or you double-rent the name.
 - B200 king FULL cudagraph can deadlock TP0=R/TP1=S at 0% (shm_broadcast ≥3m) while B300 same recipe is fine — retarget with `--enforce-eager` (p2216 R25). Kill king by **pidfile + EngineCore children only**; never broad-kill `EngineCore`/`Worker_TP` (takes teacher too).
 - After :8001 king swap, re-check `post_train` environ KING_* (p2217 R24). **Reuse pod:** archive prior-axis root `adapter/` + stale `r3_sim_result.json` before warm-arm — post waits on `adapter && !train` and will merge leftover R20 kevin weights onto a new BASE (p2218 R21).
+- Teacher `/health`=200 ≠ duel-ready: R24 left :8000 at **32768** while king@65536 — post_train only checks HTTP. Arm train.done→relaunch teacher@**65536** before n80 (p2220).
 

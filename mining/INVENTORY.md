@@ -7,7 +7,7 @@
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
 | mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-13T02:35Z** | **R26** LoTemp + guass |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** + guass |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** + guass + tmax fix |
 | mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R21** pandora-GRPO |
 | mine-r25-hitemp-1 | zesty-fox-bc (`20498068-…`) | 8×B200 | $40.00 | **2026-08-13T08:46Z** | **R25** + guass DONE |
 | *(pending fleet)* | mine-r27…r32 + R5b/R18… | 8×B300 | ~$64 | burst **3704917** | R27 next |
@@ -27,6 +27,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T09:39Z | p2220: R24 teacher 32768→65536 sidecar **96210**; 8×=0 next=R27; burn **$220.25/h** |
 | 2026-08-12T09:36Z | p2219: burst **3682673**→**3704917** (pre-TIMEOUT); 8×=0 next=R27; burn **$220.25/h** |
 | 2026-08-12T09:32Z | p2218: R21 archived R20 kevin adapter+sim; R24 archived R3b sim; burn **$220.25/h** |
-| 2026-08-12T09:28Z | p2217: R24 post KING→guass (pid94952); burst→**3682673**; burn **$220.25/h** |

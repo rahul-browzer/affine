@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-12T09:39:46Z",
+  "pass": 2220,
+  "pod": "mine-r3-grpo-1",
+  "axis": "R24",
+  "action": "armed_fix_teacher_maxlen_65536",
+  "sidecar_pid": 96210,
+  "teacher_len_now": 32768,
+  "train_step_at_arm": 85,
+  "train_pid": 88309,
+  "script": "experiments/r24-longctx-grpo/fix_teacher_maxlen_65536.sh",
+  "pod_path": "/root/mining_src/r24-longctx-grpo/fix_teacher_maxlen_65536.sh",
+  "why": "R24 teacher prewarm left max_model_len=32768; n80 needs 65536. Sidecar waits train.done then relaunches :8000.",
+  "check": "ssh -p 40051 root@204.9.206.245 'tail -f /root/logs/r24_fix_teacher_maxlen.nohup; cat /root/affine_data/r24_teacher_maxlen_fix.json'",
+  "burn": 220.25,
+  "burst_pid": 3704917,
+  "stock_8x": 0
+}
