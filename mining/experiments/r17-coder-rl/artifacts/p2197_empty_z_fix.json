@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-12T07:01:51Z",
+  "pass": 2197,
+  "issue": "Qwen3-Coder REINFORCE emitted leading bash fence at offset 0; cut i_bash>=0 wiped z0 (4/4 empty)",
+  "fix": "train_rl_l2.py: cut/normalize only at i_bash>0; Coder/FORCE_THOUGHT_PREFIX appends THOUGHT: after THINK_OPEN",
+  "relaunch_pid": 337498,
+  "verify": {
+    "empty": 0,
+    "nonzero": 1,
+    "step1_z0_prefix": "I found the optimal_string_alignment.py file which likely contains the OptimalSt",
+    "mean_r": 0.01701
+  },
+  "old_log": "/root/logs/h135_train.empty_z0.p2197.nohup"
+}

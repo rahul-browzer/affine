@@ -42,13 +42,19 @@ def _normalize_z(z_text: str) -> str:
     Tok-style: body inside <think>…</think>.
     Kevin/albedo-style: model emits </think> immediately then THOUGHT: … before
     ```bash — leading-close must not collapse to empty (p508).
+    Coder-style: often emits ```bash at offset 0 (no latent). Cutting at i==0
+    must NOT zero a non-empty body; leading-bash → empty thought (p2197).
     """
     s = z_text.strip()
+    if s.startswith("```bash"):
+        return ""
     if s.startswith(THINK_CLOSE):
         rest = s[len(THINK_CLOSE) :].lstrip("\n")
         i_bash = rest.find("```bash")
-        if i_bash >= 0:
+        if i_bash > 0:
             rest = rest[:i_bash]
+        elif i_bash == 0:
+            rest = ""
         rest = rest.strip()
         if rest.startswith("THOUGHT:"):
             rest = rest[len("THOUGHT:") :].strip()
@@ -58,7 +64,7 @@ def _normalize_z(z_text: str) -> str:
         return latent.strip()
     for marker in ("```bash", "THOUGHT:"):
         i = z_text.find(marker)
-        if i >= 0:
+        if i > 0:
             return z_text[:i].strip()
     return z_text.strip()
 
@@ -132,12 +138,13 @@ def _sample_thought(
         )
     new_tokens = out[0, enc["input_ids"].shape[1] :]
     text = tok.decode(new_tokens, skip_special_tokens=True)
-    # Prefer ```bash. Only cut at </think> when it closes a non-empty latent;
+    # Prefer ```bash only after a non-empty latent (i_bash > 0).
+    # Qwen3-Coder often starts with ```bash@0 — cutting there wiped z (p2197).
     # kevin emits </think> at offset 0 then THOUGHT: — keep that body (p508).
     cut = len(text)
     i_bash = text.find("```bash")
     i_close = text.find(THINK_CLOSE)
-    if i_bash >= 0:
+    if i_bash > 0:
         cut = i_bash
     elif i_close > 0:
         cut = i_close + len(THINK_CLOSE)
@@ -280,6 +287,17 @@ def main() -> None:
             )
             if not prompt.rstrip().endswith(THINK_OPEN):
                 prompt = prompt + THINK_OPEN
+            # Qwen3-Coder jumps straight to ```bash; seed a THOUGHT: body so
+            # generate continues inside the latent (p2197). Albedo kings already
+            # emit THOUGHT: after </think> — leave them alone.
+            base_l = str(args.base).lower()
+            force_prefix = os.environ.get("FORCE_THOUGHT_PREFIX", "").strip() in (
+                "1",
+                "true",
+                "yes",
+            ) or ("coder" in base_l)
+            if force_prefix and not prompt.rstrip().endswith("THOUGHT:"):
+                prompt = prompt + "THOUGHT: "
             p_ids = tok(prompt, add_special_tokens=False)["input_ids"]
             if len(p_ids) > args.max_len - args.max_new - 64:
                 continue
@@ -292,6 +310,7 @@ def main() -> None:
             rewards: list[float] = []
             logps: list[torch.Tensor] = []
             texts: list[str] = []
+            raws: list[str] = []
             for _g in range(args.group_size):
                 z_text, sum_lp = _sample_thought(
                     model,
@@ -301,6 +320,7 @@ def main() -> None:
                     args.temperature,
                     device,
                 )
+                raws.append(z_text[:80])
                 z_norm = _normalize_z(z_text)
                 try:
                     lp_c = _teacher_lp_per_byte(
@@ -356,6 +376,8 @@ def main() -> None:
                 "loss": float(loss.detach().item()) if torch.is_tensor(loss) else 0.0,
                 "z0": texts[0] if texts else "",
             }
+            if not (texts and texts[0].strip()) and raws:
+                rec["raw0"] = raws[0]
             hist.append(rec)
             if steps % 5 == 0 or steps <= 3:
                 print(f"[rl-log] {json.dumps(rec)}", flush=True)

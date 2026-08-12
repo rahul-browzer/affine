@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-12T07:01:51Z",
+  "pass": 2197,
+  "iters": 1500,
+  "result": "empty_timeout",
+  "mine_count": 3,
+  "b300x8": 0,
+  "b200x8": 0,
+  "next_queue": "mine-r24-longctx-1",
+  "change": "burst_p2194 TIMEOUT then CONT waiter 3373328; no new rent (8x=0); R17 empty-z fix instead",
+  "balance_usd": 118211.28016202466,
+  "burn_per_h": 180.25
+}

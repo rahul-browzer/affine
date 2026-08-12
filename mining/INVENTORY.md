@@ -15,8 +15,8 @@ SSH crown/R17: `ssh root@95.133.253.90 -p 40099`
 SSH R3/R15: `ssh root@204.9.206.245 -p 40051`
 SSH R4/R20: `ssh root@86.38.182.50 -p 40307`
 Host hist bridge: pid**3174953** (+chal-00525)
-Host fleet-rent: pid**3373328** (STOP; CONT after burst_p2194)
-Host burst: pid**3400683**
+Host fleet-rent: pid**3373328** (CONT; next=R24)
+Host fleet-boot: pid**2756348**
 
 Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
@@ -24,6 +24,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T07:01Z | p2197: R17 empty-z fix→relaunch **337498**; burst1500 timeout; waiter CONT; 8×=0; burn **$180.25/h** |
 | 2026-08-12T06:54Z | p2196: R16 REFUTE→R17 crown (train**335693** dropout=0); 8×=0; burn **$180.25/h** |
 | 2026-08-12T06:44Z | p2195: 8×=0; R16 merge+HF DONE chall loading; purged 9 REFUTED HF; burn **$180.25/h** |
-| 2026-08-12T06:39Z | p2194: R14 REFUTE→R20 warm-arm R4; R16 merge relaunch; 1500-iter burst; burn **$180.25/h** |

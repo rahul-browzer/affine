@@ -34,7 +34,7 @@
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.0215** z=−1.14 hr−0.57× (p2194) |
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-r3-grpo-1` ~step105/200 (p2196) |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.00935** z=−1.30 hr=−0.65× vs ckp333 (p2196) |
-| 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open — PRIORITY** · warm on `mine-crown-1` train pid335693 dropout=0 (p2196) |
+| 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open — PRIORITY** · crown pid**337498** (p2197 empty-z/`THOUGHT:` fix; z0 ok @step1) |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **open — PRIORITY** · warm on `mine-r4-fullft-1` step~2/200 (p2194) |
