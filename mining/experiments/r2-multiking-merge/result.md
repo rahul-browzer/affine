@@ -1,3 +1,13 @@
+## p2176 — R2bm REFUTE (tttt guass vs ckp333)
+
+- **R2bm** n80 done: margin **−0.00568** · SE **0.00381** · z=**−1.49** · live 2σ thr **0.00763** · hr **−0.74×** → **REFUTE** / Stage-5 SKIP.
+- Chall `ttttxxxxsada/Affine-5guassq3tu@e86758f5…` (chal-00521) Reason_c=−0.0122 vs king −0.0064; n_paired=80; elapsed ~1912s.
+- Copied decision to `/root/affine_data/` so R9 `post_train` gate clears; R9 train ~288/354 continues on GPUs6–7.
+- Queue parents through chal-00521 all locally screened; no new board parent to arm.
+- Artifacts: `artifacts/r2bm_tttt_guass_decision.json`, `artifacts/r2bm_tttt_guass_p2176_harvest.json`.
+- B300/B200×8 stock still **0**; burn **$180.25/h** vs $833.
+- Next: R9 merge→n80; rent B300 if stock (R24 first).
+
 ## p2140 — R2bg REFUTE; R2bh IntoLayer reload live (2026-08-12T00:08Z)
 
 ## p2145 — R2bh REFUTE → R2bi thrivepath mt2 armed

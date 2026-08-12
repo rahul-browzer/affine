@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $119,088.759 | 2026-08-12T03:31Z |
-| cumulative mining spend | ~$78,508 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T03:31Z |
-| **available for mining** | **~$109,089** (balance − $10,000 floor) | 2026-08-12T03:31Z |
+| Lium balance | $119,088.759 | 2026-08-12T03:34Z |
+| cumulative mining spend | ~$78,508 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T03:34Z |
+| **available for mining** | **~$109,089** (balance − $10,000 floor) | 2026-08-12T03:34Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T03:31Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T03:34Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T03:34Z | 119088.759 | p2176 no rent (API 8×=0); R2bm REFUTE harvest; burn **$180.25/h**; Δ$0 vs p2175 |
 | 2026-08-12T03:31Z | 119088.759 | p2175 no rent (API 8×=0); R11 REFUTE→R12 warm-arm; burn **$180.25/h**; Δ−$21 vs p2174 |
 | 2026-08-12T03:27Z | 119110.012 | p2174 no rent (API 8×=0); R11 n80 relaunch after ENOENT sim; burn **$180.25/h**; Δ−$21 vs p2173 |
 | 2026-08-12T03:21Z | 119130.766 | p2173 no rent (API 8×=0); R11 Triton false_probe→reseed+n80-retry; burn **$180.25/h**; Δ−$21 vs p2172 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T03:00Z | 119213.055 | p2169 no rent (API 8×=0); R2bm n80 started; burn **$180.25/h**; Δ−$22 vs p2168 |
 | 2026-08-12T02:55Z | 119235.098 | p2168 no rent (API 8×=0); R2bm armed on crown; burn **$180.25/h**; Δ−$21 vs p2167 |
 | 2026-08-12T02:52Z | 119255.925 | p2167 no rent (API 8×=0); R11 Soft/Dead TTL-fix; burn **$180.25/h**; Δ−$21 vs p2166 |
-| 2026-08-12T02:48Z | 119276.828 | p2166 no rent (API 8×=0); R2bl REFUTE; burn **$180.25/h**; Δ−$21 vs p2165 |
