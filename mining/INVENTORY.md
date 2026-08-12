@@ -10,7 +10,7 @@
 | mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** + guass |
 | mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R21** pandora-GRPO |
 | mine-r25-hitemp-1 | zesty-fox-bc (`20498068-…`) | 8×B200 | $40.00 | **2026-08-13T08:46Z** | **R25** + guass DONE |
-| *(pending fleet)* | mine-r27…r32 + R5b/R18… | 8×B300 | ~$64 | burst **3652502** | R27 next |
+| *(pending fleet)* | mine-r27…r32 + R5b/R18… | 8×B300 | ~$64 | burst **3682673** | R27 next |
 
 SSH crown/R26: `ssh root@95.133.253.90 -p 40099`
 SSH R3/R24: `ssh root@204.9.206.245 -p 40051`
@@ -18,7 +18,7 @@ SSH R4/R21: `ssh root@86.38.182.50 -p 40307`
 SSH R25: `ssh root@150.136.71.147 -p 20309`
 Host hist bridge: pid**3174953** (pending chal-00525)
 Host fleet-rent: pid**3373328** (**SIGSTOP**; CONT after burst)
-Host fleet-burst: pid**3652502** (p2215; mine=4/25; next=R27)
+Host fleet-burst: pid**3682673** (p2217; mine=4/25; next=R27)
 Host fleet-boot: pid**2756348**
 
 Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
@@ -27,6 +27,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T09:28Z | p2217: R24 post KING ckp333→guass (pid94952); burst→**3682673**; burn **$220.25/h** |
 | 2026-08-12T09:24Z | p2216: R25 guass DONE (`--enforce-eager`); teacher restored; burn **$220.25/h** |
 | 2026-08-12T09:14Z | p2215: R25 :8001 Tok→guass retarget; burst→**3652502**; burn **$220.25/h** |
-| 2026-08-12T09:07Z | p2214: R25 guass DL+KING env+form/post; burst→**3644233**; burn **$220.25/h** |

@@ -1,0 +1,19 @@
+{
+  "utc": "2026-08-12T09:28:06Z",
+  "pass": 2217,
+  "pid": 3682673,
+  "log": "experiments/fleet-rent/logs/burst_p2217.log",
+  "prev_burst_killed": 3652502,
+  "waiter_stop": 3373328,
+  "change": "R24 post_train+form relaunch KING ckp333\u2192guass (stale process env); SKIP_PID_LOCK burst PASS=2217 next=R27; 8x empty",
+  "r24": {
+    "train_pid": 88309,
+    "post_pid": 94952,
+    "form_pid": 94957,
+    "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+    "step": 71
+  },
+  "mine_count": 4,
+  "burn_h": 220.25,
+  "balance": 117581.79438417844
+}
