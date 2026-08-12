@@ -33,7 +33,8 @@ QUEUE=(
   # "mine-r18-sbs-grpo-1|R18|pure sbs-v2-init Reason-GRPO (BLOCKED Hub gated)"
   # p2235: R5b warm on mine-r4-fullft-1; R33 warm on mine-crown-1 — do not re-rent.
   # "mine-r5-nonking-2|R5b|Talent/kevin non-king base FT"
-  "mine-r19-talent-grpo-1|R19|TalentPigs-init Reason-GRPO (≠ R3/R5b; sbs gated)"
+  # p2241: R5b SIGNAL_POS_BELOW; R19 warm on mine-r4-fullft-1 — do not re-rent.
+  # "mine-r19-talent-grpo-1|R19|TalentPigs-init Reason-GRPO (≠ R3/R5b; sbs gated)"
   "mine-r22-golden-grpo-1|R22|golden-crown-init Reason-GRPO (≠ R3/R16/R19–R21)"
   "mine-r23-diane-grpo-1|R23|diane613-init Reason-GRPO (≠ R3/R16/R19–R22)"
   "mine-r27-bigg-1|R27|Tok GRPO group_size=16 (≠ R3 G=4 / R3b G=8+alt-lr)"

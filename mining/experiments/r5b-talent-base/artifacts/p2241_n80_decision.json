@@ -1,0 +1,15 @@
+{
+  "pass": 2241,
+  "utc": "2026-08-12T11:34:07Z",
+  "decision": "SIGNAL_POS_BELOW_KSIGMA",
+  "margin": 0.003933628765367309,
+  "se": 0.009211807502546068,
+  "z": 0.4270202958843947,
+  "k_sigma": 2.0,
+  "threshold_live_2se": 0.018423615005092136,
+  "n_paired_turns": 79,
+  "challenger_wins": false,
+  "king": "ttttxxxxsada/Affine-5guassq3tu",
+  "king_rev": "e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "note": "Talent full-FT vs guass; positive but <2\u03c3 \u2014 no submit; freed pod \u2192 R19"
+}

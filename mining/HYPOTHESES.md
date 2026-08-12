@@ -22,7 +22,7 @@
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **REFUTED** · n80 m=**−0.0077** z=−0.76 (p2116) |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **REFUTED** · n80 m=**−0.0037** z=−0.58 (p2120) |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **REFUTED** · n80 m=**−0.0390** z=−3.24 (p2125) |
-| 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open — PRIORITY** · p2236 ENOSPC reclaim; Talent DL relaunch pid151889 on `mine-r4-fullft-1` |
+| 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **REFUTED** · vs guass n80 m=**+0.00393** z=**0.43** hr0.21× (p2241) — SIGNAL_POS_BELOW |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **REFUTED** · n80 m=**−0.0006** z=−0.07 hr−0.04× (p2143) |
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **REFUTED** · n80 m=**+0.0123** z=1.978 hr0.99× vs ckp333 (p2162) |
@@ -37,7 +37,7 @@
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.00935** z=−1.30 hr=−0.65× vs ckp333 (p2196) |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **REFUTED** · n80 vs guass m=**−0.0140** z=−0.71 hr**−0.36×** (p2210; n_paired=27) |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **BLOCKED** · same sbs-v2 **403** p2224 · demoted from fleet QUEUE |
-| 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
+| 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open — PRIORITY** · warm on `mine-r4-fullft-1` train pid166479 (p2241 after R5b) |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **REFUTED** · vs guass n80 m=**−0.0196** z=−2.13 hr=−1.07× (p2211) |
 | 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **REFUTED** · vs guass n80 m=**−0.00568** z=−0.55 hr−0.28× (p2235) |
 | 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open** · `mine-r22-golden-grpo-1` · **p2229** guass+writer |

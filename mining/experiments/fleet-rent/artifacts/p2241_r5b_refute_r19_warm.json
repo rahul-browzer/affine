@@ -1,0 +1,34 @@
+{
+  "pass": 2241,
+  "utc": "2026-08-12T11:36:52Z",
+  "action": "R5b n80 SIGNAL_POS_BELOW vs guass; warm-arm R19 Talent-GRPO on mine-r4; QUEUE drop R19; restart burst",
+  "r5b": {
+    "decision": "SIGNAL_POS_BELOW_KSIGMA",
+    "margin": 0.003933628765367309,
+    "se": 0.009211807502546068,
+    "z": 0.4270202958843947,
+    "k_sigma": 2.0,
+    "threshold_live_2se": 0.018423615005092136,
+    "n_paired": 79,
+    "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5",
+    "chall": "/root/h122/merged"
+  },
+  "r19": {
+    "pod": "mine-r4-fullft-1",
+    "train_pid": 166479,
+    "post_pid": 166487,
+    "base": "TalentPigs/affine-5ekxlcg3fx-abc@dbfbb3e2",
+    "soft": "2026-08-13T07:57:47Z",
+    "dead": "2026-08-13T08:27:47Z"
+  },
+  "old_burst_pid": 3888146,
+  "new_burst_pid": 3962156,
+  "burst_log": "experiments/fleet-rent/logs/burst_p2241.log",
+  "next_axis": "mine-r22-golden-grpo-1",
+  "burn_usd_per_h": 220.25,
+  "balance_usd": 116976.217,
+  "contract": {
+    "wvk": 3,
+    "k_sigma": 2.0
+  }
+}
