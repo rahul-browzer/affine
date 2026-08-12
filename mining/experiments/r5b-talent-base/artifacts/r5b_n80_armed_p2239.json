@@ -1,0 +1,12 @@
+{
+  "utc": "2026-08-12T11:27:39Z",
+  "pass": 2239,
+  "action": "arm_r5b_n80_watchers",
+  "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "chall": "/tmp/h122_merged",
+  "form_pid": "161132",
+  "watch_pid": "161150",
+  "k_sigma": 2.0,
+  "headroom_bar": 1.0,
+  "why": "post_train CHALL_SERVE_DONE but watch_n80_retry/form_decision PIDs were dead (Aug11 stubs); engines loading"
+}
