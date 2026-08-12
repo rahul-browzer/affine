@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-12T09:07:20Z",
+  "pass": 2214,
+  "pod": "mine-r25-hitemp-1",
+  "huid": "zesty-fox-bc",
+  "axis": "R25",
+  "train_pid": 8084,
+  "post_pid": 9634,
+  "form_pid": 9650,
+  "guass_dl_secs": 37,
+  "guass_path": "/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshots/e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "king_n80": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "prewarm_king_port8001": "Tok331102/affine-5EqYW8McUc-af10",
+  "restart_king": 1,
+  "temperature": 1.2,
+  "note": "R25 was missing KING_* in mine.env and had no guass weights; :8001 still Tok until post_train RESTART_KING. Armed guass snapshot + form/post for n80 vs live reign-6."
+}

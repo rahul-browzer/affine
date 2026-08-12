@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-12T09:06:56Z",
+  "pass": 2214,
+  "pid": 3644233,
+  "log": "experiments/fleet-rent/logs/burst_p2214.log",
+  "prev_burst_killed": 3638049,
+  "waiter_stop": 3373328,
+  "change": "R25 guass-DL+KING env+form/post rearmed; SKIP_PID_LOCK burst PASS=2214 next=R27; 8x empty",
+  "mine_count": 4,
+  "burn_h": 220.25,
+  "r25": {
+    "guass_dl_pid": 9659,
+    "post_pid": 9634,
+    "form_pid": 9650,
+    "train_pid": 8084,
+    "king_target": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44"
+  }
+}
