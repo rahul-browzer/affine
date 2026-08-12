@@ -1,0 +1,22 @@
+{
+  "pass": 2222,
+  "utc": "2026-08-12T09:47:25Z",
+  "action": "replace short pass-burst with long API snatcher",
+  "old_burst_pid": 3704917,
+  "old_max_iters": 3000,
+  "old_pass": 2219,
+  "new_burst_pid": 3725622,
+  "new_max_iters": 86400,
+  "log": "experiments/fleet-rent/logs/burst_p2222.log",
+  "pidfile": "experiments/fleet-rent/logs/burst_p2222.pid",
+  "waiter_pid": 3373328,
+  "waiter_state": "SIGSTOP",
+  "skip_pid_lock": true,
+  "next_axis": "mine-r27-bigg-1",
+  "stock_8x_b300_b200": 0,
+  "mine_count": 4,
+  "burn_usd_per_h": 220.25,
+  "floor_usd_per_h": 833,
+  "balance_usd": 117484.96,
+  "why": "3000-iter bursts TIMEOUT ~37m and open rent gaps; 86400 keeps snatching R27+ until B300/B200×8 appears"
+}
