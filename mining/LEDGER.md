@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $117,073.416 | 2026-08-12T11:10Z |
-| cumulative mining spend | ~$80,528 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T11:10Z |
-| **available for mining** | **~$107,073** (balance − $10,000 floor) | 2026-08-12T11:10Z |
+| Lium balance | $117,025.100 | 2026-08-12T11:25Z |
+| cumulative mining spend | ~$80,576 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T11:25Z |
+| **available for mining** | **~$107,025** (balance − $10,000 floor) | 2026-08-12T11:25Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T11:10Z |
+| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T11:25Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T11:25Z | 117025.100 | p2238 no new rent (8×=0; R5b train→finalize→serve); burn **$220.25/h**; Δ−$48 vs p2237 |
 | 2026-08-12T11:10Z | 117073.416 | p2237 no new rent (8×=0; R5b Soft/Dead fix + post_train relaunch); burn **$220.25/h**; Δ−$24 vs p2236 |
 | 2026-08-12T11:06Z | 117097.803 | p2236 no new rent (8×=0; R5b ENOSPC reclaim+Talent DL relaunch); burn **$220.25/h**; Δ−$23 vs p2235 |
 | 2026-08-12T11:03Z | 117120.544 | p2235 no new rent (8×=0; R21/R26 n80 done → warm R33+R5b); burn **$220.25/h**; Δ−$74 vs p2234 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T10:34Z | 117266.784 | p2231 no new rent (8×=0; R29+R30→guass+writer); burn **$220.25/h**; Δ−$0 vs p2230 |
 | 2026-08-12T10:31Z | 117266.784 | p2230 no new rent (8×=0; R27+R28→guass+writer); burn **$220.25/h**; Δ−$25 vs p2229 |
 | 2026-08-12T10:27Z | 117291.351 | p2229 no new rent (8×=0; R22+R23→guass+writer); burn **$220.25/h**; Δ−$24 vs p2228 |
-| 2026-08-12T10:24Z | 117315.089 | p2228 no new rent (8×=0; R5b writer prestage + R19→guass); burn **$220.25/h**; Δ−$25 vs p2227 |

@@ -134,7 +134,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Fleet structural GRPO through **R32** KL (`--kl-coef`, default 0); if rent waiter restarts mid-`lium up`, reconstruct `rented_*.json` or bootstrap never runs.
 - **R3** Tok GRPO (lr5e-6 r16 G=4, 189 steps): n80 m=+0.0094 z=1.33 hr0.66× — positive but **below** live 2σ crown; Stage-5 SKIP (p2127).
 - HF snapshot "ready" ≠ complete: wait **all shards** (not index); `/root` gocryptfs full (~1GB) stalls hope12 mid-prefetch (p2119). **ec08+ckp55 UNSERVABLE**. Never kill `:8002` mid-n80.
-- Full-FT: Trainer `save_strategy` must be **`no`** on gocryptfs `/root` — end-of-train `optimizer.pt` (~111G) hangs WCHAN=`request_wait_answer` (p2112); stage final weights only under `/tmp` then symlink.
+- Full-FT: Trainer `save_strategy` must be **`no`** on gocryptfs `/root` — end-of-train `optimizer.pt` (~111–130G) hangs WCHAN=`request_wait_answer` (p2112; **p2238 R5b** after 26/26); kill train, stage shards under `/tmp`, write `train.done`, relaunch post only after full_ft is complete (partial `/tmp` races finalize).
 - LoRA `merge_lora.py` `save_pretrained` to gocryptfs `/root/r3/merged` also hangs WCHAN=`request_wait_answer` (IO flat, GPU 0%) — set `MERGED=/tmp/r3_merged` (p2122 unstick).
 - Visual graft `save_file` → overlay `/tmp` EFAULT even after `clone()` — write `/root/.merge_vis_*` then `copyfile` into merge out (p2123; R3 died without it p2189; **p2226** patched `merge_lora` on all live pods).
 - `/lium-cipher` `/root` ENOSPC kills HF `snapshot_download` mid-xet (os error 28) even when overlay `/` has TBs free — reclaim REFUTED merges/HF kings before Talent/guass DL; keep winner jsonl (p2236 R5b: 98%→23%, 752G free, bootstrap relaunch).

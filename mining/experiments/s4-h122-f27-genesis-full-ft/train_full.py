@@ -257,6 +257,9 @@ def main() -> None:
         lr_scheduler_type="cosine",
         warmup_ratio=args.warmup_ratio,
         logging_steps=args.logging_steps,
+        # Never dump Adam onto gocryptfs /root (p2238: 130G optimizer hang after 26/26).
+        # Final weights are saved explicitly to /tmp below.
+        save_strategy="no",
         save_steps=args.save_steps,
         save_total_limit=2,
         bf16=True,
