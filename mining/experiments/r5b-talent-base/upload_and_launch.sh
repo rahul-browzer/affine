@@ -82,8 +82,20 @@ set -a
 source "$ROOT/mining/.env"
 set +a
 umask 077
-SOFT=$(date -u -d '+23 hours' +%Y-%m-%dT%H:%M:%SZ)
-DEAD=$(date -u -d '+23 hours 30 minutes' +%Y-%m-%dT%H:%M:%SZ)
+# Soft/Dead = Removal−1h / Removal−30m from lium describe (never wall-clock +Nh).
+# p2237: +23h Soft landed AFTER Removal on mine-r4 → post_train would outlive the box.
+_rem_raw=$(lium describe "$POD_NAME" --json 2>/dev/null \
+  | python3 -c 'import sys,json; d=json.load(sys.stdin); print((d.get("billing") or {}).get("removal_scheduled_at") or "")' \
+  || true)
+if [[ -z "${_rem_raw}" ]]; then
+  echo "[r5b-up] FATAL: no billing.removal_scheduled_at for POD_NAME=$POD_NAME" >&2
+  exit 1
+fi
+# Normalize to Zulu; date -d accepts the Lium form without Z.
+REMOVAL=$(date -u -d "${_rem_raw}" +%Y-%m-%dT%H:%M:%SZ)
+SOFT=$(date -u -d "${_rem_raw} -1 hour" +%Y-%m-%dT%H:%M:%SZ)
+DEAD=$(date -u -d "${_rem_raw} -30 minutes" +%Y-%m-%dT%H:%M:%SZ)
+echo "[r5b-up] Removal=$REMOVAL Soft=$SOFT Dead=$DEAD (from lium describe $POD_NAME)"
 BASE_DEFAULT=/root/hf/hub/models--TalentPigs--affine-5ekxlcg3fx-abc/snapshots/dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4
 # Live reign-6 king (api/v1/snapshot) — override H122 Tok defaults in post_train/n80.
 KING_REPO_DEFAULT=ttttxxxxsada/Affine-5guassq3tu

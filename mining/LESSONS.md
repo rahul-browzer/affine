@@ -21,7 +21,7 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
   king. Re-sim if the crown changed since the screen.
 
 ## Ops (still true — details in legacy archive if needed)
-- Soft/Dead = **Removal−1h / Removal−30m** from `lium schedules`/`describe` — never wall-clock `+Nh` (p2177 R12 Soft after Removal; p2178 R3b mine.env empty Soft/Dead — patch env + defaults). Fleet QUEUE must drop REFUTED axes and axes live under another pod name (p2178: R11/R12 still queued while R12 ran on `mine-r4-fullft-1`).
+- Soft/Dead = **Removal−1h / Removal−30m** from `lium describe` `billing.removal_scheduled_at` — never wall-clock `+Nh` (p2177 R12 Soft after Removal; p2237 R5b `upload_and_launch` used `+23h` → Soft 10:01Z after Removal 08:57Z; patch mine.env + kill/relaunch post_train; launcher now reads Removal). Fleet QUEUE must drop REFUTED axes and axes live under another pod name.
 - Live corpus is **schema v2** (Parquet index + chunks). `sync_corpus.sh` must accept `turns_index.parquet`, not only `turns.jsonl`.
 - Schema-v2 Reason sim needs **pandas + pyarrow** in the pod venv (`CorpusSync` reads parquet). vLLM-only installs miss them — pin in `restore_warm_stack.sh`.
 - Pods: `mine-*` only; never `rm` non-mine; always `--ttl`; reconcile `lium ps` first every pass.

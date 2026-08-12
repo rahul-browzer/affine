@@ -1,0 +1,21 @@
+{
+  "pass": 2237,
+  "utc": "2026-08-12T11:10:20Z",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "axis": "R5b talent_fullft",
+  "bug": "mine.env Soft/Dead were wall-clock +23h (10:01Z/10:31Z) AFTER Removal 08:57:47Z",
+  "fix": {
+    "removal": "2026-08-13T08:57:47Z",
+    "soft_before": "2026-08-13T10:01:01Z",
+    "dead_before": "2026-08-13T10:31:01Z",
+    "soft_after": "2026-08-13T07:57:47Z",
+    "dead_after": "2026-08-13T08:27:47Z",
+    "post_train_old_pid": 152293,
+    "post_train_new_pid": 153185,
+    "train_pid": 152285,
+    "train_progress": "4/26 steps at fix time",
+    "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44"
+  },
+  "host_patch": "upload_and_launch.sh now derives Soft/Dead from lium describe billing.removal_scheduled_at (Removal−1h/−30m)"
+}
