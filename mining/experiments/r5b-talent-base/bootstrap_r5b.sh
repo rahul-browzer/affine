@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# R5b: Talent init download → H122-stack full-FT; bg teacher+Tok DL; post-train.
+# R5b: Talent init download → H122-stack full-FT; bg teacher+guass DL; post-train.
 # Overlay: upload_and_launch copies this to s4-h122-f27-genesis-full-ft/bootstrap_h122.sh.
 set -euo pipefail
 
@@ -95,7 +95,7 @@ else:
         print("[bootstrap-r5b] vllm_client already patched or pattern miss", flush=True)
 PY
 
-# Train init = TalentPigs reign-3 (full-FT). King Tok downloaded in post_train / extra_dl.
+# Train init = TalentPigs reign-3 (full-FT). Live king guass downloaded in extra_dl.
 python - <<'PY'
 import os
 from huggingface_hub import snapshot_download
@@ -140,9 +140,16 @@ print("[bootstrap-r5b] DOWNLOAD teacher start", flush=True)
 path = snapshot_download("zai-org/GLM-4.5-Air-FP8", token=token)
 print(f"[bootstrap-r5b] DOWNLOAD teacher done -> {path}", flush=True)
 open("/root/logs/teacher.done", "w").write(path + "\n")
-print("[bootstrap-r5b] DOWNLOAD tok-king start", flush=True)
-kpath = snapshot_download("Tok331102/affine-5EqYW8McUc-af10", revision="eb8bf9a356a254f71faaa439e8abc3cfba572c53", token=token)
-print(f"[bootstrap-r5b] DOWNLOAD tok-king done -> {kpath}", flush=True)
+# Live reign-6 king (p2225): n80 must be vs guass, not retired Tok.
+print("[bootstrap-r5b] DOWNLOAD guass-king start", flush=True)
+kpath = snapshot_download(
+    "ttttxxxxsada/Affine-5guassq3tu",
+    revision="e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+    token=token,
+)
+print(f"[bootstrap-r5b] DOWNLOAD guass-king done -> {kpath}", flush=True)
+open("/root/logs/guass.done", "w").write(kpath + "\n")
+# H122 post_train still gates on tok331102.done — stamp with live king path.
 open("/root/logs/tok331102.done", "w").write(kpath + "\n")
 PY
   bash /root/mining_src/s3-duel-sim/sync_corpus.sh || true

@@ -13,39 +13,58 @@ SSH=(ssh -i "$HOME/.ssh/id_ed25519" -o UserKnownHostsFile="$KNOWN"
 SCP=(scp -i "$HOME/.ssh/id_ed25519" -o UserKnownHostsFile="$KNOWN"
      -o StrictHostKeyChecking=accept-new -P "$DST_PORT")
 
+PRESTAGE="$ROOT/mining/experiments/r5b-talent-base/artifacts/mine-r5b-stack.prestaged.tar.gz"
+TAR=/tmp/mine-r5b-stack.tar.gz
 STAGE=$(mktemp -d /tmp/mine-r5b-stack.XXXXXX)
 trap 'rm -rf "$STAGE"' EXIT
 
 EXP=s4-h122-f27-genesis-full-ft
-mkdir -p "$STAGE/affine_pkg/affine" "$STAGE/affine_pkg/evalsrv" \
-         "$STAGE/s3-duel-sim" "$STAGE/s4-h2-merge" "$STAGE/s4-h1-sft" \
-         "$STAGE/s4-h1v2-sft" "$STAGE/$EXP" "$STAGE/r5b-talent-base"
+# p2225: reuse prestaged tar when newer than R5b overlay sources (faster snatch boot).
+_use_pre=0
+if [[ -s "$PRESTAGE" ]]; then
+  _newest_src=$(find "$ROOT/mining/experiments/r5b-talent-base" \
+    \( -name 'bootstrap_r5b.sh' -o -name 'start_r5b.sh' -o -name 'upload_and_launch.sh' \) \
+    -printf '%T@\n' | sort -n | tail -1)
+  _pre_m=$(stat -c '%Y' "$PRESTAGE")
+  if awk -v a="$_pre_m" -v b="${_newest_src%.*}" 'BEGIN{exit !(a+0 >= b+0)}'; then
+    _use_pre=1
+  fi
+fi
+if [[ "$_use_pre" -eq 1 ]]; then
+  cp -f "$PRESTAGE" "$TAR"
+  echo "[r5b-up] using prestaged stack $(ls -lh "$TAR" | awk '{print $5}')"
+else
+  mkdir -p "$STAGE/affine_pkg/affine" "$STAGE/affine_pkg/evalsrv" \
+           "$STAGE/s3-duel-sim" "$STAGE/s4-h2-merge" "$STAGE/s4-h1-sft" \
+           "$STAGE/s4-h1v2-sft" "$STAGE/$EXP" "$STAGE/r5b-talent-base"
 
-cp -a "$ROOT/affine/affine.toml" "$STAGE/affine_pkg/"
-cp -a "$ROOT/affine/affine/." "$STAGE/affine_pkg/affine/"
-cp -a "$ROOT/affine/evalsrv/." "$STAGE/affine_pkg/evalsrv/"
-cp -a "$ROOT/mining/experiments/s3-duel-sim/"*.sh "$STAGE/s3-duel-sim/"
-cp -a "$ROOT/mining/experiments/s3-duel-sim/"*.py "$STAGE/s3-duel-sim/" 2>/dev/null || true
-cp -a "$ROOT/mining/experiments/s4-h2-merge/restart_for_h2.sh" "$STAGE/s4-h2-merge/"
-cp -a "$ROOT/mining/experiments/s4-h2-merge/run_sim_duel.py" "$STAGE/s4-h2-merge/"
-cp -a "$ROOT/mining/experiments/s4-h2-merge/write_merge_decision.py" "$STAGE/s4-h2-merge/"
-cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_form_decision.sh" "$STAGE/s4-h2-merge/"
-cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_n80_retry.sh" "$STAGE/s4-h2-merge/"
-cp -a "$ROOT/mining/experiments/s4-h1-sft/push_merged.py" "$STAGE/s4-h1-sft/"
-cp -a "$ROOT/mining/experiments/s4-h1v2-sft/thought_mask.py" "$STAGE/s4-h1v2-sft/"
-cp -a "$ROOT/mining/experiments/s4-h1v2-sft/verify_thought_mask.py" "$STAGE/s4-h1v2-sft/"
-cp -a "$ROOT/mining/experiments/$EXP/"*.sh "$STAGE/$EXP/"
-cp -a "$ROOT/mining/experiments/$EXP/"*.py "$STAGE/$EXP/"
-cp -a "$ROOT/mining/experiments/$EXP/plan.md" "$STAGE/$EXP/" 2>/dev/null || true
-cp -a "$ROOT/mining/experiments/r5b-talent-base/plan.md" "$STAGE/r5b-talent-base/"
-cp -a "$ROOT/mining/experiments/r5b-talent-base/start_r5b.sh" "$STAGE/r5b-talent-base/"
-cp -a "$ROOT/mining/experiments/r5b-talent-base/bootstrap_r5b.sh" "$STAGE/r5b-talent-base/"
-# Overlay: H122 bootstrap + start → Talent base (not Genesis).
-cp -a "$ROOT/mining/experiments/r5b-talent-base/start_r5b.sh" "$STAGE/$EXP/start_h122.sh"
-cp -a "$ROOT/mining/experiments/r5b-talent-base/bootstrap_r5b.sh" "$STAGE/$EXP/bootstrap_h122.sh"
+  cp -a "$ROOT/affine/affine.toml" "$STAGE/affine_pkg/"
+  cp -a "$ROOT/affine/affine/." "$STAGE/affine_pkg/affine/"
+  cp -a "$ROOT/affine/evalsrv/." "$STAGE/affine_pkg/evalsrv/"
+  cp -a "$ROOT/mining/experiments/s3-duel-sim/"*.sh "$STAGE/s3-duel-sim/"
+  cp -a "$ROOT/mining/experiments/s3-duel-sim/"*.py "$STAGE/s3-duel-sim/" 2>/dev/null || true
+  cp -a "$ROOT/mining/experiments/s4-h2-merge/restart_for_h2.sh" "$STAGE/s4-h2-merge/"
+  cp -a "$ROOT/mining/experiments/s4-h2-merge/run_sim_duel.py" "$STAGE/s4-h2-merge/"
+  cp -a "$ROOT/mining/experiments/s4-h2-merge/write_merge_decision.py" "$STAGE/s4-h2-merge/"
+  cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_form_decision.sh" "$STAGE/s4-h2-merge/"
+  cp -a "$ROOT/mining/experiments/s4-h2-merge/watch_n80_retry.sh" "$STAGE/s4-h2-merge/"
+  cp -a "$ROOT/mining/experiments/s4-h1-sft/push_merged.py" "$STAGE/s4-h1-sft/"
+  cp -a "$ROOT/mining/experiments/s4-h1v2-sft/thought_mask.py" "$STAGE/s4-h1v2-sft/"
+  cp -a "$ROOT/mining/experiments/s4-h1v2-sft/verify_thought_mask.py" "$STAGE/s4-h1v2-sft/"
+  cp -a "$ROOT/mining/experiments/$EXP/"*.sh "$STAGE/$EXP/"
+  cp -a "$ROOT/mining/experiments/$EXP/"*.py "$STAGE/$EXP/"
+  cp -a "$ROOT/mining/experiments/$EXP/plan.md" "$STAGE/$EXP/" 2>/dev/null || true
+  cp -a "$ROOT/mining/experiments/r5b-talent-base/plan.md" "$STAGE/r5b-talent-base/"
+  cp -a "$ROOT/mining/experiments/r5b-talent-base/start_r5b.sh" "$STAGE/r5b-talent-base/"
+  cp -a "$ROOT/mining/experiments/r5b-talent-base/bootstrap_r5b.sh" "$STAGE/r5b-talent-base/"
+  # Overlay: H122 bootstrap + start → Talent base (not Genesis).
+  cp -a "$ROOT/mining/experiments/r5b-talent-base/start_r5b.sh" "$STAGE/$EXP/start_h122.sh"
+  cp -a "$ROOT/mining/experiments/r5b-talent-base/bootstrap_r5b.sh" "$STAGE/$EXP/bootstrap_h122.sh"
 
-TAR=/tmp/mine-r5b-stack.tar.gz
-tar -C "$STAGE" -czf "$TAR" .
+  tar -C "$STAGE" -czf "$TAR" .
+  cp -f "$TAR" "$PRESTAGE"
+  echo "[r5b-up] rebuilt stack + prestaged $(ls -lh "$TAR" | awk '{print $5}')"
+fi
 ls -lh "$TAR"
 
 ENV_TMP=$(mktemp /tmp/mine-r5b.env.XXXXXX)
@@ -57,6 +76,10 @@ umask 077
 SOFT=$(date -u -d '+23 hours' +%Y-%m-%dT%H:%M:%SZ)
 DEAD=$(date -u -d '+23 hours 30 minutes' +%Y-%m-%dT%H:%M:%SZ)
 BASE_DEFAULT=/root/hf/hub/models--TalentPigs--affine-5ekxlcg3fx-abc/snapshots/dbfbb3e2a17c7603e7fc68a3a15b343f42dfdef4
+# Live reign-6 king (api/v1/snapshot) — override H122 Tok defaults in post_train/n80.
+KING_REPO_DEFAULT=ttttxxxxsada/Affine-5guassq3tu
+KING_REV_DEFAULT=e86758f5080d1e373e5fbbd7b4fbf6af327aeb44
+KING_LOCAL_DEFAULT=/root/hf/hub/models--ttttxxxxsada--Affine-5guassq3tu/snapshots/e86758f5080d1e373e5fbbd7b4fbf6af327aeb44
 {
   echo "export HF_TOKEN=${HF_TOKEN}"
   echo "export HF_HOME=/root/hf"
@@ -71,6 +94,9 @@ BASE_DEFAULT=/root/hf/hub/models--TalentPigs--affine-5ekxlcg3fx-abc/snapshots/db
   echo "export R5B_EPOCHS=1"
   echo "export R5B_MAX_LEN=8192"
   echo "export BASE=${BASE_DEFAULT}"
+  echo "export KING_REPO=${KING_REPO_DEFAULT}"
+  echo "export KING_REV=${KING_REV_DEFAULT}"
+  echo "export KING_LOCAL=${KING_LOCAL_DEFAULT}"
 } >"$ENV_TMP"
 chmod 600 "$ENV_TMP"
 
@@ -108,11 +134,13 @@ PY
   test -f /root/mining_src/affine_pkg/affine/score.py
   test -s /root/h122/winner_za_high_l2.jsonl
   test -x /root/mining_src/s4-h122-f27-genesis-full-ft/bootstrap_h122.sh
-  # Prove overlay is R5b Talent, not stock H122 / R5 Genesis.
+  # Prove overlay is R5b Talent, not stock H122 / R5 Genesis; sim king = guass.
   grep -q "R5b: Talent" /root/mining_src/s4-h122-f27-genesis-full-ft/start_h122.sh
   grep -q "DOWNLOAD talent-init" /root/mining_src/s4-h122-f27-genesis-full-ft/bootstrap_h122.sh
+  grep -q "DOWNLOAD guass-king" /root/mining_src/s4-h122-f27-genesis-full-ft/bootstrap_h122.sh
   set -a; source /root/mine.env; set +a
-  echo "R5B_DEADLINES soft=$SOFT_DEADLINE_UTC dead=$DEADMAN_UTC axis=$R5B_AXIS base=$BASE"
+  test "$KING_REPO" = "ttttxxxxsada/Affine-5guassq3tu"
+  echo "R5B_DEADLINES soft=$SOFT_DEADLINE_UTC dead=$DEADMAN_UTC axis=$R5B_AXIS base=$BASE king=$KING_REPO@$KING_REV"
   echo STACK_UPLOAD_OK
   nohup bash /root/mining_src/s4-h122-f27-genesis-full-ft/bootstrap_h122.sh \
     >/root/logs/r5b_pipeline.nohup 2>&1 &

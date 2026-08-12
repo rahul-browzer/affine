@@ -1,0 +1,19 @@
+{
+  "pass": 2225,
+  "utc": "2026-08-12T10:04:00Z",
+  "action": "r5b_retarget_sim_king_guass_plus_prestage",
+  "why": "Next fleet rent is mine-r5-nonking-2 (R5b). Old bootstrap downloaded Tok331102 as sim king; live reign-6 is ttttxxxxsada/Affine-5guassq3tu@e86758f5. n80 vs Tok would be invalid under current board.",
+  "changes": [
+    "bootstrap_r5b.sh: snapshot_download guass; stamp guass.done + tok331102.done (H122 gate compat)",
+    "upload_and_launch.sh: export KING_REPO/REV/LOCAL=guass; reuse/rebuild prestaged tar; grep DOWNLOAD guass-king",
+    "artifacts/mine-r5b-stack.prestaged.tar.gz rebuilt with overlay"
+  ],
+  "stock": "0 free 8×B300/B200; burst 3745530 next=R5b; burn $220.25/h",
+  "trains": {
+    "R24": "~104/200 + tmax waits train.done then teacher 65536",
+    "R21": "~120/200",
+    "R25": "~72/200",
+    "R26": "~109/200"
+  },
+  "check": "grep DOWNLOAD.guass-king experiments/r5b-talent-base/bootstrap_r5b.sh; tar -xOf experiments/r5b-talent-base/artifacts/mine-r5b-stack.prestaged.tar.gz s4-h122-f27-genesis-full-ft/bootstrap_h122.sh | grep guass-king"
+}
