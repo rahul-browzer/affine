@@ -1,0 +1,21 @@
+{
+  "utc": "2026-08-12T03:00:12Z",
+  "pass": 2169,
+  "hyp": "R2bm",
+  "event": "n80_started",
+  "pod": "mine-crown-1",
+  "king_repo": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "chall_repo": "ttttxxxxsada/Affine-5guassq3tu",
+  "chall_rev": "e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "challenge_id": "chal-00521",
+  "sim_pid": 300308,
+  "block_hash_prefix": "7e1da425f260703f",
+  "progress": "/root/affine_data/r2bm_tttt_guass_reason_progress.json",
+  "decision": "/root/affine_data/r2bm_tttt_guass_decision.json",
+  "log": "/root/logs/r2bm_tttt_guass_reason_sim.log",
+  "pre_reg": "ADVANCE iff margin >= 1.5*(k_sigma*SE), live k_sigma=2.0",
+  "api_stock": "B300/B200×8=0 (only 1×); snatcher pid2978630 alive next=R24",
+  "burn_usd_h": 180.25,
+  "floor_usd_h": 833
+}
