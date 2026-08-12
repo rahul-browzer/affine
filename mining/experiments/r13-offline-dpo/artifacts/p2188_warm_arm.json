@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-12T04:57:21Z",
+  "pass": 2188,
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "axis": "R13",
+  "method": "offline_dpo_teacher_reason",
+  "train_pid": 110115,
+  "post_pid": 110122,
+  "examples": 604,
+  "lr": 5e-6,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "beta": 0.1,
+  "max_steps": 200,
+  "gpus": "6,7",
+  "soft": "2026-08-12T19:57:47Z",
+  "dead": "2026-08-12T20:27:47Z",
+  "king_for_n80": "tolegend/Affine-5fqbxvz29b-ckp333@24c137e8",
+  "hf": ["unconst/Affine-5czsc2fc98-r13-odpo", "unconst/Affine-5czsc2fc98-r13-odpo-lora"],
+  "watch": "tail -f /root/logs/h138_train.nohup; /root/logs/r13_post_train.nohup"
+}

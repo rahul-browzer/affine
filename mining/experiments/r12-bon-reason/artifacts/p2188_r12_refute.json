@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-12T04:51:14Z",
+  "pass": 2188,
+  "hypo": "R12",
+  "axis": "bon_ce_teacher_reason",
+  "pod": "mine-r4-fullft-1",
+  "king": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "chall": "/root/h137/merged",
+  "decision": "REFUTE_H137",
+  "margin": 0.0008508143764398799,
+  "se": 0.014295504776622963,
+  "z": 0.05951621784151286,
+  "k_sigma": 2.0,
+  "n_paired": 78,
+  "live_2sigma_thr": 0.028591009553245926,
+  "headroom_vs_live_2sigma": 0.02976,
+  "submit": false,
+  "note": "BoN-CE G=4 vs ckp333 far below crown bar; Stage-5 SKIP. Retarget pod → R13 offline-DPO."
+}

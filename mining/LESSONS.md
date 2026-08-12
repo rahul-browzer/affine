@@ -148,3 +148,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Pre-swap live king on GPUs2–3 while GRPO trains 6–7; `RESTART_KING=0` if `:8001` already target (p2163).
 - `write_reason_decision.py` default **k_sigma=2.0** + `headroom_vs_live_2se` (p2165); submit bar=1.5×(2σ). R3/R11 `post_train` historically stopped at SIM_DONE — always call writer (or arm `watch_*_decision.sh`); archive stale `*_decision.json` before R3b/R11 re-runs (p2171).
 - **R9 merge graft:** `save_file` after `del blob` → EFAULT — `.clone()` visual tensors (p2187). Chall serve needs restore `CUDA_HOME=…/nvidia/cu13`+flashinfer=0; n80 needs `PYTHONPATH=…/affine_pkg` after `mine.env`. R9 post must also gate **R2bn** (p2181).
+- **R12 REFUTE** p2188 m=+0.00085 z=0.06 — BoN-CE closed; retarget same TKC box → **R13** offline-DPO (GPUs6–7) rather than idle under burn floor.

@@ -29,8 +29,8 @@
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train.done; merge→`/tmp/r9_merged` started p2186 after R2bn REFUTE |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **blocked** · sbs-v2 gated 403 (p2162); fleet/`mine-r10-*` until Hub access |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **REFUTED** · n80 m=**−0.0055** z=−0.82 hr−0.41× vs ckp333 (p2175) |
-| 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open — live** · train~step10/150; Soft/Dead TTL-fixed p2177 |
-| 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open** · `mine-r13-odpo-1` · p2086 armed |
+| 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **REFUTED** · n80 m=**+0.00085** z=0.06 hr0.03× vs ckp333 (p2188) |
+| 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open — live** · warm-arm `mine-r4-fullft-1` GPUs6–7 (p2188) |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open** · `mine-r14-kevin-rl-1` · p2087 armed |
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open** · `mine-r15-pandora-rl-1` · p2088 armed |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open** · `mine-r16-golden-rl-1` · p2089 armed |
@@ -89,13 +89,14 @@
 ### R10 / R11 / R12
 - **R10 blocked** p2162: `ammazon/Affine-5dvqtektxx-sbs-v2` gated 403 for unconst — need Hub access or public merge parent before arm.
 - **R11 REFUTED** p2175: online-DPO n80 m=**−0.0055** SE=0.00671 z=−0.82 hr−0.41× vs ckp333 (n=76). Stage-5 SKIP. Artifacts `r11-online-dpo/artifacts/p2175_r11_refute.json`.
-- **R12 live** p2175: BoN-CE (G=4) lean warm-arm on `mine-r4-fullft-1` GPUs6–7 (train pid103232); post→ckp333. Dir: `experiments/r12-bon-reason/`.
+- **R12 REFUTED** p2188: BoN-CE n80 m=**+0.00085** SE=0.0143 z=0.06 hr0.03× vs ckp333 (n=78). Stage-5 SKIP. Artifact `r12-bon-reason/artifacts/p2188_r12_refute.json`.
+- **R13 live** p2188: offline-DPO (604 prefs, β=0.1) lean warm-arm on `mine-r4-fullft-1` GPUs6–7 after R12; Soft/Dead from Removal. Dir: `experiments/r13-offline-dpo/`.
 
 ### R24–R32 — structural GRPO knobs (fleet-queued)
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300 (R24 first)
-- Live: crown **R9** (merge) · R3b GRPO · **R12** BoN-CE. Queue: **R24** → R25–R32 …. Submit iff hr ≥ 1.5×(2·SE).
+- Live: crown **R9** (n80) · R3b GRPO · **R13** offline-DPO. Queue: **R24** → R25–R32 …. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.

@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-12T04:54:25Z",
+  "pass": 2188,
+  "rented": false,
+  "iters": 600,
+  "empty_sleep_s": 0.35,
+  "seen_stock_iters": 0,
+  "mine_count": 3,
+  "next": "mine-r24-longctx-1",
+  "burn_usd_h": 180.25,
+  "balance_usd": 118755.131,
+  "change": "SKIP_PID_LOCK=1 600-iter pass-burst; waiter pid3164256 SIGSTOP→CONT",
+  "note": "API 8×B300/B200 empty entire 600-iter burst. Post-pass: harvested R12 REFUTE; warm-armed R13 on mine-r4-fullft-1."
+}

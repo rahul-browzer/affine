@@ -1,0 +1,47 @@
+deadline_patch soft 1 dead 1 2026-08-12T19:57:47Z 2026-08-12T20:27:47Z
+-rw-rw-r-- 1 const const 413K Aug 12 04:56 /tmp/mine-r13-warm-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-r13-odpo
+HF_OK unconst/Affine-5czsc2fc98-r13-odpo-lora
+LEAN_PID=109932
+[r13-lean] 2026-08-12T04:57:10Z start
+0, 245412 MiB
+1, 245412 MiB
+2, 222518 MiB
+3, 222518 MiB
+4, 225798 MiB
+5, 225798 MiB
+6, 0 MiB
+7, 0 MiB
+[r13] 2026-08-12T04:57:11Z examples=604 data=/root/h138/dpo_duel_reason.jsonl base=/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53 gpus=6,7
+[r13] knobs lr=5e-6 r=16/α32 β=0.1 steps=200 axis=offline_dpo_reason
+deps OK
+[r13] 2026-08-12T04:57:17Z launch offline-DPO-Reason lr=5e-6 r=16 β=0.1 on GPUs 6,7
+{
+  "utc": "2026-08-12T04:57:17Z",
+  "hypo": "R13",
+  "family": "offline-dpo-reason",
+  "axis": "offline_dpo_reason",
+  "pid": 110115,
+  "base": "/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "base_hub": "Tok331102/affine-5EqYW8McUc-af10",
+  "base_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "data": "/root/h138/dpo_duel_reason.jsonl",
+  "examples": 604,
+  "lr": 5e-06,
+  "method": "offline_dpo_teacher_reason",
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "beta": 0.1,
+  "max_steps": 200,
+  "gpus": "6,7",
+  "out": "/root/h138/train",
+  "log": "/root/logs/h138_train.nohup",
+  "note": "R13 offline DPO: chosen=higher-Reason z, rejected=lower; no live teacher at train \u2014 \u2260 R3/R8/R11/R12"
+}
+[r13] TRAIN_LAUNCHED pid=110115
+[r13-lean] 2026-08-12T04:57:17Z DONE train=110115 post=110122
+    PID     ELAPSED CMD
+TRAIN_PID=110115
+POST_PID=110122
+t=200 k=200
+R13_WARM_ARM_OK pod=mine-r4-fullft-1 soft=2026-08-12T19:57:47Z dead=2026-08-12T20:27:47Z 2026-08-12T04:57:21Z
