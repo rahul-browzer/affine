@@ -97,7 +97,7 @@ async def main_async(args: argparse.Namespace) -> dict:
 
     margin = verdict.get("margin")
     se = verdict.get("se")
-    k_sigma = float(verdict.get("k_sigma") or duel_cfg.get("k_sigma") or 3.0)
+    k_sigma = float(verdict.get("k_sigma") or duel_cfg.get("k_sigma") or 2.0)  # live contract 2026-08-11
     thresh = (k_sigma * se) if se is not None else None
     headroom = (margin / thresh) if (margin is not None and thresh and thresh > 0) else None
     chal = verdict.get("challenger") or {}

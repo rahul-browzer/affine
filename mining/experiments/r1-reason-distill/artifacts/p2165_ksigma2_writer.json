@@ -1,0 +1,10 @@
+{
+  "utc": "2026-08-12T02:42:13Z",
+  "pass": 2165,
+  "change": "write_reason_decision.py LIVE_K_SIGMA=2.0 + headroom_vs_live_2se",
+  "deployed": ["mine-crown-1", "mine-r3-grpo-1", "mine-r4-fullft-1"],
+  "also": "run_reason_sim.py default k_sigma 3→2 on crown+host",
+  "r2bl_progress_at_deploy": "61/80",
+  "stock_8x": 0,
+  "burn_usd_per_h": 180.25
+}
