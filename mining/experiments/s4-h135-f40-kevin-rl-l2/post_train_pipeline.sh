@@ -132,7 +132,7 @@ python /root/mining_src/s4-h1-sft/merge_lora.py \
   --base "$BASE" \
   --adapter "$ADAPTER" \
   --out "$MERGED" \
-  --device-map auto \
+  --device-map cpu \
   | tee -a "$LOG"
 cp -f "$MERGED/merge_meta.json" /root/affine_data/h135_merge_meta.json 2>/dev/null || true
 date -u +%Y-%m-%dT%H:%M:%SZ > /root/logs/h135_merge.done

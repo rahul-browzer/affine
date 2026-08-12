@@ -14,11 +14,11 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | challenge | chal-**00521** |
 | miner burn | **$180.25/h** · floor $833/h · **gap −$653/h** |
 | B300 stock | **0** free 8×B300/B200 (burst+waiter; 429s) |
-| Lium bal | ~$118,108 · floor $10k OK |
+| Lium bal | ~$118,025 · floor $10k OK |
 | submissions | 0 |
-| R15 | **merge→n80** post pid**78627** (p2200 BASE=pandora fix; train 189 DONE) |
-| R17 | **training** coder-REINFORCE crown ~step **55**/200 |
-| R20 | **training** kevin-GRPO mine-r4 ~step **12**/200 |
+| R15 | **CPU merge writing** post pid**80706** / merge**80751** (p2201; GPU auto hung) |
+| R17 | **training** coder-REINFORCE crown ~step **60**/200 |
+| R20 | **training** kevin-GRPO mine-r4 ~step **17**/200 |
 
 ## What's running
 
@@ -46,6 +46,6 @@ No free 8×B300/B200. Cannot hit $833/h burn until stock returns.
 R10: need Hub access to `ammazon/…-sbs-v2` (or public merge parent).
 
 ## Next action
-**R15:** harvest merge.done → chall:8002 → n80 vs ckp333 (hr≥1.5×); decision in `h135_decision.json`.
+**R15:** wait merge.done (CPU; watch `stat %b` on `.tmp*` — size can sit at ~47G while blocks fill) → chall:8002 → n80 vs ckp333 (hr≥1.5×); `h135_decision.json`.
 **Rent:** snatch **R24** via waiter **3373328** / burst **3465495** on first 8×.
 **R17/R20:** continue train → merge→n80 when DONE.

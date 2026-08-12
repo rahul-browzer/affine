@@ -146,5 +146,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R8 REFUTE** p2158 m=−0.027; king-swap retry_* KING defaults (p2159); R9 train-wait ≠ merge-block (p2160); n80 `--chall-repo`=vLLM serve id not `readlink -f` (p2161).
 - **R7 REFUTE** p2162 m=+0.0123 z=1.978 <2σ (hr0.99×) — knife-edge. **R10** 403 on sbs-v2 → warm **R11** online-DPO (GPUs6–7).
 - Pre-swap king on 2–3 while GRPO trains 6–7; `RESTART_KING=0` if `:8001` already target (p2163). `write_reason_decision` kσ=2.0 + arm watcher (p2165/71).
-- **R9/R12–R14/R16 REFUTE** (p2188–96). H135 `post_train` BASE=kevin unless exported — R15 lean_boot forgot BASE→merge HFValidationError (p2200; pin like R17). Qwen3-Coder: `lora_dropout=0` (p2196) + never cut z at ```bash@0 — seed `THOUGHT:` after THINK_OPEN (p2197). **R20 GRPO:** never cut at `</think>`@0 (p2199).
+- **R9/R12–R14/R16 REFUTE** (p2188–96). H135 `post_train` BASE=kevin unless exported — R15 lean_boot forgot BASE→merge HFValidationError (p2200; pin like R17). Qwen3-Coder: `lora_dropout=0` (p2196) + never cut z at ```bash@0 — seed `THOUGHT:` after THINK_OPEN (p2197). **R20 GRPO:** never cut at `</think>`@0 (p2199). LoRA save `device_map=auto` can hang @47G `.tmp` (`request_wait_answer`, stale `%b`) → remerge `--device-map cpu` (p2201); CPU path: size sits 47G while `%b` climbs — do not re-kill.
 
