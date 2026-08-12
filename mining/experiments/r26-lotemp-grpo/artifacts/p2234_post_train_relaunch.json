@@ -1,0 +1,15 @@
+{
+  "pass": 2234,
+  "utc": "2026-08-12T10:47:39Z",
+  "pod": "mine-crown-1",
+  "axis": "R26",
+  "failure": "post_train_pipeline.sh aborted_err_rc=127 after train.done — bash mid-file re-read skew (ep: command not found at blank L107)",
+  "action": "kill stale pipe; relaunch post_train; merge_lora live on GPUs 6–7",
+  "train_done": "/root/r3/train/train.done",
+  "adapter": "/root/r3/train/adapter",
+  "base": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a3",
+  "n80_king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5",
+  "submit_gate": "margin > k_sigma·SE (k=2.0)",
+  "pipe_pid": 360054,
+  "soft_deadline": "2026-08-13T01:35:59Z"
+}

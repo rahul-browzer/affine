@@ -9,9 +9,9 @@
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — live king=**guass** reign6 (p2206); R2bm was guass-as-chall vs ckp333 |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **REFUTED** · n80 m=**+0.00232** z=0.245 hr0.12× (p2190) |
-| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open — PRIORITY** · train~**119**/200 · tmax→65536 · form**99772** (p2227) |
-| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · train~**92**/200 + guass · form**23089** (p2227) |
-| 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open — PRIORITY** · train~**140**/200 · form**358813** (p2227) |
+| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open — PRIORITY** · train~**142**/200 · post waiter refreshed (p2234) |
+| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · train~**125**/200 · post waiter refreshed (p2234) |
+| 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open — PRIORITY** · train **DONE** · **merge→n80** (p2234) |
 | 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · `mine-r27-bigg-1` · p2101 armed |
 | 28 | R28 | Tok GRPO lr=2e-5 beats R3 5e-6 (isolates LR vs R3b) | **open** · `mine-r28-hilr-1` · p2102 armed |
 | 29 | R29 | Tok GRPO lora_r=64 beats R3 r=16 (isolates rank vs R3b) | **open** · `mine-r29-hirank-1` · p2104 armed |
@@ -39,7 +39,7 @@
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **BLOCKED** · same sbs-v2 **403** p2224 · demoted from fleet QUEUE |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **REFUTED** · vs guass n80 m=**−0.0196** z=−2.13 hr=−1.07× (p2211) |
-| 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open — training** · ~step**146**/200 · form**145257** (p2227) |
+| 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open — PRIORITY** · train **DONE** · **merge→n80** (p2234) |
 | 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open** · `mine-r22-golden-grpo-1` · **p2229** guass+writer |
 | 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open** · `mine-r23-diane-grpo-1` · **p2229** guass+writer |
 
