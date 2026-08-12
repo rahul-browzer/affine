@@ -21,7 +21,7 @@
 | 4 | R4 | Full-FT (not LoRA) on high-Reason winner_za / Tok-init | **REFUTED** · n80 m=**−0.0077** z=−0.76 (p2116) |
 | 4b | R4b | Full-FT lr/epoch family (lr=5e-6 EPOCHS=2) beats R4 knobs | **REFUTED** · n80 m=**−0.0037** z=−0.58 (p2120) |
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **REFUTED** · n80 m=**−0.0390** z=−3.24 (p2125) |
-| 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open — PRIORITY** · fleet next=`mine-r5-nonking-2` (p2224; weights_ok) |
+| 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open — PRIORITY** · fleet next=`mine-r5-nonking-2` (p2225 guass-armed + prestaged) |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **REFUTED** · n80 m=**−0.0006** z=−0.07 hr−0.04× (p2143) |
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **REFUTED** · n80 m=**+0.0123** z=1.978 hr0.99× vs ckp333 (p2162) |
