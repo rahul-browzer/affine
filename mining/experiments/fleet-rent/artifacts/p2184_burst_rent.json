@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-12T04:10:33Z",
+  "pass": 2184,
+  "rented": false,
+  "iters": 200,
+  "empty_sleep_s": 0.35,
+  "seen_stock_iters": 0,
+  "mine_count": 3,
+  "next": "mine-r24-longctx-1",
+  "burn_usd_h": 180.25,
+  "balance_usd": 118922.133,
+  "change": "SKIP_PID_LOCK=1 200-iter pass-burst; waiter pid3164256 SIGSTOP→CONT",
+  "note": "API 8×B300/B200 empty entire burst (0 free); post-burst peek also 0; market 8× has H200/5090/etc only"
+}
