@@ -1,0 +1,27 @@
+{
+  "pass": 2153,
+  "utc": "2026-08-12T01:29:35Z",
+  "action": "patch_post_train_king_to_reign5",
+  "king_repo": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "pods": [
+    {
+      "name": "mine-r3-grpo-1",
+      "huid": "golden-hawk-ff",
+      "post_train_pid": 55905,
+      "prefetch_pid": 55902,
+      "train_pid": 51672,
+      "restart_king": 1
+    },
+    {
+      "name": "mine-r4-fullft-1",
+      "huid": "noble-orbit-9d",
+      "axis": "R8",
+      "post_train_pid": 67861,
+      "prefetch_pid": 67859,
+      "train_pid": 66752,
+      "restart_king": 1
+    }
+  ],
+  "note": "B300×8 stock empty; cannot rent. Pre-empt Tok defaults before R3b/R8 n80."
+}

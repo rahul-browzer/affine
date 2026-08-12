@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# After R3 train.done: merge LoRA → chall:8002 → n80 vs Tok331102 king.
-# Base = Tok331102 (train init = king) (train init); sim king = live Tok331102. Prewarm holds teacher+king.
+# After R8 train.done: merge LoRA → chall:8002 → n80 vs live king.
+# Base = Tok331102 (train init); sim king = reign-5 tolegend ckp333 (p2153).
+# Prewarm may still hold Tok on :8001 — RESTART_KING=1 swaps before n80.
 set -euo pipefail
 
 # shellcheck disable=SC1091
@@ -18,9 +19,9 @@ export PYTHONPATH=/root/mining_src/affine_pkg:${PYTHONPATH:-}
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-6,7}
 
 BASE=${BASE:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
-KING_REPO=${KING_REPO:-Tok331102/affine-5EqYW8McUc-af10}
-KING_REV=${KING_REV:-eb8bf9a356a254f71faaa439e8abc3cfba572c53}
-KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
+KING_REPO=${KING_REPO:-tolegend/Affine-5fqbxvz29b-ckp333}
+KING_REV=${KING_REV:-24c137e8a978aea1e2b4abeec594fb6ca943f03c}
+KING_LOCAL=${KING_LOCAL:-/root/hf/hub/models--tolegend--Affine-5fqbxvz29b-ckp333/snapshots/24c137e8a978aea1e2b4abeec594fb6ca943f03c}
 TRAIN_DIR=${TRAIN_DIR:-/root/r8/train}
 ADAPTER=${ADAPTER:-$TRAIN_DIR/adapter}
 CKPT_ROOT=${CKPT_ROOT:-$TRAIN_DIR/checkpoints}
@@ -313,10 +314,10 @@ fi
 
 unset CUDA_VISIBLE_DEVICES
 
-# RESTART_KING=0 keeps prewarmed Tok331102 on :8001; KEVIN_REPO is the env name
-# restart_for_h2.sh uses for KING_REPO when it would restart king (it won't here).
-log "chall-only re-serve $MERGED (keep teacher+Tok331102 king)"
-RESTART_KING=0 \
+# p2153: reign-5 king is tolegend ckp333 — restart :8001 (prewarm still Tok).
+# KEVIN_REPO is the env name restart_for_h2.sh uses for KING_REPO.
+log "re-serve chall=$MERGED + king=$KING_REPO (RESTART_KING=1)"
+RESTART_KING=1 \
   MERGE="$MERGED" \
   KEVIN_REPO="$KING_REPO" \
   KEVIN_REV="$KING_REV" \
