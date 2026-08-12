@@ -6,9 +6,9 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bn REFUTE** p2186; R9 merge live; R2bm REFUTE |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bn REFUTE** p2186; **R9 REFUTE** p2189; R2bm REFUTE |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
-| 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open — PRIORITY** · train~136/200; dec-watch armed (p2171) |
+| 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open — PRIORITY** · train.done→graft+n80 vs ckp333 (p2189) |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
 | 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · `mine-r25-hitemp-1` · p2099 armed |
 | 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open** · `mine-r26-lotemp-1` · p2100 armed |
@@ -26,11 +26,11 @@
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **REFUTED** · n80 m=**+0.0123** z=1.978 hr0.99× vs ckp333 (p2162) |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **REFUTED** · n80 m=**−0.0273** z=−1.64 hr−0.82× vs ckp333 (p2158) |
-| 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train.done; merge→`/tmp/r9_merged` started p2186 after R2bn REFUTE |
+| 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **REFUTED** · n80 m=**−0.0172** z=−3.36 hr−1.68× vs ckp333 (p2189) |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **blocked** · sbs-v2 gated 403 (p2162); fleet/`mine-r10-*` until Hub access |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **REFUTED** · n80 m=**−0.0055** z=−0.82 hr−0.41× vs ckp333 (p2175) |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **REFUTED** · n80 m=**+0.00085** z=0.06 hr0.03× vs ckp333 (p2188) |
-| 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **open — live** · warm-arm `mine-r4-fullft-1` GPUs6–7 (p2188) |
+| 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **REFUTED** · n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333 (p2189) |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **open** · `mine-r14-kevin-rl-1` · p2087 armed |
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open** · `mine-r15-pandora-rl-1` · p2088 armed |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **open** · `mine-r16-golden-rl-1` · p2089 armed |

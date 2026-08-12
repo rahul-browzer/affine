@@ -1,0 +1,545 @@
+=== r2bn poll 1 04:18:46 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:18:36Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 63,
+  "challenger_total": 80,
+  "king": 63,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 2 04:19:08 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:19:02Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 65,
+  "challenger_total": 80,
+  "king": 65,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 3 04:19:30 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:19:02Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 65,
+  "challenger_total": 80,
+  "king": 65,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 4 04:19:52 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:19:40Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 66,
+  "challenger_total": 80,
+  "king": 65,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 5 04:20:14 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:20:01Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 66,
+  "challenger_total": 80,
+  "king": 66,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 6 04:20:36 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:20:32Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 67,
+  "challenger_total": 80,
+  "king": 67,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 7 04:20:58 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:20:53Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 67,
+  "challenger_total": 80,
+  "king": 68,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 8 04:21:19 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:21:14Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 68,
+  "challenger_total": 80,
+  "king": 68,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 9 04:21:42 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:21:38Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 71,
+  "challenger_total": 80,
+  "king": 71,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 10 04:22:04 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:21:38Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 71,
+  "challenger_total": 80,
+  "king": 71,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 11 04:22:26 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:22:23Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 72,
+  "challenger_total": 80,
+  "king": 72,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 12 04:22:47 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:22:45Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 73,
+  "challenger_total": 80,
+  "king": 73,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+=== r2bn poll 13 04:23:09 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:23:05Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 75,
+  "challenger_total": 80,
+  "king": 75,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 14 04:23:31 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:23:05Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 75,
+  "challenger_total": 80,
+  "king": 75,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 15 04:23:53 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:23:45Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 76,
+  "challenger_total": 80,
+  "king": 76,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 16 04:24:16 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:23:45Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 76,
+  "challenger_total": 80,
+  "king": 76,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 17 04:24:38 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:23:45Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 76,
+  "challenger_total": 80,
+  "king": 76,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 18 04:25:00 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:24:41Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 76,
+  "challenger_total": 80,
+  "king": 77,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 19 04:25:22 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:25:14Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 77,
+  "challenger_total": 80,
+  "king": 77,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 20 04:25:44 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:25:31Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 77,
+  "challenger_total": 80,
+  "king": 78,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 21 04:26:06 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:26:01Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 78,
+  "challenger_total": 80,
+  "king": 79,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 22 04:26:28 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+{
+  "utc": "2026-08-12T04:26:14Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 79,
+  "challenger_total": 80,
+  "king": 79,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 23 04:26:50 ===
+/root/affine_data/r2bn_alloy_reason_progress.json
+/root/affine_data/r2bn_alloy_reason_sim.json
+/root/affine_data/r2bn_alloy_reason_sim_artifact.json
+{
+  "utc": "2026-08-12T04:26:49Z",
+  "hotkey": "local-r2bn-alloy-20260812T03:54:49Z",
+  "chall_repo": "athena2634/Affine-5h3msswruf-alloy",
+  "n_turns": 80,
+  "challenger": 80,
+  "challenger_total": 80,
+  "king": 80,
+  "king_total": 80
+}R9_TRAIN_DONE
+/root/affine_data/r2aa_alpha_decision.json
+/root/affine_data/r2ab_alpha_decision.json
+/root/affine_data/r2ac_alpha_decision.json
+/root/affine_data/r2ad_alpha_decision.json
+/root/affine_data/r2aj_sky_decision.json
+/root/affine_data/r2ak_google_decision.json
+/root/affine_data/r2al_pig_decision.json
+/root/affine_data/r2am_alpha_decision.json
+/root/affine_data/r2an_alpha_decision.json
+/root/affine_data/r2ao_af17_decision.json
+burst exited during poll
+=== r2bn poll 24 04:27:12 ===
+DECISION
+{
+  "utc": "2026-08-12T04:26:50Z",
+  "hyp": "R2bn",
+  "contract": "Reason v3",
+  "decision": "REFUTE_R2bn",
+  "decision_live_k2": "REFUTE_R2bn",
+  "headroom_bar": 1.5,
+  "false_probe": null,
+  "margin": -0.007330408317839145,
+  "se": 0.004724614880631962,
+  "z": -1.5515356284147828,
+  "k_sigma": 2.0,
+  "threshold_3se": 0.009449229761263923,
+  "headroom_vs_3se": -0.7757678142073914,
+  "k_sigma_live": 2.0,
+  "threshold_live_2se": 0.009449229761263923,
+  "headroom_vs_live_2se": -0.7757678142073914,
+  "submit_bar_1p5x_2se": 0.014173844641895885,
+  "reason_c": -0.011680647733301507,
+  "reason_k": -0.004338015218873489,
+  "n_paired_turns": 80,
+  "challenger_wins": false,
+  "sim_result": "/root/affine_data/r2bn_alloy_reason_sim.json"
+}

@@ -198,9 +198,12 @@ def main() -> None:
                 raise FileNotFoundError(
                     f"missing base shard for visual restore: {src}"
                 )
+            # Clone off safetensors mmap before the handle closes — otherwise
+            # save_file can hit EFAULT / "Bad address" (os error 14) (R9 p2187).
             with safe_open(str(src), framework="pt", device="cpu") as f:
                 for key in keys:
-                    restored[key] = f.get_tensor(key)
+                    t = f.get_tensor(key)
+                    restored[key] = t.detach().contiguous().clone()
             print(
                 f"[merge] extracted {len(keys)} missing keys from {shard}",
                 flush=True,
