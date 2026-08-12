@@ -11,11 +11,12 @@ Claim: a small KL to the frozen base (adapter-disabled) keeps thoughts near
 the king prior while still climbing teacher Reason, beating unregularized R3.
 
 ## Pod
-`mine-r32-kl-1` via fleet-rent (queue after R31, before parent-swap axes).
+`mine-r32-kl-1` via fleet-rent (queue after R31).
 8×B300 prefer. TTL 24h.
-Uploader: `upload_and_launch.sh` (fleet-boot case, pass 2108).
+Uploader: `upload_and_launch.sh` (p2232: guass n80 king + Reason writer).
 
 ## Decision
-n80 vs Tok; submit only if hr ≥ 1.5×(k_sigma·SE), live k=2.0.
+n80 vs **live guass** (reign-6); submit iff paired margin > live
+`k_sigma · SE` (k=2.0). No 1.5× headroom.
 Watch: `/root/logs/r32_pipeline.nohup` / `r3_train.nohup` (`[r3-hb]`).
 Trainer: `--kl-coef` on `train_reason_grpo.py`.

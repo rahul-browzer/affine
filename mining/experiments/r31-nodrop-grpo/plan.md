@@ -11,10 +11,11 @@ Claim: removing LoRA dropout lets the adapter fit teacher-helpful thoughts
 farther than R3's 0.05 regularizer (mean Reason up).
 
 ## Pod
-`mine-r31-nodrop-1` via fleet-rent (queue after R30, before parent-swap axes).
+`mine-r31-nodrop-1` via fleet-rent (queue after R30).
 8×B300 prefer. TTL 24h.
-Uploader: `upload_and_launch.sh` (fleet-boot case, pass 2107).
+Uploader: `upload_and_launch.sh` (p2232: guass n80 king + Reason writer).
 
 ## Decision
-n80 vs Tok; submit only if hr ≥ 1.5×(k_sigma·SE), live k=2.0.
+n80 vs **live guass** (reign-6); submit iff paired margin > live
+`k_sigma · SE` (k=2.0). No 1.5× headroom.
 Watch: `/root/logs/r31_pipeline.nohup` / `r3_train.nohup` (`[r3-hb]`).

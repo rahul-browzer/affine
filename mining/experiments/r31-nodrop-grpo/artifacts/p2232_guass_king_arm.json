@@ -1,0 +1,14 @@
+{
+  "pass": 2232,
+  "utc": "2026-08-12T10:38:25Z",
+  "action": "r31_retarget_sim_king_guass_plus_reason_writer",
+  "why": "QUEUE after R5b/R19/R22/R23/R27–R30. Old R31 upload used stock bootstrap_r3 (Tok as n80 king stamp) and mine.env lacked KING_*; live reign-6 is guass. Pack write_reason_decision + arm form-dec; submit bar = live k_sigma·SE.",
+  "changes": [
+    "bootstrap_r31.sh: DOWNLOAD guass-king (train init stays Tok; stamp guass.done)",
+    "upload_and_launch.sh: overlay bootstrap; KING_REPO/REV/LOCAL=guass; RESTART_KING=1; pack r1-reason-distill/; start watch_form_decision",
+    "plan.md: decision vs guass, no 1.5× headroom",
+    "prove: grep DOWNLOAD guass-king; test KING_REPO=guass; test write_reason_decision.py; R31_LORA_DROPOUT:-0.0"
+  ],
+  "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "stock": "0 free 8×B300/B200; burst 3745530 next=R5b→…→R31→R32; burn $220.25/h"
+}
