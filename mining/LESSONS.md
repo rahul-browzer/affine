@@ -142,8 +142,9 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Board `Glm4MoeForCausalLM` (thrivepath mt2) → UNSERVABLE at vLLM init; skip n80 (p2147). R2bj reload can die mid-prefetch-wait after `prefetch.done` — if shards ready + PID dead, relaunch; do **not** install board `chal00440_reason` (hr0.73× triggers SKIP_BOARD_FIRST; need local n80) (p2148).
 - Before LoRA merge into a live chall path: **kill chall by pidfile first** (frees GPUs4–5; avoids mmap/delete races) — p2149 R6b. **R6b** long-z n80 m=**−0.010** z=−1.23 hr−0.62× → REFUTE p2151; retarget warm TKC → **R8** REINFORCE (skip peft probe; Soft/Dead TTL-relative).
 - History API emits `event=crowned` (not only `verdict`) on a king swap — host stamp bridge must accept both or chal stamps stall (p2152: 00501). Prefetch `.done` can lie after hub eviction — re-check `snapshots/<rev>/model.safetensors.index.json` before king retarget.
-- Slim n80 launchers must `export PYTHONPATH=/root/mining_src/affine_pkg` (and AFFINE_DATA_DIR) after venv activate — missing it → `No module named 'affine'` before first progress (p2155 R2bk).
-- **R8 REFUTE** p2158 m=−0.027; king-swap patch retry_* KING defaults (p2159); R9 post-in-train-wait ≠ merge-block for chall-swap (p2160); n80 `--chall-repo` = vLLM serve id not `readlink -f` (p2161 FALSE_PROBE).
-- **R7 REFUTE** p2162: top-250 Reason full-FT n80 m=+0.0123 z=1.978 < 2σ (hr_crown 0.99× / submit 0.66×) — knife-edge miss, not Stage-5. **R10** blocked: `ammazon/…-sbs-v2` gated 403 for unconst → warm-arm **R11** online-DPO on same TKC (GPUs 6–7).
-- Pre-swap live king on free GPUs 2–3 while GRPO trains on 6–7; patch post_train to `RESTART_KING=0` when `:8001` already serves target (p2163) — saves a full king reload on the critical path.
-- `write_reason_decision.py` must default **k_sigma=2.0** and emit `headroom_vs_live_2se` (p2165). Default 3.0 made ADVANCE require 1.5×3σ=4.5σ; submit bar is 1.5×(2σ)=3σ. Deploy before n80 decision write (separate python proc reads on-disk file).
+- Slim n80 launchers: `export PYTHONPATH=/root/mining_src/affine_pkg` + AFFINE_DATA_DIR after venv — else `No module named 'affine'` (p2155).
+- **R8 REFUTE** p2158 m=−0.027; king-swap retry_* KING defaults (p2159); R9 train-wait ≠ merge-block (p2160); n80 `--chall-repo`=vLLM serve id not `readlink -f` (p2161).
+- **R7 REFUTE** p2162 m=+0.0123 z=1.978 <2σ (hr0.99×) — knife-edge. **R10** 403 on sbs-v2 → warm **R11** online-DPO (GPUs6–7).
+- Pre-swap live king on GPUs2–3 while GRPO trains 6–7; `RESTART_KING=0` if `:8001` already target (p2163).
+- `write_reason_decision.py` default **k_sigma=2.0** + `headroom_vs_live_2se` (p2165); submit bar=1.5×(2σ).
+- **R2bl REFUTE** p2166: Bittoby v3 vs ckp333 n80 m=**−0.00204** z=−0.48 hr=−0.24×(2σ) — board-parent screen closed; R9 post unblocked.
