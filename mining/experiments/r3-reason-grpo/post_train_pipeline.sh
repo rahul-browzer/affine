@@ -317,9 +317,20 @@ fi
 unset CUDA_VISIBLE_DEVICES
 
 # p2153: reign-5 king is tolegend ckp333 — restart :8001 (prewarm still Tok).
+# p2163: skip king reload when :8001 already serves ckp333 (pre-swapped).
 # KEVIN_REPO is the env name restart_for_h2.sh uses for KING_REPO.
-log "re-serve chall=$MERGED + king=$KING_REPO (RESTART_KING=1)"
-RESTART_KING=1 \
+_king_id=$(curl -s --max-time 5 http://127.0.0.1:8001/v1/models \
+  | python3 -c "import sys,json;d=json.load(sys.stdin);print((d.get(\"data\")or[{}])[0].get(\"id\",\"\"))" \
+  2>/dev/null || true)
+if [[ "$_king_id" == *ckp333* || "$_king_id" == *"$KING_REPO"* ]]; then
+  log "king already $_king_id — RESTART_KING=0 (p2163)"
+  _RK=0
+else
+  log "king is ${_king_id:-none} — RESTART_KING=1 → $KING_REPO"
+  _RK=1
+fi
+log "re-serve chall=$MERGED + king=$KING_REPO (RESTART_KING=$_RK)"
+RESTART_KING=$_RK \
   MERGE="$MERGED" \
   KEVIN_REPO="$KING_REPO" \
   KEVIN_REV="$KING_REV" \

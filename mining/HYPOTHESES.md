@@ -62,6 +62,7 @@
 
 ### R3b — GRPO alt-LR/rank (PRIORITY)
 - Same reward/data as R3; knobs lr=**2e-5** r=**64**/α128 G=**8**. p2127 launched on warm `mine-r3-grpo-1` (T/K up; GPUs6–7). Dir: `experiments/r3b-grpo-alt/`.
+- **p2163:** king pre-swapped Tok→ckp333 while train ~step99/200; post_train skips `RESTART_KING` if `:8001` already ckp333.
 
 ### R4 — Full-FT
 - **REFUTED** p2116: n80 m=−0.0077 z=−0.76 (salvage ckpt-26 lr1e-6 ep1). Dir: `experiments/r4-fullft-reason/` + `s4-h121-f26-full-ft/`.

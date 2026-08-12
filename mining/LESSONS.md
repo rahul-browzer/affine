@@ -145,3 +145,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - Slim n80 launchers must `export PYTHONPATH=/root/mining_src/affine_pkg` (and AFFINE_DATA_DIR) after venv activate — missing it → `No module named 'affine'` before first progress (p2155 R2bk).
 - **R8 REFUTE** p2158 m=−0.027; king-swap patch retry_* KING defaults (p2159); R9 post-in-train-wait ≠ merge-block for chall-swap (p2160); n80 `--chall-repo` = vLLM serve id not `readlink -f` (p2161 FALSE_PROBE).
 - **R7 REFUTE** p2162: top-250 Reason full-FT n80 m=+0.0123 z=1.978 < 2σ (hr_crown 0.99× / submit 0.66×) — knife-edge miss, not Stage-5. **R10** blocked: `ammazon/…-sbs-v2` gated 403 for unconst → warm-arm **R11** online-DPO on same TKC (GPUs 6–7).
+- Pre-swap live king on free GPUs 2–3 while GRPO trains on 6–7; patch post_train to `RESTART_KING=0` when `:8001` already serves target (p2163) — saves a full king reload on the critical path.

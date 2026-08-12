@@ -1,0 +1,16 @@
+{
+  "pass": 2163,
+  "utc": "2026-08-12T02:28:55Z",
+  "pod": "mine-r3-grpo-1",
+  "action": "pre-swap king Tok\u2192ckp333 while R3b GRPO trains; patch post_train skip RESTART_KING if already ckp333",
+  "king_repo": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "preswap_pid": 58117,
+  "king_vllm_pid": 58207,
+  "train_pid": 51672,
+  "train_step_at_launch": 98,
+  "teacher_kept": true,
+  "burn_h": 180.25,
+  "lium_bal": 119360.32961507737,
+  "b300_8x_stock": 0
+}
