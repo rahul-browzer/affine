@@ -147,4 +147,4 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R7 REFUTE** p2162 m=+0.0123 z=1.978 <2σ (hr0.99×) — knife-edge. **R10** 403 on sbs-v2 → warm **R11** online-DPO (GPUs6–7).
 - Pre-swap live king on GPUs2–3 while GRPO trains 6–7; `RESTART_KING=0` if `:8001` already target (p2163).
 - `write_reason_decision.py` default **k_sigma=2.0** + `headroom_vs_live_2se` (p2165); submit bar=1.5×(2σ).
-- **R2bl REFUTE** p2166: Bittoby v3 vs ckp333 n80 m=**−0.00204** z=−0.48 hr=−0.24×(2σ) — board-parent screen closed; R9 post unblocked.
+- **R2bl REFUTE** p2166 m=−0.002 hr−0.24×. R9 post must also wait **live R2bm** (shared `:8002`) before merge — p2170 gate; R2bl-only unblock races the next board n80.

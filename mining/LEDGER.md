@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $119,213.055 | 2026-08-12T03:00Z |
-| cumulative mining spend | ~$78,383 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T03:00Z |
-| **available for mining** | **~$109,213** (balance − $10,000 floor) | 2026-08-12T03:00Z |
+| Lium balance | $119,193.457 | 2026-08-12T03:05Z |
+| cumulative mining spend | ~$78,403 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T03:05Z |
+| **available for mining** | **~$109,193** (balance − $10,000 floor) | 2026-08-12T03:05Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T03:00Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T03:05Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T03:05Z | 119193.457 | p2170 no rent (API 8×=0); R9←R2bm gate; burn **$180.25/h**; Δ−$20 vs p2169 |
 | 2026-08-12T03:00Z | 119213.055 | p2169 no rent (API 8×=0); R2bm n80 started; burn **$180.25/h**; Δ−$22 vs p2168 |
 | 2026-08-12T02:55Z | 119235.098 | p2168 no rent (API 8×=0); R2bm armed on crown; burn **$180.25/h**; Δ−$21 vs p2167 |
 | 2026-08-12T02:52Z | 119255.925 | p2167 no rent (API 8×=0); R11 Soft/Dead TTL-fix; burn **$180.25/h**; Δ−$21 vs p2166 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T02:28Z | 119360.330 | p2163 no rent (API 8×B300/B200=0; only 1×); R3b king preswap; burn **$180.25/h**; Δ−$21 vs p2162 |
 | 2026-08-12T02:24Z | 119381.086 | p2162 no rent (API 8×B300/B200=0); R7 REFUTE→R11 warm; burn **$180.25/h**; Δ−$21 vs p2161 |
 | 2026-08-12T02:18Z | 119401.926 | p2161 no rent (API 8×B300/B200=0); R7 chall-id fix→n80; burn **$180.25/h**; Δ−$21 vs p2160 |
-| 2026-08-12T02:14Z | 119422.870 | p2160 no rent (API 8×B300/B200=0; only 1×); R2bk CLOSE + R2bl Bittoby; burn **$180.25/h**; Δ−$41 vs p2159 |

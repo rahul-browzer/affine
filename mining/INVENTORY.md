@@ -22,6 +22,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T03:05Z | p2170: R9←R2bm gate; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T03:00Z | p2169: R2bm n80 live; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T02:55Z | p2168: R2bm tttt-guass armed; B300×8=0; burn **$180.25/h** |
-| 2026-08-12T02:52Z | p2167: R11 Soft/Dead→19:57/20:27; B300×8=0; burn **$180.25/h** |

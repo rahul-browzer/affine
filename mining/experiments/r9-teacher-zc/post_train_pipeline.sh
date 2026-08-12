@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # R9 post-train (p2154): after Tok×teacher-z_C LoRA train on crown GPUs 6–7,
-# wait R2bj terminal + king retarget→ckp333, merge→chall:8002→n80 vs live king.
+# wait R2bj/R2bk/R2bl/R2bm terminal + king retarget→ckp333, merge→chall:8002→n80.
 # Kill chall by pidfile only. Never touch teacher. Soft/Deadman TTL-relative.
 set -euo pipefail
 
@@ -356,6 +356,70 @@ if [[ -f "$R2BL_PIDF" || -f "$R2BL_HOLD" ]] || pgrep -f 'launch_r2bl_bittoby_v3_
     fi
     if (( i % 12 == 0 )); then
       echo "[r9-pipe] wait-r2bl iter=$i"
+    fi
+    sleep 10
+  done
+fi
+
+# 3d) Wait R2bm (tttt-guass vs ckp333) before yanking chall:8002 (p2170).
+# R2bl already terminal; live R2bm owns :8002 while R9 trains on 6–7.
+R2BM_DEC=${R2BM_DEC:-/root/affine_data/r2bm_tttt_guass_decision.json}
+R2BM_ALT=${R2BM_ALT:-/root/logs/r2bm_tttt_guass_decision.json}
+R2BM_PIDF=${R2BM_PIDF:-/root/logs/r2bm_tttt_guass_reload.pid}
+R2BM_HOLD=${R2BM_HOLD:-/root/logs/r2bm_tttt_guass_holding.stamp}
+R2BM_PROG=${R2BM_PROG:-/root/affine_data/r2bm_tttt_guass_reason_progress.json}
+if [[ -f "$R2BM_PIDF" || -f "$R2BM_HOLD" || -f "$R2BM_PROG" ]] \
+   || pgrep -f 'launch_r2bm_tttt_guass_reload_sim' >/dev/null 2>&1 \
+   || pgrep -f 'run_reason_sim.py .*r2bm-tttt' >/dev/null 2>&1; then
+  echo "[r9-pipe] waiting R2bm terminal before merge (chall shared)"
+  for i in $(seq 1 2880); do
+    for f in "$R2BM_DEC" "$R2BM_ALT"; do
+      if [[ -f "$f" ]]; then
+        hr=$(python3 - <<PY
+import json
+from pathlib import Path
+d=json.loads(Path("$f").read_text())
+h=d.get("headroom_vs_live_2se")
+if h is None:
+  h=d.get("headroom_vs_3se")
+print("" if h is None else h)
+PY
+)
+        echo "[r9-pipe] R2bm decision at $f hr=${hr:-none}"
+        if [[ -n "${hr:-}" ]] && python3 -c "import sys; sys.exit(0 if float('$hr') >= float('$HEADROOM_BAR') else 1)"; then
+          echo "SKIP_R9_R2BM_CLEARS file=$f hr=$hr $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+          exit 0
+        fi
+        break 2
+      fi
+    done
+    if [[ -f /root/logs/r2bm_tttt_guass_reload.done ]]; then
+      echo "[r9-pipe] R2bm reload.done"
+      break
+    fi
+    r2bm_alive=0
+    if [[ -f "$R2BM_PIDF" ]]; then
+      bp=$(cat "$R2BM_PIDF" 2>/dev/null || true)
+      if [[ -n "${bp:-}" ]] && kill -0 "$bp" 2>/dev/null; then
+        r2bm_alive=1
+      fi
+    fi
+    if pgrep -f 'run_reason_sim.py .*r2bm-tttt' >/dev/null 2>&1 \
+       || pgrep -f 'launch_r2bm_tttt_guass_reload_sim' >/dev/null 2>&1; then
+      r2bm_alive=1
+    fi
+    if (( r2bm_alive == 0 )) && [[ ! -f "$R2BM_HOLD" ]]; then
+      echo "[r9-pipe] R2bm idle — proceed"
+      break
+    fi
+    if _past "$SOFT_DEADLINE_UTC"; then
+      echo "[r9-pipe] past soft waiting R2bm; abort"
+      echo "aborted_r2bm_wait $(date -u +%Y-%m-%dT%H:%M:%SZ)" >"$ABORT"
+      exit 1
+    fi
+    if (( i % 12 == 0 )); then
+      crumb=$(python3 -c "from pathlib import Path;p=Path('$R2BM_PROG');print(p.read_text().strip() if p.is_file() else 'no-progress')" 2>/dev/null || echo none)
+      echo "[r9-pipe] wait-r2bm iter=$i crumb=${crumb:-none}"
     fi
     sleep 10
   done
