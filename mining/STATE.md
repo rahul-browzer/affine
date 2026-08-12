@@ -14,23 +14,22 @@ Burn floor **≥$833/h** on mine-* 8×B300 (operator 2026-08-11).
 | challenge | queue empty (latest stamped chal-00525) |
 | miner burn | **$220.25/h** · floor $833/h · **gap −$613/h** |
 | B300 stock | **0** free 8×B300/B200 (burst snatching) |
-| Lium bal | ~$116,856 · floor $10k OK |
+| Lium bal | ~$116,807 · floor $10k OK |
 | submissions | 0 |
-| R25 | **merge OK** → king:8001 **200** · chall loading · Triton seeded |
-| R24 | GRPO **step~194**/200; tmax waiter (32768→65536 after done) |
-| R19 | Talent-GRPO **step~52**/200; form-dec alive |
-| R33 | guass-init GRPO **step~103**/200; form-dec alive |
+| R25 | **n80 gather** chall~35/80 king~40/80 vs guass (enforce-eager+Triton warm/freeze) |
+| R24 | train.done → merge OK → serve_three (teacher blip); n80 next |
+| R19 | Talent-GRPO train alive (pid166479) |
+| R33 | guass-init GRPO train (no train.done yet) |
 | R10 / R18 | **BLOCKED** sbs-v2 index **403** |
-| R21 / R26 / R5b | prior n80 REFUTE / SIGNAL_POS_BELOW (archived) |
 
 ## What's running
 
 | name | huid | $/h | role |
 |---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd | $52.25 | **R33** guass-init GRPO ~103 |
-| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R24** train~194 + guass + tmax |
-| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R19** Talent-GRPO ~52 |
-| mine-r25-hitemp-1 | zesty-fox-bc | $40.00 | **R25** chall serve→n80 vs guass |
+| mine-crown-1 | gentle-orbit-bd | $52.25 | **R33** guass-init GRPO |
+| mine-r3-grpo-1 | golden-hawk-ff | $64.00 | **R24** merge→serve→n80 |
+| mine-r4-fullft-1 | noble-orbit-9d | $64.00 | **R19** Talent-GRPO train |
+| mine-r25-hitemp-1 | zesty-fox-bc | $40.00 | **R25** n80 gather vs guass |
 | host fleet-burst | pid**3962156** | — | **86400**-iter snatch next **R22** |
 | host fleet-rent | pid**3373328** (**STOP**) | — | CONT if burst ends empty |
 | host fleet-boot | pid**3852238** | — | POLL=5s (arms next rent stamps) |
@@ -50,6 +49,6 @@ slice vs the **current** king. No 1.5×. No absolute margin>0.04 bar.
 Re-sim WEAK_CLEAR vs **guass** before submit (not stale ckp333).
 
 ## Next action
-1. R25: chall:8002 ready → n80 vs guass; CLEAR → Stage-5 (`p2245_r25_merge_serve.json`).
-2. Burst snatch → bootstrap R22; then R23/R27–R32.
-3. R24 train.done → tmax@65536 → merge/n80; R19/R33 continue GRPO.
+1. R25: await `r3_sim_result.json` / form-dec; CLEAR → Stage-5 (`p2246_r25_chall_warm_n80.json`).
+2. R24: teacher+king+chall ready → n80 (same Triton warm/freeze if B300 OK without).
+3. Burst snatch → bootstrap R22; then R23/R27–R32. R19/R33 continue GRPO.

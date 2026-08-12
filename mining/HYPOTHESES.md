@@ -9,8 +9,8 @@
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — live king=**guass** reign6 (p2206); R2bm was guass-as-chall vs ckp333 |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **REFUTED** · n80 m=**+0.00232** z=0.245 hr0.12× (p2190) |
-| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open — PRIORITY** · train~**145**/200 · post waiter live |
-| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · train~**129**/200 · post waiter live |
+| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open — PRIORITY** · train.done→merge→serve (p2246) · n80 next |
+| 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open — PRIORITY** · n80 gather~35/80 vs guass (p2246 warm/freeze) |
 | 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **REFUTED** · vs guass n80 m=**+0.00192** z=0.19 hr0.10× (p2235) |
 | 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · `mine-r27-bigg-1` · p2101 armed |
 | 28 | R28 | Tok GRPO lr=2e-5 beats R3 5e-6 (isolates LR vs R3b) | **open** · `mine-r28-hilr-1` · p2102 armed |

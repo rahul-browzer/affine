@@ -1,0 +1,31 @@
+{
+  "utc": "2026-08-12T12:09:40Z",
+  "pass": 2246,
+  "pod": "mine-r25-hitemp-1",
+  "huid": "zesty-fox-bc",
+  "axis": "R25_hitemp_grpo_reason",
+  "king": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "merged": "/tmp/r3_merged",
+  "problem": {
+    "first": "B200 chall cudagraph shm_broadcast hang after torch.compile (GPUs 4–5 ~38GiB @0%)",
+    "second": "enforce-eager chall ready but first n80 probe → EngineDead ImportError missing __triton_launcher.so (hash EAUH…); post_train treated FALSE_PROBE JSON as attempt OK → PIPELINE_DONE"
+  },
+  "fix": {
+    "enforce_eager": true,
+    "triton_seed": "king+teacher → chall (launchers 25→29)",
+    "diverse_warm_writable": ["short", "med32", "longpad", "4k_x"],
+    "freeze": "chmod -R a-w TCACHE; post-freeze warm×3 OK (launchers=30)",
+    "quarantine": "/root/affine_data/false_probes/*_p2246_20260812T120728Z.json",
+    "n80": {
+      "pid": 35272,
+      "block_hash": "a203…0002",
+      "PYTHONPATH": "/root/mining_src/affine_pkg",
+      "progress_at_stamp": {"challenger": 35, "king": 40, "n": 80}
+    },
+    "form_dec_pid": 35139,
+    "script": "experiments/r25-hitemp-grpo/p2246_chall_warm_n80.sh"
+  },
+  "engines": {"teacher_8000": 200, "king_8001": 200, "chall_8002": 200},
+  "decision_rule": "submit iff paired mean(Reason_c-Reason_k) > k_sigma·SE (k=2.0); no 1.5×",
+  "next": "await r3_sim_result.json; CLEAR→Stage-5; else REFUTE/archive"
+}

@@ -6,10 +6,10 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-13T02:35Z** | **R33** guass-GRPO ~103 |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** train~194 + tmax |
-| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R19** Talent-GRPO ~52 |
-| mine-r25-hitemp-1 | zesty-fox-bc (`20498068-…`) | 8×B200 | $40.00 | **2026-08-13T08:46Z** | **R25** chall→n80 |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-13T02:35Z** | **R33** guass-GRPO |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** merge→serve→n80 |
+| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R19** Talent-GRPO |
+| mine-r25-hitemp-1 | zesty-fox-bc (`20498068-…`) | 8×B200 | $40.00 | **2026-08-13T08:46Z** | **R25** n80 gather |
 | *(pending fleet)* | mine-r22… then R23/R27–R32… | 8×B300 | ~$64 | burst **3962156** | **R22 next** |
 
 SSH crown/R33: `ssh root@95.133.253.90 -p 40099`
@@ -26,6 +26,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T12:10Z | p2246: 8×=0; R25 chall enforce-eager+Triton warm/freeze → n80~35/80; burn **$220.25/h** |
 | 2026-08-12T11:56Z | p2245: 8×=0; R25 merge→serve (king200) + Triton seed; burn **$220.25/h** |
-| 2026-08-12T11:49Z | p2244: 8×=0; R19/R33 form-dec re-arm (stale R21/R26 sim); R25 train.done→merge; burn **$220.25/h** |
-| 2026-08-12T11:44Z | p2243: 8×=0; HF purge **~484 GB** REFUTE merges; burn **$220.25/h** |
+| 2026-08-12T11:49Z | p2244: 8×=0; R19/R33 form-dec re-arm; R25 train.done→merge; burn **$220.25/h** |
