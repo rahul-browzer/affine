@@ -1,0 +1,10 @@
+{
+  "utc": "2026-08-12T08:17:38Z",
+  "pass": 2205,
+  "burst_pid": 3557663,
+  "log": "experiments/fleet-rent/logs/burst_p2205.log",
+  "next_queue": "mine-r25-hitemp-1",
+  "change": "SKIP_PID_LOCK=1 PASS=2205 MAX_ITERS=3000; QUEUE drop R24 (live on mine-r3 after R15 REFUTE); R15 REFUTE recorded; 8× still empty",
+  "mine_burn_usd_h": 180.25,
+  "bal": 117899.505
+}

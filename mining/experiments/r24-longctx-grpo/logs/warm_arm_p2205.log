@@ -1,0 +1,28 @@
+deadline_patch soft 1 dead 1 2026-08-13T03:29:36Z 2026-08-13T03:59:36Z
+-rw-rw-r-- 1 const const 413K Aug 12 08:15 /tmp/mine-r24-warm-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-r24-lora
+HF_OK unconst/Affine-5czsc2fc98-r24-merged
+LEAN_PID=87978
+[r24-lean] 2026-08-12T08:15:30Z start
+[r24-lean] DOWNLOAD tok-init start Tok331102/affine-5EqYW8McUc-af10 eb8bf9a356a254f71faaa439e8abc3cfba572c53
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 380.46it/s]
+[r24-lean] DOWNLOAD tok-init done -> /root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53
+[r24-lean] killed stale chall pid=83248
+[r24-lean] removed /tmp/r15_merged
+0, 238410 MiB
+1, 238410 MiB
+2, 222520 MiB
+3, 222520 MiB
+4, 0 MiB
+5, 0 MiB
+6, 0 MiB
+7, 0 MiB
+[r24] 2026-08-12T08:15:37Z examples=406 data=/root/r3/winner_za_high_l1.jsonl base=/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53 gpus=6,7
+[r24] knobs lr=5e-6 r=16/α32 G=4 steps=200 max_len=16384 max_new=1024 axis=longctx_grpo_reason
+[r24] wait teacher at http://127.0.0.1:8000/v1
+[r24] teacher ready after 1×15s
+    PID     ELAPSED CMD
+  87978 441077222-22:49:36 bash /root/mining_src/r24-longctx-grpo/lean_warm_boot.sh
+TRAIN_PID=51672
+t=200 k=200
+R24_WARM_ARM_OK pod=mine-r3-grpo-1 soft=2026-08-13T03:29:36Z dead=2026-08-13T03:59:36Z 2026-08-12T08:15:55Z

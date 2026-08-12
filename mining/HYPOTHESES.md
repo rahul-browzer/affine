@@ -9,7 +9,7 @@
 | 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bn REFUTE** p2186; **R9 REFUTE** p2189; R2bm REFUTE |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **REFUTED** · n80 m=**+0.00232** z=0.245 hr0.12× (p2190) |
-| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
+| 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open — PRIORITY** · mine-r3 pid**88309** (p2205 warm-arm after R15 REFUTE) |
 | 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **open** · `mine-r25-hitemp-1` · p2099 armed |
 | 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **open** · `mine-r26-lotemp-1` · p2100 armed |
 | 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · `mine-r27-bigg-1` · p2101 armed |
@@ -32,7 +32,7 @@
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **REFUTED** · n80 m=**+0.00085** z=0.06 hr0.03× vs ckp333 (p2188) |
 | 13 | R13 | Offline DPO on duel Reason prefs (frozen chosen/rejected) | **REFUTED** · n80 m=**−0.0191** z=−2.86 hr−1.43× vs ckp333 (p2189) |
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.0215** z=−1.14 hr−0.57× (p2194) |
-| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **open — PRIORITY** · n80 RUNNING pid**87097** vs ckp333 (p2204; chall PROMPTABLE 08:10Z) |
+| 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.0268** z=−2.25 hr=−1.12× vs ckp333 (p2205) |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.00935** z=−1.30 hr=−0.65× vs ckp333 (p2196) |
 | 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open — PRIORITY** · crown pid**337498** (p2197 empty-z/`THOUGHT:` fix; z0 ok @step1) |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
@@ -87,10 +87,11 @@
 ### R14 — kevin954-init REINFORCE
 - **REFUTED** p2194: n80 m=**−0.0215** SE=0.0189 z=−1.14 hr−0.57× vs ckp333. Dir: `experiments/r14-kevin-rl/results/`.
 
-### R15 / R16 / R20 — PRIORITY live
-- **R15** pandora-REINFORCE merge DONE `/tmp/r15_merged` (p2203 contig+5GB); chall reload→n80 vs ckp333. Dir: `experiments/r15-pandora-rl/`.
+### R15 / R16 / R20 / R24 — PRIORITY
+- **R15 REFUTED** p2205: n80 m=**−0.0268** SE=0.0119 z=−2.25 hr=−1.12× vs ckp333 (chall z̄=670 vs king 373). Dir: `experiments/r15-pandora-rl/`.
 - **R16** REFUTED p2196. Dir: `experiments/r16-golden-rl/`.
-- **R20** kevin-GRPO on `mine-r4` ~step88/200; pid**126769**. Dir: `experiments/r20-kevin-grpo/`.
+- **R20** kevin-GRPO on `mine-r4` ~step128/200; pid**126769**. Dir: `experiments/r20-kevin-grpo/`.
+- **R24** Tok LongCtx-GRPO on `mine-r3` pid**88309** max_len=16384/new=1024 (p2205). Dir: `experiments/r24-longctx-grpo/`.
 
 ### R10 / R11 / R12 / R13
 - **R10 blocked** p2162: `ammazon/Affine-5dvqtektxx-sbs-v2` gated 403 for unconst — need Hub access or public merge parent before arm.
@@ -101,8 +102,8 @@
 ### R24–R32 — structural GRPO knobs (fleet-queued)
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
-### Fleet axes waiting on 8×B300 (R24 first)
-- Live: **R17** crown · **R15** R3 · **R20** R4. Queue: **R24** → R25–R32 · R5b · R10 · R18…. Submit iff hr ≥ 1.5×(2·SE).
+### Fleet axes waiting on 8×B300 (R25 first)
+- Live: **R17** crown · **R24** R3 · **R20** R4. Queue: **R25** → R26–R32 · R5b · R10 · R18…. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.

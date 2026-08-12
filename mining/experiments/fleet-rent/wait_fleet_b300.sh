@@ -26,7 +26,8 @@ PASS=${PASS:-2134}
 QUEUE=(
   # R4/R4b/R5/R6/R6b/R8 REFUTED. R7 live on warm mine-r4-fullft-1 (p2158) — do not re-rent R7/R8.
   # R3b live on mine-r3-grpo-1 (p2127 retarget after R3 REFUTE) — do not re-rent.
-  "mine-r24-longctx-1|R24|Tok GRPO max_len=16384 max_new=1024 (≠ R3 6144/512)"
+  # R24 live on mine-r3-grpo-1 (p2205 warm-arm after R15 REFUTE) — do not re-rent.
+  # "mine-r24-longctx-1|R24|Tok GRPO max_len=16384 max_new=1024 (≠ R3 6144/512)"
   "mine-r25-hitemp-1|R25|Tok GRPO temperature=1.2 (≠ R3 temp=0.8)"
   "mine-r26-lotemp-1|R26|Tok GRPO temperature=0.5 (≠ R3 0.8 / R25 1.2)"
   "mine-r27-bigg-1|R27|Tok GRPO group_size=16 (≠ R3 G=4 / R3b G=8+alt-lr)"
@@ -44,11 +45,12 @@ QUEUE=(
   # "mine-r13-odpo-1|R13|offline DPO on duel Reason prefs"
   # R14 live on mine-r4-fullft-1 (p2190) — do not re-rent.
   # "mine-r14-kevin-rl-1|R14|kevin954-init REINFORCE on teacher Reason"
-  # R15 live on mine-r3-grpo-1 (p2191) — do not re-rent.
+  # R15 REFUTED p2205 n80 m=-0.027 z=-2.25 — do not re-rent.
   # "mine-r15-pandora-rl-1|R15|pandora-box-init REINFORCE on teacher Reason"
   # R16 live on mine-crown-1 (p2192) — do not re-rent.
   # "mine-r16-golden-rl-1|R16|golden-crown-init REINFORCE on teacher Reason"
-  "mine-r17-coder-rl-1|R17|Qwen3-Coder base REINFORCE on teacher Reason"
+  # R17 live on mine-crown-1 (p2196) — do not re-rent.
+  # "mine-r17-coder-rl-1|R17|Qwen3-Coder base REINFORCE on teacher Reason"
   "mine-r18-sbs-grpo-1|R18|pure sbs-v2-init Reason-GRPO (≠ R3/R10)"
   "mine-r19-talent-grpo-1|R19|TalentPigs-init Reason-GRPO (≠ R3/R5b/R18)"
   # R20 live on mine-r4-fullft-1 (p2194) — do not re-rent
