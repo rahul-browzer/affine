@@ -11,15 +11,26 @@ HOST=204.9.206.245
 PORT=40051
 ssh_r24(){ ssh -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -o BatchMode=yes -p "$PORT" "root@$HOST" "$@"; }
 
-log "wait for /root/r25_from_hf complete"
+log "wait for /root/r25_from_hf complete (all 16 shards + config)"
 for i in $(seq 1 240); do
   st=$(ssh_r24 'bash -s' <<'EOS' || echo SSH_FAIL
-if [[ -f /root/r25_from_hf/config.json && -f /root/r25_from_hf/model-00016-of-00016.safetensors ]]; then
-  echo READY $(du -sh /root/r25_from_hf | awk "{print \$1}")
+missing=0
+for k in $(seq 1 16); do
+  f=$(printf "/root/r25_from_hf/model-%05d-of-00016.safetensors" "$k")
+  [[ -s "$f" ]] || missing=$((missing+1))
+done
+have=$(ls /root/r25_from_hf/model-[0-9]*-of-00016.safetensors 2>/dev/null | wc -l)
+if [[ -f /root/r25_from_hf/config.json && "$missing" -eq 0 && "$have" -ge 16 ]]; then
+  if ! kill -0 "$(cat /root/logs/r25_hf_dl.pid 2>/dev/null || echo 0)" 2>/dev/null \
+     || grep -qE '\[p2247-dl\] DONE|\[p2247-dl\].* OK' /root/logs/r25_hf_dl.nohup 2>/dev/null; then
+    echo READY have=$have $(du -sh /root/r25_from_hf | awk "{print \$1}")
+  else
+    echo DOWNLOADING have=$have missing=$missing $(du -sh /root/r25_from_hf 2>/dev/null | awk "{print \$1}")
+  fi
 elif [[ -f /root/logs/r25_hf_dl.pid ]] && kill -0 "$(cat /root/logs/r25_hf_dl.pid)" 2>/dev/null; then
-  echo DOWNLOADING $(du -sh /root/r25_from_hf 2>/dev/null | awk "{print \$1}")
+  echo DOWNLOADING have=$have missing=$missing $(du -sh /root/r25_from_hf 2>/dev/null | awk "{print \$1}")
 else
-  echo DEAD
+  echo DEAD have=$have missing=$missing
   tail -n 5 /root/logs/r25_hf_dl.nohup 2>/dev/null | tr "\n" "|"
 fi
 EOS
