@@ -25,7 +25,7 @@
 | 6 | R6 | Thought-format shaping raises teacher Reason | **REFUTED** · n80 m=**−0.0006** z=−0.07 hr−0.04× (p2143) |
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · `mine-r7-datafilt-1` · p2076 armed |
-| 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open — live** · warm `mine-r4-fullft-1` GPUs6–7 (p2151; was fleet `mine-r8-reinforce-1`) |
+| 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open — n80 live** · train DONE 189 steps; n80~17/80 vs ckp333 on `mine-r4-fullft-1` (p2157) |
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train~96/354 + post waits train→**R2bk**→merge→n80 vs ckp333 (p2155) |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open** · `mine-r10-merge-rl-1` · p2082 armed |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open** · `mine-r11-odpo-1` · p2084 armed |

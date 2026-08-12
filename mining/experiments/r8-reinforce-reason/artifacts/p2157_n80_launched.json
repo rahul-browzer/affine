@@ -1,0 +1,42 @@
+{
+  "pass": 2157,
+  "utc": "2026-08-12T01:54:31Z",
+  "pod": "mine-r4-fullft-1",
+  "huid": "noble-orbit-9d",
+  "axis": "R8",
+  "event": "train_done_merge_serve_n80_launched",
+  "train": {
+    "steps": 189,
+    "mean_reward_last20": 0.022840466347548046,
+    "adapter": "/root/r8/train/adapter",
+    "done_utc": "2026-08-12T01:46:08Z"
+  },
+  "merge": {
+    "path": "/root/r8/merged",
+    "identical_to_base": false,
+    "identical_to_king": false,
+    "stamp": "/root/logs/r8_merge.done"
+  },
+  "serve": {
+    "king": "tolegend/Affine-5fqbxvz29b-ckp333",
+    "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+    "chall": "/root/r8/merged",
+    "ready_utc": "2026-08-12T01:53:30Z",
+    "chall_serve_done": "/root/logs/r8_chall_serve.done"
+  },
+  "n80": {
+    "out": "/root/affine_data/r8_sim_result.json",
+    "progress": "/root/affine_data/r8_sim_progress.json",
+    "decision": "/root/affine_data/r8_decision.json",
+    "block_hash_prefix": "a203000000000000",
+    "corpus_epoch": 8,
+    "at_launch_progress": {"challenger": 17, "king": 17, "n_turns": 80},
+    "log": "/root/logs/r8_post_train.nohup",
+    "form_watch": "/root/logs/r8_form_decision.nohup"
+  },
+  "hf_push_bg": {
+    "adapter": "unconst/Affine-5czsc2fc98-r8-lora",
+    "merged": "unconst/Affine-5czsc2fc98-r8-merged"
+  },
+  "decision_rule": "Stage-5 only if paired margin > 1.5 * (k_sigma * SE) with live k_sigma=2.0 on this fresh slice vs ckp333"
+}
