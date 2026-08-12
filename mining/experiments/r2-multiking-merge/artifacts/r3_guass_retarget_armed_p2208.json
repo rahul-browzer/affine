@@ -1,0 +1,15 @@
+{
+  "pass": 2208,
+  "utc": "2026-08-12T08:29:18Z",
+  "pod": "mine-r3-grpo-1",
+  "huid": "golden-hawk-ff",
+  "action": "scp retarget scripts + launch prefetch+retarget king ckp333→guass",
+  "launcher_pid": 89518,
+  "target_repo": "ttttxxxxsada/Affine-5guassq3tu",
+  "target_rev": "e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "logs": [
+    "/root/logs/retarget_king_tttt_guass_p2208.nohup",
+    "/root/logs/r2_prefetch_tttt_guass.log"
+  ],
+  "note": "R24 Tok LongCtx-GRPO continues on GPUs 6-7; king swap after prefetch"
+}
