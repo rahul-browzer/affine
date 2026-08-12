@@ -259,6 +259,65 @@ if [[ "$kid" != *ckp333* && "$kid" != *tolegend* ]]; then
   exit 2
 fi
 
+# 3b) Wait R2bk (saysth vs ckp333) terminal before yanking chall:8002 (p2155).
+R2BK_DEC=${R2BK_DEC:-/root/affine_data/r2bk_saysth_ckp333_decision.json}
+R2BK_ALT=${R2BK_ALT:-/root/logs/r2bk_saysth_ckp333_decision.json}
+echo "[r9-pipe] waiting R2bk terminal (or idle stack)"
+for i in $(seq 1 2880); do
+  for f in "$R2BK_DEC" "$R2BK_ALT"; do
+    if [[ -f "$f" ]]; then
+      hr=$(python3 - <<PY
+import json
+from pathlib import Path
+d=json.loads(Path("$f").read_text())
+h=d.get("headroom_vs_live_2se")
+if h is None:
+  h=d.get("headroom_vs_3se")
+print("" if h is None else h)
+PY
+)
+      echo "[r9-pipe] R2bk decision at $f hr=${hr:-none}"
+      if [[ -n "${hr:-}" ]] && python3 -c "import sys; sys.exit(0 if float('$hr') >= float('$HEADROOM_BAR') else 1)"; then
+        echo "SKIP_R9_R2BK_CLEARS file=$f hr=$hr $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee "$DONE"
+        exit 0
+      fi
+      break 2
+    fi
+  done
+  # No R2bk armed and no sim → proceed (older pods).
+  if ! pgrep -f 'run_reason_sim.py .*r2bk-saysth' >/dev/null 2>&1 \
+     && ! pgrep -f 'launch_r2bk_saysth_vs_ckp333' >/dev/null 2>&1 \
+     && [[ ! -f /root/logs/r2bk_saysth_ckp333.pid ]]; then
+    echo "[r9-pipe] no R2bk armed — proceed"
+    break
+  fi
+  if ! pgrep -f 'run_reason_sim.py .*r2bk-saysth' >/dev/null 2>&1 \
+     && [[ -f /root/affine_data/r2bk_saysth_ckp333_reason_progress.json ]]; then
+    n=$(python3 - <<'PY'
+import json
+from pathlib import Path
+p=Path('/root/affine_data/r2bk_saysth_ckp333_reason_progress.json')
+d=json.loads(p.read_text())
+print(min(int(d.get('challenger') or 0), int(d.get('king') or 0)))
+PY
+)
+    if (( n >= 80 )); then
+      echo "[r9-pipe] R2bk progress ≥80/80 and sim gone — proceed"
+      break
+    fi
+  fi
+  if _past "$SOFT_DEADLINE_UTC"; then
+    echo "[r9-pipe] past soft waiting R2bk; abort"
+    echo "aborted_r2bk_wait $(date -u +%Y-%m-%dT%H:%M:%SZ)" >"$ABORT"
+    exit 1
+  fi
+  if (( i % 12 == 0 )); then
+    crumb=$(python3 -c "from pathlib import Path;p=Path('/root/affine_data/r2bk_saysth_ckp333_reason_progress.json');print(p.read_text().strip() if p.is_file() else 'no-progress')" 2>/dev/null || echo none)
+    echo "[r9-pipe] wait-r2bk iter=$i crumb=${crumb:-none}"
+  fi
+  sleep 10
+done
+
 # 4) Merge on GPUs 6,7.
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-6,7}
 echo "[r9-pipe] merge LoRA → $MERGED"

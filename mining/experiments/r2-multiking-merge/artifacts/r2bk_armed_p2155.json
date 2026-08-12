@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-12T01:41:12Z",
+  "pass": 2155,
+  "hyp": "R2bk",
+  "king_repo": "tolegend/Affine-5fqbxvz29b-ckp333",
+  "king_rev": "24c137e8a978aea1e2b4abeec594fb6ca943f03c",
+  "chall_repo": "saysth/Affine-5dtnxamt4t-v9a",
+  "chall_rev": "6e13f365b36000cf631aad2fa9fb05fdabae0044",
+  "prior_r2bj": {
+    "vs": "Tok331102/affine-5EqYW8McUc-af10",
+    "margin": 0.004270807495440821,
+    "se": 0.005331766934078504,
+    "z": 0.8010116624084864,
+    "decision": "SIGNAL_POS_BELOW_3SE"
+  },
+  "retarget_done": "2026-08-12T01:38:55Z",
+  "decision_rule": "ADVANCE iff margin >= 1.5 * (2.0 * SE) on fresh slice",
+  "log": "/root/logs/r2bk_saysth_ckp333_reason_sim.log",
+  "decision_path": "/root/affine_data/r2bk_saysth_ckp333_decision.json"
+}

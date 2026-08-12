@@ -6,7 +6,7 @@
 | # | id | claim | status |
 |---|---|---|---|
 | 1 | R1 | Teacher-ref SFT / distill on current king init raises Reason margin > 3·SE | **REFUTED family** — R1 +0.0005; R1b −0.0135; **R1c −0.0171** (z=−2.75) |
-| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bj** n80 vs Tok ~50/80; live king now **tolegend ckp333** reign5 (R2bb parent crowned; crown king-retarget armed p2152) |
+| 2 | R2 | Merge / continue-train recent kings for teacher-helpful z | **open** — **R2bj** vs Tok m=+0.00427 z=0.80 hr0.27× SIGNAL_POS; **R2bk** n80 saysth vs **ckp333** live (p2155) |
 | 3 | R3 | Directly optimize / RL a reward = Reason (teacher lp delta) | **REFUTED** · n80 m=**+0.0094** z=1.33 hr0.66× (p2127) |
 | 3b | R3b | GRPO alt-LR/rank (lr=2e-5 r=64 G=8) beats R3 knobs | **open — PRIORITY** · live on `mine-r3-grpo-1` (p2127) |
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **open** · `mine-r24-longctx-1` · p2098 armed |
@@ -26,7 +26,7 @@
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · `mine-r7-datafilt-1` · p2076 armed |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open — live** · warm `mine-r4-fullft-1` GPUs6–7 (p2151; was fleet `mine-r8-reinforce-1`) |
-| 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train~92/354 + **post_train armed p2154** (wait R2bj+retarget→n80 vs ckp333) |
+| 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · train~96/354 + post waits train→**R2bk**→merge→n80 vs ckp333 (p2155) |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open** · `mine-r10-merge-rl-1` · p2082 armed |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open** · `mine-r11-odpo-1` · p2084 armed |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open** · `mine-r12-bon-1` · p2085 armed |
@@ -53,7 +53,8 @@
 - **R2bh** live: pure `IntoLayer/Affine-5g94ihdxwu-v1@9b6bc52c…` (chal-00516) chall reload after R2bg; n80 pending. Dir: `experiments/r2-multiking-merge/`.
 - **R2bh** IntoLayer n80: m=+0.00378 SE=0.00326 z=1.16; live 2σ thr=0.00651 hr=0.58× → REFUTE p2145.
 - **R2bi UNSERVABLE** p2147: thrivepath mt2@22a5d514 arch=`Glm4MoeForCausalLM` — vLLM weight-init fail; skip Glm4Moe board parents.
-- **R2bj** live: pure `saysth/…-v9a@6e13f365` chall loading (p2148 relaunch; board hr0.73× not installed — need local n80).
+- **R2bj** vs Tok af10: m=**+0.00427** SE=0.00533 z=0.80 hr0.27×(3σ) / 0.40×(live 2σ) → SIGNAL_POS_BELOW (p2155). Not crown.
+- **R2bk** live p2155: same saysth@6e13f365 vs reign-5 **ckp333** on retargeted :8001 (fresh slice). Dec `r2bk_saysth_ckp333_decision.json`.
 
 ### R3 — RL on Reason
 - **REFUTED** p2127: n80 m=+0.0094 SE=0.00706 z=1.33 < k=2 (hr0.66×); Stage-5 SKIP. Adapter `/root/r3/train_r3_final`. Dir: `experiments/r3-reason-grpo/`.
