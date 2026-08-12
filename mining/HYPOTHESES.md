@@ -34,10 +34,10 @@
 | 14 | R14 | kevin954-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.0215** z=−1.14 hr−0.57× (p2194) |
 | 15 | R15 | pandora-box-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.0268** z=−2.25 hr=−1.12× vs ckp333 (p2205) |
 | 16 | R16 | golden-crown-init REINFORCE on teacher Reason | **REFUTED** · n80 m=**−0.00935** z=−1.30 hr=−0.65× vs ckp333 (p2196) |
-| 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **open — PRIORITY** · n80 vs guass pid**352823** (p2209 relaunch after ckp333-id 404) |
+| 17 | R17 | Qwen3-Coder base + REINFORCE on teacher Reason | **REFUTED** · n80 vs guass m=**−0.0140** z=−0.71 hr**−0.36×** (p2210; n_paired=27) |
 | 18 | R18 | Pure sbs-v2-init Reason-GRPO (≠ R3 Tok / R10 merge) | **open** · `mine-r18-sbs-grpo-1` · p2092 armed |
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **open** · `mine-r19-talent-grpo-1` · p2093 armed |
-| 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **open — PRIORITY** · mine-r4 pid**126769** (p2199 empty-z fixed; mean_r≈0.020@step1) |
+| 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **open — PRIORITY** · train DONE@189; chall :8002 loading→n80 vs guass (p2210) |
 | 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **open** · `mine-r21-pandora-grpo-1` · p2095 armed |
 | 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open** · `mine-r22-golden-grpo-1` · p2096 armed |
 | 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open** · `mine-r23-diane-grpo-1` · **p2097** armed |
@@ -103,7 +103,7 @@
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300 (R25 first)
-- Live: **R17** crown · **R24** R3 · **R20** R4. Queue: **R25** → R26–R32 · R5b · R10 · R18…. Submit iff hr ≥ 1.5×(2·SE).
+- Live: **R24** R3 · **R20** R4 (n80 arming). Crown free post-R17. Queue: **R25** → R26–R32 · R5b · R10 · R18…. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
