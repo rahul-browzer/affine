@@ -24,9 +24,8 @@ PASS=${PASS:-2134}
 # Format: name|axis_id|short_note
 # R24–R32 (structural) sit after R3b — ahead of cosmetic parent-swap GRPO.
 QUEUE=(
-  # R4/R4b/R5 REFUTED. R6 retargeted onto mine-r4-fullft-1 (p2126) — do not re-rent R6.
+  # R4/R4b/R5/R6/R6b REFUTED. R8 live on mine-r4-fullft-1 GPUs6–7 (p2151) — do not re-rent R6/R8.
   "mine-r7-datafilt-1|R7|high-Reason data filter curriculum FT"
-  "mine-r8-reinforce-1|R8|REINFORCE on Reason (full-rank / alt base)"
   # R3b live on mine-r3-grpo-1 (p2127 retarget after R3 REFUTE) — do not re-rent.
   "mine-r24-longctx-1|R24|Tok GRPO max_len=16384 max_new=1024 (≠ R3 6144/512)"
   "mine-r25-hitemp-1|R25|Tok GRPO temperature=1.2 (≠ R3 temp=0.8)"
@@ -40,7 +39,7 @@ QUEUE=(
   "mine-r9-teacher-zc-1|R9|teacher-z_C imitation / format prior"
   "mine-r5-nonking-2|R5b|Talent/kevin non-king base FT"
   "mine-r10-merge-rl-1|R10|merge+RL hybrid Reason"
-  "mine-r6-fmt-2|R6b|long-thought vs short-thought ablate"
+  # mine-r6-fmt-2 R6b REFUTED p2151 — do not re-rent.
   "mine-r11-odpo-1|R11|online DPO on live teacher Reason"
   "mine-r12-bon-1|R12|Best-of-N CE on live teacher Reason"
   "mine-r13-odpo-1|R13|offline DPO on duel Reason prefs"

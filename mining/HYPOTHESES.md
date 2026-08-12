@@ -23,9 +23,9 @@
 | 5 | R5 | Non-king base (Genesis/Qwen) + Reason FT beats Tok-init | **REFUTED** · n80 m=**−0.0390** z=−3.24 (p2125) |
 | 5b | R5b | Talent reign-3 full-FT (≠ Genesis R5) beats Tok-init | **open** · `mine-r5-nonking-2` · p2081 armed |
 | 6 | R6 | Thought-format shaping raises teacher Reason | **REFUTED** · n80 m=**−0.0006** z=−0.07 hr−0.04× (p2143) |
-| 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **open** · `mine-r4-fullft-1` n80 ~28/80 (p2150) |
+| 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **REFUTED** · n80 m=**−0.01014** z=−1.23 hr−0.62× (p2151) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · `mine-r7-datafilt-1` · p2076 armed |
-| 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · `mine-r8-reinforce-1` · p2077 armed |
+| 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open — live** · warm `mine-r4-fullft-1` GPUs6–7 (p2151; was fleet `mine-r8-reinforce-1`) |
 | 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · warm `mine-crown-1` GPUs6–7 (p2144; was fleet `mine-r9-teacher-zc-1`) |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open** · `mine-r10-merge-rl-1` · p2082 armed |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open** · `mine-r11-odpo-1` · p2084 armed |
@@ -72,17 +72,20 @@
 
 ### R6 / R6b — thought-length format
 - **R6 REFUTED** p2143: short≤180 LoRA n80 m=**−0.0006** z=−0.07 SE=0.0088 (hr−0.04×) — Stage-5 SKIP. Dir: `experiments/r6-short-format/`.
-- **R6b** live p2143 on warm `mine-r4-fullft-1` (GPUs6–7; T/K held): natural long-z n=204 med≈260. Dir: `experiments/r6b-long-thought/`.
+- **R6b REFUTED** p2151: natural long-z LoRA n80 m=**−0.01014** z=−1.23 SE=0.00825 (hr−0.62×) — format family closed. Dir: `experiments/r6b-long-thought/`.
+
+### R8 — REINFORCE on Reason
+- Live p2151 on warm `mine-r4-fullft-1` GPUs6–7 after R6b REFUTE (skip peft probe; Soft/Dead TTL-relative). Dir: `experiments/r8-reinforce-reason/`.
 
 ### R24–R32 — structural GRPO knobs (fleet-queued)
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300 (R7 first)
-- Live: crown R2bh+R9 · R3b GRPO · R6b long-z. Queue: **R7** datafilt → R8 → R24–R32 …. Submit iff hr ≥ 1.5×(2·SE).
+- Live: crown R2bj+R9 · R3b GRPO · R8 REINFORCE. Queue: **R7** datafilt → R24–R32 …. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.
-- **R6:** short≤180 LoRA −0.0006 vs Tok — format-short closed; R6b long still open.
+- **R6/R6b:** short≤180 −0.0006; long-z −0.010 — thought-length format closed.
 - **R1b/R1c:** king-init LoRA −0.0135 / nsup≥100 −0.0171 vs Tok — SFT family closed.
 - **R2ao/ap/aq:** af17 −0.0007; kevin h44 +0.004; …-now +0.008 (≪1.5×) — SKIP.
 - **R2aw/ar:** mt1 / iynocr2p **unservable** — SKIP.

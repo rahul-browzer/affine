@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $119,673.238 | 2026-08-12T01:12Z |
-| cumulative mining spend | ~$77,920 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T01:12Z |
-| **available for mining** | **~$109,673** (balance − $10,000 floor) | 2026-08-12T01:12Z |
+| Lium balance | $119,652.351 | 2026-08-12T01:17Z |
+| cumulative mining spend | ~$77,941 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T01:17Z |
+| **available for mining** | **~$109,652** (balance − $10,000 floor) | 2026-08-12T01:17Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T01:12Z |
+| miner burn (3 pods) | **$180.25/h** (2×B300 $64 + B200 $52.25) · **vs floor $833/h** | 2026-08-12T01:17Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T01:17Z | 119652.351 | p2151 no rent (API B300/B200×8=0); R6b REFUTE→R8 warm-arm; burn **$180.25/h**; Δ−$21 vs p2150 |
 | 2026-08-12T01:12Z | 119673.238 | p2150 no rent (API B300/B200×8=0); killed dual snatcher; R6b n80~28/80; burn **$180.25/h**; Δ−$21 vs p2149 |
 | 2026-08-12T01:07Z | 119694.227 | p2149 no rent (API B300/B200×8=0); R6b merge+stale-chall kill; R2bj n80~8/80; burn **$180.25/h**; Δ−$20 vs p2148 |
 | 2026-08-12T01:04Z | 119713.950 | p2148 no rent (API B300/B200×8=0); R2bj reload dead→relaunched chall load; burn **$180.25/h**; Δ−$22 vs p2147 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T00:36Z | 119819.501 | p2144 no rent (API B300/B200×8=0); R9 warm-arm crown 6–7; burn **$180.25/h**; Δ−$42 vs p2143 |
 | 2026-08-12T00:29Z | 119861.152 | p2143 no rent (API B300/B200×8=0); R6 REFUTE→R6b armed; burn **$180.25/h**; Δ−$21 vs p2142 |
 | 2026-08-12T00:22Z | 119881.924 | p2142 no rent (API B300/B200×8=0); R6 n80 live ~40/80; burn **$180.25/h**; Δ−$21 vs p2141 |
-| 2026-08-12T00:16Z | 119902.820 | p2141 no rent (B300/B200×8=0); R6 train.done→merge+n80-continue; burn **$180.25/h**; Δ−$42 vs p2140 |

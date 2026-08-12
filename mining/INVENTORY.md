@@ -6,14 +6,14 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | **R2bj** n80 ~10/80 + **R9** train |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | **R3b** train ~step64 |
-| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove 2026-08-12T20:57Z | **R6b** n80 ~28/80 |
-| *(pending fleet)* | mine-r7…r32 | 8×B300 | ~$64 | rent **2840405** POST-rent + boot **2756348** | R7–R8,R24–R32… |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | 2026-08-12T08:42Z | **R2bj** n80 ~25/80 + **R9** train |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | 2026-08-12T16:29Z | **R3b** train ~step66 |
+| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | remove 2026-08-12T20:57Z | **R8** REINFORCE GPUs6–7 |
+| *(pending fleet)* | mine-r7…r32 | 8×B300 | ~$64 | rent POST + boot **2756348** | R7 first (R8 on r4) |
 
 SSH crown: `ssh root@95.133.253.90 -p 40099`
 SSH R3/R3b: `ssh root@204.9.206.245 -p 40051`
-SSH R4/R6b: `ssh root@86.38.182.50 -p 40307`
+SSH R4/R8: `ssh root@86.38.182.50 -p 40307`
 Host hist bridge: pid**2860424** (+chal-00517)
 
 Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
@@ -22,6 +22,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T01:17Z | p2151: R6b REFUTE→R8 warm-arm; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T01:12Z | p2150: kill dual snatcher 2895885; R6b n80~28/80; B300×8=0; burn **$180.25/h** |
 | 2026-08-12T01:07Z | p2149: R6b merge.done + kill stale chall; R2bj n80~8/80; B300×8=0; burn **$180.25/h** |
-| 2026-08-12T01:04Z | p2148: R2bj reload dead→relaunched chall loading; B300×8=0; burn **$180.25/h** |

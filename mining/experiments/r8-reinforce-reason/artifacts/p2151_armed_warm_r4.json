@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-12T01:16:47Z",
+  "pass": 2151,
+  "hypo": "R8",
+  "axis": "reason_reinforce_tok",
+  "pod": "mine-r4-fullft-1",
+  "train_pid": 66752,
+  "post_train_pid": 66755,
+  "form_pid": 66756,
+  "gpus": "6,7",
+  "examples": 406,
+  "lr": 1e-05,
+  "lora_r": 64,
+  "lora_alpha": 128,
+  "max_steps": 300,
+  "soft_deadline_utc": "2026-08-13T00:16:40Z",
+  "deadman_utc": "2026-08-13T00:46:40Z",
+  "hf_merged": "unconst/Affine-5czsc2fc98-r8-merged",
+  "note": "p2151 lean warm arm after R6b REFUTE; skip bootstrap+peft probe; T/K held on 0-3; stale R6b chall may still sit 4-5 until post_train swap"
+}

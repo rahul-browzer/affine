@@ -1,0 +1,23 @@
+{
+  "utc": "2026-08-12T01:15:06Z",
+  "pass": 2151,
+  "hypo": "R6b",
+  "axis": "natural_long_nonlisty_zgt180",
+  "pod": "mine-r4-fullft-1",
+  "decision": "REFUTE_H101",
+  "submit": false,
+  "margin": -0.010144118857882096,
+  "se": 0.008246402313226004,
+  "z": -1.2301266021926236,
+  "k_sigma": 2.0,
+  "n_paired": 77,
+  "headroom_vs_2se": -0.6150633010963118,
+  "chall_reason": -0.01819585471688374,
+  "king_reason": -0.007746510936172069,
+  "mean_len_z_c": 447.37974683544303,
+  "mean_len_z_k": 406.05128205128204,
+  "chall_repo": "/root/h101/merged",
+  "king_repo": "Tok331102/affine-5EqYW8McUc-af10",
+  "king_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "note": "R6b long-z REFUTE \u2014 worse than king (m=-0.010 z=-1.23); thought-length format family closed; retarget warm TKC \u2192 R8 REINFORCE on GPUs6-7"
+}
