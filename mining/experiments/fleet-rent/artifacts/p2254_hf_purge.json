@@ -1,0 +1,34 @@
+{
+  "utc": "2026-08-12T13:30:00Z",
+  "pass": 2254,
+  "deleted": [
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r33-merged",
+      "ok": true,
+      "freed_gb": 70.23
+    },
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r25-merged",
+      "ok": true,
+      "freed_gb": 70.23
+    },
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r24-merged",
+      "ok": true,
+      "freed_gb": 70.23
+    },
+    {
+      "repo": "unconst/Affine-5czsc2fc98-r19-merged",
+      "ok": true,
+      "freed_gb": 70.23
+    }
+  ],
+  "remaining_total_gb": 8.37,
+  "remaining_big_gb": [
+    [
+      3.97942893,
+      "unconst/Affine-5czsc2fc98-h135-lora"
+    ]
+  ],
+  "note": "purge REFUTE/SIGNAL_POS_BELOW full merges for Stage-5 push headroom before R22/R23/R27 finish"
+}

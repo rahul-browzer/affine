@@ -12,7 +12,7 @@
 | 24 | R24 | Tok GRPO max_len=16384 max_new=1024 beats R3 6144/512 | **SIGNAL_POS_BELOW** · vs guass n80 m=**+0.00828** z=**0.68** hr**0.34×** (p2247) |
 | 25 | R25 | Tok GRPO temperature=1.2 beats R3 temp=0.8 | **REFUTED** · vs guass n80 m=**−0.00595** z=**−0.42** hr−0.21× (p2251) |
 | 26 | R26 | Tok GRPO temperature=0.5 beats R3 0.8 / R25 1.2 | **REFUTED** · vs guass n80 m=**+0.00192** z=0.19 hr0.10× (p2235) |
-| 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · warm on `mine-r4` · train pid**177775** p2253 |
+| 27 | R27 | Tok GRPO group_size=16 beats R3 G=4 (isolates G vs R3b) | **open** · train on `mine-r4` · step~2/200 p2254 |
 | 28 | R28 | Tok GRPO lr=2e-5 beats R3 5e-6 (isolates LR vs R3b) | **open** · `mine-r28-hilr-1` · p2102 armed |
 | 29 | R29 | Tok GRPO lora_r=64 beats R3 r=16 (isolates rank vs R3b) | **open** · `mine-r29-hirank-1` · p2104 armed |
 | 30 | R30 | Tok GRPO lora_alpha=128 r=16 beats R3 α=32 (isolates α vs R29) | **open** · `mine-r30-hialpha-1` · p2105 armed |
@@ -40,8 +40,8 @@
 | 19 | R19 | TalentPigs-init Reason-GRPO (≠ R3/R5b/R18) | **SIGNAL_POS_BELOW** · vs guass n80 m=**+0.00673** z=**0.75** hr**0.38×** (p2252) |
 | 20 | R20 | kevin954-init Reason-GRPO (≠ R3/R14 REINFORCE/R19) | **REFUTED** · vs guass n80 m=**−0.0196** z=−2.13 hr=−1.07× (p2211) |
 | 21 | R21 | pandora-box-init Reason-GRPO (≠ R3/R15 REINFORCE/R20) | **REFUTED** · vs guass n80 m=**−0.00568** z=−0.55 hr−0.28× (p2235) |
-| 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open — PRIORITY** · warm on `mine-crown-1` train pid**371573** (p2249 after R33) |
-| 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open — PRIORITY** · warm on `mine-r3-grpo-1` diane DL→train (p2252) |
+| 22 | R22 | golden-crown-init Reason-GRPO (≠ R3/R16 REINFORCE/R18–R21) | **open — PRIORITY** · train on crown · step~101/200 p2254 |
+| 23 | R23 | diane613-init Reason-GRPO (≠ R3/R16/R18–R22) | **open — PRIORITY** · train on `mine-r3` · step~11/200 p2254 |
 
 ## Open (detail)
 
