@@ -1,0 +1,55 @@
+deadline_patch soft 1 dead 1 2026-08-13T01:35:59Z 2026-08-13T02:05:59Z
+-rw-rw-r-- 1 const const 413K Aug 12 09:02 /tmp/mine-r26-warm-stack.tar.gz
+HF_OK unconst/Affine-5czsc2fc98-r26-lora
+HF_OK unconst/Affine-5czsc2fc98-r26-merged
+LEAN_PID=354219
+[r26-lean] 2026-08-12T09:02:44Z start
+[r26-lean] BASE /root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53
+[r26-lean] killed stale chall pidfile=347091
+0, 166308 MiB
+1, 166308 MiB
+2, 149518 MiB
+3, 149518 MiB
+4, 0 MiB
+5, 0 MiB
+6, 0 MiB
+7, 0 MiB
+[r26] 2026-08-12T09:02:49Z examples=406 data=/root/r3/winner_za_high_l1.jsonl base=/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53 gpus=6,7
+[r26] knobs lr=5e-6 r=16/α32 G=4 steps=200 max_len=6144 max_new=512 temp=0.5 axis=lotemp_grpo_reason
+[r26] wait teacher at http://127.0.0.1:8000/v1
+[r26] teacher ready after 1×15s
+deps OK
+[r26] 2026-08-12T09:02:56Z launch LoTemp Reason-GRPO temp=0.5 on GPUs 6,7
+{
+  "utc": "2026-08-12T09:02:56Z",
+  "axis": "R26",
+  "hypo": "R26",
+  "pid": 354423,
+  "base": "/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "base_hub": "Tok331102/affine-5EqYW8McUc-af10",
+  "base_rev": "eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "data": "/root/r3/winner_za_high_l1.jsonl",
+  "examples": 406,
+  "lr": 5e-06,
+  "method": "grpo_teacher_reason_lotemp",
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "group_size": 4,
+  "max_len": 6144,
+  "max_new": 512,
+  "temperature": 0.5,
+  "max_steps": 200,
+  "gpus": "6,7",
+  "teacher_url": "http://127.0.0.1:8000/v1",
+  "out": "/root/r3/train",
+  "log": "/root/logs/r3_train.nohup",
+  "note": "R26 Tok\u00d7teacher-Reason GRPO lotemp \u2014 \u2260 R3 temp=0.8, \u2260 R25 1.2, \u2260 R24 longctx, \u2260 R3b lr/rank, \u2260 R18\u2013R23 parent-GRPO"
+}
+[r26] TRAIN_LAUNCHED pid=354423
+[r26-lean] 2026-08-12T09:02:56Z TRAIN_PID=354423 POST_PID=354430
+[r26-lean] DONE
+    PID     ELAPSED CMD
+TRAIN_PID=354423
+POST_PID=354430
+t=200 k=200
+R26_WARM_ARM_OK pod=mine-crown-1 soft=2026-08-13T01:35:59Z dead=2026-08-13T02:05:59Z 2026-08-12T09:03:14Z

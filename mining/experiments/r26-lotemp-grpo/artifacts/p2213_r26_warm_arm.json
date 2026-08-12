@@ -1,0 +1,32 @@
+{
+  "utc": "2026-08-12T09:03:14Z",
+  "pass": 2213,
+  "axis": "R26",
+  "pod": "mine-crown-1",
+  "huid": "gentle-orbit-bd",
+  "ssh": "ssh root@95.133.253.90 -p 40099",
+  "after": "R17_REFUTE_vs_guass",
+  "train_pid": 354423,
+  "post_pid": 354430,
+  "lean_pid": 354219,
+  "base": "Tok331102/affine-5EqYW8McUc-af10@eb8bf9a356a254f71faaa439e8abc3cfba572c53",
+  "king_n80": "ttttxxxxsada/Affine-5guassq3tu@e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "knobs": {
+    "lr": 5e-06,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "group_size": 4,
+    "max_steps": 200,
+    "temperature": 0.5,
+    "max_len": 6144,
+    "max_new": 512
+  },
+  "soft": "2026-08-13T01:35:59Z",
+  "dead": "2026-08-13T02:05:59Z",
+  "removal": "2026-08-13T02:35:59Z",
+  "hf_merged": "unconst/Affine-5czsc2fc98-r26-merged",
+  "burst_pid": 3638049,
+  "burst_next": "mine-r27-bigg-1",
+  "note": "TKC kept (teacher+guass); stale R17 chall killed; Tok LoTemp-GRPO temp=0.5 on GPUs 6–7; fleet QUEUE drop R26",
+  "watch": "tail -f /root/logs/r3_train.nohup ; tail -f /root/logs/r26_post_train.nohup"
+}

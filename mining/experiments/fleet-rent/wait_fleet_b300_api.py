@@ -56,7 +56,8 @@ QUEUE = [
     # ("mine-r24-longctx-1", "R24", "Tok GRPO max_len=16384 max_new=1024 (≠ R3 6144/512)"),
     # R25 RENTED p2211 as mine-r25-hitemp-1 — do not re-rent.
     # ("mine-r25-hitemp-1", "R25", "Tok GRPO temperature=1.2 (≠ R3 temp=0.8)"),
-    ("mine-r26-lotemp-1", "R26", "Tok GRPO temperature=0.5 (≠ R3 0.8 / R25 1.2)"),
+    # R26 live on mine-crown-1 (p2213 warm-arm after R17 REFUTE) — do not re-rent.
+    # ("mine-r26-lotemp-1", "R26", "Tok GRPO temperature=0.5 (≠ R3 0.8 / R25 1.2)"),
     ("mine-r27-bigg-1", "R27", "Tok GRPO group_size=16 (≠ R3 G=4 / R3b G=8+alt-lr)"),
     ("mine-r28-hilr-1", "R28", "Tok GRPO lr=2e-5 (≠ R3 5e-6; isolates LR vs R3b)"),
     ("mine-r29-hirank-1", "R29", "Tok GRPO lora_r=64 (≠ R3 r=16; isolates rank vs R3b)"),

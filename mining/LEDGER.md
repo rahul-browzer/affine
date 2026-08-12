@@ -8,11 +8,11 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | item | value | as of |
 |---|---|---|
-| Lium balance | $117,727.103 | 2026-08-12T08:58Z |
-| cumulative mining spend | ~$79,873 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T08:58Z |
-| **available for mining** | **~$107,727** (balance − $10,000 floor) | 2026-08-12T08:58Z |
+| Lium balance | $117,701.494 | 2026-08-12T09:03Z |
+| cumulative mining spend | ~$79,899 (Δ bal from p526 baseline; includes shared-acct Δ) | 2026-08-12T09:03Z |
+| **available for mining** | **~$107,701** (balance − $10,000 floor) | 2026-08-12T09:03Z |
 | validator burn (never starve) | ~$70/h — eval $64 + bench $5.80 | 2026-08-08T08:52Z |
-| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T08:58Z |
+| miner burn (4 pods) | **$220.25/h** (2×B300 $64 + 2×B200 $52.25+$40) · **vs floor $833/h** | 2026-08-12T09:03Z |
 | miner coldkey free | τ10.000000 | unchanged |
 | miner stake | 0 positions | |
 | registrations / submissions | 0 / 0 | |
@@ -21,6 +21,7 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 
 | UTC | Lium USD | event |
 |---|---|---|
+| 2026-08-12T09:03Z | 117701.494 | p2213 no new rent (8×=0; R26 warm-arm on crown; burst**3638049** next=R27); burn **$220.25/h**; Δ−$26 vs p2212 |
 | 2026-08-12T08:58Z | 117727.103 | p2212 no new rent (8×=0; burst**3623101** next=R26); R21 warm-arm on R4; burn **$220.25/h**; Δ−$47 vs p2211 |
 | 2026-08-12T08:48Z | 117774.314 | p2211 **RENTED** mine-r25-hitemp-1 8×B200 $40/h; R20 REFUTE harvest; burn **$220.25/h**; Δ−$21 vs p2210 |
 | 2026-08-12T08:43Z | 117795.192 | p2210 no rent (8×=0; burst**3557663**); R17 REFUTE harvest; burn **$180.25/h**; Δ$0 vs p2209 |
@@ -30,4 +31,3 @@ Live burn = Σ $/h over `mine-*` pods every pass.
 | 2026-08-12T08:25Z | 117857.915 | p2206 no rent (8×=0; burst**3557663**); crown king→guass; burn **$180.25/h**; Δ−$42 vs p2205 |
 | 2026-08-12T08:17Z | 117899.505 | p2205 no rent (8×=0; burst**3557663** next=R25); R15 REFUTE→R24 arm; burn **$180.25/h**; Δ−$21 vs p2204 |
 | 2026-08-12T08:11Z | 117920.424 | p2204 no rent (8×=0; burst**3519918**); R15 n80 launched; burn **$180.25/h**; Δ−$41 vs p2203 |
-| 2026-08-12T08:02Z | 117960.998 | p2203 no rent (8×=0; burst**3519918**); R15 merge unstick→DONE; burn **$180.25/h**; Δ−$22 vs p2202 |
