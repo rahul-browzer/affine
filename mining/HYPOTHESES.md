@@ -26,7 +26,7 @@
 | 6b | R6b | Long-z (z>180) beats R6 short≤180 on Reason | **open** · `mine-r4-fullft-1` train (p2143; was fleet `mine-r6-fmt-2`) |
 | 7 | R7 | High-Reason data-filter curriculum FT | **open** · `mine-r7-datafilt-1` · p2076 armed |
 | 8 | R8 | REINFORCE on Reason (alt to LoRA-GRPO) | **open** · `mine-r8-reinforce-1` · p2077 armed |
-| 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open** · `mine-r9-teacher-zc-1` · p2079 armed |
+| 9 | R9 | Tok LoRA × expanded teacher z_C (format prior) | **open — live** · warm `mine-crown-1` GPUs6–7 (p2144; was fleet `mine-r9-teacher-zc-1`) |
 | 10 | R10 | Tok×sbs-v2 α-merge → Reason-GRPO hybrid | **open** · `mine-r10-merge-rl-1` · p2082 armed |
 | 11 | R11 | Online DPO on live teacher Reason (BT vs frozen base) | **open** · `mine-r11-odpo-1` · p2084 armed |
 | 12 | R12 | Best-of-N CE on live teacher Reason (CE argmax of G=4) | **open** · `mine-r12-bon-1` · p2085 armed |
@@ -75,7 +75,7 @@
 - One isolation each vs R3: R24 max_len=16384/new=1024; R25 temp=1.2; R26 temp=0.5; R27 G=16; R28 lr=2e-5; R29 r=64; R30 α=128; R31 drop=0; R32 kl=0.02. Dirs: `experiments/r24…r32-*-grpo/`.
 
 ### Fleet axes waiting on 8×B300 (R7 first)
-- Live: crown R2bh · R3b GRPO · R6b long-z. Queue: **R7** datafilt → R8 → R24–R32 …. Submit iff hr ≥ 1.5×(2·SE).
+- Live: crown R2bh+R9 · R3b GRPO · R6b long-z. Queue: **R7** datafilt → R8 → R24–R32 …. Submit iff hr ≥ 1.5×(2·SE).
 
 ## Refuted (Reason era)
 - Older Talent-skew / board-parent REFUTEs (R2h–R2am) → `archive/` / status.log; do not re-blend.

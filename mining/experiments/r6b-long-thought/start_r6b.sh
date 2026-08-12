@@ -19,7 +19,7 @@ export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-6,7}
 
 SRC=${SRC:-/root/mining_src/s4-h1v2-sft}
 OUT=${OUT:-/root/h101}
-DATA=${DATA:-$OUT/za_ultrashort80.jsonl}
+DATA=${DATA:-/root/r6b/za_long_natural.jsonl}
 BASE=${BASE:-/root/hf/hub/models--Tok331102--affine-5EqYW8McUc-af10/snapshots/eb8bf9a356a254f71faaa439e8abc3cfba572c53}
 TRAIN_DIR=$OUT/train
 LOG=${LOG:-/root/logs/h101_train.nohup}

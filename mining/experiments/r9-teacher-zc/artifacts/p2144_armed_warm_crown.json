@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-12T00:34:16Z",
+  "pass": 2144,
+  "hypo": "R9",
+  "pod": "mine-crown-1",
+  "ssh": "ssh root@95.133.253.90 -p 40099",
+  "axis": "teacher_zc_expanded_tok_lora",
+  "examples": 1329,
+  "gpus": "6,7",
+  "note": "warm overlay on crown free GPUs; train-only until R2bh decision; no chall reload",
+  "watch": {
+    "train": "tail -f /root/logs/h99_train.nohup",
+    "start": "tail -f /root/logs/r9_start.nohup",
+    "launched": "/root/affine_data/r9_train_launched.json"
+  },
+  "gate_post_train": "wait for /root/affine_data/r2bh_intolayer_decision.json before merge/chall reload"
+}
