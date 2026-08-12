@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-12T08:40:11Z",
+  "pass": 2209,
+  "why": "post_train captured KING_REPO=ckp333 at 06:53; after reign-6 guass :8001 swap, n80 404d on ckp333 model id",
+  "action": "killed post_train 335701 + stale sim; relaunched n80 with guass",
+  "king_repo": "ttttxxxxsada/Affine-5guassq3tu",
+  "king_rev": "e86758f5080d1e373e5fbbd7b4fbf6af327aeb44",
+  "chall": "/root/h135/merged",
+  "sim_pid": 352823,
+  "log": "/root/logs/h135_sim_guass_p2209.nohup",
+  "progress": "/root/affine_data/h135_sim_progress.json",
+  "out": "/root/affine_data/h135_sim_result.json",
+  "also": "R4 :8001 guass retarget DONE + promptable; B300x8 stock still 0"
+}

@@ -6,9 +6,9 @@
 
 | name | huid | config | $/h | TTL | role |
 |---|---|---|---|---|---|
-| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-13T02:35Z** | **R17** + king=guass :8001 |
-| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** + guass retarget |
-| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R20** + guass retarget |
+| mine-crown-1 | gentle-orbit-bd (`3d07e519-…`) | 8×B200 | $52.25 | **2026-08-13T02:35Z** | **R17** n80 vs guass |
+| mine-r3-grpo-1 | golden-hawk-ff (`d55eec0f-…`) | 8×B300 | $64.00 | **2026-08-13T04:29Z** | **R24** + guass prefetch |
+| mine-r4-fullft-1 | noble-orbit-9d (`70f95aab-…`) | 8×B300 | $64.00 | **2026-08-13T08:57Z** | **R20** + guass :8001 |
 | *(pending fleet)* | mine-r25…r32 + R5b/R18… | 8×B300 | ~$64 | burst **3557663** | R25 first |
 
 SSH crown/R17: `ssh root@95.133.253.90 -p 40099`
@@ -25,6 +25,6 @@ Non-mine (do not touch): `affine-eval`, `affine-bench`, `affine-datagen`.
 
 | when | action |
 |---|---|
+| 2026-08-12T08:40Z | p2209: 8×=0; R4 guass DONE; R17 n80 relaunch vs guass **352823**; burn **$180.25/h** |
 | 2026-08-12T08:29Z | p2208: 8×=0; R3 guass prefetch+retarget **89518**; burn **$180.25/h** |
 | 2026-08-12T08:27Z | p2207: 8×=0; R4 guass prefetch+retarget **128746**; burn **$180.25/h** |
-| 2026-08-12T08:25Z | p2206: reign6 guass; crown :8001 retarget DONE; 8×=0; burn **$180.25/h** |

@@ -145,5 +145,5 @@ S\* v2 era (retired 2026-08-10) → `archive/legacy-sstar-v2/` — ops only, not
 - **R8 REFUTE** p2158 m=−0.027; king-swap retry_* KING defaults (p2159); R9 train-wait ≠ merge-block (p2160); n80 `--chall-repo`=vLLM serve id not `readlink -f` (p2161).
 - **R7 REFUTE** p2162 m=+0.0123 z=1.978 <2σ (hr0.99×) — knife-edge. **R10** 403 on sbs-v2 → warm **R11** online-DPO (GPUs6–7).
 - Pre-swap king GPUs2–3 while train 6–7; `RESTART_KING=0` if `:8001` already target (p2163). Decision kσ=2.0 (p2165/71).
-- **R9/R12–R16 REFUTE** (p2188–2205). Coder/R20: never cut z at ```bash/`</think>`@0. LoRA merge: contig-clone+max_shard=5GB+MERGED=/tmp (p2203). Idle n80→warm next QUEUE axis (R24 p2205). King retarget: set `TARGET_KING_*` **after** `source mine.env` (set -a overwrites stale KING; p2206 ckp333→guass).
+- **R9/R12–R16 REFUTE** (p2188–2205). Coder/R20: never cut z at ```bash/`</think>`@0. LoRA merge: contig-clone+max_shard=5GB+MERGED=/tmp (p2203). Idle n80→warm next QUEUE axis (R24 p2205). King retarget: set `TARGET_KING_*` **after** `source mine.env` (set -a overwrites stale KING; p2206). Long-lived `post_train` freezes `KING_REPO` at start — after :8001 king swap, kill pipe + relaunch n80 with live id or 404 (p2209 ckp333→guass).
 
