@@ -1,0 +1,13 @@
+{
+  "utc": "2026-08-12T04:00:08Z",
+  "pass": 2182,
+  "pod_name": "mine-crown-1",
+  "pod_id": "3d07e519-dbfe-4837-85ef-169152001516",
+  "old_removal": "2026-08-12T14:35:59Z",
+  "new_removal": "2026-08-13T02:35:59Z",
+  "soft": "2026-08-13T01:35:59Z",
+  "dead": "2026-08-13T02:05:59Z",
+  "hours_added": 12,
+  "http": 200,
+  "why": "R2bn n80 mid-gather + R9 LoRA almost done; protect Soft/Dead through merge\u2192n80"
+}

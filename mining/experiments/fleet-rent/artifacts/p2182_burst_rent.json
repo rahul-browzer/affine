@@ -1,0 +1,11 @@
+{
+  "utc": "2026-08-12T03:59:44Z",
+  "pass": 2182,
+  "rented": false,
+  "iters": 65,
+  "burst_s": 60,
+  "seen_stock_iters": 0,
+  "mine_count": 3,
+  "next": "mine-r24-longctx-1",
+  "note": "API 8\u00d7B300/B200 empty entire burst; long waiter pid3164256 still polling"
+}
